@@ -178,7 +178,7 @@ def toolchain():
     node = subprocess.check_output(['node', '--version'], text=True).strip()
     if not rust.startswith('rustc 1.86.0 ') or node != 'v24.19.0' or platform.machine() != 'x86_64':
         raise RuntimeError('Pinned Linux toolchain does not match.')
-    save(toolchain={'rust': rust, 'cargo': cargo, 'node': node, 'architecture': platform.machine(), 'cargoJobs': 2, 'releaseLto': 'thin'})
+    save(toolchain={'rust': rust, 'cargo': cargo, 'node': node, 'architecture': platform.machine(), 'cargoJobs': 2, 'releaseLto': 'thin', 'unitTestProfile': 'standard test profile, debug assertions enabled; separate target directory'})
 
 def build():
     run(['cargo', 'build', '--release', '--locked', '-p', 'agave-validator', '-p', 'solana-cli', '-p', 'solana-keygen', '--bin', 'agave-validator', '--bin', 'solana-test-validator', '--bin', 'solana', '--bin', 'solana-keygen'], 'compile')
@@ -196,7 +196,10 @@ def workflow(manifest):
         step('source', lambda: check_source(manifest))
         step('toolchain', toolchain)
         step('compile', build)
-        step('upstream-tests', lambda: run(['cargo', 'test', '--release', '--locked', '-p', 'solana-svm', '-p', 'solana-genesis-utils', '--lib', '--', '--test-threads=2'], 'upstream-tests', timeout=7200))
+        # Upstream #[should_panic] tests exercise debug_assert! checks. The
+        # standard test profile enables them; --release does not. Keep test
+        # artifacts separate so they cannot replace our release binaries.
+        step('upstream-tests', lambda: run(['cargo', 'test', '--locked', '-p', 'solana-svm', '-p', 'solana-genesis-utils', '--lib', '--', '--test-threads=2'], 'upstream-tests', timeout=7200, extra_env={'CARGO_TARGET_DIR': '/data/unit-target', 'CARGO_PROFILE_DEV_DEBUG': '0', 'CARGO_PROFILE_TEST_DEBUG': '0'}))
         step('program', program)
         ledger = Path(STATE['runDirectory']) / 'ledger'
         step('isolated-start', lambda: start_validator(ledger, initial=True))
