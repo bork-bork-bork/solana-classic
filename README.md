@@ -1,6 +1,6 @@
 # Solana Classic
 
-**A home for memes, NFTs and the people behind them.**
+**Bring back the fun.**
 
 Solana Classic is an open-source blockchain project putting meme and NFT communities at the centre of its products and roadmap. We want the fast, affordable experience people associate with Solana, with clearer launch terms, accountable creators and a reason for communities to stay together after the first wave of hype.
 
