@@ -1,0 +1,160 @@
+{
+  "startedAt": "2026-10-13T17:22:46.334Z",
+  "scope": "production-origin read-only isolated Chromium roadmap QA; client-only503, focus-transfer and future-completion fixtures, no upstream service changes or playground interactions",
+  "url": "https://solana-classic-roadmap.vercel.app",
+  "deploymentId": "dpl_3oTTuAJQosvcp11nqN2fs7dxkJhQ",
+  "fallbackReason": "Shared Chrome cross-tab and viewport targeting became unreliable during concurrent root/agent control. Root explicitly authorized isolated project Chromium. Initial CUA live values and1440px size were observed, then owned QA tab was closed without wallet actions.",
+  "checks": [
+    {
+      "name": "live values are current, bound and not accepted",
+      "passed": true,
+      "observations": {
+        "state": "Running",
+        "journeys": "7/288 journeys verified",
+        "network": "Online",
+        "identity": "Matches freeze",
+        "monitor": "Online",
+        "notice": null,
+        "viewport": {
+          "width": 1440,
+          "height": 1000,
+          "scrollWidth": 1440
+        }
+      }
+    },
+    {
+      "name": "launch preparation and final release are not shown as passed",
+      "passed": true,
+      "observations": {
+        "paper": "Prepared",
+        "release": "Pending"
+      }
+    },
+    {
+      "name": "keyboard refresh preserves expanded evidence",
+      "passed": true,
+      "observations": {
+        "before": "2026-10-13T17:22:47.498Z",
+        "after": "2026-10-13T17:22:47.924Z",
+        "visibleFocusBeforeActivation": {
+          "tag": "BUTTON",
+          "outline": "rgb(104, 66, 237) none 3px"
+        },
+        "focusAfterCompletion": {
+          "tag": "BUTTON",
+          "outline": "rgb(104, 66, 237) solid 3px"
+        }
+      }
+    },
+    {
+      "name": "automatic refresh preserves expanded proof and summary focus",
+      "passed": true,
+      "observations": {
+        "summaryFocusBefore": "check-load",
+        "summaryFocusAfter": "check-load",
+        "before": "2026-10-13T17:22:47.924Z",
+        "after": "2026-10-13T17:23:22.271Z"
+      }
+    },
+    {
+      "name": "client-only503 cannot retain running live values",
+      "passed": true,
+      "observations": {
+        "step": "Live update unavailable",
+        "soakRow": "Last data / stale",
+        "network": "Last data / stale",
+        "clock": "Last data · live progress unavailable",
+        "notice": "Live status could not be refreshed. Last displayed values may be stale; retry in a moment."
+      }
+    },
+    {
+      "name": "fresh successful refresh restores live state",
+      "passed": true,
+      "observations": {
+        "state": "Running"
+      }
+    },
+    {
+      "name": "refresh restoration does not steal a moved focus",
+      "passed": true,
+      "observations": {
+        "scope": "client-only request gate; actual successful status response",
+        "focusedSummary": "check-recovery"
+      }
+    },
+    {
+      "name": "a client-only completed-soak fixture does not pass final review",
+      "passed": true,
+      "observations": {
+        "scope": "isolated presentation fixture only; actual soak is still running",
+        "topStatus": "Pending final review",
+        "release": "Pending"
+      }
+    },
+    {
+      "name": "fixture cleanup returns to actual running soak",
+      "passed": true,
+      "observations": {
+        "accepted": false,
+        "state": "running"
+      }
+    },
+    {
+      "name": "mobile360 expanded evidence has no body overflow",
+      "passed": true,
+      "observations": {
+        "width": 360,
+        "height": 800,
+        "scrollWidth": 360,
+        "bodyWidth": 360,
+        "rows": 9
+      }
+    },
+    {
+      "name": "console and network origin restrictions",
+      "passed": true,
+      "observations": {
+        "consoleErrors": [],
+        "unexpectedOrigins": []
+      }
+    }
+  ],
+  "consoleErrors": [],
+  "unexpectedOrigins": [],
+  "screenshots": [
+    {
+      "path": "evidence/roadmap-browser/desktop-1440.png",
+      "sha256": "3fd078dcc9bc79d01379870a8f2ee207dbea585ac3cfd185bb837e967450b3d7",
+      "bytes": 322355
+    },
+    {
+      "path": "evidence/roadmap-browser/client-only-failure.png",
+      "sha256": "0d3647ae0bb87c0b38bc33127dba2778d6dd9d5d7ddd61729d71889b70d975bf",
+      "bytes": 334764
+    },
+    {
+      "path": "evidence/roadmap-browser/mobile-360.png",
+      "sha256": "21f5ffe1d244ea334f0fc3949a730e37544a5355b2b7f51a7571fc494f61cdc1",
+      "bytes": 300290
+    }
+  ],
+  "expectedFixtureConsole": [
+    {
+      "message": "Failed to load resource: the server responded with a status of 503 (Service Unavailable)",
+      "scope": "client-only503 fixture"
+    }
+  ],
+  "candidate": {
+    "apiOrigin": "https://network-release-production.up.railway.app",
+    "frontendOrigin": "https://solana-classic-soc.vercel.app",
+    "frontendDeploymentId": "dpl_3aWWzKDohr4SrgijgrB8dWgHHS5r",
+    "frontendCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "apiCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "networkConfigSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+    "dependencyManifestSha256": "e6da27717e6a84ca7b29d707ff63591b2ff0cfc38892d3b4667f8615bdf7bbc0"
+  },
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "freezeSha256": "de996a8ca58a9d12cf2b264ab86d4e6eab6a3230a779d250402918b288309b82",
+  "passed": true,
+  "at": "2026-10-13T17:23:24.123Z"
+}

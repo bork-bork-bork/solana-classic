@@ -1,0 +1,7 @@
+{
+  "name": "solana-classic-roadmap",
+  "private": true,
+  "type": "module",
+  "engines": { "node": "24.x" },
+  "scripts": { "test": "node --test lib/status.test.mjs" }
+}

@@ -1,0 +1,5 @@
+.env*
+.git*
+.vercel
+lib/status.test.mjs
+node_modules

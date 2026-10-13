@@ -1,0 +1,10 @@
+{
+  "observedAt": "2026-10-13T17:16:44.769452+00:00",
+  "passed": false,
+  "scope": "incomplete isolated Chromium navigation attempt before any interaction",
+  "deploymentId": "dpl_3oTTuAJQosvcp11nqN2fs7dxkJhQ",
+  "error": "Initial status-response waiter timed out before the page navigation completed; unhandled waiter rejection prevented the normal proof writer",
+  "mutations": 0,
+  "followupAnonymousHTMLGET": 200,
+  "followupAnonymousStatusGET": 200
+}

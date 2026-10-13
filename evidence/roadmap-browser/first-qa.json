@@ -1,0 +1,51 @@
+{
+  "startedAt": "2026-10-13T17:09:40.314Z",
+  "scope": "production-origin read-only isolated Chromium roadmap QA; one client-only503 fixture, no upstream service changes or playground interactions",
+  "url": "https://solana-classic-roadmap.vercel.app",
+  "deploymentId": "dpl_6R3WDEABndr4qn2zL2dfrEjYEJ2D",
+  "fallbackReason": "Shared Chrome cross-tab and viewport targeting became unreliable during concurrent root/agent control. Root explicitly authorized isolated project Chromium. Initial CUA live values and1440px size were observed, then owned QA tab was closed without wallet actions.",
+  "checks": [
+    {
+      "name": "live values are current, bound and not accepted",
+      "passed": true,
+      "observations": {
+        "state": "Running",
+        "journeys": "5/288 journeys verified",
+        "network": "Online",
+        "identity": "Matches freeze",
+        "monitor": "Online",
+        "notice": null,
+        "viewport": {
+          "width": 1440,
+          "height": 1000,
+          "scrollWidth": 1440
+        }
+      }
+    },
+    {
+      "name": "launch preparation and final release are not shown as passed",
+      "passed": true,
+      "observations": {
+        "paper": "Prepared",
+        "release": "Pending"
+      }
+    }
+  ],
+  "consoleErrors": [],
+  "unexpectedOrigins": [],
+  "screenshots": [],
+  "candidate": {
+    "apiOrigin": "https://network-release-production.up.railway.app",
+    "frontendOrigin": "https://solana-classic-soc.vercel.app",
+    "frontendDeploymentId": "dpl_3aWWzKDohr4SrgijgrB8dWgHHS5r",
+    "frontendCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "apiCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "networkConfigSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+    "dependencyManifestSha256": "e6da27717e6a84ca7b29d707ff63591b2ff0cfc38892d3b4667f8615bdf7bbc0"
+  },
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "freezeSha256": "de996a8ca58a9d12cf2b264ab86d4e6eab6a3230a779d250402918b288309b82",
+  "passed": false,
+  "error": "Expected values to be strictly equal:\n\n'BODY' !== 'BUTTON'\n",
+  "at": "2026-10-13T17:09:41.819Z"
+}

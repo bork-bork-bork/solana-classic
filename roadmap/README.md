@@ -1,0 +1,13 @@
+# Live release roadmap
+
+Separate Vercel project `trenchfun1/solana-classic-roadmap`; no changes to the experimental network's frozen frontend/API/QA image. The static page calls same-origin GET `/api/status` every30s. That function fetches only five fixed public HTTPS sources in parallel, with6.5s timeout/64KiB limit per source, no credentials and no user-selected URLs. It returns a field-filtered status model.
+
+Reviewed `public/data/checkpoint.json` binds the exact freeze, runtime boots, full candidate, actual soak start and dated prerequisite checksums. Completed rows are reviewed evidence, not newly rerun tests. Actual live QA readiness and a separate read-only QA reader report current state/progress/result. A24hourtimer cannot approve anything. Only matching actual full-duration result plus288journeys, same current runner/freeze/runtime and reviewed run start can show soak Passed. Whole release approval is a separate explicitly reviewed checkpoint.
+
+The public progress reader is a bounded detached HTTP helper on the existing QA host, new domain targetport3001. Its service/volume remain the existing QA ones; restartNEVER means if that host exits the page reports unavailable. It has no controls, private files, signing keys, funding inputs or mutation route. Port3000 launcher and all41frozen files are unchanged.
+
+The five-minute job only publishes progress after a complete mint/transfer/ownership journey. The reader response timestamp is never treated as a journey timestamp. The dashboard flags reports more than8minutes old, monitor probes older than90seconds, missing sources, changed genesis/source/boot identities, interrupted runner and failed HTTP refreshes. Page stale warning starts after75seconds without a successful refresh.
+
+Update manually reviewed statuses by reviewing actual proof files and changing only the separate roadmap checkpoint; deploy this separate project. Do not edit frozen main/frontend/QA executable code during soak. If a new soak is authorized after an interruption, update exactrun start only after verifying its first completed journey. Preserve original attempts and proof dates.
+
+Deploy: use project-local VercelCLI with --prod --yes --scope trenchfun1 from this directory. Explicit .vercelignore excludes .env*, .vercel, localgit metadata and tests. Keep those credentials ignored. No dependencies to install. Run pinnedNode --test lib/status.test.mjs. Font assets are Space Grotesk under bundled fonts/OFL.txt.

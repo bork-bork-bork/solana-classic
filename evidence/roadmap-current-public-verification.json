@@ -1,0 +1,29 @@
+{
+  "at": "2026-10-13T17:16:24.115224+00:00",
+  "scope": "anonymous remote exact current roadmap HTML/client/live status observation; no release acceptance",
+  "deploymentId": "dpl_3oTTuAJQosvcp11nqN2fs7dxkJhQ",
+  "results": [
+    {
+      "route": "/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "seconds": 0.2948938750050729,
+      "sha256": "ad5b8783da7e4fe63fc68bb9a1a4f1c8c1efd7d4aabb133e940d0bd2cd28b4fb"
+    },
+    {
+      "route": "/app.js",
+      "status": 200,
+      "contentType": "application/javascript; charset=utf-8",
+      "seconds": 0.4096000409917906,
+      "sha256": "8e17198b642ca36a8544920cccccd060680335449d96570a86f7771bc5d969f3"
+    },
+    {
+      "route": "/api/status",
+      "status": 200,
+      "contentType": "application/json; charset=utf-8",
+      "seconds": 0.5534896250028396,
+      "sha256": "d9920d17360e657b55fc41e9f894d5bb2f5da75892bd18ae0d35e6e8fd6a547c"
+    }
+  ],
+  "passed": true
+}
