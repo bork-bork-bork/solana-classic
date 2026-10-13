@@ -5,6 +5,7 @@ An open-source, independent SVM experiment focused on memes and NFTs: a browser 
 - Website: https://solana-classic-soc.vercel.app
 - Live roadmap: https://solana-classic-soc.vercel.app/roadmap
 - Whitepaper: https://solana-classic-soc.vercel.app/whitepaper.pdf
+- Source: https://github.com/solana-classic/solana-classic
 
 ## Current scope
 
