@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "path": "engine/agave",
+  "upstreamRepository": "https://github.com/anza-xyz/agave",
+  "releaseTag": "v3.0.14",
+  "sourceCommit": "f516a8927c76c07f0ebc54ca7a4ce8b2046eee86",
+  "sourceTree": "a4c75a1781d4ca56e7325a39d0614e1faa26030d",
+  "sourceFiles": 2215,
+  "sourceBlobBytes": 41568751,
+  "externalGitSubmodules": [],
+  "importMethod": "git subtree with squashed exact-tree source snapshot",
+  "snapshotCommit": "7edac61664bfa4ca124f6df1e83ccc77b440e29c",
+  "upstreamHistory": "Accessible through the recorded upstream sourceCommit; not copied in full into application history",
+  "license": "Apache-2.0; retain all upstream and file-specific notices",
+  "licenseFile": "engine/agave/LICENSE",
+  "projectEngineModifications": false,
+  "activeDeploymentUses": "Checksum-verified official upstream release binaries, unchanged by this source import",
+  "engineBuildFromThisRepositoryVerified": false
+}

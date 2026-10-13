@@ -1,5 +1,7 @@
 # Third-party notices
 
+Engine source consolidation (13 October 2026): the complete unmodified Agave v3.0.14 source tree is now included at engine/agave, with its upstream LICENSE and all supplied legal notices intact. That subtree retains Apache 2.0 and any file-specific terms supplied by upstream; the root MIT LICENSE does not relicense it. See engine/upstream.json for exact commit and tree provenance. The earlier installed-package inventory below is a dated inventory, not a complete inventory of Rust dependencies or a new source-build attestation.
+
 Publication update (13October2026): the root MIT LICENSE now grants rights to the original project material. The earlier no-root-license observation below remains a dated review checkpoint; it does not override that new license. Third-party components retain their supplied licenses.
 Generated 2026-10-13T15:39:19.505201+00:00. This inventory records the exact installed project dependencies and project-local tools, plus exact-commit licenses for the active Agave 3.0.14 and Token-2022 10.0.0 artifacts. It includes packages that may not be shipped in the browser. Installed metadata is evidence of the supplied license declaration, not an independent legal determination.
 

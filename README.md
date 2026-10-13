@@ -6,7 +6,7 @@ An open-source, independent SVM experiment focused on memes and NFTs: a browser 
 - Live roadmap: https://solana-classic-soc.vercel.app/roadmap
 - Whitepaper: https://solana-classic-soc.vercel.app/whitepaper.pdf
 - Source: https://github.com/solana-classic/solana-classic
-- Blockchain engine: https://github.com/solana-classic/solana-classic-agave
+- Blockchain engine: https://github.com/solana-classic/solana-classic/tree/main/engine/agave
 
 ## Current scope
 
@@ -20,12 +20,13 @@ The repaired bounded load passed200/200 operations within15seconds, with p95conf
 
 ## Source layout
 
-The blockchain engine is maintained separately in [solana-classic-agave](https://github.com/solana-classic/solana-classic-agave), a public fork of [anza-xyz/agave](https://github.com/anza-xyz/agave). Its default branch, `solana-classic-v3.0.14`, points to upstream commit `f516a8927c76c07f0ebc54ca7a4ce8b2046eee86`, matching the current experimental runtime. It contains the engine's Rust source and retains upstream Apache 2.0 licensing and notices. The fork currently has no project-specific engine modifications.
+The full blockchain engine source is included in [engine/agave](engine/agave) in this repository. A normal clone includes it; no submodule initialization or separate engine checkout is required. It is an unmodified Git subtree source snapshot of [anza-xyz/agave](https://github.com/anza-xyz/agave) v3.0.14, upstream commit `f516a8927c76c07f0ebc54ca7a4ce8b2046eee86`, matching the current experimental runtime. All 2,215 files, executable bits, licenses and upstream notices are retained. The imported tree SHA is `a4c75a1781d4ca56e7325a39d0614e1faa26030d`; provenance is recorded in [engine/upstream.json](engine/upstream.json). The snapshot is squashed, with upstream history accessible through the recorded upstream commit; our existing project history remains intact.
 
-The active deployment still installs checksum-verified official upstream release binaries. Creating this source fork does not replace those binaries, change consensus, or establish a tested build from our fork. A future fork build or engine change requires separate build provenance, compatibility checks and network acceptance before deployment; the running stability candidate remains unchanged.
+The active deployment still installs checksum-verified official upstream release binaries. Including source does not replace those binaries, change consensus, or establish a tested build from this repository. A future source build or engine change requires separate build provenance, compatibility checks and network acceptance before deployment; the running stability candidate remains unchanged. Engine source is excluded from application deployment uploads, and is outside the pnpm application workspaces.
 
 | Directory | Purpose |
 | --- | --- |
+| engine/agave | Full pinned Agave validator, runtime, SVM, CLI, tests and build source (Apache 2.0) |
 | apps/web | React playground, gallery, explorer and disclosures |
 | apps/api | Fastify gateway, durable faucet accounting and immutable assets |
 | packages/chain | Identity guards, transaction builders and receipt verification |
@@ -50,6 +51,8 @@ node --test roadmap/lib/status.test.mjs
 
 For local application startup and hosting, follow CONTRIBUTING.md, docs/CONTRACTS.md, docs/COMPATIBILITY.md and docs/OPERATIONS.md. Do not silently regenerate a hosted ledger or substitute a local genesis into a hosted release proof. Local or mocked tests cannot certify remote behavior.
 
+For engine development, use `engine/agave/README.md`, the pinned Rust version in `engine/agave/ci/rust-version.sh`, and its source-build documentation. Cargo dependencies and operating-system build prerequisites are still required. Preserve upstream licenses, attribute modifications, and review every future subtree update against its exact upstream commit and tree. Source import verification is not a Rust build or engine test result.
+
 ## Deployment and roadmap routing
 
 The main frontend is hosted on Vercel. The gateway, SQLite, content-addressed assets and validator use persistent Railway storage. The read-only roadmap is served at the main site's `/roadmap` path using project-level CDN rules, so updating its status UI does not redeploy the frozen playground. Asset and live-JSON requests stay under `/roadmap/`; the aggregator reads only five fixed public status endpoints and accepts no user-selected upstream URL.
@@ -58,6 +61,6 @@ During an active stability run, executable files, origin/configuration, process 
 
 ## License and contributions
 
-Original project material is under the MIT license in LICENSE. Dependencies, upstream runtime distributions and fonts retain their own licenses; preserve THIRD_PARTY_NOTICES.md and the supplied upstream notices. The npm workspace packages are marked private to prevent accidental npm publication; that does not restrict this repository's MIT source license.
+Original project material is under the MIT license in LICENSE. The imported engine/agave subtree remains under its upstream Apache 2.0 license and supplied notices; the root MIT license does not relicense it. Dependencies, upstream runtime distributions and fonts retain their own licenses; preserve THIRD_PARTY_NOTICES.md and the supplied upstream notices. The npm workspace packages are marked private to prevent accidental npm publication; that does not restrict this repository's MIT source license.
 
 See CONTRIBUTING.md for changes and SECURITY.md for private vulnerability reporting. Runtime data, key files, hosting credentials, local tools and `.env` files stay ignored and are not source-release inputs. Historical evidence keeps its actual version, date, scope and original test-unit wording.

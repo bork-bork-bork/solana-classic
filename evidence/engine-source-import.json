@@ -1,0 +1,18 @@
+{
+  "at": "2026-10-13T20:11:11.134412+00:00",
+  "scope": "Local source import/provenance verification; no Rust compilation, engine test or runtime deployment",
+  "passed": true,
+  "enginePath": "engine/agave",
+  "upstreamCommit": "f516a8927c76c07f0ebc54ca7a4ce8b2046eee86",
+  "expectedTree": "a4c75a1781d4ca56e7325a39d0614e1faa26030d",
+  "importedTree": "a4c75a1781d4ca56e7325a39d0614e1faa26030d",
+  "sourceFiles": 2215,
+  "externalGitSubmodules": 0,
+  "importedWorktreeUnchanged": true,
+  "applicationHistoryPreserved": true,
+  "repositoryShallow": false,
+  "frozenExecutableFilesUnchanged": 41,
+  "licenseSha256": "048838ecab23173fe6db9b3a4f5d9e2f5480b8692dfca556fed4aa039ca06bc8",
+  "engineBuiltFromImportedSource": false,
+  "runtimeChanged": false
+}
