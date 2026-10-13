@@ -24,7 +24,8 @@
     "test:load": "tsx scripts/load.ts",
     "test:soak": "tsx scripts/soak.ts",
     "release:check": "node --import tsx scripts/release-check.ts",
-    "release:packet": "node --import tsx scripts/release-packet.ts"
+    "release:packet": "node --import tsx scripts/release-packet.ts",
+    "ops:atomic-check": "node --import tsx scripts/atomic-issuance-check.ts"
   },
   "devDependencies": {
     "typescript": "5.9.3",

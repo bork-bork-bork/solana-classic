@@ -36,7 +36,7 @@ The implementation is complete only for the release state supported by passing c
 - [ ] Fungible demo supply is exactly 1,000,000 display units, decimals 6; transfer to another wallet works.
 - [ ] NFT supply is exactly 1, decimals 0; transfer to a second wallet changes the on-chain owner.
 - [ ] Mint, freeze, pointer and metadata update authorities match the immutable issuance design.
-- [ ] Incomplete A/B issuance is labelled incomplete; Resume finishes the same mint without duplicate issuance.
+- [ ] Uncertain atomic issuance is labelled incomplete; Resume reconciles the same mint and retained receipt without duplicate issuance; existing legacy A/B mints remain resumable.
 - [ ] Duplicate clicks and transaction retry produce one logical issuance.
 - [ ] Validator restart preserves genesis, balances, mints and ownership.
 - [ ] The thin remote browser journey includes an actual transaction receipt and asset verification; fixtures are never substituted for remote proof.

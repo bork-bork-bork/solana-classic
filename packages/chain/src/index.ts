@@ -31,8 +31,7 @@ export async function waitForSignature(connection: Connection, signature: string
   throw new Error(`Transaction ${signature} is still awaiting ${target}. Check its receipt before retrying.`);
 }
 export async function submitInstructions(connection: Connection, expected: string, payer: Keypair, instructions: TransactionInstruction[], extraSigners: Signer[] = [], report?: Report): Promise<string> {
-  await assertNetwork(connection, expected);
-  const latest = await connection.getLatestBlockhash('confirmed');
+  const [latest] = await Promise.all([connection.getLatestBlockhash('confirmed'), assertNetwork(connection, expected)]);
   const transaction = new Transaction({ feePayer: payer.publicKey, ...latest }).add(...instructions);
   const signed = new VersionedTransaction(transaction.compileMessage());
   signed.sign([payer, ...extraSigners]);
@@ -56,20 +55,21 @@ export type Issuance = { mint: Keypair; document: AssetDocument; preparationSign
 export async function prepareIssuance(connection: Connection, expected: string, wallet: Keypair, state: Issuance, report?: Report): Promise<Issuance> {
   const { mint, document } = state;
   if (mint.publicKey.toBase58() !== document.mint) throw new Error('Mint/metadata mismatch.');
-  await assertNetwork(connection, expected); await verifyPrograms(connection);
   const space = getMintLen([ExtensionType.MetadataPointer]);
   const metadata = { updateAuthority: wallet.publicKey, mint: mint.publicKey, name: document.name, symbol: document.symbol, uri: document.uri, additionalMetadata: [] };
   const fullSpace = space + TYPE_SIZE + LENGTH_SIZE + pack(metadata).length;
-  const rent = await connection.getMinimumBalanceForRentExemption(fullSpace);
+  const [rent] = await Promise.all([connection.getMinimumBalanceForRentExemption(fullSpace), assertNetwork(connection, expected), verifyPrograms(connection)]);
   const instructions = [
     SystemProgram.createAccount({ fromPubkey: wallet.publicKey, newAccountPubkey: mint.publicKey, space, lamports: rent, programId: TOKEN_2022_PROGRAM_ID }),
     createInitializeMetadataPointerInstruction(mint.publicKey, null, mint.publicKey, TOKEN_2022_PROGRAM_ID),
     createInitializeMintInstruction(mint.publicKey, document.kind === 'nft' ? 0 : 6, wallet.publicKey, null, TOKEN_2022_PROGRAM_ID),
     createInitializeInstruction({ programId: TOKEN_2022_PROGRAM_ID, metadata: mint.publicKey, updateAuthority: wallet.publicKey, mint: mint.publicKey, mintAuthority: wallet.publicKey, name: document.name, symbol: document.symbol, uri: document.uri }),
   ];
-  // The caller owns this state before broadcasting; a timeout never discards the mint signer.
-  const signature = await submitInstructions(connection, expected, wallet, instructions, [mint], progress => { if (progress.signature) state.preparationSignature = progress.signature; report?.(progress); });
+  // Creation, supply and authority revocation are one atomic transaction.
+  // Retain its anticipated receipt before broadcast so Resume never remints.
+  const signature = await submitInstructions(connection, expected, wallet, [...instructions, ...issuanceInstructions(wallet.publicKey, document)], [mint], progress => { if (progress.signature) { state.preparationSignature = progress.signature; state.issuanceSignature = progress.signature; } report?.(progress); });
   state.preparationSignature = signature;
+  state.issuanceSignature = signature;
   return state;
 }
 export function issuanceInstructions(wallet: PublicKey, document: AssetDocument): TransactionInstruction[] {
