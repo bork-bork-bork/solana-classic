@@ -11,7 +11,7 @@ export function runtimeIdentity(genesis: string | null) {
   const manifest = JSON.parse(readFileSync(file, 'utf8')) as { sourceCommit: string; coreSha256: string; files: Record<string, string> };
   if (!/^[a-f0-9]{40}$/.test(manifest.sourceCommit) || !/^[a-f0-9]{64}$/.test(manifest.coreSha256)) throw new Error('Invalid runtime source manifest.');
   for (const [path, digest] of Object.entries(manifest.files)) {
-    if (!/^(?:apps\/(?:api|web)\/(?:src\/[A-Za-z0-9_.-]+|package\.json|vite\.config\.ts)|packages\/(?:chain|config)\/(?:src\/[A-Za-z0-9_.-]+|package\.json)|scripts\/(?:railway-start\.ts|railway-ops\.ts|install-agave\.py|install-token-program\.py)|(?:package\.json|pnpm-lock\.yaml|pnpm-workspace\.yaml|config\/(?:network\.remote\.json|network\.json)|infra\/RailwayCompatibility\.Dockerfile))$/.test(path)) throw new Error('Unexpected runtime manifest path.');
+    if (!/^(?:apps\/(?:api|web)\/(?:src\/[A-Za-z0-9_.-]+|package\.json|vite\.config\.ts)|packages\/(?:chain|config)\/(?:src\/[A-Za-z0-9_.-]+|package\.json)|scripts\/(?:railway-start\.ts|railway-ops\.ts|install-agave\.py|install-token-program\.py|inspect-cold-archive\.py)|(?:package\.json|pnpm-lock\.yaml|pnpm-workspace\.yaml|config\/(?:network\.remote\.json|network\.json)|infra\/RailwayCompatibility\.Dockerfile))$/.test(path)) throw new Error('Unexpected runtime manifest path.');
     const actual = createHash('sha256').update(readFileSync(resolve(root, path))).digest('hex');
     if (actual !== digest) throw new Error('Runtime core source checksum mismatch: ' + path);
   }

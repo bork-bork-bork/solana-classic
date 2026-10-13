@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports -- This temporary node-only .cjs transport runs outside the application package. */
 // Temporary intra-project recovery transport, never a public RPC/asset route.
 const fs = require('node:fs');
 const http = require('node:http');
