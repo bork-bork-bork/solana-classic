@@ -1,0 +1,11 @@
+[package]
+name = "write-to-account"
+version = "3.0.14"
+edition = "2021"
+
+[dependencies]
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[workspace]
