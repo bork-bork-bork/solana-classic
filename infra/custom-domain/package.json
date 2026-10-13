@@ -1,0 +1,6 @@
+{
+  "name": "solana-classic-custom-domain",
+  "private": true,
+  "type": "module",
+  "engines": { "node": "24.x" }
+}

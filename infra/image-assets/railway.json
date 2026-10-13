@@ -1,0 +1,1 @@
+{"build":{"builder":"DOCKERFILE","dockerfilePath":"infra/image-assets/Dockerfile"},"deploy":{"healthcheckPath":"/health","restartPolicyType":"ON_FAILURE","restartPolicyMaxRetries":3}}

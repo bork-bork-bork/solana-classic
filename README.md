@@ -2,15 +2,15 @@
 
 **Bring back the fun.**
 
-Solana Classic is an open-source blockchain project putting meme and NFT communities at the centre of its products and roadmap. We want the fast, affordable experience people associate with Solana, with clearer launch terms, accountable creators and a reason for communities to stay together after the first wave of hype.
+Solana Classic is an open-source blockchain project putting meme and NFT communities at the centre of its products and roadmap. We are bringing together developers, artists and communities who care about this category, so its future gets sustained attention and focused development.
 
-**Our goal: make art, collecting and community feel worth coming back to—with clear terms and work that continues after launch.**
+**Our goal: build an open development community focused on how far art, NFTs and memes can go.**
 
-[Website](https://solanaclassic.net) · [Try the testnet](https://solanaclassic.net/playground) · [Live roadmap](https://solanaclassic.net/roadmap) · [Whitepaper](https://solanaclassic.net/whitepaper.pdf)
+[Website](https://solanaclassic.net) · [Our story](https://solanaclassic.net/about) · [Try the testnet](https://solanaclassic.net/playground) · [Live roadmap](https://solanaclassic.net/roadmap) · [Whitepaper](https://solanaclassic.net/whitepaper.pdf)
 
 ## Why we are building this
 
-We came to Solana for the art, the jokes, the communities and the feeling that anyone could make something people cared about. Discovering a collection or a meme felt like joining something. We want that sense of fun and possibility to have a future.
+Solana Monkey Business. Okay Bears. BONK. WIF. Names that bring back a timeline, a group chat or a mint night. We came to Solana for the art, the jokes, the communities and the feeling that anyone could make something people cared about. Discovering a collection or a meme felt like joining something. We want that sense of fun and possibility to have a future.
 
 We respect the engineering, the builders and the communities that made Solana possible. Its speed and accessible transaction costs gave people room to experiment. Solana Classic builds on that open-source work.
 
@@ -45,32 +45,27 @@ Blockchain communities have chosen different paths when they disagreed about pri
 | --- | --- | --- |
 | [Bitcoin Cash](https://bitcoincash.org/) | Bitcoin's scaling debate led to a chain split in 2017. | Keep everyday electronic payments affordable through more on-chain capacity. |
 | [Ethereum Classic](https://ethereum.org/ethereum-forks/#dao-fork) | Some participants rejected the ledger intervention following the DAO hack in 2016. | Continue the original chain without that intervention. |
-| Solana Classic | We want memes and NFTs to have a consistent place at the centre of the roadmap. | Build around creators, collectors and communities, with understandable terms and visible accountability. |
+| Solana Classic | We want memes and NFTs to have a consistent place at the centre of the roadmap. | Bring together developers, artists and communities focused on the future of art, NFTs and memes. |
 
 The inspiration is a community choosing what its network should stand for. The technical histories are different: Bitcoin Cash and Ethereum Classic diverged from existing ledgers; Solana Classic starts with a fresh independent ledger using Solana's open-source engine. It does not copy Solana balances, transfer existing NFTs automatically, or give SOL holders a claim to SOC. This is an independent project with no affiliation to the Solana Foundation.
 
-## The future we want people to see
+## Shared roots. Two directions.
 
-Imagine arriving with an original image, a joke or a community idea. Making it should be straightforward. Finding people who care should be part of the experience. When you open a project page, its launch terms should be understandable: the creator's declared holdings, fees, unlock rules and what the funding has delivered.
+Solana's open-source engineering can support different priorities. Solana is building a broad ecosystem across many categories. Solana Classic brings together developers who want to concentrate on art, NFTs, memes and the communities around them.
 
-Over time, that page could show new artwork, events, useful tools and fulfilled commitments. A creator could earn a reputation through continuing work. Collectors could follow the art and participate in a community that keeps giving them reasons to return.
+A developer exploring NFT experiences should have peers who understand artists and collectors. A builder exploring meme culture should have a community that takes that work seriously. We want ideas, tools and knowledge to compound through sustained work in the same category.
 
-The proposed tools and standards are:
+This is an invitation to help shape that future. The products should emerge from the developers, artists and communities who show up and build. Our playground is a first place to experiment, and this repository is an open place to contribute.
 
-- **Readable launch records:** supply, declared team wallets, retained holdings, how those holdings were acquired and any powers the team keeps.
-- **Honest unlock information:** distinguish restrictions enforced on-chain from a team's promise to wait before selling.
-- **Visible fees and funding:** named recipients, public spending records and updates connecting funding to delivered artwork, tools or community activity.
-- **A lasting home for creative work:** approachable creation, NFT discovery and ways to follow what happens after launch.
+The frustrations above give that work a reason. They do not prescribe one answer or promise a scam-free chain. Proposed disclosure and funding ideas in the whitepaper are contributions to that discussion; they are not delivered features. The underlying SVM can still run other applications, while our ecosystem priorities stay focused on this category.
 
-These are future product goals. Our own planned SOC launch needs the same disclosures. **The change we are aiming for is concrete: easier creation, clearer control, accountable funding and communities with a life beyond their launch.** Progress should be judged by people creating, returning and fulfilling commitments.
-
-Disclosure cannot reveal every undeclared wallet or guarantee a fair price. Focus alone cannot prevent scams. Our standards would apply to our own launch and discovery services; the underlying engine can still run other applications.
+**Bring back the fun. Build what comes next.**
 
 ## What you can use today
 
 A working experimental test network is live, operated by one project-controlled validator—the computer that verifies its transactions.
 
-In the [playground](https://solana-classic-soc.vercel.app/playground), you can create a temporary test wallet, receive test units, create a demo meme token or NFT, transfer it, and inspect ownership and transaction records in the gallery and explorer. The wallet stays in browser memory; reloading loses access to it.
+In the [playground](https://solanaclassic.net/playground), you can create a temporary test wallet, receive test units, create a demo meme token or NFT, transfer it, and inspect ownership and transaction records in the gallery and explorer. The wallet stays in browser memory; reloading loses access to it.
 
 **TEST/tSOC balances and demo assets have no monetary value or right to conversion into SOC.** Production mainnet, the SOC token and the bridge are not live. Current build, test and release results—including failed or pending gates—are on the [live roadmap](https://solana-classic-soc.vercel.app/roadmap).
 
@@ -90,7 +85,9 @@ The live test network uses verified official upstream binaries. Building and tes
 | --- | --- |
 | [engine/agave](engine/agave) | Blockchain engine, validator, runtime, CLI and upstream tests |
 | [engine/build](engine/build) | Our separate Linux source-build and isolated-test worker |
-| [apps/web](apps/web) | Website, playground, gallery and explorer |
+| [apps/web](apps/web) | Frozen stability-test website, playground, gallery and explorer |
+| [infra/custom-domain](infra/custom-domain) | Live .net frontend, About page, logo and upload controls |
+| [infra/image-assets](infra/image-assets) | Persistent uploaded artwork, metadata and verified gallery |
 | [apps/api](apps/api) | Backend, test faucet and asset services |
 | [packages](packages) | Shared transaction and network rules |
 | [roadmap](roadmap) | Live progress page |
@@ -121,7 +118,7 @@ The engine is a complete Git subtree source snapshot of upstream Agave v3.0.14. 
 
 Vercel serves the frontend and the main site's `/roadmap` route. Railway hosts the persistent test network and a separate compiler/test worker. The roadmap reads six fixed public status sources; it accepts no caller-selected upstream URL. Compiler artifacts and its fresh staging ledger use a dedicated volume. A completed isolated test does not certify a production migration or replace a full stability run.
 
-During the current freeze, `solanaclassic.net` temporarily forwards to the verified Vercel app origin. Enabling the new browser origin on the testnet gateway belongs to the next tested application release.
+`solanaclassic.net` now serves directly through a separate frontend deployment. Its bounded same-origin adapter reaches the unchanged gateway, and uploaded artwork uses a separate persistent service. The current soak still certifies its original frozen Vercel candidate; the domain frontend and upload service receive separate checks. See [custom-domain deployment](infra/custom-domain/README.md) and [image service](infra/image-assets/README.md).
 
 During an active stability run, keep the tested source, runtime identity and served application files unchanged. Follow [HOSTED_QA.md](docs/HOSTED_QA.md) before operational changes. Preserve failed and interrupted attempts. Private keys, runtime ledgers, local tools and credentials remain ignored and must not enter source releases or frontend builds.
 

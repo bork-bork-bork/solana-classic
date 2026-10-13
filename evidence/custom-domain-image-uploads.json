@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-13T23:50:17.981Z",
+  "browser": "Playwright; Browser plugin not available",
+  "url": "https://solanaclassic.net/about",
+  "errors": [],
+  "overflow": false,
+  "domainPreserved": true,
+  "wallet": "485MTkb8JfVEqgt2cX9rKXTfRqXYGWQRrAKzTgBoWN5Q",
+  "documents": [
+    {
+      "mint": "FSKCPF5nwGY7wEtqeF6VrhCLBpnUa4M65GeNAq3aDJmA",
+      "kind": "nft",
+      "name": "Image QA NFT",
+      "symbol": "IMGNFT",
+      "presetId": 0,
+      "contentHash": "c408de5e0f08ea87635d6c147f817b9b7feb45862ed09d3f6f079f32d5ffba1d",
+      "uri": "https://image-assets-production.up.railway.app/assets/c408de5e0f08ea87635d6c147f817b9b7feb45862ed09d3f6f079f32d5ffba1d/metadata.json",
+      "image": "https://image-assets-production.up.railway.app/assets/c408de5e0f08ea87635d6c147f817b9b7feb45862ed09d3f6f079f32d5ffba1d/image.png"
+    },
+    {
+      "mint": "vcshcRC263b2od6edr3f36ApD7doQJLSBpQP9rr5VdD",
+      "kind": "meme",
+      "name": "Image QA Meme",
+      "symbol": "IMGMEME",
+      "presetId": 0,
+      "contentHash": "9ebf069ff4a5deecf583ca9e6b15cfb2f454dad6c7f75d10ffb8e2bbb88429ce",
+      "uri": "https://image-assets-production.up.railway.app/assets/9ebf069ff4a5deecf583ca9e6b15cfb2f454dad6c7f75d10ffb8e2bbb88429ce/metadata.json",
+      "image": "https://image-assets-production.up.railway.app/assets/9ebf069ff4a5deecf583ca9e6b15cfb2f454dad6c7f75d10ffb8e2bbb88429ce/image.png"
+    }
+  ],
+  "publications": 2,
+  "nftAndMemeMinted": true,
+  "pngAndJpegVerified": true,
+  "svgRejected": true,
+  "passed": true,
+  "scope": "remote custom-domain frontend and isolated image-service browser tests; not frozen-candidate soak or mainnet acceptance",
+  "deploymentId": "dpl_93tdsWBGj5AvrXHbZU5RVVPQxswp",
+  "imageServiceId": "4d0ac23e-010e-43ac-8da2-0ef54bd7e8e6",
+  "imageVolumeId": "8b90131b-ff63-4828-a3c0-5a2d3b930077",
+  "frozenCandidateChanged": false,
+  "unitChecksPassed": 9,
+  "roadmapChecksPassed": 28,
+  "sourceDigests": {
+    "infra/custom-domain/build.py": "81dcccce4357295c2b4265642c17902ab874d421484b2b07ef556e0104cb7e38",
+    "infra/custom-domain/About.tsx": "c77946dd15fb79f5618ab5940ad636e58e4b1387af035ee0ae840e51e5665dd8",
+    "infra/custom-domain/ImageUpload.tsx": "4b4910b3c29195f979f3fe00e28bc27b7110fc8a751d2c7097e57b233176fd3d",
+    "infra/custom-domain/api/proxy.js": "2688c3a8cd853fd7e1c907e2e5f40733ed2162c7d5e8fe466f7c99cc6fffae57",
+    "infra/custom-domain/styles.css": "a0be75cf800ee1a7a0123f34e54d3439548bb88edf7e8ddbb7a5cee570f0246b",
+    "infra/custom-domain/favicon.svg": "5dc791bd87e6d2dada77a214ea382d5112b018c04825bca538436604a13037f2",
+    "infra/custom-domain/solana-classic-logo-cutout.png": "f69fbf468e07c64deafe42025c16647824ca9d402283ff63cdd8a4c2fadcaa81",
+    "infra/image-assets/server.ts": "84cabaf847de15906d6f69f330a30f98e48d5f8d63c716a3dc5f966689d310b8",
+    "infra/image-assets/package-lock.json": "92e7762feecee4741e30f58566afde59a55cfdf8397faae1213187efa24729fd"
+  }
+}

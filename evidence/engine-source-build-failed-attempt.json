@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "runId": "28de6902-7ba1-435a-a9a5-a44050c1f316",
+  "startedAt": "2026-10-13T22:27:48.813531+00:00",
+  "updatedAt": "2026-10-13T22:53:11.589142+00:00",
+  "state": "failed",
+  "phase": "upstream-tests",
+  "passed": false,
+  "upstreamCommit": "f516a8927c76c07f0ebc54ca7a4ce8b2046eee86",
+  "upstreamTree": "a4c75a1781d4ca56e7325a39d0614e1faa26030d",
+  "sourceRepositoryCommit": "8b6c1a5d2391826e883848c7700b035b6a722b66",
+  "sourceManifestSha256": "b8ffe46e3d6f310f228fc6efcfb89cd6b8ce02ccbc47ac09eba124678533342d",
+  "workerSha256": "b1807a996e2706b33cf048adc020f3421ecbbe3d90a4ec9e468a755134233d22",
+  "lastActivityAt": "2026-10-13T22:53:11.570317+00:00",
+  "lastPackage": "solana-genesis-utils",
+  "cargoPackagesStarted": 1075,
+  "steps": {
+    "source": {
+      "state": "passed",
+      "startedAt": "2026-10-13T22:27:48.815240+00:00",
+      "completedAt": "2026-10-13T22:27:48.978936+00:00",
+      "durationSeconds": 0.161
+    },
+    "toolchain": {
+      "state": "passed",
+      "startedAt": "2026-10-13T22:27:48.979493+00:00",
+      "completedAt": "2026-10-13T22:27:49.073702+00:00",
+      "durationSeconds": 0.094
+    },
+    "compile": {
+      "state": "passed",
+      "startedAt": "2026-10-13T22:27:49.073986+00:00",
+      "completedAt": "2026-10-13T22:51:02.542173+00:00",
+      "durationSeconds": 1393.466
+    },
+    "upstream-tests": {
+      "state": "failed",
+      "startedAt": "2026-10-13T22:51:02.542324+00:00",
+      "completedAt": "2026-10-13T22:53:11.589123+00:00"
+    },
+    "program": {
+      "state": "queued"
+    },
+    "isolated-start": {
+      "state": "queued"
+    },
+    "transactions": {
+      "state": "queued"
+    },
+    "restart": {
+      "state": "queued"
+    },
+    "cold-restore": {
+      "state": "queued"
+    }
+  },
+  "toolchain": {
+    "rust": "rustc 1.86.0 (05f9846f8 2025-03-31)",
+    "cargo": "cargo 1.86.0 (adf9b6ad1 2025-02-28)",
+    "node": "v24.19.0",
+    "architecture": "x86_64",
+    "cargoJobs": 2,
+    "releaseLto": "thin"
+  },
+  "binaries": {
+    "agave-validator": {
+      "sha256": "411dcbce54769a1a8eedf5a0923d4e78ad91c04dbb0b3fdf5d9afd7a92e649fa",
+      "bytes": 74406832,
+      "version": "agave-validator 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+    },
+    "solana-test-validator": {
+      "sha256": "85da13e509f3f68c0d56af6c66b8d51d96d16f1ef6fefdb2e22c4be232012e7c",
+      "bytes": 73661760,
+      "version": "solana-test-validator 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+    },
+    "solana": {
+      "sha256": "6a880f1c79ec0e0d7b3ee972eaa9ad8d75b503616e1f0c29efa587137a129dcd",
+      "bytes": 28209480,
+      "version": "solana-cli 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+    },
+    "solana-keygen": {
+      "sha256": "2f00a742ab0d99cad929e7a82b2d80f7c519cab9038ec45844fdbe9c305dea65",
+      "bytes": 2804464,
+      "version": "solana-keygen 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+    }
+  },
+  "testSummaries": [
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: FAILED. 89 passed; 3 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.09s"
+  ],
+  "message": "Build/test step failed; private diagnostic log retained for review. No running network was changed.",
+  "at": "2026-10-13T23:30:59.707473+00:00",
+  "processAlive": false,
+  "productionNetworkChanged": false,
+  "cutoverAccepted": false
+}

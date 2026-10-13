@@ -1,0 +1,30 @@
+
+:root{--ink:#172820;--paper:#f4f7f6;--purple:#08764c;--line:1px solid #233c30;color:var(--ink);background:var(--paper)}
+.brand-logo{display:block;width:38px;height:36px;flex:none;background:transparent url(/solana-classic-logo-cutout.png) center/contain no-repeat;border-radius:0}
+.brand{font-size:25px;gap:12px;letter-spacing:-.9px}.site-header{min-height:82px}
+.site-header nav{gap:22px}
+.about-page{padding:54px 0 60px}
+.about-kicker{font:13px 'IBM Plex Mono',monospace;color:#1c9b68;margin-bottom:24px;letter-spacing:.04em}
+.about-hero{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(200px,1fr);gap:55px;align-items:center;padding-bottom:54px;border-bottom:var(--line)}
+.about-hero h1{font-size:clamp(58px,6.8vw,108px)}
+.about-hero .lead{max-width:630px;margin-top:24px;font-size:23px}
+.about-logo{width:100%;height:auto;aspect-ratio:1;object-fit:contain;max-width:420px;padding:28px;justify-self:center}
+.about-story{max-width:840px;margin:0 auto;padding:48px 0;border-bottom:var(--line)}
+.about-story h2{font-size:40px;margin-bottom:25px}
+.about-story p{font-size:20px;line-height:1.65;margin:18px 0}
+.about-quote{border-left:3px solid #1c9b68;margin:30px 0;padding-left:24px}
+.about-quote p{font-size:19px}.about-quote cite{font:12px 'IBM Plex Mono',monospace;line-height:1.7;font-style:normal}
+.about-principles{padding:48px 0}.about-principles>h2{font-size:40px;margin-bottom:28px}
+.about-principle-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+.about-principle-grid article{padding-top:20px;border-top:var(--line)}
+.about-principle-grid h3{font-size:23px;margin:0 0 14px;letter-spacing:-.04em}
+.about-principle-grid p{font-size:17px;line-height:1.6}
+.about-invitation{padding:42px 0;border-top:var(--line);max-width:850px}
+.about-invitation h2{font-size:46px;margin-bottom:20px}.about-invitation p{font-size:21px;line-height:1.6;margin-bottom:24px}
+.about-release-note{font:13px 'IBM Plex Mono',monospace;line-height:1.7!important;font-size:13px!important;max-width:800px}
+.about-branches{padding:48px 0;border-bottom:var(--line)}.about-branches>h2{font-size:40px}.branch-intro{font-size:20px;margin-top:16px}.branch-root{width:max-content;max-width:100%;margin:36px auto 0;padding:15px 24px;color:#086840;border:1px solid #99b9a7;font-weight:700;text-align:center;position:relative}.branch-root:after{content:'';position:absolute;width:1px;height:28px;background:#779488;left:50%;top:100%}.branch-lines{width:50%;height:26px;border:1px solid #779488;border-bottom:0;margin:28px auto 0}.branch-pair{display:grid;grid-template-columns:1fr 1fr;gap:36px;text-align:center;margin:0 auto;max-width:1100px}.branch-pair article{padding:20px 25px 22px}.branch-pair h3{font-size:28px;margin:0 0 12px;letter-spacing:-.04em}.branch-pair p{font-size:18px;max-width:380px;margin:auto}.classic-branch h3{color:#08764c}.branch-note{font:12px 'IBM Plex Mono',monospace;text-align:center;max-width:760px;margin:20px auto 0;line-height:1.7}
+@media(max-width:700px){.about-branches{padding:30px 0}.about-branches>h2{font-size:33px}.branch-intro{font-size:17px}.branch-pair{gap:18px}.branch-pair article{padding:18px 0}.branch-pair h3{font-size:22px}.branch-pair p{font-size:15px}}
+@media(max-width:1120px){.site-header{flex-wrap:wrap;gap:10px;padding:14px 0}.site-header nav{gap:22px;width:100%;margin-left:0}.about-hero{gap:28px}}
+@media(max-width:700px){.brand{min-height:44px}.site-header nav{flex-wrap:wrap;overflow:visible;gap:8px 20px;justify-content:flex-start;margin-top:8px}.about-page{padding-top:30px}.about-hero{grid-template-columns:1fr;padding-bottom:30px;gap:28px}.about-hero h1{font-size:62px}.about-hero .lead{font-size:19px}.about-logo{max-width:300px}.about-story{padding:30px 0}.about-story h2,.about-principles>h2{font-size:33px}.about-story p{font-size:17px}.about-principle-grid{grid-template-columns:1fr;gap:25px}.about-principles{padding:30px 0}.about-invitation h2{font-size:38px}.about-invitation p{font-size:18px}}
+.image-upload{border-top:var(--line);padding:20px 0;margin-bottom:10px}.upload-heading h2{font-size:21px;margin-bottom:6px}.upload-heading p{font:12px 'IBM Plex Mono',monospace;line-height:1.6}.upload-picker{margin:15px 0 0;font-size:14px;max-width:100%}.upload-picker input{max-width:100%;font-size:13px}.upload-preview{display:flex;gap:18px;align-items:center;margin:18px 0}.upload-preview img{width:130px;height:130px;object-fit:contain;background:#e8e5dc;border:var(--line)}.upload-preview strong{font-size:15px}.upload-preview p{font-size:13px;max-width:330px;margin:8px 0}.upload-preview button{font-size:13px}
+@media(max-width:450px){.upload-preview{align-items:flex-start}.upload-preview img{width:94px;height:94px}}
