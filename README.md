@@ -6,6 +6,7 @@ An open-source, independent SVM experiment focused on memes and NFTs: a browser 
 - Live roadmap: https://solana-classic-soc.vercel.app/roadmap
 - Whitepaper: https://solana-classic-soc.vercel.app/whitepaper.pdf
 - Source: https://github.com/solana-classic/solana-classic
+- Blockchain engine: https://github.com/solana-classic/solana-classic-agave
 
 ## Current scope
 
@@ -18,6 +19,10 @@ Active hosted runtime: official Agave3.0.14 and official Token-2022v10.0.0. Full
 The repaired bounded load passed200/200 operations within15seconds, with p95confirmed3.150seconds. This is an application workload, not chainwide capacity. The uninterrupted24hourbrowser test started13October2026 at16:48:22.762UTC. The live roadmap reports actual progress; elapsed time never automatically approves a release. Remaining final regression and individual release attestations are recorded separately.
 
 ## Source layout
+
+The blockchain engine is maintained separately in [solana-classic-agave](https://github.com/solana-classic/solana-classic-agave), a public fork of [anza-xyz/agave](https://github.com/anza-xyz/agave). Its default branch, `solana-classic-v3.0.14`, points to upstream commit `f516a8927c76c07f0ebc54ca7a4ce8b2046eee86`, matching the current experimental runtime. It contains the engine's Rust source and retains upstream Apache 2.0 licensing and notices. The fork currently has no project-specific engine modifications.
+
+The active deployment still installs checksum-verified official upstream release binaries. Creating this source fork does not replace those binaries, change consensus, or establish a tested build from our fork. A future fork build or engine change requires separate build provenance, compatibility checks and network acceptance before deployment; the running stability candidate remains unchanged.
 
 | Directory | Purpose |
 | --- | --- |
