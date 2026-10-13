@@ -1,0 +1,44 @@
+{
+  "at": "2026-10-13T23:15:48.951578+00:00",
+  "scope": "Vercel-owned custom domain linked to existing main project; anonymous TLS/HTTP verification; temporary 307 preserves frozen browser origin",
+  "domain": "solanaclassic.net",
+  "projectId": "prj_mjv3k9UcoPgxoNvDl2foOIC8R3V9",
+  "verifiedByVercel": true,
+  "redirect": {
+    "status": 307,
+    "location": "https://solana-classic-soc.vercel.app/"
+  },
+  "paths": [
+    {
+      "path": "/",
+      "status": 200,
+      "url": "https://solana-classic-soc.vercel.app/",
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "448312a1f5170de0767b742309fad4861cc0e0a80e15d0a39d839fd1f2de2454"
+    },
+    {
+      "path": "/playground",
+      "status": 200,
+      "url": "https://solana-classic-soc.vercel.app/playground",
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "448312a1f5170de0767b742309fad4861cc0e0a80e15d0a39d839fd1f2de2454"
+    },
+    {
+      "path": "/roadmap",
+      "status": 200,
+      "url": "https://solana-classic-soc.vercel.app/roadmap",
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "a52da3cc79df19786ee9a3ff235a73c4f446980474119bb64666a812ed6a6aa3"
+    },
+    {
+      "path": "/whitepaper.pdf",
+      "status": 200,
+      "url": "https://solana-classic-soc.vercel.app/whitepaper.pdf",
+      "contentType": "application/pdf",
+      "sha256": "a012bab19803fed9e9a043faf8f5ed892ea3c56c8ed9495e9e023f19bbaeaeb0"
+    }
+  ],
+  "reason": "Frozen testnet gateway rejects https://solanaclassic.net with ORIGIN_REJECTED and admits existing frontend origin. No gateway/validator/QA restart or source/deployment change was performed. Permanent origin migration belongs to the next tested application release.",
+  "frozenLocalFilesUnchanged": 41,
+  "passed": true
+}
