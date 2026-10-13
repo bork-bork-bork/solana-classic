@@ -6,7 +6,8 @@ const urls = {
   runtime: 'https://network-release-production.up.railway.app/api/runtime',
   monitor: 'https://operator-monitor-production.up.railway.app/api/monitor',
   qa: 'https://browser-soak-qa-production.up.railway.app/api/qa',
-  progress: 'https://browser-soak-qa-production-e64c.up.railway.app/api/progress'
+  progress: 'https://browser-soak-qa-production-e64c.up.railway.app/api/progress',
+  engineBuild: 'https://agave-source-build-production.up.railway.app/api/build'
 };
 async function probe(url) {
   const fetchedAt = new Date().toISOString();

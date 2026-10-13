@@ -116,5 +116,17 @@
     "Native mainnet",
     "1:1 bridge"
   ],
-  "soakStartedAt": "2026-10-13T16:48:22.762Z"
+  "soakStartedAt": "2026-10-13T16:48:22.762Z",
+  "engineBuild": {
+    "runId": "28de6902-7ba1-435a-a9a5-a44050c1f316",
+    "sourceManifestSha256": "b8ffe46e3d6f310f228fc6efcfb89cd6b8ce02ccbc47ac09eba124678533342d",
+    "workerSha256": "b1807a996e2706b33cf048adc020f3421ecbbe3d90a4ec9e468a755134233d22",
+    "sourceRepositoryCommit": "8b6c1a5d2391826e883848c7700b035b6a722b66",
+    "upstreamCommit": "f516a8927c76c07f0ebc54ca7a4ce8b2046eee86",
+    "upstreamTree": "a4c75a1781d4ca56e7325a39d0614e1faa26030d",
+    "serviceId": "29189101-226c-483b-a424-b8cd140abd80",
+    "progressUrl": "https://agave-source-build-production.up.railway.app/api/build",
+    "reviewedAt": "2026-10-13T22:27:12.845982+00:00",
+    "scope": "Parallel isolated source build and bounded tests; no current-network changes or cutover acceptance"
+  }
 }
