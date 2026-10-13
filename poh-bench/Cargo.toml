@@ -1,0 +1,25 @@
+[package]
+name = "solana-poh-bench"
+documentation = "https://docs.rs/solana-poh-bench"
+publish = false
+version = { workspace = true }
+authors = { workspace = true }
+repository = { workspace = true }
+homepage = { workspace = true }
+license = { workspace = true }
+edition = { workspace = true }
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[dependencies]
+clap = { version = "3.1.5", features = ["cargo"] }
+log = { workspace = true }
+num_cpus = { workspace = true }
+rayon = { workspace = true }
+solana-entry = { workspace = true }
+solana-logger = { workspace = true }
+solana-measure = { workspace = true }
+solana-perf = { workspace = true }
+solana-sha256-hasher = { workspace = true }
+solana-version = { workspace = true }

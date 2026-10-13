@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+CI_BUILD_START=$(date +%s)
+export CI_BUILD_START
+
+source ci/env.sh
+
+#
+# Kill any running docker containers, which are potentially left over from the
+# previous CI job
+#
+(
+  echo "+++ Killing stale docker containers"
+  while read -r line; do
+    read -r id image _ <<<"$line"
+
+    if [[ $image =~ "anzaxyz/ci" ]]; then
+      if docker kill "$id" >/dev/null; then
+        echo "kill $id $image"
+      fi
+    fi
+
+  done < <(docker ps | tail -n +2)
+)
+
+# Processes from previously aborted CI jobs seem to loiter, unclear why as one
+# would expect the buildkite-agent to clean up all child processes of the
+# aborted CI job.
+# But as a workaround for now manually kill some known loiterers.  These
+# processes will all have the `init` process as their PPID:
+(
+  victims=
+  for name in bash cargo docker solana; do
+    victims="$victims $(pgrep -u "$(id -u)" -P 1 -d \  $name)"
+  done
+  for victim in $victims; do
+    echo "Killing pid $victim"
+    kill -9 "$victim" || true
+  done
+)

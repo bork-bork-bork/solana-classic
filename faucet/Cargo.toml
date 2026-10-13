@@ -1,0 +1,48 @@
+[package]
+name = "solana-faucet"
+description = "Solana Faucet"
+documentation = "https://docs.rs/solana-faucet"
+version = { workspace = true }
+authors = { workspace = true }
+repository = { workspace = true }
+homepage = { workspace = true }
+license = { workspace = true }
+edition = { workspace = true }
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[lib]
+crate-type = ["lib"]
+name = "solana_faucet"
+
+[[bin]]
+name = "solana-faucet"
+path = "src/bin/faucet.rs"
+
+[dependencies]
+bincode = { workspace = true }
+clap = { workspace = true }
+crossbeam-channel = { workspace = true }
+log = { workspace = true }
+serde = { workspace = true }
+serde_derive = { workspace = true }
+solana-clap-utils = { workspace = true }
+solana-cli-config = { workspace = true }
+solana-cli-output = { workspace = true }
+solana-hash = "=3.0.0"
+solana-instruction = "=3.0.0"
+solana-keypair = "=3.0.0"
+solana-logger = "=3.0.0"
+solana-message = "=3.0.0"
+solana-metrics = { workspace = true }
+solana-packet = "=3.0.0"
+solana-pubkey = { version = "=3.0.0", features = ["rand"] }
+solana-signer = "=3.0.0"
+solana-system-interface = "=2.0"
+solana-system-transaction = "=3.0.0"
+solana-transaction = "=3.0.0"
+solana-version = { workspace = true }
+spl-memo-interface = { version = "=2.0.0" }
+thiserror = { workspace = true }
+tokio = { workspace = true, features = ["full"] }

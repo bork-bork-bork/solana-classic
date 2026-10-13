@@ -1,0 +1,69 @@
+[package]
+name = "solana-streamer"
+description = "Solana Streamer"
+documentation = "https://docs.rs/solana-streamer"
+version = { workspace = true }
+authors = { workspace = true }
+repository = { workspace = true }
+homepage = { workspace = true }
+license = { workspace = true }
+edition = { workspace = true }
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[lib]
+crate-type = ["lib"]
+name = "solana_streamer"
+
+[features]
+dev-context-only-utils = []
+
+[dependencies]
+arc-swap = { workspace = true }
+async-channel = { workspace = true }
+bytes = { workspace = true }
+crossbeam-channel = { workspace = true }
+dashmap = { workspace = true }
+futures = { workspace = true }
+futures-util = { workspace = true }
+governor = { workspace = true }
+histogram = { workspace = true }
+indexmap = { workspace = true }
+itertools = { workspace = true }
+libc = { workspace = true }
+log = { workspace = true }
+nix = { workspace = true, features = ["net", "poll", "signal"] }
+num_cpus = { workspace = true }
+pem = { workspace = true }
+percentage = { workspace = true }
+quinn = { workspace = true }
+quinn-proto = { workspace = true }
+rand = { workspace = true }
+rustls = { workspace = true }
+smallvec = { workspace = true }
+socket2 = { workspace = true }
+solana-keypair = { workspace = true }
+solana-measure = { workspace = true }
+solana-metrics = { workspace = true }
+solana-net-utils = { workspace = true, features = ["agave-unstable-api"] }
+solana-packet = { workspace = true }
+solana-perf = { workspace = true }
+solana-pubkey = { workspace = true }
+solana-quic-definitions = { workspace = true }
+solana-signature = { workspace = true }
+solana-signer = { workspace = true }
+solana-time-utils = { workspace = true }
+solana-tls-utils = { workspace = true }
+solana-transaction-error = { workspace = true }
+solana-transaction-metrics-tracker = { workspace = true }
+thiserror = { workspace = true }
+tokio = { workspace = true, features = ["full"] }
+tokio-util = { workspace = true }
+x509-parser = { workspace = true }
+
+[dev-dependencies]
+assert_matches = { workspace = true }
+solana-logger = { workspace = true }
+solana-net-utils = { workspace = true, features = ["dev-context-only-utils"] }
+solana-streamer = { path = ".", features = ["dev-context-only-utils"] }

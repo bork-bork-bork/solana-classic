@@ -1,0 +1,76 @@
+name: Cargo
+
+on:
+  push:
+    branches:
+      - master
+      - v[0-9]+.[0-9]+
+  pull_request:
+    branches:
+      - master
+      - v[0-9]+.[0-9]+
+    paths:
+      - "**.rs"
+      - "**/Cargo.toml"
+      - "**/Cargo.lock"
+      - ".github/scripts/install-all-deps.sh"
+      - ".github/scripts/install-openssl.sh"
+      - ".github/scripts/install-proto.sh"
+      - ".github/scripts/cargo-clippy-before-script.sh"
+      - ".github/workflows/cargo.yml"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+env:
+  SHELL: /bin/bash
+  SCCACHE_GHA_ENABLED: "true"
+  RUSTC_WRAPPER: "sccache"
+
+jobs:
+  clippy-nightly:
+    if: github.repository == 'anza-xyz/agave'
+    strategy:
+      matrix:
+        os:
+          - os: macos-15
+          # musl with dynamic linking
+          - os: ubuntu-24.04
+            container: docker.io/rust:1-alpine3.22
+            rustflags: -C target-feature=-crt-static
+          - os: windows-2025
+    runs-on: ${{ matrix.os.os }}
+    container:
+      image: ${{ matrix.os.container }}
+    env:
+      RUSTFLAGS: ${{ matrix.os.rustflags }}
+    steps:
+      # Alpine container needs:
+      # * `bash`, to run the scripts.
+      # * `git`, to run the `checkout` action.
+      - if: ${{ contains(matrix.os.container, 'alpine') }}
+        run: |
+          apk update
+          apk add bash git
+
+      - uses: actions/checkout@v5
+
+      - uses: mozilla-actions/sccache-action@v0.0.9
+        with:
+          version: "v0.10.0"
+
+      # took the workaround from https://github.com/sfackler/rust-openssl/issues/2149
+      - name: Set Perl environment variables
+        if: runner.os == 'Windows'
+        run: |
+          echo "PERL=$((where.exe perl)[0])" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+          echo "OPENSSL_SRC_PERL=$((where.exe perl)[0])" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+
+      - shell: bash
+        run: |
+          git config --global --add safe.directory "$(pwd)"
+          source .github/scripts/install-all-deps.sh ${{ runner.os }}
+          source ci/rust-version.sh nightly
+          rustup component add clippy --toolchain "$rust_nightly"
+          scripts/cargo-clippy-nightly.sh

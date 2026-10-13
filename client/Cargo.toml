@@ -1,0 +1,57 @@
+[package]
+name = "solana-client"
+description = "Solana Client"
+documentation = "https://docs.rs/solana-client"
+version = { workspace = true }
+authors = { workspace = true }
+repository = { workspace = true }
+homepage = { workspace = true }
+license = { workspace = true }
+edition = { workspace = true }
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[dependencies]
+async-trait = { workspace = true }
+bincode = { workspace = true }
+dashmap = { workspace = true }
+futures = { workspace = true }
+futures-util = { workspace = true }
+indexmap = { workspace = true }
+indicatif = { workspace = true }
+log = { workspace = true }
+quinn = { workspace = true }
+rayon = { workspace = true }
+solana-account = { workspace = true }
+solana-client-traits = { workspace = true }
+solana-commitment-config = { workspace = true }
+solana-connection-cache = { workspace = true }
+solana-epoch-info = { workspace = true }
+solana-hash = { workspace = true }
+solana-instruction = { workspace = true }
+solana-keypair = { workspace = true }
+solana-measure = { workspace = true }
+solana-message = { workspace = true }
+solana-pubkey = { workspace = true }
+solana-pubsub-client = { workspace = true }
+solana-quic-client = { workspace = true }
+solana-quic-definitions = { workspace = true }
+solana-rpc-client = { workspace = true, features = ["default"] }
+solana-rpc-client-api = { workspace = true }
+solana-rpc-client-nonce-utils = { workspace = true }
+solana-signature = { workspace = true }
+solana-signer = { workspace = true }
+solana-streamer = { workspace = true }
+solana-time-utils = { workspace = true }
+solana-tpu-client = { workspace = true, features = ["default"] }
+solana-transaction = { workspace = true }
+solana-transaction-error = { workspace = true }
+solana-transaction-status-client-types = { workspace = true }
+solana-udp-client = { workspace = true }
+thiserror = { workspace = true }
+tokio = { workspace = true, features = ["full"] }
+
+[dev-dependencies]
+crossbeam-channel = { workspace = true }
+solana-net-utils = { workspace = true, features = ["dev-context-only-utils"] }

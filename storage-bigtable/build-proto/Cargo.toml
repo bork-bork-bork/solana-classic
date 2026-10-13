@@ -1,0 +1,18 @@
+[package]
+description = "Blockchain, Rebuilt for Scale"
+name = "proto"
+publish = false
+version = { workspace = true }
+authors = { workspace = true }
+repository = { workspace = true }
+homepage = { workspace = true }
+license = { workspace = true }
+edition = { workspace = true }
+
+[dependencies]
+tonic-build = { workspace = true }
+
+# windows users should install the protobuf compiler manually and set the PROTOC
+# envar to point to the installed binary
+[target."cfg(not(windows))".dependencies]
+protobuf-src = { workspace = true }

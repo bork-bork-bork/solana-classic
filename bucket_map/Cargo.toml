@@ -1,0 +1,41 @@
+[package]
+name = "solana-bucket-map"
+description = "solana-bucket-map"
+documentation = "https://docs.rs/solana-bucket-map"
+readme = "../README.md"
+version = { workspace = true }
+authors = { workspace = true }
+repository = { workspace = true }
+homepage = { workspace = true }
+license = { workspace = true }
+edition = { workspace = true }
+
+[lib]
+crate-type = ["lib"]
+name = "solana_bucket_map"
+
+[features]
+dev-context-only-utils = []
+
+[dependencies]
+bv = { workspace = true, features = ["serde"] }
+bytemuck = { workspace = true }
+bytemuck_derive = { workspace = true }
+memmap2 = { workspace = true }
+modular-bitfield = { workspace = true }
+num_enum = { workspace = true }
+rand = { workspace = true }
+solana-clock = { workspace = true }
+solana-measure = { workspace = true }
+solana-pubkey = { workspace = true }
+tempfile = { workspace = true }
+
+[dev-dependencies]
+fs_extra = { workspace = true }
+rayon = { workspace = true }
+solana-bucket-map = { path = ".", features = ["dev-context-only-utils"] }
+solana-logger = { workspace = true }
+solana-pubkey = { workspace = true, features = ["rand"] }
+
+[[bench]]
+name = "bucket_map"

@@ -1,0 +1,25 @@
+[package]
+name = "solana-genesis-utils"
+description = "Solana Genesis Utils"
+documentation = "https://docs.rs/solana-download-utils"
+version = { workspace = true }
+authors = { workspace = true }
+repository = { workspace = true }
+homepage = { workspace = true }
+license = { workspace = true }
+edition = { workspace = true }
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[lib]
+crate-type = ["lib"]
+name = "solana_genesis_utils"
+
+[dependencies]
+log = { workspace = true }
+solana-accounts-db = { workspace = true }
+solana-download-utils = { workspace = true }
+solana-genesis-config = { workspace = true }
+solana-hash = { workspace = true }
+solana-rpc-client = { workspace = true }

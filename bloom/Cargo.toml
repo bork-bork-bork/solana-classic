@@ -1,0 +1,53 @@
+[package]
+name = "solana-bloom"
+description = "Solana bloom filter"
+documentation = "https://docs.rs/solana-bloom"
+version = { workspace = true }
+authors = { workspace = true }
+repository = { workspace = true }
+homepage = { workspace = true }
+license = { workspace = true }
+edition = { workspace = true }
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[lib]
+crate-type = ["lib"]
+name = "solana_bloom"
+
+[features]
+frozen-abi = [
+    "dep:solana-frozen-abi",
+    "dep:solana-frozen-abi-macro",
+    "solana-hash/frozen-abi",
+]
+
+[dependencies]
+bv = { workspace = true, features = ["serde"] }
+fnv = { workspace = true }
+rand = { workspace = true }
+serde = { workspace = true, features = ["rc"] }
+serde_derive = { workspace = true }
+solana-frozen-abi = { workspace = true, optional = true, features = [
+    "frozen-abi",
+] }
+solana-frozen-abi-macro = { workspace = true, optional = true, features = [
+    "frozen-abi",
+] }
+solana-sanitize = { workspace = true }
+solana-time-utils = { workspace = true }
+
+[dev-dependencies]
+bencher = { workspace = true }
+rayon = { workspace = true }
+solana-hash = { workspace = true }
+solana-sha256-hasher = { workspace = true }
+solana-signature = { workspace = true, features = ["std"] }
+
+[[bench]]
+name = "bloom"
+harness = false
+
+[lints]
+workspace = true
