@@ -1,0 +1,34 @@
+[
+  {
+    "path": "/",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 333962,
+    "isPdf": false,
+    "sha256": "5472b2c83cb8d7e5c30b969f078bd08140dc257229d31eb60d1954af783a8838"
+  },
+  {
+    "path": "/playground",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 334002,
+    "isPdf": false,
+    "sha256": "4cd643c02cd83aac05687e84bb2773ce2f90587b5ef00c46d700d35afffe67e3"
+  },
+  {
+    "path": "/explorer/tx/test",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 334073,
+    "isPdf": false,
+    "sha256": "47c99a008434be5e6e26ed7266d08f9667645e8dec576930e7b56073fe43cf2d"
+  },
+  {
+    "path": "/whitepaper.pdf",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 334033,
+    "isPdf": false,
+    "sha256": "6788dba1f55f4d48060af5fb8b04e3bbc2bc6ef33ee0e3371af49c8d3e276b16"
+  }
+]

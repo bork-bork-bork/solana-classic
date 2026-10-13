@@ -1,0 +1,182 @@
+{
+  "working_brand": {
+    "name": "Solana Classic",
+    "ticker": "SOC",
+    "status": "name_selected",
+    "tagline": "Open to everyone. Built for memes and NFTs."
+  },
+  "delivery": {
+    "deadline_elapsed_hours": 144,
+    "implementation_root": "<workspace>/solana-classic",
+    "scope": "experimental TEST devnet, SOC Pump launch preparation and future 1:1 native bridge design",
+    "agave_release": "v3.0.14",
+    "test_asset_symbol": "TEST",
+    "test_asset_has_monetary_value": false,
+    "operator_count": 1,
+    "first_release_target_elapsed_hours": 108,
+    "first_candidate_freeze_elapsed_hours": 72,
+    "first_soak_window_hours": [
+      72,
+      96
+    ],
+    "late_repair_window_hours": [
+      96,
+      108
+    ],
+    "replacement_soak_window_hours": [
+      108,
+      132
+    ],
+    "reviewed_sequence": "parallel Vercel/Railway lanes, Day1 production-origin slice, early independent agent pilots, H72 freeze, first soak then reserved replacement soak",
+    "token_program_release": "program@v10.0.0"
+  },
+  "external_inputs": {
+    "founder_name": null,
+    "operator_name": "Founder (user)",
+    "operator_contact": "Railway account email; configuration and delivery proof pending",
+    "domain": null,
+    "repository_destination": null,
+    "linux_host_address": null,
+    "ssh_user": null,
+    "ssh_key_reference_not_secret": null,
+    "backup_destination": null,
+    "two_external_testers": [],
+    "hosting_budget_reference": "infrastructure_budget: user answered whatever needed; EUR planning controls already recorded",
+    "linux_hosting_provider": "Railway Pro, account verified",
+    "vercel_team_or_account": "trenchfun1 (Chrome dashboard team: robin Pro)",
+    "vercel_project_name": "solana-classic",
+    "vercel_project_id": "prj_mjv3k9UcoPgxoNvDl2foOIC8R3V9",
+    "two_independent_agent_testers": [
+      "pilot_browser_one",
+      "pilot_browser_two"
+    ],
+    "pilot_policy": "Founder selected two independent agent pilots for first release; both journeys passed, not human research"
+  },
+  "scope_exclusions": [
+    "production independent mainnet",
+    "native fee or staking coin sale",
+    "bridge or redemption contract",
+    "copied Solana account state",
+    "guaranteed native-coin conversion",
+    "custom consensus or fee changes",
+    "runtime ban on non-meme applications",
+    "third-party wallet or marketplace integration",
+    "user artwork uploads",
+    "staking or voting application",
+    "custom DEX or bonding curve"
+  ],
+  "infrastructure_budget": {
+    "user_direction": "whatever needed",
+    "basis": "flexible needs-based hosting budget",
+    "currency": "EUR",
+    "first_month_planning_allowance": 1500,
+    "ongoing_monthly_planning_allowance": 750,
+    "preferred_server": "Railway Pro 1 persistent service, max 4 vCPU /16GB, volume /data",
+    "scope": "Vercel Pro static frontend, one Linux node/API with persistent data, domain, backup and contingency",
+    "excluded": [
+      "engineering fees",
+      "marketing",
+      "token purchases",
+      "liquidity"
+    ],
+    "purchase_status": "Dedicated Railway services and Vercel project activated in existing Pro accounts; usage-based charges",
+    "exact_checkout_quote": "No long-term server order; current Railway caps4vCPU/16GB and50GB volume, actual usage bill remains to monitor",
+    "budget_question_status": "answered; provider accounts verified; do not ask budget again"
+  },
+  "input_deadlines_elapsed_hours": {
+    "remote_host_tls_repository_backup_and_tester_bookings": 6,
+    "token_parameters_and_venue_zero_buy_check": 24,
+    "concrete_token_release_packet": 48,
+    "founder_packet_review": 72,
+    "first_external_pilot_start": 48,
+    "first_external_pilot_finish": 60,
+    "operator_linux_vercel_dns_access": 2,
+    "available_host_and_permanent_frontend_api_origins": 4,
+    "vercel_project_and_build_configuration": 6,
+    "vercel_production_remote_browser_journey": 24
+  },
+  "deployment": {
+    "frontend": {
+      "provider": "Vercel",
+      "plan": "Pro",
+      "type": "static React/Vite SPA",
+      "root_directory": ".",
+      "package_name": "@solana-classic/web",
+      "install_command": "pnpm install --frozen-lockfile",
+      "build_command": "pnpm --filter @solana-classic/web build",
+      "output_directory": "apps/web/dist",
+      "node_major": "24.x",
+      "node_patch_policy": "managed by Vercel; record actual build version separately from Linux",
+      "status": "connected experimental preview; remote production browser journey passed",
+      "domain_strategy": "new project default vercel.app production URL; no owned domain supplied"
+    },
+    "backend": {
+      "provider": "Railway Pro persistent container",
+      "services": [
+        "Fastify API",
+        "SQLite",
+        "immutable metadata/images",
+        "Agave test validator"
+      ],
+      "fastify_bind": "0.0.0.0:3000 behind provider HTTPS ingress",
+      "public_gateway": "Railway HTTPS ingress, API port 3000 only",
+      "data_root": "/data",
+      "rpc_upstream": "http://127.0.0.1:8899",
+      "status": "active remote candidate; SDK/browser and container/process restart passed; recovery/load/soak pending",
+      "service_id": "d0a1de40-bd9c-47eb-a7fc-477f1c55b2d6",
+      "volume_id": "080bf785-50e7-4dda-893b-4d613aa5e9a8"
+    },
+    "railway_used": true,
+    "production_frontend_origin": "https://solana-classic-soc.vercel.app",
+    "permanent_api_and_asset_origin": "https://network-release-production.up.railway.app",
+    "approved_preview_origins": [],
+    "browser_public_environment": {
+      "VITE_API_BASE_URL": "derived from permanent_api_and_asset_origin; no /api suffix",
+      "VITE_EXPECTED_GENESIS_HASH": "canonical remote genesis; never local fixture genesis"
+    },
+    "linux_public_environment": {
+      "APP_ORIGIN": "derived from production_frontend_origin",
+      "ASSET_BASE_URL": "derived from permanent_api_and_asset_origin",
+      "CORS_ALLOWED_ORIGINS": "exact production origin plus explicitly approved previews"
+    },
+    "metadata_origin_policy": "permanent Linux API origin; never Vercel preview, frontend hostname or localhost",
+    "browser_api_transport": "direct HTTPS to explicit Linux API base; no Vercel API proxy",
+    "secrets_in_frontend_environment": false,
+    "canonical_genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon"
+  },
+  "soc_lifecycle": {
+    "name": "Solana Classic",
+    "ticker": "SOC",
+    "status": "not_launched",
+    "initialAsset": {
+      "network": "Solana mainnet",
+      "venue": "Pump.fun",
+      "mintAddress": null,
+      "venueUrl": null,
+      "developerHoldings": {
+        "amount": null,
+        "acquisitionMethod": null,
+        "vestingPolicy": null
+      }
+    },
+    "nativeAsset": {
+      "network": "Solana Classic mainnet",
+      "status": "planned_not_launched",
+      "genesisHash": null,
+      "supplyPolicy": null,
+      "bridgeReservePolicy": null
+    },
+    "bridge": {
+      "status": "proposed_not_implemented",
+      "model": "Escrow original SOC on Solana; release matching native SOC from a Classic reserve. Return native SOC to the reserve before original SOC unlock.",
+      "conversionRatio": "Proposed 1:1 display units, subject to full design review",
+      "securityModel": null
+    },
+    "liquidityPool": {
+      "initialVenue": "Pump.fun on Solana",
+      "futureVenue": null,
+      "fundingCommitment": null
+    },
+    "hasTestnetConversionEntitlement": false
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Solana Classic",
+  "ticker": "SOC",
+  "status": "not_launched",
+  "initialAsset": {
+    "network": "Solana mainnet",
+    "venue": "Pump.fun",
+    "mintAddress": null,
+    "venueUrl": null,
+    "developerHoldings": {
+      "amount": null,
+      "acquisitionMethod": null,
+      "vestingPolicy": null
+    }
+  },
+  "nativeAsset": {
+    "network": "Solana Classic mainnet",
+    "status": "planned_not_launched",
+    "genesisHash": null,
+    "supplyPolicy": null,
+    "bridgeReservePolicy": null
+  },
+  "bridge": {
+    "status": "proposed_not_implemented",
+    "model": "Escrow original SOC on Solana; release matching native SOC from a Classic reserve. Return native SOC to the reserve before original SOC unlock.",
+    "conversionRatio": "Proposed 1:1 display units, subject to full design review",
+    "securityModel": null
+  },
+  "liquidityPool": {
+    "initialVenue": "Pump.fun on Solana",
+    "futureVenue": null,
+    "fundingCommitment": null
+  },
+  "hasTestnetConversionEntitlement": false
+}

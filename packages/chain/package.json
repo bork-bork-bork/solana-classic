@@ -1,0 +1,17 @@
+{
+  "name": "@solana-classic/chain",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@solana/web3.js": "1.99.0",
+    "@solana/spl-token": "0.4.15",
+    "@solana/spl-token-metadata": "0.1.6",
+    "buffer": "6.0.3",
+    "@solana-classic/config": "workspace:*",
+    "fastestsmallesttextencoderdecoder": "1.0.22"
+  },
+  "exports": {
+    ".": "./src/index.ts"
+  }
+}

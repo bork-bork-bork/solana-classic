@@ -1,0 +1,16 @@
+node_modules/
+.tools/
+.env
+.env.*
+!.env.example
+!*.env.example
+.vercel/
+dist/
+.data/
+ledger/
+*.log
+playwright-report/
+test-results/
+.vercel
+.env*
+evidence/release-packet/

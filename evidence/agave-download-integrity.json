@@ -1,0 +1,8 @@
+{
+  "expected_size": 77042691,
+  "expected_digest": "sha256:0bfbd769a55e32f0a1fe1b92f76f360f01ee19475facf8c31cb90f99dcca7fe0",
+  "downloaded_size": 71332120,
+  "downloaded_digest": "sha256:1f1b5dd08c3dbb7dc3a56ff6cd56bd61550cf6121c33638e2597cc51c9191302",
+  "response_content_length": "77042691",
+  "passed": false
+}

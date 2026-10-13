@@ -1,0 +1,46 @@
+{
+  "name": "solana-classic",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "24.x"
+  },
+  "packageManager": "pnpm@10.34.7",
+  "scripts": {
+    "dev": "tsx scripts/dev.ts",
+    "dev:web": "pnpm --filter @solana-classic/web dev",
+    "dev:api": "pnpm --filter @solana-classic/api dev",
+    "build": "pnpm --filter @solana-classic/web build",
+    "lint": "eslint apps packages scripts tests",
+    "typecheck": "tsc --noEmit",
+    "test:unit": "vitest run tests/unit",
+    "test:integration": "vitest run tests/integration",
+    "test:e2e": "playwright test",
+    "doctor": "tsx scripts/doctor.ts",
+    "chain:smoke": "tsx scripts/chain-smoke.ts",
+    "ops:restart-check": "tsx scripts/restart-check.ts",
+    "ops:backup-check": "tsx scripts/backup-check.ts",
+    "test:load": "tsx scripts/load.ts",
+    "test:soak": "tsx scripts/soak.ts",
+    "release:check": "node --import tsx scripts/release-check.ts",
+    "release:packet": "node --import tsx scripts/release-packet.ts"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "tsx": "4.23.15",
+    "vitest": "5.0.4",
+    "@playwright/test": "1.64.0",
+    "@types/node": "24.19.2",
+    "eslint": "10.12.0",
+    "@eslint/js": "10.0.1",
+    "typescript-eslint": "8.71.2",
+    "globals": "17.13.0"
+  },
+  "dependencies": {
+    "@solana-classic/config": "workspace:*",
+    "@solana-classic/chain": "workspace:*",
+    "fastestsmallesttextencoderdecoder": "1.0.22",
+    "@solana/web3.js": "1.99.0"
+  }
+}

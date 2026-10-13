@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-13T04:21:52.742Z",
+  "passed": true,
+  "scope": "isolated local Linux x64 container; not the production host or chain proof",
+  "platform": "linux",
+  "architecture": "x64",
+  "node": "24.19.0",
+  "transactionBytes": 372,
+  "avx2": false,
+  "sqlitePersistence": true
+}

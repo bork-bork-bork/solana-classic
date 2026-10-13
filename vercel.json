@@ -1,0 +1,33 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "vite",
+  "installCommand": "pnpm install --frozen-lockfile",
+  "buildCommand": "pnpm --filter @solana-classic/web build",
+  "outputDirectory": "apps/web/dist",
+  "rewrites": [
+    {
+      "source": "/playground",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/gallery",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/explorer",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/explorer/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/network",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/token",
+      "destination": "/index.html"
+    }
+  ]
+}

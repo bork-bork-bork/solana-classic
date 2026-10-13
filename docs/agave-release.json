@@ -1,0 +1,78 @@
+{
+  "tag": "v4.3.0",
+  "published_at": "2026-09-18T12:15:17Z",
+  "assets": [
+    {
+      "name": "agave-install-init-aarch64-apple-darwin",
+      "browser_download_url": "https://github.com/anza-xyz/agave/releases/download/v4.3.0/agave-install-init-aarch64-apple-darwin",
+      "size": 8997056,
+      "digest": "sha256:1b18bd5ad8f4868c198a3e7f1aeed96cdacd66c5ece5b99bd74c40c5e097243b"
+    },
+    {
+      "name": "agave-install-init-x86_64-apple-darwin",
+      "browser_download_url": "https://github.com/anza-xyz/agave/releases/download/v4.3.0/agave-install-init-x86_64-apple-darwin",
+      "size": 9375500,
+      "digest": "sha256:cb76a04da04013dc1fcc496ffb9f43162133008f43f2a49cbf676eb42fa26269"
+    },
+    {
+      "name": "agave-install-init-x86_64-pc-windows-msvc.exe",
+      "browser_download_url": "https://github.com/anza-xyz/agave/releases/download/v4.3.0/agave-install-init-x86_64-pc-windows-msvc.exe",
+      "size": 7947264,
+      "digest": "sha256:ee87ef6198c16a9e754d3e117853846dfcf125452105d4d00dc0621c9070ccf2"
+    },
+    {
+      "name": "agave-install-init-x86_64-unknown-linux-gnu",
+      "browser_download_url": "https://github.com/anza-xyz/agave/releases/download/v4.3.0/agave-install-init-x86_64-unknown-linux-gnu",
+      "size": 10808584,
+      "digest": "sha256:1c2ca01cd33204453fa97762b6fca40772e17e749d58266ea0847d7bc01756e1"
+    },
+    {
+      "name": "solana-release-aarch64-apple-darwin.tar.bz2",
+      "browser_download_url": "https://github.com/anza-xyz/agave/releases/download/v4.3.0/solana-release-aarch64-apple-darwin.tar.bz2",
+      "size": 77042691,
+      "digest": "sha256:0bfbd769a55e32f0a1fe1b92f76f360f01ee19475facf8c31cb90f99dcca7fe0"
+    },
+    {
+      "name": "solana-release-aarch64-apple-darwin.yml",
+      "browser_download_url": "https://github.com/anza-xyz/agave/releases/download/v4.3.0/solana-release-aarch64-apple-darwin.yml",
+      "size": 94,
+      "digest": "sha256:1b2a468c04d68c98b9d91d6cca01e69367619179c9d773938dc7691a2d38564e"
+    },
+    {
+      "name": "solana-release-x86_64-apple-darwin.tar.bz2",
+      "browser_download_url": "https://github.com/anza-xyz/agave/releases/download/v4.3.0/solana-release-x86_64-apple-darwin.tar.bz2",
+      "size": 79669073,
+      "digest": "sha256:4424d399404ec45d55533c60d0b524b7dd9addca7183c650b7b133828bcf558c"
+    },
+    {
+      "name": "solana-release-x86_64-apple-darwin.yml",
+      "browser_download_url": "https://github.com/anza-xyz/agave/releases/download/v4.3.0/solana-release-x86_64-apple-darwin.yml",
+      "size": 93,
+      "digest": "sha256:a51e69f0432b0b65886fcf1ec9ddb13e7fe26a3e11edd16be08f6f28cf0a73d3"
+    },
+    {
+      "name": "solana-release-x86_64-pc-windows-msvc.tar.bz2",
+      "browser_download_url": "https://github.com/anza-xyz/agave/releases/download/v4.3.0/solana-release-x86_64-pc-windows-msvc.tar.bz2",
+      "size": 110741086,
+      "digest": "sha256:27d598632589970a0516a631aae6f91dcba2a072bdc2a32f9a7f547eae7d726e"
+    },
+    {
+      "name": "solana-release-x86_64-pc-windows-msvc.yml",
+      "browser_download_url": "https://github.com/anza-xyz/agave/releases/download/v4.3.0/solana-release-x86_64-pc-windows-msvc.yml",
+      "size": 96,
+      "digest": "sha256:52e6addbbdc12512c4fd2105a7e0d6057ef8c4e0ca0dfd86a3a246bbfd131b96"
+    },
+    {
+      "name": "solana-release-x86_64-unknown-linux-gnu.tar.bz2",
+      "browser_download_url": "https://github.com/anza-xyz/agave/releases/download/v4.3.0/solana-release-x86_64-unknown-linux-gnu.tar.bz2",
+      "size": 84790505,
+      "digest": "sha256:c97289a8abb1d0efb497d8b5cb285baabd9b7f8ea6647f5d145c5dc8ff3611e8"
+    },
+    {
+      "name": "solana-release-x86_64-unknown-linux-gnu.yml",
+      "browser_download_url": "https://github.com/anza-xyz/agave/releases/download/v4.3.0/solana-release-x86_64-unknown-linux-gnu.yml",
+      "size": 98,
+      "digest": "sha256:fdc5cde391f484cc3ab0bfe9df279ed4c0d720a8e1e42c6cf967d5f3b44ed6ec"
+    }
+  ]
+}

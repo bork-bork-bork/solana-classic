@@ -1,0 +1,19 @@
+{
+  "scope": "fresh remote TEST candidate identity/health; complete network release gates pending",
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "recordedFrom": [
+    "authenticated provider startup logs",
+    "public HTTPS /api/network"
+  ],
+  "api": "https://network-release-production.up.railway.app",
+  "provider": "Railway",
+  "projectId": "356bcb0b-49c4-4bd3-bf10-bff7db8f33fe",
+  "serviceId": "d0a1de40-bd9c-47eb-a7fc-477f1c55b2d6",
+  "deploymentId": "aee7d35e-babc-4ed2-a148-7bd717008c43",
+  "volumeId": "080bf785-50e7-4dda-893b-4d613aa5e9a8",
+  "runtime": "Agave3.0.14",
+  "runtimeCommit": "f516a8927c76c07f0ebc54ca7a4ce8b2046eee86",
+  "tokenProgramVersion": "10.0.0",
+  "tokenProgramSha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+  "oldProbes": "Stopped; original volumes and proof records retained. No published release candidate ledger was reset."
+}

@@ -1,0 +1,18 @@
+{
+  "scope": "static frontend preview; network actions disabled; not G7 public devnet",
+  "deployment_id": "dpl_EpR7SFjcVEVrB3dLEHrKE7nZus1c",
+  "url": "https://solana-classic-soc.vercel.app",
+  "immutable_url": "https://solana-classic-ew6nasr0c-trenchfun1.vercel.app",
+  "project_id": "prj_mjv3k9UcoPgxoNvDl2foOIC8R3V9",
+  "team": "trenchfun1",
+  "readyState": "READY",
+  "vercel_node": "24.21.0",
+  "api_connected": false,
+  "latestProductionDeployment": {
+    "id": "dpl_4xfZo6Jw93SyV423BfpT79o7yfyo",
+    "url": "https://solana-classic-o6f5t7fxa-trenchfun1.vercel.app",
+    "publicProduction": "https://solana-classic-soc.vercel.app",
+    "whitepaperVersion": "0.4",
+    "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon"
+  }
+}

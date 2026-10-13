@@ -1,0 +1,11 @@
+{
+  "name": "Solana Classic experimental devnet",
+  "mode": "remote",
+  "expectedGenesisHash": "8wH8dqm9y1LYe95wJAtRVtjjCqU8csTmfNv32NhXGC3v",
+  "denomination": "TEST",
+  "operatorCount": 1,
+  "hasMonetaryValue": false,
+  "tokenProgram": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+  "associatedTokenProgram": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+  "resetPolicy": "Persistent experimental ledger. No automatic reset. Any deliberate reset will be disclosed; test assets have no monetary value."
+}

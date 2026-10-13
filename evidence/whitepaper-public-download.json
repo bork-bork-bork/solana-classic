@@ -1,0 +1,9 @@
+{
+  "url": "https://solana-classic-soc.vercel.app/whitepaper.pdf",
+  "status": 200,
+  "contentType": "application/pdf",
+  "sha256": "58547e935a61cb3f77714e09d5591fb26b87bc228e307be9379a53e8961c0133",
+  "pdf": true,
+  "expectedSha256": "58547e935a61cb3f77714e09d5591fb26b87bc228e307be9379a53e8961c0133",
+  "passed": true
+}

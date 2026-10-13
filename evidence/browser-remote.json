@@ -1,0 +1,25 @@
+{
+  "at": "2026-10-13T05:51:13.818Z",
+  "scope": "isolated Chromium production-origin remote chain journey, not external human pilot or soak",
+  "passed": true,
+  "web": "https://solana-classic-soc.vercel.app",
+  "api": "https://network-release-production.up.railway.app",
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "payer": "HEhWM3NSNzaB8Cn4iHwRk39XwHo37UMPhAyrL4399EZv",
+  "recipient": "GRYb9kCHqEXAoUBGTjiWYRGp71mMCQMB7rmnT2wGdJBM",
+  "memeMint": "6wkqQraV4tUGA9CHLph5ZpXdom7FSAG4C9yBfu2zEEdQ",
+  "nftMint": "5NAoA3xhpSWfYtTyY3Ue1AiavHzgbZYEDHHJtHSMTWR3",
+  "receiptHrefs": [
+    "/explorer/tx/3XMF4mV9aZyEQ4sdQEfA2Z7Vn1wUTKizstBJnsUApekPU3kq1V9h3g9jzHtt7wTG1DzjC71MMD6Pv1qd62wEmGfS",
+    "/explorer/tx/2xkDrcKioxhJ4oDsZwrXCz376jfrA3qAnJ1PAhN7z3hCzEeYfjfRuMsUtRaGzmCN8soto1Gs8bodqpcfDsP6iCGU",
+    "/explorer/tx/46pnfhyzUtsTJaH1V72K7G9gJSd3KCEEb7R2XDwX6vKbN5MsLYxkG68EgmTg7cEHcRN1fM2i6d9uTyKcDieVwAKa",
+    "/explorer/tx/56nPH9aLof16DWy6Mr7EPDqPExaNPgKumC196itgmMjttyx2xdrP6asQJTQDd5SqkK8dsR8CE2Vh4BxArNpxWivm",
+    "/explorer/tx/3Pr7Btbq1XyHfg1CBcAe5YMQXMWLbqdCp4QMT1D3QaZfxdkTs5NQ695spJ63g2gAWa78fMVmJXymYwSZ7wvjT5hY",
+    "/explorer/tx/2PPpW5Zy6NSDALZUNWwNrz3JJa9Y9aN9yWyjq3hqXAEEZAJKJGRv7yhcNbb4q9hDhe8F2ujSMwVWzb5cSgycNpax"
+  ],
+  "widths": [
+    1440,
+    360
+  ],
+  "pageErrors": []
+}

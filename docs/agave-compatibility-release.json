@@ -1,0 +1,15 @@
+{
+  "tag": "v3.0.14",
+  "published_at": "2026-01-10T05:52:08Z",
+  "html_url": "https://github.com/anza-xyz/agave/releases/tag/v3.0.14",
+  "assets": [
+    {
+      "name": "solana-release-x86_64-unknown-linux-gnu.tar.bz2",
+      "browser_download_url": "https://github.com/anza-xyz/agave/releases/download/v3.0.14/solana-release-x86_64-unknown-linux-gnu.tar.bz2",
+      "size": 214232615,
+      "digest": "sha256:65614325423316a48f57f1ceeaa91ca78f4516e165e305b38c01873cf8c6b8b4"
+    }
+  ],
+  "scope": "Official v3.0 compatibility candidate for valueless TEST devnet only; not accepted until actual chain proof",
+  "full_commit": "f516a8927c76c07f0ebc54ca7a4ce8b2046eee86"
+}

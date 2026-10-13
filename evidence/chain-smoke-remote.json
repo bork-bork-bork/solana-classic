@@ -1,0 +1,45 @@
+{
+  "at": "2026-10-13T05:29:17.715Z",
+  "scope": "remote",
+  "api": "https://network-release-production.up.railway.app",
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "passed": true,
+  "publicKeys": [
+    "CNceswmQZP7fWbp5d9JL9haUFPKUAw3LZZEjG8fkqKYz",
+    "EYEK68K13bwbE58d8nrV2c9jmXsDPBiupczybjtgHBw9"
+  ],
+  "receipts": [
+    {
+      "action": "test_funding",
+      "signature": "3K3HVHAijZRHUsUcMdCaa8WUdFKZUobqP2EYhW83NjdMXWBJjRuZRt3KmtgGAyDU8cgBXY6rF7foEx12bStyvN1d"
+    },
+    {
+      "action": "test_funding",
+      "signature": "jeG9uzynyiEafgHX69VMaqcvpenDVJUrbFKp8g9JhUdLt1bbmsgz5bQoMER1tHoWEXyXpFbd9mvoRqSabT5g1LX"
+    },
+    {
+      "action": "native_transfer",
+      "signature": "4jRbMnyEdCmS9N2YjaqR7GsoMNZdySCRzffG2VGBWW5MquthVJRRBmxUDkCQm314xZmaf15w7djN5aJ48bNx5Gb4"
+    },
+    {
+      "action": "meme_issuance",
+      "signature": "5NK6NrqSxB17VcQpYxpBW5w2dY9K7KB7a26NzSVmVkxfJ8v4wEfv64sW8J37ZVgbd7WA8mAaUMJoL7jE6UGyyDV",
+      "mint": "C8TrnpZThQWpAt3kZNj13X3RErYsWKRiQHa3zsZgxfaL"
+    },
+    {
+      "action": "meme_transfer",
+      "signature": "5Kf5UBSkoWsxfAHPy75vEmqcS6Z2piqdUVJqEMKpRcQx2U6weLoGfwuHaUN6c25RjBqpFs3MYafZDdXGJL6S6ij8",
+      "mint": "C8TrnpZThQWpAt3kZNj13X3RErYsWKRiQHa3zsZgxfaL"
+    },
+    {
+      "action": "nft_issuance",
+      "signature": "DHkc3Vdp3GFJ51aaXYvFWkBLqwfVYrJwWLY1oX3rCsvxrNw1wFDeVPNqdYX56tjjMNKhFkxcSFjV5GSUYFwN4gc",
+      "mint": "6Z7UUGhSWUpZwqPjexqAtzjmRhvXsXFpX29ZJpa6ojZm"
+    },
+    {
+      "action": "nft_transfer",
+      "signature": "nVqVPoEntFPdQeWzwp2fQJnSE86BrzvVPh5r5JkC3BMKfZoWkpkMyn3V7EGnLy4SKdDDLusM1TYiR3aBk7SaDcu",
+      "mint": "6Z7UUGhSWUpZwqPjexqAtzjmRhvXsXFpX29ZJpa6ojZm"
+    }
+  ]
+}

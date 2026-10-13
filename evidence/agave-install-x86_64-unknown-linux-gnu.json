@@ -1,0 +1,20 @@
+{
+  "release": "v4.3.0",
+  "platform": "x86_64-unknown-linux-gnu",
+  "archive_sha256": "c97289a8abb1d0efb497d8b5cb285baabd9b7f8ea6647f5d145c5dc8ff3611e8",
+  "archive_bytes": 84790505,
+  "binaries": {
+    "solana": {
+      "path": ".tools/agave-linux-v4.3.0/solana-release/bin/solana",
+      "sha256": "d73247c3de0e8c29491bb58e801e4215b8a6687f9fcc201b047c318d66b31ec6"
+    },
+    "solana-test-validator": {
+      "path": ".tools/agave-linux-v4.3.0/solana-release/bin/solana-test-validator",
+      "sha256": "7988329f2f9141995422be354a840d635c3f6f87a6dbb0f27ec3c062023fa2ed"
+    },
+    "solana-keygen": {
+      "path": ".tools/agave-linux-v4.3.0/solana-release/bin/solana-keygen",
+      "sha256": "fe8c5d646266bdf60befb8a31c01252ff765f408c431fb226561233b5624afe8"
+    }
+  }
+}

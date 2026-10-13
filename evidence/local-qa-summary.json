@@ -1,0 +1,18 @@
+{
+  "at": "2026-10-13T05:20:49Z",
+  "scope": "local unit and mocked integration fixtures; no remote chain gate",
+  "test_files": 3,
+  "passed_tests": 48,
+  "failed_tests": 0,
+  "typecheck": "passed",
+  "lint": "passed",
+  "web_build": "passed",
+  "linux_sdk_sqlite_probe": "passed in isolated local x64 container",
+  "latestFixtureRun": {
+    "at": "2026-10-13T06:09:05.575532+00:00",
+    "scope": "local unit/integration fixtures and release evaluator/packet checks; not remote chain or stability proof",
+    "passed": true,
+    "testFiles": 4,
+    "tests": 86
+  }
+}

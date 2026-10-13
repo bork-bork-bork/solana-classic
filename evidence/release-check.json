@@ -1,0 +1,646 @@
+{
+  "at": "2026-10-13T06:11:52.150Z",
+  "passed": false,
+  "scope": "offline evidence review",
+  "issues": [
+    "Missing or invalid public input: evidence/acceptance-gates.json",
+    "Individual gate manifest must bind schemaVersion 1 and the canonical remote experimental genesis.",
+    "Gate attestations do not bind the current acceptance checklist.",
+    "Candidate apiOrigin must be a permanent HTTPS origin.",
+    "Candidate frontendOrigin must be a permanent HTTPS origin.",
+    "Candidate frontendCommit must identify its deployed source commit.",
+    "Candidate apiCommit must identify its deployed source commit.",
+    "Candidate frontend deployment ID is missing.",
+    "Candidate digest differs from config/network.remote.json.",
+    "Candidate digest differs from docs/dependency-manifest.json."
+  ],
+  "requirements": [
+    {
+      "id": "G0.01",
+      "gate": "G0",
+      "label": "T0 and H144 are recorded without resetting the clock for delays.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G0.02",
+      "gate": "G0",
+      "label": "Active official Agave v3.0.14 compatibility release, official Token-2022 v10.0.0, full commits and executable hashes (retain the failed v4.3.0 probe), Node/pnpm patches and exact JavaScript dependency versions recorded.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G0.03",
+      "gate": "G0",
+      "label": "API/configuration/action schemas agreed by H2; exact SDK and SQLite dependencies proved on Linux by H6.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G0.04",
+      "gate": "G0",
+      "label": "Local build works; remote host/DNS readiness is accurate; hosting budget uses the recorded needs-based allowance without asking for an obsolete GBP cap.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G0.05",
+      "gate": "G0",
+      "label": "Canonical remote metadata hostname/origin is fixed and HTTPS asset service reachable; local fixtures have separate genesis/URI configuration.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G0.06",
+      "gate": "G0",
+      "label": "Vercel team/project access, repository-root build settings and SPA fallback configured by H6; production frontend/API origins selected by H4.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G0.07",
+      "gate": "G0",
+      "label": "Vercel builds only the static web app; SQLite, generated metadata and ledger stay on Linux; managed Vercel Node patch recorded separately.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G0.08",
+      "gate": "G0",
+      "label": "Operator, backup storage and two independent agent pilot assignments are arranged before late implementation stages.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G0.09",
+      "gate": "G0",
+      "label": "Raw API, validator RPC, WebSocket and faucet services cannot be reached from an external machine; only the HTTPS gateway serves public requests.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G0.10",
+      "gate": "G0",
+      "label": "Mainnet signing keys and browser private keys are absent from source, deployment configuration and logs.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G1.01",
+      "gate": "G1",
+      "label": "Configured genesis differs from the current Solana mainnet and devnet genesis hashes.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G1.02",
+      "gate": "G1",
+      "label": "Native TEST transfer has a successful transaction receipt and observed balance change.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G1.03",
+      "gate": "G1",
+      "label": "Script-based meme-token and NFT issuance both succeed on the remote network by H12, with reachable immutable metadata and verified supply/authorities.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G1.04",
+      "gate": "G1",
+      "label": "Slot progression, health and executable program IDs are verified on the intended node.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G1.05",
+      "gate": "G1",
+      "label": "Minimal `/api/assets` returns safe immutable metadata from the permanent remote origin before remote NFT issuance.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G1.06",
+      "gate": "G1",
+      "label": "Pointing the gateway at an unexpected genesis disables every mutation and reports the mismatch.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G1.07",
+      "gate": "G1",
+      "label": "The public configuration records operator count 1 and an experimental reset policy.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G2.01",
+      "gate": "G2",
+      "label": "Browser creates and signs with a memory-only test wallet; its secret never reaches requests, storage or logs.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G2.02",
+      "gate": "G2",
+      "label": "Fungible demo supply is exactly 1,000,000 display units, decimals 6; transfer to another wallet works.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G2.03",
+      "gate": "G2",
+      "label": "NFT supply is exactly 1, decimals 0; transfer to a second wallet changes the on-chain owner.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G2.04",
+      "gate": "G2",
+      "label": "Mint, freeze, pointer and metadata update authorities match the immutable issuance design.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G2.05",
+      "gate": "G2",
+      "label": "Incomplete A/B issuance is labelled incomplete; Resume finishes the same mint without duplicate issuance.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G2.06",
+      "gate": "G2",
+      "label": "Duplicate clicks and transaction retry produce one logical issuance.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G2.07",
+      "gate": "G2",
+      "label": "Validator restart preserves genesis, balances, mints and ownership.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G2.08",
+      "gate": "G2",
+      "label": "The thin remote browser journey includes an actual transaction receipt and asset verification; fixtures are never substituted for remote proof.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G2.09",
+      "gate": "G2",
+      "label": "G2 runs from the actual Vercel production origin by H24 with matching public API/genesis build variables, successful JSON preflight/POST and refreshed explorer deep link.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G3.01",
+      "gate": "G3",
+      "label": "A clean browser can create wallet, claim test funds, create token, mint NFT and transfer assets over HTTPS.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G3.02",
+      "gate": "G3",
+      "label": "All signing screens say TESTNET and no monetary value; wallet loss on reload is disclosed.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G3.03",
+      "gate": "G3",
+      "label": "Real-token release/purchase links are separate from test-wallet controls.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G3.04",
+      "gate": "G3",
+      "label": "Expired blockhash, failed simulation and rejected transaction produce actionable errors and no false success.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G3.05",
+      "gate": "G3",
+      "label": "Hostile asset names render as text and cannot execute markup or scripts.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G3.06",
+      "gate": "G3",
+      "label": "The testnet browser bundle has no mainnet RPC destination or private-key import.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G3.07",
+      "gate": "G3",
+      "label": "Browser requests use the explicit Linux API base; immutable metadata URLs never point to a preview deployment, frontend hostname or localhost.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G3.08",
+      "gate": "G3",
+      "label": "Initial reboot and isolated backup/restore drill passed by H36; baseline gallery/transaction/status views work by H48.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G3.09",
+      "gate": "G3",
+      "label": "Concrete preliminary token-release packet prepared by H48; venue/mode/zero-buy feasibility was checked by H24.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G4.01",
+      "gate": "G4",
+      "label": "Transaction pages show actual status, slot, error and signature from the configured network.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G4.02",
+      "gate": "G4",
+      "label": "Gallery registration rejects forged mint, forged signature, wrong metadata, wrong program and wrong genesis.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G4.03",
+      "gate": "G4",
+      "label": "NFT transfer is reflected in current owner information; cached gallery ownership is not treated as proof.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G4.04",
+      "gate": "G4",
+      "label": "Artwork/metadata remain readable at the same content-hashed paths after app restart.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G4.05",
+      "gate": "G4",
+      "label": "Network outage displays degraded status instead of stale online/success indicators.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G4.06",
+      "gate": "G4",
+      "label": "Explorer scope is disclosed as account/transaction lookup and app-known assets, not exhaustive indexing.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G4.07",
+      "gate": "G4",
+      "label": "Two independent agent testers attempted the clean-browser journey at H48–H60; findings are recorded and failed journeys rerun before the H72 freeze.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G4.08",
+      "gate": "G4",
+      "label": "Filters, rich address inventory and extra artwork are cuttable; they do not block the verified baseline.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G5.01",
+      "gate": "G5",
+      "label": "Public RPC rejects airdrop, administrative methods, arbitrary upstream URLs, batches and excessive bodies.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G5.02",
+      "gate": "G5",
+      "label": "Faucet rejects malformed keys; atomic limits work under concurrent requests and after restart.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G5.03",
+      "gate": "G5",
+      "label": "A request timeout cannot trigger a second faucet grant; pending transactions reconcile by signature.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G5.04",
+      "gate": "G5",
+      "label": "Forged forwarding headers cannot bypass rate limits.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G5.05",
+      "gate": "G5",
+      "label": "Exact production/approved preview CORS origins work; unknown browser origins fail; OPTIONS creates no faucet reservation or mutation; server-side admission remains effective without Origin headers.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G5.06",
+      "gate": "G5",
+      "label": "Asset creation obeys body/generated-file/per-IP/global/storage limits from its first exposure; identical content is idempotent.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G5.07",
+      "gate": "G5",
+      "label": "Disk, memory, stalled-slot and upstream-health probes work and their operator destination is verified.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G5.08",
+      "gate": "G5",
+      "label": "Provider process/container restart and a fresh deployment preserve state; hardware-host reboot is outside Railway operator control.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G5.09",
+      "gate": "G5",
+      "label": "Isolated cold-backup restore recovers the same genesis, balances, assets, metadata and database records.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G5.10",
+      "gate": "G5",
+      "label": "Test scripts fail closed if directed at a real-money network.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G5.11",
+      "gate": "G5",
+      "label": "Source/artwork/upstream notices and configuration contain no secrets.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G5.12",
+      "gate": "G5",
+      "label": "Previous verified Vercel deployment can be restored; production API/status responses are fresh and environment settings are distinct from previews.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G6.01",
+      "gate": "G6",
+      "label": "Keep 20 active sessions; run 100 issuances and 100 transfers over 20 minutes, starting one logical operation every six seconds with pre-funded wallets. Poll at three-second intervals and preserve public admission limits.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G6.02",
+      "gate": "G6",
+      "label": "At least 99 percent of supported logical operations confirm within 15 seconds under the stated workload.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G6.03",
+      "gate": "G6",
+      "label": "Target p95 **confirmed** latency is at most 5 seconds; finalisation is measured separately and never described as instant.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G6.04",
+      "gate": "G6",
+      "label": "Gallery finalisation/verification completes within 60 seconds in the measured experiment.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G6.05",
+      "gate": "G6",
+      "label": "The load test uses unchanged admission controls; separately test expected 429 responses under abuse.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G6.06",
+      "gate": "G6",
+      "label": "Complete agent pilot, reboot, restore and bounded-load drills before H72. Then run an uninterrupted H72–H96 soak with one scheduled smoke journey every five minutes from pre-funded accounts; no unexplained restart or stalled network. Test faucet claims separately within the public limits.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G6.07",
+      "gate": "G6",
+      "label": "Scheduled browser smoke checks use the frozen Vercel production deployment and Linux API; record both deployed commits/configuration and the frontend deployment ID.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G6.08",
+      "gate": "G6",
+      "label": "Repair core runtime/gateway/signing/minting/faucet/storage/recovery defects immediately and run a new full 24-hour soak. H96–H108 repair plus H108–H132 replacement soak is the reserved late-failure window. If time expires first, the public release gate remains failed.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G6.09",
+      "gate": "G6",
+      "label": "Documentation/static-copy/art-selection/mainnet-link changes receive targeted content/browser checks; they do not reset core stability evidence. Executable content, metadata origins and signing logic are excluded from this exception.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G6.10",
+      "gate": "G6",
+      "label": "Publish machine specification, workload, failures, latency distribution and exact test duration.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G6.11",
+      "gate": "G6",
+      "label": "Do not present the workload as a Solana-wide throughput or decentralisation benchmark.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G7.01",
+      "gate": "G7",
+      "label": "First agent pilot ran before H72; final clean-browser regression runs at H96–H108, or after the replacement soak, without developer intervention.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G7.02",
+      "gate": "G7",
+      "label": "Mobile 360 px and desktop 1440 px views are usable; keyboard navigation, labels and focus states work.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G7.03",
+      "gate": "G7",
+      "label": "Public URL, actual genesis, software manifest, operator count and limitations are accessible.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G7.04",
+      "gate": "G7",
+      "label": "Production frontend/deep links and API metadata are reachable anonymously with correct HTTPS/DNS; no deployment login blocks the final public journey.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G7.05",
+      "gate": "G7",
+      "label": "`pnpm release:check` passes every required public-testnet check.",
+      "passed": false,
+      "reason": "Every other required check must pass first."
+    },
+    {
+      "id": "G7.06",
+      "gate": "G7",
+      "label": "Operator receives restart, backup, recovery and monitoring runbooks and verifies access.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G7.07",
+      "gate": "G7",
+      "label": "Handover includes the Vercel project, deployment ID, public environment/DNS settings and verified frontend rollback alongside Linux runbooks.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G7.08",
+      "gate": "G7",
+      "label": "Release statement distinguishes experimental devnet, initial SOC token, future native mainnet and planned 1:1 bridge.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    },
+    {
+      "id": "G7.09",
+      "gate": "G7",
+      "label": "Testnet release is evaluated independently of pending founder-operated token creation; a prepared token does not hold up a passed network release.",
+      "passed": false,
+      "reason": "No passed, individually reviewed evidence."
+    }
+  ],
+  "gates": [
+    {
+      "id": "G0",
+      "passed": false,
+      "passedChecks": 0,
+      "requiredChecks": 10
+    },
+    {
+      "id": "G1",
+      "passed": false,
+      "passedChecks": 0,
+      "requiredChecks": 7
+    },
+    {
+      "id": "G2",
+      "passed": false,
+      "passedChecks": 0,
+      "requiredChecks": 9
+    },
+    {
+      "id": "G3",
+      "passed": false,
+      "passedChecks": 0,
+      "requiredChecks": 9
+    },
+    {
+      "id": "G4",
+      "passed": false,
+      "passedChecks": 0,
+      "requiredChecks": 8
+    },
+    {
+      "id": "G5",
+      "passed": false,
+      "passedChecks": 0,
+      "requiredChecks": 12
+    },
+    {
+      "id": "G6",
+      "passed": false,
+      "passedChecks": 0,
+      "requiredChecks": 11
+    },
+    {
+      "id": "G7",
+      "passed": false,
+      "passedChecks": 0,
+      "requiredChecks": 9
+    }
+  ],
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "clock": {
+    "startedAt": "2026-10-13T03:00:54+00:00",
+    "deadline": "2026-10-19T03:00:54+00:00",
+    "hoursRemaining": 140.81718055555555,
+    "full24HourSoakFits": true
+  },
+  "releaseStates": {
+    "experimental": "preview/experimental preparation; public release blocked",
+    "pumpToken": "not verified by testnet release checks; separate founder authorization and evidence required",
+    "nativeMainnet": "not verified; separate readiness and release decision required",
+    "bridge": "not verified; two-way redemption and reserve conservation require separate proof"
+  },
+  "unresolvedInputs": [
+    "repository_destination",
+    "backup_destination",
+    "separate_authorized_Pump_token_creation",
+    "SOC_developer_holdings_and_acquisition",
+    "native_SOC_supply_reserve_and_bridge_security_design"
+  ],
+  "supportingEvidence": [
+    {
+      "path": "evidence/chain-smoke-remote.json",
+      "passed": true,
+      "canonicalGenesis": true,
+      "scope": "recorded remote operation; review the full result"
+    },
+    {
+      "path": "evidence/browser-remote.json",
+      "passed": true,
+      "canonicalGenesis": true,
+      "scope": "recorded remote operation; review the full result"
+    },
+    {
+      "path": "evidence/restart-check.json",
+      "passed": true,
+      "canonicalGenesis": true,
+      "scope": "remote restart only; backup restore is separately required"
+    },
+    {
+      "path": "evidence/pilot-agent-one.json",
+      "passed": true,
+      "canonicalGenesis": true,
+      "scope": "remote independent agent browser pilot; not human testing"
+    },
+    {
+      "path": "evidence/pilot-agent-two.json",
+      "passed": true,
+      "canonicalGenesis": true,
+      "scope": "remote independent agent browser pilot; not human testing"
+    }
+  ]
+}

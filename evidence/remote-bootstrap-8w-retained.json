@@ -1,0 +1,17 @@
+{
+  "scope": "remote experimental identity and provider deployment; economic/public release gates pending",
+  "genesis": "8wH8dqm9y1LYe95wJAtRVtjjCqU8csTmfNv32NhXGC3v",
+  "recordedFrom": [
+    "authenticated provider startup logs",
+    "public HTTPS /api/network"
+  ],
+  "api": "https://network-compatible-production.up.railway.app",
+  "provider": "Railway",
+  "projectId": "356bcb0b-49c4-4bd3-bf10-bff7db8f33fe",
+  "serviceId": "4fd8c78b-6a9b-4374-a763-999a24b0c840",
+  "deploymentId": "208eafee-ceee-4d67-aa84-6473e4d50e43",
+  "volumeId": "cd298464-bdf5-4f36-81e4-bb584e9fb63c",
+  "runtime": "Agave3.0.14",
+  "runtimeCommit": "f516a8927c76c07f0ebc54ca7a4ce8b2046eee86",
+  "previous4_3Attempt": "preserved failed ledger; io_uring unavailable"
+}

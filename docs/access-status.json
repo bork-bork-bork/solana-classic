@@ -1,0 +1,28 @@
+{
+  "operator": "user",
+  "vercel": {
+    "browser_authenticated": true,
+    "team_slug": "trenchfun1",
+    "team_display_name": "robin",
+    "plan": "Pro",
+    "project": "solana-classic",
+    "project_id": "prj_mjv3k9UcoPgxoNvDl2foOIC8R3V9",
+    "project_url": "https://vercel.com/trenchfun1/solana-classic",
+    "cli_login": "bennyred",
+    "production_preview_url": "https://solana-classic-soc.vercel.app"
+  },
+  "domain": {
+    "owned_domain_supplied": false,
+    "frontend_strategy": "new project default production vercel.app URL",
+    "permanent_api_origin": "pending Linux host/domain provisioning"
+  },
+  "linux_host": {
+    "address": null,
+    "ssh_access": "not supplied",
+    "ovh_account_available": false,
+    "candidate_provider": "Railway",
+    "next_dependency": "Verify Railway account plan, persistent volume and validator CPU compatibility"
+  },
+  "backup": "not supplied",
+  "external_testers": "not arranged; agent QA is separate"
+}

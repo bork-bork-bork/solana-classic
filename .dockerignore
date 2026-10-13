@@ -1,0 +1,17 @@
+.git
+.tools
+.data
+.vercel
+.env
+.env.*
+**/.env
+**/.env.*
+node_modules
+**/node_modules
+**/dist
+docs/whitepaper
+evidence
+tests
+test-results
+playwright-report
+*.log

@@ -1,0 +1,71 @@
+{
+  "at": "2026-10-13",
+  "node_local": "24.19.0",
+  "pnpm": "10.34.7",
+  "packages": {
+    "@solana/web3.js": "1.99.0",
+    "@solana/spl-token": "0.4.15",
+    "@solana/spl-token-metadata": "0.1.6",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "vite": "8.3.4",
+    "@vitejs/plugin-react": "6.1.2",
+    "fastify": "5.12.5",
+    "@fastify/cors": "11.3.1",
+    "better-sqlite3": "13.0.3",
+    "zod": "4.6.7",
+    "tsx": "4.23.15",
+    "vitest": "5.0.4",
+    "@playwright/test": "1.64.0",
+    "pnpm": "10.34.7",
+    "@types/node": "24.19.2",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@types/better-sqlite3": "9.6.0",
+    "buffer": "6.0.3",
+    "vercel": "63.1.2",
+    "eslint": "10.12.0",
+    "@eslint/js": "10.0.1",
+    "typescript-eslint": "8.71.2",
+    "globals": "17.13.0",
+    "@fontsource/space-grotesk": "5.3.0",
+    "@fontsource/ibm-plex-mono": "5.3.0",
+    "typescript": "5.9.3",
+    "fastestsmallesttextencoderdecoder": "1.0.22"
+  },
+  "lockfile_sha256": "3ccff3161ebc9514a32b1e59d699e5d906d4ab6d9ea954205bcbc18a4b300fc4",
+  "agave_release": "v3.0.14",
+  "agave_source_commit_prefix": "f516a892",
+  "mac_archive_verified": true,
+  "linux_archive_verified": true,
+  "full_commit": "f516a8927c76c07f0ebc54ca7a4ce8b2046eee86",
+  "linux_sdk_probe": {
+    "at": "2026-10-13T04:21:52.742Z",
+    "passed": true,
+    "scope": "isolated local Linux x64 container; not the production host or chain proof",
+    "platform": "linux",
+    "architecture": "x64",
+    "node": "24.19.0",
+    "transactionBytes": 372,
+    "avx2": false,
+    "sqlitePersistence": true
+  },
+  "compatibility_notes": [
+    "TypeScript5.9.3 chosen for Solana codec/ESLint peers",
+    "Optional bigint/WebSocket native acceleration disabled; HTTP polling used"
+  ],
+  "vercel_build_node": "24.21.0",
+  "vercel_production_preview_url": "https://solana-classic-soc.vercel.app",
+  "initial_agave_attempt": {
+    "tag": "v4.3.0",
+    "full_commit": "825efd18292aff6ffcf9daa0f7612f21b3531a72",
+    "status": "Verified release; Railway startup failed on unavailable io_uring; retained"
+  },
+  "active_token_program": {
+    "version": "10.0.0",
+    "full_commit": "3350a3ba856f5997c4ade91fd1e5c8b515e5df33",
+    "sha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+    "scope": "Verified official binary loaded at experimental genesis; no custom programme"
+  },
+  "actual_remote_script_proof": "evidence/chain-smoke-remote.json"
+}

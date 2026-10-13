@@ -1,0 +1,19 @@
+{
+  "assets": [
+    {
+      "browser_download_url": "https://github.com/solana-program/token-2022/releases/download/program%40v10.0.0/spl_token_2022-10.0.0.so",
+      "digest": "sha256:a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+      "name": "spl_token_2022-10.0.0.so",
+      "size": 506896
+    },
+    {
+      "browser_download_url": "https://github.com/solana-program/token-2022/releases/download/program%40v10.0.0/spl_token_2022.so",
+      "digest": "sha256:a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+      "name": "spl_token_2022.so",
+      "size": 506896
+    }
+  ],
+  "html_url": "https://github.com/solana-program/token-2022/releases/tag/program%40v10.0.0",
+  "tag_name": "program@v10.0.0",
+  "full_commit": "3350a3ba856f5997c4ade91fd1e5c8b515e5df33"
+}

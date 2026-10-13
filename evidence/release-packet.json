@@ -1,0 +1,288 @@
+{
+  "at": "2026-10-13T06:11:48.953Z",
+  "passed": false,
+  "scope": "offline sanitized public evidence packet",
+  "releaseAccepted": false,
+  "destination": "evidence/release-packet",
+  "inventory": [
+    {
+      "source": "config/launch.json",
+      "output": "config__launch.json",
+      "sourceSha256": "f34c0ea9cca1e01001e429e4bb366ddeadd812457dfc092e6e2ebaf05985f39e",
+      "sanitizedSha256": "f34c0ea9cca1e01001e429e4bb366ddeadd812457dfc092e6e2ebaf05985f39e",
+      "bytes": 1008
+    },
+    {
+      "source": "config/network.json",
+      "output": "config__network.json",
+      "sourceSha256": "c81d5ac8fa4319b87b3cff75b39c39a8b07a1f5cfab6e46293224bd90ff2bdec",
+      "sanitizedSha256": "c81d5ac8fa4319b87b3cff75b39c39a8b07a1f5cfab6e46293224bd90ff2bdec",
+      "bytes": 467
+    },
+    {
+      "source": "config/network.remote.json",
+      "output": "config__network.remote.json",
+      "sourceSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+      "sanitizedSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+      "bytes": 510
+    },
+    {
+      "source": "docs/agave-compatibility-release.json",
+      "output": "docs__agave-compatibility-release.json",
+      "sourceSha256": "f813183d22f230bbc013cede8e1e6e6639bf380a8d4d23195597cdbcc60a43ac",
+      "sanitizedSha256": "f813183d22f230bbc013cede8e1e6e6639bf380a8d4d23195597cdbcc60a43ac",
+      "bytes": 672
+    },
+    {
+      "source": "docs/agave-release.json",
+      "output": "docs__agave-release.json",
+      "sourceSha256": "ae98f7810ec875a4583090816789c2c9ee802585371bd8fd4ce1cae3e078666f",
+      "sanitizedSha256": "ae98f7810ec875a4583090816789c2c9ee802585371bd8fd4ce1cae3e078666f",
+      "bytes": 3918
+    },
+    {
+      "source": "docs/dependency-manifest.json",
+      "output": "docs__dependency-manifest.json",
+      "sourceSha256": "e6da27717e6a84ca7b29d707ff63591b2ff0cfc38892d3b4667f8615bdf7bbc0",
+      "sanitizedSha256": "916f77ca56c09e59e1538675058f57284eb83c5e86705006b709e9e27f3ce84f",
+      "bytes": 2452
+    },
+    {
+      "source": "docs/planning/launch-inputs.json",
+      "output": "docs__planning__launch-inputs.json",
+      "sourceSha256": "e875984f916d594f62f49820590d48616105e713aa297bdd58bdf0040150804b",
+      "sanitizedSha256": "cd1e160e1e69c91054f2ec338cbffe02946f1cf8b340b1f243a1d9d4d6f7f39e",
+      "bytes": 7379
+    },
+    {
+      "source": "docs/resolved-package-versions.json",
+      "output": "docs__resolved-package-versions.json",
+      "sourceSha256": "c358d3c7db44a439499a6cb34e36b4ab77cc58f3a8646e8913bfef1f25e781ae",
+      "sanitizedSha256": "c358d3c7db44a439499a6cb34e36b4ab77cc58f3a8646e8913bfef1f25e781ae",
+      "bytes": 829
+    },
+    {
+      "source": "docs/sprint-clock.json",
+      "output": "docs__sprint-clock.json",
+      "sourceSha256": "d4a27ecfe0806d0efd5a2ea4310c888459ad0416afdf290a82dddb5cad8bbd8f",
+      "sanitizedSha256": "d4a27ecfe0806d0efd5a2ea4310c888459ad0416afdf290a82dddb5cad8bbd8f",
+      "bytes": 2260
+    },
+    {
+      "source": "docs/token-program-release.json",
+      "output": "docs__token-program-release.json",
+      "sourceSha256": "102284543f657b73cae643ddd363260d9439006fe6afc98eec5b2d12ae552ef3",
+      "sanitizedSha256": "102284543f657b73cae643ddd363260d9439006fe6afc98eec5b2d12ae552ef3",
+      "bytes": 806
+    },
+    {
+      "source": "evidence/agave-download-integrity.json",
+      "output": "evidence__agave-download-integrity.json",
+      "sourceSha256": "4a70f8000b33b280c6976e0941cb1c805018049812c447118c90d33844ace7f0",
+      "sanitizedSha256": "4a70f8000b33b280c6976e0941cb1c805018049812c447118c90d33844ace7f0",
+      "bytes": 317
+    },
+    {
+      "source": "evidence/agave-install-x86_64-unknown-linux-gnu.json",
+      "output": "evidence__agave-install-x86_64-unknown-linux-gnu.json",
+      "sourceSha256": "ee5afa295d61113d54561f752de03b6d720f242e18055276bca25e6d4c7c9d1a",
+      "sanitizedSha256": "ee5afa295d61113d54561f752de03b6d720f242e18055276bca25e6d4c7c9d1a",
+      "bytes": 774
+    },
+    {
+      "source": "evidence/browser-remote.json",
+      "output": "evidence__browser-remote.json",
+      "sourceSha256": "fe21c4c35caa3844c421bce6a562b0744d5b3c1f4666bcbc8c0553150877a998",
+      "sanitizedSha256": "b5cace0df41eb13028af6fc1bb1e8340e99a4e7370c2470621ca047f8849a4c5",
+      "bytes": 1317
+    },
+    {
+      "source": "evidence/chain-smoke-8w-failed-metadata.json",
+      "output": "evidence__chain-smoke-8w-failed-metadata.json",
+      "sourceSha256": "a56a338f7b78dc065541fdff421033ccf20c6f7f2eebf19b13eadaab60962ac0",
+      "sanitizedSha256": "cb9c17e738b69a0550aad37714e5724d81cbc1c6a1fe67a5cfd045f8160a1097",
+      "bytes": 1302
+    },
+    {
+      "source": "evidence/chain-smoke-remote.json",
+      "output": "evidence__chain-smoke-remote.json",
+      "sourceSha256": "6b0b1a644b4bca70fa797935c60e13892bff53df45881104e03e765d6e03e97d",
+      "sanitizedSha256": "6ff876114763a69cb64b2c6816badaad3b0c8cc8fe746ec8117106000ac497da",
+      "bytes": 1682
+    },
+    {
+      "source": "evidence/doctor.json",
+      "output": "evidence__doctor.json",
+      "sourceSha256": "7920c0e6d86f87870042be8a2287b67776a2ec044c9a38a523d9af22d7e7a7fe",
+      "sanitizedSha256": "7920c0e6d86f87870042be8a2287b67776a2ec044c9a38a523d9af22d7e7a7fe",
+      "bytes": 924
+    },
+    {
+      "source": "evidence/frontend-anonymous-check.json",
+      "output": "evidence__frontend-anonymous-check.json",
+      "sourceSha256": "1f2c80782cd66b4ea30135e2f653614367c2a9558169137fca08fff444b1520f",
+      "sanitizedSha256": "1f2c80782cd66b4ea30135e2f653614367c2a9558169137fca08fff444b1520f",
+      "bytes": 899
+    },
+    {
+      "source": "evidence/frontend-deployment.json",
+      "output": "evidence__frontend-deployment.json",
+      "sourceSha256": "9535320110ef458abd6a437139b60f3e5d048bcecbe876c69d4a0fac13667513",
+      "sanitizedSha256": "039486843fc5c3689fb1b38cc6c28e7944b4f5a442142ab5130e216c05279d72",
+      "bytes": 743
+    },
+    {
+      "source": "evidence/linux-sdk-sqlite-probe.json",
+      "output": "evidence__linux-sdk-sqlite-probe.json",
+      "sourceSha256": "a44ede071c4a60b419ce22258fca2f47abc9f3821433c43f67ec46e4dbc9d898",
+      "sanitizedSha256": "a44ede071c4a60b419ce22258fca2f47abc9f3821433c43f67ec46e4dbc9d898",
+      "bytes": 288
+    },
+    {
+      "source": "evidence/local-qa-summary.json",
+      "output": "evidence__local-qa-summary.json",
+      "sourceSha256": "389a368a823fe6f5f725b5104604577baf47dfc877a0f0a2f6e02439d9186434",
+      "sanitizedSha256": "389a368a823fe6f5f725b5104604577baf47dfc877a0f0a2f6e02439d9186434",
+      "bytes": 568
+    },
+    {
+      "source": "evidence/pilot-agent-one.json",
+      "output": "evidence__pilot-agent-one.json",
+      "sourceSha256": "54d53d506e59fe9dfc2dc6ece8dfeb08ae01afea10f8acb6236dffb161b42bd9",
+      "sanitizedSha256": "b86d1b956b384ecaa9ceb0841c91d8b62683118b3f59be31bf9d43d8211e73c5",
+      "bytes": 5846
+    },
+    {
+      "source": "evidence/pilot-agent-two.json",
+      "output": "evidence__pilot-agent-two.json",
+      "sourceSha256": "71468caba8e817f3f53fa0d347372133e88db7761feea6448a429f5b4451acae",
+      "sanitizedSha256": "aeac3e29bfa3600f578a6689317db22d1d98c1abb3b86801c9bbc16d8d58101d",
+      "bytes": 4779
+    },
+    {
+      "source": "evidence/railway-source-upload-compatible.json",
+      "output": "evidence__railway-source-upload-compatible.json",
+      "sourceSha256": "36e715b2e270198d46e04ecdc9d461c6594160f30c187b09be2e8e03339d0627",
+      "sanitizedSha256": "36e715b2e270198d46e04ecdc9d461c6594160f30c187b09be2e8e03339d0627",
+      "bytes": 4229
+    },
+    {
+      "source": "evidence/railway-source-upload-release.json",
+      "output": "evidence__railway-source-upload-release.json",
+      "sourceSha256": "3860233153a7a2937109d0ea2d5420f6658e20a81d4a753ca290064e5e23a64a",
+      "sanitizedSha256": "3860233153a7a2937109d0ea2d5420f6658e20a81d4a753ca290064e5e23a64a",
+      "bytes": 4572
+    },
+    {
+      "source": "evidence/railway-source-upload.json",
+      "output": "evidence__railway-source-upload.json",
+      "sourceSha256": "1d2fa977029f4a3feff8d059ecfb1485001065a55749637c8900f061705d1613",
+      "sanitizedSha256": "dbed375f4e3862de652f16cc2089f5190fcdf3612612eb08dd3a9aedccaef2cb",
+      "bytes": 4035
+    },
+    {
+      "source": "evidence/remote-bootstrap-8w-retained.json",
+      "output": "evidence__remote-bootstrap-8w-retained.json",
+      "sourceSha256": "4860b291dc60deea160929acca511f9aabac7baeea234254809e53b2eb4f0354",
+      "sanitizedSha256": "05866ec7b619bcb4edd9dc79833b440d297663866e0cf6bf7a23afdffd12ef5e",
+      "bytes": 747
+    },
+    {
+      "source": "evidence/remote-bootstrap.json",
+      "output": "evidence__remote-bootstrap.json",
+      "sourceSha256": "00c44219f0b56fb8edc149d562048568b699859b3fdff9f813ddf27d62c5c39a",
+      "sanitizedSha256": "4e6c3f41dad02a79a703885c999cda0ccd7c08fcfc102334871186d651c095cf",
+      "bytes": 911
+    },
+    {
+      "source": "evidence/restart-baseline.json",
+      "output": "evidence__restart-baseline.json",
+      "sourceSha256": "3690697d9d711e91b9161d4f0ab945090003c14b445749abad8b787bb69ea998",
+      "sanitizedSha256": "e2d1117769650e9f93ed5db27acd39b32f6543d7eb8acda095c1751f723f55f1",
+      "bytes": 3861
+    },
+    {
+      "source": "evidence/restart-check.json",
+      "output": "evidence__restart-check.json",
+      "sourceSha256": "5cd68debed730edd4e85fbf4a07bf6cf8d4dfc4d8cd0689a21aa566c0a343565",
+      "sanitizedSha256": "df287dc4e01da813b6fb429da93847108aac87af933db7aee431e2f38b24584f",
+      "bytes": 6939
+    },
+    {
+      "source": "evidence/whitepaper-public-download.json",
+      "output": "evidence__whitepaper-public-download.json",
+      "sourceSha256": "a52725f512172669318561d6985b6e81e3a16ea089df85bc9dd6420ee8fc3c65",
+      "sanitizedSha256": "a52725f512172669318561d6985b6e81e3a16ea089df85bc9dd6420ee8fc3c65",
+      "bytes": 322
+    },
+    {
+      "source": "package.json",
+      "output": "package.json",
+      "sourceSha256": "350bd61db53dbb69331eb0c404008f21e76e37b93567bd015324d5b3c4664958",
+      "sanitizedSha256": "350bd61db53dbb69331eb0c404008f21e76e37b93567bd015324d5b3c4664958",
+      "bytes": 1493
+    },
+    {
+      "source": "vercel.json",
+      "output": "vercel.json",
+      "sourceSha256": "26c65b9080866e136c959ee40849b29c2de863d2ec34b3394f1a32aeaef59652",
+      "sanitizedSha256": "26c65b9080866e136c959ee40849b29c2de863d2ec34b3394f1a32aeaef59652",
+      "bytes": 719
+    },
+    {
+      "source": "CONTRIBUTING.md",
+      "output": "CONTRIBUTING.md",
+      "sourceSha256": "add9812ec6bcfbd40720ef83b70333798f2a322a7ce1df8b3998c6597b5f0eab",
+      "sanitizedSha256": "add9812ec6bcfbd40720ef83b70333798f2a322a7ce1df8b3998c6597b5f0eab",
+      "bytes": 1684
+    },
+    {
+      "source": "docs/CONTRACTS.md",
+      "output": "docs__CONTRACTS.md",
+      "sourceSha256": "60f3f224dbdfe6cd1811fde852b99fae7143f0220c22a264f072be8352e07c33",
+      "sanitizedSha256": "60f3f224dbdfe6cd1811fde852b99fae7143f0220c22a264f072be8352e07c33",
+      "bytes": 2234
+    },
+    {
+      "source": "docs/COMPATIBILITY.md",
+      "output": "docs__COMPATIBILITY.md",
+      "sourceSha256": "de5b4e07346f2375029350bd51c182b8c99e76c08262568d89597344b1806224",
+      "sanitizedSha256": "de5b4e07346f2375029350bd51c182b8c99e76c08262568d89597344b1806224",
+      "bytes": 1848
+    },
+    {
+      "source": "docs/planning/NATIVE_SOC_DECISION.md",
+      "output": "docs__planning__NATIVE_SOC_DECISION.md",
+      "sourceSha256": "9091f6fbc5315553db282bcdd5043c26ee66aa7882da9c3b12b27b8110b53136",
+      "sanitizedSha256": "9091f6fbc5315553db282bcdd5043c26ee66aa7882da9c3b12b27b8110b53136",
+      "bytes": 5875
+    },
+    {
+      "source": "docs/planning/ACCEPTANCE_CHECKLIST.md",
+      "output": "docs__planning__ACCEPTANCE_CHECKLIST.md",
+      "sourceSha256": "fc2a3617430bf6ed0cc8d5b379a3f8161c6e1cf32d18b4f3ac3c3cbae15a55be",
+      "sanitizedSha256": "fc2a3617430bf6ed0cc8d5b379a3f8161c6e1cf32d18b4f3ac3c3cbae15a55be",
+      "bytes": 11880
+    }
+  ],
+  "skipped": [],
+  "releaseStates": {
+    "experimental": "preview/experimental preparation; public release blocked",
+    "pumpToken": "not verified by testnet release checks; separate founder authorization and evidence required",
+    "nativeMainnet": "not verified; separate readiness and release decision required",
+    "bridge": "not verified; two-way redemption and reserve conservation require separate proof"
+  },
+  "unresolvedInputs": [
+    "repository_destination",
+    "backup_destination",
+    "separate_authorized_Pump_token_creation",
+    "SOC_developer_holdings_and_acquisition",
+    "native_SOC_supply_reserve_and_bridge_security_design"
+  ],
+  "clock": {
+    "startedAt": "2026-10-13T03:00:54+00:00",
+    "deadline": "2026-10-19T03:00:54+00:00",
+    "hoursRemaining": 140.8180686111111,
+    "full24HourSoakFits": true
+  }
+}

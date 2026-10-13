@@ -1,0 +1,18 @@
+import { mkdirSync, readFileSync } from 'node:fs';
+import { Keypair, Transaction, VersionedTransaction } from '@solana/web3.js';
+import { Store } from '../apps/api/src/store.js';
+import { issuanceInstructions, encodeBase58 } from '@solana-classic/chain';
+import { evidence } from './evidence.js';
+const payer = Keypair.generate(); const mint = Keypair.generate();
+const document = { mint: mint.publicKey.toBase58(), kind: 'nft' as const, name: 'Linux probe', symbol: 'PROBE', presetId: 0, contentHash: '0'.repeat(64), uri: 'https://fixture.invalid/assets/probe/metadata.json', image: 'https://fixture.invalid/assets/probe/image.svg' };
+const tx = new Transaction({ feePayer: payer.publicKey, recentBlockhash: Keypair.generate().publicKey.toBase58() }).add(...issuanceInstructions(payer.publicKey, document));
+const signed = new VersionedTransaction(tx.compileMessage()); signed.sign([payer]);
+if (signed.serialize().length > 1232 || encodeBase58(signed.signatures[0]!).length < 80) throw new Error('SDK signing/encoding compatibility failed.');
+mkdirSync('/tmp/solana-classic-probe', { recursive: true });
+const store = new Store('/tmp/solana-classic-probe'); const requestId = crypto.randomUUID();
+const grant = store.reserveFaucet(payer.publicKey.toBase58(), '192.0.2.1', requestId); if (!grant.created) throw new Error('SQLite grant not reserved.');
+store.updateFaucet(requestId, 'uncertain', null, 'Fixture response timeout'); store.close();
+const reopened = new Store('/tmp/solana-classic-probe'); if (reopened.reserveFaucet(payer.publicKey.toBase58(), '192.0.2.1', requestId).created) throw new Error('SQLite persistence failed.'); reopened.close();
+const cpuFlags = readFileSync('/proc/cpuinfo', 'utf8').split('\n').find(s => s.startsWith('flags')) ?? '';
+evidence('linux-sdk-sqlite-probe', { at: new Date().toISOString(), passed: true, scope: 'isolated local Linux x64 container; not the production host or chain proof', platform: process.platform, architecture: process.arch, node: process.versions.node, transactionBytes: signed.serialize().length, avx2: cpuFlags.includes('avx2'), sqlitePersistence: true });
+console.log('Linux SDK/SQLite probe passed. No network transaction was sent. AVX2:', cpuFlags.includes('avx2'));

@@ -1,0 +1,15 @@
+import { mkdirSync, writeFileSync, existsSync } from 'node:fs';
+import { resolve } from 'node:path';
+import { Keypair } from '@solana/web3.js';
+import { configuredApi, root } from './evidence.js';
+const { api, facts } = await configuredApi();
+if (facts.mode !== 'remote') throw new Error('QA wallet preparation requires the canonical remote TEST network.');
+const directory = resolve(root, '.data'); mkdirSync(directory, { recursive: true, mode: 0o700 });
+const walletsPath = resolve(directory, 'qa-wallets.json'); const funderPath = resolve(directory, 'soak-funder.json');
+if (existsSync(walletsPath) || existsSync(funderPath)) throw new Error('Existing QA keys retained; never overwrite them.');
+const encode = (key: Keypair) => ({ publicKey: key.publicKey.toBase58(), secretKey: [...key.secretKey] });
+const wallets = Array.from({ length: 20 }, () => encode(Keypair.generate()));
+const funder = encode(Keypair.generate());
+writeFileSync(walletsPath, JSON.stringify({ genesis: facts.expectedGenesisHash, api, wallets }) + '\n', { mode: 0o600, flag: 'wx' });
+writeFileSync(funderPath, JSON.stringify({ genesis: facts.expectedGenesisHash, api, ...funder }) + '\n', { mode: 0o600, flag: 'wx' });
+console.log(JSON.stringify({ scope: 'public TEST funding destinations only', genesis: facts.expectedGenesisHash, wallets: wallets.map(w => ({ publicKey: w.publicKey, lamports: 100_000_000 })), funder: { publicKey: funder.publicKey, lamports: 6_000_000_000 } }));

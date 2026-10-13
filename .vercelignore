@@ -1,0 +1,15 @@
+.tools/
+.data/
+.git/
+.env
+.env.*
+**/.env
+**/.env.*
+node_modules/
+**/node_modules/
+docs/
+evidence/
+tests/
+infra/
+playwright-report/
+test-results/

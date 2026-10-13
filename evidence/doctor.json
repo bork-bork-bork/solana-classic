@@ -1,0 +1,37 @@
+{
+  "at": "2026-10-13T05:49:21.722Z",
+  "scope": "local preflight; remote gates evaluated separately",
+  "passed": true,
+  "checks": [
+    {
+      "name": "Node 24",
+      "passed": true,
+      "detail": "24.19.0"
+    },
+    {
+      "name": "pnpm 10 pin",
+      "passed": true,
+      "detail": "pnpm@10.34.7"
+    },
+    {
+      "name": "Frozen lockfile",
+      "passed": true,
+      "detail": "pnpm-lock.yaml"
+    },
+    {
+      "name": "Verified local Agave fixture binary",
+      "passed": true,
+      "detail": "solana-test-validator 4.3.0 (src:825efd18; feat:c9ad34d2, client:Agave); distinct from active remote compatibility runtime"
+    },
+    {
+      "name": "Experimental network and programs",
+      "passed": true,
+      "detail": "remote: 7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon"
+    },
+    {
+      "name": "Actual remote runtime matches manifest",
+      "passed": true,
+      "detail": "3.0.14"
+    }
+  ]
+}

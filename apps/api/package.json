@@ -1,0 +1,24 @@
+{
+  "name": "@solana-classic/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "fastify": "5.12.5",
+    "@fastify/cors": "11.3.1",
+    "better-sqlite3": "13.0.3",
+    "zod": "4.6.7",
+    "@solana/web3.js": "1.99.0",
+    "@solana/spl-token": "0.4.15",
+    "@solana-classic/config": "workspace:*",
+    "@solana-classic/chain": "workspace:*",
+    "fastestsmallesttextencoderdecoder": "1.0.22"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "9.6.0"
+  },
+  "scripts": {
+    "dev": "tsx watch src/main.ts",
+    "start": "tsx src/main.ts"
+  }
+}
