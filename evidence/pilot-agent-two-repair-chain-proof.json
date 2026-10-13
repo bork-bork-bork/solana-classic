@@ -1,0 +1,136 @@
+{
+  "at": "2026-10-13T16:08:23.703Z",
+  "scope": "remote read-only canonical TEST chain verification supporting actual browser agent pilot two",
+  "candidate": {
+    "apiOrigin": "https://network-release-production.up.railway.app",
+    "frontendOrigin": "https://solana-classic-soc.vercel.app",
+    "frontendDeploymentId": "dpl_3aWWzKDohr4SrgijgrB8dWgHHS5r",
+    "frontendCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "apiCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "networkConfigSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+    "dependencyManifestSha256": "e6da27717e6a84ca7b29d707ff63591b2ff0cfc38892d3b4667f8615bdf7bbc0"
+  },
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "mint": "CqdxuuCpkFPhkqMpEsUkjGzMRVViM1JHgBdNYoRxthtw",
+  "recipient": "5cDTe2rbKApay1fcavMEr5u8oRWPgt8azDakayqdL1rF",
+  "walletCreated": false,
+  "signedTransactions": 0,
+  "submittedTransactions": 0,
+  "faucetCalls": 0,
+  "methods": [
+    "getGenesisHash",
+    "getSignatureStatuses",
+    "getAccountInfo",
+    "getTokenAccountsByOwner",
+    "getTransaction"
+  ],
+  "passed": true,
+  "actualGenesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "signatureStatuses": [
+    {
+      "signature": "5n227roi8nWF48N3FThxzv6hPPdPRqVjADG7LMC3SHXwhzEvDLsiHZRyBaJ1hUvW7nL6YMZggTGhnz7BgzW7TYwX",
+      "confirmationStatus": "finalized",
+      "confirmations": null,
+      "err": null,
+      "slot": 90145,
+      "status": {
+        "Ok": null
+      }
+    },
+    {
+      "signature": "e17zXT1YyMYEC1xtjxoMy1oWkP4VgXUvsPV5B3VsTNeBpVo4k2DmiRiQyVwDnDYGomKS7MJzAVgEqEaBTnVFZ5D",
+      "confirmationStatus": "finalized",
+      "confirmations": null,
+      "err": null,
+      "slot": 90449,
+      "status": {
+        "Ok": null
+      }
+    },
+    {
+      "signature": "5K55ursjKd5W3zuivt41x6SkBdJoyw1EKnWVekzYLWMF9ngV16vJc7WTgcAnFA819VhxvD5TXiUbDS6jAfH3iN3J",
+      "confirmationStatus": "finalized",
+      "confirmations": null,
+      "err": null,
+      "slot": 90553,
+      "status": {
+        "Ok": null
+      }
+    }
+  ],
+  "gallery": {
+    "mint": "CqdxuuCpkFPhkqMpEsUkjGzMRVViM1JHgBdNYoRxthtw",
+    "kind": "nft",
+    "name": "PilotRepairTwo",
+    "symbol": "PATWOR",
+    "presetId": 0,
+    "contentHash": "724d62ec0e9d602d4630bd4d581b9407bcc6f4d2aae71bf9860a0620e42a8ed9",
+    "uri": "https://network-release-production.up.railway.app/assets/724d62ec0e9d602d4630bd4d581b9407bcc6f4d2aae71bf9860a0620e42a8ed9/metadata.json",
+    "image": "https://network-release-production.up.railway.app/assets/724d62ec0e9d602d4630bd4d581b9407bcc6f4d2aae71bf9860a0620e42a8ed9/image.svg",
+    "issuanceSignature": "e17zXT1YyMYEC1xtjxoMy1oWkP4VgXUvsPV5B3VsTNeBpVo4k2DmiRiQyVwDnDYGomKS7MJzAVgEqEaBTnVFZ5D",
+    "verifiedAt": "2026-10-13T16:03:29.713Z",
+    "currentOwner": "5cDTe2rbKApay1fcavMEr5u8oRWPgt8azDakayqdL1rF",
+    "ownershipState": "held"
+  },
+  "mintProgramOwner": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+  "mintInfo": {
+    "decimals": 0,
+    "extensions": [
+      {
+        "extension": "metadataPointer",
+        "state": {
+          "authority": null,
+          "metadataAddress": "CqdxuuCpkFPhkqMpEsUkjGzMRVViM1JHgBdNYoRxthtw"
+        }
+      },
+      {
+        "extension": "tokenMetadata",
+        "state": {
+          "additionalMetadata": [],
+          "mint": "CqdxuuCpkFPhkqMpEsUkjGzMRVViM1JHgBdNYoRxthtw",
+          "name": "PilotRepairTwo",
+          "symbol": "PATWOR",
+          "updateAuthority": null,
+          "uri": "https://network-release-production.up.railway.app/assets/724d62ec0e9d602d4630bd4d581b9407bcc6f4d2aae71bf9860a0620e42a8ed9/metadata.json"
+        }
+      }
+    ],
+    "freezeAuthority": null,
+    "isInitialized": true,
+    "mintAuthority": null,
+    "supply": "1"
+  },
+  "recipientTokenAccounts": [
+    {
+      "address": "8Y97Uso4mMzouMjK8rNrzUSmGeSZLrD4BpYcBTzZ25F5",
+      "info": {
+        "extensions": [
+          {
+            "extension": "immutableOwner"
+          }
+        ],
+        "isNative": false,
+        "mint": "CqdxuuCpkFPhkqMpEsUkjGzMRVViM1JHgBdNYoRxthtw",
+        "owner": "5cDTe2rbKApay1fcavMEr5u8oRWPgt8azDakayqdL1rF",
+        "state": "initialized",
+        "tokenAmount": {
+          "amount": "1",
+          "decimals": 0,
+          "uiAmount": 1,
+          "uiAmountString": "1"
+        }
+      }
+    }
+  ],
+  "transferReceipt": {
+    "signature": "5K55ursjKd5W3zuivt41x6SkBdJoyw1EKnWVekzYLWMF9ngV16vJc7WTgcAnFA819VhxvD5TXiUbDS6jAfH3iN3J",
+    "slot": 90553,
+    "blockTime": 1791907438,
+    "err": null,
+    "feeLamports": 5000,
+    "programs": [
+      "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+      "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+    ]
+  }
+}

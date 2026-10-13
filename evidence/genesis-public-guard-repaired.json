@@ -1,0 +1,44 @@
+{
+  "at": "2026-10-13T15:33:34.246Z",
+  "scope": "remote hosted current SDK rejection of actual public RPC genesis with matched expected identity; getGenesisHash only, no wallet or transaction calls",
+  "passed": true,
+  "serviceId": "5225cb9c-16af-4ec2-863e-a02f1c199fb3",
+  "deploymentId": "69bb0517-9ada-4b7c-a5fa-af837034003b",
+  "sourceCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+  "coreSha256": "30697f3e9b441b05a036d0704b42322d723b3998840ed43d88b18a0d7ef7d1dd",
+  "chainSourceSha256": "e9d9822a428e92eef96b35155a3cf6b34191d3ae117d385e96b3f0a5b2c5ef0c",
+  "checks": [
+    {
+      "network": "mainnet-beta",
+      "rpc": "https://api.mainnet-beta.solana.com",
+      "expectedGenesis": "5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d",
+      "observedGenesis": "5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d",
+      "matchedExpectedActual": true,
+      "deniedByCurrentSDK": true,
+      "rejection": "Experimental network identity is not verified. Transactions are disabled.",
+      "methods": [
+        "getGenesisHash"
+      ]
+    },
+    {
+      "network": "devnet",
+      "rpc": "https://api.devnet.solana.com",
+      "expectedGenesis": "EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG",
+      "observedGenesis": "EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG",
+      "matchedExpectedActual": true,
+      "deniedByCurrentSDK": true,
+      "rejection": "Experimental network identity is not verified. Transactions are disabled.",
+      "methods": [
+        "getGenesisHash"
+      ]
+    }
+  ],
+  "walletCreated": false,
+  "signedTransactions": 0,
+  "submittedTransactions": 0,
+  "faucetCalls": 0,
+  "verifierSource": {
+    "path": "evidence/genesis-public-guard-verifier.mjs",
+    "sha256": "3bb8f06cfb8c1c3aca562c66567d790e2eb002a353164299628e704e246adc65"
+  }
+}

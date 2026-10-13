@@ -1,0 +1,210 @@
+{
+  "at": "2026-10-13T15:46:29.898Z",
+  "scope": "repository source review of byte-identical gateway admission and verification controls; historical execution is recorded separately",
+  "passed": true,
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "candidate": {
+    "apiOrigin": "https://network-release-production.up.railway.app",
+    "frontendOrigin": "https://solana-classic-soc.vercel.app",
+    "frontendDeploymentId": "dpl_3aWWzKDohr4SrgijgrB8dWgHHS5r",
+    "frontendCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "apiCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "networkConfigSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+    "dependencyManifestSha256": "e6da27717e6a84ca7b29d707ff63591b2ff0cfc38892d3b4667f8615bdf7bbc0"
+  },
+  "initialCommit": "dbefebde308d4f4f2efbeaa70d737aeda69cf2cd",
+  "finalCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+  "files": [
+    {
+      "path": "apps/api/src/app.ts",
+      "initialSha256": "ac3bd0b827ebce48e22b2e8db6704e624b4243a4ef2a23bf329bedc934af3056",
+      "finalSha256": "ac3bd0b827ebce48e22b2e8db6704e624b4243a4ef2a23bf329bedc934af3056",
+      "workingTreeSha256": "ac3bd0b827ebce48e22b2e8db6704e624b4243a4ef2a23bf329bedc934af3056",
+      "byteIdentical": true,
+      "workingMatchesFinal": true
+    },
+    {
+      "path": "apps/api/src/settings.ts",
+      "initialSha256": "6cab157d2dce520049d8fca4ab1014452d53ac2f22cc74fc1b3ec6df42782af9",
+      "finalSha256": "6cab157d2dce520049d8fca4ab1014452d53ac2f22cc74fc1b3ec6df42782af9",
+      "workingTreeSha256": "6cab157d2dce520049d8fca4ab1014452d53ac2f22cc74fc1b3ec6df42782af9",
+      "byteIdentical": true,
+      "workingMatchesFinal": true
+    },
+    {
+      "path": "apps/api/src/store.ts",
+      "initialSha256": "9ed76044cf292cc20022fac2d17e19baa1c3a2826a8aeab43125a50ddc1457f7",
+      "finalSha256": "9ed76044cf292cc20022fac2d17e19baa1c3a2826a8aeab43125a50ddc1457f7",
+      "workingTreeSha256": "9ed76044cf292cc20022fac2d17e19baa1c3a2826a8aeab43125a50ddc1457f7",
+      "byteIdentical": true,
+      "workingMatchesFinal": true
+    },
+    {
+      "path": "packages/config/src/index.ts",
+      "initialSha256": "6f2c81341cb7b9cea9cab806936b2a2e7e36c1eeedd958d7c3745ffa8e6ae545",
+      "finalSha256": "6f2c81341cb7b9cea9cab806936b2a2e7e36c1eeedd958d7c3745ffa8e6ae545",
+      "workingTreeSha256": "6f2c81341cb7b9cea9cab806936b2a2e7e36c1eeedd958d7c3745ffa8e6ae545",
+      "byteIdentical": true,
+      "workingMatchesFinal": true
+    },
+    {
+      "path": "config/network.remote.json",
+      "initialSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+      "finalSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+      "workingTreeSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+      "byteIdentical": true,
+      "workingMatchesFinal": true
+    },
+    {
+      "path": "config/network.json",
+      "initialSha256": "c81d5ac8fa4319b87b3cff75b39c39a8b07a1f5cfab6e46293224bd90ff2bdec",
+      "finalSha256": "c81d5ac8fa4319b87b3cff75b39c39a8b07a1f5cfab6e46293224bd90ff2bdec",
+      "workingTreeSha256": "c81d5ac8fa4319b87b3cff75b39c39a8b07a1f5cfab6e46293224bd90ff2bdec",
+      "byteIdentical": true,
+      "workingMatchesFinal": true
+    },
+    {
+      "path": "apps/api/package.json",
+      "initialSha256": "abe47ab3a0462b995e80c52f7bf3225876a7b3e9b53a108c4c96c0d9cbf9dba1",
+      "finalSha256": "abe47ab3a0462b995e80c52f7bf3225876a7b3e9b53a108c4c96c0d9cbf9dba1",
+      "workingTreeSha256": "abe47ab3a0462b995e80c52f7bf3225876a7b3e9b53a108c4c96c0d9cbf9dba1",
+      "byteIdentical": true,
+      "workingMatchesFinal": true
+    },
+    {
+      "path": "packages/chain/package.json",
+      "initialSha256": "272aaa0aa998776a0fa8d20d05d52a35b60438d59fb8be136dda683b0047a348",
+      "finalSha256": "272aaa0aa998776a0fa8d20d05d52a35b60438d59fb8be136dda683b0047a348",
+      "workingTreeSha256": "272aaa0aa998776a0fa8d20d05d52a35b60438d59fb8be136dda683b0047a348",
+      "byteIdentical": true,
+      "workingMatchesFinal": true
+    },
+    {
+      "path": "packages/config/package.json",
+      "initialSha256": "b272f58fc896e279c3fe9268d34b9cdad59883a923b704335eb289c2dc18e2b0",
+      "finalSha256": "b272f58fc896e279c3fe9268d34b9cdad59883a923b704335eb289c2dc18e2b0",
+      "workingTreeSha256": "b272f58fc896e279c3fe9268d34b9cdad59883a923b704335eb289c2dc18e2b0",
+      "byteIdentical": true,
+      "workingMatchesFinal": true
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "initialSha256": "3ccff3161ebc9514a32b1e59d699e5d906d4ab6d9ea954205bcbc18a4b300fc4",
+      "finalSha256": "3ccff3161ebc9514a32b1e59d699e5d906d4ab6d9ea954205bcbc18a4b300fc4",
+      "workingTreeSha256": "3ccff3161ebc9514a32b1e59d699e5d906d4ab6d9ea954205bcbc18a4b300fc4",
+      "byteIdentical": true,
+      "workingMatchesFinal": true
+    },
+    {
+      "path": "pnpm-workspace.yaml",
+      "initialSha256": "d7995fb2785917d36061c80851958071eba3b0d0407e56d25955f0f35230f5cb",
+      "finalSha256": "d7995fb2785917d36061c80851958071eba3b0d0407e56d25955f0f35230f5cb",
+      "workingTreeSha256": "d7995fb2785917d36061c80851958071eba3b0d0407e56d25955f0f35230f5cb",
+      "byteIdentical": true,
+      "workingMatchesFinal": true
+    }
+  ],
+  "verificationDeclarations": [
+    {
+      "path": "packages/chain/src/index.ts",
+      "name": "KNOWN_PUBLIC_GENESIS",
+      "initialSha256": "9f9e2b43f7915c0b5812c8922662abf42222e09cdcd3124fecd4db06deb159cb",
+      "finalSha256": "3a5c824b3e216aa3528e13d48ef8c2e0448656c7e8e2e061909eded7dd8bfd9e",
+      "byteIdentical": false
+    },
+    {
+      "path": "packages/chain/src/index.ts",
+      "name": "validateExperimentalGenesis",
+      "initialSha256": "3c916501076d221dd3947d0e2ad5e061afca96891ce5d7aa606307460e827030",
+      "finalSha256": "3c916501076d221dd3947d0e2ad5e061afca96891ce5d7aa606307460e827030",
+      "byteIdentical": true
+    },
+    {
+      "path": "packages/chain/src/index.ts",
+      "name": "assertNetwork",
+      "initialSha256": "e03e962192812c84ee4bd4fbe2a9f0b44e86f61e97e8307c53c76f60ab04ca8e",
+      "finalSha256": "e03e962192812c84ee4bd4fbe2a9f0b44e86f61e97e8307c53c76f60ab04ca8e",
+      "byteIdentical": true
+    },
+    {
+      "path": "packages/chain/src/index.ts",
+      "name": "verifyPrograms",
+      "initialSha256": "54071549ec91a55f82a0125b6fe71895cbce1f91034e38def4f4ce979fa75a37",
+      "finalSha256": "54071549ec91a55f82a0125b6fe71895cbce1f91034e38def4f4ce979fa75a37",
+      "byteIdentical": true
+    },
+    {
+      "path": "packages/chain/src/index.ts",
+      "name": "verifyAsset",
+      "initialSha256": "6d4abec99d081e9ffc8ede0606886c7d114a31b7ae2969a5afb25c231ae92bf5",
+      "finalSha256": "6d4abec99d081e9ffc8ede0606886c7d114a31b7ae2969a5afb25c231ae92bf5",
+      "byteIdentical": true
+    },
+    {
+      "path": "packages/chain/src/index.ts",
+      "name": "currentNftOwner",
+      "initialSha256": "bf8b0d7b8d1840baa93f3a286418031a8d0ff4440acc8d2aefa92934dd55dd27",
+      "finalSha256": "bf8b0d7b8d1840baa93f3a286418031a8d0ff4440acc8d2aefa92934dd55dd27",
+      "byteIdentical": true
+    },
+    {
+      "path": "packages/chain/src/index.ts",
+      "name": "waitForSignature",
+      "initialSha256": "b474e6230eae61c02fdd9cef7e8a7b6b44f71ac72c5a00a288e317b7b0b3d51e",
+      "finalSha256": "b474e6230eae61c02fdd9cef7e8a7b6b44f71ac72c5a00a288e317b7b0b3d51e",
+      "byteIdentical": true
+    }
+  ],
+  "publicGenesisRepair": {
+    "declarationChanged": true,
+    "actualFullPublicHashes": [
+      "5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d",
+      "EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG",
+      "4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY"
+    ],
+    "expectedFullPublicHashes": [
+      "5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d",
+      "EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG",
+      "4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY"
+    ],
+    "repairedPublicSetMatches": true,
+    "historicalPublicGenesisDenyExecutionReused": false,
+    "scope": "Source-only inspection of repaired constants; actual matched-public SDK denial is separate evidence."
+  },
+  "chainFile": {
+    "initialSha256": "59f1ca7fd46a02197cf64510f0273e996ff690fda98416b277c5abd345fdb040",
+    "finalSha256": "e9d9822a428e92eef96b35155a3cf6b34191d3ae117d385e96b3f0a5b2c5ef0c",
+    "byteIdentical": false,
+    "note": "The full SDK file changed for atomic issuance and parallel preparation. The public-genesis set changed to complete public RPC hashes. The listed verification function bodies remain byte-identical; historical public-genesis denial execution and changed signing/build helpers are not reused as current proof."
+  },
+  "historicalExecution": {
+    "path": "evidence/remote-negative-controls-initial.json",
+    "sha256": "06dc469281871e4cb3c3c5c58038326658af033b2110860eb48eca0173868050",
+    "at": "2026-10-13T07:38:57.472Z",
+    "passed": true,
+    "checks": 36,
+    "runtime": {
+      "configured": true,
+      "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+      "sourceCommit": "dbefebde308d4f4f2efbeaa70d737aeda69cf2cd",
+      "coreSha256": "2c86df3c62e021eaf99103f6e27c4f861dd5b29dde494873db3866713877f92b",
+      "apiBootId": "c4cb6d1a-998b-40f5-8b7a-27fc1bca89a6",
+      "apiStartedAt": "2026-10-13T06:40:56.640Z",
+      "validatorBootId": "bf43147e-5e6d-43b6-9dfd-23dc52ee4e08",
+      "validatorStartedAt": "2026-10-13T06:40:46.676Z",
+      "deploymentId": "bdf8b208-7922-4375-8d46-55f49367dc1b",
+      "agaveVersion": "3.0.14",
+      "tokenProgramVersion": "10.0.0",
+      "tokenProgramSha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+      "observedAt": "2026-10-13T07:37:40.617Z"
+    },
+    "candidate": null,
+    "actualFinalCandidateExecution": false
+  },
+  "limitations": [
+    "The repaired public-genesis constants are explicitly changed; this audit does not certify actual matched-public rejection or reuse the abbreviated-hash historical cases.",
+    "Source identity does not rerun quotas or prove current bucket counts, reverse-proxy environment, or IP attribution.",
+    "Historical asset429 and forwarded-header denial observations remain executed on the initial runtime only.",
+    "Generated runtime-build manifests and runtime.ts identity plumbing changed; they are verified separately against the current freeze rather than called unchanged."
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "startedAt": "2026-10-13T14:25:54.021739+00:00",
+  "scope": "current independentagentpilot2 preflight; anonymous frontend hashes and actual API runtime match full frozen candidate",
+  "candidate": {
+    "apiOrigin": "https://network-release-production.up.railway.app",
+    "frontendOrigin": "https://solana-classic-soc.vercel.app",
+    "frontendDeploymentId": "dpl_DmoMtTCGgJDeBzaeeEX1QhZA4TAV",
+    "frontendCommit": "c1a7f15839d6fbed5b04fe7ea773d61cf273bdb2",
+    "apiCommit": "c1a7f15839d6fbed5b04fe7ea773d61cf273bdb2",
+    "networkConfigSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+    "dependencyManifestSha256": "e6da27717e6a84ca7b29d707ff63591b2ff0cfc38892d3b4667f8615bdf7bbc0"
+  },
+  "runtime": {
+    "configured": true,
+    "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+    "sourceCommit": "c1a7f15839d6fbed5b04fe7ea773d61cf273bdb2",
+    "coreSha256": "f77c68ddd20684758bfaae7868e1d83a5a0a670664a34f63150d06be55838e20",
+    "apiBootId": "77c327af-74f9-412e-a746-851668c2616b",
+    "apiStartedAt": "2026-10-13T07:51:57.339Z",
+    "validatorBootId": "7a167823-8ee4-424f-85cc-5ef33916603d",
+    "validatorStartedAt": "2026-10-13T07:51:02.569Z",
+    "deploymentId": "818db2ce-bca0-45bd-a6bf-1bb8257fadc7",
+    "agaveVersion": "3.0.14",
+    "tokenProgramVersion": "10.0.0",
+    "tokenProgramSha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+    "observedAt": "2026-10-13T14:25:53.270Z"
+  },
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "frontendAssetsMatched": {
+    "/": "ebf30c92cde12c2154d743353624df9d4850e85b5c4b53f11d4206f9a338235a",
+    "/assets/index-C1qecUVn.js": "fbb39a52a2d3bf0dcc40d1241e81d4d7e16b3e2272725cf67cef324e6f438a8e",
+    "/assets/index-DXgWf3wS.css": "854b48b0499bd0f863296e157914bfd43b334ae7e82c4dfc7883d129442feca0",
+    "/assets/index.browser.esm-9ollXf7N.js": "a4e3bcff506b55ab2f0c1fb66fe99e35038e769d8d277e143a35628c1a021b3a",
+    "/assets/src-CoNn8TyL.js": "04ea8c8fe6f971ce86d54a0a4cbf0525c57bc7c72f6a29cd3e9fdd0e6b06b4d1"
+  }
+}

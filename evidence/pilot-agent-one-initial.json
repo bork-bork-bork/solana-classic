@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-13T06:03:34Z",
+  "passed": true,
+  "scope": "remote independent agent browser pilot; public preview and canonical experimental chain; not human usability testing or release acceptance",
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "frontendOrigin": "https://solana-classic-soc.vercel.app",
+  "apiOrigin": "https://network-release-production.up.railway.app",
+  "browser": {
+    "path": "CUA in-app browser, own new sender, recipient and read-only inspection tabs",
+    "browserPlugin": "Browser skill not listed; CUA browser API available and used first",
+    "playwrightFallbackUsed": false,
+    "defaultViewport": { "width": 1280, "height": 720 },
+    "mobileViewport": { "width": 390, "height": 844 },
+    "mobileViewportReset": true,
+    "consoleWarningsAndErrors": []
+  },
+  "wallets": {
+    "sender": "Fpxi9ziozBqJGosu2VjfZPCUMQSnfEw9cJhikVoXHDuW",
+    "recipient": "8rCvzKMMKrP5UuwwUFg7hC2n5pTAesYU2BspjiJq57QM",
+    "generation": "Each created through public Playground Create test wallet in separate tabs; memory only; no user wallets or imports",
+    "faucetClaims": 1
+  },
+  "receipts": {
+    "faucet": {
+      "signature": "63es6jsGvM5oW7phJMfkeqrdWuR77o25vRNHgSnwsbfDiKBUC8YQ3LVyBcV3pzgaj3tfbbomkDEbYNSzfSonwSB3",
+      "observed": "Recent activity 1 TEST received and native balance 1.0000 TEST"
+    },
+    "issuance": {
+      "name": "Pilot One Orbit",
+      "symbol": "PILOTONE",
+      "preset": "Orbit",
+      "mint": "FnPVVNZXctH3RzNPXSEmJW7wb4qnQotUAEAVberMr6T4",
+      "signature": "5j9itwFmfQ2dxs83aWU9D9Hkhm1qTdATKAigtYTpcXG42uBWCGxWJrCbG8muwGNQzuV8ZTovcryuyxFj559JdumE",
+      "observed": "Issued and verified on the experimental network; present as verified in Gallery",
+      "logicalCreations": 1,
+      "retryPerformed": false
+    },
+    "transfer": {
+      "displayUnits": 1,
+      "signature": "36bTAAt8MtvD1wmAwVbqpSkm9MVCnXknG64stTzqmTHZWaDV8yUChaSEf31DErZYVWCgWeTw59sQ6zKpWyLFR2kX",
+      "slot": 4815,
+      "explorerStatus": "Confirmed",
+      "networkFeeTEST": 0.000005,
+      "publicRpcFinality": "finalized",
+      "publicRpcError": null,
+      "recipientTokenAccount": "q3UgXiBF6otVFeUJFK2rxz3V4oK4eQcdsSPUG2WinMk",
+      "recipientTokenBalance": { "rawAmount": "1000000", "decimals": 6, "displayAmount": "1", "commitment": "finalized", "contextSlot": 5053 }
+    }
+  },
+  "checks": {
+    "pageIdentity": "pass: Solana Classic — Memes & NFTs at requested public origin",
+    "notBlank": "pass: meaningful home, Playground, Network, Gallery and Explorer content",
+    "frameworkOverlay": "pass: none observed",
+    "consoleHealth": "pass: sender and explorer warn/error logs empty",
+    "screenshotEvidence": "evidence/pilot-one.png; screenshot of final sender issuance, activity receipts and transfer form",
+    "firstUse": "pass: valueless TEST/single operator disclosed in status banner; disposable-wallet reload warning visible before wallet creation; second-tab recipient instructions visible",
+    "networkIdentity": "pass: Network page and supplemental public RPC getGenesisHash match canonical independent genesis",
+    "interactionProof": "pass: created wallet, one faucet grant, one meme issuance, transfer of 1 meme token to separate generated recipient",
+    "gallery": "pass: Pilot One Orbit with artwork, PILOTONE and Verified label; public mint link opens",
+    "deepLinkRefresh": "pass: refreshed public mint-address explorer route renders correct address and chain account data",
+    "keyboard": "pass: Return in Explorer search routes to transfer receipt, renders Confirmed slot 4815 and successful TransferChecked logs; visible focus ring",
+    "mobile": "pass: 390x844 Explorer address/receipt render readable navigation, wrapped public addresses; document scrollWidth 390 equals viewport width 390"
+  },
+  "findings": [
+    {
+      "severity": "usability limitation",
+      "surface": "Explorer address lookup",
+      "reproduction": "Transfer meme token to a generated recipient, then look up recipient public address in Explorer.",
+      "observed": "Recipient shows 0 TEST and No account allocated because the wallet's system account is unallocated; associated token holdings are not shown. The public API confirms the recipient associated token account holds 1 PILOTONE.",
+      "impact": "A first-time tester cannot verify received meme-token holdings through the recipient wallet address view. Existing limited explorer wording is accurate, so this is not recorded as a failed chain action.",
+      "suggestion": "Later add token holdings for wallet lookups or a clear link to the recipient associated token account."
+    },
+    {
+      "severity": "minor clarity",
+      "surface": "Playground after meme transfer",
+      "observed": "Notice says Confirmed. Final ownership verification is separate., while issuance remains verified. The wording refers to ownership generically even for a fungible meme-token transfer.",
+      "suggestion": "Later use balance-verification wording for meme-token transfer."
+    }
+  ],
+  "limitations": [
+    "Agent pilot substitutes only as explicitly selected by founder; no independent human test was performed.",
+    "No NFT issuance, NFT transfer, native TEST transfer, faucet retry, invalid-input suite or user-wallet connection in this pilot.",
+    "Mobile checks cover Explorer only; no mobile transaction submission.",
+    "Single browser engine; no assistive technology test beyond observed accessibility tree and one keyboard form-submission path.",
+    "Supplemental read-only public RPC checks used Python urllib after sandbox DNS access failed; all state-changing transactions were exercised through the public browser UI.",
+    "No app source, test source or cloud configuration changed."
+  ]
+}

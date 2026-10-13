@@ -1,0 +1,25 @@
+{
+  "at": "2026-10-13T07:42:14.758915+00:00",
+  "scope": "public independent monitor process health and read-only boundaries; no live-network mutation",
+  "passed": true,
+  "checks": [
+    {
+      "method": "GET",
+      "path": "/healthz",
+      "status": 200,
+      "body": "{\"state\":\"online\"}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/monitor",
+      "status": 405,
+      "body": "{\"code\":\"READ_ONLY\"}"
+    },
+    {
+      "method": "GET",
+      "path": "/fixture/api/rpc",
+      "status": 404,
+      "body": "{\"code\":\"NOT_FOUND\"}"
+    }
+  ]
+}

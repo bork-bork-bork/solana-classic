@@ -1,0 +1,16 @@
+import { PublicKey, SystemProgram } from '@solana/web3.js';
+import { submitInstructions, waitForSignature } from '@solana-classic/chain';
+import { configuredApi, evidence, root } from './evidence.js';
+import { privateJson, testKey } from './workload.js';
+import { publicJson } from './release-check.js';
+const { api, facts, connection } = await configuredApi();
+const plan = publicJson(root, 'evidence/hosted-load-actors.json') as { api: string; genesis: string; hasMonetaryValue: boolean; wallets: { publicKey: string; lamports: number }[] };
+const input = privateJson('.data/soak-funder.json');
+if (plan.api !== api || plan.genesis !== facts.expectedGenesisHash || plan.hasMonetaryValue !== false || plan.wallets.length !== 20 || new Set(plan.wallets.map(w => w.publicKey)).size !== 20 || input.api !== api || input.genesis !== facts.expectedGenesisHash) throw new Error('Only twenty verified fresh TEST actors are supported.');
+const payer = testKey(input); const addresses = plan.wallets.map(w => { if (w.lamports !== 100_000_000) throw new Error('Unexpected funding target.'); return new PublicKey(w.publicKey); });
+const before = await connection.getMultipleAccountsInfo(addresses, 'confirmed');
+if (before.some(a => a !== null)) throw new Error('A hosted actor is already funded; inspect existing receipt before retrying.');
+const signature = await submitInstructions(connection, facts.expectedGenesisHash!, payer, addresses.map(destination => SystemProgram.transfer({ fromPubkey: payer.publicKey, toPubkey: destination, lamports: 100_000_000 })));
+await waitForSignature(connection, signature, 'finalized'); const after = await connection.getMultipleAccountsInfo(addresses, 'finalized');
+if (after.some(a => a?.lamports !== 100_000_000)) throw new Error('Hosted actor funding balance mismatch.');
+evidence('hosted-load-funding', { at: new Date().toISOString(), scope: 'remote valueless TEST prefunding; no key export or public faucet bypass', passed: true, api, genesis: facts.expectedGenesisHash, signature, actors: plan.wallets, totalLamports: 2_000_000_000 }); console.log(JSON.stringify({ passed: true, actors: 20, signature }));

@@ -1,0 +1,20 @@
+{
+  "at": "2026-10-13T15:53:19.403Z",
+  "scope": "remote isolated readonly historical faucet-row and bounded-ledger diagnostic; not recovery acceptance",
+  "serviceId": "43fc867b-1105-423c-a901-84ec5cb9a46a",
+  "deploymentId": "151fa230-bedb-416f-b902-e28079708ee0",
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "firstAvailableBlock": 72413,
+  "minimumLedgerSlot": 72412,
+  "currentFinalizedSlot": 81637,
+  "historicalSignatureStatus": null,
+  "persistedPublicReceipt": {
+    "request_id": "574b0019-d994-4ee3-8e14-cdd5565de38f",
+    "wallet": "HUX4gYhK1kYZJMJSQ6U4SYeiNnoC87kfvkAUmK3ErTZH",
+    "state": "confirmed",
+    "signature": "3QuPxK7pB2NYyWYF56uVnoKmCPTwgh4vM2kwgQoMxRTxAcPwhgJMsq7JDiuNvUwiUDtdbKghA3RNTkwdLKo3FM1c"
+  },
+  "privateFieldsSelected": false,
+  "submittedTransactions": 0,
+  "newUUIDRequested": false
+}

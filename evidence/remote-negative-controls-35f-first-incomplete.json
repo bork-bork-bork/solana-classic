@@ -1,0 +1,168 @@
+{
+  "at": "2026-10-13T15:46:59.722Z",
+  "startedAt": "2026-10-13T15:46:37.631Z",
+  "scope": "remote current bounded protocol/schema reconfirmation; incomplete",
+  "passed": false,
+  "api": "https://network-release-production.up.railway.app",
+  "web": "https://solana-classic-soc.vercel.app",
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "candidate": {
+    "apiOrigin": "https://network-release-production.up.railway.app",
+    "frontendOrigin": "https://solana-classic-soc.vercel.app",
+    "frontendDeploymentId": "dpl_3aWWzKDohr4SrgijgrB8dWgHHS5r",
+    "frontendCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "apiCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "networkConfigSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+    "dependencyManifestSha256": "e6da27717e6a84ca7b29d707ff63591b2ff0cfc38892d3b4667f8615bdf7bbc0"
+  },
+  "runtime": {
+    "configured": true,
+    "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+    "sourceCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "coreSha256": "30697f3e9b441b05a036d0704b42322d723b3998840ed43d88b18a0d7ef7d1dd",
+    "apiBootId": "4683b27d-630f-4abb-87df-f42a165beca3",
+    "apiStartedAt": "2026-10-13T15:24:57.775Z",
+    "validatorBootId": "54fa6d88-6fbb-4c78-9aca-90ce129bd9de",
+    "validatorStartedAt": "2026-10-13T15:24:41.885Z",
+    "deploymentId": "04c379cd-369c-4ff4-9d14-d29467d68a28",
+    "agaveVersion": "3.0.14",
+    "tokenProgramVersion": "10.0.0",
+    "tokenProgramSha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+    "observedAt": "2026-10-13T15:46:39.380Z"
+  },
+  "requests": 13,
+  "checks": [
+    {
+      "name": "canonical remote TEST network facts",
+      "passed": true,
+      "scope": "actual current production HTTP behavior",
+      "observations": {
+        "status": 200,
+        "facts": {
+          "name": "Solana Classic experimental devnet",
+          "mode": "remote",
+          "expectedGenesisHash": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+          "denomination": "TEST",
+          "operatorCount": 1,
+          "hasMonetaryValue": false,
+          "tokenProgram": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+          "associatedTokenProgram": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+          "resetPolicy": "Persistent experimental ledger. No automatic reset. Any deliberate reset will be disclosed; test assets have no monetary value."
+        }
+      }
+    },
+    {
+      "name": "readonly RPC without Origin matches canonical genesis",
+      "passed": true,
+      "scope": "actual current production HTTP behavior",
+      "observations": {
+        "status": 200,
+        "result": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon"
+      }
+    },
+    {
+      "name": "unapproved Origin blocked: https://unapproved.example.test",
+      "passed": true,
+      "scope": "actual current production HTTP behavior",
+      "observations": {
+        "status": 403,
+        "code": "ORIGIN_REJECTED",
+        "headers": {
+          "cache-control": "no-store"
+        }
+      }
+    },
+    {
+      "name": "unapproved Origin blocked: null",
+      "passed": true,
+      "scope": "actual current production HTTP behavior",
+      "observations": {
+        "status": 403,
+        "code": "ORIGIN_REJECTED",
+        "headers": {
+          "cache-control": "no-store"
+        }
+      }
+    },
+    {
+      "name": "approved browser SDK origin reads canonical genesis",
+      "passed": true,
+      "scope": "actual current production HTTP behavior",
+      "observations": {
+        "status": 200,
+        "headers": {
+          "access-control-allow-origin": "https://solana-classic-soc.vercel.app",
+          "cache-control": "no-store"
+        },
+        "result": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon"
+      }
+    },
+    {
+      "name": "approved SDK CORS preflight keeps exact header allowlist",
+      "passed": true,
+      "scope": "actual current production HTTP behavior",
+      "observations": {
+        "status": 204,
+        "headers": {
+          "access-control-allow-origin": "https://solana-classic-soc.vercel.app",
+          "access-control-allow-methods": "GET, POST, OPTIONS",
+          "access-control-allow-headers": "Content-Type, solana-client",
+          "cache-control": "no-store"
+        }
+      }
+    },
+    {
+      "name": "unknown-origin preflight blocked",
+      "passed": true,
+      "scope": "actual current production HTTP behavior",
+      "observations": {
+        "status": 403,
+        "headers": {
+          "cache-control": "no-store"
+        }
+      }
+    },
+    {
+      "name": "unsafe methods and headers excluded by returned CORS allowlists",
+      "passed": true,
+      "scope": "actual current production HTTP behavior",
+      "observations": {
+        "status": 204,
+        "headers": {
+          "access-control-allow-origin": "https://solana-classic-soc.vercel.app",
+          "access-control-allow-methods": "GET, POST, OPTIONS",
+          "access-control-allow-headers": "Content-Type, solana-client",
+          "cache-control": "no-store"
+        }
+      }
+    },
+    {
+      "name": "non-allowlisted RPC rejected: requestAirdrop",
+      "passed": true,
+      "scope": "actual current production HTTP behavior",
+      "observations": {
+        "status": 400,
+        "code": "INVALID_INPUT"
+      }
+    },
+    {
+      "name": "non-allowlisted RPC rejected: validatorExit",
+      "passed": true,
+      "scope": "actual current production HTTP behavior",
+      "observations": {
+        "status": 400,
+        "code": "INVALID_INPUT"
+      }
+    },
+    {
+      "name": "non-allowlisted RPC rejected: setLogFilter",
+      "passed": true,
+      "scope": "actual current production HTTP behavior",
+      "observations": {
+        "status": 400,
+        "code": "INVALID_INPUT"
+      }
+    }
+  ],
+  "error": "The operation was aborted due to timeout"
+}

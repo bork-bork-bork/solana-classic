@@ -33,13 +33,13 @@
   "external_inputs": {
     "founder_name": null,
     "operator_name": "Founder (user)",
-    "operator_contact": "Railway account email; configuration and delivery proof pending",
+    "operator_contact": "Railway account email selected; native project routing and direct operator receipt of failure and monitor/recovery emails verified",
     "domain": null,
-    "repository_destination": null,
+    "repository_destination": "Existing local Git repository, branch build/six-day-mvp; no remote repository supplied",
     "linux_host_address": null,
     "ssh_user": null,
     "ssh_key_reference_not_secret": null,
-    "backup_destination": null,
+    "backup_destination": "Railway native daily/weekly backups on volume080bf785-50e7-4dda-893b-4d613aa5e9a8; stopped-writer cold archive retained in protected /data/backups; isolated cold restore passed",
     "two_external_testers": [],
     "hosting_budget_reference": "infrastructure_budget: user answered whatever needed; EUR planning controls already recorded",
     "linux_hosting_provider": "Railway Pro, account verified",
@@ -47,8 +47,8 @@
     "vercel_project_name": "solana-classic",
     "vercel_project_id": "prj_mjv3k9UcoPgxoNvDl2foOIC8R3V9",
     "two_independent_agent_testers": [
-      "pilot_browser_one",
-      "pilot_browser_two"
+      "workload_qa_sol_high",
+      "ops_monitor_sol_high"
     ],
     "pilot_policy": "Founder selected two independent agent pilots for first release; both journeys passed, not human research"
   },
@@ -122,7 +122,7 @@
       "public_gateway": "Railway HTTPS ingress, API port 3000 only",
       "data_root": "/data",
       "rpc_upstream": "http://127.0.0.1:8899",
-      "status": "active remote candidate; SDK/browser and container/process restart passed; recovery/load/soak pending",
+      "status": "active remote executable candidate; SDK/browser/load, prior restart and cold restore passed; final-code reconfirmation and24hoursoak pending",
       "service_id": "d0a1de40-bd9c-47eb-a7fc-477f1c55b2d6",
       "volume_id": "080bf785-50e7-4dda-893b-4d613aa5e9a8"
     },

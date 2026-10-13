@@ -1,0 +1,23 @@
+{
+  "at": "2026-10-13T15:23:31.790939+00:00",
+  "scope": "repository source review of full public genesis deny-list defect and regression repair; remote redeployment/revalidation pending",
+  "passed": true,
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "priorSourceCommit": "c1a7f15839d6fbed5b04fe7ea773d61cf273bdb2",
+  "sourceCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+  "finding": "Prior constants held abbreviated mainnet/devnet hashes. A configuration incorrectly matching the actual full public hash could pass the generic equality/deny-list guard. Normal canonical TEST configuration still rejected these chains as mismatches.",
+  "actualPublicHashEvidence": "evidence/genesis-public-comparison.json",
+  "actualPublicHashEvidenceSha256": "090ba31d7fc3648dab3a231d2110ec0437a62d52d4d7e206a4943fecb0de46dd",
+  "priorSourceSha256": "728d07b1fa5023ec41b2eb701eb75d59899fca0607d81d3387221e706c25da53",
+  "repairedSourceSha256": "e9d9822a428e92eef96b35155a3cf6b34191d3ae117d385e96b3f0a5b2c5ef0c",
+  "validation": {
+    "unitChecks": 80,
+    "integrationChecks": 30,
+    "lint": "passed",
+    "typecheck": "passed",
+    "build": "passed",
+    "matchedFullPublicHashCases": "SDK issuance and four API mutation paths refused despite matching expected/actual public configuration; no simulated broadcast or DB admission"
+  },
+  "soakStarted": false,
+  "policy": "New executable source requires new deployments, candidate freeze, bounded load, pilots and operational reconfirmations before full24hoursoak. Prior results remain historical."
+}

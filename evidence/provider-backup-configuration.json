@@ -1,0 +1,36 @@
+{
+  "at": "2026-10-13T07:29:26.319242Z",
+  "scope": "remote Railway provider backup existence and automatic schedule configuration; not isolated restore acceptance",
+  "passed": true,
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "sourceVolumeInstanceId": "c639b73d-bb8e-46b2-b94e-4327561e5274",
+  "provider": {
+    "volumeInstanceBackupList": [
+      {
+        "createdAt": "2026-10-13T06:39:20.028Z",
+        "expiresAt": null,
+        "id": "a15ed771-485f-4abd-adb9-cf86b8ba3ae0",
+        "name": "Stopped-writer TEST checkpoint 2026-10-13",
+        "referencedMB": 7920,
+        "usedMB": 3530,
+        "volumeInstanceSizeMB": 50000
+      }
+    ],
+    "volumeInstanceBackupScheduleList": [
+      {
+        "createdAt": "2026-10-13T06:11:51.565Z",
+        "id": "211d5ec7-e88d-4dd2-a569-1a1b8ed91cc3",
+        "kind": "WEEKLY",
+        "name": "Weekly",
+        "retentionSeconds": 2332800
+      },
+      {
+        "createdAt": "2026-10-13T06:11:51.502Z",
+        "id": "a2b80f77-a556-438b-998b-f6d5473589a4",
+        "kind": "DAILY",
+        "name": "Daily",
+        "retentionSeconds": 518400
+      }
+    ]
+  }
+}

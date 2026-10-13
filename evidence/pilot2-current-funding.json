@@ -1,0 +1,10 @@
+{
+  "at": "2026-10-13T14:25:09.757Z",
+  "scope": "remote operator valueless TEST prefunding; no public faucet repeat or key export",
+  "passed": true,
+  "api": "https://network-release-production.up.railway.app",
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "publicKey": "CGqb4kAouZZ2RmGHxk4VgSN3oi1L6cewEiUBVbc5oFsQ",
+  "signature": "2RxbE3hA7jS4J72vefM6RaX1iAw61ie1UEUGtC1LB7p4tJBG8bWmpJrECqU7rdCH8tYcvjK4xvUpJaMXQPeK7JZz",
+  "lamports": 100000000
+}

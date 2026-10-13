@@ -1,13 +1,57 @@
 # Solana Classic
 
-Experimental SVM playground for memes and NFTs. TEST balances have no monetary value or conversion entitlement. This one-operator network is separate from the proposed Pump-origin SOC launch, native mainnet and 1:1 bridge.
+An open-source, independent SVM experiment focused on memes and NFTs: a browser playground, verified gallery, transaction explorer, restricted RPC gateway and live release roadmap.
 
-Preview: https://solana-classic-soc.vercel.app. Whitepaper: https://solana-classic-soc.vercel.app/whitepaper.pdf. API: https://network-release-production.up.railway.app. Canonical experimental genesis: `7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon`.
+- Website: https://solana-classic-soc.vercel.app
+- Live roadmap: https://solana-classic-soc.vercel.app/roadmap
+- Whitepaper: https://solana-classic-soc.vercel.app/whitepaper.pdf
 
-Use Node24 and pnpm10 from the pinned package manifest. The local wrapper selects the isolated toolchain: `python3 scripts/pnpm.py install --frozen-lockfile`, then `typecheck`, `lint`, `test:unit`, `test:integration` or `build`. See CONTRIBUTING.md for safety and command contracts.
+## Current scope
 
-Remote checks require `SC_API_URL=https://network-release-production.up.railway.app` and `SC_NETWORK_CONFIG=config/network.remote.json`. `test:e2e` additionally requires `SC_WEB_URL=https://solana-classic-soc.vercel.app` and the pinned isolated Playwright browser. Never substitute a public Solana network or import a real wallet.
+The deployed network is an experimental devnet with one project-operated validator and a fresh independent genesis. It does not inherit Solana balances or history. Its native TEST units are being branded **tSOC** in the presentation layer; they have no monetary value or promised conversion to SOC. The playground display patch is prepared for the next presentation deployment after the active stability test.
 
-Actual SDK/browser journeys and provider restart persistence passed. Two independent agent pilots passed. Cold recovery, alerts, rollback, bounded load and the full24-hour candidate soak remain separate acceptance work. `release:check` intentionally fails until every required check has reviewed, checksum-bound evidence; generating a packet does not release the network. Read docs/STATUS.md and docs/acceptance-report.md for current scope.
+SOC token launch, native mainnet and the proposed reserve-backed 1:1 bridge are separate future releases. No real-money token or bridge is deployed by this repository today.
 
-The fixed deadline is19 October2026 at03:00:54UTC/04:00:54London. No clock reset or simulated operational proof is allowed. Private test keys, provider credentials, runtime ledgers, tool downloads and generated packet copies stay ignored.
+Active hosted runtime: official Agave3.0.14 and official Token-2022v10.0.0. Full pinned commits, hashes and the retained earlier compatibility-probe failures are documented in docs/COMPATIBILITY.md and the release manifests. Exact Node/pnpm/dependency versions are pinned in package.json and pnpm-lock.yaml.
+
+The repaired bounded load passed200/200 operations within15seconds, with p95confirmed3.150seconds. This is an application workload, not chainwide capacity. The uninterrupted24hourbrowser test started13October2026 at16:48:22.762UTC. The live roadmap reports actual progress; elapsed time never automatically approves a release. Remaining final regression and individual release attestations are recorded separately.
+
+## Source layout
+
+| Directory | Purpose |
+| --- | --- |
+| apps/web | React playground, gallery, explorer and disclosures |
+| apps/api | Fastify gateway, durable faucet accounting and immutable assets |
+| packages/chain | Identity guards, transaction builders and receipt verification |
+| packages/config | Shared schemas, limits and network contracts |
+| roadmap | Read-only live status page and bounded public-source aggregator |
+| infra and scripts | Pinned installation, hosting, recovery and verification tools |
+| tests | Unit, integration and browser checks |
+| docs and evidence | Whitepaper, runbooks, version manifests and scoped results |
+
+## Development
+
+Use Node24 and pnpm10.34.7. Install dependencies with `pnpm install --frozen-lockfile`. Bootstrap your own local validator using the pinned installers and compatibility guidance; hosted ledger data and private actors are never part of the source checkout. The public configuration is an identity reference, not permission to mutate a public Solana chain.
+
+```sh
+pnpm lint
+pnpm typecheck
+pnpm test:unit
+pnpm test:integration
+pnpm build
+node --test roadmap/lib/status.test.mjs
+```
+
+For local application startup and hosting, follow CONTRIBUTING.md, docs/CONTRACTS.md, docs/COMPATIBILITY.md and docs/OPERATIONS.md. Do not silently regenerate a hosted ledger or substitute a local genesis into a hosted release proof. Local or mocked tests cannot certify remote behavior.
+
+## Deployment and roadmap routing
+
+The main frontend is hosted on Vercel. The gateway, SQLite, content-addressed assets and validator use persistent Railway storage. The read-only roadmap is served at the main site's `/roadmap` path using project-level CDN rules, so updating its status UI does not redeploy the frozen playground. Asset and live-JSON requests stay under `/roadmap/`; the aggregator reads only five fixed public status endpoints and accepts no user-selected upstream URL.
+
+During an active stability run, executable files, origin/configuration, process identity and served app hashes remain frozen. Read docs/HOSTED_QA.md and the current release evidence before making operational changes. New presentation/nav links are prepared separately and receive targeted verification at their next deployment.
+
+## License and contributions
+
+Original project material is under the MIT license in LICENSE. Dependencies, upstream runtime distributions and fonts retain their own licenses; preserve THIRD_PARTY_NOTICES.md and the supplied upstream notices. The npm workspace packages are marked private to prevent accidental npm publication; that does not restrict this repository's MIT source license.
+
+See CONTRIBUTING.md for changes and SECURITY.md for private vulnerability reporting. Runtime data, key files, hosting credentials, local tools and `.env` files stay ignored and are not source-release inputs. Historical evidence keeps its actual version, date, scope and original test-unit wording.

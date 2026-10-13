@@ -1,0 +1,15 @@
+import { PublicKey } from '@solana/web3.js';
+import { transferNative, waitForSignature } from '@solana-classic/chain';
+import { configuredApi, evidence } from './evidence.js';
+import { privateJson, testKey } from './workload.js';
+const { api, facts, connection } = await configuredApi();
+const input = privateJson('.data/soak-funder.json');
+if (input.api !== api || input.genesis !== facts.expectedGenesisHash || facts.hasMonetaryValue !== false) throw new Error('Only the verified valueless TEST source is supported.');
+const source = testKey(input); const destination = new PublicKey('4fkQqsc2C7jDF9yFxMQJ4ydWRy9HFRTFLfsyGSdSaXT5');
+const amount = 5_500_000_000; const before = await connection.getBalance(destination, 'confirmed');
+if (before !== 0) throw new Error('Hosted TEST funder already has a balance; no automatic duplicate transfer.');
+const signature = await transferNative(connection, facts.expectedGenesisHash!, source, destination.toBase58(), amount);
+await waitForSignature(connection, signature, 'finalized'); const after = await connection.getBalance(destination, 'finalized');
+if (after !== amount) throw new Error('Hosted TEST funding balance mismatch; inspect receipt before retrying.');
+evidence('hosted-soak-funding', { at: new Date().toISOString(), scope: 'remote valueless TEST funding only; no private key export or soak activation', passed: true, api, genesis: facts.expectedGenesisHash, hasMonetaryValue: false, source: source.publicKey.toBase58(), destination: destination.toBase58(), lamports: amount, signature, before, after });
+console.log(JSON.stringify({ passed: true, destination: destination.toBase58(), lamports: after, signature }));

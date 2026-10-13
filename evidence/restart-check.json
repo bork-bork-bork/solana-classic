@@ -1,113 +1,127 @@
 {
-  "at": "2026-10-13T05:56:05.685Z",
-  "scope": "remote provider container/process restart; not host reboot or backup restore",
+  "at": "2026-10-13T15:55:51.917Z",
+  "scope": "remote actual repaired-build provider process restart with hosted before/after persistence verification; not hardware host reboot or cold restore",
   "passed": true,
   "api": "https://network-release-production.up.railway.app",
   "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "candidate": {
+    "apiOrigin": "https://network-release-production.up.railway.app",
+    "frontendOrigin": "https://solana-classic-soc.vercel.app",
+    "frontendDeploymentId": "dpl_3aWWzKDohr4SrgijgrB8dWgHHS5r",
+    "frontendCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "apiCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "networkConfigSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+    "dependencyManifestSha256": "e6da27717e6a84ca7b29d707ff63591b2ff0cfc38892d3b4667f8615bdf7bbc0"
+  },
+  "runtime": {
+    "configured": true,
+    "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+    "sourceCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "coreSha256": "30697f3e9b441b05a036d0704b42322d723b3998840ed43d88b18a0d7ef7d1dd",
+    "apiBootId": "e52b81b5-662e-425e-99bc-71f1edc838f1",
+    "apiStartedAt": "2026-10-13T15:54:07.867Z",
+    "validatorBootId": "6e5e1439-8c2b-4fc9-a49b-51b1ab61ff64",
+    "validatorStartedAt": "2026-10-13T15:53:34.139Z",
+    "deploymentId": "04c379cd-369c-4ff4-9d14-d29467d68a28",
+    "agaveVersion": "3.0.14",
+    "tokenProgramVersion": "10.0.0",
+    "tokenProgramSha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+    "observedAt": "2026-10-13T15:55:51.009Z"
+  },
+  "baselineSha256": "3690697d9d711e91b9161d4f0ab945090003c14b445749abad8b787bb69ea998",
+  "balances": {
+    "HUX4gYhK1kYZJMJSQ6U4SYeiNnoC87kfvkAUmK3ErTZH": 1000000000
+  },
+  "assets": [
+    {
+      "mint": "5NAoA3xhpSWfYtTyY3Ue1AiavHzgbZYEDHHJtHSMTWR3",
+      "accountHash": "c2ddcb15b925d88e0400ea6501565be38d4c3747bb667921c28a060d1bcc49e6",
+      "owner": "GRYb9kCHqEXAoUBGTjiWYRGp71mMCQMB7rmnT2wGdJBM",
+      "verifiedAt": "2026-10-13T05:51:08.995Z"
+    },
+    {
+      "mint": "6wkqQraV4tUGA9CHLph5ZpXdom7FSAG4C9yBfu2zEEdQ",
+      "accountHash": "2bccf12ce5f7e3724f4415df5bc00eecf56029a129117488d45f4c894b81a578",
+      "owner": null,
+      "verifiedAt": "2026-10-13T05:50:45.284Z"
+    },
+    {
+      "mint": "6Z7UUGhSWUpZwqPjexqAtzjmRhvXsXFpX29ZJpa6ojZm",
+      "accountHash": "1bc6856405f47ec9fa02cd59367aedd5b8be018b8271c7a9637d919f63c49e53",
+      "owner": "EYEK68K13bwbE58d8nrV2c9jmXsDPBiupczybjtgHBw9",
+      "verifiedAt": "2026-10-13T05:29:02.742Z"
+    },
+    {
+      "mint": "C8TrnpZThQWpAt3kZNj13X3RErYsWKRiQHa3zsZgxfaL",
+      "accountHash": "79a4e326987367edb73ac251808b62b9d3a8b2554b481973f5b1fec7c4b1f866",
+      "owner": null,
+      "verifiedAt": "2026-10-13T05:28:29.477Z"
+    }
+  ],
+  "sameOriginalReceipt": {
+    "requestId": "574b0019-d994-4ee3-8e14-cdd5565de38f",
+    "state": "confirmed",
+    "signature": "3QuPxK7pB2NYyWYF56uVnoKmCPTwgh4vM2kwgQoMxRTxAcPwhgJMsq7JDiuNvUwiUDtdbKghA3RNTkwdLKo3FM1c",
+    "lamports": 1000000000,
+    "message": "1 TEST grant confirmed."
+  },
+  "noNewGrant": true,
+  "runtimeBefore": {
+    "configured": true,
+    "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+    "sourceCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "coreSha256": "30697f3e9b441b05a036d0704b42322d723b3998840ed43d88b18a0d7ef7d1dd",
+    "apiBootId": "4683b27d-630f-4abb-87df-f42a165beca3",
+    "apiStartedAt": "2026-10-13T15:24:57.775Z",
+    "validatorBootId": "54fa6d88-6fbb-4c78-9aca-90ce129bd9de",
+    "validatorStartedAt": "2026-10-13T15:24:41.885Z",
+    "deploymentId": "04c379cd-369c-4ff4-9d14-d29467d68a28",
+    "agaveVersion": "3.0.14",
+    "tokenProgramVersion": "10.0.0",
+    "tokenProgramSha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+    "observedAt": "2026-10-13T15:34:19.509Z"
+  },
+  "runtimeAfter": {
+    "configured": true,
+    "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+    "sourceCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "coreSha256": "30697f3e9b441b05a036d0704b42322d723b3998840ed43d88b18a0d7ef7d1dd",
+    "apiBootId": "e52b81b5-662e-425e-99bc-71f1edc838f1",
+    "apiStartedAt": "2026-10-13T15:54:07.867Z",
+    "validatorBootId": "6e5e1439-8c2b-4fc9-a49b-51b1ab61ff64",
+    "validatorStartedAt": "2026-10-13T15:53:34.139Z",
+    "deploymentId": "04c379cd-369c-4ff4-9d14-d29467d68a28",
+    "agaveVersion": "3.0.14",
+    "tokenProgramVersion": "10.0.0",
+    "tokenProgramSha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+    "observedAt": "2026-10-13T15:55:51.009Z"
+  },
+  "beforeSnapshotAt": "2026-10-13T15:52:11.116Z",
   "provider": {
-    "project": "356bcb0b-49c4-4bd3-bf10-bff7db8f33fe",
-    "service": "d0a1de40-bd9c-47eb-a7fc-477f1c55b2d6",
-    "environment": "3367b373-2332-4702-8cce-c12b8f03949e"
-  },
-  "restartResult": "{\"id\":\"b10c14d7-eda4-4bc8-8298-3b1098e5ae31\"}",
-  "durationMs": 68648,
-  "wallet": "HUX4gYhK1kYZJMJSQ6U4SYeiNnoC87kfvkAUmK3ErTZH",
-  "requestId": "574b0019-d994-4ee3-8e14-cdd5565de38f",
-  "signature": "3QuPxK7pB2NYyWYF56uVnoKmCPTwgh4vM2kwgQoMxRTxAcPwhgJMsq7JDiuNvUwiUDtdbKghA3RNTkwdLKo3FM1c",
-  "baseline": {
-    "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
-    "balances": {
-      "HUX4gYhK1kYZJMJSQ6U4SYeiNnoC87kfvkAUmK3ErTZH": 1000000000
+    "scope": "remote actual provider process restart request and instance readback; state verification pending",
+    "passed": false,
+    "deployment": {
+      "id": "04c379cd-369c-4ff4-9d14-d29467d68a28",
+      "instances": [
+        {
+          "id": "bd9676eb-6980-469a-b38a-e279809a88c7",
+          "status": "RUNNING"
+        }
+      ],
+      "status": "SUCCESS"
     },
-    "assets": [
-      {
-        "mint": "5NAoA3xhpSWfYtTyY3Ue1AiavHzgbZYEDHHJtHSMTWR3",
-        "accountHash": "c2ddcb15b925d88e0400ea6501565be38d4c3747bb667921c28a060d1bcc49e6",
-        "hashes": {
-          "https://network-release-production.up.railway.app/assets/d90092abed71c7ca02ba27de78b0e2dc7573f55db3e79cd426e5667d86a43ae3/metadata.json": "f01c50714b3580f94461b7784a336e246fa6be1ad6d347158c83589388d47f79",
-          "https://network-release-production.up.railway.app/assets/d90092abed71c7ca02ba27de78b0e2dc7573f55db3e79cd426e5667d86a43ae3/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
-        },
-        "owner": "GRYb9kCHqEXAoUBGTjiWYRGp71mMCQMB7rmnT2wGdJBM",
-        "verifiedAt": "2026-10-13T05:51:08.995Z"
-      },
-      {
-        "mint": "6wkqQraV4tUGA9CHLph5ZpXdom7FSAG4C9yBfu2zEEdQ",
-        "accountHash": "2bccf12ce5f7e3724f4415df5bc00eecf56029a129117488d45f4c894b81a578",
-        "hashes": {
-          "https://network-release-production.up.railway.app/assets/785954dd3d40fd1e492f928d4f35ca6adfb57998df0f79ef14e5b1d0e7019907/metadata.json": "0b59c2138a3ddfdc283f2cdb0f1941b790e81f0dc2eac70b4b1b01d5ffc21f10",
-          "https://network-release-production.up.railway.app/assets/785954dd3d40fd1e492f928d4f35ca6adfb57998df0f79ef14e5b1d0e7019907/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
-        },
-        "owner": null,
-        "verifiedAt": "2026-10-13T05:50:45.284Z"
-      },
-      {
-        "mint": "6Z7UUGhSWUpZwqPjexqAtzjmRhvXsXFpX29ZJpa6ojZm",
-        "accountHash": "1bc6856405f47ec9fa02cd59367aedd5b8be018b8271c7a9637d919f63c49e53",
-        "hashes": {
-          "https://network-release-production.up.railway.app/assets/e57ec8d12eae763c66a12045af4986f8268eb763c755c78e35de2fc1f64674e3/metadata.json": "a4d5cad597413b7222a7f03f3d1ae4b98c255d3250950ce2ad3dd4309473bf24",
-          "https://network-release-production.up.railway.app/assets/e57ec8d12eae763c66a12045af4986f8268eb763c755c78e35de2fc1f64674e3/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
-        },
-        "owner": "EYEK68K13bwbE58d8nrV2c9jmXsDPBiupczybjtgHBw9",
-        "verifiedAt": "2026-10-13T05:29:02.742Z"
-      },
-      {
-        "mint": "C8TrnpZThQWpAt3kZNj13X3RErYsWKRiQHa3zsZgxfaL",
-        "accountHash": "79a4e326987367edb73ac251808b62b9d3a8b2554b481973f5b1fec7c4b1f866",
-        "hashes": {
-          "https://network-release-production.up.railway.app/assets/782fbe7bd1ad7964b491f49263352ba620442f710022f6633661c2fa373dbb8e/metadata.json": "57d05dc4b907449244dcf7ef9ae2a9dbad96fd254b56035cb190c664b0b8a459",
-          "https://network-release-production.up.railway.app/assets/782fbe7bd1ad7964b491f49263352ba620442f710022f6633661c2fa373dbb8e/image.svg": "79052c80b45a5a46089c1135292257dc8c454b24cedb56db21a0a3dd435d5103"
-        },
-        "owner": null,
-        "verifiedAt": "2026-10-13T05:28:29.477Z"
-      }
-    ]
+    "restartCommandResult": {
+      "id": "04c379cd-369c-4ff4-9d14-d29467d68a28"
+    }
   },
-  "after": {
-    "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
-    "balances": {
-      "HUX4gYhK1kYZJMJSQ6U4SYeiNnoC87kfvkAUmK3ErTZH": 1000000000
+  "snapshotEvidence": [
+    {
+      "path": "evidence/restart-35f0-before.json",
+      "sha256": "445754dbd3409400360371b08af30c462fcc6e55b55b0e84b3e68a536b219d4c"
     },
-    "assets": [
-      {
-        "mint": "5NAoA3xhpSWfYtTyY3Ue1AiavHzgbZYEDHHJtHSMTWR3",
-        "accountHash": "c2ddcb15b925d88e0400ea6501565be38d4c3747bb667921c28a060d1bcc49e6",
-        "hashes": {
-          "https://network-release-production.up.railway.app/assets/d90092abed71c7ca02ba27de78b0e2dc7573f55db3e79cd426e5667d86a43ae3/metadata.json": "f01c50714b3580f94461b7784a336e246fa6be1ad6d347158c83589388d47f79",
-          "https://network-release-production.up.railway.app/assets/d90092abed71c7ca02ba27de78b0e2dc7573f55db3e79cd426e5667d86a43ae3/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
-        },
-        "owner": "GRYb9kCHqEXAoUBGTjiWYRGp71mMCQMB7rmnT2wGdJBM",
-        "verifiedAt": "2026-10-13T05:51:08.995Z"
-      },
-      {
-        "mint": "6wkqQraV4tUGA9CHLph5ZpXdom7FSAG4C9yBfu2zEEdQ",
-        "accountHash": "2bccf12ce5f7e3724f4415df5bc00eecf56029a129117488d45f4c894b81a578",
-        "hashes": {
-          "https://network-release-production.up.railway.app/assets/785954dd3d40fd1e492f928d4f35ca6adfb57998df0f79ef14e5b1d0e7019907/metadata.json": "0b59c2138a3ddfdc283f2cdb0f1941b790e81f0dc2eac70b4b1b01d5ffc21f10",
-          "https://network-release-production.up.railway.app/assets/785954dd3d40fd1e492f928d4f35ca6adfb57998df0f79ef14e5b1d0e7019907/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
-        },
-        "owner": null,
-        "verifiedAt": "2026-10-13T05:50:45.284Z"
-      },
-      {
-        "mint": "6Z7UUGhSWUpZwqPjexqAtzjmRhvXsXFpX29ZJpa6ojZm",
-        "accountHash": "1bc6856405f47ec9fa02cd59367aedd5b8be018b8271c7a9637d919f63c49e53",
-        "hashes": {
-          "https://network-release-production.up.railway.app/assets/e57ec8d12eae763c66a12045af4986f8268eb763c755c78e35de2fc1f64674e3/metadata.json": "a4d5cad597413b7222a7f03f3d1ae4b98c255d3250950ce2ad3dd4309473bf24",
-          "https://network-release-production.up.railway.app/assets/e57ec8d12eae763c66a12045af4986f8268eb763c755c78e35de2fc1f64674e3/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
-        },
-        "owner": "EYEK68K13bwbE58d8nrV2c9jmXsDPBiupczybjtgHBw9",
-        "verifiedAt": "2026-10-13T05:29:02.742Z"
-      },
-      {
-        "mint": "C8TrnpZThQWpAt3kZNj13X3RErYsWKRiQHa3zsZgxfaL",
-        "accountHash": "79a4e326987367edb73ac251808b62b9d3a8b2554b481973f5b1fec7c4b1f866",
-        "hashes": {
-          "https://network-release-production.up.railway.app/assets/782fbe7bd1ad7964b491f49263352ba620442f710022f6633661c2fa373dbb8e/metadata.json": "57d05dc4b907449244dcf7ef9ae2a9dbad96fd254b56035cb190c664b0b8a459",
-          "https://network-release-production.up.railway.app/assets/782fbe7bd1ad7964b491f49263352ba620442f710022f6633661c2fa373dbb8e/image.svg": "79052c80b45a5a46089c1135292257dc8c454b24cedb56db21a0a3dd435d5103"
-        },
-        "owner": null,
-        "verifiedAt": "2026-10-13T05:28:29.477Z"
-      }
-    ]
-  }
+    {
+      "path": "evidence/restart-35f0-after.json",
+      "sha256": "218a976b61bc37e9e213606d638727fc69317dbda469c0487738ad1a5b0b7a2e"
+    }
+  ]
 }

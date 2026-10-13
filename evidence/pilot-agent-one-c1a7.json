@@ -1,0 +1,273 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-13T14:35:48.683Z",
+  "startedAt": "2026-10-13T14:22:08.292Z",
+  "passed": true,
+  "scope": "remote independent agent browser pilot of the frozen production candidate; not human usability testing or full release acceptance",
+  "api": "https://network-release-production.up.railway.app",
+  "web": "https://solana-classic-soc.vercel.app",
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "candidate": {
+    "apiOrigin": "https://network-release-production.up.railway.app",
+    "frontendOrigin": "https://solana-classic-soc.vercel.app",
+    "frontendDeploymentId": "dpl_DmoMtTCGgJDeBzaeeEX1QhZA4TAV",
+    "frontendCommit": "c1a7f15839d6fbed5b04fe7ea773d61cf273bdb2",
+    "apiCommit": "c1a7f15839d6fbed5b04fe7ea773d61cf273bdb2",
+    "networkConfigSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+    "dependencyManifestSha256": "e6da27717e6a84ca7b29d707ff63591b2ff0cfc38892d3b4667f8615bdf7bbc0"
+  },
+  "browser": {
+    "transactionPath": "Chrome CUA, fresh sender and recipient tabs with UI-generated memory wallets",
+    "iabUnavailable": true,
+    "browserSkill": "Browser skill not listed; CUA Chrome available and used",
+    "fallback": {
+      "reason": "Chrome CUA viewport capability did not produce requested CSS dimensions; actual sender1800x1250 and gallery1890x884. Task explicitly permits documented isolated Chromium fallback.",
+      "readOnly": true,
+      "viewportChecks": [
+        {
+          "surface": "transfer explorer",
+          "width": 1440,
+          "height": 1000,
+          "scrollWidth": 1440,
+          "keyboardEnter": true,
+          "visibleFocus": {
+            "tag": "INPUT",
+            "outline": "rgb(104, 66, 237) solid 3px"
+          },
+          "deepLinkRefresh": true
+        },
+        {
+          "surface": "transfer explorer",
+          "width": 360,
+          "height": 800,
+          "scrollWidth": 360,
+          "receiptReadable": true
+        },
+        {
+          "surface": "gallery",
+          "width": 360,
+          "scrollWidth": 360,
+          "verifiedAssetVisible": true
+        }
+      ],
+      "consoleErrors": []
+    },
+    "actualCuaViewports": [
+      {
+        "surface": "sender",
+        "width": 1800,
+        "height": 1250,
+        "scrollWidth": 1800
+      },
+      {
+        "surface": "gallery",
+        "width": 1890,
+        "height": 884,
+        "scrollWidth": 1890
+      }
+    ],
+    "viewportOverrideReset": true,
+    "applicationConsoleErrors": [],
+    "extensionWarnings": {
+      "source": "chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/scripts/contentscript.js",
+      "observed": [
+        "MaxListenersExceededWarning: close/end listeners",
+        "ObjectMultiplex orphaned app-init/background-liveness streams"
+      ],
+      "classification": "Extension content-script warnings; no extension wallet interaction and no application-origin warning/error observed"
+    }
+  },
+  "wallets": {
+    "sender": "3M1JmyVAJ4nsp9vnCGiBt1ZbgKrieTzU8MF19GHzE3vX",
+    "recipient": "ABFM7Pd8nLKz9RkDSw9NLWHKHTx9uiY8thMh2wK76Sw3",
+    "generation": "Create test wallet clicked independently in two fresh production tabs; memory only, no imports or private exports",
+    "publicFaucetClaims": 1,
+    "publicFaucetButtonClicks": 1,
+    "operatorFundingUsed": false
+  },
+  "receipts": {
+    "faucet": {
+      "signature": "XsE2hrVbxLSFbwNbL7yw15H8PfjUouVSkGf8aTo8zKniXdXpc2UGiPPb1nk79evAwCpJ4akf6YCf8dci6viaR5p",
+      "observedAt": "2026-10-13T14:23:01.189Z",
+      "balanceTEST": "1.0000",
+      "finality": "finalized"
+    },
+    "issuance": {
+      "name": "PilotAtomicOne",
+      "symbol": "PILOTONE",
+      "kind": "meme",
+      "preset": "Orbit",
+      "mint": "86RkiRpmefxJkzZgpPXs5Y2iFepxmpdbH9hqR3c6tv74",
+      "startedAt": "2026-10-13T14:24:02.549Z",
+      "uiVerifiedAt": "2026-10-13T14:24:20.052Z",
+      "signature": "2SWDmsQfTMwi8LXFw1xJ9MtkaFStRnLqp8mAfNCWuQeqTSb8DsBCHrvQPySA9NB8pAV7bQsDrkwmdinoxNoFBYWd",
+      "instructionCount": 8,
+      "signers": 2,
+      "slot": 76402,
+      "supply": "1000000000000",
+      "decimals": 6,
+      "mintAuthority": null,
+      "freezeAuthority": null,
+      "metadataUpdateAuthority": null,
+      "finality": "finalized",
+      "logicalCreations": 1,
+      "retryPerformed": false,
+      "uiActivityReceipts": 1,
+      "clientInternalStateInspected": false,
+      "atomicProof": "One public finalized issuance receipt contains all eight creation/supply/authority instructions; two transaction signers. React signing state was not inspected."
+    },
+    "transfer": {
+      "displayUnits": 1,
+      "startedAt": "2026-10-13T14:24:45.269Z",
+      "uiConfirmedAt": "2026-10-13T14:24:46.522Z",
+      "signature": "4P1DhoFrEvPjzJwKuRCAPx1KKoXtbXiSrWThJeSJruaj2eBntQL9DoX57EkprjwJhgt5YQvMHDmgpoAhV23h8eHb",
+      "slot": 76503,
+      "feeTEST": 5e-06,
+      "recipientAccount": "HNrDPwthdkCpAG9xzhN7JEjknRPK484kLHgWcTPd1UQw",
+      "recipientTokenBalance": {
+        "amount": "1000000",
+        "decimals": 6,
+        "uiAmount": 1,
+        "uiAmountString": "1"
+      },
+      "finality": "finalized",
+      "uiExplorerStatus": "Confirmed"
+    }
+  },
+  "checks": {
+    "pageIdentity": {
+      "passed": true,
+      "title": "Solana Classic \u2014 Memes & NFTs",
+      "entry": "/playground"
+    },
+    "notBlank": {
+      "passed": true,
+      "surfaces": [
+        "Playground",
+        "Gallery",
+        "Explorer"
+      ]
+    },
+    "frameworkOverlay": {
+      "passed": true,
+      "observed": false
+    },
+    "consoleHealth": {
+      "passed": true,
+      "applicationErrors": 0,
+      "extensionNoiseExplained": true
+    },
+    "interaction": {
+      "passed": true,
+      "path": "Create two memory wallets \u2192 one public faucet claim \u2192 PilotAtomicOne meme creation \u2192 transfer one token \u2192 UI receipt"
+    },
+    "gallery": {
+      "passed": true,
+      "name": "PilotAtomicOne",
+      "symbol": "PILOTONE",
+      "verifiedAt": "2026-10-13T14:24:18.231Z",
+      "contentHash": "3d80b3dd9e9eccf56ecb4067e2b6a181fa45c3bb56532a50a0a1332610a039c2",
+      "mintLinkOpened": true
+    },
+    "explorer": {
+      "passed": true,
+      "keyboardEnterSubmitted": true,
+      "visibleFocusOutline": "rgb(104, 66, 237) solid 3px in exact1440 viewport",
+      "transferSlot": 76503,
+      "successfulTransferCheckedLogsVisible": true,
+      "transactionDeepLinkRefresh": true
+    },
+    "responsive": {
+      "passed": true,
+      "scope": "Read-only explorer at1440x1000 and360x800; gallery at360px. No mobile signed submission.",
+      "observations": [
+        {
+          "surface": "transfer explorer",
+          "width": 1440,
+          "height": 1000,
+          "scrollWidth": 1440,
+          "keyboardEnter": true,
+          "visibleFocus": {
+            "tag": "INPUT",
+            "outline": "rgb(104, 66, 237) solid 3px"
+          },
+          "deepLinkRefresh": true
+        },
+        {
+          "surface": "transfer explorer",
+          "width": 360,
+          "height": 800,
+          "scrollWidth": 360,
+          "receiptReadable": true
+        },
+        {
+          "surface": "gallery",
+          "width": 360,
+          "scrollWidth": 360,
+          "verifiedAssetVisible": true
+        }
+      ]
+    },
+    "onChainVerification": {
+      "passed": true,
+      "scope": "Supplemental read-only public RPC",
+      "mintSupplyAuthoritiesMetadataVerified": true,
+      "recipientBalance": "1 PILOTONE, raw1000000, decimals6, finalized",
+      "allThreeReceiptsFinalized": true
+    },
+    "frozenBinding": {
+      "passed": true,
+      "verifiedAt": "2026-10-13T14:35:48.683Z",
+      "method": "observeFrozen compared runtime/boot/source identities, local frozen source/config hashes and all frozen public frontend assets before/after the read-only checks"
+    }
+  },
+  "screenshots": [
+    {
+      "path": "evidence/pilot-agent-one/desktop-1440-receipt.jpg",
+      "sha256": "acb4a61c7132389648ed86746f90b7eb1bf5a38e3fbbc1ef64e321c47c82782d",
+      "bytes": 93855
+    },
+    {
+      "path": "evidence/pilot-agent-one/desktop-issued-transfer.jpg",
+      "sha256": "66d5c577f7bdf3d45d73ebd0a403b3d294e1675d464be692f3e4c6fbd24e097d",
+      "bytes": 193980
+    },
+    {
+      "path": "evidence/pilot-agent-one/gallery.jpg",
+      "sha256": "bfd13f6dc80e2d2c73a62426286b84258ca20955f84a09e7a6a1fc309c0942bc",
+      "bytes": 94448
+    },
+    {
+      "path": "evidence/pilot-agent-one/mobile-360-receipt.jpg",
+      "sha256": "670e6bff88933cec20803ad69d7bd3132070b706633e9736500476bd6605596e",
+      "bytes": 87285
+    }
+  ],
+  "supplementalProof": {
+    "path": "evidence/pilot-agent-one/readonly-verification.json",
+    "sha256": "60c241e6a88bc2cab9a4fb23e237cc4c1711ca820cf34c0b27bf8d959e18686e"
+  },
+  "findings": [
+    {
+      "severity": "minor discoverability",
+      "surface": "360px navigation",
+      "observed": "The Token label is partially offscreen in the horizontal navigation strip. The receipt and public addresses wrap without body horizontal overflow.",
+      "impact": "The full Token label requires horizontal navigation scrolling; no signing, transfer or receipt failure observed.",
+      "fixed": false
+    }
+  ],
+  "limitations": [
+    "Independent agent pilot only; no human usability study.",
+    "No NFT/native transfer, invalid-input, faucet retry, assistive-technology or other browser-engine acceptance is claimed here.",
+    "The CUA viewport override did not match requested CSS dimensions. Exact1440/360 read-only checks used the explicitly permitted isolated Chromium fallback.",
+    "The initial supplemental Node fetch timed out; supported environment proxy resolved it. Bundled Chromium path was configured before Playwright import; no dependencies were installed.",
+    "The capacity-interrupted early tab was gone when work resumed; it had only generated an unfunded wallet. This proof records the fresh post-rollback pilot beginning14:22UTC.",
+    "No source/core/hosting change, private key export/import, quota bypass, or soak activation occurred."
+  ],
+  "cleanup": {
+    "pilotTabsClosed": true,
+    "closedAt": "2026-10-13T14:41:27.554Z",
+    "viewportOverrideReset": true,
+    "onlyOwnFreshTabsClosed": true
+  }
+}

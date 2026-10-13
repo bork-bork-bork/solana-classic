@@ -1,0 +1,25 @@
+{
+  "at": "2026-10-13T15:40:52.862313+00:00",
+  "scope": "independent agent pilot two preparation only; no repaired-candidate wallet, faucet, mint, transfer or pilot pass",
+  "passed": false,
+  "state": "waiting-final-freeze-and-root-clear",
+  "candidate": {
+    "apiOrigin": "https://network-release-production.up.railway.app",
+    "frontendOrigin": "https://solana-classic-soc.vercel.app",
+    "frontendDeploymentId": "dpl_3aWWzKDohr4SrgijgrB8dWgHHS5r",
+    "frontendCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "apiCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "networkConfigSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+    "dependencyManifestSha256": "e6da27717e6a84ca7b29d707ff63591b2ff0cfc38892d3b4667f8615bdf7bbc0"
+  },
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "browser": "Chrome existing selected browser2 via CUA; Browser plugin not available; explicitly authorized CUA workflow",
+  "ownedTabId": "1973282184",
+  "url": "https://solana-classic-soc.vercel.app/playground",
+  "observedTitle": "Solana Classic \u2014 Memes & NFTs",
+  "meaningfulScreenObserved": true,
+  "walletCreated": false,
+  "faucetCalls": 0,
+  "transactionsSubmitted": 0,
+  "tabMarkedHandoff": true
+}

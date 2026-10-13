@@ -1,0 +1,7 @@
+{
+  "requestId": "6161c05c-fd86-4a4d-9f63-a34ee617df22",
+  "state": "submitted",
+  "signature": "2rpyyWR1VtykKKkBhG97mBM536BRYKLWkS4nRHkstjBub2z3dcRmP6uoUy2HAKXDZdZDXgPX2VvK6EeRVGMEVPj2",
+  "lamports": 1000000000,
+  "message": "Grant submitted. Wait for its recorded transaction to confirm."
+}

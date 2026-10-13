@@ -1,0 +1,426 @@
+{
+  "at": "2026-10-13T15:12:10.055916+00:00",
+  "scope": "authenticated exact frozen Vercel deployment source-file metadata inventory; no credential values/file bodies read",
+  "deploymentId": "dpl_DmoMtTCGgJDeBzaeeEX1QhZA4TAV",
+  "rawInventorySha256": "dec38692f8c9f1e3a7008b3ab75efdb83a4507391ea96446f32d8560054a4460",
+  "fileCount": 103,
+  "files": [
+    {
+      "path": "src/.gitattributes",
+      "fileId": "e02f6a976bc13ef19f65658e6c908a15ebb312c3"
+    },
+    {
+      "path": "src/.node-version",
+      "fileId": "6c8262b5f9bcc77b6eb6d856d3590b62fa2653cf"
+    },
+    {
+      "path": "src/.vercelignore",
+      "fileId": "7d97b272b98bb3bd343398420b5fb1b415f96eee"
+    },
+    {
+      "path": "src/CONTRIBUTING.md",
+      "fileId": "b588c4475b098e9ecd5cc0e28bcd048b32ec1dfc"
+    },
+    {
+      "path": "src/README.md",
+      "fileId": "3280b884876f7964feb7e5fa23e9d764b484c099"
+    },
+    {
+      "path": "src/apps/api/package.json",
+      "fileId": "44674d7303de8ce15722e12c3df93c644959c9d3"
+    },
+    {
+      "path": "src/apps/api/src/app.ts",
+      "fileId": "407f7856ea14b0be2b6063888cd980caef4081b8"
+    },
+    {
+      "path": "src/apps/api/src/main.ts",
+      "fileId": "8d113facb4e921daedfa27cf2e7d2f920ab3fa7f"
+    },
+    {
+      "path": "src/apps/api/src/runtime.ts",
+      "fileId": "ad5d82daf4b48147dfdb303eff7a4076b8e95065"
+    },
+    {
+      "path": "src/apps/api/src/settings.ts",
+      "fileId": "d1898f61537053842253a2a04515dc5a8cab6a9c"
+    },
+    {
+      "path": "src/apps/api/src/store.ts",
+      "fileId": "f0ca6305b6c9bf816fce58be362f3ee3098927f2"
+    },
+    {
+      "path": "src/apps/web/dist/assets/ibm-plex-mono-cyrillic-400-normal-BSMlKf0J.woff2",
+      "fileId": "9836f315b5c3b9c898b910dd61b70991ca1c6965"
+    },
+    {
+      "path": "src/apps/web/dist/assets/ibm-plex-mono-cyrillic-400-normal-CEL4l2ZJ.woff",
+      "fileId": "c297a84f660172a27885b8a9b28881d66e7cc3df"
+    },
+    {
+      "path": "src/apps/web/dist/assets/ibm-plex-mono-cyrillic-ext-400-normal-DMdlQ8Kv.woff",
+      "fileId": "1811c14f594294e1512e4c738e4928655d5037e6"
+    },
+    {
+      "path": "src/apps/web/dist/assets/ibm-plex-mono-cyrillic-ext-400-normal-xuaO2J-f.woff2",
+      "fileId": "c39ef070ae66df4659e2c070b1a5b395c23717b7"
+    },
+    {
+      "path": "src/apps/web/dist/assets/ibm-plex-mono-latin-400-normal-CvHOgSBP.woff",
+      "fileId": "ad63126dcf5c721ec5044ad0a5f9d672c8406053"
+    },
+    {
+      "path": "src/apps/web/dist/assets/ibm-plex-mono-latin-400-normal-DMJ8VG8y.woff2",
+      "fileId": "bb87500e3204a3a7c65d6633c79c5c840c3be8d3"
+    },
+    {
+      "path": "src/apps/web/dist/assets/ibm-plex-mono-latin-ext-400-normal-BmRBH3aV.woff2",
+      "fileId": "4af8cef522bd8912cb2fad41e06b9025640feb62"
+    },
+    {
+      "path": "src/apps/web/dist/assets/ibm-plex-mono-latin-ext-400-normal-D3D2R8hC.woff",
+      "fileId": "75f2704d6319c47c869d4b890c67e9538c3674bb"
+    },
+    {
+      "path": "src/apps/web/dist/assets/ibm-plex-mono-vietnamese-400-normal-BulugwFq.woff2",
+      "fileId": "6c8912d7cfd869389674ecdfce9e29157bcb9aa4"
+    },
+    {
+      "path": "src/apps/web/dist/assets/ibm-plex-mono-vietnamese-400-normal-DDuiU_S-.woff",
+      "fileId": "2dd457dac041dd3e560c0b192c2c0196c3185cfc"
+    },
+    {
+      "path": "src/apps/web/dist/assets/index-DKE1q-LO.js",
+      "fileId": "164ec43d25f9ae399763d279d0b4294e5fd4635c"
+    },
+    {
+      "path": "src/apps/web/dist/assets/index-DXgWf3wS.css",
+      "fileId": "23214be0ec57d5c4908c655eee5a6d371b1c1ffa"
+    },
+    {
+      "path": "src/apps/web/dist/assets/index.browser.esm-TIjLa8HD.js",
+      "fileId": "cc0d452de11c9779bb6a8cf9d78222d6ea405c56"
+    },
+    {
+      "path": "src/apps/web/dist/assets/space-grotesk-latin-400-normal-BnQMeOim.woff",
+      "fileId": "82198d3a6251be730764be6fd39fbbb4280eb8bb"
+    },
+    {
+      "path": "src/apps/web/dist/assets/space-grotesk-latin-400-normal-CJ-V5oYT.woff2",
+      "fileId": "e117d3eda164dc49db17a1e1fda412d03c2de9d2"
+    },
+    {
+      "path": "src/apps/web/dist/assets/space-grotesk-latin-500-normal-CNSSEhBt.woff",
+      "fileId": "d467fb8ba68052dd4577bb469f8f8790d6153b0d"
+    },
+    {
+      "path": "src/apps/web/dist/assets/space-grotesk-latin-500-normal-lFbtlQH6.woff2",
+      "fileId": "dd2759071c4c16a84288d76cd9bed55854249c0a"
+    },
+    {
+      "path": "src/apps/web/dist/assets/space-grotesk-latin-700-normal-CwsQ-cCU.woff",
+      "fileId": "ebe2efe92c9f0a523d80764721f3029a58def011"
+    },
+    {
+      "path": "src/apps/web/dist/assets/space-grotesk-latin-700-normal-RjhwGPKo.woff2",
+      "fileId": "094681c9ad35d8b6d277b4053d7632df8b2b57d9"
+    },
+    {
+      "path": "src/apps/web/dist/assets/space-grotesk-latin-ext-400-normal-CfP_5XZW.woff2",
+      "fileId": "737c5838c994db0a9980701ee35d029df4b93861"
+    },
+    {
+      "path": "src/apps/web/dist/assets/space-grotesk-latin-ext-400-normal-DRPE3kg4.woff",
+      "fileId": "eb9b1ddab510d515d247395ffd476c7e7c4bcbc4"
+    },
+    {
+      "path": "src/apps/web/dist/assets/space-grotesk-latin-ext-500-normal-3dgZTiw9.woff",
+      "fileId": "944736f822be3a6158f1d698f969bbe4b15a8318"
+    },
+    {
+      "path": "src/apps/web/dist/assets/space-grotesk-latin-ext-500-normal-DUe3BAxM.woff2",
+      "fileId": "9ad1966040d831fddf7631e343546e4e39aeb8a2"
+    },
+    {
+      "path": "src/apps/web/dist/assets/space-grotesk-latin-ext-700-normal-BQnZhY3m.woff2",
+      "fileId": "4c1311a24b62a02a205bafcd339db4ccac925dc5"
+    },
+    {
+      "path": "src/apps/web/dist/assets/space-grotesk-latin-ext-700-normal-HVCqSBdx.woff",
+      "fileId": "15f8e04bb2775d4b8e493030b8f08c252480bedd"
+    },
+    {
+      "path": "src/apps/web/dist/assets/space-grotesk-vietnamese-400-normal-B7xT_GF5.woff2",
+      "fileId": "d49191c398458d60bea4f509e9cb327272a01f10"
+    },
+    {
+      "path": "src/apps/web/dist/assets/space-grotesk-vietnamese-400-normal-BIWiOVfw.woff",
+      "fileId": "1a66addb2e5bf3bd2049c53d2829488c99f71aa2"
+    },
+    {
+      "path": "src/apps/web/dist/assets/space-grotesk-vietnamese-500-normal-BTqKIpxg.woff",
+      "fileId": "26568c49e7225710a89064be0edf88379d8a5687"
+    },
+    {
+      "path": "src/apps/web/dist/assets/space-grotesk-vietnamese-500-normal-BmEvtly_.woff2",
+      "fileId": "50d4c53ab9c299f388ed4b292e2b965e6e3aeb3c"
+    },
+    {
+      "path": "src/apps/web/dist/assets/space-grotesk-vietnamese-700-normal-DMty7AZE.woff2",
+      "fileId": "3afadbaf1441aa16a858c7dc57b65741f0ddfdb4"
+    },
+    {
+      "path": "src/apps/web/dist/assets/space-grotesk-vietnamese-700-normal-Duxec5Rn.woff",
+      "fileId": "1bfc9ec0d70b927173c7aa2bea73c962d8bccd18"
+    },
+    {
+      "path": "src/apps/web/dist/assets/src-DcHc28LT.js",
+      "fileId": "666a6b9de2a546f59011ec333ec1ff348026de7c"
+    },
+    {
+      "path": "src/apps/web/dist/index.html",
+      "fileId": "63141b60d91669cfb0063a287818f4271b59823f"
+    },
+    {
+      "path": "src/apps/web/dist/whitepaper.pdf",
+      "fileId": "9373612fac683a2105da22158bede1e569ab76e8"
+    },
+    {
+      "path": "src/apps/web/index.html",
+      "fileId": "61a01502264163cee5724a721a8cfa591765c4cb"
+    },
+    {
+      "path": "src/apps/web/package.json",
+      "fileId": "c211a08735282c27c5fb2743d2ac49346b6b43e4"
+    },
+    {
+      "path": "src/apps/web/public/whitepaper.pdf",
+      "fileId": "d6f57e3e1b324220c2df5377f855d6e6216442bf"
+    },
+    {
+      "path": "src/apps/web/src/App.tsx",
+      "fileId": "d7eb73b62e90c1c4d1545cbdbd3c43fa422f1b22"
+    },
+    {
+      "path": "src/apps/web/src/Pages.tsx",
+      "fileId": "2aff9854696522f515ca43d1370ece78ad5bb8d6"
+    },
+    {
+      "path": "src/apps/web/src/Playground.tsx",
+      "fileId": "86c2d1a8c49238341e89284681850d6430beb051"
+    },
+    {
+      "path": "src/apps/web/src/api.ts",
+      "fileId": "319953f1bb7a567eed2eb8d8a5b8b47fa230c2d9"
+    },
+    {
+      "path": "src/apps/web/src/components.tsx",
+      "fileId": "c3a3fbc7ec1b6125cf0af991162b3db59a6e0284"
+    },
+    {
+      "path": "src/apps/web/src/main.tsx",
+      "fileId": "96fa9c9dccb3dc5ce5242be92920a6b492e9bcce"
+    },
+    {
+      "path": "src/apps/web/src/styles.css",
+      "fileId": "0d9e8f4a023be94d49b8afda87d55321c2037e63"
+    },
+    {
+      "path": "src/apps/web/src/useNetwork.ts",
+      "fileId": "ef820ce3025b91f87789d35622ed555264c6d783"
+    },
+    {
+      "path": "src/apps/web/src/vite-env.d.ts",
+      "fileId": "e2eac6bcc8767d416f859eb09486cc8709de95a5"
+    },
+    {
+      "path": "src/apps/web/vite.config.ts",
+      "fileId": "fc453d6420a5efc35161d81a4f8306c57d949f77"
+    },
+    {
+      "path": "src/config/launch.json",
+      "fileId": "0ab12fff174d10074ecae8b1e20ead6822a013c3"
+    },
+    {
+      "path": "src/config/network.json",
+      "fileId": "18badef226f8563469923f2a300822f3e21be8ff"
+    },
+    {
+      "path": "src/config/network.remote.json",
+      "fileId": "bd66769ec3dd7f98be4965b463784bbaced8120c"
+    },
+    {
+      "path": "src/config/retained-probes/network-8w-token-program-incompatible.json",
+      "fileId": "c4f71f9a0d815aa1a2f833ad2b3823c9439adece"
+    },
+    {
+      "path": "src/config/runtime-build.json",
+      "fileId": "a0cc72ac623a6b2cedc896220349675db998b6f9"
+    },
+    {
+      "path": "src/eslint.config.js",
+      "fileId": "926dbbe0193c17d0c38c01dd9f0ddd82296e23de"
+    },
+    {
+      "path": "src/package.json",
+      "fileId": "752b489357cd6362ceeb30872cb47f0dfff9935c"
+    },
+    {
+      "path": "src/packages/chain/package.json",
+      "fileId": "1de7027368b9de057c9578c2a87290e5f04435ae"
+    },
+    {
+      "path": "src/packages/chain/src/index.ts",
+      "fileId": "173c0d086bb37d9be51adb210cd62a725be0cc35"
+    },
+    {
+      "path": "src/packages/config/package.json",
+      "fileId": "f5211756905dc8173450dcf5f159ee7b7a111ce0"
+    },
+    {
+      "path": "src/packages/config/src/index.ts",
+      "fileId": "dd09a0fe6cc6c65153a06b849cb66f5b9b7f7f84"
+    },
+    {
+      "path": "src/playwright.config.ts",
+      "fileId": "49290052056518a39c0d146f6da29ec9094cb454"
+    },
+    {
+      "path": "src/pnpm-lock.yaml",
+      "fileId": "3cee3137987ae2b63b0573592397521bc0c355a0"
+    },
+    {
+      "path": "src/pnpm-workspace.yaml",
+      "fileId": "9e5e1112cf2fdd4159d8e9de10b74e0a008a716f"
+    },
+    {
+      "path": "src/scripts/archive-server.cjs",
+      "fileId": "3aee5d7a1b4118a2caf0975f551de87ca3b7b5ec"
+    },
+    {
+      "path": "src/scripts/atomic-issuance-check.ts",
+      "fileId": "8be5ce530cf4dbbda206530ac1d6f4e8857199cd"
+    },
+    {
+      "path": "src/scripts/backup-check.ts",
+      "fileId": "3d8e0198e78033b835c48946d53ef544c59df8d8"
+    },
+    {
+      "path": "src/scripts/chain-smoke.ts",
+      "fileId": "371ed03c924bf6bbbc139eb9f66fdef880e18911"
+    },
+    {
+      "path": "src/scripts/dev.ts",
+      "fileId": "789fb7a99353c55b2b76ed1d40b47ce84e5690e9"
+    },
+    {
+      "path": "src/scripts/doctor.ts",
+      "fileId": "070a1fdb9eb1391f13f5d56f14114bacf1c3e820"
+    },
+    {
+      "path": "src/scripts/evidence.ts",
+      "fileId": "7ed3e987814a8deff70cc7171150e03d4be54e81"
+    },
+    {
+      "path": "src/scripts/fund-hosted-soak.ts",
+      "fileId": "86b9ace08245aa02898c02d9bb474e5eb6967ef9"
+    },
+    {
+      "path": "src/scripts/hosted-soak-start.ts",
+      "fileId": "a2d83d5126f3eb131accc5dc4542b474eb7426f1"
+    },
+    {
+      "path": "src/scripts/inspect-cold-archive.py",
+      "fileId": "8d7b6884323e865cb2a5f592199e7fe3958ec329"
+    },
+    {
+      "path": "src/scripts/install-agave.py",
+      "fileId": "9ecf938d42567aa97900e607f17d341efed080ac"
+    },
+    {
+      "path": "src/scripts/install-token-program.py",
+      "fileId": "88a8f14eb1ba89dbae4d499842eb51f882e66ac5"
+    },
+    {
+      "path": "src/scripts/linux-probe.ts",
+      "fileId": "e38cecffba28e926c75e08b6ca0557e37e960d45"
+    },
+    {
+      "path": "src/scripts/load.ts",
+      "fileId": "b066216d9c7f1b32a34efdebf8d2ff54c7ec73c7"
+    },
+    {
+      "path": "src/scripts/monitor.ts",
+      "fileId": "0dcaafb471162c5b912f7c561f87a6c9a40f7c27"
+    },
+    {
+      "path": "src/scripts/operator-fund.ts",
+      "fileId": "e790fcea93ab0639187d43a8682ef4ff2acb77dd"
+    },
+    {
+      "path": "src/scripts/pnpm.py",
+      "fileId": "281e4682455b0199be098e4e637adfb405d0fb03"
+    },
+    {
+      "path": "src/scripts/prepare-qa.ts",
+      "fileId": "37dfdadb72cf517c5bb57289951cfc2fd705ba37"
+    },
+    {
+      "path": "src/scripts/railway-ops.ts",
+      "fileId": "2eb044d2a84168747c20fc6db58e83c1b928c3dd"
+    },
+    {
+      "path": "src/scripts/railway-start.ts",
+      "fileId": "07748bd9eefcd8e89b24a213bc83fddd2dc7d841"
+    },
+    {
+      "path": "src/scripts/release-check.ts",
+      "fileId": "2cb64d39769c86b4c0b12527e52300c267fa48ef"
+    },
+    {
+      "path": "src/scripts/release-packet.ts",
+      "fileId": "632c79da206c0a0f1a81bece479feceb7438bda0"
+    },
+    {
+      "path": "src/scripts/remote-fault-controls.ts",
+      "fileId": "123b4dec1ba1906a3f5484d87bfd66c80b47a3bf"
+    },
+    {
+      "path": "src/scripts/remote-negative-controls.ts",
+      "fileId": "a9b3272f42bc89cfe77457580631aca6a7c477a2"
+    },
+    {
+      "path": "src/scripts/resolve-dependencies.py",
+      "fileId": "8b2bb4f6ef16f24faede022c3ce1f88513cc05e2"
+    },
+    {
+      "path": "src/scripts/restart-check.ts",
+      "fileId": "1cf2df8d7e368936b525e3749e2b4138c1ff15da"
+    },
+    {
+      "path": "src/scripts/soak.ts",
+      "fileId": "8cb6d6ec59c983eb9fa2a8976a5bfaed2c616d1a"
+    },
+    {
+      "path": "src/scripts/workload.ts",
+      "fileId": "3e31e41e8138d7abcdb9dc3d7c53edab6638c76d"
+    },
+    {
+      "path": "src/tsconfig.json",
+      "fileId": "8e601a150b6243740fda12b79c53c77cc77f25e4"
+    },
+    {
+      "path": "src/vercel.json",
+      "fileId": "d87b12a244f3fb4e6abab5d4374e0e5bce296bdf"
+    },
+    {
+      "path": "src/vitest.config.ts",
+      "fileId": "d5f0918783d7da440dd2296900aaaf331eaa1a2c"
+    }
+  ],
+  "forbiddenFilePaths": [],
+  "emptySensitiveDirectoryMetadata": [
+    "src/.data"
+  ],
+  "passed": true
+}

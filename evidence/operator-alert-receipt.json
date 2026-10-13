@@ -1,0 +1,23 @@
+{
+  "at": "2026-10-13T13:50:32.011092Z",
+  "scope": "operator email-receipt attestation for actual remote Railway alerts",
+  "passed": true,
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "candidate": {
+    "apiOrigin": "https://network-release-production.up.railway.app",
+    "frontendOrigin": "https://solana-classic-soc.vercel.app",
+    "frontendDeploymentId": "dpl_DmoMtTCGgJDeBzaeeEX1QhZA4TAV",
+    "frontendCommit": "c1a7f15839d6fbed5b04fe7ea773d61cf273bdb2",
+    "apiCommit": "c1a7f15839d6fbed5b04fe7ea773d61cf273bdb2",
+    "networkConfigSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+    "dependencyManifestSha256": "e6da27717e6a84ca7b29d707ff63591b2ff0cfc38892d3b4667f8615bdf7bbc0"
+  },
+  "deliveryDestination": "Railway account email",
+  "recoveryDrillFailureReceived": true,
+  "monitorTriggeredReceived": true,
+  "monitorRecoveryReceived": true,
+  "source": "Direct founder replies: Yes, I received it; Yes, received.",
+  "nativeAlertId": "5b01f273-65c7-42f7-9604-32d07d3fc28a",
+  "nativeCreatedAt": "2026-10-13T07:44:28.707Z",
+  "nativeResolvedAt": "2026-10-13T07:50:28.704Z"
+}

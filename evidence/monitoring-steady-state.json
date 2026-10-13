@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "target": "https://network-release-production.up.railway.app",
+  "startedAt": "2026-10-13T07:46:16.126Z",
+  "pollEveryMs": 30000,
+  "stalledAfterMs": 60000,
+  "current": {
+    "at": "2026-10-13T07:47:16.139Z",
+    "healthy": true,
+    "code": "ONLINE",
+    "finalizedSlot": 18977,
+    "lastProgressAt": "2026-10-13T07:47:16.139Z"
+  },
+  "consecutiveFailures": 0,
+  "lastProbeAt": "2026-10-13T07:47:16.227Z",
+  "overdue": false,
+  "publicSignalConfigured": true,
+  "signalDispatch": {
+    "at": "2026-10-13T07:47:16.285Z",
+    "ok": true,
+    "status": 200
+  },
+  "fixture": {
+    "passed": false,
+    "steps": []
+  },
+  "fixtureEnabled": false,
+  "memoryHealthSignal": {
+    "active": false,
+    "bytes": 201326592,
+    "rssBytes": 110854144,
+    "thresholdGB": 0.18,
+    "scope": "derived network health; bounded monitor allocation, not resource pressure"
+  },
+  "deploymentId": "22f46035-b3fc-4056-aa06-871b6d14869d"
+}

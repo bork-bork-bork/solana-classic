@@ -1,11 +1,11 @@
 {
-  "sourceCommit": "dbefebde308d4f4f2efbeaa70d737aeda69cf2cd",
-  "coreSha256": "2c86df3c62e021eaf99103f6e27c4f861dd5b29dde494873db3866713877f92b",
+  "sourceCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+  "coreSha256": "30697f3e9b441b05a036d0704b42322d723b3998840ed43d88b18a0d7ef7d1dd",
   "files": {
     "apps/api/package.json": "abe47ab3a0462b995e80c52f7bf3225876a7b3e9b53a108c4c96c0d9cbf9dba1",
     "apps/api/src/app.ts": "ac3bd0b827ebce48e22b2e8db6704e624b4243a4ef2a23bf329bedc934af3056",
     "apps/api/src/main.ts": "b106a84ead536cfab3dc078ccf790544dea4d34d107e4647515c398b3189aa6a",
-    "apps/api/src/runtime.ts": "c189347c3a8a1c8d0a216226f47f98d1a1ba2e06e82f3074aed5c126ef538b4d",
+    "apps/api/src/runtime.ts": "5b78be771e34912b4e675abe24b63bd4283cda9853bf5996c8e582b104f1d8d4",
     "apps/api/src/settings.ts": "6cab157d2dce520049d8fca4ab1014452d53ac2f22cc74fc1b3ec6df42782af9",
     "apps/api/src/store.ts": "9ed76044cf292cc20022fac2d17e19baa1c3a2826a8aeab43125a50ddc1457f7",
     "apps/web/package.json": "167ac4ea629e8668e573953921695904f1345cd3ce93fdd6a4c98c448ce0f34e",
@@ -22,16 +22,18 @@
     "config/network.json": "c81d5ac8fa4319b87b3cff75b39c39a8b07a1f5cfab6e46293224bd90ff2bdec",
     "config/network.remote.json": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
     "infra/RailwayCompatibility.Dockerfile": "531affc02efdc4d387f3b4a83c60f99e79e0a08f304998278049861dc64243de",
-    "package.json": "350bd61db53dbb69331eb0c404008f21e76e37b93567bd015324d5b3c4664958",
+    "package.json": "3713097c2b5822f6ca0c4c6317e109d3ce4b65f31a714314bd13b989f684a3d2",
     "packages/chain/package.json": "272aaa0aa998776a0fa8d20d05d52a35b60438d59fb8be136dda683b0047a348",
-    "packages/chain/src/index.ts": "59f1ca7fd46a02197cf64510f0273e996ff690fda98416b277c5abd345fdb040",
+    "packages/chain/src/index.ts": "e9d9822a428e92eef96b35155a3cf6b34191d3ae117d385e96b3f0a5b2c5ef0c",
     "packages/config/package.json": "b272f58fc896e279c3fe9268d34b9cdad59883a923b704335eb289c2dc18e2b0",
     "packages/config/src/index.ts": "6f2c81341cb7b9cea9cab806936b2a2e7e36c1eeedd958d7c3745ffa8e6ae545",
     "pnpm-lock.yaml": "3ccff3161ebc9514a32b1e59d699e5d906d4ab6d9ea954205bcbc18a4b300fc4",
     "pnpm-workspace.yaml": "d7995fb2785917d36061c80851958071eba3b0d0407e56d25955f0f35230f5cb",
+    "scripts/inspect-cold-archive.py": "fbe316c8f0483e7d85b123447465f0b94255df4977526e3231c9aac416883854",
     "scripts/install-agave.py": "fe79824c2a37ce23b83b3e8015f1dfa8eafc557ccd0ffcb5300fe057584cbe39",
     "scripts/install-token-program.py": "c84cbeb11f72188781fa304c3c00e16f01fac6cc283975f724b6804ded135b98",
-    "scripts/railway-ops.ts": "3707db5a008b3eef80d861087cb9281f90e1cf7b548b822719ddd8877cf5fb22",
+    "scripts/operator-fund.ts": "0ff76bf6dfc29d665e4586d193e7a486cc90c02fb3854910da07b48bcd335283",
+    "scripts/railway-ops.ts": "e5dd2ffec4032d5770c1d5713434bdba8ea1f343f4558c502cc03cc871c7cc90",
     "scripts/railway-start.ts": "dd6158ea71c26e84b375959963721e1157da4ca7e409a3907eaa1e2ffe085d2c"
   }
 }

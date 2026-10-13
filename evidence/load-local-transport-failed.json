@@ -1,0 +1,25 @@
+{
+  "at": "2026-10-13T08:15:00.035Z",
+  "scope": "remote bounded SDK workload; not completed",
+  "passed": false,
+  "api": "https://network-release-production.up.railway.app",
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "candidate": {
+    "apiOrigin": "https://network-release-production.up.railway.app",
+    "frontendOrigin": "https://solana-classic-soc.vercel.app",
+    "frontendDeploymentId": "dpl_DmoMtTCGgJDeBzaeeEX1QhZA4TAV",
+    "frontendCommit": "c1a7f15839d6fbed5b04fe7ea773d61cf273bdb2",
+    "apiCommit": "c1a7f15839d6fbed5b04fe7ea773d61cf273bdb2",
+    "networkConfigSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+    "dependencyManifestSha256": "e6da27717e6a84ca7b29d707ff63591b2ff0cfc38892d3b4667f8615bdf7bbc0"
+  },
+  "durationMs": 0,
+  "completed": 0,
+  "metrics": {
+    "successfulWithin15Seconds": 0,
+    "p95LogicalConfirmedMs": null,
+    "missingConfirmations": 200
+  },
+  "results": [],
+  "error": "fetch failed"
+}

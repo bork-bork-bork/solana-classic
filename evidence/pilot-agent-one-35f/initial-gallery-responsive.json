@@ -1,0 +1,25 @@
+{
+  "at": "2026-10-13T16:05:03.177Z",
+  "scope": "read-only isolated Chromium gallery responsive checks",
+  "checks": [
+    {
+      "surface": "gallery",
+      "width": 1440,
+      "height": 1000,
+      "scrollWidth": 1440,
+      "verifiedAssetVisible": true,
+      "mintLinkVisible": true
+    },
+    {
+      "surface": "gallery",
+      "width": 360,
+      "height": 1000,
+      "scrollWidth": 360,
+      "verifiedAssetVisible": true,
+      "mintLinkVisible": true
+    }
+  ],
+  "consoleErrors": [],
+  "completedAt": "2026-10-13T16:05:04.494Z",
+  "passed": true
+}

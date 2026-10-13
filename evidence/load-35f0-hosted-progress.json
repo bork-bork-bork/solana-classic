@@ -1,0 +1,10 @@
+{
+  "at": "2026-10-13T16:03:39.042Z",
+  "attempt": {
+    "at": "2026-10-13T16:01:10.164Z",
+    "state": "claimed",
+    "freezeSha256": "de996a8ca58a9d12cf2b264ab86d4e6eab6a3230a779d250402918b288309b82"
+  },
+  "completed": null,
+  "logTail": "bigint: Failed to load bindings, pure JS will be used (try npm run rebuild?)\n"
+}

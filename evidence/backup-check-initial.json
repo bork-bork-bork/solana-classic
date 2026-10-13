@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-13T07:42:11.087Z",
+  "scope": "remote isolated cold-backup restore verification; not production cutover or host reboot",
+  "passed": true,
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "liveApi": "https://network-release-production.up.railway.app",
+  "restoredApi": "https://recovery-drill-production.up.railway.app",
+  "source": {
+    "projectId": "356bcb0b-49c4-4bd3-bf10-bff7db8f33fe",
+    "environmentId": "3367b373-2332-4702-8cce-c12b8f03949e",
+    "serviceId": "d0a1de40-bd9c-47eb-a7fc-477f1c55b2d6",
+    "volumeId": "080bf785-50e7-4dda-893b-4d613aa5e9a8",
+    "volumeInstanceId": "c639b73d-bb8e-46b2-b94e-4327561e5274"
+  },
+  "target": {
+    "projectId": "356bcb0b-49c4-4bd3-bf10-bff7db8f33fe",
+    "environmentId": "3367b373-2332-4702-8cce-c12b8f03949e",
+    "serviceId": "43fc867b-1105-423c-a901-84ec5cb9a46a",
+    "volumeId": "b3030354-8a36-4fed-939e-ea957fd65001",
+    "api": "https://recovery-drill-production.up.railway.app",
+    "mountPath": "/data",
+    "deploymentId": "0f5c2038-a28c-4456-9c11-74b3cb5757fa"
+  },
+  "backupId": "/data/backups/current.tar.gz:sha256:7f74ccefe4a6447e639208c15b844ef60cfbaf3055f81640eb3f356fa2430f65",
+  "method": "cold-archive",
+  "providerEvidence": {
+    "path": "evidence/recovery-provider.json",
+    "sha256": "6940157bf837dd5ff1c990037141f2c4bc1ac6d9fece73e7e7f1b34ec41a6dcb"
+  },
+  "baselineEvidence": {
+    "path": "evidence/restart-baseline.json",
+    "sha256": "3690697d9d711e91b9161d4f0ab945090003c14b445749abad8b787bb69ea998"
+  },
+  "canonicalConfig": {
+    "path": "config/network.remote.json",
+    "sha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e"
+  },
+  "timings": {
+    "backup": {
+      "id": "/data/backups/current.tar.gz:sha256:7f74ccefe4a6447e639208c15b844ef60cfbaf3055f81640eb3f356fa2430f65",
+      "state": "complete",
+      "writersStoppedAt": "2026-10-13T06:30:57.219Z",
+      "startedAt": "2026-10-13T06:30:57.219Z",
+      "completedAt": "2026-10-13T06:31:55.567Z",
+      "writersResumedAt": "2026-10-13T06:40:46.676Z",
+      "archiveSha256": "7f74ccefe4a6447e639208c15b844ef60cfbaf3055f81640eb3f356fa2430f65"
+    },
+    "restore": {
+      "startedAt": "2026-10-13T07:29:00.363Z",
+      "completedAt": "2026-10-13T07:29:19.950Z",
+      "readyAt": "2026-10-13T07:41:42.586292Z",
+      "state": "complete",
+      "isolated": true,
+      "originalVolumeRetained": true,
+      "liveRestoreApplied": false,
+      "targetContainsOnlyCopiedSourceData": true
+    }
+  },
+  "balances": {
+    "HUX4gYhK1kYZJMJSQ6U4SYeiNnoC87kfvkAUmK3ErTZH": 1000000000
+  },
+  "assets": [
+    {
+      "mint": "5NAoA3xhpSWfYtTyY3Ue1AiavHzgbZYEDHHJtHSMTWR3",
+      "accountHash": "c2ddcb15b925d88e0400ea6501565be38d4c3747bb667921c28a060d1bcc49e6",
+      "kind": "nft",
+      "supply": "1",
+      "decimals": 0,
+      "immutableAuthoritiesVerified": true,
+      "owner": "GRYb9kCHqEXAoUBGTjiWYRGp71mMCQMB7rmnT2wGdJBM",
+      "verifiedAt": "2026-10-13T05:51:08.995Z",
+      "files": [
+        {
+          "originalUrl": "https://network-release-production.up.railway.app/assets/d90092abed71c7ca02ba27de78b0e2dc7573f55db3e79cd426e5667d86a43ae3/metadata.json",
+          "restoredUrl": "https://recovery-drill-production.up.railway.app/assets/d90092abed71c7ca02ba27de78b0e2dc7573f55db3e79cd426e5667d86a43ae3/metadata.json",
+          "sha256": "f01c50714b3580f94461b7784a336e246fa6be1ad6d347158c83589388d47f79"
+        },
+        {
+          "originalUrl": "https://network-release-production.up.railway.app/assets/d90092abed71c7ca02ba27de78b0e2dc7573f55db3e79cd426e5667d86a43ae3/image.svg",
+          "restoredUrl": "https://recovery-drill-production.up.railway.app/assets/d90092abed71c7ca02ba27de78b0e2dc7573f55db3e79cd426e5667d86a43ae3/image.svg",
+          "sha256": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        }
+      ]
+    },
+    {
+      "mint": "6wkqQraV4tUGA9CHLph5ZpXdom7FSAG4C9yBfu2zEEdQ",
+      "accountHash": "2bccf12ce5f7e3724f4415df5bc00eecf56029a129117488d45f4c894b81a578",
+      "kind": "meme",
+      "supply": "1000000000000",
+      "decimals": 6,
+      "immutableAuthoritiesVerified": true,
+      "owner": null,
+      "verifiedAt": "2026-10-13T05:50:45.284Z",
+      "files": [
+        {
+          "originalUrl": "https://network-release-production.up.railway.app/assets/785954dd3d40fd1e492f928d4f35ca6adfb57998df0f79ef14e5b1d0e7019907/metadata.json",
+          "restoredUrl": "https://recovery-drill-production.up.railway.app/assets/785954dd3d40fd1e492f928d4f35ca6adfb57998df0f79ef14e5b1d0e7019907/metadata.json",
+          "sha256": "0b59c2138a3ddfdc283f2cdb0f1941b790e81f0dc2eac70b4b1b01d5ffc21f10"
+        },
+        {
+          "originalUrl": "https://network-release-production.up.railway.app/assets/785954dd3d40fd1e492f928d4f35ca6adfb57998df0f79ef14e5b1d0e7019907/image.svg",
+          "restoredUrl": "https://recovery-drill-production.up.railway.app/assets/785954dd3d40fd1e492f928d4f35ca6adfb57998df0f79ef14e5b1d0e7019907/image.svg",
+          "sha256": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        }
+      ]
+    },
+    {
+      "mint": "6Z7UUGhSWUpZwqPjexqAtzjmRhvXsXFpX29ZJpa6ojZm",
+      "accountHash": "1bc6856405f47ec9fa02cd59367aedd5b8be018b8271c7a9637d919f63c49e53",
+      "kind": "nft",
+      "supply": "1",
+      "decimals": 0,
+      "immutableAuthoritiesVerified": true,
+      "owner": "EYEK68K13bwbE58d8nrV2c9jmXsDPBiupczybjtgHBw9",
+      "verifiedAt": "2026-10-13T05:29:02.742Z",
+      "files": [
+        {
+          "originalUrl": "https://network-release-production.up.railway.app/assets/e57ec8d12eae763c66a12045af4986f8268eb763c755c78e35de2fc1f64674e3/metadata.json",
+          "restoredUrl": "https://recovery-drill-production.up.railway.app/assets/e57ec8d12eae763c66a12045af4986f8268eb763c755c78e35de2fc1f64674e3/metadata.json",
+          "sha256": "a4d5cad597413b7222a7f03f3d1ae4b98c255d3250950ce2ad3dd4309473bf24"
+        },
+        {
+          "originalUrl": "https://network-release-production.up.railway.app/assets/e57ec8d12eae763c66a12045af4986f8268eb763c755c78e35de2fc1f64674e3/image.svg",
+          "restoredUrl": "https://recovery-drill-production.up.railway.app/assets/e57ec8d12eae763c66a12045af4986f8268eb763c755c78e35de2fc1f64674e3/image.svg",
+          "sha256": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        }
+      ]
+    },
+    {
+      "mint": "C8TrnpZThQWpAt3kZNj13X3RErYsWKRiQHa3zsZgxfaL",
+      "accountHash": "79a4e326987367edb73ac251808b62b9d3a8b2554b481973f5b1fec7c4b1f866",
+      "kind": "meme",
+      "supply": "1000000000000",
+      "decimals": 6,
+      "immutableAuthoritiesVerified": true,
+      "owner": null,
+      "verifiedAt": "2026-10-13T05:28:29.477Z",
+      "files": [
+        {
+          "originalUrl": "https://network-release-production.up.railway.app/assets/782fbe7bd1ad7964b491f49263352ba620442f710022f6633661c2fa373dbb8e/metadata.json",
+          "restoredUrl": "https://recovery-drill-production.up.railway.app/assets/782fbe7bd1ad7964b491f49263352ba620442f710022f6633661c2fa373dbb8e/metadata.json",
+          "sha256": "57d05dc4b907449244dcf7ef9ae2a9dbad96fd254b56035cb190c664b0b8a459"
+        },
+        {
+          "originalUrl": "https://network-release-production.up.railway.app/assets/782fbe7bd1ad7964b491f49263352ba620442f710022f6633661c2fa373dbb8e/image.svg",
+          "restoredUrl": "https://recovery-drill-production.up.railway.app/assets/782fbe7bd1ad7964b491f49263352ba620442f710022f6633661c2fa373dbb8e/image.svg",
+          "sha256": "79052c80b45a5a46089c1135292257dc8c454b24cedb56db21a0a3dd435d5103"
+        }
+      ]
+    }
+  ],
+  "galleryRowsPreserved": 7,
+  "galleryRowsSha256": "9f61ee5c3f3e41c435885c6f9f36bd5461f207b53bc0e87835db576946a1d998",
+  "faucet": {
+    "requestId": "574b0019-d994-4ee3-8e14-cdd5565de38f",
+    "signature": "3QuPxK7pB2NYyWYF56uVnoKmCPTwgh4vM2kwgQoMxRTxAcPwhgJMsq7JDiuNvUwiUDtdbKghA3RNTkwdLKo3FM1c",
+    "lamports": 1000000000,
+    "state": "confirmed",
+    "noDoubleGrant": true
+  },
+  "finalizedSlot": 11020
+}

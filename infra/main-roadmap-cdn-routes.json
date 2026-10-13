@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "provider": "Vercel project-level CDN routes",
+  "projectId": "prj_mjv3k9UcoPgxoNvDl2foOIC8R3V9",
+  "scope": "trenchfun1",
+  "rules": [
+    {
+      "name": "Solana Classic roadmap page",
+      "src": "^/roadmap/?$",
+      "dest": "https://solana-classic-roadmap.vercel.app/integrated"
+    },
+    {
+      "name": "Solana Classic roadmap assets and live status",
+      "src": "^/roadmap/(.+)$",
+      "dest": "https://solana-classic-roadmap.vercel.app/$1"
+    }
+  ],
+  "publication": "vercel routes publish --yes --project prj_mjv3k9UcoPgxoNvDl2foOIC8R3V9 --scope trenchfun1",
+  "source": "https://vercel.com/kb/guide/vercel-reverse-proxy-rewrites-external"
+}

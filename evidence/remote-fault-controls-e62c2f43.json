@@ -1,0 +1,385 @@
+{
+  "at": "2026-10-13T07:51:09.105Z",
+  "scope": "remote isolated restored TEST node private loopback gateways using actual deployed API code and actual validator; controlled settings faults, no mocked RPC or public fault endpoints",
+  "passed": true,
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "candidate": null,
+  "frozenCandidateBound": false,
+  "target": {
+    "projectId": "356bcb0b-49c4-4bd3-bf10-bff7db8f33fe",
+    "environmentId": "3367b373-2332-4702-8cce-c12b8f03949e",
+    "serviceId": "43fc867b-1105-423c-a901-84ec5cb9a46a",
+    "deploymentId": "0f5c2038-a28c-4456-9c11-74b3cb5757fa"
+  },
+  "runtime": {
+    "configured": true,
+    "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+    "sourceCommit": "e62c2f43de9aabb1dff829be469f271d477a82b3",
+    "coreSha256": "bd48ccec50aa20014dd185da9bb75d32a754547ca9a67871cfea1f4b7c2b7d83",
+    "apiBootId": "1b8b8bd2-d741-4069-8bcc-0eb579b84b06",
+    "apiStartedAt": "2026-10-13T07:38:43.040Z",
+    "validatorBootId": "339a6c87-be72-4fb6-9210-a0b0d8805d67",
+    "validatorStartedAt": "2026-10-13T07:38:27.287Z",
+    "deploymentId": "0f5c2038-a28c-4456-9c11-74b3cb5757fa",
+    "agaveVersion": "3.0.14",
+    "tokenProgramVersion": "10.0.0",
+    "tokenProgramSha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+    "observedAt": "2026-10-13T07:51:07.001Z"
+  },
+  "sourceFiles": {
+    "apps/api/src/app.ts": "ac3bd0b827ebce48e22b2e8db6704e624b4243a4ef2a23bf329bedc934af3056",
+    "apps/api/src/settings.ts": "6cab157d2dce520049d8fca4ab1014452d53ac2f22cc74fc1b3ec6df42782af9",
+    "packages/chain/src/index.ts": "59f1ca7fd46a02197cf64510f0273e996ff690fda98416b277c5abd345fdb040"
+  },
+  "faults": [
+    {
+      "name": "wrong configured genesis against actual restored validator",
+      "port": 3002,
+      "expectedGenesis": "deliberately-misconfigured-TEST-genesis",
+      "upstream": "http://127.0.0.1:8899/",
+      "status": {
+        "status": 200,
+        "body": {
+          "state": "degraded",
+          "slot": null,
+          "genesisMatches": false,
+          "lastProgressAt": null,
+          "message": "Network unavailable. New actions are paused."
+        }
+      },
+      "health": {
+        "status": 503,
+        "body": {
+          "state": "degraded"
+        }
+      },
+      "checks": [
+        {
+          "path": "/api/assets",
+          "response": {
+            "status": 503,
+            "body": {
+              "error": {
+                "code": "SERVICE_UNAVAILABLE",
+                "message": "The network service could not complete this request. Check status before retrying."
+              }
+            }
+          },
+          "passed": true
+        },
+        {
+          "path": "/api/faucet",
+          "response": {
+            "status": 503,
+            "body": {
+              "error": {
+                "code": "SERVICE_UNAVAILABLE",
+                "message": "The network service could not complete this request. Check status before retrying."
+              }
+            }
+          },
+          "passed": true
+        },
+        {
+          "path": "/api/gallery",
+          "response": {
+            "status": 503,
+            "body": {
+              "error": {
+                "code": "SERVICE_UNAVAILABLE",
+                "message": "The network service could not complete this request. Check status before retrying."
+              }
+            }
+          },
+          "passed": true
+        },
+        {
+          "path": "/api/rpc",
+          "method": "sendTransaction",
+          "response": {
+            "status": 503,
+            "body": {
+              "error": {
+                "code": "SERVICE_UNAVAILABLE",
+                "message": "The network service could not complete this request. Check status before retrying."
+              }
+            }
+          },
+          "passed": true
+        },
+        {
+          "path": "/api/rpc",
+          "method": "simulateTransaction",
+          "response": {
+            "status": 200,
+            "body": {
+              "jsonrpc": "2.0",
+              "error": {
+                "code": -32003,
+                "message": "Transaction signature verification failure"
+              },
+              "id": 2
+            }
+          },
+          "readOnly": true
+        }
+      ],
+      "rowsBefore": {
+        "assets": 0,
+        "faucet": 0,
+        "gallery": 0,
+        "counters": 0
+      },
+      "rowsAfter": {
+        "assets": 0,
+        "faucet": 0,
+        "gallery": 0,
+        "counters": 0
+      },
+      "persistentRowsUnchanged": true,
+      "closed": true,
+      "passed": true
+    },
+    {
+      "name": "known public configured genesis against actual restored validator",
+      "port": 3002,
+      "expectedGenesis": "5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp",
+      "upstream": "http://127.0.0.1:8899/",
+      "status": {
+        "status": 200,
+        "body": {
+          "state": "degraded",
+          "slot": null,
+          "genesisMatches": false,
+          "lastProgressAt": null,
+          "message": "Network unavailable. New actions are paused."
+        }
+      },
+      "health": {
+        "status": 503,
+        "body": {
+          "state": "degraded"
+        }
+      },
+      "checks": [
+        {
+          "path": "/api/assets",
+          "response": {
+            "status": 503,
+            "body": {
+              "error": {
+                "code": "SERVICE_UNAVAILABLE",
+                "message": "The network service could not complete this request. Check status before retrying."
+              }
+            }
+          },
+          "passed": true
+        },
+        {
+          "path": "/api/faucet",
+          "response": {
+            "status": 503,
+            "body": {
+              "error": {
+                "code": "SERVICE_UNAVAILABLE",
+                "message": "The network service could not complete this request. Check status before retrying."
+              }
+            }
+          },
+          "passed": true
+        },
+        {
+          "path": "/api/gallery",
+          "response": {
+            "status": 503,
+            "body": {
+              "error": {
+                "code": "SERVICE_UNAVAILABLE",
+                "message": "The network service could not complete this request. Check status before retrying."
+              }
+            }
+          },
+          "passed": true
+        },
+        {
+          "path": "/api/rpc",
+          "method": "sendTransaction",
+          "response": {
+            "status": 503,
+            "body": {
+              "error": {
+                "code": "SERVICE_UNAVAILABLE",
+                "message": "The network service could not complete this request. Check status before retrying."
+              }
+            }
+          },
+          "passed": true
+        },
+        {
+          "path": "/api/rpc",
+          "method": "simulateTransaction",
+          "response": {
+            "status": 200,
+            "body": {
+              "jsonrpc": "2.0",
+              "error": {
+                "code": -32003,
+                "message": "Transaction signature verification failure"
+              },
+              "id": 2
+            }
+          },
+          "readOnly": true
+        }
+      ],
+      "rowsBefore": {
+        "assets": 0,
+        "faucet": 0,
+        "gallery": 0,
+        "counters": 0
+      },
+      "rowsAfter": {
+        "assets": 0,
+        "faucet": 0,
+        "gallery": 0,
+        "counters": 0
+      },
+      "persistentRowsUnchanged": true,
+      "closed": true,
+      "passed": true
+    },
+    {
+      "name": "actual unavailable loopback upstream without stopping validator",
+      "port": 3003,
+      "expectedGenesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+      "upstream": "http://127.0.0.1:8898/",
+      "status": {
+        "status": 200,
+        "body": {
+          "state": "degraded",
+          "slot": null,
+          "genesisMatches": false,
+          "lastProgressAt": null,
+          "message": "Network unavailable. New actions are paused."
+        }
+      },
+      "health": {
+        "status": 503,
+        "body": {
+          "state": "degraded"
+        }
+      },
+      "checks": [
+        {
+          "path": "/api/assets",
+          "response": {
+            "status": 503,
+            "body": {
+              "error": {
+                "code": "SERVICE_UNAVAILABLE",
+                "message": "The network service could not complete this request. Check status before retrying."
+              }
+            }
+          },
+          "passed": true
+        },
+        {
+          "path": "/api/faucet",
+          "response": {
+            "status": 503,
+            "body": {
+              "error": {
+                "code": "SERVICE_UNAVAILABLE",
+                "message": "The network service could not complete this request. Check status before retrying."
+              }
+            }
+          },
+          "passed": true
+        },
+        {
+          "path": "/api/gallery",
+          "response": {
+            "status": 503,
+            "body": {
+              "error": {
+                "code": "SERVICE_UNAVAILABLE",
+                "message": "The network service could not complete this request. Check status before retrying."
+              }
+            }
+          },
+          "passed": true
+        },
+        {
+          "path": "/api/rpc",
+          "method": "sendTransaction",
+          "response": {
+            "status": 503,
+            "body": {
+              "error": {
+                "code": "SERVICE_UNAVAILABLE",
+                "message": "The network service could not complete this request. Check status before retrying."
+              }
+            }
+          },
+          "passed": true
+        },
+        {
+          "path": "/api/rpc",
+          "method": "simulateTransaction",
+          "response": {
+            "status": 503,
+            "body": {
+              "error": {
+                "code": "SERVICE_UNAVAILABLE",
+                "message": "The network service could not complete this request. Check status before retrying."
+              }
+            }
+          },
+          "readOnly": true
+        }
+      ],
+      "rowsBefore": {
+        "assets": 0,
+        "faucet": 0,
+        "gallery": 0,
+        "counters": 0
+      },
+      "rowsAfter": {
+        "assets": 0,
+        "faucet": 0,
+        "gallery": 0,
+        "counters": 0
+      },
+      "persistentRowsUnchanged": true,
+      "closed": true,
+      "passed": true
+    }
+  ],
+  "cleanup": {
+    "faultAppsClosed": true,
+    "temporaryDataDirectoriesRemoved": true,
+    "normalRuntimeUnchanged": true,
+    "validatorUntouched": true,
+    "normalStatus": {
+      "status": 200,
+      "body": {
+        "state": "online",
+        "slot": 12347,
+        "genesisMatches": true,
+        "lastProgressAt": "2026-10-13T07:51:09.099Z",
+        "message": "Experimental devnet is responding."
+      }
+    },
+    "beforeSlot": 12342,
+    "afterSlot": 12346
+  },
+  "limitations": [
+    "This is private remote loopback gateway evidence, not a public-ingress browser outage test.",
+    "Upstream unavailability was a separate gateway pointed at an unused loopback port; neither validator was stopped.",
+    "No final candidate binding is claimed. Source checksums permit later review of unchanged guard code."
+  ],
+  "transportCleanup": {
+    "sourceRemoved": true,
+    "dataRootRemoved": true
+  }
+}

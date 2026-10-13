@@ -1,0 +1,107 @@
+{
+  "at": "2026-10-13T14:37:32.924071+00:00",
+  "scope": "read-only canonical currentpilot2 NFT ownership and exact finalization verification, not public Solana",
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "candidate": {
+    "apiOrigin": "https://network-release-production.up.railway.app",
+    "frontendOrigin": "https://solana-classic-soc.vercel.app",
+    "frontendDeploymentId": "dpl_DmoMtTCGgJDeBzaeeEX1QhZA4TAV",
+    "frontendCommit": "c1a7f15839d6fbed5b04fe7ea773d61cf273bdb2",
+    "apiCommit": "c1a7f15839d6fbed5b04fe7ea773d61cf273bdb2",
+    "networkConfigSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+    "dependencyManifestSha256": "e6da27717e6a84ca7b29d707ff63591b2ff0cfc38892d3b4667f8615bdf7bbc0"
+  },
+  "gallery": {
+    "mint": "CbZfbwUKi9tz2VjcM8qyrBsxy8W3vngAXD7ctLcas2P",
+    "kind": "nft",
+    "name": "PilotAtomicTwoCurrent",
+    "symbol": "PATWO",
+    "presetId": 3,
+    "contentHash": "5e1593cfb68102d619fa9e3a2d3536f05cf6adf5a4e30c96226104f05911f094",
+    "uri": "https://network-release-production.up.railway.app/assets/5e1593cfb68102d619fa9e3a2d3536f05cf6adf5a4e30c96226104f05911f094/metadata.json",
+    "image": "https://network-release-production.up.railway.app/assets/5e1593cfb68102d619fa9e3a2d3536f05cf6adf5a4e30c96226104f05911f094/image.svg",
+    "issuanceSignature": "5BdNQ4eWx1rWK9UQVapqWUD9pChRAAz6UunujGeLKWq5YnhiMyHrZXXGbQPEBUKSCiovE7dZvMmPpXfV7QdxRw13",
+    "verifiedAt": "2026-10-13T14:28:52.746Z",
+    "currentOwner": "GNLmws5qo63LazMAxGqNcLLCTy7VCmjvwXLNefV1m65S",
+    "ownershipState": "held"
+  },
+  "signatures": [
+    "5BdNQ4eWx1rWK9UQVapqWUD9pChRAAz6UunujGeLKWq5YnhiMyHrZXXGbQPEBUKSCiovE7dZvMmPpXfV7QdxRw13",
+    "4DKwv2TPMF9WgAda55LrbgbEvGJhjEJnqonQ8o1E2GanAtTZMGg4iUaaqCdoXaeeCvbwL29hwkA6RdTQKpDh4odj",
+    "2RxbE3hA7jS4J72vefM6RaX1iAw61ie1UEUGtC1LB7p4tJBG8bWmpJrECqU7rdCH8tYcvjK4xvUpJaMXQPeK7JZz"
+  ],
+  "signatureStatuses": [
+    {
+      "confirmationStatus": "finalized",
+      "confirmations": null,
+      "err": null,
+      "slot": 77061,
+      "status": {
+        "Ok": null
+      }
+    },
+    {
+      "confirmationStatus": "finalized",
+      "confirmations": null,
+      "err": null,
+      "slot": 77208,
+      "status": {
+        "Ok": null
+      }
+    },
+    {
+      "confirmationStatus": "finalized",
+      "confirmations": null,
+      "err": null,
+      "slot": 76527,
+      "status": {
+        "Ok": null
+      }
+    }
+  ],
+  "transferSlot": 77208,
+  "transferMetaErr": null,
+  "transferFeeLamports": 5000,
+  "transferLogs": [
+    "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL invoke [1]",
+    "Program log: CreateIdempotent",
+    "Program TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb invoke [2]",
+    "Program log: Instruction: GetAccountDataSize",
+    "Program TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb consumed 1444 of 390104 compute units",
+    "Program return: TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb qgAAAAAAAAA=",
+    "Program TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb success",
+    "Program 11111111111111111111111111111111 invoke [2]",
+    "Program 11111111111111111111111111111111 success",
+    "Program log: Initialize the associated token account",
+    "Program TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb invoke [2]",
+    "Program log: Instruction: InitializeImmutableOwner",
+    "Program TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb consumed 674 of 383730 compute units",
+    "Program TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb success",
+    "Program TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb invoke [2]",
+    "Program log: Instruction: InitializeAccount3",
+    "Program TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb consumed 2027 of 380666 compute units",
+    "Program TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb success",
+    "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL consumed 21665 of 400000 compute units",
+    "Program ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL success",
+    "Program TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb invoke [1]",
+    "Program log: Instruction: TransferChecked",
+    "Program TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb consumed 2474 of 378335 compute units",
+    "Program TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb success"
+  ],
+  "runtimeIdentityUnchanged": true,
+  "runtime": {
+    "configured": true,
+    "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+    "sourceCommit": "c1a7f15839d6fbed5b04fe7ea773d61cf273bdb2",
+    "coreSha256": "f77c68ddd20684758bfaae7868e1d83a5a0a670664a34f63150d06be55838e20",
+    "apiBootId": "77c327af-74f9-412e-a746-851668c2616b",
+    "apiStartedAt": "2026-10-13T07:51:57.339Z",
+    "validatorBootId": "7a167823-8ee4-424f-85cc-5ef33916603d",
+    "validatorStartedAt": "2026-10-13T07:51:02.569Z",
+    "deploymentId": "818db2ce-bca0-45bd-a6bf-1bb8257fadc7",
+    "agaveVersion": "3.0.14",
+    "tokenProgramVersion": "10.0.0",
+    "tokenProgramSha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+    "observedAt": "2026-10-13T14:37:32.950Z"
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "at": "2026-10-13T16:52:50.238Z",
+  "scope": "remote actual read-only public soak progress reader verification; uninterrupted soak remains in progress",
+  "passed": true,
+  "url": "https://browser-soak-qa-production-e64c.up.railway.app/api/progress",
+  "domainId": "07014849-9320-466b-a4fe-03adfa654d53",
+  "targetPort": 3001,
+  "source": {
+    "at": "2026-10-13T16:51:20.623Z",
+    "scope": "read-only external progress reader started without frozen QA restart",
+    "deploymentId": "69bb0517-9ada-4b7c-a5fa-af837034003b",
+    "hostBootId": "3bad8ac1-f3be-4a7a-9c78-9b1491d4fefc",
+    "runnerProcessesBefore": [
+      {
+        "pid": 1,
+        "script": "scripts/hosted-soak-start.ts",
+        "stat": [
+          "1",
+          "(MainThread)",
+          "S",
+          "1190564753"
+        ]
+      },
+      {
+        "pid": 570,
+        "script": "scripts/soak.ts",
+        "stat": [
+          "570",
+          "(MainThread)",
+          "S",
+          "1191045300"
+        ]
+      }
+    ],
+    "sidecarPid": 731,
+    "port": 3001,
+    "frozenFilesVerified": 41,
+    "helperSha256": "8507f1f8eb6d6310a7a6dc2ec6650776d8f3349603d6e12d6eb58c6f67744f6f"
+  },
+  "after": {
+    "deploymentId": "69bb0517-9ada-4b7c-a5fa-af837034003b",
+    "hostBootId": "3bad8ac1-f3be-4a7a-9c78-9b1491d4fefc",
+    "processes": [
+      {
+        "pid": 1,
+        "script": "scripts/hosted-soak-start.ts",
+        "startTicks": "1190564753",
+        "matches": true
+      },
+      {
+        "pid": 570,
+        "script": "scripts/soak.ts",
+        "startTicks": "1191045300",
+        "matches": true
+      }
+    ],
+    "frozenFilesVerified": 41
+  },
+  "controls": [
+    {
+      "method": "GET",
+      "path": "/api/progress",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/api/progress",
+      "status": 404
+    },
+    {
+      "method": "GET",
+      "path": "/data/keys/soak-funder.json",
+      "status": 404
+    },
+    {
+      "method": "GET",
+      "path": "/api/progress?path=/data/control/start.json",
+      "status": 404
+    }
+  ],
+  "response": {
+    "at": "2026-10-13T16:52:50.219Z",
+    "scope": "read-only hosted browser soak progress; incomplete run is not acceptance",
+    "freezeSha256": "de996a8ca58a9d12cf2b264ab86d4e6eab6a3230a779d250402918b288309b82",
+    "progress": {
+      "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+      "candidate": {
+        "apiOrigin": "https://network-release-production.up.railway.app",
+        "frontendOrigin": "https://solana-classic-soc.vercel.app",
+        "frontendDeploymentId": "dpl_3aWWzKDohr4SrgijgrB8dWgHHS5r",
+        "frontendCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+        "apiCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+        "networkConfigSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+        "dependencyManifestSha256": "e6da27717e6a84ca7b29d707ff63591b2ff0cfc38892d3b4667f8615bdf7bbc0"
+      },
+      "startedAt": "2026-10-13T16:48:22.762Z",
+      "at": "2026-10-13T16:48:50.433Z",
+      "elapsedMs": 27671,
+      "completedJourneys": 1,
+      "observations": 0,
+      "lastSlot": 96981
+    },
+    "result": null
+  }
+}

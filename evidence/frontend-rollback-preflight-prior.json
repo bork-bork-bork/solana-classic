@@ -1,0 +1,15 @@
+{
+  "at": "2026-10-13T14:59:50.317Z",
+  "scope": "anonymous remote hosted QA HTTP observer",
+  "stage": "preflight-prior",
+  "origin": "https://solana-classic-hueospyw1-trenchfun1.vercel.app",
+  "serviceId": "5225cb9c-16af-4ec2-863e-a02f1c199fb3",
+  "node": "24.19.0",
+  "authorizationSent": false,
+  "cookiesSent": false,
+  "assets": [],
+  "passed": false,
+  "error": "fetch failed",
+  "errorCause": "unexpected redirect",
+  "transportExitCode": 0
+}

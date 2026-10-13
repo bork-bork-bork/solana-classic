@@ -1,21 +1,21 @@
 {
-  "at": "2026-10-13T05:51:13.818Z",
+  "at": "2026-10-13T08:03:42.650Z",
   "scope": "isolated Chromium production-origin remote chain journey, not external human pilot or soak",
   "passed": true,
   "web": "https://solana-classic-soc.vercel.app",
   "api": "https://network-release-production.up.railway.app",
   "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
-  "payer": "HEhWM3NSNzaB8Cn4iHwRk39XwHo37UMPhAyrL4399EZv",
-  "recipient": "GRYb9kCHqEXAoUBGTjiWYRGp71mMCQMB7rmnT2wGdJBM",
-  "memeMint": "6wkqQraV4tUGA9CHLph5ZpXdom7FSAG4C9yBfu2zEEdQ",
-  "nftMint": "5NAoA3xhpSWfYtTyY3Ue1AiavHzgbZYEDHHJtHSMTWR3",
+  "payer": "GgLZBTcxLF9BAacCxRiAY15nTwvaKQhVYCzpKkzfzkEz",
+  "recipient": "38VhXe9WwNtM8dvNAcEH4gbx4wwg622uM6svBdSZETFP",
+  "memeMint": "9DvS6ESVBCKC1Lh9B1hzyfNkPvZHucEY9znWRxKv2bNj",
+  "nftMint": "4it1eSajwgoXJGutMnNDqtDrmrj5NwYNnhxVsTNEE5rH",
   "receiptHrefs": [
-    "/explorer/tx/3XMF4mV9aZyEQ4sdQEfA2Z7Vn1wUTKizstBJnsUApekPU3kq1V9h3g9jzHtt7wTG1DzjC71MMD6Pv1qd62wEmGfS",
-    "/explorer/tx/2xkDrcKioxhJ4oDsZwrXCz376jfrA3qAnJ1PAhN7z3hCzEeYfjfRuMsUtRaGzmCN8soto1Gs8bodqpcfDsP6iCGU",
-    "/explorer/tx/46pnfhyzUtsTJaH1V72K7G9gJSd3KCEEb7R2XDwX6vKbN5MsLYxkG68EgmTg7cEHcRN1fM2i6d9uTyKcDieVwAKa",
-    "/explorer/tx/56nPH9aLof16DWy6Mr7EPDqPExaNPgKumC196itgmMjttyx2xdrP6asQJTQDd5SqkK8dsR8CE2Vh4BxArNpxWivm",
-    "/explorer/tx/3Pr7Btbq1XyHfg1CBcAe5YMQXMWLbqdCp4QMT1D3QaZfxdkTs5NQ695spJ63g2gAWa78fMVmJXymYwSZ7wvjT5hY",
-    "/explorer/tx/2PPpW5Zy6NSDALZUNWwNrz3JJa9Y9aN9yWyjq3hqXAEEZAJKJGRv7yhcNbb4q9hDhe8F2ujSMwVWzb5cSgycNpax"
+    "/explorer/tx/5rSdrpLHMBPCxW2dQ4h7Ut5LNFcF8g9uKkd6xKSdhuXAXUzosbdbykBse3dnpzw4NpkWESRLLcJUAHPPTiJrnPJc",
+    "/explorer/tx/5GbqrqdDQgr62UhBCxod6nuZ8kp2Ke3uDcbYqyZCw7kuZNACPQJMjgg5mdsL5nCKFjaUHfY89fKtySzPXtXPqdt9",
+    "/explorer/tx/4tUmPzkkUV2HWLefEHem6ExA8pQeaYGkJqkh7eiBd6q8MwMXWbLqCYhfk1vq4MMGna3sLz6A15afdsPTqfH7X4PC",
+    "/explorer/tx/4cifeBn8EwKsNS4EaYLDngrrxjeH9VFVzDqwnzQMj5zqbUUbQnVfwzc9kZYbwTcTtm5UBFeFVyD266ynq3T9WGPp",
+    "/explorer/tx/2FxbKRbTgBopiTomP3zSH3oDzgcxrcBoMwa9MzrSnPVimYYSpstWxhkaSYBPoLN1Re6FYb9cNmJfjqA2eBXaGKL5",
+    "/explorer/tx/mRahdpdk2vrHUMZJ3ZMX2KrWQWpzefRnzGQRDuyqE9kTZ16sQthM9eT6VaSv6jXqkUL5RbhuDtYLYhFyXVPkgLg"
   ],
   "widths": [
     1440,

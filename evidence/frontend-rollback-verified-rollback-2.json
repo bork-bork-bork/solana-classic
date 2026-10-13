@@ -1,0 +1,93 @@
+{
+  "at": "2026-10-13T15:03:40.380Z",
+  "scope": "anonymous remote hosted QA HTTP observer",
+  "stage": "verified-rollback-2",
+  "origin": "https://solana-classic-soc.vercel.app",
+  "serviceId": "5225cb9c-16af-4ec2-863e-a02f1c199fb3",
+  "node": "24.19.0",
+  "authorizationSent": false,
+  "cookiesSent": false,
+  "assets": [
+    {
+      "path": "/",
+      "url": "https://solana-classic-soc.vercel.app/?qa=verified-rollback-2-1791903820380",
+      "at": "2026-10-13T15:03:40.454Z",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 517,
+      "sha256": "ebf30c92cde12c2154d743353624df9d4850e85b5c4b53f11d4206f9a338235a",
+      "expectedSha256": "7902d16d4e73777f05df7fde88c3657a4ed317ae52c942160e79883d471386f4",
+      "vercelRequestId": "sfo1::zcpv2-1791903820440-0a3f4a9739e1",
+      "vercelCache": "HIT",
+      "passed": false
+    },
+    {
+      "path": "/assets/index-BqJc8PI1.js",
+      "url": "https://solana-classic-soc.vercel.app/assets/index-BqJc8PI1.js?qa=verified-rollback-2-1791903820455",
+      "at": "2026-10-13T15:03:40.508Z",
+      "status": 200,
+      "contentType": "application/javascript; charset=utf-8",
+      "bytes": 362256,
+      "sha256": "59599e93da488fd1421c0c509248399244a636eba1c3017ea4b0b14c6919c80b",
+      "expectedSha256": "59599e93da488fd1421c0c509248399244a636eba1c3017ea4b0b14c6919c80b",
+      "vercelRequestId": "sfo1::kqjpf-1791903820470-2ab7a3bcf64a",
+      "vercelCache": "HIT",
+      "passed": true
+    },
+    {
+      "path": "/assets/index-DXgWf3wS.css",
+      "url": "https://solana-classic-soc.vercel.app/assets/index-DXgWf3wS.css?qa=verified-rollback-2-1791903820508",
+      "at": "2026-10-13T15:03:40.520Z",
+      "status": 200,
+      "contentType": "text/css; charset=utf-8",
+      "bytes": 15901,
+      "sha256": "854b48b0499bd0f863296e157914bfd43b334ae7e82c4dfc7883d129442feca0",
+      "expectedSha256": "854b48b0499bd0f863296e157914bfd43b334ae7e82c4dfc7883d129442feca0",
+      "vercelRequestId": "sfo1::vjzph-1791903820512-947380540e21",
+      "vercelCache": "HIT",
+      "passed": true
+    },
+    {
+      "path": "/whitepaper.pdf",
+      "url": "https://solana-classic-soc.vercel.app/whitepaper.pdf?qa=verified-rollback-2-1791903820520",
+      "at": "2026-10-13T15:03:40.536Z",
+      "status": 200,
+      "contentType": "application/pdf",
+      "bytes": 178476,
+      "sha256": "a52519eacf894a3cf52cc5a7bebd0127041313180acaacf43bd970b93b0893d5",
+      "expectedSha256": "a52519eacf894a3cf52cc5a7bebd0127041313180acaacf43bd970b93b0893d5",
+      "vercelRequestId": "sfo1::vjzph-1791903820524-8e71f6826dcc",
+      "vercelCache": "HIT",
+      "passed": true
+    }
+  ],
+  "passed": false,
+  "runtimeStatus": 200,
+  "runtime": {
+    "configured": true,
+    "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+    "sourceCommit": "c1a7f15839d6fbed5b04fe7ea773d61cf273bdb2",
+    "coreSha256": "f77c68ddd20684758bfaae7868e1d83a5a0a670664a34f63150d06be55838e20",
+    "apiBootId": "77c327af-74f9-412e-a746-851668c2616b",
+    "apiStartedAt": "2026-10-13T07:51:57.339Z",
+    "validatorBootId": "7a167823-8ee4-424f-85cc-5ef33916603d",
+    "validatorStartedAt": "2026-10-13T07:51:02.569Z",
+    "deploymentId": "818db2ce-bca0-45bd-a6bf-1bb8257fadc7",
+    "agaveVersion": "3.0.14",
+    "tokenProgramVersion": "10.0.0",
+    "tokenProgramSha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+    "observedAt": "2026-10-13T15:03:40.558Z"
+  },
+  "runtimeDifferences": [],
+  "statusHttp": 200,
+  "networkStatus": {
+    "state": "online",
+    "slot": 82137,
+    "genesisMatches": true,
+    "lastProgressAt": "2026-10-13T15:03:40.594Z",
+    "message": "Experimental devnet is responding."
+  },
+  "runtimeUnchanged": true,
+  "networkHealthy": true,
+  "transportExitCode": 0
+}

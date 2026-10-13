@@ -1,9 +1,11 @@
 {
+  "at": "2026-10-13T08:02:38.785563Z",
+  "scope": "anonymous remote production whitepaper download",
+  "passed": true,
+  "version": "0.6",
   "url": "https://solana-classic-soc.vercel.app/whitepaper.pdf",
   "status": 200,
+  "sha256": "a012bab19803fed9e9a043faf8f5ed892ea3c56c8ed9495e9e023f19bbaeaeb0",
   "contentType": "application/pdf",
-  "sha256": "58547e935a61cb3f77714e09d5591fb26b87bc228e307be9379a53e8961c0133",
-  "pdf": true,
-  "expectedSha256": "58547e935a61cb3f77714e09d5591fb26b87bc228e307be9379a53e8961c0133",
-  "passed": true
+  "deploymentId": "dpl_DmoMtTCGgJDeBzaeeEX1QhZA4TAV"
 }

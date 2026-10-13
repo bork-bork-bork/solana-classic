@@ -1,0 +1,17 @@
+{
+  "scope": "remote actual provider process restart request and instance readback; state verification pending",
+  "passed": false,
+  "deployment": {
+    "id": "04c379cd-369c-4ff4-9d14-d29467d68a28",
+    "instances": [
+      {
+        "id": "bd9676eb-6980-469a-b38a-e279809a88c7",
+        "status": "RUNNING"
+      }
+    ],
+    "status": "SUCCESS"
+  },
+  "restartCommandResult": {
+    "id": "04c379cd-369c-4ff4-9d14-d29467d68a28"
+  }
+}

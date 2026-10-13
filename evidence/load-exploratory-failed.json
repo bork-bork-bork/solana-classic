@@ -1,0 +1,2372 @@
+{
+  "at": "2026-10-13T07:29:40.904Z",
+  "scope": "remote bounded20 SDK client sessions, not chainwide throughput or browser soak",
+  "passed": false,
+  "api": "https://network-release-production.up.railway.app",
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "candidateRuntime": {
+    "configured": true,
+    "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+    "sourceCommit": "dbefebde308d4f4f2efbeaa70d737aeda69cf2cd",
+    "coreSha256": "2c86df3c62e021eaf99103f6e27c4f861dd5b29dde494873db3866713877f92b",
+    "apiBootId": "c4cb6d1a-998b-40f5-8b7a-27fc1bca89a6",
+    "apiStartedAt": "2026-10-13T06:40:56.640Z",
+    "validatorBootId": "bf43147e-5e6d-43b6-9dfd-23dc52ee4e08",
+    "validatorStartedAt": "2026-10-13T06:40:46.676Z",
+    "deploymentId": "bdf8b208-7922-4375-8d46-55f49367dc1b",
+    "agaveVersion": "3.0.14",
+    "tokenProgramVersion": "10.0.0",
+    "tokenProgramSha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+    "observedAt": "2026-10-13T07:02:15.013Z"
+  },
+  "runtimeStable": true,
+  "cadencePassed": true,
+  "durationMs": 1210367,
+  "workload": {
+    "sessions": 20,
+    "issuances": 100,
+    "transfers": 100,
+    "issuanceTypes": [
+      "meme",
+      "nft"
+    ],
+    "transferType": "fungible precreated seeds",
+    "preparationMintsExcluded": [
+      "C3hVStfdxsguQovoK13fgGYtBWcvPzXjZEEaEXGwx194",
+      "GoTbQNQPg3Hp1DXTmJXpYd5gVKMzeDNNvKxE9Vr4MsH5",
+      "9DxwWchguKxPymAXEFjHmntaB93XMzyFFPnBi2TfLkkK",
+      "5w528afn45PFVDqyS3y7ae9g8XxAow1KuabRZKbHGuBA",
+      "9reN8cjYtZ5weRnP7Ts8CTJ9LRZRyXG6QsyuUNgtnPEr",
+      "FNN3gd85Dq4k74Bcbhyc2rjqdei3eazWwv86bhkMt4nL",
+      "CP9VnexoADef14U472owqVzyL8JRLEXHSqKDZE8MPh9k",
+      "6D9aYFVTbrwi7PRooimRf3LREfNzMfhcFu3WaRbQyfNJ",
+      "7B9HqvMmWRGh5avCMxLNR1HhY1RtWpix7oYaBgc6QBhJ",
+      "7jyqjcXh3p13Yh5TJYiF9h4JUKdEfSJR7gxpdbeUP7ax",
+      "3WajAZkErJTkKFaTsGtwerFTEixq3J9YTH1ZjpJdNCeX",
+      "6M6DUPGhGdkrN5fRkmyNKpaqhti9spzRJm9ZNzxcfoVq",
+      "CeYdS31dVbensYAfmiJNGKpN543T11H1BCp3tHYDs1Aq",
+      "5U91yFbaMy2S8dSHmsEQQiSdT3nK3RBLCfErUdG2SnH2",
+      "ECRgz89U11UdPPiyoHxiHJi1L7HoWcLGk4QZo4BnSsha",
+      "3taCpDXa6SGrSUuhhrMiTzn1eby2E5Q5ANJQZYNxD27N",
+      "HGqFpJx7HgSt8T4KL1m4vqDPWPfNRrntvbJR9uR9k6mw",
+      "5Py3RF2ZQuQADqUmYfD6sJAaUA9Wd3grj4knRPBfb14u",
+      "G8HMNsRzaDT8LM3UiN5r2G4QdQf1HXJxsNKZaHgFaJ7s",
+      "5W96bGpyRKzyTduKxLG5M7fmKSsnEoBuqWKRACqP1Cff"
+    ],
+    "startEveryMs": 6000,
+    "pollingMs": 3000,
+    "unchangedAdmissionLimits": true,
+    "faucetCalls": 0
+  },
+  "metrics": {
+    "successfulWithin15Seconds": 0.985,
+    "p95LogicalConfirmedMs": 10269,
+    "p95LogicalFinalizedMs": 24934,
+    "failures": 1
+  },
+  "timingDefinition": "From start of logical operation, including asset preparation and both issuance transactions, to last confirmed callback; finalized includes gallery/ownership verification separately.",
+  "results": [
+    {
+      "index": 0,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:09:30.539Z",
+      "confirmedMs": 6758,
+      "finalizedMs": 23164,
+      "signatures": [
+        "4piXsvsKiWYs6NpzLJcBnUPFCdjEZJjnRisfNAsj9252UFSbHP569dFGmsc8hbTDu9eqseNgA5m2BoQNCV4zAvhh",
+        "VRBRhqQdHFxHjNwbNZRUhGck8T7FumvDb81QGeyYMJt9YFEHKYyP5EMqwnQoQAZ3EfhWW2CdoTBW19J8bGR8ydA"
+      ],
+      "passed": true
+    },
+    {
+      "index": 1,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:09:36.539Z",
+      "confirmedMs": 1261,
+      "finalizedMs": 16703,
+      "signatures": [
+        "4ofKJw3dh8DpYQ7fRomE5SR9YJUcRS3jZCJ2eeCc1sYbsvTpQ5SSvQYVD2RmGy2EBUigShRySB5s7RGyD4JLYNxo"
+      ],
+      "passed": true
+    },
+    {
+      "index": 2,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:09:42.539Z",
+      "confirmedMs": 10269,
+      "finalizedMs": 22427,
+      "signatures": [
+        "4f5oGq6Qnxtyz5foEe3XWvx9txRuAvFdeRYx2RejQ6eoSHFAFiEnmvbZvfz95axjg2VTuTsQ8DGF2sGzb456trW4",
+        "3siKc8uprQRibLDumhvLGazydz83ri7jtahbyRHcDBhSPRcttb8Y1PRHbmw5oD3JgDHLujX4gNRV4iqPWsQ965X3"
+      ],
+      "passed": true
+    },
+    {
+      "index": 3,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:09:48.537Z",
+      "confirmedMs": 1316,
+      "finalizedMs": 16302,
+      "signatures": [
+        "4vD9G5jbEgTkhUxkxPgJtFNCv9mAn8M3DZHsuQaLCTqSTX3z3CbodSwSzxAeWVk8nwYQxXWNuG1sp82PtbdBr95r"
+      ],
+      "passed": true
+    },
+    {
+      "index": 4,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:09:54.538Z",
+      "confirmedMs": 12507,
+      "finalizedMs": 27425,
+      "signatures": [
+        "4Ae4NpgCfSgMy4ZhUqTqNuaqTCZ2fNwE13pN7ERaAvWrqrGj6R9GvaWYuggj94jBxeUr6qx3Thq1oBc5dpo4vk13",
+        "5vnN1WoicG6fL3zX6Donh8bqaRtnPQxaDjXSMt1oU2dxHgCfjSuC6ZfMH3uCyUftGRezRBDfjLzyLrfyzA1vYStM"
+      ],
+      "passed": true
+    },
+    {
+      "index": 5,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:10:00.542Z",
+      "confirmedMs": 4393,
+      "finalizedMs": 16339,
+      "signatures": [
+        "5zJLk7KJapB6trqj6VwqByZRLihY2fxBApeZ59yvTnVHRHSW6yawwxFAW3g6oaqVotnrVdAAWMCdqXbbuuTZJzTy"
+      ],
+      "passed": true
+    },
+    {
+      "index": 6,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:10:06.540Z",
+      "confirmedMs": 9617,
+      "finalizedMs": 22108,
+      "signatures": [
+        "2vHhM5T3GoSh3s9A841q392Lp8BXwZpmsfTwbnRw2Gc62EfmpqV8rzcDXFR7f2V3BpxeuqnPeoJPe5LG3et4okZx",
+        "eygNcfTCvFWi8KuSBeKaViPuLVW3icyCc5pcSu4TDh9DxJmgbsXbeY6Zb1PPBqDypzRi6YKbBAUs14FwYo1SY6a"
+      ],
+      "passed": true
+    },
+    {
+      "index": 7,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:10:12.540Z",
+      "confirmedMs": 1221,
+      "finalizedMs": 16217,
+      "signatures": [
+        "3JeUxEQkUFcXkv5y9eUxMJpucmyD1iy5oM551kDg1kEzrZEGqLuPt7ucx9WAULWtMq2GNEvgojVT3XFK1VtYFQHq"
+      ],
+      "passed": true
+    },
+    {
+      "index": 8,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:10:18.539Z",
+      "confirmedMs": 13786,
+      "finalizedMs": 26311,
+      "signatures": [
+        "4M2hqbkstKEGGQ9vEY6wEdRwoeB24zqn2W5G21TFcN6miH1giDKHDA3XfwJyfCchhw3REC7fcxFmpL81cLfp2Y3S",
+        "DvrvpnAzB1bWrjYiuNyzaPz6rzVCcFk5gU53LUagis7ytLLuwAEjktkJGEDMDisZPEQF82Y7wffdGgYxA9UxtX1"
+      ],
+      "passed": true
+    },
+    {
+      "index": 9,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:10:24.540Z",
+      "confirmedMs": 1193,
+      "finalizedMs": 16185,
+      "signatures": [
+        "2HQ3cP2VVYqwHL5VBn11kFwxZC5nS4yS7ieLu3eTiK1qGTYsPyRLJRUL94qGUMzejv61MmqtbxeVm4sCbdETM3Dn"
+      ],
+      "passed": true
+    },
+    {
+      "index": 10,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:10:30.539Z",
+      "confirmedMs": 9630,
+      "finalizedMs": 22103,
+      "signatures": [
+        "4cVsPZrfgKsLCU7tGTbeuBSFUfSaWtYhxEicndjEZsTC6eL8dZjS1s7bJgzKhwXiS591ZCFqgX3ew6H1Qxo3rwan",
+        "3vDQASo5uN6VHoQJX2KJmbbUu3hpMiFFME5nhdubZKaM9PNpW6BiFHWfNpQSsjaovzDUvJrYEiHipSwNugbYqwcK"
+      ],
+      "passed": true
+    },
+    {
+      "index": 11,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:10:36.538Z",
+      "confirmedMs": 1266,
+      "finalizedMs": 16257,
+      "signatures": [
+        "55etmMmEyERVq8p81Etr1JDjZCfWo814atHnrU6r2gy5KPhdh6UC6CVpjjbKRmH4JDYqt97mop5HVmHF2M2PYAG4"
+      ],
+      "passed": true
+    },
+    {
+      "index": 12,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:10:42.539Z",
+      "confirmedMs": 6940,
+      "finalizedMs": 22229,
+      "signatures": [
+        "3Mffu23FiBshW3m9v3tKuveE7yTngY81jdFN6Zdr5oy5vEXNn2xrqkEKwF9KyBhaQPHcSdWxze3HxYvfMu2ze9Dv",
+        "3FR7pDz6fMh7f5uor4xV1dbbqNdBwh6VhLa3ai2MjXfVzLNdC3eB8jKz6v8JCjx19SvWFNhJoiMyNx27ZTkZkdpw"
+      ],
+      "passed": true
+    },
+    {
+      "index": 13,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:10:48.539Z",
+      "confirmedMs": 4201,
+      "finalizedMs": 16208,
+      "signatures": [
+        "2T1gahAoE9k5ZLU66CtdgpZF2xC3woCVNAUE99VKjaVwKFPYU2d7jMXfPtqo5hzBUSi4aRwBR456iQqfojXykDNP"
+      ],
+      "passed": true
+    },
+    {
+      "index": 14,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:10:54.539Z",
+      "confirmedMs": 3551,
+      "finalizedMs": 19003,
+      "signatures": [
+        "4ASWtfFqnm3TXqFiQ7w2b9YhwWFbpX3WTQnxvZCLgeZwPmmoodwWDugmxVHGkxUo46MQyv2qyGM6VLwnr3RQmAx4",
+        "25tAjtu4EfBbnWX2tjNtjT4kgdw364CocjtWEiU6VDzKL8nkLqJx6fUvsaGtj9pyJjeHbBBQC2CL6XByeTqeuPoJ"
+      ],
+      "passed": true
+    },
+    {
+      "index": 15,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:11:00.539Z",
+      "confirmedMs": 4289,
+      "finalizedMs": 16295,
+      "signatures": [
+        "5wuYanYuWPSNXACovtXPkc8F5SXgZDv25DnGjsoj2e9DM6F1zdkgc1vh5auDp3SoJjk46vCw97zD6ewqcjaiuQxD"
+      ],
+      "passed": true
+    },
+    {
+      "index": 16,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:11:06.539Z",
+      "confirmedMs": 9945,
+      "finalizedMs": 22345,
+      "signatures": [
+        "4aUkEs683E1BhdXSVHEPD6bXYzkcXPxz68e2LBiyhctTyZXrFzhf7vdhjdVx1oh8mWCCgZKsnTECvKHvrkfBQXjE",
+        "5FtcoXHMgpGypRu63o8wKAcPkc1cCvb1XQWpc3XjwiYcffV2JW3sNbsbbtx2SvcHAuhtjuTeYpn9BbjkGF8mtpdf"
+      ],
+      "passed": true
+    },
+    {
+      "index": 17,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:11:12.539Z",
+      "confirmedMs": 4365,
+      "finalizedMs": 16357,
+      "signatures": [
+        "4kQxpy6mKVyCQWT5bkRE2PAhKzNCPDnQshCd2Hujmq31i3v2gtRY65LDZCrJ7SPyTKRfwprJaeoD12soj7FUwj8m"
+      ],
+      "passed": true
+    },
+    {
+      "index": 18,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:11:18.539Z",
+      "confirmedMs": 9829,
+      "finalizedMs": 18923,
+      "signatures": [
+        "5V7ximnwcSPjeRJN7SoTDbaoPx1yiR7GV93M79e4A2GCNUoJ59WgLnoQWY2zQY6N4GohfmVsUQ3quauLBxai4TXr",
+        "3uiz4rncTinmMTATguL854jvEBRHB2TbzYymEs7JRguSYsoHTSQGizQbnxWSy1rPpu1B5tZzCHCLTnLXxA2htrrt"
+      ],
+      "passed": true
+    },
+    {
+      "index": 19,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:11:24.539Z",
+      "confirmedMs": 4273,
+      "finalizedMs": 15384,
+      "signatures": [
+        "2SUEuDNAvRxtKhk69RhweXdZToNbV5d6eKqPaVr4uPqp4zAi2JAX6u111Mex4MXYZmaTLRkecgG9AjeBTkyfCRSg"
+      ],
+      "passed": true
+    },
+    {
+      "index": 20,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:11:30.539Z",
+      "confirmedMs": 14120,
+      "finalizedMs": 26868,
+      "signatures": [
+        "5aNZo9bGoTTLvi7DcL4UMQryDBrzsY5EANVULrsT5iG7pYsABThqN7gzk5phSgLCQhozQU5JX3p4oNJ42upVw5BV",
+        "3Zo58fP48cPW6ZDW6USWbEf3HL93ZrGkWriUraEgEYzT4HMaAeFHU613mgNPwqf11gqtFWDp1HRsa8d8z91xC3YF"
+      ],
+      "passed": true
+    },
+    {
+      "index": 21,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:11:36.539Z",
+      "confirmedMs": 1156,
+      "finalizedMs": 16140,
+      "signatures": [
+        "4nHeKhxfZJnsfpmKvf8fkq6682jvvFEMHfKzyMwjvSzyJPLCaH2we9g8ZNDsAcHAE7kFzwWo8GtZ2wgBBY1ZKvTa"
+      ],
+      "passed": true
+    },
+    {
+      "index": 22,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:11:42.538Z",
+      "confirmedMs": 9621,
+      "finalizedMs": 22061,
+      "signatures": [
+        "3X5pq3u1m5znS2AJiaXW9JSQv6CB66AhUJCgBiJd2auHWaKsngiy51rZKFpuSE9ZSu12jEQkwukSy4Gfx62hXLpX",
+        "3xsDiS5eMEJ5SdPZDSk8wZ9PrDEs8X16rLewVnryKP5B3HrEKRRXk5NWWkBokoU3JYYLxWMkbSDNcY4b1Wcsxy2J"
+      ],
+      "passed": true
+    },
+    {
+      "index": 23,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:11:48.539Z",
+      "confirmedMs": 4357,
+      "finalizedMs": 16341,
+      "signatures": [
+        "4he58i3vUy8XMQc5yX3BoNP4V9CfkEeMXVpRxWSLMVQC1LGTKyMhjZvxn87xLgyYUtydzfZkXnfSML5nuwJF2Cnf"
+      ],
+      "passed": true
+    },
+    {
+      "index": 24,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:11:54.540Z",
+      "confirmedMs": 10110,
+      "finalizedMs": 22575,
+      "signatures": [
+        "3yNvQW49uB3tT8QLc3AkBFWYoTEmqPKTLSwZr45gyGB8wydJauDc9pHJZfMz9nJQ3u4VHtFB5dH91snLpfPzG3j",
+        "4zzXtr9EGauytMq9AkmTxePBXpKMEB7uSceVXAK5ZMeLe5BhsM3prbd8TDWNp4fyRd55veKcDg1BwmbbMFC9byNp"
+      ],
+      "passed": true
+    },
+    {
+      "index": 25,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:12:00.539Z",
+      "confirmedMs": 1227,
+      "finalizedMs": 16279,
+      "signatures": [
+        "2E4zahmuVjtXc97s8AqpXXofDaCLNVhAZtRwcjdFb4uvmc3Q5SZY5opfwaSM7iwHj67txFfYhrFUCUSAWTJJVSG9"
+      ],
+      "passed": true
+    },
+    {
+      "index": 26,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:12:06.540Z",
+      "confirmedMs": 9655,
+      "finalizedMs": 22434,
+      "signatures": [
+        "2wfjcynApHo2kMCLFdXPphvrzdW6S1euADwrX6YkBmuQgGPBRedmeqNZ7EEUyzzkjegS8WoPTTSxSqxEyvxma4vG",
+        "Fa6TytmsSbnPLHJMmXAx35na3BYw56Y9NgaWCh4x8Jrain8YTv1XW7r9D8BiisRNfLDrPVr67ux9X44BWrV8FwW"
+      ],
+      "passed": true
+    },
+    {
+      "index": 27,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:12:12.540Z",
+      "confirmedMs": 1245,
+      "finalizedMs": 16266,
+      "signatures": [
+        "4u2RPoEEMQ4vN57pXMirdoEE1MeXFUTXqYxBHAb14rWUwxcoCxat8ZwPNCbN2YkR6ZJ1q1fanbNHVBfTzDrQSU6"
+      ],
+      "passed": true
+    },
+    {
+      "index": 28,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:12:18.539Z",
+      "confirmedMs": 15637,
+      "finalizedMs": 28027,
+      "signatures": [
+        "5HZikGjngS18LuV8jEZuxib4zMZ8bRDAv4viUngx25W88w8G8e9ErKGCRXYJu8z6ksYcYEUZQP9wteZ7c3DBvtsc",
+        "5V2Bw6Cu9Xn1odZeGf2KNw1nXWV8XjhHQDUxNsHFBaCfSyKgYLjWQwUcUkKN4k3bT6265YKcSwjd9aCrc8wyPMrr"
+      ],
+      "passed": true
+    },
+    {
+      "index": 29,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:12:24.539Z",
+      "confirmedMs": 5155,
+      "finalizedMs": 17182,
+      "signatures": [
+        "4iSJLEY47aRM3qwoxeSW46zSxmuWeupinz1FxtKcthMP1N3yiSuTqahJnniX2UjweTygpW1D3wt3U4DRsGayUcED"
+      ],
+      "passed": true
+    },
+    {
+      "index": 30,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:12:30.539Z",
+      "confirmedMs": 9621,
+      "finalizedMs": 22037,
+      "signatures": [
+        "5qAVXfEVLgAU9YdHE8Bur1aRYv7ip6qb2WKza6TFpx8j2diNoAkaqvnfaufNibnxoppYqH3jqTNTL2fFeCBhoAod",
+        "3ZiQYdBiaWabREr9bexMdv5we5sYuH57oeQjrdNvLJbGjLmgmcSAPWX4TMAzQ9Nk5t4QEc4snhmLM6uEn6SKXwnJ"
+      ],
+      "passed": true
+    },
+    {
+      "index": 31,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:12:36.537Z",
+      "confirmedMs": 4262,
+      "finalizedMs": 16275,
+      "signatures": [
+        "38RcLgwm7mW4XQd4AhcpKpAK8rb7szQZEwxWZNvCLh38JjxevMAe92hwHCDxYA9hoEhtT31BeUjm3K8xPFPXH5uM"
+      ],
+      "passed": true
+    },
+    {
+      "index": 32,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:12:42.540Z",
+      "confirmedMs": 7032,
+      "finalizedMs": 22469,
+      "signatures": [
+        "4FCgcuhP2TyBbK2E6r9bFGjJWDxYG2ztGT78vJA4Xk49ERYiHX5m5BegVxz4Bft3GnVgcyHLALb8xZm2zFSPNq9h",
+        "3vEqk6NCPjW4V5JCdTsZyZ3WSgeXMuC9Drgn1iZNed7mRmyUfSrziTH1pzq1DKa2GY4zc6d9Tx1AwXtVo9ig5DRr"
+      ],
+      "passed": true
+    },
+    {
+      "index": 33,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:12:48.538Z",
+      "confirmedMs": 4234,
+      "finalizedMs": 16207,
+      "signatures": [
+        "4s77MJ1DS6ZSsZMWZow16hkdrmDivapYssTCCTF9uuv9woahNdXYP5F7zPSuoSL7rei2hFRrZgwZarB3Tb4n8QM3"
+      ],
+      "passed": true
+    },
+    {
+      "index": 34,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:12:54.538Z",
+      "confirmedMs": 8577,
+      "finalizedMs": 26844,
+      "signatures": [
+        "4GfBa9cfyRpTgw5gYFH9UK4mVRZzwivjNSDapUvamKEvh18N1TDqPm6isY9P4vtnLhHRkQvsBd8uLxbdnyRmTqqH",
+        "4S9mMievF9r3iWfE5eHZvYajfRAAYL4CxJ9AQdDzeNTxpHGigphYifh3TbdNiYLReheRBSsnhM9W4NjzMFcMd1fq"
+      ],
+      "passed": true
+    },
+    {
+      "index": 35,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:13:00.539Z",
+      "confirmedMs": 5388,
+      "finalizedMs": 16936,
+      "signatures": [
+        "4tunrjKgeS7zWV2XsfeHY81514BjxTGWc26hgzu6vBtp3NzZpCtxYnwz3DdmMDB5HVvSXiPaHaauTJknMn2uAapv"
+      ],
+      "passed": true
+    },
+    {
+      "index": 36,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:13:06.538Z",
+      "confirmedMs": 17736,
+      "finalizedMs": 33341,
+      "signatures": [
+        "4q2k4EA8jtLrEZ9uhC5F14pAVQbRAhUkczvhYcotabiL8S4HLhbggFwSuPLr2yQvmYCoGAhEANRQKv17GJER5bQ5",
+        "5HpcKi1VSVz1ytiXbMNpRTVxqVaCA3Hm5WNfGJnRKK2W9hqoYgWkhKP5dSHamPuNCEH6GM6G6pjAJyjuYUh5JXHE"
+      ],
+      "passed": true
+    },
+    {
+      "index": 37,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:13:12.539Z",
+      "confirmedMs": 10019,
+      "finalizedMs": 24934,
+      "signatures": [
+        "5Vows9V3WJomitqckEQLSzC1tKeJGDi8HyGT26dZv7U2uQo53KeXhwEPwby2k7tQgLeLaVEBEYfNEqaFhHVY2TWo"
+      ],
+      "passed": true
+    },
+    {
+      "index": 38,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:13:18.539Z",
+      "confirmedMs": 12531,
+      "finalizedMs": 24844,
+      "signatures": [
+        "5H4QHyLZB4xvMJtZQYK5dXrzYs52912oRKKGqAU3qYJ16kx3KDH47X4W72gubYGbpx55vaGda22X8RfoZrdhAa8c",
+        "4sMo6kCWwVTbnM8vmNfApnkhoFc5kemYfHd1mBtdqXF22DqdZc44zrd5NpH1AEFHKmZHrbEQBfrzAS5SPw44wFqs"
+      ],
+      "passed": true
+    },
+    {
+      "index": 39,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:13:24.539Z",
+      "confirmedMs": 4663,
+      "finalizedMs": 16671,
+      "signatures": [
+        "K5JEenhYv3fDWCUQUyCq1CYsrYAg46dyKjyDwSYmtqZmivt3boMvXts64AowhMgMRKZpwS69RKQuYeUPWhLF9QR"
+      ],
+      "passed": true
+    },
+    {
+      "index": 40,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:13:30.538Z",
+      "confirmedMs": 6933,
+      "finalizedMs": 22442,
+      "signatures": [
+        "2Pm4u36vJqyLFwCQw58ZXmSzrx8jbrxX8LaNALUmStYUHT9wYr5Z5tjRK4KH3z6eExn6iJaPmVVAiM1BoZooBeac",
+        "3FkHxFGEX9NDbFPWvLWaPMwBTtGZDQRjswq5L9MmeHDALgnJc29GDnMLGYkwRDPZwWobcnhaY1e8VNhRCf7m5iAW"
+      ],
+      "passed": true
+    },
+    {
+      "index": 41,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:13:36.538Z",
+      "confirmedMs": 4136,
+      "finalizedMs": 16136,
+      "signatures": [
+        "8pEFVQkdKQCf9sk7HeVVbphhHP1yFbEK1u4sFrtDr9Mgu44DtSRK69oFLHJVh6JNT6HZ86MXB8RV4JRQg95fFjZ"
+      ],
+      "passed": true
+    },
+    {
+      "index": 42,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:13:42.540Z",
+      "confirmedMs": 6503,
+      "finalizedMs": 18908,
+      "signatures": [
+        "4N2tjmJNWJxzds9Ni8WCJY2tcsETC445ueWqgVGD6FkhUeaXJqJXpavmid6WrzJbnYdYk7YV4ALxT1FdLHR4MUZd",
+        "2cfeVRCkFZ1G36BzNfFyKJMm9Ts2tzrhAwMi7hNyZZd2vh5qtWUeFnMDPcNkHMvARNiYRRKE5SyT3osWrtmAPvDM"
+      ],
+      "passed": true
+    },
+    {
+      "index": 43,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:13:48.539Z",
+      "confirmedMs": 1312,
+      "finalizedMs": 16344,
+      "signatures": [
+        "3YY4FYqrTNuKHTitSGfyfxAJyZs842JVdrG5bNyyUTHDPtjosW2dBsP1jMcMP99q2VsGgL2zEkn9jra5EvVe77fF"
+      ],
+      "passed": true
+    },
+    {
+      "index": 44,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:13:54.540Z",
+      "confirmedMs": 6987,
+      "finalizedMs": 22516,
+      "signatures": [
+        "325Mm5M3vuhjbZUiF5rP7RHo6ZdNZ2LefszvEWQCGBHJyjniv3bJBAXFzpm2GsVwQUo6wZyjyEuNUdK46DUkC3qP",
+        "4s1AUZmm4SwUvYriCrgAF4izGQ5ECj3VCrTw5JXytiMBzuNpmmvyBkX1cDBgp6ZrgUXkpG9cg141QUVYStsez49D"
+      ],
+      "passed": true
+    },
+    {
+      "index": 45,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:14:00.539Z",
+      "confirmedMs": 4220,
+      "finalizedMs": 16217,
+      "signatures": [
+        "5BfWTswd2nZsDxBUzeGuiafNcrR2Ep23CKx3cbUQBkpKjNvhpo9Zhott9ht1F421TLADteWav382FTtdbmGuA6rm"
+      ],
+      "passed": true
+    },
+    {
+      "index": 46,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:14:06.539Z",
+      "confirmedMs": 4105,
+      "finalizedMs": 19807,
+      "signatures": [
+        "56kw6adErMEUsi8NGC8LRr8Xve2bZJSnmRczZbGnNyFT8LgtZ6MAuj8WEKj9PeHPtgXM6Hsw6KPos3jAGw6XVcWc",
+        "581Xjznvcj4HS5dUgj4ou8TeJFSSA8N5N4uxTYR33ZRF8GYNyDNBF3FAPiUq3wuh8kER8Arc7gbYXfZRfzZRwhF7"
+      ],
+      "passed": true
+    },
+    {
+      "index": 47,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:14:12.538Z",
+      "confirmedMs": 1663,
+      "finalizedMs": 16447,
+      "signatures": [
+        "h7j1Xf3qWxVz8ciZM8XrnjqfECNwJAosqLEr2pV7p19YHH6S72vhUXcMvtSUtMo9uGVYGQrJpNUUQZzeHpbPZzi"
+      ],
+      "passed": true
+    },
+    {
+      "index": 48,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:14:18.540Z",
+      "confirmedMs": 10828,
+      "finalizedMs": 23317,
+      "signatures": [
+        "52fpvvgU4GbgNs4wtJmgiyeDqbooqFnWS7FE2Hbh1kWchULeGZZTcRohW4a3nn3coE9mTEeJqb2B5xeNaNWUinSF",
+        "3WVbQfFJPZWGd13cykQkhGtEZKW1CbNSFApXvv2b56VLC9GQjNTA9LQPL14Z4MJGMKZT4Qtzhj29LTbWrnM86Sgr"
+      ],
+      "passed": true
+    },
+    {
+      "index": 49,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:14:24.539Z",
+      "confirmedMs": 4613,
+      "finalizedMs": 16604,
+      "signatures": [
+        "4jko9hPwpgdUjCuFPzWNqQqTdQg3Bo7wyG3Zceb1Y3w9y9NmRXPJQpGe8AJ2azsh5jgXTpmyK2xK4hz4iDprBcW9"
+      ],
+      "passed": true
+    },
+    {
+      "index": 50,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:14:30.539Z",
+      "confirmedMs": 7180,
+      "finalizedMs": 19592,
+      "signatures": [
+        "3s4SZVC9Laboa4Wma7xxLuZq8A8KmfAshbdSpmNqEcz8Xe7e7TbPiV8mVML6iRvkEQTePYkwhu6irdVYv1XBj1Rc",
+        "aqQ7B8JxKsEosukJuiK7dxzwjXg3H1yBh7MhgB5ocbCFM8t5at9GGkDQjTSkzfqzJx3fvZQiwX6BrzpG71dbTNM"
+      ],
+      "passed": true
+    },
+    {
+      "index": 51,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:14:36.538Z",
+      "confirmedMs": 4190,
+      "finalizedMs": 16196,
+      "signatures": [
+        "3JWRXVJLT6eJ4PLkxovn2cQHSMWWyzHVJy8SZJq9zKTMtRYvMPPcpUbKKS6454fiNUrxmJxqoPg8FAP69uvr1os9"
+      ],
+      "passed": true
+    },
+    {
+      "index": 52,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:14:42.539Z",
+      "confirmedMs": 6899,
+      "finalizedMs": 22514,
+      "signatures": [
+        "swMnNMdR21ud74LyUhDCTVazL6gsmZY7bTtX2GmAWwgTrYbo51NX5FoDh2515W5PZ9kz1Qux6njCJLRD1f2VyqW",
+        "5YqaeSVzsFV5WbkinYZJQCAL97yMDKo8kqnxY5F71RNvxksZDxAn3NPkgtc2qeJ2QvJG715iWswjnWxa6gvhCx8X"
+      ],
+      "passed": true
+    },
+    {
+      "index": 53,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:14:48.537Z",
+      "confirmedMs": 4363,
+      "finalizedMs": 16159,
+      "signatures": [
+        "3wBZvAZ766DY61sZrsgZycPZfw1DtMZQGBaKa7LrQrnApmkHRK6evWUKMXraBWYr1j7TpVuaU72AXxYgcxSQ4u51"
+      ],
+      "passed": true
+    },
+    {
+      "index": 54,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:14:54.539Z",
+      "confirmedMs": 9754,
+      "finalizedMs": 22168,
+      "signatures": [
+        "263pnyHSHn3X7sKnpQgP7Ua1eQtGvobV5ZsUaojSQpAeWScAtmPBwGUVFrmgNaPRQSgqzgd6dWa3Dy8Gc33b3mKL",
+        "4jMfyy6jCq6a8f9LLvpTtXZFq3cZwMEt7EyiSMeQ2EXMw5dqS6XEgapeb4smXAGnVrytFQN5t2bj23PLopgy35Vw"
+      ],
+      "passed": true
+    },
+    {
+      "index": 55,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:15:00.539Z",
+      "confirmedMs": 4110,
+      "finalizedMs": 16107,
+      "signatures": [
+        "3t57qR5fdYZT4zkDJMvqU4gTp6raL9JDM7Ay74giD8721qp3iNPiTtBVYcGjGjLLe8U6azs5EFm2ajXekqa3oipu"
+      ],
+      "passed": true
+    },
+    {
+      "index": 56,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:15:06.539Z",
+      "confirmedMs": 9637,
+      "finalizedMs": 26852,
+      "signatures": [
+        "2fHrCe5jHMh9VCHFhq8ro9UTDLUnhLwNmcgfXbzrUq35SXFEBrBgr65aCiV3AgBpx8B2Phmt6kjkxXzASb1JhqTU",
+        "5iCX2TZ1KDZm6T2vTi624ip3Zjg3P5pxVA7WJCLAKPMrV7dVqBSK2DbNxAnpgPYckenerUo8BKghgmZf9SKZXCKs"
+      ],
+      "passed": true
+    },
+    {
+      "index": 57,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:15:12.540Z",
+      "confirmedMs": 4184,
+      "finalizedMs": 16634,
+      "signatures": [
+        "ZVM4GgHTp1QVvBQH5QnJR6SEAMgR5gpAyGD1zLV3uwnWvESzuCXYmfzgP4o2e9yCqgGmAVY22AKACTpm2ffGPFB"
+      ],
+      "passed": true
+    },
+    {
+      "index": 58,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:15:18.539Z",
+      "confirmedMs": 7301,
+      "finalizedMs": 22658,
+      "signatures": [
+        "4XeCRvqpofLnKuqMw2zjFgxR6rBkcKsSZhV6np3LH9tW4gn1QuCB2bAnSmsWrAA7F4d7u5DTEVk8ijm5XeAvh7k2",
+        "Ac36vW8hfJ1ZjqJBjs8wLUTFKwum7Lw46EY8cpQj16MPSCpQqgMvmTgPtmpqx4Jxy4fe1Rw258XFY7rKJr1xVGw"
+      ],
+      "passed": true
+    },
+    {
+      "index": 59,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:15:24.539Z",
+      "confirmedMs": 1714,
+      "finalizedMs": 14533,
+      "signatures": [
+        "51txwJWZkbi58vBWVKtpfsvTu5J2RPkqwB9mR25USQN5a3Q1AAFL8EebWHKESUXiL7E6ujRMRd9wgkWK7KAeQwQv"
+      ],
+      "passed": true
+    },
+    {
+      "index": 60,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:15:30.539Z",
+      "confirmedMs": 12125,
+      "finalizedMs": 24634,
+      "signatures": [
+        "3tUZr3NgEMFSTqHaAPgDuR9PG6KuUE3wyJYbpDFQDJSky4q7RRdFfdRznMKPRD9vJEVcFxGjcGsBeK4vonrPvXB4",
+        "33J1SPkftoCgxSYqQvPBbgHdYXLw6vUwUzWmAMKEgstzxguBJMUD8daFbw66CzC3kRvAudtLryXEQMUpKBbExep5"
+      ],
+      "passed": true
+    },
+    {
+      "index": 61,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:15:36.539Z",
+      "confirmedMs": 4111,
+      "finalizedMs": 16123,
+      "signatures": [
+        "3EdXKR7wTyJgxktAEohAb4zSu6ztAEmvkaqU7Hq68roGVn82Wuj1iMe4ai68931y7zceoiJ4kYs8iW4NyFDVgiVM"
+      ],
+      "passed": true
+    },
+    {
+      "index": 62,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:15:42.539Z",
+      "confirmedMs": 7885,
+      "finalizedMs": 23870,
+      "signatures": [
+        "5MewvmjntLvUnqn2bT64o1YTS5i3BjSJo735VpgiLftxunA29qaRWJaWuBieGJSGqZd2FpQKb4V117CwWASr13Uj",
+        "mfrWG4T4ZPqA87fgWZZBq594PDYbLTs18im7aRg8T1W4MDX41WXK3Nw9TnNgzPGjS1i83wtJydoSMQtHon7XuTb"
+      ],
+      "passed": true
+    },
+    {
+      "index": 63,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:15:48.539Z",
+      "confirmedMs": 1384,
+      "finalizedMs": 16368,
+      "signatures": [
+        "4EnJyM8wdebHjS64Dtir8ZV8ANHeuWfT1kuvCBzdJLNG69AgTLuvwokCChrWVTKzJyEztSK5KRmV3xBCH6DFUtXr"
+      ],
+      "passed": true
+    },
+    {
+      "index": 64,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:15:54.540Z",
+      "confirmedMs": 6585,
+      "finalizedMs": 19155,
+      "signatures": [
+        "53F5pyVA94wh2exmciMGfUsS9EjH8iK4Y6tXMJH53uTHPywxH8KU4b2fhb5ERzaoJCNzCteGhxcZRwEPLznFwXjR",
+        "5nMXBCGBkmCKeao78Gz1v24Tr4inKzaVD3ickcewu41ZRGMwtHGTNvZkMfYNPwacfjJz5wXW92JJxmyF7rdW7QB3"
+      ],
+      "passed": true
+    },
+    {
+      "index": 65,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:16:00.539Z",
+      "confirmedMs": 4288,
+      "finalizedMs": 16288,
+      "signatures": [
+        "5cQdDWYfhFdNNAkhGxNtMNJ6yArhvesWpNeW1pkwot4oRdLWF7UrJNGMUNqktZ3xvqnxqzqJHFerrcwKP4SiNcSv"
+      ],
+      "passed": true
+    },
+    {
+      "index": 66,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:16:06.538Z",
+      "confirmedMs": 9945,
+      "finalizedMs": 22435,
+      "signatures": [
+        "3hJmarhSV3Fim7VmQS72zGiGKJECz7JQcoiQdJSvsQTtjq4Hzzp2ZH2UAQorm4G4wsq9CjjbCybeMCs6XYMC7sct",
+        "2GXkbTaX4Lk512K5DhEauh8wHs84qntMqxE82VjJJZLpzuqYG33SwTR5gxeEb64FUFRVES5AuyCDVFyqtn5KduHR"
+      ],
+      "passed": true
+    },
+    {
+      "index": 67,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:16:12.540Z",
+      "confirmedMs": 1401,
+      "finalizedMs": 16211,
+      "signatures": [
+        "4xWNWj4zcLhMdzRdVt4UoVspSaTF5DGjg1TWWioJQWCDzqcWtsSomxFJ414xQjNgdUGKwgrMk7jYj72w8fwc3NbX"
+      ],
+      "passed": true
+    },
+    {
+      "index": 68,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:16:18.539Z",
+      "confirmedMs": 6786,
+      "finalizedMs": 22176,
+      "signatures": [
+        "NNGXnWGFz2jJ22sjRu95QFJeaEJUaNAjN4f6o1ot8MJadYkfEcD5wFzcybSeVqr6rRrgMEeRwkEfj614EBfZq9X",
+        "31zQ2i9WM1v2prKvem2LgZrkPwYQur7Xx5WA72iuSov2dJvVvvRwqfGk5aCShcFbnQxvTxnvsWuhcNE2YCaf1yDq"
+      ],
+      "passed": true
+    },
+    {
+      "index": 69,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:16:24.540Z",
+      "confirmedMs": 4107,
+      "finalizedMs": 16111,
+      "signatures": [
+        "3Cbagy1zFiR6C5g99G3Dobo3KjPYNexwZNUnFCSvNskLpiRdEkbbSQbErkmy195iAK3U9fUrHKuzBpGvbCjthXLK"
+      ],
+      "passed": true
+    },
+    {
+      "index": 70,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:16:30.541Z",
+      "confirmedMs": 6738,
+      "finalizedMs": 22137,
+      "signatures": [
+        "4n3XoLeXzhT69ydoaMSjqcBcPNAkuFwEaXZukL8qozd4nKmGnSCdFnh2jsaUVFxPL2PrnZp6bVU2ujawhRNBjeLw",
+        "5TKp3FUfqUang1pqF1URKU6Nn7rFCr5zRRo4gfMDmnDBwFmMepqRLt8eqf85npxB5r4GvtzZrzGugpkCsqS3WHoK"
+      ],
+      "passed": true
+    },
+    {
+      "index": 71,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:16:36.539Z",
+      "confirmedMs": 1221,
+      "finalizedMs": 16216,
+      "signatures": [
+        "rM7Lmurf62Az9BMEaoHjSaxfrHxxSPWc7QWugBP14fFKZk9SWWUq3ZvkS9Creg2XjEsW8sKPpoSLwAoWRWgDKxK"
+      ],
+      "passed": true
+    },
+    {
+      "index": 72,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:16:42.539Z",
+      "confirmedMs": 6765,
+      "finalizedMs": 22280,
+      "signatures": [
+        "RzcFeQbYQPGYq1BrbNQhziTcMPjXsVvt1q4cWib97oRyPuKNZdTVAmUa41AHPUFEKg15p6fyQskFSnYVcjUPnW2",
+        "48WoyYLF7fTctW3Dkafc5WPbhqrRxXReSthuojVxgoTF13iSCKPjXEQwMwRtKXdTexNnJpSS6Fs6PBDz1v5eGN8M"
+      ],
+      "passed": true
+    },
+    {
+      "index": 73,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:16:48.538Z",
+      "confirmedMs": 4262,
+      "finalizedMs": 16359,
+      "signatures": [
+        "2794xkaXpkpYpGxoSAmSN3vEdii5uRkSra1Kev5UTCoFM6iYLyEumSUksikmmG86MiA1xA7kq35hj2GYegr3hBQo"
+      ],
+      "passed": true
+    },
+    {
+      "index": 74,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:16:54.539Z",
+      "confirmedMs": 13819,
+      "finalizedMs": 25009,
+      "signatures": [
+        "22v3N9eAxfCTGe9sHmdofgqQiorfqvvTi5DptEJf4rJRj3iP2hZoD7iWP2y2B2wZXkgWQTiQaUnW8go4J6JrM9du",
+        "4NrfQjSTQEGZq9bQbTmyouxrEJiYCkTUZcHGUyTDZqr54yQczr7qi1N4JmXzux9YcuaXh3CLV8UqB9oqm8oxDxLm"
+      ],
+      "passed": true
+    },
+    {
+      "index": 75,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:17:00.540Z",
+      "confirmedMs": 4358,
+      "finalizedMs": 14736,
+      "signatures": [
+        "2gg7Jy8tVxXsypmCBLS5Pc6r2N3pzASTSYrdkMrHxMJdPQE8t18fUMWP5SvNcD5hi971RRbys65ANPiuNTAJZxCT"
+      ],
+      "passed": true
+    },
+    {
+      "index": 76,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:17:06.538Z",
+      "confirmedMs": 13309,
+      "finalizedMs": 28646,
+      "signatures": [
+        "35YEnvGfVaSERLbymEjWRawEPavo1bAAXExnjJCJxW6RmngvVSJTXJYU1xhDhH8uKkwPF8Qhy3h5n2zsmPWvBDNH",
+        "48Lj2QZVLp6Me3Hjab2sEFM2VGxTkHrgBaucfFf6eo2yf4Db54miKqhSd7SWcL7BLX1EbyQrEAHBx2dgH4f53Pyr"
+      ],
+      "passed": true
+    },
+    {
+      "index": 77,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:17:12.539Z",
+      "confirmedMs": 9971,
+      "finalizedMs": 21971,
+      "signatures": [
+        "2V7wgrs6B323hqAWaEEcdCJQMdWxLAQKi1325fgTVAF8obTCkr4pEQXt1zyZe127KP1oVZRFX94rHw83LYoGZ85u"
+      ],
+      "passed": true
+    },
+    {
+      "index": 78,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:17:18.538Z",
+      "confirmedMs": 4131,
+      "finalizedMs": 19723,
+      "signatures": [
+        "338Xv8yb1YXHtvNTi7iuNdoeMpxYo5aJNSACjZUU9WXpUtKdop2tWz2xuLW56S1wGLcxTrRJqkjFP5biq3qadAoa",
+        "3J1wQ3T7tYtpb9NrUVrMknDSZVx6EzsgWdtZEotuetGNLKBxN48CMgswJLZbtrpvCUmAvNarRNxgULnpf7dANQE2"
+      ],
+      "passed": true
+    },
+    {
+      "index": 79,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:17:24.539Z",
+      "confirmedMs": 4114,
+      "finalizedMs": 16112,
+      "signatures": [
+        "ZMFaE7hMdC4nwJgtuxTz8oDbNq9xrBjzYcPffMTeJEW5xpAqhoPFCFqjqPSduZhTzSa4GzD8XPS4wt2CD2RU6Zy"
+      ],
+      "passed": true
+    },
+    {
+      "index": 80,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:17:30.538Z",
+      "confirmedMs": 3593,
+      "finalizedMs": 19310,
+      "signatures": [
+        "4LBMnQJ27NJa8t4mHGJQJ5GGNU5H53y5jGyTYzRVdHeKq8DnS1M8J1m9g7umXeYiNMFHPfYPY3Xe4nxm2xwDDXF9",
+        "2rEV3LgVmQrGqQsBVAfwbTHFEjiwMMkNfqZEDq7DeZ3YKNTLmcRRd1qvMGRwdUBSTKvCF3eUeQtpfWJDsecsWgDC"
+      ],
+      "passed": true
+    },
+    {
+      "index": 81,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:17:36.539Z",
+      "confirmedMs": 1331,
+      "finalizedMs": 16295,
+      "signatures": [
+        "2vz4LiEApV2EDqjUZQTDJAXjjnvjCbejFw29KKqRiUqFwXCcNCMzqVjkyrRDrHkZAUeNiVu5NWGAdVz5MysMPBxy"
+      ],
+      "passed": true
+    },
+    {
+      "index": 82,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:17:42.539Z",
+      "confirmedMs": 4087,
+      "finalizedMs": 19473,
+      "signatures": [
+        "6kSdbzqCEMgVd15A3FGWH4iMjo9JFj9sG8BoqDFksN7NCpCFBtaxrCfjQyMtZ18DRa6MUESxN5VJzBFa3YygaG9",
+        "2S82VsvX9YZ541mQyKhVWH6dUxypQLknLoA1w3odaP27khQ1XojqajkJvTBEZGMqzjH5c6VN1vF8kvzonDHQScKr"
+      ],
+      "passed": true
+    },
+    {
+      "index": 83,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:17:48.540Z",
+      "confirmedMs": 4294,
+      "finalizedMs": 16311,
+      "signatures": [
+        "4tfoAME5wSkJbBi347fiVcJ46CHthgGTajCPzNE9eKxpJawXbHzTW4se47hE85eNZKF4HXgqjP2zuhHFpoAHcAfJ"
+      ],
+      "passed": true
+    },
+    {
+      "index": 84,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:17:54.540Z",
+      "confirmedMs": 6671,
+      "finalizedMs": 19351,
+      "signatures": [
+        "5cMYZtizogans4Bn3Uij2MHij3rTkBRSvH5q64RV1GZfafSTX82UV5jMQHt6dNf8HMdNbLH7B6XmjJEgRCuKghXd",
+        "5xsauRZYwKaDCrxH3BipPYdtLE8UzPyGGuTe6wcHevGgrpYL2vLoB7nTZy9kK7AdaeVzQmVkNQBT43iJ5Fwr2vhC"
+      ],
+      "passed": true
+    },
+    {
+      "index": 85,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:18:00.538Z",
+      "confirmedMs": 4271,
+      "finalizedMs": 16292,
+      "signatures": [
+        "FRKP9jPSM34nbkKqD9spsXPyBDrKVCqNWiXCkS6vG9qJS6t1cn3ueKByPURL5q43oe6peKSUoJekd2xdXSG1Jok"
+      ],
+      "passed": true
+    },
+    {
+      "index": 86,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:18:06.538Z",
+      "confirmedMs": 6615,
+      "finalizedMs": 19107,
+      "signatures": [
+        "3SP7g5ZVurU43mbCBHqdZXAGZfZ9FEM5mHCLa6eSQmpTrA1LnpuT3uwdCRGtK52o72K83ruPHZf7KyttjkDmxUWS",
+        "24GwaBQQkEtMVDdZypL5SQHCYtib2ygoydoEdrh9Bb4jetqtjya3x2BY9dqto9JypcVVHKB2Pz5EjDRrFYcSpwuS"
+      ],
+      "passed": true
+    },
+    {
+      "index": 87,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:18:12.540Z",
+      "confirmedMs": 4196,
+      "finalizedMs": 16202,
+      "signatures": [
+        "46YLD7YgHhr7rDSKULqYf7i6GNg1yEuAVn837cGMY1HYboAKkXdGBNrzrhg6K3SYyhLUSU9AU5otjPFof24Hzute"
+      ],
+      "passed": true
+    },
+    {
+      "index": 88,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:18:18.539Z",
+      "confirmedMs": 3785,
+      "finalizedMs": 19261,
+      "signatures": [
+        "5Vyu3ywWzsVo7HH5Jcf62eSjRe6EmATGAU8w7dEcMuRPvPyX5BMw2YdWjhhdzuQAWDfsPtYWCyKdzm2VL7DCFaqj",
+        "3kENphedG9GkC5dH6UzGmxQ6bjzUFEbLZnA8fNJqtsEpvtuBE19LbiZK3aQtjEUZJ2oWVgACWKGhd5wTdeSxtAoM"
+      ],
+      "passed": true
+    },
+    {
+      "index": 89,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:18:24.538Z",
+      "confirmedMs": 4256,
+      "finalizedMs": 16275,
+      "signatures": [
+        "52ipVVdNEDnFqV45RdASXpBZYwofoTtibH61Q65yqrBF3PjbiRhKYvVu2yFJnhhsjutXjWNMZv29aicrQquLcNGC"
+      ],
+      "passed": true
+    },
+    {
+      "index": 90,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:18:30.539Z",
+      "confirmedMs": 2114,
+      "finalizedMs": null,
+      "signatures": [
+        "5Wp6HydTYmd2db8G6jDmyUEnyoQkoUdjNe7EAQKQW7yW3HwJj8aLYpjAUJZQ48uYewCbLrooMLbheeBTC8Nm4YvD",
+        "2cqqaKEA1ZT6iEneMqz6pzwViLuwQxdD6ceDyPLZ437mtnrhqHtKwA6nQWy3vwod7SMo81aKkfPGj9SDnpPtgowD"
+      ],
+      "passed": false,
+      "error": "fetch failed"
+    },
+    {
+      "index": 91,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:18:36.539Z",
+      "confirmedMs": 4220,
+      "finalizedMs": 16227,
+      "signatures": [
+        "3Xs45xYy4ynLqFGYW9o3KpkuxSBwkg41DA9Quybbq8gRT3rS1UZrQzxKzwhV3taMgzV2ZtSGwT6uqxxChafzAb2C"
+      ],
+      "passed": true
+    },
+    {
+      "index": 92,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:18:42.540Z",
+      "confirmedMs": 6599,
+      "finalizedMs": 18990,
+      "signatures": [
+        "Pqmc9BwCdda5gj4ySJZuhAh6Vx755DDjLCuqmq7okf92SZomZkLpTGYWCSZS53ruTTRsx3tcKvqubwfimeToypC",
+        "vnxsSUJeyDEMU6cJqoMiqGALVcC5WMT3d4NtzTZCnjE7h19htuaV3dJouzXmZzGgWzhWYcheiZVxugQmXjSAyZh"
+      ],
+      "passed": true
+    },
+    {
+      "index": 93,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:18:48.540Z",
+      "confirmedMs": 4317,
+      "finalizedMs": 16306,
+      "signatures": [
+        "2wNfnctRNMt88LhkwN221SZn8Utx3DkX1MTxzUCYmTBj4ecRhFo95P3uaHQLwzEGRo5XEx7aG2VJEEPNcXJA4uqr"
+      ],
+      "passed": true
+    },
+    {
+      "index": 94,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:18:54.539Z",
+      "confirmedMs": 6612,
+      "finalizedMs": 19107,
+      "signatures": [
+        "3i6rw5YgstXqgmKCmXdRmD7ewcniTNfN8gsvN7zWvEMNF9XPFTD72xS9yFCf7USCQ2jaTw8Ws8v3zxBxpBbKcXga",
+        "3V4EHYa1cw5z2N9tPvb9hZCjr7o83XtmUJUF19BfRQdEVDVGb6P21GDyHuCmkredYeekT259CpGTh4WTavSUcj7z"
+      ],
+      "passed": true
+    },
+    {
+      "index": 95,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:19:00.539Z",
+      "confirmedMs": 4269,
+      "finalizedMs": 16272,
+      "signatures": [
+        "41SazHXUvUwn2VcgYqgZUczcvGHWuznQdNFkPxnvtE3DkswjYKccqXvC6SJVVm7ToRqbxVjRA6iB3AqwwCMjVeen"
+      ],
+      "passed": true
+    },
+    {
+      "index": 96,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:19:06.539Z",
+      "confirmedMs": 3752,
+      "finalizedMs": 19269,
+      "signatures": [
+        "4JmJuzTEagKT7b6CYddnktiYL6S8QtxXHRAdvmjkcSTMkuNVPtdeWPwNUZD8tXujmEcEzCaYb63LSSLHW2Rb7m14",
+        "vsnt1bxVuaSaFq67ZT2r9zGadjjMCXqcDf4J1dpeobf3188FG418Uiz1uC9gfJCFFDifXMDcsSaCjaQLWUk9m6b"
+      ],
+      "passed": true
+    },
+    {
+      "index": 97,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:19:12.539Z",
+      "confirmedMs": 4283,
+      "finalizedMs": 16262,
+      "signatures": [
+        "2ni7nhNt1DSfwsCJ4EjZiK4iA8XnhCLAxmuyRNQhbctXswPhE5iWtYswXmDWeSj7pYgnEuQrtXiem2WtwLJqeFJN"
+      ],
+      "passed": true
+    },
+    {
+      "index": 98,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:19:18.540Z",
+      "confirmedMs": 6580,
+      "finalizedMs": 19057,
+      "signatures": [
+        "4sxxoWbSgnYe6TRhWXqtxs6weggx7LXgDHx2VbnxuxpnftmBqVwyN8T3cejw3o1xhbNfoVFc6ZeiWeRYTNJm1KSt",
+        "34R3LUjZWhkcvafstcJv1zRSjvtqEQncpR8Pf382ZWFZGBcm8FiL5DWujiCsbzRgSok64AXCdRu5KKKoTRzghVk7"
+      ],
+      "passed": true
+    },
+    {
+      "index": 99,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:19:24.539Z",
+      "confirmedMs": 4205,
+      "finalizedMs": 16206,
+      "signatures": [
+        "2JJrXK5WR9kLjdv5TuG1hx9wR6g9JXtsMo6NmvUNGkH3qFR2WVj1hhMhcUNCtoEvapiHtCKcxTq7m74AiQKmxjAx"
+      ],
+      "passed": true
+    },
+    {
+      "index": 100,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:19:30.540Z",
+      "confirmedMs": 3732,
+      "finalizedMs": 19258,
+      "signatures": [
+        "x12ZZAEPbGQ51gGPCy13F2yzErncefJboSw7eubsVSt53X1tWZh17yGFVsK1Ehinr6zv55K5wzaf3EUasuMbXtr",
+        "4fCyEriUGmxYZDYXjX4VeQqSbbwpKjSN2U5oXyHVNuUKBxaE8n6DXeX9kq8FQfhjEYVgENHgVi9ifG4rMqeSh6wm"
+      ],
+      "passed": true
+    },
+    {
+      "index": 101,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:19:36.539Z",
+      "confirmedMs": 4191,
+      "finalizedMs": 16243,
+      "signatures": [
+        "2mRgDgdQ621AzGBpEGVYszxrnvsskNwSqfXByDdMxYVvQhmhabMFnRB1iT16pVCgzvu5JpG5so1tzaXznEpcojMP"
+      ],
+      "passed": true
+    },
+    {
+      "index": 102,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:19:42.539Z",
+      "confirmedMs": 9858,
+      "finalizedMs": 22275,
+      "signatures": [
+        "39Mzj25xSt7FoyDpXBE4ugfw5zEh6LUELe1q1YJ9GY5ciVRvRwjchLppuXG1yq3Z6sw1xsiZ2Dk9BwGdyNrxEeVf",
+        "3HGXtzWbKjtjSoeVKGMhubJUsjvoKRhXyHqmBmnQAXuHiFFZ1jhRvTKAJqQLmN3cKC44Yujr6syEasTzYzkELTJQ"
+      ],
+      "passed": true
+    },
+    {
+      "index": 103,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:19:48.539Z",
+      "confirmedMs": 4282,
+      "finalizedMs": 16275,
+      "signatures": [
+        "2uztxdjz9pyr4od3evxPbc51wS3eKpBRsqxx7RH9Qpx7T6MhqBNoSKhuh1g6pbDvDixLGsK6x7uK34nz5CEC3YHq"
+      ],
+      "passed": true
+    },
+    {
+      "index": 104,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:19:54.538Z",
+      "confirmedMs": 10040,
+      "finalizedMs": 22529,
+      "signatures": [
+        "33p8zze6PfU5rxBiyXRnit3QTS5tY6Ld3E4u6AQM3r4vaJEvpSvQ9kM3xojEDLZU8AW73abdfWWGpzJERSrqDSMz",
+        "5X6vKroKAs34amxsu7YzXwsG8c5nCvWGtKKMd3ydBjtQKAdRvo2FeiF6nNoaC4TRHvxmVkJTWUQDktiZoyDuYTtt"
+      ],
+      "passed": true
+    },
+    {
+      "index": 105,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:20:00.540Z",
+      "confirmedMs": 4271,
+      "finalizedMs": 16234,
+      "signatures": [
+        "2pFXmJZ4FXS1zHFrV2zPz8QjQSATcJJNSBQBeme4f5aSuczCj72pTPBYWJ5siTkVaiwB56Vtb4NpyKK1N3qnNjqa"
+      ],
+      "passed": true
+    },
+    {
+      "index": 106,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:20:06.539Z",
+      "confirmedMs": 6516,
+      "finalizedMs": 18976,
+      "signatures": [
+        "46gQANAfB8StnfSj2W7prJ5YjAeXP4rDdU6JKGXAa2VjtwRBj16mRhRmPWn6cT9zxybVTAMeqc136bmtxeaPxc8t",
+        "DHz4LeRvAgXyf7WhfZdodnnP1t8kSgBmRXPKeSNhjH6tB7vGvAH3a2nmhimupMVj32JCRa9PoF2dwywkrskA8kw"
+      ],
+      "passed": true
+    },
+    {
+      "index": 107,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:20:12.539Z",
+      "confirmedMs": 4191,
+      "finalizedMs": 16194,
+      "signatures": [
+        "35FZ4yiH6oTck8rf324bQrPdJKVKYjiQumG6psm6RZZscrLsdqDCdchzPFRt2bJJmM4JmatonQyzYBgqLWQtJtJC"
+      ],
+      "passed": true
+    },
+    {
+      "index": 108,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:20:18.540Z",
+      "confirmedMs": 3498,
+      "finalizedMs": 19235,
+      "signatures": [
+        "5HCqiY63J3Rr42CfFvvYM84ghonzz9rJEBtX6wNs3fN2uxv3ci7EauBJSopxXoLSYzciDtjhv3uMkfD4FxhAMry6",
+        "3sXJpm2eHca5FF2Ndgtmp6Lzec8cdndH9SREfZoxafaeucD2FYzgcEymSv72DwXnfUUwBQGAHeEm9auGfxLPig63"
+      ],
+      "passed": true
+    },
+    {
+      "index": 109,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:20:24.537Z",
+      "confirmedMs": 4205,
+      "finalizedMs": 16308,
+      "signatures": [
+        "4XKfmXZ5BJiSrB3rqzMy4Ax83NU2sg6RkMxSexgeRaHajK6DLm57g2BvgHNyn9f2epnNCh18Dsd3LpKW9YiVcenC"
+      ],
+      "passed": true
+    },
+    {
+      "index": 110,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:20:30.540Z",
+      "confirmedMs": 6910,
+      "finalizedMs": 22463,
+      "signatures": [
+        "4Hz4xAiCEThoNHHmhdLYTfNPhJY4XVWQ6TxACZnUywveLegdwKx6zRFVgBZTNRT4BszCJTY2odBn7u2dP8mDKLaK",
+        "4BEhno5ryDCxQqprPiHw1mo294cUe6tkqx8N36KpLrmgxiL67jYcHtQRok9jSF4BCYRVpfk5wU1Hqbsth8Z677rW"
+      ],
+      "passed": true
+    },
+    {
+      "index": 111,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:20:36.538Z",
+      "confirmedMs": 1307,
+      "finalizedMs": 16300,
+      "signatures": [
+        "5rNZfDKPPPf3Hs1pGJ5CfJ7KHB4HxFNdwnnb23zGS7U6RiUPqy9nMxfHez6Gcfg4Bnzvibd56RZ8SQCMGKmUv6Sw"
+      ],
+      "passed": true
+    },
+    {
+      "index": 112,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:20:42.540Z",
+      "confirmedMs": 9738,
+      "finalizedMs": 22120,
+      "signatures": [
+        "3rtqfUZfmEphABuhPeW1KFsM6shyhCCEcF3XMhFYBXeuZGAUnF9Ks32hd9gSNBrVArR2BJbC2QD4nCuDVNNw5ovi",
+        "3a7pgR2rPFz7C5mbPmaW2wdDRa4VHM2P7yfcWQRVz5xJe9GoPdH3uD5yGPTQdpf5SBmrjWd36B5iEVQ5GYjRe5Co"
+      ],
+      "passed": true
+    },
+    {
+      "index": 113,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:20:48.539Z",
+      "confirmedMs": 4182,
+      "finalizedMs": 16194,
+      "signatures": [
+        "3kVoxtC5rmgAtZFtg6pfXbrWJnN5JPb8airwBpfQWKPdc6Pmhima7MiQVqZB8qHMvpsyEWNv6bHkVRr3bkM3S5vh"
+      ],
+      "passed": true
+    },
+    {
+      "index": 114,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:20:54.538Z",
+      "confirmedMs": 6513,
+      "finalizedMs": 19012,
+      "signatures": [
+        "4LqVSXvKUTZSJWkMhBBfURpQWpquKJWeLMTxQFWWiFLMUQ9x24ypevB8ZuBCka4nAwNimwtY2aR4njJZ6T3thN2m",
+        "4fKHijiDKonF3XK4WaWGyZ8ruhQKz7rLvp9Tq4z9RYiG1Hu9esw3zD2vtmUvCmqGnkSXfKd3YbniyYZFWGNwdzf5"
+      ],
+      "passed": true
+    },
+    {
+      "index": 115,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:21:00.537Z",
+      "confirmedMs": 4307,
+      "finalizedMs": 16422,
+      "signatures": [
+        "56Eu8eYdrZoD2TgmgtZixPhoNyNYwkrQVVxUirViMHkdrJGtVPuajZBmn8JDua3yGTaxEqugpq3GPwNyWGW8Rmhy"
+      ],
+      "passed": true
+    },
+    {
+      "index": 116,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:21:06.537Z",
+      "confirmedMs": 9802,
+      "finalizedMs": 22218,
+      "signatures": [
+        "47CukzTJfBA5CmqEQTqkWioMXJSeqrCza6Hmq3owW7FSh73rcPjbK3zAJy4jpErYepoohSSdUU3xh6KQnVS9Ksoi",
+        "2g4Qmy6WW5hgDfPf6ibzzN3jo27zd3rCv6ZrE7GY1PivF38BqpMWhJ4imKKasLkpCsDEKfh6FWmUJo19eSrzNE9j"
+      ],
+      "passed": true
+    },
+    {
+      "index": 117,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:21:12.538Z",
+      "confirmedMs": 4435,
+      "finalizedMs": 16230,
+      "signatures": [
+        "54CaZYwDWj6xLFPdeWSpZ4FA646nBprcZ6UpekRAxrNRqWYNSMrjHMbfQ39RkCPzMrw7kurMrQoiFrghcCQrwTnB"
+      ],
+      "passed": true
+    },
+    {
+      "index": 118,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:21:18.537Z",
+      "confirmedMs": 3753,
+      "finalizedMs": 19441,
+      "signatures": [
+        "49TqyjApvjasM6EpUuFmG9Mhd2TmUMnEti4QGFT9XV3WimBKpZR3yAkBsAzXs31ZQC7PH2sP2HiZGMdS1eyCVZn7",
+        "ANuV7rmoc2McQ9Hynkd6yoqUFPUN2tnkKVCzRQWS1XnAvognMqJQXk9Arso6gsk6KbjLAnhULwSWsCiHAntqLQM"
+      ],
+      "passed": true
+    },
+    {
+      "index": 119,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:21:24.538Z",
+      "confirmedMs": 4125,
+      "finalizedMs": 16140,
+      "signatures": [
+        "2brXJ2HewERjC6EADqL5USBvqy1bafVmJfANH5MQttXZYJE6eY9k4PymcotXQuRy8kBb6SjTtCxsHGeg7pJni2i3"
+      ],
+      "passed": true
+    },
+    {
+      "index": 120,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:21:30.539Z",
+      "confirmedMs": 6922,
+      "finalizedMs": 19442,
+      "signatures": [
+        "4ndwbzopsKR9EzLtdJ6iirFEdr8GU7JUoKznhopPw4PkzFgTusFa29isPTt8tS71hhpT8Dnc23zD96ksHa1YaWMR",
+        "4LHDwJJpPFVgDcD3vR4quFz36pjfNSaMvhWHSd68Aoh9qEeamKr6ebBD5ZSbhTPUH2mcf1K3HRPWDoduNDTvLjEX"
+      ],
+      "passed": true
+    },
+    {
+      "index": 121,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:21:36.538Z",
+      "confirmedMs": 4544,
+      "finalizedMs": 16599,
+      "signatures": [
+        "5AV7Pac97e8u8wrrDPHEd4uBsCk44dw4dAMWebikCK1PJjpa39cDgG8CMKsmcZLAwQ6FTgjW5GvKLBgjNT9asrwC"
+      ],
+      "passed": true
+    },
+    {
+      "index": 122,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:21:42.538Z",
+      "confirmedMs": 7320,
+      "finalizedMs": 22725,
+      "signatures": [
+        "4HHgtAFSC1ZmgXvZzL4CeLfmdyZV98MVsAAh32Prb6Dh1vfk7fAd4KpWSpawD72cujCSXudK4LBj2YSRsPh3quW2",
+        "5irHJDpDVGRwBuZQdsDz93qr2VRFQ3CwZkZL9LKpwC8jTAbRsyNQE5vDce54vVA7qvDNNRYgPHDwYtpVVKJzMhCU"
+      ],
+      "passed": true
+    },
+    {
+      "index": 123,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:21:48.538Z",
+      "confirmedMs": 4195,
+      "finalizedMs": 16195,
+      "signatures": [
+        "5gx96mcocQZ4574HFGCJ9bQrYngPuQmrfVnznmnphij4BqeeZ1bcoZr63bXYHqPxhZSHtuLQDGs9k5msQ8gAYzNt"
+      ],
+      "passed": true
+    },
+    {
+      "index": 124,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:21:54.538Z",
+      "confirmedMs": 9887,
+      "finalizedMs": 22257,
+      "signatures": [
+        "3MxZ1zRZwMg13G4wpBQir7x9ChrfgqUj6TUReqQqUwfx6FwJMJuPMNhBZFtmnDyEb2D1oqMiM7GUREd513r3A5u6",
+        "P7kJj8T17S9Gs2sLRo7us3mRp1JgEbG5vSdZnEymaYhUFkY8efSRs239Go8AG2xVRR3qQoi8qho7EgsrzonG96W"
+      ],
+      "passed": true
+    },
+    {
+      "index": 125,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:22:00.540Z",
+      "confirmedMs": 1341,
+      "finalizedMs": 16267,
+      "signatures": [
+        "4d2kHKLhXmdQsAKyXm1vBWQtqKAfD9fCEvQbzmED5VbnQqbqonBUWa51dRJFzeLz87MLDCRA88YeVgxvH2LDt3u"
+      ],
+      "passed": true
+    },
+    {
+      "index": 126,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:22:06.539Z",
+      "confirmedMs": 6657,
+      "finalizedMs": 22033,
+      "signatures": [
+        "tama54joeR615MTo1yRdDFdQQjYgGe7SLCsXtpDXoGMF5KWRusWR57KyxTFFwDUgQhf9ZBQLwcF3xF5osYcBCXE",
+        "17Y9YTuc9acrgnQRtYXLPDoXEzTJ5ccj4zYTdFAfKHkgdxHHp5tujkau81iNHGECY2NW41Vv7dVeBNZGcVSP8Us"
+      ],
+      "passed": true
+    },
+    {
+      "index": 127,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:22:12.539Z",
+      "confirmedMs": 4148,
+      "finalizedMs": 16159,
+      "signatures": [
+        "2s2qRE2G9i1o7k63fuR87CodYHt98z1RM3EXsuBbEXiuDQThooHdWdQbRuRVH7gfQfSoBjyjHNAh1QoViTwWGupn"
+      ],
+      "passed": true
+    },
+    {
+      "index": 128,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:22:18.538Z",
+      "confirmedMs": 9739,
+      "finalizedMs": 22133,
+      "signatures": [
+        "42DDoM6Kp2kXpx8ZM7FjQb52qSNAQoZGvjGQxjdjqgPeHG4ESm4oHAhkRvVKLRy1fkxpwW9UuVsvLCttcZcThjNU",
+        "3MuLahMtiuEppGZR9WxBvvHAhjs3mLkD2LJBdEMZaBYLoMpKSGzpech4njzAsghhUrQKMeoFcwSWwL5YnnczjWhe"
+      ],
+      "passed": true
+    },
+    {
+      "index": 129,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:22:24.537Z",
+      "confirmedMs": 4205,
+      "finalizedMs": 16213,
+      "signatures": [
+        "22fvh1sJESMhzedypqBQPwtEkJMbbYEjRBm4ffPsV7PVqxFYmefZ9B9cwHKv4hVJkrUE78e2PQQbDWDbh8FFZBKi"
+      ],
+      "passed": true
+    },
+    {
+      "index": 130,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:22:30.538Z",
+      "confirmedMs": 6583,
+      "finalizedMs": 19151,
+      "signatures": [
+        "36RSsw4FW43B2Co8rokTkzevcieMCNVh9FaQ36Crh9fv4SX77asJTt9d4L2QQV9ik7uct915ryusP6XFV6hdqJjZ",
+        "4g7iwckNBHUwr8KTkkzWiD8wqHaGWdtVyzR1jGjCynEZ13u3qsxH8EtfzWVbECGZDo9T9cM6SvX2C2Zwjs21R2zT"
+      ],
+      "passed": true
+    },
+    {
+      "index": 131,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:22:36.540Z",
+      "confirmedMs": 1755,
+      "finalizedMs": 16369,
+      "signatures": [
+        "4ZVJKPSy1Wd3QfSLi9vdbZhXMqPgapCsvmMGBQkfMHKEg7vFmpSV2G1wbswU1PsfZqN6v7m27TsKG5wqUU9iwBQm"
+      ],
+      "passed": true
+    },
+    {
+      "index": 132,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:22:42.539Z",
+      "confirmedMs": 3710,
+      "finalizedMs": 19093,
+      "signatures": [
+        "2VTisBvdg67FAdbmpQCwpKZDBpmESZiUyJ61euNvCifgWCnfKcUHvw4ZjsRyHaGELYNtuAbeGvcz4g3DGDpRifz3",
+        "2HXo5i5g9MLfnLW2Hq7ekTVbbo2thPMW8HpZt7narAULw2bsYUiTqrj8EKtKNUn3pZciWgc6PzqCqo2x5ZAHx3C3"
+      ],
+      "passed": true
+    },
+    {
+      "index": 133,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:22:48.538Z",
+      "confirmedMs": 4348,
+      "finalizedMs": 16350,
+      "signatures": [
+        "2ukC4CJrPHMzy2G6rnXxVispPU9V8zRzmG6ExbjoC7ogZMHRqQ9cQ7AZK7F59mCi4ueLjd7Y5Ng4QHEbaqVuRawm"
+      ],
+      "passed": true
+    },
+    {
+      "index": 134,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:22:54.540Z",
+      "confirmedMs": 7193,
+      "finalizedMs": 19696,
+      "signatures": [
+        "3Fg2nKQKZhUx7W7mTQEbAmtMSSRtwNMAAY6jeaRuB2kjyCaCucdmbUrzEV5Jo1b8iiGNmmvgdPBvo56bSWXpvTtZ",
+        "4pF2FdbZQpUSR5TcmM4VhmDFRmL9hUidByRtoUwFD4T2pkJ1cSQ5RTN954dWCtwYoR86azARVjDgDxXzRVJcpuaF"
+      ],
+      "passed": true
+    },
+    {
+      "index": 135,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:23:00.540Z",
+      "confirmedMs": 4356,
+      "finalizedMs": 16375,
+      "signatures": [
+        "3uja5zkjpy82w2tpejak45bQkJ2E1HEPD9V26RgrQ95agq5bm72qTtgyGCrJYbKS6igeff7Q7UUanGQcxPaVJ9XS"
+      ],
+      "passed": true
+    },
+    {
+      "index": 136,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:23:06.539Z",
+      "confirmedMs": 7221,
+      "finalizedMs": 20782,
+      "signatures": [
+        "QHdgz4B7eDPiJmWuvWyMUKWuBr3feUbLH9t8pGxJLhpasDHzr9KbpUjbDdy3ozGvG5moYkWXpeuXtrqXg1up9oW",
+        "3YUwBnKADzMVvizQeaetZXu6eBv1BcNpJiM5PWERVzMFshNuTF6GfVdnnuTshY8x9rn5PoaiGDK9nUQDptQvSHJQ"
+      ],
+      "passed": true
+    },
+    {
+      "index": 137,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:23:12.539Z",
+      "confirmedMs": 4124,
+      "finalizedMs": 16128,
+      "signatures": [
+        "Yyxm4GadEtfKgXSYU68mhmwbGLH4yPQXG2a1vJAoYztGxBPFKnR91e8gdfD8ZQ83i6GkaFhEJdWA6YucSokwsiS"
+      ],
+      "passed": true
+    },
+    {
+      "index": 138,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:23:18.539Z",
+      "confirmedMs": 6596,
+      "finalizedMs": 19104,
+      "signatures": [
+        "43STY8SaakTm1cM1HPyKuANRPBpr1mgPgE2FvicHgacHz8LoYo2Do53iE9ZnZkPjdLhAFCSr3oxm3zuu7TNj2gzz",
+        "4wMfHYbmjTP8dcEmRdPbqHpuxRY14GckfHs26GD9ZydjuS2iBY61kqR5vd7v3wFReg47AmwRAQhZJpwpzaTtRuDN"
+      ],
+      "passed": true
+    },
+    {
+      "index": 139,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:23:24.539Z",
+      "confirmedMs": 4196,
+      "finalizedMs": 16210,
+      "signatures": [
+        "2W8RBwVjLPR7t8BwAAZFrv8qMD31PpCBViQEPj5Q5PsQZgZrh4ZBxknoqq2LG9ZaWBmwoeq5oRHChFad8BBfjGi"
+      ],
+      "passed": true
+    },
+    {
+      "index": 140,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:23:30.538Z",
+      "confirmedMs": 4798,
+      "finalizedMs": 20201,
+      "signatures": [
+        "3YXJF27Qfiyy7HpQoE83TuQjjG12NUyVk2kZHgSMxCFG4mmb6WDzazd5VVbMqSoU331MJU7k1piABT2g9prXvjt7",
+        "56KiQ4NzGtCf1QmeQMHhhGMf6xGs75tFjq9aXzc4aazi5SnoB3JDQzAm37koFwwxQkzmqDFouHJT3tWjEDrVjW7o"
+      ],
+      "passed": true
+    },
+    {
+      "index": 141,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:23:36.537Z",
+      "confirmedMs": 4156,
+      "finalizedMs": 16154,
+      "signatures": [
+        "4Q6ybtCXHvP1MSWTN23A63As7hDA4yqCLwFhGdL4PMoeSvK2VXMQ2ZR5TDgaqf4Fqt7nPTuwHaDzdNmDTrncCtCW"
+      ],
+      "passed": true
+    },
+    {
+      "index": 142,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:23:42.539Z",
+      "confirmedMs": 6959,
+      "finalizedMs": 22356,
+      "signatures": [
+        "3XsW4tVhikGdXAk7jwGdVda2z9wNmVu8DTgUNRyuwVHzWTLakJTjeMaCpTiJTedDYjBpWSNnMesuAZ2sgfebYVcS",
+        "irPMx6SbCjQgizpSG2g26vrR9r3gvctTTHCMyKHwTS6Tvwxzgaz1TyeciMRLWmuDHAfmunKnyzEMFr7hTm1Ya3V"
+      ],
+      "passed": true
+    },
+    {
+      "index": 143,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:23:48.538Z",
+      "confirmedMs": 4199,
+      "finalizedMs": 16204,
+      "signatures": [
+        "2fh4saPi3XoRcYyBnPw7X72smWRSHvFn3wTgZgkwD8RsKMtoUUUgTCP8sDp3nFfrkEpQWyYoEBMyaiy5pzfU8Lch"
+      ],
+      "passed": true
+    },
+    {
+      "index": 144,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:23:54.539Z",
+      "confirmedMs": 7309,
+      "finalizedMs": 19704,
+      "signatures": [
+        "3yrQ4kvgJyQQ8HynWJgN6YjZkCkZpoEeFCXW6NFRPmgACci8Tn4zJobnKfUc4pZSXb1zJHrG7qKVgudQpVB5Aenu",
+        "264Xqkr3h2JPsoMs8bK1jks1BU6giauWXZbyd3tUGEnGgDPhPviFkoWm7h3VYAP2sXeRuftvVb9JhbYfpEbUdQBv"
+      ],
+      "passed": true
+    },
+    {
+      "index": 145,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:24:00.539Z",
+      "confirmedMs": 1264,
+      "finalizedMs": 16283,
+      "signatures": [
+        "4fyRFL6bhnuyZSPKFRuzecrM87pfwYyovTXUAv7NEGdw9GSdaKE1B6V1kBVMW1VU2agFNtEDWWU75YWwwpXhfNrJ"
+      ],
+      "passed": true
+    },
+    {
+      "index": 146,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:24:06.539Z",
+      "confirmedMs": 6824,
+      "finalizedMs": 22205,
+      "signatures": [
+        "5CqtUYWSKoz6UctiNkwSapdwi3RxHkJG6NU7KLncwgQ2Hsfja89ERRW5jrPAHzsbNg69p9iEbXWRRgcYVCHAHTRc",
+        "GVqgDYGmobCn4hYBUWcekB3tWVv12VHd9ozja2yjZ2mqS1xfeD2HyW3d4Mx7zdGDBeqSD8L1pjjdZWECbQCfd5K"
+      ],
+      "passed": true
+    },
+    {
+      "index": 147,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:24:12.539Z",
+      "confirmedMs": 4138,
+      "finalizedMs": 16134,
+      "signatures": [
+        "deR2UjoD993qKjshhb8yCkkkxFQgyHoZpi48BYu2m141hJm5Q9zGdetS6ryJWD5wTdh64y6dFd7wJTMcXHkFojj"
+      ],
+      "passed": true
+    },
+    {
+      "index": 148,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:24:18.540Z",
+      "confirmedMs": 6822,
+      "finalizedMs": 19226,
+      "signatures": [
+        "2K5yAGGbZCvSKofbHoQJJJCJ6CWbRGsfRjCQo4J33A38gB4Bv4D3yFTCgR3geZY3ZCo9w7ZLQcezDPx2mjc52Kjy",
+        "4ARMUGJYU3B6rzP1mZJsszFMDF6JxVFgt7C3PZYx3ZXEKdvz4EhxVs7MGts8HKdyTF7oFCvLmGmWudkYaDrwsAZy"
+      ],
+      "passed": true
+    },
+    {
+      "index": 149,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:24:24.538Z",
+      "confirmedMs": 1709,
+      "finalizedMs": 16687,
+      "signatures": [
+        "3R9wcLW1mX6tdJoAuumD39ccXy1jUWw6jEWwCpVgLs5LRMNzD9eqSZotVabPfn5V4MvaKscz2XjnZKDmw6bK58bX"
+      ],
+      "passed": true
+    },
+    {
+      "index": 150,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:24:30.539Z",
+      "confirmedMs": 9817,
+      "finalizedMs": 22194,
+      "signatures": [
+        "3k6J9gRdQ46Mjpna4neXVs1hR9XjoDL9TdUJbVMdZwRZ5ehyHcxLBxwbHGCiQscvDnHZgsa5sZfvx9f4XJbHb2A9",
+        "5oPYBEbecN64nRparh5MZ6zbmNAmVoQrWg4ree9tsriZ23WzgHE1ET5e87pqwtck6d3Beu85cqshq4WmRVycLaw6"
+      ],
+      "passed": true
+    },
+    {
+      "index": 151,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:24:36.538Z",
+      "confirmedMs": 4272,
+      "finalizedMs": 16271,
+      "signatures": [
+        "3fjK2fyG6JGr1eVRAQeKqAu77pj7UChRRcmXZyyf8gNV4rUBkYGvzufM6Re2teYCU2q4PP8FUoXTvzUkNwRjaHEN"
+      ],
+      "passed": true
+    },
+    {
+      "index": 152,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:24:42.538Z",
+      "confirmedMs": 6825,
+      "finalizedMs": 22218,
+      "signatures": [
+        "hhCqRj4jGLZAJUhafs7GYHVZzwMMrLLWawn45ipqeBdEvVduuiaPSiKqAzC161YwyD7LLyQh2fgs8Mn6EcHtX24",
+        "21zwPLeto2Apj7rWLtkAqQrRe8TowfqNdyyecw4MYznzrwiqRZgDrKWQSxJvY5NjVcoqq8ij6qYM3uJE2GtjHyXW"
+      ],
+      "passed": true
+    },
+    {
+      "index": 153,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:24:48.539Z",
+      "confirmedMs": 1352,
+      "finalizedMs": 16364,
+      "signatures": [
+        "4qnfoKWiR3xjE1o19ZaRRkTt3qeUiQsdNmStox1xGMsmp9cL29JBM3vmXTuDz3RmFZEdJ5njrb2c6reosZGEGHdV"
+      ],
+      "passed": true
+    },
+    {
+      "index": 154,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:24:54.539Z",
+      "confirmedMs": 3627,
+      "finalizedMs": 19040,
+      "signatures": [
+        "5xdcjHrGofV9kp6ZrewP9zdqL9u552ZhudjHytxErjtxuYzHeHujQiKxfYJ5SJxgBPrrY244jLexboFJ4vb53XdK",
+        "62cAnk4V2dteS5W5RLtVEcDSGbjrdRY2cJnAwaPz5AimuFhc8Ksci73SxvB4B3ahDG9oAuCGzJZAPBHZDd2WPqsR"
+      ],
+      "passed": true
+    },
+    {
+      "index": 155,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:25:00.537Z",
+      "confirmedMs": 4512,
+      "finalizedMs": 16520,
+      "signatures": [
+        "44nFkrvoDWhbw7VP3VGKU6rzYYCXbpBDQWTNsUVTQJw5hZW2MXw8SqS67kqTBy2pG4kry867PcZ5BvggWpPVMYND"
+      ],
+      "passed": true
+    },
+    {
+      "index": 156,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:25:06.539Z",
+      "confirmedMs": 10110,
+      "finalizedMs": 22847,
+      "signatures": [
+        "Swcw8EJEHMgWLLzFtYjuiDjxZJAa5NWhTu6G72WXPySA8UgT4ogM6qMvFpRocNMkkw6yW8h1Q7hiMxQNQXXB3i4",
+        "CrWZSzdo83E8kyvMFrBfTZPisqFe1ojW3vKhVxH1fZA5PgCwa9zroBvLUCRC3fg6XeuRKfp4WGWzgCy75WfkqmW"
+      ],
+      "passed": true
+    },
+    {
+      "index": 157,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:25:12.538Z",
+      "confirmedMs": 1305,
+      "finalizedMs": 16521,
+      "signatures": [
+        "54yVHvAhB1H4XarK7WruqqTfXPoD5KGup2W7VoyejjP45CzFvf7d7SQBCTqZbzTcYadUoVitpffi7M6ABm6PpFnE"
+      ],
+      "passed": true
+    },
+    {
+      "index": 158,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:25:18.539Z",
+      "confirmedMs": 9732,
+      "finalizedMs": 22151,
+      "signatures": [
+        "gq1SAKodxn9sDR2neniJXGVA2XUV8Jeab8yyjAHaC1ZoEFEUU26DQ33r9ekeNmVksK7CuKYdVm7tw8CXjae7iuW",
+        "4mZ4QaNJnhW78HC3GdppNh65pocqBMTxz2grJuvSrJKjAv3iQ32Lt5y2mrBn22fSmF1br37Fsw6ZFft5mjJsaNH9"
+      ],
+      "passed": true
+    },
+    {
+      "index": 159,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:25:24.538Z",
+      "confirmedMs": 4512,
+      "finalizedMs": 16268,
+      "signatures": [
+        "2FMksgMCHVDj6a5Q73CT3r1gXH9zbhHxCjTcPQ9v3sdCpZy2guWjiMCiQVaWErytKNuZzD2f7pDgLpGjgPTUPDTK"
+      ],
+      "passed": true
+    },
+    {
+      "index": 160,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:25:30.538Z",
+      "confirmedMs": 6915,
+      "finalizedMs": 22357,
+      "signatures": [
+        "2Vo5RtDibu7r2xo5T5aZpxsiZ5SHDfkJ5T5o5taigRZqDB92R8kcNbcxU7gBEERLUhXKK1RCDFreKPvkR2Ay8uvx",
+        "4SBMGJ6GMFZaEo4nM7zV3q3aHaW5EbJSgEgew1s681KKA2YB9V6fLp1eY2d4UWJTF7R7n88bV3c4J5WJdptrJYnb"
+      ],
+      "passed": true
+    },
+    {
+      "index": 161,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:25:36.538Z",
+      "confirmedMs": 4215,
+      "finalizedMs": 16219,
+      "signatures": [
+        "62pU7uvhEUNqrfwgbUYDHpBmzFhXcSyaAA6ZUDjjoW4MsU7SVivRVZQAfcbyx4n4ToXcDHyA738KRNUwZLyUc1YU"
+      ],
+      "passed": true
+    },
+    {
+      "index": 162,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:25:42.538Z",
+      "confirmedMs": 6603,
+      "finalizedMs": 21978,
+      "signatures": [
+        "2TcRUDzVekHa3AcQkF2rh4tfGLhsqmmS73E1y4NmD66TZSXZeu4LH4n2GGGcNmS4t1nWzAfv9QbbjjhV82MSA7zM",
+        "5fpzPQkZ3x7GkSjEdLfzj5XwQA5HDUqai8Kgi5i5wxMC4dLbFoPgdPgSHmCLsbNDMNBa2PypjSJmNPxYYzCRgxTq"
+      ],
+      "passed": true
+    },
+    {
+      "index": 163,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:25:48.538Z",
+      "confirmedMs": 4393,
+      "finalizedMs": 16300,
+      "signatures": [
+        "K6ap4kbHsG5YfdtyMqwrNysDuxvf4NJtScRLLtsmKcQtePD9wGW8ZgqawMZdysQiyihM5stSbM1q9mXZxJeSb8H"
+      ],
+      "passed": true
+    },
+    {
+      "index": 164,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:25:54.539Z",
+      "confirmedMs": 6659,
+      "finalizedMs": 22069,
+      "signatures": [
+        "4vxn3szo27QnKbJ96Z6gD8vXmdPFqc1tME3i6WAiHfyTrRLH6TukgZ2MbhADPntFnUQQbTF58HRAnkK1XkpJosGs",
+        "YHeQLxtTgouvpNauiyYxjSLrS4arjmQLX7XZcGKxz8Gt6ya542GihwFGrkaizYQ961zfYWQwdLsy6SLDm6yWZ73"
+      ],
+      "passed": true
+    },
+    {
+      "index": 165,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:26:00.539Z",
+      "confirmedMs": 4361,
+      "finalizedMs": 16359,
+      "signatures": [
+        "TWRJtxCc7mJXqzkJi6vdRDyMKoLrq8GU1fBFJkbuxY1ThXGMYqJQqWJGjikimWv2Bwa4PhfAhJQMqPbGzqEPGT6"
+      ],
+      "passed": true
+    },
+    {
+      "index": 166,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:26:06.537Z",
+      "confirmedMs": 9582,
+      "finalizedMs": 22001,
+      "signatures": [
+        "2cUT5pm4YWHw1YmhcqKnu8BF2bb6E4AYHxXRqS44DjZXrowQVLP5hwbsnkEUobMu5DCfj4Lv98wCtWFnxCPx1KTf",
+        "2JuSdRUnygFjA2MLVxcrhpbpQHpWKAhoPSmAF91JoSFcCWKd1CgnTLWd75tBnwyeyu8oCfNEM3fDFGbRunBkRMwL"
+      ],
+      "passed": true
+    },
+    {
+      "index": 167,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:26:12.538Z",
+      "confirmedMs": 4354,
+      "finalizedMs": 16380,
+      "signatures": [
+        "3L3q5A1zzfG6SgGvU5BqrzP63YBVkzWRW11Tb2puFJw5jZ7Hm9FrDDcsbgKTv8Xrtauq69wCDErYF7DKJ31wPATM"
+      ],
+      "passed": true
+    },
+    {
+      "index": 168,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:26:18.539Z",
+      "confirmedMs": 6823,
+      "finalizedMs": 19188,
+      "signatures": [
+        "575dHCVZyZ9HXQ3pevcFvhHzaxVjF1qophZm6FM2mRGJ1j8JC6b48URkL13XE4rYc8Uvgb3GVm4BYkqSDQHKSX1E",
+        "2xF5g5EvyMkySQjUZkX4Ji9n3vQuMVRdMwVt13pSj4C87eDCtLnD1wZjnppLnGaDn98Su7osgXsVLWSHMDZkEXh8"
+      ],
+      "passed": true
+    },
+    {
+      "index": 169,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:26:24.539Z",
+      "confirmedMs": 4278,
+      "finalizedMs": 16282,
+      "signatures": [
+        "5xa3EjLs31sX4pDG7ZZsr3esq2tho66XbchszqLNtDrVqZCYsnTAFcRWQAwbWgGtQVYxKyZpvrjVYKMAYSXEEe7"
+      ],
+      "passed": true
+    },
+    {
+      "index": 170,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:26:30.539Z",
+      "confirmedMs": 9750,
+      "finalizedMs": 22156,
+      "signatures": [
+        "2fjjN2utdomSb3RpqTgaFSb799Py87QHGk7xBkq8JKPtXAHPBEK7behFnDDotQrt59bm3fPHwkiCmbVrJ82KdPrq",
+        "5tNoRfDyQPoFcqDkDyhPGY4Jjf3Z7NK7wc2xxxRowfgyxcxHaQHTDtFVELumEn4yVPBG4EQBvSXRuMMGxPD551P"
+      ],
+      "passed": true
+    },
+    {
+      "index": 171,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:26:36.537Z",
+      "confirmedMs": 4284,
+      "finalizedMs": 16306,
+      "signatures": [
+        "gxCbnnxZe2RAPQvGL4v96qrY7ujqpsQZTsYUACmXncHKSyPRDW8fWgzHymT13cx3miEaXhcq9cyQvo6MWyVVGaG"
+      ],
+      "passed": true
+    },
+    {
+      "index": 172,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:26:42.539Z",
+      "confirmedMs": 7460,
+      "finalizedMs": 19817,
+      "signatures": [
+        "63zbV1RdgpY2mgqnD47upBKWxzqh6CS5TM3PBTXnSAGk6x6RzG3ivjWnqzixZaXyEBneCpYvKNLYjtmjLREckPLS",
+        "VLmUhNYUvLk9Gvr7h1GUw2V7RQWEoiD65Xu8SUkT77GokEkxGbuHo9qBJ8L5y9ygtyvBFxwXcjqHrAxhg5meshd"
+      ],
+      "passed": true
+    },
+    {
+      "index": 173,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:26:48.539Z",
+      "confirmedMs": 4315,
+      "finalizedMs": 16323,
+      "signatures": [
+        "2JCE9nvkbpMLr8gBxWZzxTvsFgwVdjYSd8vmVCt5jqBLx1spb4LqbYLTQDYMPLxiJengLxQLbGUcMc4YECVGjJdw"
+      ],
+      "passed": true
+    },
+    {
+      "index": 174,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:26:54.537Z",
+      "confirmedMs": 9870,
+      "finalizedMs": 22212,
+      "signatures": [
+        "4cLm58M36kchPVzZh4N9AviJQ1j3a37JpPxPktT8zofBitTpo2R8qvPSDau8FoJYN7B6D5CVUfayk6r2EUi7iwph",
+        "477En32vT8UMfNQF4HMaLTASpN9r2i9UBdUJ5cwuRLdCSmUbbUfk6QofSj5yu9ruDKcJ347TWyjisU14bYUYHCBi"
+      ],
+      "passed": true
+    },
+    {
+      "index": 175,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:27:00.539Z",
+      "confirmedMs": 4266,
+      "finalizedMs": 16278,
+      "signatures": [
+        "67F6pYGUzC5BGCwvLzrZimPbMN4ZdQA8cATBRPfKATxFG6XbjBJw7FoRLbPHtYDfn3n1t5z53TDSSaUxwQ2wFs1L"
+      ],
+      "passed": true
+    },
+    {
+      "index": 176,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:27:06.539Z",
+      "confirmedMs": 9817,
+      "finalizedMs": 22823,
+      "signatures": [
+        "4o5zH22MxT3SB6ZZmHTdWdyu1b4FaAtJSsPmYAoQsENjnqFiRALp7RveCPgrqZyNLcAfpR1RMDRHtsRqopJc4kgY",
+        "65FJHyr45tSBijtPshVi7Fbz2PB3bXAmK4HRVUPHq5kAXrL6Ep6GPuQ9uwVUfMBRZS2ty7MvLgoQhcviNe1Wvxo5"
+      ],
+      "passed": true
+    },
+    {
+      "index": 177,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:27:12.539Z",
+      "confirmedMs": 4280,
+      "finalizedMs": 16519,
+      "signatures": [
+        "494k6bRPN1Ah65VURAJLpV8UdrULHeX3SQ5qkmv6wHubdGuXFGMzebfCohrrKmRSBZgxHKqUGsLEkZH51vN2cVAj"
+      ],
+      "passed": true
+    },
+    {
+      "index": 178,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:27:18.539Z",
+      "confirmedMs": 9963,
+      "finalizedMs": 22299,
+      "signatures": [
+        "272MYNbuH5UZb64QjEYJFwPcTE7f3viFKy6w6ZACSCT9zWLhxVU4E53pyqS1XVRBRPmMMKNmsoT6AkQoEjpNRbyf",
+        "42Sr48nuczwp3YE1omiBmMJbCMcCN1S2otmrDyNF9ggbc3ev1rfBsQbN48jGrkmURw2T6qYDQjC7EEfij5tQz42c"
+      ],
+      "passed": true
+    },
+    {
+      "index": 179,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:27:24.539Z",
+      "confirmedMs": 4513,
+      "finalizedMs": 16287,
+      "signatures": [
+        "4Uqy4uvLtfHRk2X7DBGF865CfHv2qYpQx6rkiSaHHcxMyt2mdCh1k6yyJRFhPiCjb3gL81sYChEqakTWcjXgnPSD"
+      ],
+      "passed": true
+    },
+    {
+      "index": 180,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:27:30.535Z",
+      "confirmedMs": 9729,
+      "finalizedMs": 22125,
+      "signatures": [
+        "4corCPbUQW2zCXa3srGXaRWVaoMXYR5Sr9DkmhggUB66noLq9ppJr7QgQemAsfam71s1fpadvUtiEJV883yWTRk5",
+        "4WHzXVVhmm5feTY7UeLe1w92Tw7nx8nhH34vfZwf33yQ5QkapEM2BGEtHCMLFWWStQgra2nPijKyLgb2Fm1e2ewR"
+      ],
+      "passed": true
+    },
+    {
+      "index": 181,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:27:36.538Z",
+      "confirmedMs": 4134,
+      "finalizedMs": 16157,
+      "signatures": [
+        "593oJsp5GdbbPzDTtSutWUP5reKMVsGWjdCubPs7f6JHRX6r5fM319mDDSrjAAaSkXMGsd3ZrPvhdahYxQDNqPVE"
+      ],
+      "passed": true
+    },
+    {
+      "index": 182,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:27:42.539Z",
+      "confirmedMs": 9723,
+      "finalizedMs": 22144,
+      "signatures": [
+        "3RNP5Bxcugzs4kcX3DyqVKF7wVX71mg93U4c8cxgacWHPpXEHRKodHwKCtkRA4Y1Rvk84NRtr73NVd9ENQvpvHAj",
+        "pWARCTz65hKikLGzanKdiGxMJBTak385orxSGu6dX6WTherGY6Eof463BJvwTRz8tWzd8jRg7jBFQBxsctzscPU"
+      ],
+      "passed": true
+    },
+    {
+      "index": 183,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:27:48.539Z",
+      "confirmedMs": 4528,
+      "finalizedMs": 16524,
+      "signatures": [
+        "2fv8dEHYFjtMkSBz5e2KTdQQYZW293YBw3LBHM8EzPjCXat6U1H8hNnv8kURfRc8awGBcf3SFvNWoc49ZFu7xWkz"
+      ],
+      "passed": true
+    },
+    {
+      "index": 184,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:27:54.539Z",
+      "confirmedMs": 9857,
+      "finalizedMs": 22258,
+      "signatures": [
+        "4SqAu6464ytiudFzos9KbYN6AQbWqJiDUbi6sV6FNVqFzsY3X314nG9aw8XvmuExT3u1q5irxkjRBQWYMaZigXNX",
+        "2wzpmLhwCSa4C5Z7RwxUCDw6FkYDeNRj2sKJ7DH1xxgiyecfg35hcRmD4YTjJhbciZ7u4jtCTX8AgMKx5ryi7Rbq"
+      ],
+      "passed": true
+    },
+    {
+      "index": 185,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:28:00.539Z",
+      "confirmedMs": 4356,
+      "finalizedMs": 16355,
+      "signatures": [
+        "tvGYosC67BiSMeP4Kq4DePZHTKN5YJuNedXZt8L7vgt7oKJhPFcV9evmH3o1om1eCd45G7vu1CnsNz73rvHrD2P"
+      ],
+      "passed": true
+    },
+    {
+      "index": 186,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:28:06.540Z",
+      "confirmedMs": 7000,
+      "finalizedMs": 22366,
+      "signatures": [
+        "3t1v1jrRmjynK4zbXJeANPi3tFaNyjNt7rHuXvmb6uLCY99WoBTabYwyNRCNn7gEpHHuwKVguBg2rhs4vhbJSfcD",
+        "4Bn2qCQakKru9DojxpJXcoeMWWFocEVmx2NsQidhRMxUAYPVztwNrrZddJTSmqHLuFQyNV42pQ6NBedUNRcHzDvL"
+      ],
+      "passed": true
+    },
+    {
+      "index": 187,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:28:12.539Z",
+      "confirmedMs": 1386,
+      "finalizedMs": 16389,
+      "signatures": [
+        "2D9VKF2SCMPDAQUbHhkJ5rVbw6LYrsj7PNHykZ1CYM2vCiRnshApP84pWwi9Ed1RBvBewckf4NHrdpXuUKRtwozB"
+      ],
+      "passed": true
+    },
+    {
+      "index": 188,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:28:18.538Z",
+      "confirmedMs": 3664,
+      "finalizedMs": 19176,
+      "signatures": [
+        "5zCFZxmJxStUH2ijbrbQBozeGYvkBGLZmvYw8qYBQzVzYCiWpUsYsZrKa4FXMXnSsKfvH2LtjkEq4fi6y4cRDDrz",
+        "64VqxKzHixrhaTkfzcXGTRFpii8ioxmdJmsPr7Z7DJm25hAAgiR9PWoVhsR7ByQuBo8WCc6CMFxzQqLwUdsE6uVF"
+      ],
+      "passed": true
+    },
+    {
+      "index": 189,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:28:24.538Z",
+      "confirmedMs": 4267,
+      "finalizedMs": 16281,
+      "signatures": [
+        "2fpzwFK3ZHFmUMouqMGS8rKQYEZVf3kEfpsW1tfphq3EcS1GLt5cyVF8N2RUEsjNgHh7JwpcKQBbfeopQVVqQQAo"
+      ],
+      "passed": true
+    },
+    {
+      "index": 190,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:28:30.539Z",
+      "confirmedMs": 6694,
+      "finalizedMs": 22070,
+      "signatures": [
+        "4pjy3d3jgSEEyVeqxAscKQvUhucpHF7jZoJdRiU3hjRa98CdjiAN7zuXNZHzUPNXPm3dPRckWrjHm8gQ3XKBFQUW",
+        "3aZvXZy3FcGzn7LomZhH684hhK1hzHjjnj4nJadtLKuCAwJPyLnY6jSBUYbFRuCNVZVgxD5vJZcCHR1UxMFRsAF1"
+      ],
+      "passed": true
+    },
+    {
+      "index": 191,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:28:36.539Z",
+      "confirmedMs": 4287,
+      "finalizedMs": 16283,
+      "signatures": [
+        "v9aC7eej3JFdRqc5p1Z4CLigoJTXy6spb1Pa7QiaqkJ39m1gUFT8B96yy9tUEdE9HnvtuwJbTCUjivA9hQVaxqX"
+      ],
+      "passed": true
+    },
+    {
+      "index": 192,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:28:42.539Z",
+      "confirmedMs": 6774,
+      "finalizedMs": 19113,
+      "signatures": [
+        "4dfpTc8PqVcmMrZQhGydkj4emx8NZjkFpJ1neTeCPjNNMpAK4rJLKej6zWpZFJAzBuBkSsGgbDoZDTSkPXdWg57u",
+        "uBWgzGREWtVEZfwjGdD1dfd5soERvpFaw6XLmbF9ktuxMHWjCnYP5eiohH1tHMPLT8pH8MW867SXEhDwzrc1XpY"
+      ],
+      "passed": true
+    },
+    {
+      "index": 193,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:28:48.539Z",
+      "confirmedMs": 1467,
+      "finalizedMs": 16459,
+      "signatures": [
+        "2fXnrC3G71cowo7825z6wmvFq2vaoaDQikBpztbrMC6f4PkmpzA6CBhJiMHLfrE4c1ESYFNf2tpV8tq6wRfZUCeY"
+      ],
+      "passed": true
+    },
+    {
+      "index": 194,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:28:54.537Z",
+      "confirmedMs": 7560,
+      "finalizedMs": 23063,
+      "signatures": [
+        "4Qq4Q4S4SXvrFhSN2u6MNfowQSE5vUv8F1W7HGsDcMii67NiUFHc1AsSZJvpSXAmoDjdbkd1pXZrVcG3yuwJtsQA",
+        "3WbGYQszqCKuaj3KRDqC9Vd9t1pJb7huJauRUkrrcPnh7EWBe1AEXPtX4oUANRi3N2Q3j2YQHMgnp9ieZgVxUuv"
+      ],
+      "passed": true
+    },
+    {
+      "index": 195,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:29:00.539Z",
+      "confirmedMs": 1593,
+      "finalizedMs": 16599,
+      "signatures": [
+        "4NrErGiN2kqokz5RCEQA4B4sPPcNf3jAvWjGjYcSmpY698uZE3k7P6hnF9j3YwoNzV8Ms5u45wyZbcDXZrpUGvud"
+      ],
+      "passed": true
+    },
+    {
+      "index": 196,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:29:06.540Z",
+      "confirmedMs": 6686,
+      "finalizedMs": 22112,
+      "signatures": [
+        "4Gw7zKXkutps6ePVmmRKv3fjCdwrcRynNcNS61gBpQyQuTzENzdqoAhjgKxNHv6PAQZhVQzy3aYsadBChef1Njbh",
+        "31WrGakd3YvSRiA12MQSbrLdQTx8U5ppeQhWvCRkcY9TgT337C3gah3NPbRfrf5NzGVW9L3tkGs6mE1eiDgUv2cV"
+      ],
+      "passed": true
+    },
+    {
+      "index": 197,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:29:12.538Z",
+      "confirmedMs": 1186,
+      "finalizedMs": 16186,
+      "signatures": [
+        "KYBeaP1zomN4HDmUbWTXxYJP7UqWna2Xkv8fnQBZGSGuXXdD7BjmQKTNSr4Vim2sfiDKZdKQ7UDV5VKvkDzsuRm"
+      ],
+      "passed": true
+    },
+    {
+      "index": 198,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T07:29:18.538Z",
+      "confirmedMs": 4260,
+      "finalizedMs": 19710,
+      "signatures": [
+        "RJZh3bPBvq3wXpSh579cf6fy7tLfV46ypvviQHzg9nn9t5iEUexmZ3JbdZkkxYEmdt37QiNB5KVdwS4xB9nBtse",
+        "5dyhWr5UoskmRE13W4Z7ndT1v6r4YdR1SFLREJ6fQkA8NTZt4izkwsjJGgFK2PFLWeaFSwfvCmH4oytPNmhz6bZf"
+      ],
+      "passed": true
+    },
+    {
+      "index": 199,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T07:29:24.537Z",
+      "confirmedMs": 1200,
+      "finalizedMs": 16196,
+      "signatures": [
+        "3VzN7NVhjjiXYBnAKRqryKUspSbyA9vHoUry8CZgoQFtyDLaiGYjdNuSxUBLaga6uv4CzqDzUSRdwT7ijTfJL7gE"
+      ],
+      "passed": true
+    }
+  ],
+  "review": "Preserved first actual20minrun. Failed98.5%within15s andp95logicalconfirmed10.269s; oldscriptoverwroteA-stageconfirmedMs beforeBconfirmation andnotfinalcandidatebound. NoG6acceptance."
+}

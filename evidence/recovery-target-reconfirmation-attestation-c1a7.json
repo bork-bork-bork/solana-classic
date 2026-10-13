@@ -1,0 +1,27 @@
+{
+  "at": "2026-10-13T15:09:08.734Z",
+  "scope": "remote isolated final-code source and preserved restore receipt attestation",
+  "serviceId": "43fc867b-1105-423c-a901-84ec5cb9a46a",
+  "deploymentId": "49a827b9-7223-47e1-94bb-3d06c4f9d3f5",
+  "node": "24.19.0",
+  "sourceCommit": "c1a7f15839d6fbed5b04fe7ea773d61cf273bdb2",
+  "coreSha256": "f77c68ddd20684758bfaae7868e1d83a5a0a670664a34f63150d06be55838e20",
+  "sourceFileCount": 33,
+  "alteredFiles": [],
+  "restoreReceipt": {
+    "startedAt": "2026-10-13T07:29:00.363Z",
+    "completedAt": "2026-10-13T07:29:19.950Z",
+    "archiveSha256": "7f74ccefe4a6447e639208c15b844ef60cfbaf3055f81640eb3f356fa2430f65",
+    "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+    "isolated": true,
+    "deploymentId": "edf5b05c-cda7-478f-8c3b-cbe6306b09a0",
+    "serviceId": "43fc867b-1105-423c-a901-84ec5cb9a46a"
+  },
+  "restoreReceiptSha256": "e95b46bea049c0b2c0228b0a7ee2a2735447b9624a27f61bf14feb0ff5997d69",
+  "sourceMode": "cold-restore",
+  "binaries": {
+    "validator": "80f3bc0e3fa6a3090e69bafbfe00b249eaa655c5874ac83aebb6acdb157140ab",
+    "token2022": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68"
+  },
+  "passed": true
+}

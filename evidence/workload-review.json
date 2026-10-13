@@ -1,0 +1,93 @@
+{
+  "at": "2026-10-13T15:03:10.840355+00:00",
+  "scope": "repository and operator handover review of actual remote bounded workload; not a chainwide throughput or decentralization benchmark",
+  "passed": true,
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "candidate": {
+    "apiOrigin": "https://network-release-production.up.railway.app",
+    "frontendOrigin": "https://solana-classic-soc.vercel.app",
+    "frontendDeploymentId": "dpl_DmoMtTCGgJDeBzaeeEX1QhZA4TAV",
+    "frontendCommit": "c1a7f15839d6fbed5b04fe7ea773d61cf273bdb2",
+    "apiCommit": "c1a7f15839d6fbed5b04fe7ea773d61cf273bdb2",
+    "networkConfigSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+    "dependencyManifestSha256": "e6da27717e6a84ca7b29d707ff63591b2ff0cfc38892d3b4667f8615bdf7bbc0"
+  },
+  "executablesUnchanged": true,
+  "machine": {
+    "network": {
+      "cpus": 4,
+      "memoryBytes": 16000000000,
+      "persistentVolumeMaxMB": 50000,
+      "region": "SFO",
+      "replicas": 1
+    },
+    "qa": {
+      "cpus": 2,
+      "memoryBytes": 2000000000,
+      "node": "24.19.0",
+      "pnpm": "10.34.7"
+    }
+  },
+  "workload": {
+    "sessions": 20,
+    "issuances": 100,
+    "transfers": 100,
+    "issuanceTypes": [
+      "meme",
+      "nft"
+    ],
+    "issuanceTransactionsPerOperation": 1,
+    "issuanceMode": "atomic preparation, minting and immutable authority revocation",
+    "transferType": "fungible precreated seeds",
+    "preparationMintsExcluded": [
+      "3J5moUbqDhaCdHpqE21ifCEJ37oHK16KBxxDJgCJNhFF",
+      "DVh4M8zredMonKWa3Yx1va9j1fULunPz4mfYb8bDz3sb",
+      "3EcoxvGKFDUpebvxQKrBLBnHhWVcsXZhwMVyJwvgzAsE",
+      "Ap8U2ANdHYfRLTUUerDP8QfJmcBGu9U5S9oKybKXzi2Y",
+      "9vNTb92XEdxhtda8zZWB9D8gH5MaRHmyMGLPRG7fdwSV",
+      "HycbixLC19YT4pM8F7rfBzXm7pKJReuY5Kc9RXDeK4c2",
+      "AjL2wnjykHuvwJFrVXEyWQE6Ay6suN3FoAL9oxQZKcyc",
+      "8eUmnijNFLTrrBaguE5ZYVvzPFKfM7WxzTB2JMDR1PoK",
+      "6DyvoCrWqX3WkBQLuGDdvTQayLVuda4mcshiW1aTBweE",
+      "8AuX4D2g6ruZA7t2eio9djjmxVwqsvLVb3QCo54wf67P",
+      "2YRTS7bL3Bsyng3zUZtnXwVAw8uYEgGiRWf6dVN5Ungy",
+      "9J3AeqLautX3L8vg2JQEhK4WRUaSx5YERJeHcU5agw1Y",
+      "DsFgScyBtiV74nbGWKPsjstSy48YHASjK6uWvSQ667jP",
+      "BBG7RBunQrV4C4sDXuALL3YNikzpuLZwDiw3Kuyy8xLC",
+      "5Yk79AgtPGP227Nbumdbot5d1dWJ3owcBsfgdeeJxCHF",
+      "8dDHK78h3J6PHBuJLRukSn42KFD7xhuwGw5vxAK29N6G",
+      "CwE3C1qR3KfmMdQ7Q7gbvA1mE4HdbxFzUQdBzwKC3jzf",
+      "BFzVKNPP6y4tch37Q6df2Ssqv1Fgf923cS4fTpxTJYC5",
+      "96pqjg4qy4zky1nXjPvcM5FxCCVEQUPiwoid2ZxHEetz",
+      "HgnkcwgLMagwXr4DrYki7H1uUjYogPLWEJVLV21kdZLp"
+    ],
+    "startEveryMs": 6000,
+    "pollingMs": 3000,
+    "unchangedAdmissionLimits": true,
+    "faucetCalls": 0
+  },
+  "durationMs": 1209160,
+  "confirmedLatencyMs": {
+    "p50": 3092,
+    "p95": 3133,
+    "p99": 3174,
+    "max": 3363
+  },
+  "metrics": {
+    "successfulWithin15Seconds": 1,
+    "p95LogicalConfirmedMs": 3133,
+    "missingConfirmations": 0,
+    "p95LogicalFinalizedMs": 15146,
+    "failures": 0
+  },
+  "galleryVerificationMaxMs": 15402,
+  "firstFailedLoadPreserved": "evidence/load-exploratory-failed.json",
+  "localTransportFailurePreserved": "evidence/load-local-transport-failed.json",
+  "actualPassedLoad": "evidence/load.json",
+  "full24HourSoakAccepted": false,
+  "limitations": [
+    "20 SDK sessions and200logicaloperations ononeoperatorTESTnetwork",
+    "No chainwide throughput or decentralization claim",
+    "Finalization measured separately fromconfirmation"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "at": "2026-10-13T07:57:23.778Z",
+  "scope": "remote valueless TEST funding only; no private key export or soak activation",
+  "passed": true,
+  "api": "https://network-release-production.up.railway.app",
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "hasMonetaryValue": false,
+  "source": "ApyGNDo1xsVj1ffs8xAoAXiULQ1nhLZj8K4qWdTcxS5e",
+  "destination": "4fkQqsc2C7jDF9yFxMQJ4ydWRy9HFRTFLfsyGSdSaXT5",
+  "lamports": 5500000000,
+  "signature": "45M5FY69LqH9XoeEoebX1kNt71jZZ9XhhjUrjgwUikfSm5qzK7D7vqqLjcRdgWTHRaYX5GU14z7ntyqcktXz8ogM",
+  "before": 0,
+  "after": 5500000000
+}

@@ -1,6 +1,7 @@
 {
-  "at": "2026-10-13T05:49:21.722Z",
-  "scope": "local preflight; remote gates evaluated separately",
+  "at": "2026-10-13T16:30:19.706Z",
+  "scope": "remote actual experimental identity, executable programs and runtime-version preflight; not stability acceptance",
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
   "passed": true,
   "checks": [
     {
@@ -19,11 +20,6 @@
       "detail": "pnpm-lock.yaml"
     },
     {
-      "name": "Verified local Agave fixture binary",
-      "passed": true,
-      "detail": "solana-test-validator 4.3.0 (src:825efd18; feat:c9ad34d2, client:Agave); distinct from active remote compatibility runtime"
-    },
-    {
       "name": "Experimental network and programs",
       "passed": true,
       "detail": "remote: 7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon"
@@ -32,6 +28,11 @@
       "name": "Actual remote runtime matches manifest",
       "passed": true,
       "detail": "3.0.14"
+    },
+    {
+      "name": "Attested official Token-2022",
+      "passed": true,
+      "detail": "10.0.0: a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68"
     }
   ]
 }

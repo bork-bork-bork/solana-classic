@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Live Solana Classic release roadmap, verified evidence, network health and the uninterrupted 24-hour test.">
+  <title>Solana Classic — Live roadmap</title><link rel="stylesheet" href="/roadmap/styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to roadmap</a>
+  <div class="shell">
+    <header><a class="brand" href="https://solana-classic-soc.vercel.app"><span class="brand-dot" aria-hidden="true"></span>Solana Classic</a><a class="playground" href="https://solana-classic-soc.vercel.app/playground">Open playground <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a></header>
+    <main id="main">
+      <section class="intro"><h1>The road to release.</h1><p>Verified work. Live checks. One fixed deadline.</p></section>
+      <section class="current" aria-labelledby="current-title">
+        <div><span class="step-label">Current step</span><h2 id="current-title">24-hour stability test</h2></div>
+        <div class="current-status"><span id="step-status" role="status">Connecting to live checks…</span><button id="refresh" type="button">Refresh now</button></div>
+        <div id="soak-detail" class="soak-detail" hidden><div class="soak-clock"><strong id="countdown">—</strong><span id="journeys">—</span></div><div class="progress-track" role="progressbar" aria-label="Elapsed stability-test time" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="elapsed-bar"></span></div><p id="soak-timing"></p></div>
+      </section>
+      <p id="notice" class="notice" role="status" hidden></p>
+      <div class="columns">
+        <section class="checklist" aria-labelledby="checklist-title"><h2 id="checklist-title">Release checklist</h2><div id="checks"><p class="loading">Loading reviewed evidence…</p></div></section>
+        <aside>
+          <section aria-labelledby="network-title"><h2 id="network-title">Live network</h2><dl class="network"><div><dt>Network</dt><dd>Solana Classic Testnet</dd></div><div><dt>Network status</dt><dd id="network-state">Checking…</dd></div><div><dt>Finalized slot</dt><dd id="slot">—</dd></div><div><dt>Frozen candidate</dt><dd id="identity">Checking…</dd></div><div><dt>Health monitor</dt><dd id="monitor">Checking…</dd></div><div><dt>Last refreshed</dt><dd id="refreshed">—</dd></div></dl></section>
+          <section class="deadline"><h2>Fixed deadline</h2><p class="deadline-date">19 Oct 2026, <br>04:00 London</p><p id="deadline-clock">The original six-day clock.</p></section>
+          <details class="source-details"><summary>Data sources &amp; candidate</summary><div id="source-content"></div></details>
+        </aside>
+      </div>
+      <section class="future" aria-labelledby="future-title"><h2 id="future-title">After the experimental release</h2><div class="future-columns"><article><h3>SOC token <span>Planned</span></h3><p>Proposed Pump.fun origin token and eventual network-token role. Founder terms and launch inputs remain open.</p></article><article><h3>Native mainnet <span>Planned</span></h3><p>Independent production network. Validator operations, security and supply rules need a separate release.</p></article><article><h3>1:1 bridge <span>Planned</span></h3><p>Proposed reserve-backed redemption between Solana SOC and native SOC. Custody and security are unresolved.</p></article></div></section>
+    </main>
+    <footer><p>tSOC network assets have no monetary value. SOC, mainnet and bridge are not live.</p><p>Refreshes every 30 seconds. Evidence dates remain visible.<br><a href="/roadmap/data/checkpoint.json">Reviewed checkpoint</a> <span aria-hidden="true">/</span> <a href="/roadmap/api/status">Live status JSON</a></p></footer>
+  </div><script type="module" src="/roadmap/app.js"></script>
+</body>
+</html>

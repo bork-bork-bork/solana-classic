@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "scope": "remote cold archive creation only; isolated restore pending",
+  "passed": true,
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "archiveSha256": "08a59ef8b6228f64a094e6119c46673a807adbb12ccbf9bc018320a2f4cb80f4",
+  "archiveBytes": 3512719360,
+  "startedAt": "2026-10-13T06:30:57.219Z",
+  "completedAt": "2026-10-13T06:31:55.567Z",
+  "deploymentId": "c702400a-4a4c-4b80-9d34-1fd9c9e7c4ca",
+  "serviceId": "d0a1de40-bd9c-47eb-a7fc-477f1c55b2d6",
+  "writerPolicy": "Fresh maintenance container; neither validator nor API started."
+}

@@ -1,0 +1,192 @@
+{
+  "schemaVersion": 2,
+  "at": "2026-10-13T14:41:28.340257+00:00",
+  "checkedAt": "2026-10-13T14:41:28.340257+00:00",
+  "startedAt": "2026-10-13T14:25:54.021739+00:00",
+  "scope": "remote independent agent pilot two against the current frozen atomic experimental candidate; actual anonymous public UI NFT issuance/transfer/owner/receipt/mobile checks, valueless TEST only; not human usability research or release/soak acceptance",
+  "passed": true,
+  "result": "pass",
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "expectedGenesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "observedGenesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "api": "https://network-release-production.up.railway.app",
+  "web": "https://solana-classic-soc.vercel.app",
+  "apiOrigin": "https://network-release-production.up.railway.app",
+  "frontendOrigin": "https://solana-classic-soc.vercel.app",
+  "candidate": {
+    "apiOrigin": "https://network-release-production.up.railway.app",
+    "frontendOrigin": "https://solana-classic-soc.vercel.app",
+    "frontendDeploymentId": "dpl_DmoMtTCGgJDeBzaeeEX1QhZA4TAV",
+    "frontendCommit": "c1a7f15839d6fbed5b04fe7ea773d61cf273bdb2",
+    "apiCommit": "c1a7f15839d6fbed5b04fe7ea773d61cf273bdb2",
+    "networkConfigSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+    "dependencyManifestSha256": "e6da27717e6a84ca7b29d707ff63591b2ff0cfc38892d3b4667f8615bdf7bbc0"
+  },
+  "runtime": {
+    "configured": true,
+    "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+    "sourceCommit": "c1a7f15839d6fbed5b04fe7ea773d61cf273bdb2",
+    "coreSha256": "f77c68ddd20684758bfaae7868e1d83a5a0a670664a34f63150d06be55838e20",
+    "apiBootId": "77c327af-74f9-412e-a746-851668c2616b",
+    "apiStartedAt": "2026-10-13T07:51:57.339Z",
+    "validatorBootId": "7a167823-8ee4-424f-85cc-5ef33916603d",
+    "validatorStartedAt": "2026-10-13T07:51:02.569Z",
+    "deploymentId": "818db2ce-bca0-45bd-a6bf-1bb8257fadc7",
+    "agaveVersion": "3.0.14",
+    "tokenProgramVersion": "10.0.0",
+    "tokenProgramSha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+    "observedAt": "2026-10-13T14:37:32.950Z"
+  },
+  "preflightBindingEvidence": "pilot-agent-two-binding.json",
+  "chainProofEvidence": "pilot-agent-two-chain-proof.json",
+  "initialProofPreserved": "pilot-agent-two-initial.json",
+  "interruptedAttemptEvidence": "pilot-agent-two-interrupted.json",
+  "flow": "Verified rollback restoration -> memory-only sender UI wallet -> finalized bounded operator TEST prefund -> unique NFT issuance -> transfer to separate pilot-owned memory wallet -> gallery current-owner lookup ->360CSS-pixel gallery/keyboard/receipt -> direct explorer reload -> disclosed memory-wallet loss",
+  "environment": {
+    "browser": "Chrome via CUA; anonymous public site; own pilot tabs",
+    "browserPluginAvailability": "Browser plugin not available; CUA used as authorized",
+    "regularPlaywrightFallbackUsed": false,
+    "tabs": [
+      "1973282133",
+      "1973282116"
+    ],
+    "observedViewports": [
+      {
+        "width": 1890,
+        "height": 884
+      },
+      {
+        "width": 360,
+        "height": 800
+      }
+    ],
+    "mobileViewportAdjustment": "Requested CUA360x800 measured450x1000; adapting override to288x640 produced exact observed360x800 CSS pixels under existing browser scaling",
+    "viewportReset": true,
+    "applicationConsoleErrors": [],
+    "applicationConsoleWarnings": [],
+    "unrelatedBrowserExtensionWarnings": [
+      "MaxListenersExceededWarning:11close/endlisteners",
+      "ObjectMultiplex orphaned data for extension streams"
+    ],
+    "consoleClassification": "All captured warnings had chrome-extension origins; no captured application error or warning"
+  },
+  "wallets": {
+    "senderPublicKey": "CGqb4kAouZZ2RmGHxk4VgSN3oi1L6cewEiUBVbc5oFsQ",
+    "recipientPublicKey": "GNLmws5qo63LazMAxGqNcLLCTy7VCmjvwXLNefV1m65S",
+    "creation": "Application UI generated disposable wallets in memory; no privatekey inspection/import/export",
+    "recipientReusedFromPilotOwnedTab": true,
+    "lossDisclosureObserved": "Create a disposable wallet to get started. Reloading this page loses access to it.",
+    "senderReloadLossVerified": true,
+    "reloadLossEvidence": "After direct receipt navigation/reload, Playground displayed Create test wallet, blank balance, disabled faucet/mint and no prior sender address/transfer controls"
+  },
+  "faucet": {
+    "claimsSubmittedThisResumedRun": 0,
+    "claimsSubmittedAcrossCurrentCandidatePilot": 1,
+    "priorClaimRecipient": "Av3Mt4r5i3Jj3jw57JwmRJwe998qcFpzkfPYuDBkJPug",
+    "priorClaimSignature": "GbUBxB8AecKy1zPZAq5kQS1fxceUTmCDpAXsHtXLA5wLeievsHob3PbYfRT9paaUuiRssw6cZBB4kgtiiBJUJFr",
+    "priorClaimBalanceObservedTEST": "1.0000",
+    "priorAttemptDisposition": "Model-capacity interruption closed sender tab and destroyed its disposable wallet access; no repeated public claim for replacement"
+  },
+  "funding": {
+    "type": "authorized bounded operator TEST prefund",
+    "lamports": 100000000,
+    "TEST": "0.1",
+    "signature": "2RxbE3hA7jS4J72vefM6RaX1iAw61ie1UEUGtC1LB7p4tJBG8bWmpJrECqU7rdCH8tYcvjK4xvUpJaMXQPeK7JZz",
+    "confirmationStatus": "finalized",
+    "evidence": "pilot2-current-funding.json"
+  },
+  "issuance": {
+    "actionsSubmitted": 1,
+    "kind": "nft",
+    "name": "PilotAtomicTwoCurrent",
+    "symbol": "PATWO",
+    "preset": "orbit",
+    "mint": "CbZfbwUKi9tz2VjcM8qyrBsxy8W3vngAXD7ctLcas2P",
+    "observedCompletion": "PilotAtomicTwoCurrent is issued and verified.",
+    "finalProgressDisplayed": "Existing issuance finalised and verified.",
+    "verifiedAt": "2026-10-13T14:28:52.746Z",
+    "signature": "5BdNQ4eWx1rWK9UQVapqWUD9pChRAAz6UunujGeLKWq5YnhiMyHrZXXGbQPEBUKSCiovE7dZvMmPpXfV7QdxRw13",
+    "slot": 77061,
+    "receipt": "https://solana-classic-soc.vercel.app/explorer/tx/5BdNQ4eWx1rWK9UQVapqWUD9pChRAAz6UunujGeLKWq5YnhiMyHrZXXGbQPEBUKSCiovE7dZvMmPpXfV7QdxRw13",
+    "rpcConfirmationStatus": "finalized",
+    "rpcError": null,
+    "balanceAfterIssuanceTEST": "0.0937"
+  },
+  "transfer": {
+    "actionsSubmitted": 1,
+    "signature": "4DKwv2TPMF9WgAda55LrbgbEvGJhjEJnqonQ8o1E2GanAtTZMGg4iUaaqCdoXaeeCvbwL29hwkA6RdTQKpDh4odj",
+    "receipt": "https://solana-classic-soc.vercel.app/explorer/tx/4DKwv2TPMF9WgAda55LrbgbEvGJhjEJnqonQ8o1E2GanAtTZMGg4iUaaqCdoXaeeCvbwL29hwkA6RdTQKpDh4odj",
+    "explorerStatusDisplayed": "Confirmed",
+    "explorerCommitment": "confirmed",
+    "slot": 77208,
+    "networkFeeLamports": 5000,
+    "networkFeeTEST": "0.000005",
+    "rpcConfirmationStatus": "finalized",
+    "rpcError": null,
+    "rpcReadCheckedAt": "2026-10-13T14:37:32.924071+00:00",
+    "galleryCurrentOwner": "GNLmws5qo63LazMAxGqNcLLCTy7VCmjvwXLNefV1m65S",
+    "galleryOwnershipState": "held",
+    "galleryOwnerMatchesRecipient": true,
+    "galleryCheckCurrentOwnerUIExercised": true,
+    "logsObserved": [
+      "Associated token account CreateIdempotent succeeded",
+      "Token2022TransferChecked succeeded"
+    ],
+    "directExplorerDeepLink": "Rendered actual confirmed receipt anonymously at exact transfer URL",
+    "directExplorerReload": "Same exact URL reloaded successfully with Confirmed, slot77208, fee0.000005TEST and actual program logs",
+    "balanceAfterTransferTEST": "0.0916"
+  },
+  "checks": {
+    "pageIdentity": true,
+    "meaningfulContent": true,
+    "frameworkOverlayAbsent": true,
+    "applicationConsoleHealthy": true,
+    "actualNFTOwnershipTransfer": true,
+    "frozenRuntimeIdentityUnchanged": true,
+    "frozenFrontendHashesMatchBeforeAndAfter": true,
+    "mobileGallery": {
+      "cssWidth": 360,
+      "scrollWidth": 360,
+      "overflow": false,
+      "ownerMatchesRecipient": true
+    },
+    "mobilePlaygroundKeyboard": {
+      "cssWidth": 360,
+      "scrollWidth": 360,
+      "focusedTag": "INPUT",
+      "focusedLabel": "Symbol",
+      "focusVisible": true,
+      "outline": "rgb(104,66,237)solid2.5px",
+      "interaction": "Name input ->Tab ->Symbol input"
+    },
+    "mobileExplorer": {
+      "cssWidth": 360,
+      "scrollWidth": 360,
+      "overflow": false,
+      "status": "Confirmed"
+    },
+    "viewportReset": true,
+    "memoryOnlyWalletLoss": true
+  },
+  "screenshots": {
+    "capture": "Actual CUA screenshots emitted:preparedsender/NFTcompletion/mobilegalleryholder/mobileSymbolfocus/mobileExplorerreceipt/desktopExplorerreceipt",
+    "filesWritten": false,
+    "limitation": "CUA screenshot emission returned no artifact link; no screenshotfile or invented screenshot URL is claimed"
+  },
+  "findings": [
+    {
+      "severity": "nonblocking",
+      "surface": "new NFT mint final progress wording",
+      "observation": "New issuance ends with Existing issuance finalised and verified; primary completion and actual mint/receipt are correct",
+      "changeMade": false
+    }
+  ],
+  "limitations": [
+    "Independent agent testing, not human usability research",
+    "Explorer UI displays Confirmed; finalized is separately verified by actual canonical RPCsignatureStatuses and finalized transfer transaction read",
+    "NFT flow only; other independent pilot covers meme flow",
+    "Mobile checks cover ownership layout, keyboardfocus and transactionreceipt, not complete accessibility audit",
+    "No soak/performance/providerrecovery or whole-release acceptance claim",
+    "No production-value/mainnet/bridge or third-partywallet action"
+  ]
+}

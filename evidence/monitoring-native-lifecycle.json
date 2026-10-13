@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-13T07:50:42.384500+00:00",
+  "scope": "remote native derived-health monitor lifecycle only; no email delivery claim",
+  "nativeTriggerVerified": true,
+  "nativeRecoveryVerified": true,
+  "monitorId": "b3a8659f-a760-4342-aa4c-e421d5888d7f",
+  "alert": {
+    "createdAt": "2026-10-13T07:44:28.707Z",
+    "id": "5b01f273-65c7-42f7-9604-32d07d3fc28a",
+    "resolvedAt": "2026-10-13T07:50:28.704Z",
+    "resourceId": "ed491e1f-e40f-4050-bebe-113792bb4ae8",
+    "resourceType": "SERVICE"
+  },
+  "emailDispatchVerified": false,
+  "emailMailboxReceiptVerified": false
+}

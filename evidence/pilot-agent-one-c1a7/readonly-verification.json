@@ -1,0 +1,87 @@
+{
+  "at": "2026-10-13T14:35:44.186Z",
+  "scope": "read-only supplemental public RPC and isolated Chromium viewport checks; browser mutations occurred only in CUA",
+  "candidate": {
+    "apiOrigin": "https://network-release-production.up.railway.app",
+    "frontendOrigin": "https://solana-classic-soc.vercel.app",
+    "frontendDeploymentId": "dpl_DmoMtTCGgJDeBzaeeEX1QhZA4TAV",
+    "frontendCommit": "c1a7f15839d6fbed5b04fe7ea773d61cf273bdb2",
+    "apiCommit": "c1a7f15839d6fbed5b04fe7ea773d61cf273bdb2",
+    "networkConfigSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+    "dependencyManifestSha256": "e6da27717e6a84ca7b29d707ff63591b2ff0cfc38892d3b4667f8615bdf7bbc0"
+  },
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "asset": {
+    "mint": "86RkiRpmefxJkzZgpPXs5Y2iFepxmpdbH9hqR3c6tv74",
+    "kind": "meme",
+    "name": "PilotAtomicOne",
+    "symbol": "PILOTONE",
+    "presetId": 3,
+    "contentHash": "3d80b3dd9e9eccf56ecb4067e2b6a181fa45c3bb56532a50a0a1332610a039c2",
+    "uri": "https://network-release-production.up.railway.app/assets/3d80b3dd9e9eccf56ecb4067e2b6a181fa45c3bb56532a50a0a1332610a039c2/metadata.json",
+    "image": "https://network-release-production.up.railway.app/assets/3d80b3dd9e9eccf56ecb4067e2b6a181fa45c3bb56532a50a0a1332610a039c2/image.svg",
+    "issuanceSignature": "2SWDmsQfTMwi8LXFw1xJ9MtkaFStRnLqp8mAfNCWuQeqTSb8DsBCHrvQPySA9NB8pAV7bQsDrkwmdinoxNoFBYWd",
+    "verifiedAt": "2026-10-13T14:24:18.231Z"
+  },
+  "issuance": {
+    "signature": "2SWDmsQfTMwi8LXFw1xJ9MtkaFStRnLqp8mAfNCWuQeqTSb8DsBCHrvQPySA9NB8pAV7bQsDrkwmdinoxNoFBYWd",
+    "instructionCount": 8,
+    "signers": 2,
+    "slot": 76402,
+    "supply": "1000000000000",
+    "decimals": 6,
+    "mintAuthority": null,
+    "freezeAuthority": null,
+    "metadataUpdateAuthority": null
+  },
+  "transfer": {
+    "signature": "4P1DhoFrEvPjzJwKuRCAPx1KKoXtbXiSrWThJeSJruaj2eBntQL9DoX57EkprjwJhgt5YQvMHDmgpoAhV23h8eHb",
+    "slot": 76503,
+    "feeTEST": 0.000005,
+    "recipientAccount": "HNrDPwthdkCpAG9xzhN7JEjknRPK484kLHgWcTPd1UQw",
+    "recipientTokenBalance": {
+      "amount": "1000000",
+      "decimals": 6,
+      "uiAmount": 1,
+      "uiAmountString": "1"
+    }
+  },
+  "finalizedReceipts": {
+    "faucet": "finalized",
+    "issuance": "finalized",
+    "transfer": "finalized"
+  },
+  "browserFallback": {
+    "reason": "Chrome CUA viewport capability did not produce requested CSS dimensions; actual sender1800x1250 and gallery1890x884. Task explicitly permits documented isolated Chromium fallback.",
+    "readOnly": true,
+    "viewportChecks": [
+      {
+        "surface": "transfer explorer",
+        "width": 1440,
+        "height": 1000,
+        "scrollWidth": 1440,
+        "keyboardEnter": true,
+        "visibleFocus": {
+          "tag": "INPUT",
+          "outline": "rgb(104, 66, 237) solid 3px"
+        },
+        "deepLinkRefresh": true
+      },
+      {
+        "surface": "transfer explorer",
+        "width": 360,
+        "height": 800,
+        "scrollWidth": 360,
+        "receiptReadable": true
+      },
+      {
+        "surface": "gallery",
+        "width": 360,
+        "scrollWidth": 360,
+        "verifiedAssetVisible": true
+      }
+    ],
+    "consoleErrors": []
+  },
+  "completedAt": "2026-10-13T14:35:48.683Z"
+}

@@ -1,0 +1,20 @@
+{
+  "at": "2026-10-13T15:37:39.876242+00:00",
+  "scope": "bounded100-line deployment log snapshot from named repaired main API deployment only; not all provider logs",
+  "deploymentId": "04c379cd-369c-4ff4-9d14-d29467d68a28",
+  "serviceId": "d0a1de40-bd9c-47eb-a7fc-477f1c55b2d6",
+  "exitCode": 0,
+  "lineCount": 44,
+  "rawSnapshotSha256": "53b9ed46508b0dcd12c3551dbbad0f4c017e80f92226b6a72491cfe9ce5221ec",
+  "patternMatchCounts": {
+    "privateKeyBlock": 0,
+    "serializedSecretKey": 0,
+    "credentialAssignment": 0
+  },
+  "timestamps": [
+    "2026-10-13T15:24:40.910507724Z",
+    "2026-10-13T15:25:02.260348884Z"
+  ],
+  "rawMessagesPublished": false,
+  "passed": true
+}

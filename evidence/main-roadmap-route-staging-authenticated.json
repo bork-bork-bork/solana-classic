@@ -1,0 +1,23 @@
+{
+  "at": "2026-10-13T18:58:47.233175+00:00",
+  "scope": "authenticated provider staging-alias routing checks; no public production claim",
+  "passed": false,
+  "results": [
+    {
+      "path": "/roadmap",
+      "exitCode": 2,
+      "httpCode": "",
+      "bytes": 0,
+      "expectedBody": false,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/roadmap/api/status",
+      "exitCode": 2,
+      "httpCode": "",
+      "bytes": 0,
+      "expectedBody": false,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

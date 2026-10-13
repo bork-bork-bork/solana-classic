@@ -1,0 +1,290 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-13T16:35:34.934352+00:00",
+  "scope": "remote current independent health probe and unchanged provider monitoring configuration review, with preserved actual native lifecycle and direct operator email receipt",
+  "passed": true,
+  "configurationVerified": true,
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "projectId": "356bcb0b-49c4-4bd3-bf10-bff7db8f33fe",
+  "workspaceId": "87d1fa75-7360-4a00-9865-c2e959de7bb7",
+  "environmentId": "3367b373-2332-4702-8cce-c12b8f03949e",
+  "serviceId": "d0a1de40-bd9c-47eb-a7fc-477f1c55b2d6",
+  "volumeId": "080bf785-50e7-4dda-893b-4d613aa5e9a8",
+  "apiOrigin": "https://network-release-production.up.railway.app",
+  "browser": {
+    "availablePlugin": "Browser plugin not available",
+    "used": "CUA authenticated Chrome, dedicated agent tab",
+    "accountAccessVerified": true
+  },
+  "notificationRule": {
+    "scope": "existing operator account, solana-classic project only",
+    "deliveryMethod": "Email & In-App",
+    "recipient": "existing account email configured; private contact address omitted",
+    "events": [
+      "Deployment Crashed",
+      "Deployment Oom Killed",
+      "Deployment Failed",
+      "Volume Alert Triggered",
+      "Volume Alert Resolved",
+      "Monitor Triggered",
+      "Monitor Resolved"
+    ],
+    "includeEphemeralEnvironments": false,
+    "persistedAndReopened": true,
+    "unrelatedAccountPreferencesChanged": false
+  },
+  "memory": {
+    "configured": true,
+    "capBytes": 16000000000,
+    "warningPercent": 80,
+    "warningBytes": 12800000000,
+    "dashboardId": "2a418d85-2c73-4530-93ea-4c847076a6fb",
+    "dashboardItemId": "c7036d0d-d387-4ed2-a9fe-83ec72fff7c8",
+    "monitorId": "db502a97-4a80-4b52-915f-f145c015951c",
+    "createdAt": "2026-10-13T07:06:15.577Z",
+    "measurement": "MEMORY_USAGE_GB",
+    "condition": "above",
+    "threshold": 12.8,
+    "unit": "GB decimal",
+    "resourceIds": [
+      "d0a1de40-bd9c-47eb-a7fc-477f1c55b2d6"
+    ],
+    "verification": [
+      "Saved Edit Monitor UI reopened",
+      "Official Railway CLI exact environment dashboard query"
+    ],
+    "alertRecordsAtVerification": [],
+    "triggerVerified": false,
+    "recoveryVerified": false
+  },
+  "volume": {
+    "configured": true,
+    "alertsEnabled": true,
+    "quotaMB": 50000,
+    "warningPercent": 85,
+    "warningMB": 42500,
+    "persistedThresholdsPercent": [
+      100,
+      95,
+      85,
+      80
+    ],
+    "preExistingThresholdsPreserved": true,
+    "verification": "Reviewed one staged Volume Alert Usage 85% SET change for network-release-volume only, applied, then reloaded page and verified enabled threshold",
+    "serviceRestartRequested": false,
+    "triggerVerified": false,
+    "recoveryVerified": false
+  },
+  "emailDelivery": {
+    "configured": true,
+    "providerDispatchVerified": false,
+    "mailboxReceiptVerified": true,
+    "nativeTestNotificationAvailableInInspectedUI": false,
+    "attempt": {
+      "method": "Official Railway CLI notificationDeliveries read-only query",
+      "filter": {
+        "projectId": "356bcb0b-49c4-4bd3-bf10-bff7db8f33fe",
+        "workspaceId": "87d1fa75-7360-4a00-9865-c2e959de7bb7",
+        "type": "EMAIL"
+      },
+      "requested": "Delivery ID, channel, status, timestamps and sanitized event identifiers; no recipients or body",
+      "result": "Not Authorized"
+    },
+    "liveNetworkFailureInduced": false,
+    "controlledLoopbackFailureInduced": true,
+    "nativeTestNotificationButtonUsed": false,
+    "controlledFixtureGeneratedNativeAlert": true,
+    "mailboxReceiptMethod": "Direct human operator confirmation of failure email and monitor trigger/recovery emails; provider delivery API remains unavailable.",
+    "mailboxReceiptEvidence": "evidence/operator-alert-receipt.json"
+  },
+  "applicationHealth": {
+    "intendedPollEveryMs": 30000,
+    "stalledSlotAfterMs": 60000,
+    "statusRoute": "/api/status",
+    "healthRoute": "/healthz",
+    "independentContinuousProbeConfigured": true,
+    "stalledSlotEmailVerified": false,
+    "upstreamFailureEmailVerified": false,
+    "runtimeHealthScope": "Application behavior must be confirmed against final deployed source and negative-control evidence; native resource monitor does not independently poll endpoint health",
+    "monitorServiceId": "ed491e1f-e40f-4050-bebe-113792bb4ae8",
+    "monitorOrigin": "https://operator-monitor-production.up.railway.app",
+    "finalizedCommitment": true,
+    "consecutiveUpstreamFailuresRequired": 2,
+    "timeoutMs": 8000,
+    "maxJsonBytes": 32768,
+    "independentContinuousProbeVerified": true,
+    "latestVerifiedFinalizedSlot": 18977
+  },
+  "remaining": [
+    "Verify actual provider EMAIL dispatch and operator mailbox receipt for an authorized project alert"
+  ],
+  "independentMonitor": {
+    "serviceId": "ed491e1f-e40f-4050-bebe-113792bb4ae8",
+    "origin": "https://operator-monitor-production.up.railway.app",
+    "deploymentId": "22f46035-b3fc-4056-aa06-871b6d14869d",
+    "memoryCapBytes": 500000000,
+    "vCPU": 0.5,
+    "replicas": 1,
+    "volume": false,
+    "restartPolicy": "ALWAYS",
+    "sleepApplication": false,
+    "readOnly": true,
+    "hardcodedCanonicalTarget": true,
+    "primaryNetworkModified": false,
+    "nativeHealthSignal": {
+      "dashboardItemId": "a9425da9-c96a-440b-94f7-6501cd927335",
+      "monitorId": "b3a8659f-a760-4342-aa4c-e421d5888d7f",
+      "thresholdGB": 0.18,
+      "condition": "above",
+      "allocationBytes": 201326592,
+      "scope": "derived-health signal in monitor process only, not resource pressure",
+      "releaseOnRecovery": true,
+      "alerts": [
+        {
+          "createdAt": "2026-10-13T07:44:28.707Z",
+          "id": "5b01f273-65c7-42f7-9604-32d07d3fc28a",
+          "resolvedAt": "2026-10-13T07:50:28.704Z",
+          "resourceId": "ed491e1f-e40f-4050-bebe-113792bb4ae8",
+          "resourceType": "SERVICE"
+        }
+      ],
+      "hostedSignalAboveThresholdObserved": {
+        "rssBytes": 310452224,
+        "recoveryRssBytes": 109584384,
+        "providerChartSampledBreach": true,
+        "alertRecords": [
+          {
+            "createdAt": "2026-10-13T07:44:28.707Z",
+            "id": "5b01f273-65c7-42f7-9604-32d07d3fc28a",
+            "resolvedAt": "2026-10-13T07:50:28.704Z",
+            "resourceId": "ed491e1f-e40f-4050-bebe-113792bb4ae8",
+            "resourceType": "SERVICE"
+          }
+        ],
+        "nativeTriggerVerified": true,
+        "nativeRecoveryVerified": true
+      },
+      "nativeTriggerVerified": true,
+      "nativeRecoveryVerified": true,
+      "observedTriggerDelayMs": 376578,
+      "providerNotificationLatencyUnbounded": true,
+      "nativeRecoveryDelayAfterLastFixtureResumeMs": 345371,
+      "lifecycleEvidence": "monitoring-native-lifecycle.json"
+    },
+    "http5xx": {
+      "chartId": "947799f4-3661-4844-b976-9eb21b3a67e8",
+      "nativeAlertSupportedInUI": false,
+      "scope": "diagnostic graph only"
+    },
+    "fixtureDisabledFinal": true,
+    "typecheckPassed": true,
+    "lintPassed": true,
+    "wrongServiceGuardVerified": true,
+    "memoryCapDecimalGB": 0.5,
+    "exactIntegerCapVerified": true,
+    "priorFractionalGiBConversionCorrected": true,
+    "steadyStateEvidence": "monitoring-steady-state.json",
+    "steadyDeploymentVerified": true,
+    "testEndpoint404Verified": true,
+    "finalSourceMatchesIsolatedUpload": true
+  },
+  "probeFixture": {
+    "scope": "local loopback HTTP fixture; real60s elapsed stall, no main-network mutation or email claim",
+    "passed": true,
+    "completedAt": "2026-10-13T07:29:36.592Z",
+    "steps": [
+      {
+        "code": "ONLINE",
+        "healthy": true,
+        "slot": 100
+      },
+      {
+        "code": "UPSTREAM_FAILURE",
+        "healthy": false,
+        "slot": 100
+      },
+      {
+        "code": "ONLINE",
+        "healthy": true,
+        "slot": 101
+      },
+      {
+        "code": "FINALIZED_SLOT_STALLED",
+        "healthy": false,
+        "slot": 101,
+        "elapsedMs": 60505
+      },
+      {
+        "code": "ONLINE",
+        "healthy": true,
+        "slot": 102
+      }
+    ]
+  },
+  "sourceSha256": {
+    "scripts/monitor.ts": "c0232f32d74e6e6c3ee4e1082b96149d452812426f7bd8093db35b3842069c57",
+    "infra/RailwayMonitor.Dockerfile": "7b1c502886f48a573f2b1309b947f3c1c9768f206a74fe0fe25998a59520311a"
+  },
+  "hostedProbeFixture": {
+    "evidence": "monitoring-hosted-fixture.json",
+    "deploymentId": "448516eb-c658-4d2e-b4b7-1b9218e332be",
+    "passed": true,
+    "completedAt": "2026-10-13T07:36:23.603Z",
+    "primaryFinalizedSlot": 17384,
+    "primaryHealthyDuringFixture": true,
+    "realElapsedStallMs": 60529,
+    "upstreamFailureAndRecovery": true,
+    "stallAndRecovery": true,
+    "nativeEmailDeliveryClaim": false
+  },
+  "hostedProbeFixtureLong": {
+    "evidence": "monitoring-hosted-fixture-long.json",
+    "deploymentId": "13a32eea-4388-4184-aa32-11a2f4d2426f",
+    "passed": true,
+    "completedAt": "2026-10-13T07:44:43.440Z",
+    "primaryFinalizedSlot": 18593,
+    "primaryHealthyDuringFixture": true,
+    "realElapsedStallMs": 60588,
+    "upstreamFailureHeldMs": 330321,
+    "upstreamFailureAndRecovery": true,
+    "stallAndRecovery": true,
+    "nativeTriggerVerified": true,
+    "recoveryRssBytes": 104222720,
+    "nativeEmailDeliveryClaim": false
+  },
+  "nativeAlertLifecycleVerified": true,
+  "hostedProbeVerified": true,
+  "localFinalSourceProbeVerified": true,
+  "localFinalSourceProbeCompletedAt": "2026-10-13T07:39:50.279Z",
+  "untested": [
+    "Canonical validator resource-pressure trigger/recovery remains unforced; configured memory/volume thresholds are independently verified"
+  ],
+  "api": "https://network-release-production.up.railway.app",
+  "candidate": {
+    "apiOrigin": "https://network-release-production.up.railway.app",
+    "frontendOrigin": "https://solana-classic-soc.vercel.app",
+    "frontendDeploymentId": "dpl_3aWWzKDohr4SrgijgrB8dWgHHS5r",
+    "frontendCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "apiCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "networkConfigSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+    "dependencyManifestSha256": "e6da27717e6a84ca7b29d707ff63591b2ff0cfc38892d3b4667f8615bdf7bbc0"
+  },
+  "emailDeliveryVerified": true,
+  "operatorReceiptProof": {
+    "path": "evidence/operator-alert-receipt.json",
+    "sha256": "199cf16d2dc986a6d805a29e76b5fea45ebf68d0c8aa6f8badd354df8fdee3fe"
+  },
+  "review": "Direct founder confirmation closes the remaining delivery check. Native resource thresholds were configured/read back; deliberate main-node resource exhaustion was not performed.",
+  "currentProbeEvidence": {
+    "path": "evidence/monitoring-current-probe.json",
+    "sha256": "f1840450fb33040ef9f6b7d374f3376c65cdac9b10b1e44f896cfe03ab421940"
+  },
+  "configurationContinuity": {
+    "priorEvidence": "evidence/monitoring-config-c1a7.json",
+    "monitorSourceSha256": "c0232f32d74e6e6c3ee4e1082b96149d452812426f7bd8093db35b3842069c57",
+    "monitorSourceUnchanged": true,
+    "serviceDeploymentUnchanged": true,
+    "sameCanonicalOriginAndGenesis": true,
+    "newEmailDeliveryTestClaimed": false
+  }
+}

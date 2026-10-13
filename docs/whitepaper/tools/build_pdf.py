@@ -149,7 +149,7 @@ class Cover(Flowable):
         c.drawString(0, 78, "DRAFT FOR FOUNDER REVIEW")
         c.setFillColor(MUTED)
         c.setFont("SCArial", 9.5)
-        c.drawString(0, 58, "Version 0.4 | 13 October 2026")
+        c.drawString(0, 58, "Version 0.6 | 13 October 2026")
         c.drawString(0, 40, "Frontend preview live. Original SOC, mainnet and bridge not launched.")
         c.drawString(0, 22, "Independent project. No Solana, Solana Labs or Anza affiliation implied.")
 
@@ -167,7 +167,7 @@ def decorate(canvas, doc):
         canvas.drawString(MARGIN, PAGE_H - 26, "SOLANA CLASSIC / SOC")
         canvas.setFont("SCArial", 8.2)
         canvas.setFillColor(MUTED)
-        canvas.drawRightString(PAGE_W - MARGIN, PAGE_H - 26, "WHITEPAPER 0.4")
+        canvas.drawRightString(PAGE_W - MARGIN, PAGE_H - 26, "WHITEPAPER 0.6")
         canvas.setStrokeColor(LINE)
         canvas.setLineWidth(0.5)
         canvas.line(MARGIN, 43, PAGE_W - MARGIN, 43)
@@ -300,7 +300,11 @@ def parse(text):
             )
             result.append(Paragraph(body, styles["RefSC"]))
         else:
-            result.append(Paragraph(inline(body), styles["BodySC"]))
+            paragraph = Paragraph(inline(body), styles["BodySC"])
+            if body.startswith("Before public release, the operator must have a working monitoring"):
+                result.append(KeepTogether([paragraph]))
+            else:
+                result.append(paragraph)
     return result
 
 

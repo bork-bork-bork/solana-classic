@@ -1,0 +1,35 @@
+{
+  "at": "2026-10-13T18:54:57.582532+00:00",
+  "scope": "anonymous staged CDN route alias probe; not live production route acceptance",
+  "passed": false,
+  "results": [
+    {
+      "path": "/roadmap",
+      "status": 200,
+      "finalURL": "https://vercel.com/login?next=%2Fsso-api%3Furl%3Dhttps%253A%252F%252Fsolana-classic-48c135-routes-trenchfun1.vercel.app%252Froadmap%26nonce%3Dace26ef687565f7d9370509a61c3d9cddc1cf0c6a067e4c85c6cfa2254c663fb",
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 334084
+    },
+    {
+      "path": "/roadmap/styles.css",
+      "status": 200,
+      "finalURL": "https://vercel.com/login?next=%2Fsso-api%3Furl%3Dhttps%253A%252F%252Fsolana-classic-48c135-routes-trenchfun1.vercel.app%252Froadmap%252Fstyles.css%26nonce%3D8ba524af94148a6b70233a8d69a75272216c114bb2558ab0923bbc0fd76f3982",
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 334144
+    },
+    {
+      "path": "/roadmap/app.js",
+      "status": 200,
+      "finalURL": "https://vercel.com/login?next=%2Fsso-api%3Furl%3Dhttps%253A%252F%252Fsolana-classic-48c135-routes-trenchfun1.vercel.app%252Froadmap%252Fapp.js%26nonce%3Daa94a49b504293a45af5c97cf320d6c836c9306ac30cf4a801a9cb491e89aa0c",
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 334128
+    },
+    {
+      "path": "/roadmap/api/status",
+      "status": 200,
+      "finalURL": "https://vercel.com/login?next=%2Fsso-api%3Furl%3Dhttps%253A%252F%252Fsolana-classic-48c135-routes-trenchfun1.vercel.app%252Froadmap%252Fapi%252Fstatus%26nonce%3Dc618e5ec9746c31cf63808af5fadda4014447718839e86266f4257e50f789217",
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 334160
+    }
+  ]
+}

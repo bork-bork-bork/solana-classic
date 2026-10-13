@@ -1,0 +1,409 @@
+{
+  "schemaVersion": 2,
+  "at": "2026-10-13T16:01:06.171Z",
+  "startedAt": "2026-10-13T16:01:04.637Z",
+  "scope": "remote actual final-code state reconfirmation of the prior isolated cold-backup restore; bounded transaction history limitation; no new cold archive extraction",
+  "passed": true,
+  "api": "https://network-release-production.up.railway.app",
+  "liveApi": "https://network-release-production.up.railway.app",
+  "restoredApi": "https://recovery-drill-production.up.railway.app",
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "candidate": {
+    "apiOrigin": "https://network-release-production.up.railway.app",
+    "frontendOrigin": "https://solana-classic-soc.vercel.app",
+    "frontendDeploymentId": "dpl_3aWWzKDohr4SrgijgrB8dWgHHS5r",
+    "frontendCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "apiCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "networkConfigSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+    "dependencyManifestSha256": "e6da27717e6a84ca7b29d707ff63591b2ff0cfc38892d3b4667f8615bdf7bbc0"
+  },
+  "liveRuntime": {
+    "configured": true,
+    "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+    "sourceCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "coreSha256": "30697f3e9b441b05a036d0704b42322d723b3998840ed43d88b18a0d7ef7d1dd",
+    "apiBootId": "e52b81b5-662e-425e-99bc-71f1edc838f1",
+    "apiStartedAt": "2026-10-13T15:54:07.867Z",
+    "validatorBootId": "6e5e1439-8c2b-4fc9-a49b-51b1ab61ff64",
+    "validatorStartedAt": "2026-10-13T15:53:34.139Z",
+    "deploymentId": "04c379cd-369c-4ff4-9d14-d29467d68a28",
+    "agaveVersion": "3.0.14",
+    "tokenProgramVersion": "10.0.0",
+    "tokenProgramSha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+    "observedAt": "2026-10-13T15:55:51.009Z"
+  },
+  "targetRuntimeBefore": {
+    "configured": true,
+    "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+    "sourceCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "coreSha256": "30697f3e9b441b05a036d0704b42322d723b3998840ed43d88b18a0d7ef7d1dd",
+    "apiBootId": "a8ca645a-9ad0-45f7-9e7b-684fe1cf8cc7",
+    "apiStartedAt": "2026-10-13T15:25:07.542Z",
+    "validatorBootId": "97192b08-deaa-4e05-ad54-e2cb293a2812",
+    "validatorStartedAt": "2026-10-13T15:24:48.569Z",
+    "deploymentId": "151fa230-bedb-416f-b902-e28079708ee0",
+    "agaveVersion": "3.0.14",
+    "tokenProgramVersion": "10.0.0",
+    "tokenProgramSha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+    "observedAt": "2026-10-13T16:01:04.924Z"
+  },
+  "targetRuntimeAfter": {
+    "configured": true,
+    "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+    "sourceCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "coreSha256": "30697f3e9b441b05a036d0704b42322d723b3998840ed43d88b18a0d7ef7d1dd",
+    "apiBootId": "a8ca645a-9ad0-45f7-9e7b-684fe1cf8cc7",
+    "apiStartedAt": "2026-10-13T15:25:07.542Z",
+    "validatorBootId": "97192b08-deaa-4e05-ad54-e2cb293a2812",
+    "validatorStartedAt": "2026-10-13T15:24:48.569Z",
+    "deploymentId": "151fa230-bedb-416f-b902-e28079708ee0",
+    "agaveVersion": "3.0.14",
+    "tokenProgramVersion": "10.0.0",
+    "tokenProgramSha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+    "observedAt": "2026-10-13T16:01:06.067Z"
+  },
+  "source": {
+    "projectId": "356bcb0b-49c4-4bd3-bf10-bff7db8f33fe",
+    "environmentId": "3367b373-2332-4702-8cce-c12b8f03949e",
+    "serviceId": "d0a1de40-bd9c-47eb-a7fc-477f1c55b2d6",
+    "volumeId": "080bf785-50e7-4dda-893b-4d613aa5e9a8",
+    "volumeInstanceId": "c639b73d-bb8e-46b2-b94e-4327561e5274"
+  },
+  "target": {
+    "projectId": "356bcb0b-49c4-4bd3-bf10-bff7db8f33fe",
+    "environmentId": "3367b373-2332-4702-8cce-c12b8f03949e",
+    "serviceId": "43fc867b-1105-423c-a901-84ec5cb9a46a",
+    "volumeId": "b3030354-8a36-4fed-939e-ea957fd65001",
+    "api": "https://recovery-drill-production.up.railway.app",
+    "mountPath": "/data",
+    "deploymentId": "151fa230-bedb-416f-b902-e28079708ee0"
+  },
+  "method": "existing-cold-archive-final-code-reconfirmation",
+  "backupId": "/data/backups/current.tar.gz:sha256:7f74ccefe4a6447e639208c15b844ef60cfbaf3055f81640eb3f356fa2430f65",
+  "historicalBackupAndRestore": {
+    "proof": {
+      "path": "evidence/backup-check-initial.json",
+      "sha256": "051fdedb1fccad3d5747243566a85eea9fe76cb399eb98d196001f245e44c9e1"
+    },
+    "timings": {
+      "backup": {
+        "id": "/data/backups/current.tar.gz:sha256:7f74ccefe4a6447e639208c15b844ef60cfbaf3055f81640eb3f356fa2430f65",
+        "state": "complete",
+        "writersStoppedAt": "2026-10-13T06:30:57.219Z",
+        "startedAt": "2026-10-13T06:30:57.219Z",
+        "completedAt": "2026-10-13T06:31:55.567Z",
+        "writersResumedAt": "2026-10-13T06:40:46.676Z",
+        "archiveSha256": "7f74ccefe4a6447e639208c15b844ef60cfbaf3055f81640eb3f356fa2430f65"
+      },
+      "restore": {
+        "startedAt": "2026-10-13T07:29:00.363Z",
+        "completedAt": "2026-10-13T07:29:19.950Z",
+        "readyAt": "2026-10-13T07:41:42.586292Z",
+        "state": "complete",
+        "isolated": true,
+        "originalVolumeRetained": true,
+        "liveRestoreApplied": false,
+        "targetContainsOnlyCopiedSourceData": true
+      }
+    },
+    "archiveSha256": "7f74ccefe4a6447e639208c15b844ef60cfbaf3055f81640eb3f356fa2430f65",
+    "newBackupCreated": false,
+    "newArchiveExtracted": false
+  },
+  "sourceAudit": {
+    "path": "evidence/recovery-reconfirmation-source-audit.json",
+    "sha256": "e9869088fa78a80e798997083dceab897a1efe9644f2a568ac5dc49e2ca5aa84"
+  },
+  "verifierSource": {
+    "path": "evidence/recovery-reconfirmation-verifier.ts",
+    "sha256": "8bdf6fb7f576aad913a1d7ebbd82eac3a3d30e92c86483186e9328395cd3adb9"
+  },
+  "balances": {
+    "HUX4gYhK1kYZJMJSQ6U4SYeiNnoC87kfvkAUmK3ErTZH": 1000000000
+  },
+  "originalGalleryRowsPreserved": 7,
+  "totalCurrentGalleryRows": 11,
+  "originalGalleryRowsSha256": "9f61ee5c3f3e41c435885c6f9f36bd5461f207b53bc0e87835db576946a1d998",
+  "assets": [
+    {
+      "mint": "5rxR7f7XF7A6RPcB8Rs4ixuZ9E3BYPK6htnxFo281xf1",
+      "kind": "nft",
+      "verifiedAt": "2026-10-13T05:59:36.895Z",
+      "rowUnchanged": true,
+      "accountHash": "703167d995e4144803683e7484faf8e7cb42359784ac242800d102ad976692b6",
+      "recordedBaselineMintBytesMatched": false,
+      "owner": "2o58PVeZxkmsrdsCkQBbVF2k1ZH8iTSVoFXhePXt3qnJ",
+      "recordedBaselineOwnerMatched": false,
+      "supply": "1",
+      "decimals": 0,
+      "immutableAuthoritiesVerified": true,
+      "files": [
+        {
+          "originalUrl": "https://network-release-production.up.railway.app/assets/773fdf54633e75b158c4fabe3a69b5391eb215ce1ecc5c3dd781fa6f544610ce/metadata.json",
+          "restoredUrl": "https://recovery-drill-production.up.railway.app/assets/773fdf54633e75b158c4fabe3a69b5391eb215ce1ecc5c3dd781fa6f544610ce/metadata.json",
+          "sha256": "76aefbbe62b450acb9d23644b05f5f7208a327b23ff4398c5d04c399189cd1f7",
+          "comparison": "Actual new current live-versus-restored immutable comparison; no historical byte hash claimed"
+        },
+        {
+          "originalUrl": "https://network-release-production.up.railway.app/assets/773fdf54633e75b158c4fabe3a69b5391eb215ce1ecc5c3dd781fa6f544610ce/image.svg",
+          "restoredUrl": "https://recovery-drill-production.up.railway.app/assets/773fdf54633e75b158c4fabe3a69b5391eb215ce1ecc5c3dd781fa6f544610ce/image.svg",
+          "sha256": "c7dada5e9eb4d26567f1ba612a8c4a460b532191e51a7e6542c2650bdf5daf0b",
+          "comparison": "Actual new current live-versus-restored immutable comparison; no historical byte hash claimed"
+        }
+      ]
+    },
+    {
+      "mint": "FnPVVNZXctH3RzNPXSEmJW7wb4qnQotUAEAVberMr6T4",
+      "kind": "meme",
+      "verifiedAt": "2026-10-13T05:58:55.052Z",
+      "rowUnchanged": true,
+      "accountHash": "cc8dad1c2187f4ca14517173d166d7de90230eb08bcf11904bc2595319b3fd4d",
+      "recordedBaselineMintBytesMatched": false,
+      "owner": null,
+      "recordedBaselineOwnerMatched": false,
+      "supply": "1000000000000",
+      "decimals": 6,
+      "immutableAuthoritiesVerified": true,
+      "files": [
+        {
+          "originalUrl": "https://network-release-production.up.railway.app/assets/d911b052819953b14c4d6e3e4fd370cf68cb3be002d78e987a3fcfccb30fa36b/metadata.json",
+          "restoredUrl": "https://recovery-drill-production.up.railway.app/assets/d911b052819953b14c4d6e3e4fd370cf68cb3be002d78e987a3fcfccb30fa36b/metadata.json",
+          "sha256": "57298fe0da5abb6e324dcd1375ad8fe9ee1fa742fc8b2730090a204e5a5770da",
+          "comparison": "Actual new current live-versus-restored immutable comparison; no historical byte hash claimed"
+        },
+        {
+          "originalUrl": "https://network-release-production.up.railway.app/assets/d911b052819953b14c4d6e3e4fd370cf68cb3be002d78e987a3fcfccb30fa36b/image.svg",
+          "restoredUrl": "https://recovery-drill-production.up.railway.app/assets/d911b052819953b14c4d6e3e4fd370cf68cb3be002d78e987a3fcfccb30fa36b/image.svg",
+          "sha256": "c7dada5e9eb4d26567f1ba612a8c4a460b532191e51a7e6542c2650bdf5daf0b",
+          "comparison": "Actual new current live-versus-restored immutable comparison; no historical byte hash claimed"
+        }
+      ]
+    },
+    {
+      "mint": "AebWZwzPCGWyihgiX2nK7vLRKEemZbsUFKSftqBVuUvy",
+      "kind": "nft",
+      "verifiedAt": "2026-10-13T05:56:50.481Z",
+      "rowUnchanged": true,
+      "accountHash": "ea46bd2a11151f67c721923e380392306097720cb6c4ab55b5506837f43e9a48",
+      "recordedBaselineMintBytesMatched": false,
+      "owner": "9TkJ2u8RLfjsgWz1zhBrrbtSjNq7dT5vYXQY2zcRSFxo",
+      "recordedBaselineOwnerMatched": false,
+      "supply": "1",
+      "decimals": 0,
+      "immutableAuthoritiesVerified": true,
+      "files": [
+        {
+          "originalUrl": "https://network-release-production.up.railway.app/assets/17813a065d1866d4e144de20fffd9365ccf9de3378f1f2f8e47e3e322f681a4b/metadata.json",
+          "restoredUrl": "https://recovery-drill-production.up.railway.app/assets/17813a065d1866d4e144de20fffd9365ccf9de3378f1f2f8e47e3e322f681a4b/metadata.json",
+          "sha256": "f762d44c55c567cad764db5cbe08415871fd2db76ca24f05015475a6dd700833",
+          "comparison": "Actual new current live-versus-restored immutable comparison; no historical byte hash claimed"
+        },
+        {
+          "originalUrl": "https://network-release-production.up.railway.app/assets/17813a065d1866d4e144de20fffd9365ccf9de3378f1f2f8e47e3e322f681a4b/image.svg",
+          "restoredUrl": "https://recovery-drill-production.up.railway.app/assets/17813a065d1866d4e144de20fffd9365ccf9de3378f1f2f8e47e3e322f681a4b/image.svg",
+          "sha256": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a",
+          "comparison": "Actual new current live-versus-restored immutable comparison; no historical byte hash claimed"
+        }
+      ]
+    },
+    {
+      "mint": "5NAoA3xhpSWfYtTyY3Ue1AiavHzgbZYEDHHJtHSMTWR3",
+      "kind": "nft",
+      "verifiedAt": "2026-10-13T05:51:08.995Z",
+      "rowUnchanged": true,
+      "accountHash": "c2ddcb15b925d88e0400ea6501565be38d4c3747bb667921c28a060d1bcc49e6",
+      "recordedBaselineMintBytesMatched": true,
+      "owner": "GRYb9kCHqEXAoUBGTjiWYRGp71mMCQMB7rmnT2wGdJBM",
+      "recordedBaselineOwnerMatched": true,
+      "supply": "1",
+      "decimals": 0,
+      "immutableAuthoritiesVerified": true,
+      "files": [
+        {
+          "originalUrl": "https://network-release-production.up.railway.app/assets/d90092abed71c7ca02ba27de78b0e2dc7573f55db3e79cd426e5667d86a43ae3/metadata.json",
+          "restoredUrl": "https://recovery-drill-production.up.railway.app/assets/d90092abed71c7ca02ba27de78b0e2dc7573f55db3e79cd426e5667d86a43ae3/metadata.json",
+          "sha256": "f01c50714b3580f94461b7784a336e246fa6be1ad6d347158c83589388d47f79",
+          "comparison": "Recorded initial baseline hash and current live URL both matched"
+        },
+        {
+          "originalUrl": "https://network-release-production.up.railway.app/assets/d90092abed71c7ca02ba27de78b0e2dc7573f55db3e79cd426e5667d86a43ae3/image.svg",
+          "restoredUrl": "https://recovery-drill-production.up.railway.app/assets/d90092abed71c7ca02ba27de78b0e2dc7573f55db3e79cd426e5667d86a43ae3/image.svg",
+          "sha256": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a",
+          "comparison": "Recorded initial baseline hash and current live URL both matched"
+        }
+      ]
+    },
+    {
+      "mint": "6wkqQraV4tUGA9CHLph5ZpXdom7FSAG4C9yBfu2zEEdQ",
+      "kind": "meme",
+      "verifiedAt": "2026-10-13T05:50:45.284Z",
+      "rowUnchanged": true,
+      "accountHash": "2bccf12ce5f7e3724f4415df5bc00eecf56029a129117488d45f4c894b81a578",
+      "recordedBaselineMintBytesMatched": true,
+      "owner": null,
+      "recordedBaselineOwnerMatched": true,
+      "supply": "1000000000000",
+      "decimals": 6,
+      "immutableAuthoritiesVerified": true,
+      "files": [
+        {
+          "originalUrl": "https://network-release-production.up.railway.app/assets/785954dd3d40fd1e492f928d4f35ca6adfb57998df0f79ef14e5b1d0e7019907/metadata.json",
+          "restoredUrl": "https://recovery-drill-production.up.railway.app/assets/785954dd3d40fd1e492f928d4f35ca6adfb57998df0f79ef14e5b1d0e7019907/metadata.json",
+          "sha256": "0b59c2138a3ddfdc283f2cdb0f1941b790e81f0dc2eac70b4b1b01d5ffc21f10",
+          "comparison": "Recorded initial baseline hash and current live URL both matched"
+        },
+        {
+          "originalUrl": "https://network-release-production.up.railway.app/assets/785954dd3d40fd1e492f928d4f35ca6adfb57998df0f79ef14e5b1d0e7019907/image.svg",
+          "restoredUrl": "https://recovery-drill-production.up.railway.app/assets/785954dd3d40fd1e492f928d4f35ca6adfb57998df0f79ef14e5b1d0e7019907/image.svg",
+          "sha256": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a",
+          "comparison": "Recorded initial baseline hash and current live URL both matched"
+        }
+      ]
+    },
+    {
+      "mint": "6Z7UUGhSWUpZwqPjexqAtzjmRhvXsXFpX29ZJpa6ojZm",
+      "kind": "nft",
+      "verifiedAt": "2026-10-13T05:29:02.742Z",
+      "rowUnchanged": true,
+      "accountHash": "1bc6856405f47ec9fa02cd59367aedd5b8be018b8271c7a9637d919f63c49e53",
+      "recordedBaselineMintBytesMatched": true,
+      "owner": "EYEK68K13bwbE58d8nrV2c9jmXsDPBiupczybjtgHBw9",
+      "recordedBaselineOwnerMatched": true,
+      "supply": "1",
+      "decimals": 0,
+      "immutableAuthoritiesVerified": true,
+      "files": [
+        {
+          "originalUrl": "https://network-release-production.up.railway.app/assets/e57ec8d12eae763c66a12045af4986f8268eb763c755c78e35de2fc1f64674e3/metadata.json",
+          "restoredUrl": "https://recovery-drill-production.up.railway.app/assets/e57ec8d12eae763c66a12045af4986f8268eb763c755c78e35de2fc1f64674e3/metadata.json",
+          "sha256": "a4d5cad597413b7222a7f03f3d1ae4b98c255d3250950ce2ad3dd4309473bf24",
+          "comparison": "Recorded initial baseline hash and current live URL both matched"
+        },
+        {
+          "originalUrl": "https://network-release-production.up.railway.app/assets/e57ec8d12eae763c66a12045af4986f8268eb763c755c78e35de2fc1f64674e3/image.svg",
+          "restoredUrl": "https://recovery-drill-production.up.railway.app/assets/e57ec8d12eae763c66a12045af4986f8268eb763c755c78e35de2fc1f64674e3/image.svg",
+          "sha256": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a",
+          "comparison": "Recorded initial baseline hash and current live URL both matched"
+        }
+      ]
+    },
+    {
+      "mint": "C8TrnpZThQWpAt3kZNj13X3RErYsWKRiQHa3zsZgxfaL",
+      "kind": "meme",
+      "verifiedAt": "2026-10-13T05:28:29.477Z",
+      "rowUnchanged": true,
+      "accountHash": "79a4e326987367edb73ac251808b62b9d3a8b2554b481973f5b1fec7c4b1f866",
+      "recordedBaselineMintBytesMatched": true,
+      "owner": null,
+      "recordedBaselineOwnerMatched": true,
+      "supply": "1000000000000",
+      "decimals": 6,
+      "immutableAuthoritiesVerified": true,
+      "files": [
+        {
+          "originalUrl": "https://network-release-production.up.railway.app/assets/782fbe7bd1ad7964b491f49263352ba620442f710022f6633661c2fa373dbb8e/metadata.json",
+          "restoredUrl": "https://recovery-drill-production.up.railway.app/assets/782fbe7bd1ad7964b491f49263352ba620442f710022f6633661c2fa373dbb8e/metadata.json",
+          "sha256": "57d05dc4b907449244dcf7ef9ae2a9dbad96fd254b56035cb190c664b0b8a459",
+          "comparison": "Recorded initial baseline hash and current live URL both matched"
+        },
+        {
+          "originalUrl": "https://network-release-production.up.railway.app/assets/782fbe7bd1ad7964b491f49263352ba620442f710022f6633661c2fa373dbb8e/image.svg",
+          "restoredUrl": "https://recovery-drill-production.up.railway.app/assets/782fbe7bd1ad7964b491f49263352ba620442f710022f6633661c2fa373dbb8e/image.svg",
+          "sha256": "79052c80b45a5a46089c1135292257dc8c454b24cedb56db21a0a3dd435d5103",
+          "comparison": "Recorded initial baseline hash and current live URL both matched"
+        }
+      ]
+    }
+  ],
+  "postRestoreAdditions": [
+    {
+      "mint": "GzKAr4Aebe8KD7VWap7aL7Pcz6QMaYmE6h9bxgM7GwLD",
+      "issuanceSignature": "3xteUt9YqRJ4VKnvdGx9Ymfi5xEeiabsWw5H5sXYsrNWCuGhKeZ4bfJNSwEaHLKhpqxoQWBDfJnWC5xMzuDH7hg",
+      "kind": "meme",
+      "provenance": "evidence/atomic-issuance-harness-failed.json",
+      "executedAt": "2026-10-13T07:44:45.164Z",
+      "passedOverall": false,
+      "verifiedAt": "2026-10-13T07:43:57.289Z",
+      "status": "Explicitly identified TEST addition after initial cold-restore verification; not part of initial backup dataset"
+    },
+    {
+      "mint": "DTWYLxWqF8quVtFdVXPY1EuXKEegbFQyErkXeb11ey4y",
+      "issuanceSignature": "CTQDVh9V4Ldnj9PJoQhaGn11DseTqBfAejqwAc4227ZJRRHtQ93ptZCk6UDkneM3o4MRW6F6YoPWS94isUu7pwR",
+      "kind": "nft",
+      "provenance": "evidence/atomic-issuance-harness-failed.json",
+      "executedAt": "2026-10-13T07:44:45.164Z",
+      "passedOverall": false,
+      "verifiedAt": "2026-10-13T07:44:29.280Z",
+      "status": "Explicitly identified TEST addition after initial cold-restore verification; not part of initial backup dataset"
+    },
+    {
+      "mint": "CzfwXwSfSFfGYqMSKrWYoB1ZnjAoh9Y3pewTwML1QNui",
+      "issuanceSignature": "5NNMUBqzCthMVKdSS3sCPWzhEz9AfBpKRwu3QRZs7kxYRzGwfmQHcAcperXeroYF8gcSteFCQ28tCP1X8tHVfj1n",
+      "kind": "meme",
+      "provenance": "evidence/atomic-issuance-check.json",
+      "executedAt": "2026-10-13T07:47:08.823Z",
+      "passedOverall": true,
+      "verifiedAt": "2026-10-13T07:46:19.787Z",
+      "status": "Explicitly identified TEST addition after initial cold-restore verification; not part of initial backup dataset"
+    },
+    {
+      "mint": "Gk4c3is3TYTVt35d5jDXaNaEc8ANgapysPD3eiKjo5Y7",
+      "issuanceSignature": "2S2fgATMVMfNtcUUiMamGGKYLwKVPZyxht2c2xvfmRh71Nx1cTVyuFBvd4nactqowQ56uYVNGV8xZsYLovzhJtkF",
+      "kind": "nft",
+      "provenance": "evidence/atomic-issuance-check.json",
+      "executedAt": "2026-10-13T07:47:08.823Z",
+      "passedOverall": true,
+      "verifiedAt": "2026-10-13T07:46:53.559Z",
+      "status": "Explicitly identified TEST addition after initial cold-restore verification; not part of initial backup dataset"
+    }
+  ],
+  "fundedActorAddedAfterInitialRestore": {
+    "publicKey": "DSW3wmHJr16zvNUsCNmxpjyCXMJwMoGozYbh8psSufYX",
+    "provenance": "evidence/isolated-qa-funding-request.json",
+    "status": "Historical TEST funding after initial cold restore; not an initial backup canary",
+    "balanceAtReconfirmation": 966768640
+  },
+  "faucet": {
+    "requestId": "574b0019-d994-4ee3-8e14-cdd5565de38f",
+    "signature": "3QuPxK7pB2NYyWYF56uVnoKmCPTwgh4vM2kwgQoMxRTxAcPwhgJMsq7JDiuNvUwiUDtdbKghA3RNTkwdLKo3FM1c",
+    "lamports": 1000000000,
+    "state": "confirmed",
+    "noDoubleGrant": true,
+    "noNewUUIDRequested": true,
+    "receiptHistory": {
+      "currentRPCSignatureStatus": null,
+      "currentRPCHistoryAvailable": false,
+      "historicalFinalityVerifiedAt": "2026-10-13T07:42:11.087Z",
+      "historicalVerificationFinalizedSlot": 11020,
+      "boundedHistoryDiagnostic": {
+        "path": "evidence/recovery-historical-receipt-pruning.json",
+        "sha256": "9e49c8c4d625c08a6689d1b4f3fb7db2ee761db13c1cab9f00be95b36ba0c797",
+        "at": "2026-10-13T15:53:19.403Z",
+        "firstAvailableBlock": 72413,
+        "minimumLedgerSlot": 72412
+      },
+      "currentPersistedPublicReceipt": {
+        "request_id": "574b0019-d994-4ee3-8e14-cdd5565de38f",
+        "wallet": "HUX4gYhK1kYZJMJSQ6U4SYeiNnoC87kfvkAUmK3ErTZH",
+        "state": "confirmed",
+        "signature": "3QuPxK7pB2NYyWYF56uVnoKmCPTwgh4vM2kwgQoMxRTxAcPwhgJMsq7JDiuNvUwiUDtdbKghA3RNTkwdLKo3FM1c"
+      },
+      "treatment": "Old RPC history is unavailable: retained block bounds are newer than the original finality verification slot. Historical finality proof retained; current exact confirmed database receipt and balance reconfirmed."
+    }
+  },
+  "finalizedSlots": {
+    "first": 82753,
+    "last": 82755
+  },
+  "liveFrozenRuntimeAndFrontendUnchanged": true,
+  "liveSlots": {
+    "before": 90132,
+    "after": 90135
+  },
+  "limitations": [
+    "The retained initial proof records the actual cold archive creation and extraction dates. This run reconfirms that existing isolated copy using final candidate code; it did not create a new cold backup or re-extract an archive.",
+    "The isolated dataset has four explicitly listed TEST asset additions and one TEST funding actor added after initial verification; it is not claimed pristine.",
+    "The original faucet transaction is older than retained block bounds and is unavailable in current RPC history; finality was actually verified in the retained initial proof, and the unchanged confirmed database record plus exact balance and same UUID are reconfirmed now.",
+    "This does not claim a hardware-host reboot or production recovery cutover."
+  ]
+}

@@ -1,92 +1,210 @@
 {
-  "schemaVersion": 1,
-  "scope": "Independent remote agent pilot two against the anonymous public preview, using own CUA in-app browser tabs; valueless TEST only. This is not human usability research or a completed release claim.",
-  "checkedAt": "2026-10-13T06:02:01Z",
-  "result": "pass",
-  "frontend": "https://solana-classic-soc.vercel.app",
-  "api": "https://network-release-production.up.railway.app",
+  "schemaVersion": 2,
+  "at": "2026-10-13T16:15:49.454688+00:00",
+  "checkedAt": "2026-10-13T16:15:49.454688+00:00",
+  "startedAt": "2026-10-13T16:00:37.407Z",
+  "scope": "remote independent agent browser pilot two on repaired frozen TEST candidate; actual UI-generated memory-only wallets, NFT issuance/transfer/current ownership, Explorer receipt/deep-link, mobile360 and keyboard checks; not human usability research or soak acceptance",
+  "passed": true,
+  "result": "passed within the stated one-NFT agent pilot scope",
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
   "expectedGenesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
   "observedGenesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
-  "flow": "Public homepage -> network identity -> playground -> disposable wallet -> one faucet claim -> NFT issuance -> second disposable wallet in separate tab -> NFT transfer -> gallery current-owner lookup -> explorer receipt -> direct explorer refresh.",
+  "api": "https://network-release-production.up.railway.app",
+  "web": "https://solana-classic-soc.vercel.app",
+  "apiOrigin": "https://network-release-production.up.railway.app",
+  "frontendOrigin": "https://solana-classic-soc.vercel.app",
+  "candidate": {
+    "apiOrigin": "https://network-release-production.up.railway.app",
+    "frontendOrigin": "https://solana-classic-soc.vercel.app",
+    "frontendDeploymentId": "dpl_3aWWzKDohr4SrgijgrB8dWgHHS5r",
+    "frontendCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "apiCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "networkConfigSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+    "dependencyManifestSha256": "e6da27717e6a84ca7b29d707ff63591b2ff0cfc38892d3b4667f8615bdf7bbc0"
+  },
+  "runtime": {
+    "configured": true,
+    "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+    "sourceCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "coreSha256": "30697f3e9b441b05a036d0704b42322d723b3998840ed43d88b18a0d7ef7d1dd",
+    "apiBootId": "e52b81b5-662e-425e-99bc-71f1edc838f1",
+    "apiStartedAt": "2026-10-13T15:54:07.867Z",
+    "validatorBootId": "6e5e1439-8c2b-4fc9-a49b-51b1ab61ff64",
+    "validatorStartedAt": "2026-10-13T15:53:34.139Z",
+    "deploymentId": "04c379cd-369c-4ff4-9d14-d29467d68a28",
+    "agaveVersion": "3.0.14",
+    "tokenProgramVersion": "10.0.0",
+    "tokenProgramSha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+    "observedAt": "2026-10-13T16:12:43.429Z"
+  },
+  "freezeEvidence": {
+    "path": "evidence/candidate-freeze.json",
+    "sha256": "de996a8ca58a9d12cf2b264ab86d4e6eab6a3230a779d250402918b288309b82"
+  },
+  "preflightBindingEvidence": {
+    "path": "evidence/pilot-agent-two-repair-binding-before.json",
+    "sha256": "f84f7f488e28ee4b8a4fd0eb002e74dbd7ebee3ae97a54796551a1c42d82f250"
+  },
+  "afterBindingEvidence": {
+    "path": "evidence/pilot-agent-two-repair-binding-after.json",
+    "sha256": "e813e372f7c1611df5f8baf8f42ebf72a7a7d43af708aaa878f75571147ed758"
+  },
+  "chainProofEvidence": {
+    "path": "evidence/pilot-agent-two-repair-chain-proof.json",
+    "sha256": "d82d7bcee0282cdd1f69c0fe19583278561c5cb5db3853952d4a637141546dac"
+  },
+  "initialProofPreserved": "evidence/pilot-agent-two-c1a7.json",
+  "olderInitialProofPreserved": "evidence/pilot-agent-two-initial.json",
+  "flow": [
+    "Reload owned clean /playground tab after final repaired freeze; observe Network responding and memory-wallet loss disclosure.",
+    "Create sender memory-only UI wallet; click Get1TEST once; UI shows1.0000TEST and actual funding receipt.",
+    "Fill PilotRepairTwo/PATWOR NFT/Circle Face; press Tab from Name to Symbol with visible purple focus; verify exact360x800 CSS viewport without document overflow.",
+    "Create recipient UI wallet in a separate owned tab, without funding it.",
+    "Click Mint test NFT once; observe issued/verified completion and actual issuance receipt.",
+    "Fill recipient public address and click Transfer this NFT; observe confirmed progress and actual transfer receipt.",
+    "Open Gallery and click Check current owner for exact PilotRepairTwo article; observe recipient address.",
+    "Open NFT account Explorer; distinguish Token-2022 account program owner from NFT holder.",
+    "Enter actual transfer signature in Explorer and click Look up; observe Confirmed, slot90553, fee0.000005TEST and ATA/Token-2022 programs.",
+    "Reload exact transfer receipt URL; observe the same receipt, then return to Playground and observe Create test wallet/default fields/balance dash.",
+    "Close owned disposable recipient tab and reset viewport; observed normal1890x954 CSS viewport.",
+    "Perform separate read-only canonical RPC verification of finalized signatures, NFT supply/authorities and recipient holding, then repeat exact frozen asset/runtime observation."
+  ],
   "environment": {
-    "browser": "in-app browser automation",
-    "browserSkillAvailability": "Browser plugin skill absent; CUA available and used as requested",
-    "playwrightFallbackUsed": false,
-    "tabs": "Two new pilot-owned tabs, sender and recipient",
-    "viewports": [
-      {
-        "width": 1280,
-        "height": 720
-      },
-      {
-        "width": 360,
-        "height": 800
-      }
-    ],
-    "viewportReset": true,
-    "consoleWarnOrErrors": []
+    "browser": "Existing authenticated Chrome browser2 controlled through CUA; only owned tabs",
+    "browserPlugin": "not available; explicitly authorized CUA path",
+    "ownedSenderTabId": "1973282184",
+    "ownedRecipientTabId": "1973282203",
+    "desktopCssViewport": {
+      "width": 1890,
+      "height": 954
+    },
+    "mobileCssViewport": {
+      "width": 360,
+      "height": 800,
+      "documentScrollWidth": 360
+    },
+    "viewportAdjustment": "Requested360x800 override yielded450x1000CSS dueexisting browser scale;288x640 override yielded measured360x800CSS. Reset verified1890x954 after closing recipient tab.",
+    "console": {
+      "relevantAppWarningErrorEntries": 0,
+      "chromeExtensionWarningErrorEntries": 18,
+      "rawExtensionMessagesPublished": false
+    }
   },
   "wallets": {
-    "senderPublicKey": "D1axEXsHQbpYVYCv4fFUr4kpSNWSUpDBp7ivZ5dwVTjw",
-    "recipientPublicKey": "2o58PVeZxkmsrdsCkQBbVF2k1ZH8iTSVoFXhePXt3qnJ",
-    "secrets": "App generated memory-only disposable wallets. No user key import or secret inspection.",
-    "lossDisclosureObserved": "Create a disposable wallet to get started. Reloading this page loses access to it.",
-    "reloadLossVerified": true,
-    "reloadLossEvidence": "Recipient tab reload restored Create test wallet, blank balance and disabled faucet/mint controls. The former public key and transfer controls disappeared. Both disposable wallet accesses were intentionally lost by reload at the end of testing."
+    "sender": "8jLXp2MfkpXfxX9ttN5H1LRmqh5m4PBofbs47cu2NdSR",
+    "recipient": "5cDTe2rbKApay1fcavMEr5u8oRWPgt8azDakayqdL1rF",
+    "creation": "actual Create test wallet UI controls in two owned tabs",
+    "privateKeysInspected": false,
+    "keysImported": false,
+    "keysExported": false,
+    "browserStorageUsedByAgent": false,
+    "senderLostAfterReloadObserved": true,
+    "recipientTabClosedAfterHoldingVerified": true
   },
   "faucet": {
-    "claimsSubmitted": 1,
-    "observedBalanceTEST": "1.0000",
-    "signature": "4Sg5nxMk2rq2wmP5BH2HyxAJnKULp7Fj2WtQqzfi9kJx5yCct7rxtJYdSZx8NdwgcZQpo3sUY4U3dcm4WiSgT4yJ",
-    "receipt": "https://solana-classic-soc.vercel.app/explorer/tx/4Sg5nxMk2rq2wmP5BH2HyxAJnKULp7Fj2WtQqzfi9kJx5yCct7rxtJYdSZx8NdwgcZQpo3sUY4U3dcm4WiSgT4yJ"
+    "agentClaimClicks": 1,
+    "logicalClaims": 1,
+    "recipientClaimClicks": 0,
+    "manualRetries": 0,
+    "requestUuidChangedByAgent": false,
+    "transportRequestsNotIntercepted": true,
+    "note": "Existing application may recheck the same UUID receipt; this record counts one agent claim button action, not every HTTP request.",
+    "signature": "5n227roi8nWF48N3FThxzv6hPPdPRqVjADG7LMC3SHXwhzEvDLsiHZRyBaJ1hUvW7nL6YMZggTGhnz7BgzW7TYwX",
+    "rpcConfirmationStatus": "finalized",
+    "slot": 90145
+  },
+  "funding": {
+    "method": "single public TEST faucet UI claim",
+    "operatorPrefundUsed": false,
+    "displayedBalanceAfterClaim": "1.0000TEST"
   },
   "issuance": {
-    "actionsSubmitted": 1,
-    "type": "nft",
-    "name": "Pilot Two Orbit",
-    "symbol": "P2ORB",
-    "preset": "orbit",
-    "mint": "5rxR7f7XF7A6RPcB8Rs4ixuZ9E3BYPK6htnxFo281xf1",
-    "observedState": "Issued and verified on the experimental network.",
-    "signature": "2aDafXXXn1tNHrTumyWSdPJgFTSM4QUmxrN5AGCvBP4ajVvADHSiZPz3Pohbyr5z8Wr1T1a1KkkAJpz6Tu2JDNoK",
-    "receipt": "https://solana-classic-soc.vercel.app/explorer/tx/2aDafXXXn1tNHrTumyWSdPJgFTSM4QUmxrN5AGCvBP4ajVvADHSiZPz3Pohbyr5z8Wr1T1a1KkkAJpz6Tu2JDNoK"
+    "kind": "nft",
+    "name": "PilotRepairTwo",
+    "symbol": "PATWOR",
+    "presetId": 0,
+    "mint": "CqdxuuCpkFPhkqMpEsUkjGzMRVViM1JHgBdNYoRxthtw",
+    "signature": "e17zXT1YyMYEC1xtjxoMy1oWkP4VgXUvsPV5B3VsTNeBpVo4k2DmiRiQyVwDnDYGomKS7MJzAVgEqEaBTnVFZ5D",
+    "rpcConfirmationStatus": "finalized",
+    "slot": 90449,
+    "finalizedSupply": "1",
+    "decimals": 0,
+    "mintAuthority": null,
+    "freezeAuthority": null,
+    "metadataUpdateAuthority": null,
+    "metadataPointerAuthority": null,
+    "uri": "https://network-release-production.up.railway.app/assets/724d62ec0e9d602d4630bd4d581b9407bcc6f4d2aae71bf9860a0620e42a8ed9/metadata.json",
+    "image": "https://network-release-production.up.railway.app/assets/724d62ec0e9d602d4630bd4d581b9407bcc6f4d2aae71bf9860a0620e42a8ed9/image.svg",
+    "agentMintClicks": 1,
+    "newAssetsCreated": 1
   },
   "transfer": {
-    "actionsSubmitted": 1,
-    "signature": "67K8UT4GMRZqzEG5Lz94JkNMCQn8azKhr18CtGTsL8CQRCRP43JVkXTUDFBidxnPR4ANk9JwQqDqMtfU8pVpFMZN",
-    "receipt": "https://solana-classic-soc.vercel.app/explorer/tx/67K8UT4GMRZqzEG5Lz94JkNMCQn8azKhr18CtGTsL8CQRCRP43JVkXTUDFBidxnPR4ANk9JwQqDqMtfU8pVpFMZN",
-    "explorerStatusDisplayed": "Confirmed",
-    "slot": 4904,
-    "networkFeeTEST": "0.000005",
-    "logsObserved": [
-      "Associated token account CreateIdempotent succeeded",
-      "Token-2022 Instruction: TransferChecked succeeded"
-    ],
-    "galleryCurrentOwner": "2o58PVeZxkmsrdsCkQBbVF2k1ZH8iTSVoFXhePXt3qnJ",
-    "galleryOwnerMatchesRecipient": true,
-    "directExplorerRefresh": "Receipt returned successfully on the exact deep URL after reload, showing Confirmed, slot 4904 and fee 0.000005 TEST."
+    "from": "8jLXp2MfkpXfxX9ttN5H1LRmqh5m4PBofbs47cu2NdSR",
+    "to": "5cDTe2rbKApay1fcavMEr5u8oRWPgt8azDakayqdL1rF",
+    "mint": "CqdxuuCpkFPhkqMpEsUkjGzMRVViM1JHgBdNYoRxthtw",
+    "signature": "5K55ursjKd5W3zuivt41x6SkBdJoyw1EKnWVekzYLWMF9ngV16vJc7WTgcAnFA819VhxvD5TXiUbDS6jAfH3iN3J",
+    "uiConfirmationLabel": "Confirmed; final ownership verification separate",
+    "rpcConfirmationStatus": "finalized",
+    "rpcVerifiedAt": "2026-10-13T16:08:23.703Z",
+    "slot": 90553,
+    "feeLamports": 5000,
+    "currentOwner": "5cDTe2rbKApay1fcavMEr5u8oRWPgt8azDakayqdL1rF",
+    "ownershipState": "held",
+    "recipientFinalizedTokenAmount": "1",
+    "receiptUrl": "https://solana-classic-soc.vercel.app/explorer/tx/5K55ursjKd5W3zuivt41x6SkBdJoyw1EKnWVekzYLWMF9ngV16vJc7WTgcAnFA819VhxvD5TXiUbDS6jAfH3iN3J"
   },
   "checks": {
-    "pageIdentity": "pass: Solana Classic \u2014 Memes & NFTs; intended public URLs",
-    "notBlank": "pass: meaningful home, network, playground, gallery and explorer content",
-    "frameworkOverlay": "pass: none observed",
-    "consoleHealth": "pass: no captured warnings or errors in sender tab",
-    "screenshots": "Desktop playground and explorer; 360 px gallery current-owner state and playground visible focus were emitted through CUA. No screenshot file was written.",
-    "interactionProof": "pass: one faucet grant, one verified NFT issuance, one NFT transfer and matching gallery owner",
-    "mobileGalleryOverflow": "pass: window.innerWidth 360 and document.documentElement.scrollWidth 360",
-    "mobileKeyboardFocus": "pass: Tab from Name focused Symbol with visible purple focus outline",
-    "memoryOnlyWalletLoss": "pass: recipient reload removed wallet access as disclosed"
+    "pageIdentity": true,
+    "meaningfulContent": true,
+    "frameworkOverlayAbsent": true,
+    "applicationConsoleHealthy": true,
+    "actualNFTOwnershipTransfer": true,
+    "frozenRuntimeIdentityUnchanged": true,
+    "frozenFrontendHashesMatchBeforeAndAfter": true,
+    "all41FrozenSourceFileHashesMatch": true,
+    "mobileGallery": true,
+    "mobilePlaygroundKeyboard": true,
+    "mobileExplorer": true,
+    "receiptDirectReload": true,
+    "viewportReset": true,
+    "memoryOnlyWalletLoss": true
   },
-  "findings": [],
-  "limitations": [
-    "Agent pilot, not human usability research.",
-    "The explorer displayed Confirmed; this report does not reinterpret that label as a separate finalization assertion.",
-    "NFT flow only; the other independent pilot covers meme issuance and transfer.",
-    "No claim about soak, performance, provider recovery, backups or complete release acceptance.",
-    "Mobile checks were limited to gallery overflow and playground layout/focus, not a full accessibility audit.",
-    "No production economic value, mainnet or bridge action was performed."
+  "screenshots": [
+    {
+      "caption": "Desktop prepared funded wallet and visible Symbol keyboard focus",
+      "format": "actual CUA image emitted in tool output; no filesystem path returned"
+    },
+    {
+      "caption": "Measured360x800CSS mobile Playground before issuance",
+      "format": "actual CUA image emitted in tool output; no filesystem path returned"
+    },
+    {
+      "caption": "Mobile Gallery exact NFT name/mint and actual recipient owner",
+      "format": "actual CUA image emitted in tool output; no filesystem path returned"
+    },
+    {
+      "caption": "Full reloaded mobile receipt with Confirmed/slot90553/0.000005TEST/programs/logs",
+      "format": "actual CUA full-page image emitted in tool output; no filesystem path returned"
+    }
   ],
-  "passed": true,
-  "at": "2026-10-13T06:02:01Z",
-  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon"
+  "findings": [
+    {
+      "severity": "low",
+      "surface": "Issuance progress wording",
+      "observation": "New issuance showed Existing issuance finalised and verified before the separate correct PilotRepairTwo is issued and verified completion.",
+      "status": "existing wording observation preserved; no source change within frozen scope",
+      "functionalImpact": "No extra issuance or incorrect ownership was observed."
+    }
+  ],
+  "observations": {
+    "mobileNavigation": "Header nav measured clientWidth320/scrollWidth337/overflowXauto; final Token label is partly outside initial nav viewport. Document width remains360; horizontal nav scroll is the existing layout.",
+    "receiptCommitment": "UI uses Confirmed; separate RPC getSignatureStatuses/getTransaction finalized observations are recorded without relabeling the UI.",
+    "nativeToolBoundaryError": "One attempted scroll coordinate outside active mobile viewport failed before interaction; bounded in-viewport control/full-page screenshot resolved evidence capture."
+  },
+  "limitations": [
+    "One NFT issuance/transfer agent journey; not external human usability research, all browsers, all flows, chain-wide load or24hoursoak.",
+    "No browser private key values or credentials were read, imported, exported or included in evidence.",
+    "Screenshots were actually emitted by CUA; no local screenshot artifact path/hash is claimed.",
+    "Existing low-severity wording and mobile navigation observations remain documented; no frozen source or hosting changes were made."
+  ]
 }

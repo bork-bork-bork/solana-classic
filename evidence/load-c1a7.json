@@ -1,0 +1,3085 @@
+{
+  "at": "2026-10-13T08:53:05.064Z",
+  "scope": "remote bounded 20 SDK client sessions, not chainwide throughput or browser soak",
+  "passed": true,
+  "api": "https://network-release-production.up.railway.app",
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "candidate": {
+    "apiOrigin": "https://network-release-production.up.railway.app",
+    "frontendOrigin": "https://solana-classic-soc.vercel.app",
+    "frontendDeploymentId": "dpl_DmoMtTCGgJDeBzaeeEX1QhZA4TAV",
+    "frontendCommit": "c1a7f15839d6fbed5b04fe7ea773d61cf273bdb2",
+    "apiCommit": "c1a7f15839d6fbed5b04fe7ea773d61cf273bdb2",
+    "networkConfigSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+    "dependencyManifestSha256": "e6da27717e6a84ca7b29d707ff63591b2ff0cfc38892d3b4667f8615bdf7bbc0"
+  },
+  "candidateRuntime": {
+    "configured": true,
+    "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+    "sourceCommit": "c1a7f15839d6fbed5b04fe7ea773d61cf273bdb2",
+    "coreSha256": "f77c68ddd20684758bfaae7868e1d83a5a0a670664a34f63150d06be55838e20",
+    "apiBootId": "77c327af-74f9-412e-a746-851668c2616b",
+    "apiStartedAt": "2026-10-13T07:51:57.339Z",
+    "validatorBootId": "7a167823-8ee4-424f-85cc-5ef33916603d",
+    "validatorStartedAt": "2026-10-13T07:51:02.569Z",
+    "deploymentId": "818db2ce-bca0-45bd-a6bf-1bb8257fadc7",
+    "agaveVersion": "3.0.14",
+    "tokenProgramVersion": "10.0.0",
+    "tokenProgramSha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+    "observedAt": "2026-10-13T08:07:59.087Z"
+  },
+  "runtimeStable": true,
+  "observations": 40,
+  "cadencePassed": true,
+  "galleryPassed": true,
+  "startedAt": "2026-10-13T08:32:55.904Z",
+  "durationMs": 1209160,
+  "workload": {
+    "sessions": 20,
+    "issuances": 100,
+    "transfers": 100,
+    "issuanceTypes": [
+      "meme",
+      "nft"
+    ],
+    "issuanceTransactionsPerOperation": 1,
+    "issuanceMode": "atomic preparation, minting and immutable authority revocation",
+    "transferType": "fungible precreated seeds",
+    "preparationMintsExcluded": [
+      "3J5moUbqDhaCdHpqE21ifCEJ37oHK16KBxxDJgCJNhFF",
+      "DVh4M8zredMonKWa3Yx1va9j1fULunPz4mfYb8bDz3sb",
+      "3EcoxvGKFDUpebvxQKrBLBnHhWVcsXZhwMVyJwvgzAsE",
+      "Ap8U2ANdHYfRLTUUerDP8QfJmcBGu9U5S9oKybKXzi2Y",
+      "9vNTb92XEdxhtda8zZWB9D8gH5MaRHmyMGLPRG7fdwSV",
+      "HycbixLC19YT4pM8F7rfBzXm7pKJReuY5Kc9RXDeK4c2",
+      "AjL2wnjykHuvwJFrVXEyWQE6Ay6suN3FoAL9oxQZKcyc",
+      "8eUmnijNFLTrrBaguE5ZYVvzPFKfM7WxzTB2JMDR1PoK",
+      "6DyvoCrWqX3WkBQLuGDdvTQayLVuda4mcshiW1aTBweE",
+      "8AuX4D2g6ruZA7t2eio9djjmxVwqsvLVb3QCo54wf67P",
+      "2YRTS7bL3Bsyng3zUZtnXwVAw8uYEgGiRWf6dVN5Ungy",
+      "9J3AeqLautX3L8vg2JQEhK4WRUaSx5YERJeHcU5agw1Y",
+      "DsFgScyBtiV74nbGWKPsjstSy48YHASjK6uWvSQ667jP",
+      "BBG7RBunQrV4C4sDXuALL3YNikzpuLZwDiw3Kuyy8xLC",
+      "5Yk79AgtPGP227Nbumdbot5d1dWJ3owcBsfgdeeJxCHF",
+      "8dDHK78h3J6PHBuJLRukSn42KFD7xhuwGw5vxAK29N6G",
+      "CwE3C1qR3KfmMdQ7Q7gbvA1mE4HdbxFzUQdBzwKC3jzf",
+      "BFzVKNPP6y4tch37Q6df2Ssqv1Fgf923cS4fTpxTJYC5",
+      "96pqjg4qy4zky1nXjPvcM5FxCCVEQUPiwoid2ZxHEetz",
+      "HgnkcwgLMagwXr4DrYki7H1uUjYogPLWEJVLV21kdZLp"
+    ],
+    "startEveryMs": 6000,
+    "pollingMs": 3000,
+    "unchangedAdmissionLimits": true,
+    "faucetCalls": 0
+  },
+  "metrics": {
+    "successfulWithin15Seconds": 1,
+    "p95LogicalConfirmedMs": 3133,
+    "missingConfirmations": 0,
+    "p95LogicalFinalizedMs": 15146,
+    "failures": 0
+  },
+  "timingDefinition": "From logical start including API asset preparation and the atomic issuance transaction to its unique confirmed callback. Finalized time includes chain supply/authority verification; gallery receipt verification is measured separately from the same logical start. Missing confirmations remain in the 200-operation percentile denominator.",
+  "results": [
+    {
+      "index": 0,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:32:55.906Z",
+      "confirmedMs": 3109,
+      "finalizedMs": 15114,
+      "galleryVerifiedMs": 15137,
+      "signatures": [
+        "616jr23agoYnAnGsXEbYxjjfTBw3doy5KBck3Eun5pb5S7GBvcPBfX52p9SYCHcffyfPQSdw85PzZbSfRGU21SX6"
+      ],
+      "confirmedSignatures": [
+        "616jr23agoYnAnGsXEbYxjjfTBw3doy5KBck3Eun5pb5S7GBvcPBfX52p9SYCHcffyfPQSdw85PzZbSfRGU21SX6"
+      ],
+      "passed": true
+    },
+    {
+      "index": 1,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:33:01.907Z",
+      "confirmedMs": 3070,
+      "finalizedMs": 15064,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "48QY2e5Ci5NdtjmgUab5iXS8bdYKAHUuJLefAA1p9GEzrHR6VJzyfMbRFUz8iQk5BwsWt1y7BvETR3Fdwx29gNAC"
+      ],
+      "confirmedSignatures": [
+        "48QY2e5Ci5NdtjmgUab5iXS8bdYKAHUuJLefAA1p9GEzrHR6VJzyfMbRFUz8iQk5BwsWt1y7BvETR3Fdwx29gNAC"
+      ],
+      "passed": true
+    },
+    {
+      "index": 2,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:33:07.905Z",
+      "confirmedMs": 3111,
+      "finalizedMs": 15126,
+      "galleryVerifiedMs": 15143,
+      "signatures": [
+        "2QVgEtckGqDeDoeAjRSDdLEX32BTjXEX88w2YPTFFh5Tm828NYrTJqo57coMLfsib78GpdnmZtxzJx1c4UPFSxGU"
+      ],
+      "confirmedSignatures": [
+        "2QVgEtckGqDeDoeAjRSDdLEX32BTjXEX88w2YPTFFh5Tm828NYrTJqo57coMLfsib78GpdnmZtxzJx1c4UPFSxGU"
+      ],
+      "passed": true
+    },
+    {
+      "index": 3,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:33:13.908Z",
+      "confirmedMs": 3061,
+      "finalizedMs": 15062,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "4GMUnPdYjKdh2GuZqwk1EbuQdCzEaC7CcrtMwuRijHWCYaQn2PEQqJTGNUXzErCBAP5jdbSuaATKVEVXY7mFEbfu"
+      ],
+      "confirmedSignatures": [
+        "4GMUnPdYjKdh2GuZqwk1EbuQdCzEaC7CcrtMwuRijHWCYaQn2PEQqJTGNUXzErCBAP5jdbSuaATKVEVXY7mFEbfu"
+      ],
+      "passed": true
+    },
+    {
+      "index": 4,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:33:19.905Z",
+      "confirmedMs": 3104,
+      "finalizedMs": 15115,
+      "galleryVerifiedMs": 15147,
+      "signatures": [
+        "sKANbz92eH1u8wqXg3QGFvVMgqXisVnRZK9FvysLceLK26rQhxL5Zxo6c3jqe15yRtx7buwkqPbB51Luj37n1uS"
+      ],
+      "confirmedSignatures": [
+        "sKANbz92eH1u8wqXg3QGFvVMgqXisVnRZK9FvysLceLK26rQhxL5Zxo6c3jqe15yRtx7buwkqPbB51Luj37n1uS"
+      ],
+      "passed": true
+    },
+    {
+      "index": 5,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:33:25.908Z",
+      "confirmedMs": 3076,
+      "finalizedMs": 15081,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "uoEJ4Xx6PbohVNJHrJWU333n8KWVGsafZqLydNLVtKiho2nRw28i3kGrRkuCCd8pvDPxr712xVarDYt4qrkLYgB"
+      ],
+      "confirmedSignatures": [
+        "uoEJ4Xx6PbohVNJHrJWU333n8KWVGsafZqLydNLVtKiho2nRw28i3kGrRkuCCd8pvDPxr712xVarDYt4qrkLYgB"
+      ],
+      "passed": true
+    },
+    {
+      "index": 6,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:33:31.905Z",
+      "confirmedMs": 3113,
+      "finalizedMs": 15180,
+      "galleryVerifiedMs": 15201,
+      "signatures": [
+        "3MECpiTF6EAzAby1ZDETe8o81FWeJhvV2kBarJqQzXxatcqsQxjuUdDv2Erdf8chDWSjYoTXmSRrz4TPoDygUeKH"
+      ],
+      "confirmedSignatures": [
+        "3MECpiTF6EAzAby1ZDETe8o81FWeJhvV2kBarJqQzXxatcqsQxjuUdDv2Erdf8chDWSjYoTXmSRrz4TPoDygUeKH"
+      ],
+      "passed": true
+    },
+    {
+      "index": 7,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:33:37.907Z",
+      "confirmedMs": 3083,
+      "finalizedMs": 15085,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "kjXeGRf7js9nkAULBT4zdJgBN29pSNeQQXLavGUGKjAJNHENkCDPmibFvcj867iPM83E8JCTZBBWspUK1fJT3ka"
+      ],
+      "confirmedSignatures": [
+        "kjXeGRf7js9nkAULBT4zdJgBN29pSNeQQXLavGUGKjAJNHENkCDPmibFvcj867iPM83E8JCTZBBWspUK1fJT3ka"
+      ],
+      "passed": true
+    },
+    {
+      "index": 8,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:33:43.906Z",
+      "confirmedMs": 3098,
+      "finalizedMs": 15112,
+      "galleryVerifiedMs": 15130,
+      "signatures": [
+        "2N87Uc7zrqGZf5apXJeDQNZs5tLav1RPmYAkYCL9A4irr6kHiYL57nCSqDe757DkYoY634AAxwDAUs7KPotReYY6"
+      ],
+      "confirmedSignatures": [
+        "2N87Uc7zrqGZf5apXJeDQNZs5tLav1RPmYAkYCL9A4irr6kHiYL57nCSqDe757DkYoY634AAxwDAUs7KPotReYY6"
+      ],
+      "passed": true
+    },
+    {
+      "index": 9,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:33:49.905Z",
+      "confirmedMs": 3066,
+      "finalizedMs": 15067,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "cmLwuXZjyCAWy9bVBVxeF4CLReSwL7xxtRm6Mtd4RU7Qu1JStNjs4jynJyjVQDpXefBo5Tnf8eJ98gCUzQCpMTd"
+      ],
+      "confirmedSignatures": [
+        "cmLwuXZjyCAWy9bVBVxeF4CLReSwL7xxtRm6Mtd4RU7Qu1JStNjs4jynJyjVQDpXefBo5Tnf8eJ98gCUzQCpMTd"
+      ],
+      "passed": true
+    },
+    {
+      "index": 10,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:33:55.908Z",
+      "confirmedMs": 3111,
+      "finalizedMs": 15127,
+      "galleryVerifiedMs": 15151,
+      "signatures": [
+        "5aMXK9QvMwFc8nZ1rcbaxYH2Fwoj8ht3xcR8cAzMifeyc3LLZeAobmwCEyxER12uCGoiCnDW5fYFqJqMFSfmFFPg"
+      ],
+      "confirmedSignatures": [
+        "5aMXK9QvMwFc8nZ1rcbaxYH2Fwoj8ht3xcR8cAzMifeyc3LLZeAobmwCEyxER12uCGoiCnDW5fYFqJqMFSfmFFPg"
+      ],
+      "passed": true
+    },
+    {
+      "index": 11,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:34:01.907Z",
+      "confirmedMs": 3066,
+      "finalizedMs": 15063,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "4cAZ9ddZTr5Z9ZQc6UMxRfuBkMF97rUVX7dd6oCzJgdYLspxBsV4iWWmFePgC99rFZoFbWjk1KS6uqRBD8jxGNi4"
+      ],
+      "confirmedSignatures": [
+        "4cAZ9ddZTr5Z9ZQc6UMxRfuBkMF97rUVX7dd6oCzJgdYLspxBsV4iWWmFePgC99rFZoFbWjk1KS6uqRBD8jxGNi4"
+      ],
+      "passed": true
+    },
+    {
+      "index": 12,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:34:07.907Z",
+      "confirmedMs": 3127,
+      "finalizedMs": 15151,
+      "galleryVerifiedMs": 15171,
+      "signatures": [
+        "4Uxhizhx9SpEaHdGy8e37dZqnuGahiGXLL261mZjo57Cc8gtRSZrNbck7BuRU7UxQ4U9AivUrBBKCbiZf3su4GoE"
+      ],
+      "confirmedSignatures": [
+        "4Uxhizhx9SpEaHdGy8e37dZqnuGahiGXLL261mZjo57Cc8gtRSZrNbck7BuRU7UxQ4U9AivUrBBKCbiZf3su4GoE"
+      ],
+      "passed": true
+    },
+    {
+      "index": 13,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:34:13.904Z",
+      "confirmedMs": 3063,
+      "finalizedMs": 15063,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "3x5MJePj3iWTrWF47BGxCi64xCvx3fmRWYuCmGj2XW1XecVgQYduU3eH9FxRsVMzDsSP5h3yBtozvpCbsykT6MqD"
+      ],
+      "confirmedSignatures": [
+        "3x5MJePj3iWTrWF47BGxCi64xCvx3fmRWYuCmGj2XW1XecVgQYduU3eH9FxRsVMzDsSP5h3yBtozvpCbsykT6MqD"
+      ],
+      "passed": true
+    },
+    {
+      "index": 14,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:34:19.904Z",
+      "confirmedMs": 3133,
+      "finalizedMs": 15146,
+      "galleryVerifiedMs": 15165,
+      "signatures": [
+        "5nQejm77xh9k7txK3sQ67ggzARgcgucq68eeAAtCRF2nAcQZGyH7cTxpECMsgMkF9PDGSaJaPgYoh9vDcL1umhv9"
+      ],
+      "confirmedSignatures": [
+        "5nQejm77xh9k7txK3sQ67ggzARgcgucq68eeAAtCRF2nAcQZGyH7cTxpECMsgMkF9PDGSaJaPgYoh9vDcL1umhv9"
+      ],
+      "passed": true
+    },
+    {
+      "index": 15,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:34:25.908Z",
+      "confirmedMs": 3057,
+      "finalizedMs": 15067,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "4zwUQKnfScXVzjDx3vkmxTi8uZQjoxkdogrGv8intk3idyqG4RiKg26BzvJx3dcXhyxiD4m4ceTR5ZCjSPjYTVuK"
+      ],
+      "confirmedSignatures": [
+        "4zwUQKnfScXVzjDx3vkmxTi8uZQjoxkdogrGv8intk3idyqG4RiKg26BzvJx3dcXhyxiD4m4ceTR5ZCjSPjYTVuK"
+      ],
+      "passed": true
+    },
+    {
+      "index": 16,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:34:31.905Z",
+      "confirmedMs": 3121,
+      "finalizedMs": 15126,
+      "galleryVerifiedMs": 15147,
+      "signatures": [
+        "34Ce9wDoY8y7dZgYKFng1q8N3bYrAwYbympqyHTRHoiXpbHyMUp3b3uc7HMR79tPRfJw1zYXzkCXq5FTjni3XPnC"
+      ],
+      "confirmedSignatures": [
+        "34Ce9wDoY8y7dZgYKFng1q8N3bYrAwYbympqyHTRHoiXpbHyMUp3b3uc7HMR79tPRfJw1zYXzkCXq5FTjni3XPnC"
+      ],
+      "passed": true
+    },
+    {
+      "index": 17,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:34:37.905Z",
+      "confirmedMs": 3067,
+      "finalizedMs": 15065,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "4LeFqMgqTkrRqk9aBZpRTGH4wdMF2cZ3hyVuB8oXXBSk7fccU1jsEcneufHhgGnbGKhgoFn1RMzzFHXCfHK3TjWY"
+      ],
+      "confirmedSignatures": [
+        "4LeFqMgqTkrRqk9aBZpRTGH4wdMF2cZ3hyVuB8oXXBSk7fccU1jsEcneufHhgGnbGKhgoFn1RMzzFHXCfHK3TjWY"
+      ],
+      "passed": true
+    },
+    {
+      "index": 18,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:34:43.906Z",
+      "confirmedMs": 3099,
+      "finalizedMs": 15114,
+      "galleryVerifiedMs": 15132,
+      "signatures": [
+        "3VbkhtEWgBG8ddh98G62czDQnXoG74JtcQXrB48YuUTmXTGDehS6sUqpP8o5hT7ZfkY7DkhUQcJKYvY75RNthRTn"
+      ],
+      "confirmedSignatures": [
+        "3VbkhtEWgBG8ddh98G62czDQnXoG74JtcQXrB48YuUTmXTGDehS6sUqpP8o5hT7ZfkY7DkhUQcJKYvY75RNthRTn"
+      ],
+      "passed": true
+    },
+    {
+      "index": 19,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:34:49.907Z",
+      "confirmedMs": 3064,
+      "finalizedMs": 15061,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "4Z8iWtmt1PHMt3kXMVUjM7NxfbwNC88pg36peEovcfTTDAVXGmxkxyStsEj4GCKacP4ounKAw74KHKf3qjj9ikUv"
+      ],
+      "confirmedSignatures": [
+        "4Z8iWtmt1PHMt3kXMVUjM7NxfbwNC88pg36peEovcfTTDAVXGmxkxyStsEj4GCKacP4ounKAw74KHKf3qjj9ikUv"
+      ],
+      "passed": true
+    },
+    {
+      "index": 20,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:34:55.905Z",
+      "confirmedMs": 3123,
+      "finalizedMs": 15137,
+      "galleryVerifiedMs": 15155,
+      "signatures": [
+        "Dv3eRvxySqz1f2LtPPS8mo7Y3WYXeWGtsUyvYwog6MMx5NFKATyDXbmqJxDfwSDVMcRGas5NkP4saWvQQuFBhdE"
+      ],
+      "confirmedSignatures": [
+        "Dv3eRvxySqz1f2LtPPS8mo7Y3WYXeWGtsUyvYwog6MMx5NFKATyDXbmqJxDfwSDVMcRGas5NkP4saWvQQuFBhdE"
+      ],
+      "passed": true
+    },
+    {
+      "index": 21,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:35:01.905Z",
+      "confirmedMs": 3063,
+      "finalizedMs": 15062,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "5NqPvLhg9wvra5VYwgUCAz2P17aNUhtJs7rPca2r8fuEfBGoFF9qgzdFpxTMgnkLz2HQxbTEu28nJdcowM5uPFbh"
+      ],
+      "confirmedSignatures": [
+        "5NqPvLhg9wvra5VYwgUCAz2P17aNUhtJs7rPca2r8fuEfBGoFF9qgzdFpxTMgnkLz2HQxbTEu28nJdcowM5uPFbh"
+      ],
+      "passed": true
+    },
+    {
+      "index": 22,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:35:07.905Z",
+      "confirmedMs": 3115,
+      "finalizedMs": 15123,
+      "galleryVerifiedMs": 15147,
+      "signatures": [
+        "54caWQtasKg4PatyQvauU2ErkmKRo7MfD5fEuc5rEaK9n3F4wztfC4BnknrhmokDjNc2Mi6ezNGdRafqeG29Npk6"
+      ],
+      "confirmedSignatures": [
+        "54caWQtasKg4PatyQvauU2ErkmKRo7MfD5fEuc5rEaK9n3F4wztfC4BnknrhmokDjNc2Mi6ezNGdRafqeG29Npk6"
+      ],
+      "passed": true
+    },
+    {
+      "index": 23,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:35:13.904Z",
+      "confirmedMs": 3063,
+      "finalizedMs": 15065,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "bR3tDoK62bVcPCXgh9F9gFC15V9TPGGHVsC6uJnNW89L3HTf8st7pYVuoWsmcnuybwZDQogYYRCuKkYmTsKQJYa"
+      ],
+      "confirmedSignatures": [
+        "bR3tDoK62bVcPCXgh9F9gFC15V9TPGGHVsC6uJnNW89L3HTf8st7pYVuoWsmcnuybwZDQogYYRCuKkYmTsKQJYa"
+      ],
+      "passed": true
+    },
+    {
+      "index": 24,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:35:19.907Z",
+      "confirmedMs": 3131,
+      "finalizedMs": 15141,
+      "galleryVerifiedMs": 15165,
+      "signatures": [
+        "3JmAJLfMwdxCgxUAYBm8Vgrc9BADZJKYx7E1egzCniBB8wryCJtqLx4hZr5nNXJUoyGwhbMH3qgBLKDNpekTQfkT"
+      ],
+      "confirmedSignatures": [
+        "3JmAJLfMwdxCgxUAYBm8Vgrc9BADZJKYx7E1egzCniBB8wryCJtqLx4hZr5nNXJUoyGwhbMH3qgBLKDNpekTQfkT"
+      ],
+      "passed": true
+    },
+    {
+      "index": 25,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:35:25.906Z",
+      "confirmedMs": 3064,
+      "finalizedMs": 15074,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "5uKjGn18MofVmDxyAKgm5PFJ6dvY3Eh3uA4pC68EvQQfwjsSAhveU1uJCi6z47oJMRbQYEgehzU9du92hdktUS6a"
+      ],
+      "confirmedSignatures": [
+        "5uKjGn18MofVmDxyAKgm5PFJ6dvY3Eh3uA4pC68EvQQfwjsSAhveU1uJCi6z47oJMRbQYEgehzU9du92hdktUS6a"
+      ],
+      "passed": true
+    },
+    {
+      "index": 26,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:35:31.905Z",
+      "confirmedMs": 3129,
+      "finalizedMs": 15145,
+      "galleryVerifiedMs": 15174,
+      "signatures": [
+        "ck5kUZHEQ3W9NcNYhRD2gXu17mXhPqbTWPoExNxAsRQJ98JYUSpj3u4hWvMYyJb749Aj6dZjYSVsAJhip3GjqB7"
+      ],
+      "confirmedSignatures": [
+        "ck5kUZHEQ3W9NcNYhRD2gXu17mXhPqbTWPoExNxAsRQJ98JYUSpj3u4hWvMYyJb749Aj6dZjYSVsAJhip3GjqB7"
+      ],
+      "passed": true
+    },
+    {
+      "index": 27,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:35:37.907Z",
+      "confirmedMs": 3075,
+      "finalizedMs": 15067,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "Upwi5kZnTyLk1eJFvxmowWnPsFTmVetYRgzuxH9aNuUGquVu38Nw5TMZXwoUBJdBFyEN8KdsuoWQbXRjv89Cb2i"
+      ],
+      "confirmedSignatures": [
+        "Upwi5kZnTyLk1eJFvxmowWnPsFTmVetYRgzuxH9aNuUGquVu38Nw5TMZXwoUBJdBFyEN8KdsuoWQbXRjv89Cb2i"
+      ],
+      "passed": true
+    },
+    {
+      "index": 28,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:35:43.905Z",
+      "confirmedMs": 3125,
+      "finalizedMs": 15131,
+      "galleryVerifiedMs": 15149,
+      "signatures": [
+        "4PKMb3XhsAsTU2NQfdaQELinYFZKHKAx8MAJWtauRHmV15fJwjHLwTeqjKbD699MVc7SuJReU9hbHLnw7UnceYkG"
+      ],
+      "confirmedSignatures": [
+        "4PKMb3XhsAsTU2NQfdaQELinYFZKHKAx8MAJWtauRHmV15fJwjHLwTeqjKbD699MVc7SuJReU9hbHLnw7UnceYkG"
+      ],
+      "passed": true
+    },
+    {
+      "index": 29,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:35:49.906Z",
+      "confirmedMs": 3065,
+      "finalizedMs": 15066,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "5FH8ToKg4zGder6nyfnSE74fEf7rW5rzJpM2LCTWm3NQVwCNsfDzN5iFm4bTKT3aH2AbKn238b2VrxpvjkTS8Zke"
+      ],
+      "confirmedSignatures": [
+        "5FH8ToKg4zGder6nyfnSE74fEf7rW5rzJpM2LCTWm3NQVwCNsfDzN5iFm4bTKT3aH2AbKn238b2VrxpvjkTS8Zke"
+      ],
+      "passed": true
+    },
+    {
+      "index": 30,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:35:55.904Z",
+      "confirmedMs": 3133,
+      "finalizedMs": 15150,
+      "galleryVerifiedMs": 15168,
+      "signatures": [
+        "3TsHMJzxE44KESTo29MVuicdqYDBFVuBVJwJdhHfyrTfgTPiv1THkiEPfhkEWWauQTJBp1rd2GfhpvCeubwgkjjx"
+      ],
+      "confirmedSignatures": [
+        "3TsHMJzxE44KESTo29MVuicdqYDBFVuBVJwJdhHfyrTfgTPiv1THkiEPfhkEWWauQTJBp1rd2GfhpvCeubwgkjjx"
+      ],
+      "passed": true
+    },
+    {
+      "index": 31,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:36:01.906Z",
+      "confirmedMs": 3067,
+      "finalizedMs": 15068,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "4tbM9dpzz7PxpqbLb6yYBhTRnE6TxJ48irvLJ2bRTdZectaQXKr9MHWHm8ZNFPkTU91pVAfVXSkPRejnt7snSpZq"
+      ],
+      "confirmedSignatures": [
+        "4tbM9dpzz7PxpqbLb6yYBhTRnE6TxJ48irvLJ2bRTdZectaQXKr9MHWHm8ZNFPkTU91pVAfVXSkPRejnt7snSpZq"
+      ],
+      "passed": true
+    },
+    {
+      "index": 32,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:36:07.907Z",
+      "confirmedMs": 3111,
+      "finalizedMs": 15120,
+      "galleryVerifiedMs": 15139,
+      "signatures": [
+        "uVFNGcrc5EXCSp6KtY71EKwP5HJiWnWBhCngQo2Z2Li1A21iFPNSV3iofSFLVA85YciYVqJ5GtGLsamhCSNcnCK"
+      ],
+      "confirmedSignatures": [
+        "uVFNGcrc5EXCSp6KtY71EKwP5HJiWnWBhCngQo2Z2Li1A21iFPNSV3iofSFLVA85YciYVqJ5GtGLsamhCSNcnCK"
+      ],
+      "passed": true
+    },
+    {
+      "index": 33,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:36:13.904Z",
+      "confirmedMs": 3071,
+      "finalizedMs": 15065,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "65t4T8SrRgakRV4La6XjmLdzEXewiDWq417uhujfknAX4QHqUJf6f8fgupUGewAefCxcAbMkYjtCxLtVZbQg3X1v"
+      ],
+      "confirmedSignatures": [
+        "65t4T8SrRgakRV4La6XjmLdzEXewiDWq417uhujfknAX4QHqUJf6f8fgupUGewAefCxcAbMkYjtCxLtVZbQg3X1v"
+      ],
+      "passed": true
+    },
+    {
+      "index": 34,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:36:19.905Z",
+      "confirmedMs": 3106,
+      "finalizedMs": 15133,
+      "galleryVerifiedMs": 15150,
+      "signatures": [
+        "rbG27CSKLN7yyAvZ8iBG43JvzpjC4WTk3jqC2Fi9MS6KwGVZUYNXj671y6ndFnbPpa3raHarsGXotv72Gv7Kfr3"
+      ],
+      "confirmedSignatures": [
+        "rbG27CSKLN7yyAvZ8iBG43JvzpjC4WTk3jqC2Fi9MS6KwGVZUYNXj671y6ndFnbPpa3raHarsGXotv72Gv7Kfr3"
+      ],
+      "passed": true
+    },
+    {
+      "index": 35,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:36:25.908Z",
+      "confirmedMs": 3057,
+      "finalizedMs": 15063,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "4xfiLSQJD8HqowfVkMaq689pEQyKChFNvLMGnYpkTM4FUNtPkwsjWoggpVcPAXrWLCcX86aCb68SwN4arboRAtnA"
+      ],
+      "confirmedSignatures": [
+        "4xfiLSQJD8HqowfVkMaq689pEQyKChFNvLMGnYpkTM4FUNtPkwsjWoggpVcPAXrWLCcX86aCb68SwN4arboRAtnA"
+      ],
+      "passed": true
+    },
+    {
+      "index": 36,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:36:31.905Z",
+      "confirmedMs": 3241,
+      "finalizedMs": 15249,
+      "galleryVerifiedMs": 15266,
+      "signatures": [
+        "5EqtdTpABeqGEC6cnc8RPWw7CYuhWQQrxW55m58CmgBw842mfXpJMdE3TFZZQ4WLKi2SbSzPtivWZbdznGXAz4ct"
+      ],
+      "confirmedSignatures": [
+        "5EqtdTpABeqGEC6cnc8RPWw7CYuhWQQrxW55m58CmgBw842mfXpJMdE3TFZZQ4WLKi2SbSzPtivWZbdznGXAz4ct"
+      ],
+      "passed": true
+    },
+    {
+      "index": 37,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:36:37.905Z",
+      "confirmedMs": 3066,
+      "finalizedMs": 15060,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "2adxWERpQiv9yC9qwrwdanRZzB7bDnVuHrBk9SWuC6MrdJ4i2yMsCa4eaur41oLDM8uTxVJcUg1R8yKaGQeh8cUD"
+      ],
+      "confirmedSignatures": [
+        "2adxWERpQiv9yC9qwrwdanRZzB7bDnVuHrBk9SWuC6MrdJ4i2yMsCa4eaur41oLDM8uTxVJcUg1R8yKaGQeh8cUD"
+      ],
+      "passed": true
+    },
+    {
+      "index": 38,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:36:43.905Z",
+      "confirmedMs": 3132,
+      "finalizedMs": 15144,
+      "galleryVerifiedMs": 15159,
+      "signatures": [
+        "1yFQN53wetPX3TdJnTZSoXV5LZ841GAQUxiGzpmGowvDjhkNzAjciaYAsa59iEkcJswr4NrF6txi9e4bLgUdk7u"
+      ],
+      "confirmedSignatures": [
+        "1yFQN53wetPX3TdJnTZSoXV5LZ841GAQUxiGzpmGowvDjhkNzAjciaYAsa59iEkcJswr4NrF6txi9e4bLgUdk7u"
+      ],
+      "passed": true
+    },
+    {
+      "index": 39,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:36:49.905Z",
+      "confirmedMs": 3060,
+      "finalizedMs": 15058,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "382YHGhtcVs2f9DUMQvwANkABnjmexv7bFaJoNwYXB6HLZFMGkxLtqadJKeGNrNbZxdHS7jxKfc3UaPWHRGdVDnc"
+      ],
+      "confirmedSignatures": [
+        "382YHGhtcVs2f9DUMQvwANkABnjmexv7bFaJoNwYXB6HLZFMGkxLtqadJKeGNrNbZxdHS7jxKfc3UaPWHRGdVDnc"
+      ],
+      "passed": true
+    },
+    {
+      "index": 40,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:36:55.907Z",
+      "confirmedMs": 3114,
+      "finalizedMs": 15119,
+      "galleryVerifiedMs": 15135,
+      "signatures": [
+        "36aHi1prv3xVeAcQP6mW3hvAjTnGgFaTGKx1LS3cQfixspGXhn3zCvx5B998kNnabQHzaT3cSjZ7iKiYfM2TsiPr"
+      ],
+      "confirmedSignatures": [
+        "36aHi1prv3xVeAcQP6mW3hvAjTnGgFaTGKx1LS3cQfixspGXhn3zCvx5B998kNnabQHzaT3cSjZ7iKiYfM2TsiPr"
+      ],
+      "passed": true
+    },
+    {
+      "index": 41,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:37:01.904Z",
+      "confirmedMs": 3068,
+      "finalizedMs": 15071,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "4QNnpWG1yXnoZJTv96KKRZHfvwEA8KAEfDW4kjE5J7RnSb9tXWoFtgpoSaH3nxr6QqPZEbBkESK84KrG2hWa3Jf8"
+      ],
+      "confirmedSignatures": [
+        "4QNnpWG1yXnoZJTv96KKRZHfvwEA8KAEfDW4kjE5J7RnSb9tXWoFtgpoSaH3nxr6QqPZEbBkESK84KrG2hWa3Jf8"
+      ],
+      "passed": true
+    },
+    {
+      "index": 42,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:37:07.906Z",
+      "confirmedMs": 3093,
+      "finalizedMs": 15107,
+      "galleryVerifiedMs": 15125,
+      "signatures": [
+        "3oDkDh6uECpAgfzhjReSZkXEK2ikCS1Pev8Yz3eFHCe1AeAkL4nUfbpuWtkcYbf5prUPUKXsPbibAHkbaepgmfUX"
+      ],
+      "confirmedSignatures": [
+        "3oDkDh6uECpAgfzhjReSZkXEK2ikCS1Pev8Yz3eFHCe1AeAkL4nUfbpuWtkcYbf5prUPUKXsPbibAHkbaepgmfUX"
+      ],
+      "passed": true
+    },
+    {
+      "index": 43,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:37:13.904Z",
+      "confirmedMs": 3055,
+      "finalizedMs": 15049,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "4Mqv5gutgr8ojS1e16519ikMiDLoGCUufwV5QLf8rNw6TUGXiYpvsEiyAkjGLUY35fy88vqPdHQ7pDxBxsCydvVz"
+      ],
+      "confirmedSignatures": [
+        "4Mqv5gutgr8ojS1e16519ikMiDLoGCUufwV5QLf8rNw6TUGXiYpvsEiyAkjGLUY35fy88vqPdHQ7pDxBxsCydvVz"
+      ],
+      "passed": true
+    },
+    {
+      "index": 44,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:37:19.906Z",
+      "confirmedMs": 3108,
+      "finalizedMs": 15118,
+      "galleryVerifiedMs": 15133,
+      "signatures": [
+        "bdp3gb6aUPNHSsP4tMLQPsGGWSVT8d2XyGjYfebcLdv91QiLZG6FFgDzVFfs8YvRBzMiE4YhgCTwX8L97thjoct"
+      ],
+      "confirmedSignatures": [
+        "bdp3gb6aUPNHSsP4tMLQPsGGWSVT8d2XyGjYfebcLdv91QiLZG6FFgDzVFfs8YvRBzMiE4YhgCTwX8L97thjoct"
+      ],
+      "passed": true
+    },
+    {
+      "index": 45,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:37:25.906Z",
+      "confirmedMs": 3070,
+      "finalizedMs": 15066,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "4dwCmzLzkFaP3TTxrC7KEYf1F9L1bPhuRzZAq1LhzUi1sNBz71BBYxyjp1Gyo58yUfnmVpffUK4fVYiLWsjGXQc6"
+      ],
+      "confirmedSignatures": [
+        "4dwCmzLzkFaP3TTxrC7KEYf1F9L1bPhuRzZAq1LhzUi1sNBz71BBYxyjp1Gyo58yUfnmVpffUK4fVYiLWsjGXQc6"
+      ],
+      "passed": true
+    },
+    {
+      "index": 46,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:37:31.906Z",
+      "confirmedMs": 3126,
+      "finalizedMs": 15135,
+      "galleryVerifiedMs": 15154,
+      "signatures": [
+        "3PQ9B6QJcgpbmpnfawXAkLUKkmLkN3wnCN3CURMjLZRwG46jRD2ozjdkf4W5ERdNg3pFUbQYrfPuHRbrD6BGDfdy"
+      ],
+      "confirmedSignatures": [
+        "3PQ9B6QJcgpbmpnfawXAkLUKkmLkN3wnCN3CURMjLZRwG46jRD2ozjdkf4W5ERdNg3pFUbQYrfPuHRbrD6BGDfdy"
+      ],
+      "passed": true
+    },
+    {
+      "index": 47,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:37:37.904Z",
+      "confirmedMs": 3070,
+      "finalizedMs": 15070,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "2o4nXCP1ZXQu5cJEBHN1Kytbgg8BuA2jdtkN77QXDZNDQfNijHZjj9BLpvTDuigqVp5c3piGscQ2qNa7bviwRsuw"
+      ],
+      "confirmedSignatures": [
+        "2o4nXCP1ZXQu5cJEBHN1Kytbgg8BuA2jdtkN77QXDZNDQfNijHZjj9BLpvTDuigqVp5c3piGscQ2qNa7bviwRsuw"
+      ],
+      "passed": true
+    },
+    {
+      "index": 48,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:37:43.904Z",
+      "confirmedMs": 3131,
+      "finalizedMs": 15148,
+      "galleryVerifiedMs": 15183,
+      "signatures": [
+        "6fAb2KvAHoutNBZu37A7e2cg3wTV3bdYrc5dhqF5r2jav1772eH2hwL2gUHFb37k6PWYo6TKbLMCZZBVL4JAWq4"
+      ],
+      "confirmedSignatures": [
+        "6fAb2KvAHoutNBZu37A7e2cg3wTV3bdYrc5dhqF5r2jav1772eH2hwL2gUHFb37k6PWYo6TKbLMCZZBVL4JAWq4"
+      ],
+      "passed": true
+    },
+    {
+      "index": 49,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:37:49.906Z",
+      "confirmedMs": 3061,
+      "finalizedMs": 15062,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "2c3a3F4aE6XfwuuhcWaJyJS3bmhPH7yFVHBM6yvahx5C5Mxfd3m4uAnjMSBP5y7emyyPg5QqQiVZwsTS2NyVAa7g"
+      ],
+      "confirmedSignatures": [
+        "2c3a3F4aE6XfwuuhcWaJyJS3bmhPH7yFVHBM6yvahx5C5Mxfd3m4uAnjMSBP5y7emyyPg5QqQiVZwsTS2NyVAa7g"
+      ],
+      "passed": true
+    },
+    {
+      "index": 50,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:37:55.907Z",
+      "confirmedMs": 3121,
+      "finalizedMs": 15133,
+      "galleryVerifiedMs": 15155,
+      "signatures": [
+        "eufqWB33xh6b3qE273kUALPtPdfp7f3Xxg1JVS8qDogdkgmw6HF3tfuEvZ5wigPVXcxyXJR4iZJyeTK9QW1JQnF"
+      ],
+      "confirmedSignatures": [
+        "eufqWB33xh6b3qE273kUALPtPdfp7f3Xxg1JVS8qDogdkgmw6HF3tfuEvZ5wigPVXcxyXJR4iZJyeTK9QW1JQnF"
+      ],
+      "passed": true
+    },
+    {
+      "index": 51,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:38:01.905Z",
+      "confirmedMs": 3061,
+      "finalizedMs": 15060,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "37CikAQZhLwY9pe7UhogPGxtjd7Ta6dLzz3GdMh4yYqEvPbzU9Ze6ZQXqD111MrtBKm3f6v8QQ4G95RKwiXmhUQA"
+      ],
+      "confirmedSignatures": [
+        "37CikAQZhLwY9pe7UhogPGxtjd7Ta6dLzz3GdMh4yYqEvPbzU9Ze6ZQXqD111MrtBKm3f6v8QQ4G95RKwiXmhUQA"
+      ],
+      "passed": true
+    },
+    {
+      "index": 52,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:38:07.906Z",
+      "confirmedMs": 3116,
+      "finalizedMs": 15130,
+      "galleryVerifiedMs": 15145,
+      "signatures": [
+        "3wyZGRLuAUkzHc1PYc4SwMCqPgKeiQPK28FrZWXNQ4Fk6c2VUZQXbrrv8kKc9dCqFkrf88ikm1Xo18BgJ2Fh5Rgp"
+      ],
+      "confirmedSignatures": [
+        "3wyZGRLuAUkzHc1PYc4SwMCqPgKeiQPK28FrZWXNQ4Fk6c2VUZQXbrrv8kKc9dCqFkrf88ikm1Xo18BgJ2Fh5Rgp"
+      ],
+      "passed": true
+    },
+    {
+      "index": 53,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:38:13.906Z",
+      "confirmedMs": 3059,
+      "finalizedMs": 15054,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "514RXfLGybZA3yapg6UrMskv9fe3WzoRJyjVG3KDQbRCe4o1xrLDERxK9bXEFkhfbQNk7fMj6k4vS4xFW3CvmSQy"
+      ],
+      "confirmedSignatures": [
+        "514RXfLGybZA3yapg6UrMskv9fe3WzoRJyjVG3KDQbRCe4o1xrLDERxK9bXEFkhfbQNk7fMj6k4vS4xFW3CvmSQy"
+      ],
+      "passed": true
+    },
+    {
+      "index": 54,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:38:19.907Z",
+      "confirmedMs": 3111,
+      "finalizedMs": 15126,
+      "galleryVerifiedMs": 15144,
+      "signatures": [
+        "4LZ2Vb6GzBVLsKdhdWrWbtAEFkDQUtgZjFKDQPmQmT7jua67s3grg3HzNdDsVcSSKbmhdqaEce7LaTZ5KrnRWkaY"
+      ],
+      "confirmedSignatures": [
+        "4LZ2Vb6GzBVLsKdhdWrWbtAEFkDQUtgZjFKDQPmQmT7jua67s3grg3HzNdDsVcSSKbmhdqaEce7LaTZ5KrnRWkaY"
+      ],
+      "passed": true
+    },
+    {
+      "index": 55,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:38:25.907Z",
+      "confirmedMs": 3055,
+      "finalizedMs": 15056,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "3X8Dg3sFy1h7YzbsmQTDWmfKpUDJ2f32MnFYUM5Gz7S43CDTXAAfwzFTKAbwto4jBPVHAF1S9U2HgLu3d9PnkvwG"
+      ],
+      "confirmedSignatures": [
+        "3X8Dg3sFy1h7YzbsmQTDWmfKpUDJ2f32MnFYUM5Gz7S43CDTXAAfwzFTKAbwto4jBPVHAF1S9U2HgLu3d9PnkvwG"
+      ],
+      "passed": true
+    },
+    {
+      "index": 56,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:38:31.905Z",
+      "confirmedMs": 3119,
+      "finalizedMs": 15134,
+      "galleryVerifiedMs": 15149,
+      "signatures": [
+        "4rgqwhYZPhyiRpJfDJXN8wnHevvetRtMCS1ahafcT2vbjBPsG95Y1cEcYjk8qvZbS2cEHQHobMkPB4hrUZYvuKvn"
+      ],
+      "confirmedSignatures": [
+        "4rgqwhYZPhyiRpJfDJXN8wnHevvetRtMCS1ahafcT2vbjBPsG95Y1cEcYjk8qvZbS2cEHQHobMkPB4hrUZYvuKvn"
+      ],
+      "passed": true
+    },
+    {
+      "index": 57,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:38:37.904Z",
+      "confirmedMs": 3056,
+      "finalizedMs": 15059,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "4M4sots391SGPqk6y2cbJQ7tTRKw8V9QAD9R9XEPc4PtoenCxRtGN4QVphzNcnoH5bjd2HV2iCEPTN23JtXuxzPh"
+      ],
+      "confirmedSignatures": [
+        "4M4sots391SGPqk6y2cbJQ7tTRKw8V9QAD9R9XEPc4PtoenCxRtGN4QVphzNcnoH5bjd2HV2iCEPTN23JtXuxzPh"
+      ],
+      "passed": true
+    },
+    {
+      "index": 58,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:38:43.906Z",
+      "confirmedMs": 3115,
+      "finalizedMs": 15133,
+      "galleryVerifiedMs": 15154,
+      "signatures": [
+        "1kJ3Wy8xJtwffZNpcEuDbQxKtaoMRkBKCYZUKkLACtm5BFvnPAdzvE7zxppVQaT4W4PrCKoTpnUCrR1nwfbX8oD"
+      ],
+      "confirmedSignatures": [
+        "1kJ3Wy8xJtwffZNpcEuDbQxKtaoMRkBKCYZUKkLACtm5BFvnPAdzvE7zxppVQaT4W4PrCKoTpnUCrR1nwfbX8oD"
+      ],
+      "passed": true
+    },
+    {
+      "index": 59,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:38:49.906Z",
+      "confirmedMs": 3080,
+      "finalizedMs": 15077,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "4xZUEZcLMqMsL1FQ2uXnHNWiyDbGbDsNfQbrgcjkwQasj5F51zuLvsdjJ75bqKD9Z1CWCzqnKAHy811D1iL2h5TV"
+      ],
+      "confirmedSignatures": [
+        "4xZUEZcLMqMsL1FQ2uXnHNWiyDbGbDsNfQbrgcjkwQasj5F51zuLvsdjJ75bqKD9Z1CWCzqnKAHy811D1iL2h5TV"
+      ],
+      "passed": true
+    },
+    {
+      "index": 60,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:38:55.907Z",
+      "confirmedMs": 3125,
+      "finalizedMs": 15138,
+      "galleryVerifiedMs": 15152,
+      "signatures": [
+        "2Ytm543dF6PC9eberWgsv9QoDNfc84TcuRYcJk7cYVNg9odveCJX9oRP7rYFmjpQce8nmZCfUFqrwFUrJuEpLB5p"
+      ],
+      "confirmedSignatures": [
+        "2Ytm543dF6PC9eberWgsv9QoDNfc84TcuRYcJk7cYVNg9odveCJX9oRP7rYFmjpQce8nmZCfUFqrwFUrJuEpLB5p"
+      ],
+      "passed": true
+    },
+    {
+      "index": 61,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:39:01.907Z",
+      "confirmedMs": 3056,
+      "finalizedMs": 15055,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "4tfwYCLDysJrdDFhcwzVeWy9Rjf3TSLAiP9pxStXqByKHu4ifJfV1bxkik7rMDvcubUUWH25UtcU4K5MR7D5iWQG"
+      ],
+      "confirmedSignatures": [
+        "4tfwYCLDysJrdDFhcwzVeWy9Rjf3TSLAiP9pxStXqByKHu4ifJfV1bxkik7rMDvcubUUWH25UtcU4K5MR7D5iWQG"
+      ],
+      "passed": true
+    },
+    {
+      "index": 62,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:39:07.904Z",
+      "confirmedMs": 3113,
+      "finalizedMs": 15120,
+      "galleryVerifiedMs": 15135,
+      "signatures": [
+        "4D1zfo4cSXAMRtvqw3JG8r4nABQ2TUV2HhvCBmzM6VdyPCFn5P2pnWH5T7nRj5kks9Eo67UChZYEqp1LanZnthDf"
+      ],
+      "confirmedSignatures": [
+        "4D1zfo4cSXAMRtvqw3JG8r4nABQ2TUV2HhvCBmzM6VdyPCFn5P2pnWH5T7nRj5kks9Eo67UChZYEqp1LanZnthDf"
+      ],
+      "passed": true
+    },
+    {
+      "index": 63,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:39:13.905Z",
+      "confirmedMs": 3058,
+      "finalizedMs": 15053,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "35vggbnbZxfL5WPftqxgXL9giyn2Pcjp7EBuJTRN1YTD6ExWPvX4FZiJgdMQmTESJp4DRjP75FHNMWuywcqFGSaC"
+      ],
+      "confirmedSignatures": [
+        "35vggbnbZxfL5WPftqxgXL9giyn2Pcjp7EBuJTRN1YTD6ExWPvX4FZiJgdMQmTESJp4DRjP75FHNMWuywcqFGSaC"
+      ],
+      "passed": true
+    },
+    {
+      "index": 64,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:39:19.907Z",
+      "confirmedMs": 3105,
+      "finalizedMs": 15118,
+      "galleryVerifiedMs": 15135,
+      "signatures": [
+        "M5rMyWtTN4A7Jh9X3VzesqBA4TayrF59S9128KwcFT3v3opHLMZw6RU8PprjLgiToKsonR15VFdMCTbxQP7qAyz"
+      ],
+      "confirmedSignatures": [
+        "M5rMyWtTN4A7Jh9X3VzesqBA4TayrF59S9128KwcFT3v3opHLMZw6RU8PprjLgiToKsonR15VFdMCTbxQP7qAyz"
+      ],
+      "passed": true
+    },
+    {
+      "index": 65,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:39:25.908Z",
+      "confirmedMs": 3054,
+      "finalizedMs": 15055,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "33CvvPxgnLWLQ2ySnQ8q53F5JcdzBw9gQACZansobrWW3vFTv4Nsxkker71ecwGpDdwrDVeCwSNqQGp8UN9Wkew"
+      ],
+      "confirmedSignatures": [
+        "33CvvPxgnLWLQ2ySnQ8q53F5JcdzBw9gQACZansobrWW3vFTv4Nsxkker71ecwGpDdwrDVeCwSNqQGp8UN9Wkew"
+      ],
+      "passed": true
+    },
+    {
+      "index": 66,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:39:31.905Z",
+      "confirmedMs": 3109,
+      "finalizedMs": 15117,
+      "galleryVerifiedMs": 15135,
+      "signatures": [
+        "3bTF5nqCDGpVXURi75zi5iCADcg7wYtxGPnAdVBArYiGVQf8XWoy6fFMjURzZKc3JWMrdqh99DWZCPv7vdPUzGEc"
+      ],
+      "confirmedSignatures": [
+        "3bTF5nqCDGpVXURi75zi5iCADcg7wYtxGPnAdVBArYiGVQf8XWoy6fFMjURzZKc3JWMrdqh99DWZCPv7vdPUzGEc"
+      ],
+      "passed": true
+    },
+    {
+      "index": 67,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:39:37.905Z",
+      "confirmedMs": 3056,
+      "finalizedMs": 15059,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "427KEXQot41jw82tea3xHw1skvbFTVsV4kYe88pVskGuSm5vnEVtCEde5HZ9MJLtMMBGdgauTAm4XZiLuxKpTu8V"
+      ],
+      "confirmedSignatures": [
+        "427KEXQot41jw82tea3xHw1skvbFTVsV4kYe88pVskGuSm5vnEVtCEde5HZ9MJLtMMBGdgauTAm4XZiLuxKpTu8V"
+      ],
+      "passed": true
+    },
+    {
+      "index": 68,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:39:43.905Z",
+      "confirmedMs": 3103,
+      "finalizedMs": 15113,
+      "galleryVerifiedMs": 15128,
+      "signatures": [
+        "DvVVAcWJ4TiEVdNovNBorXb8UvYvrHP2EfSqRBS4R6AHHeMVYETkarmgafekbqF5kTcjeWgKw5WyshihwBnoJyq"
+      ],
+      "confirmedSignatures": [
+        "DvVVAcWJ4TiEVdNovNBorXb8UvYvrHP2EfSqRBS4R6AHHeMVYETkarmgafekbqF5kTcjeWgKw5WyshihwBnoJyq"
+      ],
+      "passed": true
+    },
+    {
+      "index": 69,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:39:49.906Z",
+      "confirmedMs": 3066,
+      "finalizedMs": 15069,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "3CS3au4n5PZxq6xd4tBB5Pv125qRBf7r5yEGm5DHzk3mjVnLVb8eptxFtkRyjusiAWbvRebM93vyfqUAruHtuzdA"
+      ],
+      "confirmedSignatures": [
+        "3CS3au4n5PZxq6xd4tBB5Pv125qRBf7r5yEGm5DHzk3mjVnLVb8eptxFtkRyjusiAWbvRebM93vyfqUAruHtuzdA"
+      ],
+      "passed": true
+    },
+    {
+      "index": 70,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:39:55.906Z",
+      "confirmedMs": 3114,
+      "finalizedMs": 15128,
+      "galleryVerifiedMs": 15147,
+      "signatures": [
+        "ZrLZhmDgg4ocxssA5uXcQzC8CNvd74iZcB7CAhtPj9wZ3gQAhmuheATYkiXCwGc1ZhN3HqUtRjDuT89tf8DejYy"
+      ],
+      "confirmedSignatures": [
+        "ZrLZhmDgg4ocxssA5uXcQzC8CNvd74iZcB7CAhtPj9wZ3gQAhmuheATYkiXCwGc1ZhN3HqUtRjDuT89tf8DejYy"
+      ],
+      "passed": true
+    },
+    {
+      "index": 71,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:40:01.904Z",
+      "confirmedMs": 3099,
+      "finalizedMs": 15098,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "5z7tHiWhL33k4qzVmcFCfNY7Dnh5rNSxKtxzKFSN2ihJk9sNoEDANeaTTxpqMHUehL1HSpcag58J1nQHxQnCpn2H"
+      ],
+      "confirmedSignatures": [
+        "5z7tHiWhL33k4qzVmcFCfNY7Dnh5rNSxKtxzKFSN2ihJk9sNoEDANeaTTxpqMHUehL1HSpcag58J1nQHxQnCpn2H"
+      ],
+      "passed": true
+    },
+    {
+      "index": 72,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:40:07.904Z",
+      "confirmedMs": 3111,
+      "finalizedMs": 15138,
+      "galleryVerifiedMs": 15164,
+      "signatures": [
+        "4VJqtvGdrX6nra7eGSPBs9nhh6nCGnNmgNeWga3AwKNA9STVRvaeyuf2hv69tF9Gpzhk4nKeUgNxsZeFGd6AnXCM"
+      ],
+      "confirmedSignatures": [
+        "4VJqtvGdrX6nra7eGSPBs9nhh6nCGnNmgNeWga3AwKNA9STVRvaeyuf2hv69tF9Gpzhk4nKeUgNxsZeFGd6AnXCM"
+      ],
+      "passed": true
+    },
+    {
+      "index": 73,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:40:13.906Z",
+      "confirmedMs": 3057,
+      "finalizedMs": 15058,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "4q15Tp4FTnng8MgTxajRMRTwzDLXsUWAkRKDB5GoDZQVeGL5WqVvNQRQL2sA9tkLEsamkcfr9SRnHM3vHDRwiCMr"
+      ],
+      "confirmedSignatures": [
+        "4q15Tp4FTnng8MgTxajRMRTwzDLXsUWAkRKDB5GoDZQVeGL5WqVvNQRQL2sA9tkLEsamkcfr9SRnHM3vHDRwiCMr"
+      ],
+      "passed": true
+    },
+    {
+      "index": 74,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:40:19.906Z",
+      "confirmedMs": 3148,
+      "finalizedMs": 15150,
+      "galleryVerifiedMs": 15169,
+      "signatures": [
+        "4esLVKoiqtn25PqPdnHevJypZHww1up6ZgC7AJUQpv7GHdswPDX13LMGAT5TwmX5gGZJqSNgZAbC8RiY4WYnEgB"
+      ],
+      "confirmedSignatures": [
+        "4esLVKoiqtn25PqPdnHevJypZHww1up6ZgC7AJUQpv7GHdswPDX13LMGAT5TwmX5gGZJqSNgZAbC8RiY4WYnEgB"
+      ],
+      "passed": true
+    },
+    {
+      "index": 75,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:40:25.906Z",
+      "confirmedMs": 3061,
+      "finalizedMs": 15072,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "5ci8zbkjb4hyepsB34J56JyD5mieb49kV8T7cwBJTmKU6xovmEiYjXv6PR3QHdU9JXo5Ymc8KXzoQ82UjNwyJFJ7"
+      ],
+      "confirmedSignatures": [
+        "5ci8zbkjb4hyepsB34J56JyD5mieb49kV8T7cwBJTmKU6xovmEiYjXv6PR3QHdU9JXo5Ymc8KXzoQ82UjNwyJFJ7"
+      ],
+      "passed": true
+    },
+    {
+      "index": 76,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:40:31.904Z",
+      "confirmedMs": 3125,
+      "finalizedMs": 15137,
+      "galleryVerifiedMs": 15154,
+      "signatures": [
+        "55CAs8HKKRMheFRJjtpK66adqnYp8XFwwUny74aaY8tpdBC77CvGpp9ijitkTs5p9Dc329RAkMfQ9nxUZXeQtPq5"
+      ],
+      "confirmedSignatures": [
+        "55CAs8HKKRMheFRJjtpK66adqnYp8XFwwUny74aaY8tpdBC77CvGpp9ijitkTs5p9Dc329RAkMfQ9nxUZXeQtPq5"
+      ],
+      "passed": true
+    },
+    {
+      "index": 77,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:40:37.907Z",
+      "confirmedMs": 3060,
+      "finalizedMs": 15052,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "56b4YuBUwfCG3BwanCvz9mLCMCMXPikKgREK147S1ycmecetx6c9B773Sd9AGChtT3RS1ynyyFX25HXMhvJ7EpvT"
+      ],
+      "confirmedSignatures": [
+        "56b4YuBUwfCG3BwanCvz9mLCMCMXPikKgREK147S1ycmecetx6c9B773Sd9AGChtT3RS1ynyyFX25HXMhvJ7EpvT"
+      ],
+      "passed": true
+    },
+    {
+      "index": 78,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:40:43.904Z",
+      "confirmedMs": 3093,
+      "finalizedMs": 15109,
+      "galleryVerifiedMs": 15128,
+      "signatures": [
+        "5KeLWBtayafoYvncKyjN3DMG9BsE2wcY4wNp1PA3su82BBK2jwTF4HzcDVg5Ky8Zu3fGsnGK3y8aANpb4s548LjK"
+      ],
+      "confirmedSignatures": [
+        "5KeLWBtayafoYvncKyjN3DMG9BsE2wcY4wNp1PA3su82BBK2jwTF4HzcDVg5Ky8Zu3fGsnGK3y8aANpb4s548LjK"
+      ],
+      "passed": true
+    },
+    {
+      "index": 79,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:40:49.904Z",
+      "confirmedMs": 3058,
+      "finalizedMs": 15064,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "q3w9FdiaX7heZEUsAw6cmNo5Ta4a8QTgjRd27bEF4TdmdJFNGmDt4EnkFRWq313zeWK8f6T9CKwSe9w8hPLkPSU"
+      ],
+      "confirmedSignatures": [
+        "q3w9FdiaX7heZEUsAw6cmNo5Ta4a8QTgjRd27bEF4TdmdJFNGmDt4EnkFRWq313zeWK8f6T9CKwSe9w8hPLkPSU"
+      ],
+      "passed": true
+    },
+    {
+      "index": 80,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:40:55.909Z",
+      "confirmedMs": 3096,
+      "finalizedMs": 15115,
+      "galleryVerifiedMs": 15133,
+      "signatures": [
+        "2mPBCDTa6nLXyJEremRXeXxMrBX54ryg11iwvnhApvR9Hx4uKoFjPiXrsCYASGTdrwmspu2MSa8gx6nCTdoSHBu2"
+      ],
+      "confirmedSignatures": [
+        "2mPBCDTa6nLXyJEremRXeXxMrBX54ryg11iwvnhApvR9Hx4uKoFjPiXrsCYASGTdrwmspu2MSa8gx6nCTdoSHBu2"
+      ],
+      "passed": true
+    },
+    {
+      "index": 81,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:41:01.905Z",
+      "confirmedMs": 3061,
+      "finalizedMs": 15059,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "5ffuCLw8hx8sp9beDkhWAkwGK18q3ENXpfLGozHrbbAi7MyfZNYEKwLNSBneH6vDQz171BMVRiGk6YpxCM9Prt2P"
+      ],
+      "confirmedSignatures": [
+        "5ffuCLw8hx8sp9beDkhWAkwGK18q3ENXpfLGozHrbbAi7MyfZNYEKwLNSBneH6vDQz171BMVRiGk6YpxCM9Prt2P"
+      ],
+      "passed": true
+    },
+    {
+      "index": 82,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:41:07.905Z",
+      "confirmedMs": 3123,
+      "finalizedMs": 15141,
+      "galleryVerifiedMs": 15158,
+      "signatures": [
+        "4AgusfJ5yYVsnwFS1Ww2yCHUtRFQFGeSc7RJCJgKR9trLTyAgcNJ4qsvWKLZE1pdBq234dJdmziMcE9RVZYNBqv3"
+      ],
+      "confirmedSignatures": [
+        "4AgusfJ5yYVsnwFS1Ww2yCHUtRFQFGeSc7RJCJgKR9trLTyAgcNJ4qsvWKLZE1pdBq234dJdmziMcE9RVZYNBqv3"
+      ],
+      "passed": true
+    },
+    {
+      "index": 83,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:41:13.905Z",
+      "confirmedMs": 3054,
+      "finalizedMs": 15049,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "3vxUVeGiAr7Q4XKpfqNBEzdPf8FgarF7vi9vjiNeTQvjwkbKDBDFFoPpGwU7ocEK3wdKx2wC1tbxbkLwa9wasefM"
+      ],
+      "confirmedSignatures": [
+        "3vxUVeGiAr7Q4XKpfqNBEzdPf8FgarF7vi9vjiNeTQvjwkbKDBDFFoPpGwU7ocEK3wdKx2wC1tbxbkLwa9wasefM"
+      ],
+      "passed": true
+    },
+    {
+      "index": 84,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:41:19.904Z",
+      "confirmedMs": 3109,
+      "finalizedMs": 15121,
+      "galleryVerifiedMs": 15135,
+      "signatures": [
+        "5NUUX11xH3KiwkC6QYKVJ2DeypRtgNgd3iiUKspgeD62GgT9wAWnui7dcsB5QVeEWMKmpZWMfA9DVM1eagNfAQjU"
+      ],
+      "confirmedSignatures": [
+        "5NUUX11xH3KiwkC6QYKVJ2DeypRtgNgd3iiUKspgeD62GgT9wAWnui7dcsB5QVeEWMKmpZWMfA9DVM1eagNfAQjU"
+      ],
+      "passed": true
+    },
+    {
+      "index": 85,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:41:25.905Z",
+      "confirmedMs": 3055,
+      "finalizedMs": 15056,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "3H1ZnNdjUmyNSjjym731Y8Um6pUzPDh32JhTe98uoE8bTWak84oi9C82xXWYCeYYGbtNumtKQ6XMrEF97VUibUsa"
+      ],
+      "confirmedSignatures": [
+        "3H1ZnNdjUmyNSjjym731Y8Um6pUzPDh32JhTe98uoE8bTWak84oi9C82xXWYCeYYGbtNumtKQ6XMrEF97VUibUsa"
+      ],
+      "passed": true
+    },
+    {
+      "index": 86,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:41:31.904Z",
+      "confirmedMs": 3114,
+      "finalizedMs": 15125,
+      "galleryVerifiedMs": 15142,
+      "signatures": [
+        "4Q9oLNGM5aKv29fXUYfZKRtZFZXXr1jb7Cfy5nmyffj7KmjzNLhetNhBZAR4A8AHTMPf5z4Nz297pY6uwqGVtfad"
+      ],
+      "confirmedSignatures": [
+        "4Q9oLNGM5aKv29fXUYfZKRtZFZXXr1jb7Cfy5nmyffj7KmjzNLhetNhBZAR4A8AHTMPf5z4Nz297pY6uwqGVtfad"
+      ],
+      "passed": true
+    },
+    {
+      "index": 87,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:41:37.904Z",
+      "confirmedMs": 3064,
+      "finalizedMs": 15066,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "xiY7ZCRKRKRVV3P4DNHNiiSSNK8PTcLwqSPN598Nu92DkFzDBdoXp44ySgMNHByHTSJAMo8Ydby8vTBQQ9jMqAx"
+      ],
+      "confirmedSignatures": [
+        "xiY7ZCRKRKRVV3P4DNHNiiSSNK8PTcLwqSPN598Nu92DkFzDBdoXp44ySgMNHByHTSJAMo8Ydby8vTBQQ9jMqAx"
+      ],
+      "passed": true
+    },
+    {
+      "index": 88,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:41:43.907Z",
+      "confirmedMs": 3113,
+      "finalizedMs": 15119,
+      "galleryVerifiedMs": 15138,
+      "signatures": [
+        "BYagq1M3gpSXqz1Ye9kNK3rbPh9EbQAMzafg3wX29APCRpxcn4ZqQGybJ82WgKQcyVEjMRQDrmjaySQ73nN4ZhL"
+      ],
+      "confirmedSignatures": [
+        "BYagq1M3gpSXqz1Ye9kNK3rbPh9EbQAMzafg3wX29APCRpxcn4ZqQGybJ82WgKQcyVEjMRQDrmjaySQ73nN4ZhL"
+      ],
+      "passed": true
+    },
+    {
+      "index": 89,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:41:49.908Z",
+      "confirmedMs": 3077,
+      "finalizedMs": 15077,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "27kXQzj65uu1b3sGBtyV8Ddy41w8vA83xE1K5VQBQ3d4Yaxw23kpYnkS1MLQx5PPjePc7C8QYREtsZrEteEnDJYL"
+      ],
+      "confirmedSignatures": [
+        "27kXQzj65uu1b3sGBtyV8Ddy41w8vA83xE1K5VQBQ3d4Yaxw23kpYnkS1MLQx5PPjePc7C8QYREtsZrEteEnDJYL"
+      ],
+      "passed": true
+    },
+    {
+      "index": 90,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:41:55.904Z",
+      "confirmedMs": 3133,
+      "finalizedMs": 15142,
+      "galleryVerifiedMs": 15159,
+      "signatures": [
+        "B6XwZvWxoBT2Hr3FLwnforFzQNFMKKKcqT9eAgbQBKS2dK8k36ohy5ZWbSXCxzUs2CH6or5gN3Zsuq3A3MeaGks"
+      ],
+      "confirmedSignatures": [
+        "B6XwZvWxoBT2Hr3FLwnforFzQNFMKKKcqT9eAgbQBKS2dK8k36ohy5ZWbSXCxzUs2CH6or5gN3Zsuq3A3MeaGks"
+      ],
+      "passed": true
+    },
+    {
+      "index": 91,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:42:01.904Z",
+      "confirmedMs": 3069,
+      "finalizedMs": 15065,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "4QNgkCisg1jHJXiYxo6mNiq7m7CeVnYA6y3gtUNH8diMG5SbHeymk1FRCNqeL81YkJRGP7UFNcekYondRrp4pHW8"
+      ],
+      "confirmedSignatures": [
+        "4QNgkCisg1jHJXiYxo6mNiq7m7CeVnYA6y3gtUNH8diMG5SbHeymk1FRCNqeL81YkJRGP7UFNcekYondRrp4pHW8"
+      ],
+      "passed": true
+    },
+    {
+      "index": 92,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:42:07.904Z",
+      "confirmedMs": 3111,
+      "finalizedMs": 15132,
+      "galleryVerifiedMs": 15149,
+      "signatures": [
+        "5gMxZimXKD5FSZDGQVCzecELjTxGN29u4UKfCxrik1jiBEi566hZxtCP52jfPe7uAWMgSrWJFPQbGXpuViEdFU7N"
+      ],
+      "confirmedSignatures": [
+        "5gMxZimXKD5FSZDGQVCzecELjTxGN29u4UKfCxrik1jiBEi566hZxtCP52jfPe7uAWMgSrWJFPQbGXpuViEdFU7N"
+      ],
+      "passed": true
+    },
+    {
+      "index": 93,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:42:13.906Z",
+      "confirmedMs": 3055,
+      "finalizedMs": 15054,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "2XPFw85L2wyNWBstoUWJD95zV7ppJVV4GE6fwue3vcP6dwt9Lgapn4dL842xupVdfXeih7pVE9HvRynesyZMJS8C"
+      ],
+      "confirmedSignatures": [
+        "2XPFw85L2wyNWBstoUWJD95zV7ppJVV4GE6fwue3vcP6dwt9Lgapn4dL842xupVdfXeih7pVE9HvRynesyZMJS8C"
+      ],
+      "passed": true
+    },
+    {
+      "index": 94,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:42:19.904Z",
+      "confirmedMs": 3128,
+      "finalizedMs": 15144,
+      "galleryVerifiedMs": 15161,
+      "signatures": [
+        "Pi48QaRoU3Bc4aFpDSgBvCMN4NPv34bgpvfFHMeWgcfwJHZn394WA1ExuAAcMr9MrvYcEKZ5PE3DrwbCHWkogv9"
+      ],
+      "confirmedSignatures": [
+        "Pi48QaRoU3Bc4aFpDSgBvCMN4NPv34bgpvfFHMeWgcfwJHZn394WA1ExuAAcMr9MrvYcEKZ5PE3DrwbCHWkogv9"
+      ],
+      "passed": true
+    },
+    {
+      "index": 95,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:42:25.909Z",
+      "confirmedMs": 3055,
+      "finalizedMs": 15060,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "25DEhFUfUpLjMSNQTPiZHR4For8epzQjaSZBCYCjY4WrWhetvga266RLEBcwzxptGt13qLeZSvsqy12kC4ATHoaR"
+      ],
+      "confirmedSignatures": [
+        "25DEhFUfUpLjMSNQTPiZHR4For8epzQjaSZBCYCjY4WrWhetvga266RLEBcwzxptGt13qLeZSvsqy12kC4ATHoaR"
+      ],
+      "passed": true
+    },
+    {
+      "index": 96,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:42:31.907Z",
+      "confirmedMs": 3121,
+      "finalizedMs": 15129,
+      "galleryVerifiedMs": 15146,
+      "signatures": [
+        "2hhC8kYzdikuBUmhCeT6DjQ2cBGJuS1BA6B9FiX9KpGPFSA7meNJyDAkscwA6CFSjtdRHM8wkbQ2Ut1Luer8mahW"
+      ],
+      "confirmedSignatures": [
+        "2hhC8kYzdikuBUmhCeT6DjQ2cBGJuS1BA6B9FiX9KpGPFSA7meNJyDAkscwA6CFSjtdRHM8wkbQ2Ut1Luer8mahW"
+      ],
+      "passed": true
+    },
+    {
+      "index": 97,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:42:37.907Z",
+      "confirmedMs": 3064,
+      "finalizedMs": 15058,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "53xfCX3YXTXT5BBK29VZMacuiQ6Cx5qEjz22KyUeuvHBjJ8wh9SYWUtr7LYB3NDhrQGeD7TeskTpoG85gWEmTGra"
+      ],
+      "confirmedSignatures": [
+        "53xfCX3YXTXT5BBK29VZMacuiQ6Cx5qEjz22KyUeuvHBjJ8wh9SYWUtr7LYB3NDhrQGeD7TeskTpoG85gWEmTGra"
+      ],
+      "passed": true
+    },
+    {
+      "index": 98,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:42:43.904Z",
+      "confirmedMs": 3094,
+      "finalizedMs": 15108,
+      "galleryVerifiedMs": 15123,
+      "signatures": [
+        "347cjR9FmWCyWeKR5WeCYvnycqchh4bFt31XKxFzMrmeA3KN2upVhHv4dqJ1hcqq7XXzYQkW9YpeyLdQa4xYGNKU"
+      ],
+      "confirmedSignatures": [
+        "347cjR9FmWCyWeKR5WeCYvnycqchh4bFt31XKxFzMrmeA3KN2upVhHv4dqJ1hcqq7XXzYQkW9YpeyLdQa4xYGNKU"
+      ],
+      "passed": true
+    },
+    {
+      "index": 99,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:42:49.904Z",
+      "confirmedMs": 3061,
+      "finalizedMs": 15059,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "4jdUWUjB94EFY5aQsEMCGktFoc9Cykm8EqVegsBaAuHfKsdsGiBdvqpgWMbZyTnNMw5H2LvYR1mWvVFwzMGBvmzn"
+      ],
+      "confirmedSignatures": [
+        "4jdUWUjB94EFY5aQsEMCGktFoc9Cykm8EqVegsBaAuHfKsdsGiBdvqpgWMbZyTnNMw5H2LvYR1mWvVFwzMGBvmzn"
+      ],
+      "passed": true
+    },
+    {
+      "index": 100,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:42:55.904Z",
+      "confirmedMs": 3105,
+      "finalizedMs": 15120,
+      "galleryVerifiedMs": 15135,
+      "signatures": [
+        "4oijjZGPQpL33SRK3WJEm1gYsKJr8AvPdrajhubvA8RgcXDDAKStCQNEM6W3HLfgNxX4krtBgY9s7MVGnvuSVQMG"
+      ],
+      "confirmedSignatures": [
+        "4oijjZGPQpL33SRK3WJEm1gYsKJr8AvPdrajhubvA8RgcXDDAKStCQNEM6W3HLfgNxX4krtBgY9s7MVGnvuSVQMG"
+      ],
+      "passed": true
+    },
+    {
+      "index": 101,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:43:01.905Z",
+      "confirmedMs": 3058,
+      "finalizedMs": 15058,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "4dEPoeETpNHgLpmk5WYmMSuvziZi3aVt1WdPDast7tcvmno1aPvLqBdTzAiaPs93tHhYGGMSB1L5s3hroS29LkRm"
+      ],
+      "confirmedSignatures": [
+        "4dEPoeETpNHgLpmk5WYmMSuvziZi3aVt1WdPDast7tcvmno1aPvLqBdTzAiaPs93tHhYGGMSB1L5s3hroS29LkRm"
+      ],
+      "passed": true
+    },
+    {
+      "index": 102,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:43:07.904Z",
+      "confirmedMs": 3107,
+      "finalizedMs": 15116,
+      "galleryVerifiedMs": 15136,
+      "signatures": [
+        "52HQ3LUC9iUebFenbKExmBvNP5NbQ7nu9vgKor2z1wSPGyKtMsGzA1j8JNh2AauV6yY3ngtx4VxgS3bEe6zABaJH"
+      ],
+      "confirmedSignatures": [
+        "52HQ3LUC9iUebFenbKExmBvNP5NbQ7nu9vgKor2z1wSPGyKtMsGzA1j8JNh2AauV6yY3ngtx4VxgS3bEe6zABaJH"
+      ],
+      "passed": true
+    },
+    {
+      "index": 103,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:43:13.905Z",
+      "confirmedMs": 3058,
+      "finalizedMs": 15057,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "39K5w9Gw8JHkhvTaVSLnbdqpCYx86tvmwb8BmPVvrb4P2ki9gYaDbPEoBAxKnwkYX93QBCbouwmMTzQCSb9j8Rku"
+      ],
+      "confirmedSignatures": [
+        "39K5w9Gw8JHkhvTaVSLnbdqpCYx86tvmwb8BmPVvrb4P2ki9gYaDbPEoBAxKnwkYX93QBCbouwmMTzQCSb9j8Rku"
+      ],
+      "passed": true
+    },
+    {
+      "index": 104,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:43:19.904Z",
+      "confirmedMs": 3119,
+      "finalizedMs": 15136,
+      "galleryVerifiedMs": 15152,
+      "signatures": [
+        "6QrATyNbskyKH2mt9HQG1KzjLqGa8qTXkPE3CYXkbcPRypnk8hjAofRNh3eD6GtSW84jvLCRKgmt9E9XZYDEzbc"
+      ],
+      "confirmedSignatures": [
+        "6QrATyNbskyKH2mt9HQG1KzjLqGa8qTXkPE3CYXkbcPRypnk8hjAofRNh3eD6GtSW84jvLCRKgmt9E9XZYDEzbc"
+      ],
+      "passed": true
+    },
+    {
+      "index": 105,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:43:25.908Z",
+      "confirmedMs": 3054,
+      "finalizedMs": 15058,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "6rSqBfc4Ya9Z9sVtgyx4bvryZYyXmJvZsGYfZ1nxqX4DjjCzE2Pa22KCi8aTcwtqwCXJNe66HWoXp4mQSHnwZRP"
+      ],
+      "confirmedSignatures": [
+        "6rSqBfc4Ya9Z9sVtgyx4bvryZYyXmJvZsGYfZ1nxqX4DjjCzE2Pa22KCi8aTcwtqwCXJNe66HWoXp4mQSHnwZRP"
+      ],
+      "passed": true
+    },
+    {
+      "index": 106,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:43:31.906Z",
+      "confirmedMs": 3121,
+      "finalizedMs": 15128,
+      "galleryVerifiedMs": 15144,
+      "signatures": [
+        "5XEj9KqWbbfbu259DgFw7JZWmEjScSrcXLYdWGdBNgvriJDGHKHFVfzZZSDyWeztHe81gJzwt75GH9gQFjZToNHa"
+      ],
+      "confirmedSignatures": [
+        "5XEj9KqWbbfbu259DgFw7JZWmEjScSrcXLYdWGdBNgvriJDGHKHFVfzZZSDyWeztHe81gJzwt75GH9gQFjZToNHa"
+      ],
+      "passed": true
+    },
+    {
+      "index": 107,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:43:37.905Z",
+      "confirmedMs": 3062,
+      "finalizedMs": 15062,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "3nMrFAc82TbXXoCrnPViHsMePYwNyLmxX3nd7fRx7P1p9yEEHwNs24Kd6ZpUTiuYGzmsCnnVkJKGLbtR8x5TPLxQ"
+      ],
+      "confirmedSignatures": [
+        "3nMrFAc82TbXXoCrnPViHsMePYwNyLmxX3nd7fRx7P1p9yEEHwNs24Kd6ZpUTiuYGzmsCnnVkJKGLbtR8x5TPLxQ"
+      ],
+      "passed": true
+    },
+    {
+      "index": 108,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:43:43.907Z",
+      "confirmedMs": 3107,
+      "finalizedMs": 15122,
+      "galleryVerifiedMs": 15142,
+      "signatures": [
+        "2K51ULmfqzdRTbow3JGNzwJGi5gus8hK9dZLMmTxLC79K1XYfATRi7gAbnkhqhmy6813aYzwHigXnSd5tMqeF7UM"
+      ],
+      "confirmedSignatures": [
+        "2K51ULmfqzdRTbow3JGNzwJGi5gus8hK9dZLMmTxLC79K1XYfATRi7gAbnkhqhmy6813aYzwHigXnSd5tMqeF7UM"
+      ],
+      "passed": true
+    },
+    {
+      "index": 109,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:43:49.904Z",
+      "confirmedMs": 3065,
+      "finalizedMs": 15066,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "5KaWm4GtApdMb3eh6DgJajUMdkU4Yfq9vDLWkWWEv2DjwsSoFRxiuj8QTKkM3L43XtFbjmtnYesHpbRGduKQGX8m"
+      ],
+      "confirmedSignatures": [
+        "5KaWm4GtApdMb3eh6DgJajUMdkU4Yfq9vDLWkWWEv2DjwsSoFRxiuj8QTKkM3L43XtFbjmtnYesHpbRGduKQGX8m"
+      ],
+      "passed": true
+    },
+    {
+      "index": 110,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:43:55.908Z",
+      "confirmedMs": 3121,
+      "finalizedMs": 15130,
+      "galleryVerifiedMs": 15150,
+      "signatures": [
+        "67cA3yNH3auyUc9koW9F28k78HV42fCKeQcE4dgPsZyGWLk9QkFAFkUCyvMgo1nmRbEWSx7B43W5i1x3SjtkYV8U"
+      ],
+      "confirmedSignatures": [
+        "67cA3yNH3auyUc9koW9F28k78HV42fCKeQcE4dgPsZyGWLk9QkFAFkUCyvMgo1nmRbEWSx7B43W5i1x3SjtkYV8U"
+      ],
+      "passed": true
+    },
+    {
+      "index": 111,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:44:01.906Z",
+      "confirmedMs": 3065,
+      "finalizedMs": 15062,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "5c9HytSPPsQJbVqH2sSqcBFULH1YkkEfLy3Ska83TmUXGqLuXdexjG1cYXTmGvsgQj4ymNK7zQ1o8dJh36SEmLkH"
+      ],
+      "confirmedSignatures": [
+        "5c9HytSPPsQJbVqH2sSqcBFULH1YkkEfLy3Ska83TmUXGqLuXdexjG1cYXTmGvsgQj4ymNK7zQ1o8dJh36SEmLkH"
+      ],
+      "passed": true
+    },
+    {
+      "index": 112,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:44:07.905Z",
+      "confirmedMs": 3102,
+      "finalizedMs": 15106,
+      "galleryVerifiedMs": 15123,
+      "signatures": [
+        "4ia49F2zLdqikw1hvqw1jci3JBMkHsyQ6Mfm6ktz4eyFjScrNf5BqJBrwxBysmBuL2NSiGgwzN2kUh7neGWr3xoa"
+      ],
+      "confirmedSignatures": [
+        "4ia49F2zLdqikw1hvqw1jci3JBMkHsyQ6Mfm6ktz4eyFjScrNf5BqJBrwxBysmBuL2NSiGgwzN2kUh7neGWr3xoa"
+      ],
+      "passed": true
+    },
+    {
+      "index": 113,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:44:13.904Z",
+      "confirmedMs": 3058,
+      "finalizedMs": 15059,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "2XxozQJqKDXWjZEzmKM9hgPRNmBQ1x6s68HpRXSqWMakrwpLhPUfnSidW3A6G8tJQnswjPkmP6CJoaek12De7pQv"
+      ],
+      "confirmedSignatures": [
+        "2XxozQJqKDXWjZEzmKM9hgPRNmBQ1x6s68HpRXSqWMakrwpLhPUfnSidW3A6G8tJQnswjPkmP6CJoaek12De7pQv"
+      ],
+      "passed": true
+    },
+    {
+      "index": 114,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:44:19.906Z",
+      "confirmedMs": 3083,
+      "finalizedMs": 15106,
+      "galleryVerifiedMs": 15125,
+      "signatures": [
+        "2VSb4szrVKfSKBN6RHphBEt1petKiCpvcV1rHdegk5EqdZmQgeZU8oKrHBBMbx5ssPWVKhNRQYLw3CeiDEuQMXed"
+      ],
+      "confirmedSignatures": [
+        "2VSb4szrVKfSKBN6RHphBEt1petKiCpvcV1rHdegk5EqdZmQgeZU8oKrHBBMbx5ssPWVKhNRQYLw3CeiDEuQMXed"
+      ],
+      "passed": true
+    },
+    {
+      "index": 115,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:44:25.904Z",
+      "confirmedMs": 3060,
+      "finalizedMs": 15053,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "5jt6T3So4of8X9HgeRecdqQkL2M5N8WfQU7cAW6LziqgWJVWuWvHMkbQaWkuyxXgR5vjH7tjJ26xv1ofD3nRykTy"
+      ],
+      "confirmedSignatures": [
+        "5jt6T3So4of8X9HgeRecdqQkL2M5N8WfQU7cAW6LziqgWJVWuWvHMkbQaWkuyxXgR5vjH7tjJ26xv1ofD3nRykTy"
+      ],
+      "passed": true
+    },
+    {
+      "index": 116,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:44:31.905Z",
+      "confirmedMs": 3120,
+      "finalizedMs": 15127,
+      "galleryVerifiedMs": 15143,
+      "signatures": [
+        "2BK7xSqxwe1sSLwMt6NsZYJMJ8qDe9y2EDHMA1aybBJDfxjRSqHqBqo2iqpwToszbP4Y7vkfRAuLgR9h71tLV8Rf"
+      ],
+      "confirmedSignatures": [
+        "2BK7xSqxwe1sSLwMt6NsZYJMJ8qDe9y2EDHMA1aybBJDfxjRSqHqBqo2iqpwToszbP4Y7vkfRAuLgR9h71tLV8Rf"
+      ],
+      "passed": true
+    },
+    {
+      "index": 117,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:44:37.904Z",
+      "confirmedMs": 3053,
+      "finalizedMs": 15055,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "5Z5xzfZs59sXumxSPjo3oQe9HEQ6aqhT7CGyZT7ZM8vscvpATGYqrxRyUKUhyj4muHkYo6GX4aL8HrzM18SV3tLY"
+      ],
+      "confirmedSignatures": [
+        "5Z5xzfZs59sXumxSPjo3oQe9HEQ6aqhT7CGyZT7ZM8vscvpATGYqrxRyUKUhyj4muHkYo6GX4aL8HrzM18SV3tLY"
+      ],
+      "passed": true
+    },
+    {
+      "index": 118,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:44:43.904Z",
+      "confirmedMs": 3123,
+      "finalizedMs": 15137,
+      "galleryVerifiedMs": 15154,
+      "signatures": [
+        "2sXVxFyZEw6ooqMimiz5CNVegtNP9k1zJFf9GieyALrHNQhD7XKRVCf5oFwAMMJaTRX2sA23LwgzwdHQncTXwWKC"
+      ],
+      "confirmedSignatures": [
+        "2sXVxFyZEw6ooqMimiz5CNVegtNP9k1zJFf9GieyALrHNQhD7XKRVCf5oFwAMMJaTRX2sA23LwgzwdHQncTXwWKC"
+      ],
+      "passed": true
+    },
+    {
+      "index": 119,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:44:49.904Z",
+      "confirmedMs": 3055,
+      "finalizedMs": 15057,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "2b57sW8dNWUkneRskpVz1fZjmvVuNTNWW2XcS6y8k7NE4Qwutyhbx6xqJVdUmd4NhwcrdvTinpF2ALV8V91H8ca"
+      ],
+      "confirmedSignatures": [
+        "2b57sW8dNWUkneRskpVz1fZjmvVuNTNWW2XcS6y8k7NE4Qwutyhbx6xqJVdUmd4NhwcrdvTinpF2ALV8V91H8ca"
+      ],
+      "passed": true
+    },
+    {
+      "index": 120,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:44:55.905Z",
+      "confirmedMs": 3112,
+      "finalizedMs": 15122,
+      "galleryVerifiedMs": 15142,
+      "signatures": [
+        "2f4mTjtvKunWfJPN7Ay2xbYwT5qX42UZhsFHTvuEPZX4bm3SNv4VkVdmvvvhinRrE94EgPzrFDfqTHbVKZREX8Vy"
+      ],
+      "confirmedSignatures": [
+        "2f4mTjtvKunWfJPN7Ay2xbYwT5qX42UZhsFHTvuEPZX4bm3SNv4VkVdmvvvhinRrE94EgPzrFDfqTHbVKZREX8Vy"
+      ],
+      "passed": true
+    },
+    {
+      "index": 121,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:45:01.904Z",
+      "confirmedMs": 3058,
+      "finalizedMs": 15062,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "DtdRAW3RQALYhyMhCBYhM1ryjyjA2mtuantFQqtJQdWPzyAvrbzDdcQvkT1Yjj1imR3CmGiwf6dkwXGm9mpKwYe"
+      ],
+      "confirmedSignatures": [
+        "DtdRAW3RQALYhyMhCBYhM1ryjyjA2mtuantFQqtJQdWPzyAvrbzDdcQvkT1Yjj1imR3CmGiwf6dkwXGm9mpKwYe"
+      ],
+      "passed": true
+    },
+    {
+      "index": 122,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:45:07.906Z",
+      "confirmedMs": 3118,
+      "finalizedMs": 15127,
+      "galleryVerifiedMs": 15141,
+      "signatures": [
+        "2nvfEK6oJkbJpPYJv8p1p8Ed1Qw4vKSxvuLgirrkxWDmm7fN1CK74CQGgquhnS88TpiqjU3Y59Drw5v3hwwfmkGR"
+      ],
+      "confirmedSignatures": [
+        "2nvfEK6oJkbJpPYJv8p1p8Ed1Qw4vKSxvuLgirrkxWDmm7fN1CK74CQGgquhnS88TpiqjU3Y59Drw5v3hwwfmkGR"
+      ],
+      "passed": true
+    },
+    {
+      "index": 123,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:45:13.906Z",
+      "confirmedMs": 3066,
+      "finalizedMs": 15062,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "3vwuTCU8emTCvXhjUQFmQ1Y3o7cxxGFVacx4fbYzLPa2UizRZCN9iwH34tBdA8JBks2j5FiV82674ytBNGZg6kj7"
+      ],
+      "confirmedSignatures": [
+        "3vwuTCU8emTCvXhjUQFmQ1Y3o7cxxGFVacx4fbYzLPa2UizRZCN9iwH34tBdA8JBks2j5FiV82674ytBNGZg6kj7"
+      ],
+      "passed": true
+    },
+    {
+      "index": 124,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:45:19.907Z",
+      "confirmedMs": 3116,
+      "finalizedMs": 15128,
+      "galleryVerifiedMs": 15146,
+      "signatures": [
+        "94Gw3CmCRC38Qg4f3jNX7SsFNKzEnnbnfKE3QY7qUQ4fAetiGCyMgYN3Qu7LhbwsgB2GJgbXR7er5rLFoRbAzun"
+      ],
+      "confirmedSignatures": [
+        "94Gw3CmCRC38Qg4f3jNX7SsFNKzEnnbnfKE3QY7qUQ4fAetiGCyMgYN3Qu7LhbwsgB2GJgbXR7er5rLFoRbAzun"
+      ],
+      "passed": true
+    },
+    {
+      "index": 125,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:45:25.906Z",
+      "confirmedMs": 3058,
+      "finalizedMs": 15057,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "4xqJERPABiRBJpuQakYGintHQZJrD2dJoHYLbfgK5pQWkuKzpc9x7qWDBB3UAwDZafhPUTyVDaLbNidUktmcYys5"
+      ],
+      "confirmedSignatures": [
+        "4xqJERPABiRBJpuQakYGintHQZJrD2dJoHYLbfgK5pQWkuKzpc9x7qWDBB3UAwDZafhPUTyVDaLbNidUktmcYys5"
+      ],
+      "passed": true
+    },
+    {
+      "index": 126,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:45:31.906Z",
+      "confirmedMs": 3112,
+      "finalizedMs": 15121,
+      "galleryVerifiedMs": 15146,
+      "signatures": [
+        "2tKvvHjvZsU2iWWShTJaj7ghVbPuJijingGUAMP6tBPx6B7xUR5B3Scu8D9Yy5eiDMn4E1tdjHBR6ruFwmKYtkHq"
+      ],
+      "confirmedSignatures": [
+        "2tKvvHjvZsU2iWWShTJaj7ghVbPuJijingGUAMP6tBPx6B7xUR5B3Scu8D9Yy5eiDMn4E1tdjHBR6ruFwmKYtkHq"
+      ],
+      "passed": true
+    },
+    {
+      "index": 127,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:45:37.906Z",
+      "confirmedMs": 3057,
+      "finalizedMs": 15067,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "3CCepHnKcXoX6e6C5yjFVwmC7EQ4RP5okrf7R4BabHPqagz1Z3QgeJpXp6Lwf1c7szp3RNVk1ehWKKdTaG1rWDLq"
+      ],
+      "confirmedSignatures": [
+        "3CCepHnKcXoX6e6C5yjFVwmC7EQ4RP5okrf7R4BabHPqagz1Z3QgeJpXp6Lwf1c7szp3RNVk1ehWKKdTaG1rWDLq"
+      ],
+      "passed": true
+    },
+    {
+      "index": 128,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:45:43.905Z",
+      "confirmedMs": 3168,
+      "finalizedMs": 15185,
+      "galleryVerifiedMs": 15238,
+      "signatures": [
+        "2tYSfbYGpTpjCVB7p3gVHwPTA5DDU2fHjcSUsP6XoJuEftEddv1Fzgyq4GGRWU7Vu7CWmDzzVXHP3QNMcL6XGWni"
+      ],
+      "confirmedSignatures": [
+        "2tYSfbYGpTpjCVB7p3gVHwPTA5DDU2fHjcSUsP6XoJuEftEddv1Fzgyq4GGRWU7Vu7CWmDzzVXHP3QNMcL6XGWni"
+      ],
+      "passed": true
+    },
+    {
+      "index": 129,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:45:49.904Z",
+      "confirmedMs": 3070,
+      "finalizedMs": 15063,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "3momrED3ax8LfLKYtkLhBFVcd5GNP4nmfyoJK55AtCgh69sYBri4eu3baQteGLuTn1joL9XRZFc4ohsXE7xYzcyn"
+      ],
+      "confirmedSignatures": [
+        "3momrED3ax8LfLKYtkLhBFVcd5GNP4nmfyoJK55AtCgh69sYBri4eu3baQteGLuTn1joL9XRZFc4ohsXE7xYzcyn"
+      ],
+      "passed": true
+    },
+    {
+      "index": 130,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:45:55.906Z",
+      "confirmedMs": 3121,
+      "finalizedMs": 15117,
+      "galleryVerifiedMs": 15134,
+      "signatures": [
+        "Nx3k1wurkML824e5g7vjR2Qo2f4wLd7naQNyv1FXeuQUDBhaYoyCk7U2QC9LDX8FTM9anwK9z442bGtWfKJ1aYM"
+      ],
+      "confirmedSignatures": [
+        "Nx3k1wurkML824e5g7vjR2Qo2f4wLd7naQNyv1FXeuQUDBhaYoyCk7U2QC9LDX8FTM9anwK9z442bGtWfKJ1aYM"
+      ],
+      "passed": true
+    },
+    {
+      "index": 131,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:46:01.904Z",
+      "confirmedMs": 3085,
+      "finalizedMs": 15085,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "3i9XVZVSPrB47Fi5jSRQZyPX1mRKL3ZUQCrPRjZkNwcup7aX1quxVj43Ughcn8iT4sFPNoNKQwmu83HnKauawhct"
+      ],
+      "confirmedSignatures": [
+        "3i9XVZVSPrB47Fi5jSRQZyPX1mRKL3ZUQCrPRjZkNwcup7aX1quxVj43Ughcn8iT4sFPNoNKQwmu83HnKauawhct"
+      ],
+      "passed": true
+    },
+    {
+      "index": 132,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:46:07.904Z",
+      "confirmedMs": 3115,
+      "finalizedMs": 15126,
+      "galleryVerifiedMs": 15140,
+      "signatures": [
+        "3bFB1Q35g42xnoEe2CgYRnBRbyvnXT9zVVH3BMpHqmp9YpDJ8BcqX7njEYA349WmLVvRjUz68qfAosnzoydfycoF"
+      ],
+      "confirmedSignatures": [
+        "3bFB1Q35g42xnoEe2CgYRnBRbyvnXT9zVVH3BMpHqmp9YpDJ8BcqX7njEYA349WmLVvRjUz68qfAosnzoydfycoF"
+      ],
+      "passed": true
+    },
+    {
+      "index": 133,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:46:13.906Z",
+      "confirmedMs": 3069,
+      "finalizedMs": 15059,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "4r8nauXnzCBHbApARDLBR48iBqCMSpfeYBWVr8WPcdsQubUdXXtPeGf3KqgzcKA3Nt74JprBY1th49MzAxNYoPVL"
+      ],
+      "confirmedSignatures": [
+        "4r8nauXnzCBHbApARDLBR48iBqCMSpfeYBWVr8WPcdsQubUdXXtPeGf3KqgzcKA3Nt74JprBY1th49MzAxNYoPVL"
+      ],
+      "passed": true
+    },
+    {
+      "index": 134,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:46:19.904Z",
+      "confirmedMs": 3363,
+      "finalizedMs": 15374,
+      "galleryVerifiedMs": 15402,
+      "signatures": [
+        "4GpAvow6k3GjtZL1zbBXzu3crLZNpgDkrrCW6GJAAtButp4JjzWRnmJeCoqUHCBCPu2FRLiT37AM4pgReq427pPQ"
+      ],
+      "confirmedSignatures": [
+        "4GpAvow6k3GjtZL1zbBXzu3crLZNpgDkrrCW6GJAAtButp4JjzWRnmJeCoqUHCBCPu2FRLiT37AM4pgReq427pPQ"
+      ],
+      "passed": true
+    },
+    {
+      "index": 135,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:46:25.904Z",
+      "confirmedMs": 3061,
+      "finalizedMs": 15062,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "5nvtBhWrjVmADTwaV6bnF6YUjQxf7f1V49RzHz52tZru78HvQ3bPFDBFjFcp6JYy7rqt3H8L6KN9ghAQyLjV7ATn"
+      ],
+      "confirmedSignatures": [
+        "5nvtBhWrjVmADTwaV6bnF6YUjQxf7f1V49RzHz52tZru78HvQ3bPFDBFjFcp6JYy7rqt3H8L6KN9ghAQyLjV7ATn"
+      ],
+      "passed": true
+    },
+    {
+      "index": 136,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:46:31.906Z",
+      "confirmedMs": 3126,
+      "finalizedMs": 15127,
+      "galleryVerifiedMs": 15143,
+      "signatures": [
+        "28KFCLTzBBzUajcoQvCMsKiFw22w6o9UngMHCuLpQdb23uWa9rk5i4W1xe4w6CJgfU64iVc9DkV6uqbFRBTyChZj"
+      ],
+      "confirmedSignatures": [
+        "28KFCLTzBBzUajcoQvCMsKiFw22w6o9UngMHCuLpQdb23uWa9rk5i4W1xe4w6CJgfU64iVc9DkV6uqbFRBTyChZj"
+      ],
+      "passed": true
+    },
+    {
+      "index": 137,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:46:37.906Z",
+      "confirmedMs": 3058,
+      "finalizedMs": 15057,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "seyjmGrv1iriMT1TLEKAzQePDv6eMvdNjadLSqqwgffXDwjV1JLhbBykEGBCSHg5ChUBUbNcwbD6E7yH7qaJRLX"
+      ],
+      "confirmedSignatures": [
+        "seyjmGrv1iriMT1TLEKAzQePDv6eMvdNjadLSqqwgffXDwjV1JLhbBykEGBCSHg5ChUBUbNcwbD6E7yH7qaJRLX"
+      ],
+      "passed": true
+    },
+    {
+      "index": 138,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:46:43.907Z",
+      "confirmedMs": 3118,
+      "finalizedMs": 15129,
+      "galleryVerifiedMs": 15147,
+      "signatures": [
+        "5ybP4Yhysbcdmkc8MxvvAmWkY7NJUmCv19Sa4k9q1BNH9BDtC6PmRz68TroAD4WckWvYz3iXUirVVeBCBeopEQu7"
+      ],
+      "confirmedSignatures": [
+        "5ybP4Yhysbcdmkc8MxvvAmWkY7NJUmCv19Sa4k9q1BNH9BDtC6PmRz68TroAD4WckWvYz3iXUirVVeBCBeopEQu7"
+      ],
+      "passed": true
+    },
+    {
+      "index": 139,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:46:49.906Z",
+      "confirmedMs": 3056,
+      "finalizedMs": 15062,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "2HSXJS626ZygYwZAaACguuRyv9EXGmgtw5ZCrakfSrvye4tmyJ3KGaM6C2sBTtbBtp8YBgmXhrtk6Yv6Nez9dsx3"
+      ],
+      "confirmedSignatures": [
+        "2HSXJS626ZygYwZAaACguuRyv9EXGmgtw5ZCrakfSrvye4tmyJ3KGaM6C2sBTtbBtp8YBgmXhrtk6Yv6Nez9dsx3"
+      ],
+      "passed": true
+    },
+    {
+      "index": 140,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:46:55.906Z",
+      "confirmedMs": 3120,
+      "finalizedMs": 15136,
+      "galleryVerifiedMs": 15155,
+      "signatures": [
+        "2Nz3w1wuS4QWRqDweaPBs3hivMBJpB1AznGQndDLwSYXrGF8H4C6acryL3k7yHBXmbwHEFogLKr2eqziQPUgi6t8"
+      ],
+      "confirmedSignatures": [
+        "2Nz3w1wuS4QWRqDweaPBs3hivMBJpB1AznGQndDLwSYXrGF8H4C6acryL3k7yHBXmbwHEFogLKr2eqziQPUgi6t8"
+      ],
+      "passed": true
+    },
+    {
+      "index": 141,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:47:01.905Z",
+      "confirmedMs": 3074,
+      "finalizedMs": 15069,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "2jto4GHLZaqwREy9b3uDwfWtnCLQvNdzJx8whDxAFrei2ZVr6bJ5orFd6yPiAj7KtfYFZbdYQ9xRtbWwHgPPxtV7"
+      ],
+      "confirmedSignatures": [
+        "2jto4GHLZaqwREy9b3uDwfWtnCLQvNdzJx8whDxAFrei2ZVr6bJ5orFd6yPiAj7KtfYFZbdYQ9xRtbWwHgPPxtV7"
+      ],
+      "passed": true
+    },
+    {
+      "index": 142,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:47:07.906Z",
+      "confirmedMs": 3130,
+      "finalizedMs": 15137,
+      "galleryVerifiedMs": 15152,
+      "signatures": [
+        "2a8Y58dr41E8UcdZyhcK9D2f48mNmTdP7eYTh7Xb4zLQ5USdi79YBEchaQPzc5zp2MFSp72ZihA6jhmVKDjYoJdV"
+      ],
+      "confirmedSignatures": [
+        "2a8Y58dr41E8UcdZyhcK9D2f48mNmTdP7eYTh7Xb4zLQ5USdi79YBEchaQPzc5zp2MFSp72ZihA6jhmVKDjYoJdV"
+      ],
+      "passed": true
+    },
+    {
+      "index": 143,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:47:13.906Z",
+      "confirmedMs": 3060,
+      "finalizedMs": 15057,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "2ZPVXKgopYzrRkCap8hHXjSV19b8NCroHYasfvVPZNkeczcyYwX2gMH2dAydt9KTZ1mXPL5fnqod4nRftQE5jMG"
+      ],
+      "confirmedSignatures": [
+        "2ZPVXKgopYzrRkCap8hHXjSV19b8NCroHYasfvVPZNkeczcyYwX2gMH2dAydt9KTZ1mXPL5fnqod4nRftQE5jMG"
+      ],
+      "passed": true
+    },
+    {
+      "index": 144,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:47:19.904Z",
+      "confirmedMs": 3131,
+      "finalizedMs": 15138,
+      "galleryVerifiedMs": 15156,
+      "signatures": [
+        "5nZHtBx4HEuHz5EjfTkiiBKJLowmsNtwKNxfkzeTgGmH1MLrcoBEZDr9pcKmU1WUrWQCbFUhSKfxo9iEMLmEPMWg"
+      ],
+      "confirmedSignatures": [
+        "5nZHtBx4HEuHz5EjfTkiiBKJLowmsNtwKNxfkzeTgGmH1MLrcoBEZDr9pcKmU1WUrWQCbFUhSKfxo9iEMLmEPMWg"
+      ],
+      "passed": true
+    },
+    {
+      "index": 145,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:47:25.909Z",
+      "confirmedMs": 3054,
+      "finalizedMs": 15055,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "5SdzUwZSg2wFeoTYEfzJKxjs4YbSnExU1nf3GXhdQMAJWiZ9tsPXJ6DkyEka5PVaqYdanXk1o2mdddV9GQyQUmgX"
+      ],
+      "confirmedSignatures": [
+        "5SdzUwZSg2wFeoTYEfzJKxjs4YbSnExU1nf3GXhdQMAJWiZ9tsPXJ6DkyEka5PVaqYdanXk1o2mdddV9GQyQUmgX"
+      ],
+      "passed": true
+    },
+    {
+      "index": 146,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:47:31.906Z",
+      "confirmedMs": 3105,
+      "finalizedMs": 15119,
+      "galleryVerifiedMs": 15142,
+      "signatures": [
+        "4FmUPuQpnBKWn8VGghDjuEN8eXsDKDaNSr8VFpSyvxuK96gCerE5ZxLYKjTEkXZkaPScQsasQTuDyXfEjxRDdEA9"
+      ],
+      "confirmedSignatures": [
+        "4FmUPuQpnBKWn8VGghDjuEN8eXsDKDaNSr8VFpSyvxuK96gCerE5ZxLYKjTEkXZkaPScQsasQTuDyXfEjxRDdEA9"
+      ],
+      "passed": true
+    },
+    {
+      "index": 147,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:47:37.905Z",
+      "confirmedMs": 3068,
+      "finalizedMs": 15071,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "5xayr9t9UdUF6w7cjbT1BC82kGcW5aQzVTCRrWRR3SaTzNHbK2mDoJNXWnScFRuvzgQVG5gsHDxTCmU2yaaGk2iQ"
+      ],
+      "confirmedSignatures": [
+        "5xayr9t9UdUF6w7cjbT1BC82kGcW5aQzVTCRrWRR3SaTzNHbK2mDoJNXWnScFRuvzgQVG5gsHDxTCmU2yaaGk2iQ"
+      ],
+      "passed": true
+    },
+    {
+      "index": 148,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:47:43.904Z",
+      "confirmedMs": 3122,
+      "finalizedMs": 15129,
+      "galleryVerifiedMs": 15148,
+      "signatures": [
+        "3wM6SQGF4mvv7DJ2dez8END9KxEmp6UkTrsGaQYkoWXbCNBC2MoV4muxGCND5NxJ1jenrfJihN9DY48t42mUwVWc"
+      ],
+      "confirmedSignatures": [
+        "3wM6SQGF4mvv7DJ2dez8END9KxEmp6UkTrsGaQYkoWXbCNBC2MoV4muxGCND5NxJ1jenrfJihN9DY48t42mUwVWc"
+      ],
+      "passed": true
+    },
+    {
+      "index": 149,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:47:49.906Z",
+      "confirmedMs": 3117,
+      "finalizedMs": 15119,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "5anL99ydjMMhfoifNaYH9DMxVE1GyooU6SrgSJLw1w7dCN6T6gmdx4ui1vGYKRwwotNo5cS6zY1v46URciH7Hgc4"
+      ],
+      "confirmedSignatures": [
+        "5anL99ydjMMhfoifNaYH9DMxVE1GyooU6SrgSJLw1w7dCN6T6gmdx4ui1vGYKRwwotNo5cS6zY1v46URciH7Hgc4"
+      ],
+      "passed": true
+    },
+    {
+      "index": 150,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:47:55.907Z",
+      "confirmedMs": 3110,
+      "finalizedMs": 15127,
+      "galleryVerifiedMs": 15146,
+      "signatures": [
+        "5Gg9cdgNqEw4ixhUHvSHeuiomgh3X8iWmqtditrpCCiapqQjQg96BYsj92dP492p4UgYFPqr7g8EwmmUiiUhe7nH"
+      ],
+      "confirmedSignatures": [
+        "5Gg9cdgNqEw4ixhUHvSHeuiomgh3X8iWmqtditrpCCiapqQjQg96BYsj92dP492p4UgYFPqr7g8EwmmUiiUhe7nH"
+      ],
+      "passed": true
+    },
+    {
+      "index": 151,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:48:01.907Z",
+      "confirmedMs": 3069,
+      "finalizedMs": 15067,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "4SS99MwfDMHGTjYjcPprPqLymNiVV8J4K5uXuqvYsMttRAQPUYT1vbGg67d7hQYNyRXG3YfH3oe4gFQeNyojHZKE"
+      ],
+      "confirmedSignatures": [
+        "4SS99MwfDMHGTjYjcPprPqLymNiVV8J4K5uXuqvYsMttRAQPUYT1vbGg67d7hQYNyRXG3YfH3oe4gFQeNyojHZKE"
+      ],
+      "passed": true
+    },
+    {
+      "index": 152,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:48:07.904Z",
+      "confirmedMs": 3128,
+      "finalizedMs": 15131,
+      "galleryVerifiedMs": 15147,
+      "signatures": [
+        "4jgZQjyucQziLZgWZ57dpNQJFDScm2u4pxXsFFL7LYDuYhEr8STPhKuy2F4farekX2FBKUxg3Z11vGp7ukAFMyDH"
+      ],
+      "confirmedSignatures": [
+        "4jgZQjyucQziLZgWZ57dpNQJFDScm2u4pxXsFFL7LYDuYhEr8STPhKuy2F4farekX2FBKUxg3Z11vGp7ukAFMyDH"
+      ],
+      "passed": true
+    },
+    {
+      "index": 153,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:48:13.906Z",
+      "confirmedMs": 3068,
+      "finalizedMs": 15066,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "5u87Uw7JohtfbjAxzkhjw1pss9d8kpWRRBbXG2hPBKrocCwUCETqGv5n3fe5hytPe2uH91MgXigu25EneHRfbjXV"
+      ],
+      "confirmedSignatures": [
+        "5u87Uw7JohtfbjAxzkhjw1pss9d8kpWRRBbXG2hPBKrocCwUCETqGv5n3fe5hytPe2uH91MgXigu25EneHRfbjXV"
+      ],
+      "passed": true
+    },
+    {
+      "index": 154,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:48:19.904Z",
+      "confirmedMs": 3119,
+      "finalizedMs": 15130,
+      "galleryVerifiedMs": 15146,
+      "signatures": [
+        "4JiesHvBWwgp1tLQNe9MkdgU2CR7Rjy4gPSphMUcNSWnvptp4veGyvUgxibXcqfq5WeUHv5R2xkBHkFczAKu6sm7"
+      ],
+      "confirmedSignatures": [
+        "4JiesHvBWwgp1tLQNe9MkdgU2CR7Rjy4gPSphMUcNSWnvptp4veGyvUgxibXcqfq5WeUHv5R2xkBHkFczAKu6sm7"
+      ],
+      "passed": true
+    },
+    {
+      "index": 155,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:48:25.908Z",
+      "confirmedMs": 3052,
+      "finalizedMs": 15050,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "7HVEurUrSqJbsuBEVffFeAPEpZA2Ua8UDPMzhYi5Pb5UZAKfikXCaycmSatHG97ynCYGGL93Cd6fqdzqApLVgZU"
+      ],
+      "confirmedSignatures": [
+        "7HVEurUrSqJbsuBEVffFeAPEpZA2Ua8UDPMzhYi5Pb5UZAKfikXCaycmSatHG97ynCYGGL93Cd6fqdzqApLVgZU"
+      ],
+      "passed": true
+    },
+    {
+      "index": 156,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:48:31.904Z",
+      "confirmedMs": 3109,
+      "finalizedMs": 15119,
+      "galleryVerifiedMs": 15135,
+      "signatures": [
+        "UeHYjXHpD8MAJcpD2bpWfKVdQUxWX1D1NXfPfDvsRaoEvcmKehd1nxiXGyBP2VNZ6HjKhKPWj4gXAdoMDFoFA9a"
+      ],
+      "confirmedSignatures": [
+        "UeHYjXHpD8MAJcpD2bpWfKVdQUxWX1D1NXfPfDvsRaoEvcmKehd1nxiXGyBP2VNZ6HjKhKPWj4gXAdoMDFoFA9a"
+      ],
+      "passed": true
+    },
+    {
+      "index": 157,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:48:37.905Z",
+      "confirmedMs": 3061,
+      "finalizedMs": 15060,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "APsiwFsefPtyhVFXm3ETYGhVKzxpdymSgL99zcDkJWSBPUS6KS3dz3rwB3uBd1VDvos6G5mLuXPPhtstZ4qH7FW"
+      ],
+      "confirmedSignatures": [
+        "APsiwFsefPtyhVFXm3ETYGhVKzxpdymSgL99zcDkJWSBPUS6KS3dz3rwB3uBd1VDvos6G5mLuXPPhtstZ4qH7FW"
+      ],
+      "passed": true
+    },
+    {
+      "index": 158,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:48:43.906Z",
+      "confirmedMs": 3110,
+      "finalizedMs": 15127,
+      "galleryVerifiedMs": 15145,
+      "signatures": [
+        "5tGeEMXzn7TKvYwTsMerh4SbcoSTHVwYadiP2TakK23xZ9iVfbGcL2sbKEnXmhHBaNNrYzMmjWTrKmcgZAFRFX1a"
+      ],
+      "confirmedSignatures": [
+        "5tGeEMXzn7TKvYwTsMerh4SbcoSTHVwYadiP2TakK23xZ9iVfbGcL2sbKEnXmhHBaNNrYzMmjWTrKmcgZAFRFX1a"
+      ],
+      "passed": true
+    },
+    {
+      "index": 159,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:48:49.906Z",
+      "confirmedMs": 3057,
+      "finalizedMs": 15060,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "4ezJksqFmd5KXa1cjPidEAoiMuuvFCroSC8CtwqcjgrWZTixw9jZhJdWtNtohpuvjCRtHRx2SP1Y512ks2G9Zjw"
+      ],
+      "confirmedSignatures": [
+        "4ezJksqFmd5KXa1cjPidEAoiMuuvFCroSC8CtwqcjgrWZTixw9jZhJdWtNtohpuvjCRtHRx2SP1Y512ks2G9Zjw"
+      ],
+      "passed": true
+    },
+    {
+      "index": 160,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:48:55.907Z",
+      "confirmedMs": 3089,
+      "finalizedMs": 15109,
+      "galleryVerifiedMs": 15125,
+      "signatures": [
+        "59ZgRfCefEf2MJABNvuGoY2hJrQFcZfGtEXoR9nsYqD4AVdeNuBADBAoiaD79EaRvz3eM13fVjAYPg31eJWVh25b"
+      ],
+      "confirmedSignatures": [
+        "59ZgRfCefEf2MJABNvuGoY2hJrQFcZfGtEXoR9nsYqD4AVdeNuBADBAoiaD79EaRvz3eM13fVjAYPg31eJWVh25b"
+      ],
+      "passed": true
+    },
+    {
+      "index": 161,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:49:01.904Z",
+      "confirmedMs": 3066,
+      "finalizedMs": 15066,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "5Fv8EHaBscX3DLwgYFoLjkp2a7WH86JPvidQMTaYAemeunhtLFKtw3Lw6Sncuk1zEvmaAxDMeh1SiZWgapc3yoCE"
+      ],
+      "confirmedSignatures": [
+        "5Fv8EHaBscX3DLwgYFoLjkp2a7WH86JPvidQMTaYAemeunhtLFKtw3Lw6Sncuk1zEvmaAxDMeh1SiZWgapc3yoCE"
+      ],
+      "passed": true
+    },
+    {
+      "index": 162,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:49:07.907Z",
+      "confirmedMs": 3107,
+      "finalizedMs": 15118,
+      "galleryVerifiedMs": 15132,
+      "signatures": [
+        "Aaa1JihbbLKwMRTeN3KRVQ7skDE3LzR4FdrgN6soKGUPFDteDrvSvPNPC48Rcnp2WRr8xiQcpFA79DSabYSmfT4"
+      ],
+      "confirmedSignatures": [
+        "Aaa1JihbbLKwMRTeN3KRVQ7skDE3LzR4FdrgN6soKGUPFDteDrvSvPNPC48Rcnp2WRr8xiQcpFA79DSabYSmfT4"
+      ],
+      "passed": true
+    },
+    {
+      "index": 163,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:49:13.905Z",
+      "confirmedMs": 3061,
+      "finalizedMs": 15060,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "3VJCb7TnyF776kRz6D34pUNcrCCP7MoGA3EpoJKVcq3ZzVVp7hqBk2trg2as9mZ7bQutgr18MgiuuXShEQAseYbm"
+      ],
+      "confirmedSignatures": [
+        "3VJCb7TnyF776kRz6D34pUNcrCCP7MoGA3EpoJKVcq3ZzVVp7hqBk2trg2as9mZ7bQutgr18MgiuuXShEQAseYbm"
+      ],
+      "passed": true
+    },
+    {
+      "index": 164,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:49:19.906Z",
+      "confirmedMs": 3108,
+      "finalizedMs": 15122,
+      "galleryVerifiedMs": 15138,
+      "signatures": [
+        "yBWc7tDfAqXYTyD3WXVnVeUokpCXPoCxNUXzREWobmhT5jxrkgiczaa7CzyPuQjnigApnwPMjoWVW3Ny8T7zYLK"
+      ],
+      "confirmedSignatures": [
+        "yBWc7tDfAqXYTyD3WXVnVeUokpCXPoCxNUXzREWobmhT5jxrkgiczaa7CzyPuQjnigApnwPMjoWVW3Ny8T7zYLK"
+      ],
+      "passed": true
+    },
+    {
+      "index": 165,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:49:25.907Z",
+      "confirmedMs": 3058,
+      "finalizedMs": 15058,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "4ejAFh3GhNm6mwTLTgMqTh1HEXJX4ey8S9aHxd31GzodKDjro3ukhR64MbynYvZGTg3Lyq6cAbubnqrFafM8HuUj"
+      ],
+      "confirmedSignatures": [
+        "4ejAFh3GhNm6mwTLTgMqTh1HEXJX4ey8S9aHxd31GzodKDjro3ukhR64MbynYvZGTg3Lyq6cAbubnqrFafM8HuUj"
+      ],
+      "passed": true
+    },
+    {
+      "index": 166,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:49:31.906Z",
+      "confirmedMs": 3107,
+      "finalizedMs": 15116,
+      "galleryVerifiedMs": 15134,
+      "signatures": [
+        "xPRF7n3JFZSfthbjw8gqNru39LiZCWBanyXDU9Y567FXR8QZDT6i6ZhyDVZQptngpgUxdKxq1YyDZ9y73JQFT86"
+      ],
+      "confirmedSignatures": [
+        "xPRF7n3JFZSfthbjw8gqNru39LiZCWBanyXDU9Y567FXR8QZDT6i6ZhyDVZQptngpgUxdKxq1YyDZ9y73JQFT86"
+      ],
+      "passed": true
+    },
+    {
+      "index": 167,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:49:37.904Z",
+      "confirmedMs": 3056,
+      "finalizedMs": 15054,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "WmXZ6qRFRaqcCquem9dnHRpuv28HMxG8ymtpRwANhLjYGmeXh1a1zMYtGgEqqgvjkDxpNMmX18N6qRqZMFqrsGs"
+      ],
+      "confirmedSignatures": [
+        "WmXZ6qRFRaqcCquem9dnHRpuv28HMxG8ymtpRwANhLjYGmeXh1a1zMYtGgEqqgvjkDxpNMmX18N6qRqZMFqrsGs"
+      ],
+      "passed": true
+    },
+    {
+      "index": 168,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:49:43.906Z",
+      "confirmedMs": 3124,
+      "finalizedMs": 15134,
+      "galleryVerifiedMs": 15157,
+      "signatures": [
+        "3q681sB8foMYkE8nAza7yVvEPMjwQ4SyFfGQd9Pb1e85nHUXHMwn7hLbFqmQS5EabF4q3hnyagjD2Ykkjpae7ozB"
+      ],
+      "confirmedSignatures": [
+        "3q681sB8foMYkE8nAza7yVvEPMjwQ4SyFfGQd9Pb1e85nHUXHMwn7hLbFqmQS5EabF4q3hnyagjD2Ykkjpae7ozB"
+      ],
+      "passed": true
+    },
+    {
+      "index": 169,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:49:49.906Z",
+      "confirmedMs": 3060,
+      "finalizedMs": 15062,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "3gF48boeadrCMXCVRzMDQaWZ3BSpo8FV9VxUC5KM7sPNHkPbAXKztyAumgcxqavtDnuN2d8YhNuMzjF5sBsDqAff"
+      ],
+      "confirmedSignatures": [
+        "3gF48boeadrCMXCVRzMDQaWZ3BSpo8FV9VxUC5KM7sPNHkPbAXKztyAumgcxqavtDnuN2d8YhNuMzjF5sBsDqAff"
+      ],
+      "passed": true
+    },
+    {
+      "index": 170,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:49:55.906Z",
+      "confirmedMs": 3165,
+      "finalizedMs": 15177,
+      "galleryVerifiedMs": 15211,
+      "signatures": [
+        "q7Hfp7RkJzuDAqe2S8T1sMLbTfgZKuGmDvQyM6jJhFs4mUeoeWpG1rvJacjU1y1UrYGmp455FXqHMaBhSW4HxrY"
+      ],
+      "confirmedSignatures": [
+        "q7Hfp7RkJzuDAqe2S8T1sMLbTfgZKuGmDvQyM6jJhFs4mUeoeWpG1rvJacjU1y1UrYGmp455FXqHMaBhSW4HxrY"
+      ],
+      "passed": true
+    },
+    {
+      "index": 171,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:50:01.904Z",
+      "confirmedMs": 3057,
+      "finalizedMs": 15058,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "REA9wyPFWJq9Evsn5g4peXhfkM76SDZXqDS5Khf2WHEsUVotcZjiGuDKPMYbbkXGZ3op8H5Dcam2wzHzSv3MbvZ"
+      ],
+      "confirmedSignatures": [
+        "REA9wyPFWJq9Evsn5g4peXhfkM76SDZXqDS5Khf2WHEsUVotcZjiGuDKPMYbbkXGZ3op8H5Dcam2wzHzSv3MbvZ"
+      ],
+      "passed": true
+    },
+    {
+      "index": 172,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:50:07.904Z",
+      "confirmedMs": 3140,
+      "finalizedMs": 15140,
+      "galleryVerifiedMs": 15157,
+      "signatures": [
+        "4FECiW97hKGr8SM39yqKJ85VdrhjrZvk1AsG9kWCFAbUq4W3aSD7Y99ZvvpT4DYuLe9PghL8HCAzkofgPtEonXcZ"
+      ],
+      "confirmedSignatures": [
+        "4FECiW97hKGr8SM39yqKJ85VdrhjrZvk1AsG9kWCFAbUq4W3aSD7Y99ZvvpT4DYuLe9PghL8HCAzkofgPtEonXcZ"
+      ],
+      "passed": true
+    },
+    {
+      "index": 173,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:50:13.907Z",
+      "confirmedMs": 3056,
+      "finalizedMs": 15052,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "4km62PDu4jFc5jCsxxKthotKRvVdLi8Eq6hJAgjkPVPysFTzMQSawzRfQuvvbPFfhyyEKxiDkVCxZcgSG6HyJsYC"
+      ],
+      "confirmedSignatures": [
+        "4km62PDu4jFc5jCsxxKthotKRvVdLi8Eq6hJAgjkPVPysFTzMQSawzRfQuvvbPFfhyyEKxiDkVCxZcgSG6HyJsYC"
+      ],
+      "passed": true
+    },
+    {
+      "index": 174,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:50:19.904Z",
+      "confirmedMs": 3109,
+      "finalizedMs": 15122,
+      "galleryVerifiedMs": 15140,
+      "signatures": [
+        "2ZcKxtK8jQHeDcDRE5NFGLnEit9yVXsbSQ2pRdY88NYKNP2m1sVmKyVQe3er8ZHArJjxppMBdyU5A6MtBnc6ioSG"
+      ],
+      "confirmedSignatures": [
+        "2ZcKxtK8jQHeDcDRE5NFGLnEit9yVXsbSQ2pRdY88NYKNP2m1sVmKyVQe3er8ZHArJjxppMBdyU5A6MtBnc6ioSG"
+      ],
+      "passed": true
+    },
+    {
+      "index": 175,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:50:25.906Z",
+      "confirmedMs": 3055,
+      "finalizedMs": 15061,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "44hLR3VA4gqXKJFdb1EaSUfZtDydbhygdHkWsQmVceL9udKrvSqikPEtUT1DbPrgMiFZ3KHX2QjYdhxhpJAfpj5X"
+      ],
+      "confirmedSignatures": [
+        "44hLR3VA4gqXKJFdb1EaSUfZtDydbhygdHkWsQmVceL9udKrvSqikPEtUT1DbPrgMiFZ3KHX2QjYdhxhpJAfpj5X"
+      ],
+      "passed": true
+    },
+    {
+      "index": 176,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:50:31.905Z",
+      "confirmedMs": 3105,
+      "finalizedMs": 15118,
+      "galleryVerifiedMs": 15140,
+      "signatures": [
+        "3heEua4FSfMq78K4bYBViwjL8e5oqE9eNZBfwZcqZeaMwrtyaw6iJ37p5X1C8jsn1YRHzJztg1HLSajzix2qQ1Vz"
+      ],
+      "confirmedSignatures": [
+        "3heEua4FSfMq78K4bYBViwjL8e5oqE9eNZBfwZcqZeaMwrtyaw6iJ37p5X1C8jsn1YRHzJztg1HLSajzix2qQ1Vz"
+      ],
+      "passed": true
+    },
+    {
+      "index": 177,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:50:37.906Z",
+      "confirmedMs": 3065,
+      "finalizedMs": 15065,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "4TwKV4FA31FzGw7D5PSvzZVcrAAkBdQCxNWvzdi8qkG7XQtFQYdtGq4MUhTvLSu8gm5kcRXss7rt5M8LUT9duChL"
+      ],
+      "confirmedSignatures": [
+        "4TwKV4FA31FzGw7D5PSvzZVcrAAkBdQCxNWvzdi8qkG7XQtFQYdtGq4MUhTvLSu8gm5kcRXss7rt5M8LUT9duChL"
+      ],
+      "passed": true
+    },
+    {
+      "index": 178,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:50:43.904Z",
+      "confirmedMs": 3117,
+      "finalizedMs": 15126,
+      "galleryVerifiedMs": 15142,
+      "signatures": [
+        "5wPcZdrf63fogJEfvNacryQgK6tGoEpy4cZbHtejDMPqxE66AMgFZe75DJWK6EHCBaFMt7MTGQ8HCEumNaigjcHV"
+      ],
+      "confirmedSignatures": [
+        "5wPcZdrf63fogJEfvNacryQgK6tGoEpy4cZbHtejDMPqxE66AMgFZe75DJWK6EHCBaFMt7MTGQ8HCEumNaigjcHV"
+      ],
+      "passed": true
+    },
+    {
+      "index": 179,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:50:49.905Z",
+      "confirmedMs": 3058,
+      "finalizedMs": 15057,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "2DW6YniUJdnwA9XxSbgcks7y39oEo3QrxavEHxioFrs48NtRGwYx8vr6HVvQyhRWPL4f747gZ8So8jyCJncL7a3s"
+      ],
+      "confirmedSignatures": [
+        "2DW6YniUJdnwA9XxSbgcks7y39oEo3QrxavEHxioFrs48NtRGwYx8vr6HVvQyhRWPL4f747gZ8So8jyCJncL7a3s"
+      ],
+      "passed": true
+    },
+    {
+      "index": 180,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:50:55.905Z",
+      "confirmedMs": 3108,
+      "finalizedMs": 15119,
+      "galleryVerifiedMs": 15137,
+      "signatures": [
+        "2bbBvDrMAFeqiWUXd589DWw9aSRigw1A4m2WdcY4gL3rrWgqZyVz9Abe3WpiPZH2KaPM37rbwGca3ALAzgiXjvrk"
+      ],
+      "confirmedSignatures": [
+        "2bbBvDrMAFeqiWUXd589DWw9aSRigw1A4m2WdcY4gL3rrWgqZyVz9Abe3WpiPZH2KaPM37rbwGca3ALAzgiXjvrk"
+      ],
+      "passed": true
+    },
+    {
+      "index": 181,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:51:01.905Z",
+      "confirmedMs": 3067,
+      "finalizedMs": 15065,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "54yZ6Ruw5ivf1VyRteBAga7xNgwpuapRPVT2Ycc1q5wpJoqaJ27bZ2fvaWiqhhL8iGHLxgzY1w4qFvYfqq9HzaoP"
+      ],
+      "confirmedSignatures": [
+        "54yZ6Ruw5ivf1VyRteBAga7xNgwpuapRPVT2Ycc1q5wpJoqaJ27bZ2fvaWiqhhL8iGHLxgzY1w4qFvYfqq9HzaoP"
+      ],
+      "passed": true
+    },
+    {
+      "index": 182,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:51:07.905Z",
+      "confirmedMs": 3094,
+      "finalizedMs": 15103,
+      "galleryVerifiedMs": 15122,
+      "signatures": [
+        "3LdfKQguChystJQXVo2hXfpv6vqNSncE2XN7kJskFt96E8dD8yHPYYQ9DqsZpx8o2UdYxJPp9u7Frwencf3KhuvR"
+      ],
+      "confirmedSignatures": [
+        "3LdfKQguChystJQXVo2hXfpv6vqNSncE2XN7kJskFt96E8dD8yHPYYQ9DqsZpx8o2UdYxJPp9u7Frwencf3KhuvR"
+      ],
+      "passed": true
+    },
+    {
+      "index": 183,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:51:13.903Z",
+      "confirmedMs": 3061,
+      "finalizedMs": 15066,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "3vooGt9NBVFeiTAXagCmdRtFWMyBFPwaxC2aQCwf2hmnXNZoLs4xV2q1JnWkKtt9Ys49PJx7EZ6iwbfATnMakxpU"
+      ],
+      "confirmedSignatures": [
+        "3vooGt9NBVFeiTAXagCmdRtFWMyBFPwaxC2aQCwf2hmnXNZoLs4xV2q1JnWkKtt9Ys49PJx7EZ6iwbfATnMakxpU"
+      ],
+      "passed": true
+    },
+    {
+      "index": 184,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:51:19.907Z",
+      "confirmedMs": 3100,
+      "finalizedMs": 15120,
+      "galleryVerifiedMs": 15146,
+      "signatures": [
+        "cJANSFX8RFofb9iDSgkR54RneanYRPJV4c3XhMR6k2FeLV2YKyGDrn2D7MMTcxZk6cSqENyRRDhWkAehk47YKta"
+      ],
+      "confirmedSignatures": [
+        "cJANSFX8RFofb9iDSgkR54RneanYRPJV4c3XhMR6k2FeLV2YKyGDrn2D7MMTcxZk6cSqENyRRDhWkAehk47YKta"
+      ],
+      "passed": true
+    },
+    {
+      "index": 185,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:51:25.907Z",
+      "confirmedMs": 3071,
+      "finalizedMs": 15064,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "3EDPR5BdncTmftmU6v12g4gsP7nYp5TWfwyH7f5U1T1zNX2o3N1jYqn8xvfssKWE77CpjoWwrDo76CmB9j68xpDH"
+      ],
+      "confirmedSignatures": [
+        "3EDPR5BdncTmftmU6v12g4gsP7nYp5TWfwyH7f5U1T1zNX2o3N1jYqn8xvfssKWE77CpjoWwrDo76CmB9j68xpDH"
+      ],
+      "passed": true
+    },
+    {
+      "index": 186,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:51:31.907Z",
+      "confirmedMs": 3092,
+      "finalizedMs": 15109,
+      "galleryVerifiedMs": 15129,
+      "signatures": [
+        "299XWQiT5JprKNXkCoaqti3Lnp9vFsxbRWddo3Ynrf9MgrLw3S65mi2ygjtpTurGXfgnzynphYCEx7s5hRRoSNi3"
+      ],
+      "confirmedSignatures": [
+        "299XWQiT5JprKNXkCoaqti3Lnp9vFsxbRWddo3Ynrf9MgrLw3S65mi2ygjtpTurGXfgnzynphYCEx7s5hRRoSNi3"
+      ],
+      "passed": true
+    },
+    {
+      "index": 187,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:51:37.904Z",
+      "confirmedMs": 3071,
+      "finalizedMs": 15073,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "5mWf3GvDPQsB3BZffxWKNKGnVVSm3t2fbXjN56PpPFut1uBJKD8rxcYEeCiHtkbo6UYDoYkoxszkSz9efsW8zsEN"
+      ],
+      "confirmedSignatures": [
+        "5mWf3GvDPQsB3BZffxWKNKGnVVSm3t2fbXjN56PpPFut1uBJKD8rxcYEeCiHtkbo6UYDoYkoxszkSz9efsW8zsEN"
+      ],
+      "passed": true
+    },
+    {
+      "index": 188,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:51:43.905Z",
+      "confirmedMs": 3129,
+      "finalizedMs": 15143,
+      "galleryVerifiedMs": 15168,
+      "signatures": [
+        "2ppcFzHB2BQTRaqndfaqxG98zWBoXTgofKdfZzqXiLjAVN1QWezhHZHXbGL2u2AspYBcjAT13uhAdvpSj22imFWj"
+      ],
+      "confirmedSignatures": [
+        "2ppcFzHB2BQTRaqndfaqxG98zWBoXTgofKdfZzqXiLjAVN1QWezhHZHXbGL2u2AspYBcjAT13uhAdvpSj22imFWj"
+      ],
+      "passed": true
+    },
+    {
+      "index": 189,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:51:49.904Z",
+      "confirmedMs": 3067,
+      "finalizedMs": 15060,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "4B9CGDxvyHSDQmo6s8qdxfjzymFEgwKTBQsvhVNuxfKUL5c8XYExCNoMW1rcmVVfaAccsvxGv49aypcSWSkgY1Pi"
+      ],
+      "confirmedSignatures": [
+        "4B9CGDxvyHSDQmo6s8qdxfjzymFEgwKTBQsvhVNuxfKUL5c8XYExCNoMW1rcmVVfaAccsvxGv49aypcSWSkgY1Pi"
+      ],
+      "passed": true
+    },
+    {
+      "index": 190,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:51:55.904Z",
+      "confirmedMs": 3135,
+      "finalizedMs": 15131,
+      "galleryVerifiedMs": 15146,
+      "signatures": [
+        "51g39thg3hZ7Acf6sCJQCh7HjNmAm7CoSA8DqoQfvGxap63giHgseoaNnKrGZGb5a2bY8Lgijim5NnhRcDS6yoZV"
+      ],
+      "confirmedSignatures": [
+        "51g39thg3hZ7Acf6sCJQCh7HjNmAm7CoSA8DqoQfvGxap63giHgseoaNnKrGZGb5a2bY8Lgijim5NnhRcDS6yoZV"
+      ],
+      "passed": true
+    },
+    {
+      "index": 191,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:52:01.904Z",
+      "confirmedMs": 3139,
+      "finalizedMs": 15111,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "5P2b38XfwVkeaz97WgVKkjZznxJiRi4wnZEvYPuYTkGMCNmoKczuUofT1zMHanR7jkQu4xqww7RSm5wGDiRemZA8"
+      ],
+      "confirmedSignatures": [
+        "5P2b38XfwVkeaz97WgVKkjZznxJiRi4wnZEvYPuYTkGMCNmoKczuUofT1zMHanR7jkQu4xqww7RSm5wGDiRemZA8"
+      ],
+      "passed": true
+    },
+    {
+      "index": 192,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:52:07.904Z",
+      "confirmedMs": 3174,
+      "finalizedMs": 15180,
+      "galleryVerifiedMs": 15205,
+      "signatures": [
+        "52ZnA86Sd7th5FzfXzAr5nm84nmkmWyEpuXzqEgkNzMrbFmsuj6j3335D7cBPRf4c2XKMHyKLjLXFcs9JjJtmWQG"
+      ],
+      "confirmedSignatures": [
+        "52ZnA86Sd7th5FzfXzAr5nm84nmkmWyEpuXzqEgkNzMrbFmsuj6j3335D7cBPRf4c2XKMHyKLjLXFcs9JjJtmWQG"
+      ],
+      "passed": true
+    },
+    {
+      "index": 193,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:52:13.904Z",
+      "confirmedMs": 3060,
+      "finalizedMs": 15059,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "4y6ApGtBeu8SSKoUR7JvmXy8uDnAP2WH16ETcJMR6hnqgVP3KoHzWjgyqcjmmvwA2ELhQGSc4c9KC3Um3eGvfbV5"
+      ],
+      "confirmedSignatures": [
+        "4y6ApGtBeu8SSKoUR7JvmXy8uDnAP2WH16ETcJMR6hnqgVP3KoHzWjgyqcjmmvwA2ELhQGSc4c9KC3Um3eGvfbV5"
+      ],
+      "passed": true
+    },
+    {
+      "index": 194,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:52:19.906Z",
+      "confirmedMs": 3137,
+      "finalizedMs": 15143,
+      "galleryVerifiedMs": 15158,
+      "signatures": [
+        "MESh3YGhMBbhfLt1dyUNRuwro8j3AnSpPZaCecT3pPhAT8QUsuraxqZhoTWQKK1PNoYAEqm1B5KfxWiyDRiujib"
+      ],
+      "confirmedSignatures": [
+        "MESh3YGhMBbhfLt1dyUNRuwro8j3AnSpPZaCecT3pPhAT8QUsuraxqZhoTWQKK1PNoYAEqm1B5KfxWiyDRiujib"
+      ],
+      "passed": true
+    },
+    {
+      "index": 195,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:52:25.907Z",
+      "confirmedMs": 3064,
+      "finalizedMs": 15063,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "4EzzJukByq4vL4QQ8Jo6hL7XbAm8iWepvhahH1uRSXntGPtv2SpV8eXWr7E7noVihgJR92Zzzve8aZaYEmunWDY2"
+      ],
+      "confirmedSignatures": [
+        "4EzzJukByq4vL4QQ8Jo6hL7XbAm8iWepvhahH1uRSXntGPtv2SpV8eXWr7E7noVihgJR92Zzzve8aZaYEmunWDY2"
+      ],
+      "passed": true
+    },
+    {
+      "index": 196,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:52:31.905Z",
+      "confirmedMs": 3104,
+      "finalizedMs": 15105,
+      "galleryVerifiedMs": 15123,
+      "signatures": [
+        "3NEAuN4urWEfLuon7JTm9vKPPKmNKmhPNPayziHEHCb7CoL4RGcVg14uRKjXPF4cBDawZHinkzdCusVU9vMr6TDH"
+      ],
+      "confirmedSignatures": [
+        "3NEAuN4urWEfLuon7JTm9vKPPKmNKmhPNPayziHEHCb7CoL4RGcVg14uRKjXPF4cBDawZHinkzdCusVU9vMr6TDH"
+      ],
+      "passed": true
+    },
+    {
+      "index": 197,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:52:37.907Z",
+      "confirmedMs": 3058,
+      "finalizedMs": 15057,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "3xB5jB9hJktbtaD778JXX27ZoZz52RWqzjiFi1AH2ejGcCiGa5NWSTRUG71mDQBfRhKxaGDVxnzsaiqH9hq4A9Z9"
+      ],
+      "confirmedSignatures": [
+        "3xB5jB9hJktbtaD778JXX27ZoZz52RWqzjiFi1AH2ejGcCiGa5NWSTRUG71mDQBfRhKxaGDVxnzsaiqH9hq4A9Z9"
+      ],
+      "passed": true
+    },
+    {
+      "index": 198,
+      "kind": "issuance",
+      "startedAt": "2026-10-13T08:52:43.905Z",
+      "confirmedMs": 3098,
+      "finalizedMs": 15111,
+      "galleryVerifiedMs": 15126,
+      "signatures": [
+        "3xx7dwU6K8wV5cCBDUhnZJ8vrJLFGmBamz7VVgRSHew8fhoFPfm6psZ8zcuypnn96qW7YNsZ2SyCrWPC1N6DyiiV"
+      ],
+      "confirmedSignatures": [
+        "3xx7dwU6K8wV5cCBDUhnZJ8vrJLFGmBamz7VVgRSHew8fhoFPfm6psZ8zcuypnn96qW7YNsZ2SyCrWPC1N6DyiiV"
+      ],
+      "passed": true
+    },
+    {
+      "index": 199,
+      "kind": "transfer",
+      "startedAt": "2026-10-13T08:52:49.907Z",
+      "confirmedMs": 3055,
+      "finalizedMs": 15053,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "4UiWmf9v8N6rMLcpiLhj9fEa4G5SFybRCEw4HqAZYzFG3XtG1JqceKHJZerFbxNrkhz9CLwAGhSfJNntok6scUbE"
+      ],
+      "confirmedSignatures": [
+        "4UiWmf9v8N6rMLcpiLhj9fEa4G5SFybRCEw4HqAZYzFG3XtG1JqceKHJZerFbxNrkhz9CLwAGhSfJNntok6scUbE"
+      ],
+      "passed": true
+    }
+  ]
+}

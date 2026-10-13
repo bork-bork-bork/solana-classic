@@ -2,12 +2,35 @@
   "version": 2,
   "framework": null,
   "outputDirectory": "public",
-  "functions": { "api/status.js": { "maxDuration": 15, "includeFiles": "public/data/checkpoint.json" } },
+  "functions": {
+    "api/status.js": {
+      "maxDuration": 15,
+      "includeFiles": "public/data/checkpoint.json"
+    }
+  },
   "headers": [
-    { "source": "/(.*)", "headers": [
-      { "key": "X-Content-Type-Options", "value": "nosniff" },
-      { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-      { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self' data:; font-src 'self'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'" }
-    ] }
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self' data:; font-src 'self'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/integrated",
+      "destination": "/integrated.html"
+    }
   ]
 }

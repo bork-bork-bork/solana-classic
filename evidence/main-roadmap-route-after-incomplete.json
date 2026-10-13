@@ -1,0 +1,102 @@
+{
+  "at": "2026-10-13T19:03:41.413587+00:00",
+  "scope": "anonymous remote main-site roadmap CDN integration with unchanged frozen application hashes; no main deployment or QA restart",
+  "passed": false,
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "mainCandidate": {
+    "apiOrigin": "https://network-release-production.up.railway.app",
+    "frontendOrigin": "https://solana-classic-soc.vercel.app",
+    "frontendDeploymentId": "dpl_3aWWzKDohr4SrgijgrB8dWgHHS5r",
+    "frontendCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "apiCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "networkConfigSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+    "dependencyManifestSha256": "e6da27717e6a84ca7b29d707ff63591b2ff0cfc38892d3b4667f8615bdf7bbc0"
+  },
+  "roadmapOrigin": "https://solana-classic-soc.vercel.app/roadmap",
+  "results": {
+    "/roadmap": {
+      "status": 200,
+      "url": "https://solana-classic-soc.vercel.app/roadmap",
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "33b814a31123ec3b6fe8d8b7b2b478d5923dfb5b36a91b3617d2946ac5870a35",
+      "bytes": 3931
+    },
+    "/roadmap/styles.css": {
+      "status": 200,
+      "url": "https://solana-classic-soc.vercel.app/roadmap/styles.css",
+      "contentType": "text/css; charset=utf-8",
+      "sha256": "57427d353fb1b2147b3135f19a28c8e662ac79781550b0fa18450665bab36e35",
+      "bytes": 8714
+    },
+    "/roadmap/app.js": {
+      "status": 200,
+      "url": "https://solana-classic-soc.vercel.app/roadmap/app.js",
+      "contentType": "application/javascript; charset=utf-8",
+      "sha256": "9b344adc9c23da3225036f8fa0ed11321b17f43ab013f0a57a8afc09261e2d78",
+      "bytes": 14035
+    },
+    "/roadmap/api/status": {
+      "status": 200,
+      "url": "https://solana-classic-soc.vercel.app/roadmap/api/status",
+      "contentType": "application/json; charset=utf-8",
+      "sha256": "6b4893282fd8e8a3aaa930e4387da7be5df36d57a02d43c0cf62d597601deda5",
+      "bytes": 6384,
+      "soak": {
+        "state": "running",
+        "runnerState": "starting",
+        "freezeMatches": true,
+        "progressFreezeMatches": true,
+        "startedAt": "2026-10-13T16:48:22.762Z",
+        "endsAt": "2026-10-14T16:48:22.762Z",
+        "reportAt": "2026-10-13T18:58:50.142Z",
+        "progressStale": false,
+        "completedJourneys": 27,
+        "totalJourneys": 288,
+        "observations": 260,
+        "accepted": false,
+        "activationAt": "2026-10-13T16:47:36.929Z",
+        "issues": [],
+        "elapsedMs": 8117845
+      }
+    },
+    "/roadmap/fonts/space-400.ttf": {
+      "status": 200,
+      "url": "https://solana-classic-soc.vercel.app/roadmap/fonts/space-400.ttf",
+      "contentType": "font/ttf",
+      "sha256": "ec926d5065eaca49a48f96e312bbae0bbc5733c24215cf5dfabbdccee926fef7",
+      "bytes": 69360
+    },
+    "/": {
+      "status": 200,
+      "url": "https://solana-classic-soc.vercel.app/",
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "448312a1f5170de0767b742309fad4861cc0e0a80e15d0a39d839fd1f2de2454",
+      "bytes": 517
+    },
+    "/assets/index-Dpv-W791.js": {
+      "status": 200,
+      "url": "https://solana-classic-soc.vercel.app/assets/index-Dpv-W791.js",
+      "contentType": "application/javascript; charset=utf-8",
+      "sha256": "6c42fffa784f160ed324ac16585e557828aca12f2d53ee1a6ee9d2c0f840f1aa",
+      "bytes": 362256
+    },
+    "/assets/index-DXgWf3wS.css": {
+      "status": 200,
+      "url": "https://solana-classic-soc.vercel.app/assets/index-DXgWf3wS.css",
+      "contentType": "text/css; charset=utf-8",
+      "sha256": "854b48b0499bd0f863296e157914bfd43b334ae7e82c4dfc7883d129442feca0",
+      "bytes": 15901
+    },
+    "/assets/index.browser.esm-BKUeZO4T.js": {
+      "status": 200,
+      "url": "https://solana-classic-soc.vercel.app/assets/index.browser.esm-BKUeZO4T.js",
+      "contentType": "application/javascript; charset=utf-8",
+      "sha256": "7c038d6f6a4b6b70762f8f685e278524630993ed2d2aa946b70d58a578119002",
+      "bytes": 284264
+    },
+    "/assets/src-DkgziyfX.js": {
+      "error": "URLError",
+      "status": null
+    }
+  }
+}

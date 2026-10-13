@@ -1,0 +1,43 @@
+{
+  "at": "2026-10-13T07:41:42.586292Z",
+  "scope": "remote live source and independently restored Railway runtime observation",
+  "passed": true,
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "source": {
+    "configured": true,
+    "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+    "sourceCommit": "dbefebde308d4f4f2efbeaa70d737aeda69cf2cd",
+    "coreSha256": "2c86df3c62e021eaf99103f6e27c4f861dd5b29dde494873db3866713877f92b",
+    "apiBootId": "c4cb6d1a-998b-40f5-8b7a-27fc1bca89a6",
+    "apiStartedAt": "2026-10-13T06:40:56.640Z",
+    "validatorBootId": "bf43147e-5e6d-43b6-9dfd-23dc52ee4e08",
+    "validatorStartedAt": "2026-10-13T06:40:46.676Z",
+    "deploymentId": "bdf8b208-7922-4375-8d46-55f49367dc1b",
+    "agaveVersion": "3.0.14",
+    "tokenProgramVersion": "10.0.0",
+    "tokenProgramSha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+    "observedAt": "2026-10-13T07:41:41.925Z"
+  },
+  "target": {
+    "configured": true,
+    "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+    "sourceCommit": "e62c2f43de9aabb1dff829be469f271d477a82b3",
+    "coreSha256": "bd48ccec50aa20014dd185da9bb75d32a754547ca9a67871cfea1f4b7c2b7d83",
+    "apiBootId": "1b8b8bd2-d741-4069-8bcc-0eb579b84b06",
+    "apiStartedAt": "2026-10-13T07:38:43.040Z",
+    "validatorBootId": "339a6c87-be72-4fb6-9210-a0b0d8805d67",
+    "validatorStartedAt": "2026-10-13T07:38:27.287Z",
+    "deploymentId": "0f5c2038-a28c-4456-9c11-74b3cb5757fa",
+    "agaveVersion": "3.0.14",
+    "tokenProgramVersion": "10.0.0",
+    "tokenProgramSha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+    "observedAt": "2026-10-13T07:41:42.241Z"
+  },
+  "targetStatus": {
+    "state": "online",
+    "slot": 10982,
+    "genesisMatches": true,
+    "lastProgressAt": "2026-10-13T07:41:42.562Z",
+    "message": "Experimental devnet is responding."
+  }
+}

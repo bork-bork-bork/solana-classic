@@ -1,0 +1,35 @@
+{
+  "at": "2026-10-13T15:36:34.440Z",
+  "serviceId": "5225cb9c-16af-4ec2-863e-a02f1c199fb3",
+  "deploymentId": "69bb0517-9ada-4b7c-a5fa-af837034003b",
+  "sourceCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+  "coreSha256": "30697f3e9b441b05a036d0704b42322d723b3998840ed43d88b18a0d7ef7d1dd",
+  "publicSourceVerified": 75,
+  "missingBuildContextFiles": [
+    ".dockerignore",
+    "docs/agave-compatibility-release.json",
+    "docs/agave-release.json",
+    "docs/token-program-release.json"
+  ],
+  "changedFiles": [],
+  "activationPresent": false,
+  "attemptPresent": false,
+  "privateKeyMetadataOnly": [
+    {
+      "name": "load-wallets.json",
+      "mode": "600",
+      "ownerUid": 0,
+      "symlink": false,
+      "hardLinks": 1
+    },
+    {
+      "name": "soak-funder.json",
+      "mode": "600",
+      "ownerUid": 0,
+      "symlink": false,
+      "hardLinks": 1
+    }
+  ],
+  "scope": "remote repaired QA public source verification and private-file metadata only; no key contents or soak acceptance",
+  "passed": true
+}

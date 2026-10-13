@@ -1,0 +1,41 @@
+{
+  "at": "2026-10-13T16:47:16.439Z",
+  "scope": "remote authorized hosted 24-hour soak activation; not completed acceptance",
+  "passed": false,
+  "activation": {
+    "action": "start-24h-soak",
+    "freezeSha256": "de996a8ca58a9d12cf2b264ab86d4e6eab6a3230a779d250402918b288309b82",
+    "approvedAt": "2026-10-13T16:47:16.438Z"
+  },
+  "readinessBeforeActivation": {
+    "at": "2026-10-13T16:47:06.703Z",
+    "scope": "hosted remote QA runner readiness; not 24-hour soak acceptance",
+    "passed": false,
+    "api": "https://network-release-production.up.railway.app",
+    "web": "https://solana-classic-soc.vercel.app",
+    "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+    "node": "24.19.0",
+    "pnpm": "10.34.7",
+    "playwright": "1.64.0",
+    "chromium": "156.0.8078.4",
+    "browsersPath": "/app/.tools/playwright-browsers",
+    "state": "ready-awaiting-activation",
+    "ready": true,
+    "soakStarted": false,
+    "freezeSha256": "de996a8ca58a9d12cf2b264ab86d4e6eab6a3230a779d250402918b288309b82",
+    "inputChecksums": {
+      "candidate-freeze": "de996a8ca58a9d12cf2b264ab86d4e6eab6a3230a779d250402918b288309b82",
+      "load": "fc83483f50e6a87c36ef1801d45e82f10b9bd1d0ecf66e83cb73f1a32b02b29c",
+      "backup-check": "a3aff6b9ef61bb12e892a0bc2b7988f274a82eb41748f3400176c8325d1c1529",
+      "restart-check": "c21a2f42d0e4fb638168505a459a4475bedbc99a6152ebcb69fa6fa078c353ee",
+      "pilot-agent-one": "ef409a3d174e5ead96d84789ebc7a385d349ad4c29fb310c5fbc33905239e2ef",
+      "pilot-agent-two": "8bf15684f9cbad8e85f9288ad002d094eb23ca09b08930fc805ab4e021a9b77c",
+      "monitoring-config": "44a609a9998efd9f542ac5c02f44b2b352209ab0926e4d52e1f357c51779a308",
+      "frontend-rollback": "f874526592419adfdaca439f706146225001f865cb8e626a4ec33ca9ff76fa86",
+      "remote-negative-controls": "6433ad949fa4fed475f9d00615e9c6d6acc20009e34106aa0652d5209ace1f50"
+    },
+    "issues": []
+  },
+  "activationMode": "600",
+  "deploymentId": "69bb0517-9ada-4b7c-a5fa-af837034003b"
+}

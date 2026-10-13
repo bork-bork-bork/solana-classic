@@ -1,0 +1,18 @@
+{
+  "source-review.json": {
+    "copy": "evidence/source-review-c1a7.json",
+    "sha256": "dac34311cc5276685a54f5faa209a700a13baaa673746ea9923d0ce0937dba3b"
+  },
+  "source-review-browser-bundle.json": {
+    "copy": "evidence/source-review-browser-bundle-c1a7.json",
+    "sha256": "15391767e66e789aadf32ea11c1eba6ec1ef1dd8f374bf7fa947d52da8e219b7"
+  },
+  "source-review-vercel-inventory.json": {
+    "copy": "evidence/source-review-vercel-inventory-c1a7.json",
+    "sha256": "54688272b846fcdb2a267be39e55ff385894216ca0d4fc99db1b54e7d097ba4b"
+  },
+  "source-review-log-sample.json": {
+    "copy": "evidence/source-review-log-sample-c1a7.json",
+    "sha256": "7cecce4b6c1fda5cb34329ff6d455328bbb4e730c755f2785adf465c809f7a78"
+  }
+}

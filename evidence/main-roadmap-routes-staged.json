@@ -1,0 +1,24 @@
+{
+  "at": "2026-10-13T18:50:55.315775+00:00",
+  "scope": "staged project-level CDN routing only; not yet published",
+  "passed": false,
+  "projectId": "prj_mjv3k9UcoPgxoNvDl2foOIC8R3V9",
+  "rules": [
+    {
+      "name": "Solana Classic roadmap page",
+      "source": "^/roadmap/?$",
+      "destination": "https://solana-classic-roadmap.vercel.app/integrated",
+      "exitCode": 0,
+      "stdout": "{\n  \"status\": \"ok\",\n  \"route\": {\n    \"id\": \"6fc9a7cd-adce-4728-879c-77885173d2d4\",\n    \"name\": \"Solana Classic roadmap page\",\n    \"src\": \"^/roadmap/?$\",\n    \"dest\": \"https://solana-classic-roadmap.vercel.app/integrated\"\n  },\n  \"version\": {\n    \"id\": \"98cb59a1-14b4-4a78-88e4-3a727231f7f6\",\n    \"alias\": \"solana-classic-48c135-routes-trenchfun1.vercel.app\"\n  },\n  \"next\": [\n    {\n      \"command\": \"vercel routes publish --yes --scope trenchfun1 --non-interactive --project prj_mjv3k9UcoPgxoNvDl2foOIC8R3V9\",\n      \"when\": \"to promote this version to production\"\n    }\n  ]\n}\n",
+      "stderr": "Vercel CLI 63.1.2 (Node.js 24.19.0)\nRetrieving project\u2026\nAdding route \"Solana Classic roadmap page\"\n"
+    },
+    {
+      "name": "Solana Classic roadmap assets and live status",
+      "source": "^/roadmap/(.+)$",
+      "destination": "https://solana-classic-roadmap.vercel.app/$1",
+      "exitCode": 0,
+      "stdout": "{\n  \"status\": \"ok\",\n  \"route\": {\n    \"id\": \"10f0678f-cad6-4748-bcd8-0df5432857d4\",\n    \"name\": \"Solana Classic roadmap assets and live status\",\n    \"src\": \"^/roadmap/(.+)$\",\n    \"dest\": \"https://solana-classic-roadmap.vercel.app/$1\"\n  },\n  \"version\": {\n    \"id\": \"d755bb46-0247-4c38-ab72-bdef0bf92a2a\",\n    \"alias\": \"solana-classic-48c135-routes-trenchfun1.vercel.app\"\n  },\n  \"hint\": \"Review staged changes with vercel routes list --diff before promoting.\"\n}\n",
+      "stderr": "Vercel CLI 63.1.2 (Node.js 24.19.0)\nRetrieving project\u2026\nAdding route \"Solana Classic roadmap assets and live status\"\n"
+    }
+  ]
+}

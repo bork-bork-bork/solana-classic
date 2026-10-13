@@ -1,0 +1,93 @@
+{
+  "at": "2026-10-13T07:07:23.840Z",
+  "scope": "remote cold-source gallery continuity manifest",
+  "passed": true,
+  "api": "https://network-release-production.up.railway.app",
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "entries": [
+    {
+      "mint": "5rxR7f7XF7A6RPcB8Rs4ixuZ9E3BYPK6htnxFo281xf1",
+      "kind": "nft",
+      "name": "Pilot Two Orbit",
+      "symbol": "P2ORB",
+      "presetId": 3,
+      "contentHash": "773fdf54633e75b158c4fabe3a69b5391eb215ce1ecc5c3dd781fa6f544610ce",
+      "uri": "https://network-release-production.up.railway.app/assets/773fdf54633e75b158c4fabe3a69b5391eb215ce1ecc5c3dd781fa6f544610ce/metadata.json",
+      "image": "https://network-release-production.up.railway.app/assets/773fdf54633e75b158c4fabe3a69b5391eb215ce1ecc5c3dd781fa6f544610ce/image.svg",
+      "issuanceSignature": "2aDafXXXn1tNHrTumyWSdPJgFTSM4QUmxrN5AGCvBP4ajVvADHSiZPz3Pohbyr5z8Wr1T1a1KkkAJpz6Tu2JDNoK",
+      "verifiedAt": "2026-10-13T05:59:36.895Z"
+    },
+    {
+      "mint": "FnPVVNZXctH3RzNPXSEmJW7wb4qnQotUAEAVberMr6T4",
+      "kind": "meme",
+      "name": "Pilot One Orbit",
+      "symbol": "PILOTONE",
+      "presetId": 3,
+      "contentHash": "d911b052819953b14c4d6e3e4fd370cf68cb3be002d78e987a3fcfccb30fa36b",
+      "uri": "https://network-release-production.up.railway.app/assets/d911b052819953b14c4d6e3e4fd370cf68cb3be002d78e987a3fcfccb30fa36b/metadata.json",
+      "image": "https://network-release-production.up.railway.app/assets/d911b052819953b14c4d6e3e4fd370cf68cb3be002d78e987a3fcfccb30fa36b/image.svg",
+      "issuanceSignature": "5j9itwFmfQ2dxs83aWU9D9Hkhm1qTdATKAigtYTpcXG42uBWCGxWJrCbG8muwGNQzuV8ZTovcryuyxFj559JdumE",
+      "verifiedAt": "2026-10-13T05:58:55.052Z"
+    },
+    {
+      "mint": "AebWZwzPCGWyihgiX2nK7vLRKEemZbsUFKSftqBVuUvy",
+      "kind": "nft",
+      "name": "Circle Theory",
+      "symbol": "CIRCLE",
+      "presetId": 0,
+      "contentHash": "17813a065d1866d4e144de20fffd9365ccf9de3378f1f2f8e47e3e322f681a4b",
+      "uri": "https://network-release-production.up.railway.app/assets/17813a065d1866d4e144de20fffd9365ccf9de3378f1f2f8e47e3e322f681a4b/metadata.json",
+      "image": "https://network-release-production.up.railway.app/assets/17813a065d1866d4e144de20fffd9365ccf9de3378f1f2f8e47e3e322f681a4b/image.svg",
+      "issuanceSignature": "5fjH5V5gA4ENF3rke6ZvtC44Z9KyMRTD4UUPrito41Hav69A1pmSNhb75AyYR7YMqAGAnEjETmnKofdVyVg2DnBY",
+      "verifiedAt": "2026-10-13T05:56:50.481Z"
+    },
+    {
+      "mint": "5NAoA3xhpSWfYtTyY3Ue1AiavHzgbZYEDHHJtHSMTWR3",
+      "kind": "nft",
+      "name": "Browser Art",
+      "symbol": "BART",
+      "presetId": 0,
+      "contentHash": "d90092abed71c7ca02ba27de78b0e2dc7573f55db3e79cd426e5667d86a43ae3",
+      "uri": "https://network-release-production.up.railway.app/assets/d90092abed71c7ca02ba27de78b0e2dc7573f55db3e79cd426e5667d86a43ae3/metadata.json",
+      "image": "https://network-release-production.up.railway.app/assets/d90092abed71c7ca02ba27de78b0e2dc7573f55db3e79cd426e5667d86a43ae3/image.svg",
+      "issuanceSignature": "2xkDrcKioxhJ4oDsZwrXCz376jfrA3qAnJ1PAhN7z3hCzEeYfjfRuMsUtRaGzmCN8soto1Gs8bodqpcfDsP6iCGU",
+      "verifiedAt": "2026-10-13T05:51:08.995Z"
+    },
+    {
+      "mint": "6wkqQraV4tUGA9CHLph5ZpXdom7FSAG4C9yBfu2zEEdQ",
+      "kind": "meme",
+      "name": "Browser Meme",
+      "symbol": "BROWSE",
+      "presetId": 0,
+      "contentHash": "785954dd3d40fd1e492f928d4f35ca6adfb57998df0f79ef14e5b1d0e7019907",
+      "uri": "https://network-release-production.up.railway.app/assets/785954dd3d40fd1e492f928d4f35ca6adfb57998df0f79ef14e5b1d0e7019907/metadata.json",
+      "image": "https://network-release-production.up.railway.app/assets/785954dd3d40fd1e492f928d4f35ca6adfb57998df0f79ef14e5b1d0e7019907/image.svg",
+      "issuanceSignature": "3Pr7Btbq1XyHfg1CBcAe5YMQXMWLbqdCp4QMT1D3QaZfxdkTs5NQ695spJ63g2gAWa78fMVmJXymYwSZ7wvjT5hY",
+      "verifiedAt": "2026-10-13T05:50:45.284Z"
+    },
+    {
+      "mint": "6Z7UUGhSWUpZwqPjexqAtzjmRhvXsXFpX29ZJpa6ojZm",
+      "kind": "nft",
+      "name": "Smoke nft",
+      "symbol": "ART",
+      "presetId": 0,
+      "contentHash": "e57ec8d12eae763c66a12045af4986f8268eb763c755c78e35de2fc1f64674e3",
+      "uri": "https://network-release-production.up.railway.app/assets/e57ec8d12eae763c66a12045af4986f8268eb763c755c78e35de2fc1f64674e3/metadata.json",
+      "image": "https://network-release-production.up.railway.app/assets/e57ec8d12eae763c66a12045af4986f8268eb763c755c78e35de2fc1f64674e3/image.svg",
+      "issuanceSignature": "DHkc3Vdp3GFJ51aaXYvFWkBLqwfVYrJwWLY1oX3rCsvxrNw1wFDeVPNqdYX56tjjMNKhFkxcSFjV5GSUYFwN4gc",
+      "verifiedAt": "2026-10-13T05:29:02.742Z"
+    },
+    {
+      "mint": "C8TrnpZThQWpAt3kZNj13X3RErYsWKRiQHa3zsZgxfaL",
+      "kind": "meme",
+      "name": "Smoke meme",
+      "symbol": "MEME",
+      "presetId": 2,
+      "contentHash": "782fbe7bd1ad7964b491f49263352ba620442f710022f6633661c2fa373dbb8e",
+      "uri": "https://network-release-production.up.railway.app/assets/782fbe7bd1ad7964b491f49263352ba620442f710022f6633661c2fa373dbb8e/metadata.json",
+      "image": "https://network-release-production.up.railway.app/assets/782fbe7bd1ad7964b491f49263352ba620442f710022f6633661c2fa373dbb8e/image.svg",
+      "issuanceSignature": "5NK6NrqSxB17VcQpYxpBW5w2dY9K7KB7a26NzSVmVkxfJ8v4wEfv64sW8J37ZVgbd7WA8mAaUMJoL7jE6UGyyDV",
+      "verifiedAt": "2026-10-13T05:28:29.477Z"
+    }
+  ]
+}

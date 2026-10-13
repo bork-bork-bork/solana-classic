@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "target": "https://network-release-production.up.railway.app",
+  "startedAt": "2026-10-13T07:33:17.434Z",
+  "pollEveryMs": 30000,
+  "stalledAfterMs": 60000,
+  "current": {
+    "at": "2026-10-13T07:36:17.456Z",
+    "healthy": true,
+    "code": "ONLINE",
+    "finalizedSlot": 17384,
+    "lastProgressAt": "2026-10-13T07:36:17.456Z"
+  },
+  "consecutiveFailures": 0,
+  "lastProbeAt": "2026-10-13T07:36:17.513Z",
+  "overdue": false,
+  "publicSignalConfigured": true,
+  "signalDispatch": {
+    "at": "2026-10-13T07:36:23.653Z",
+    "ok": true,
+    "status": 200
+  },
+  "fixture": {
+    "passed": true,
+    "steps": [
+      {
+        "at": "2026-10-13T07:33:17.457Z",
+        "healthy": true,
+        "code": "ONLINE",
+        "finalizedSlot": 100,
+        "lastProgressAt": "2026-10-13T07:33:17.457Z"
+      },
+      {
+        "at": "2026-10-13T07:33:52.693Z",
+        "healthy": false,
+        "code": "UPSTREAM_FAILURE",
+        "finalizedSlot": 100,
+        "lastProgressAt": "2026-10-13T07:33:17.457Z"
+      },
+      {
+        "at": "2026-10-13T07:35:22.841Z",
+        "healthy": true,
+        "code": "ONLINE",
+        "finalizedSlot": 101,
+        "lastProgressAt": "2026-10-13T07:35:22.841Z"
+      },
+      {
+        "at": "2026-10-13T07:36:23.370Z",
+        "healthy": false,
+        "code": "FINALIZED_SLOT_STALLED",
+        "finalizedSlot": 101,
+        "lastProgressAt": "2026-10-13T07:35:22.841Z"
+      },
+      {
+        "at": "2026-10-13T07:36:23.509Z",
+        "healthy": true,
+        "code": "ONLINE",
+        "finalizedSlot": 102,
+        "lastProgressAt": "2026-10-13T07:36:23.509Z"
+      }
+    ],
+    "completedAt": "2026-10-13T07:36:23.603Z"
+  },
+  "fixtureEnabled": true,
+  "memoryHealthSignal": {
+    "active": false,
+    "bytes": 201326592,
+    "rssBytes": 110174208,
+    "thresholdGB": 0.18,
+    "scope": "derived network health; bounded monitor allocation, not resource pressure"
+  },
+  "deploymentId": "448516eb-c658-4d2e-b4b7-1b9218e332be"
+}

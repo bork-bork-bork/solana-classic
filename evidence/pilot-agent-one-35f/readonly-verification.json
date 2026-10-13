@@ -1,0 +1,94 @@
+{
+  "transport": {
+    "currentPublicRpcAndFreeze": "curl HTTPS read-only adapter, 15s timeout; only get/isBlockhashValid RPC methods and candidate origins accepted",
+    "priorAttempt": {
+      "passed": false,
+      "error": "Node HTTP request timed out after public receipt/balance assertions and isolated viewport stage began; no success proof claimed for that attempt"
+    }
+  },
+  "at": "2026-10-13T16:04:03.934Z",
+  "scope": "read-only supplemental public RPC and isolated Chromium viewport checks; browser mutations occurred only in CUA",
+  "candidate": {
+    "apiOrigin": "https://network-release-production.up.railway.app",
+    "frontendOrigin": "https://solana-classic-soc.vercel.app",
+    "frontendDeploymentId": "dpl_3aWWzKDohr4SrgijgrB8dWgHHS5r",
+    "frontendCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "apiCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "networkConfigSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+    "dependencyManifestSha256": "e6da27717e6a84ca7b29d707ff63591b2ff0cfc38892d3b4667f8615bdf7bbc0"
+  },
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "asset": {
+    "mint": "5J87woHD6UV8xfQXkD1oeWXKRgwi9exp9fZwJ97MJTw7",
+    "kind": "meme",
+    "name": "PilotRepairOne",
+    "symbol": "REPAIRONE",
+    "presetId": 3,
+    "contentHash": "7b20ed300eb21af7f1aaa68a96df2153222837d7d63b64ea811c8450a2714ba9",
+    "uri": "https://network-release-production.up.railway.app/assets/7b20ed300eb21af7f1aaa68a96df2153222837d7d63b64ea811c8450a2714ba9/metadata.json",
+    "image": "https://network-release-production.up.railway.app/assets/7b20ed300eb21af7f1aaa68a96df2153222837d7d63b64ea811c8450a2714ba9/image.svg",
+    "issuanceSignature": "4X7dsPBk3ebkXWdrk2W3REoAwFSvcwVWDbm2SPbEJ2eeeYU8KY3caGC2K6KaQuoQsGcrG4y8ju46A22eSn796kFA",
+    "verifiedAt": "2026-10-13T16:01:04.030Z"
+  },
+  "issuance": {
+    "signature": "4X7dsPBk3ebkXWdrk2W3REoAwFSvcwVWDbm2SPbEJ2eeeYU8KY3caGC2K6KaQuoQsGcrG4y8ju46A22eSn796kFA",
+    "instructionCount": 8,
+    "signers": 2,
+    "slot": 90096,
+    "supply": "1000000000000",
+    "decimals": 6,
+    "mintAuthority": null,
+    "freezeAuthority": null,
+    "metadataUpdateAuthority": null
+  },
+  "transfer": {
+    "signature": "36XaGsR2HCgLB2QfPeVwUNZcraMey79eqnVsyz3vwPMbyWKAw6HLcNUP3p7WkrXKH3cGXgHVzyKSqJPyuWPzP3SU",
+    "slot": 90168,
+    "feeTEST": 0.000005,
+    "recipientAccount": "KYGZoBPqU4dyHHnLtBPcJGpDyLDVYYg1tEiwtErCRM7",
+    "recipientTokenBalance": {
+      "amount": "1000000",
+      "decimals": 6,
+      "uiAmount": 1,
+      "uiAmountString": "1"
+    }
+  },
+  "finalizedReceipts": {
+    "faucet": "finalized",
+    "issuance": "finalized",
+    "transfer": "finalized"
+  },
+  "browserFallback": {
+    "reason": "Chrome CUA viewport capability did not produce requested CSS dimensions; actual CUA viewport measurements are recorded in the main proof. Task explicitly permits documented isolated Chromium fallback.",
+    "readOnly": true,
+    "viewportChecks": [
+      {
+        "surface": "transfer explorer",
+        "width": 1440,
+        "height": 1000,
+        "scrollWidth": 1440,
+        "keyboardEnter": true,
+        "visibleFocus": {
+          "tag": "INPUT",
+          "outline": "rgb(104, 66, 237) solid 3px"
+        },
+        "deepLinkRefresh": true
+      },
+      {
+        "surface": "transfer explorer",
+        "width": 360,
+        "height": 800,
+        "scrollWidth": 360,
+        "receiptReadable": true
+      },
+      {
+        "surface": "gallery",
+        "width": 360,
+        "scrollWidth": 360,
+        "verifiedAssetVisible": true
+      }
+    ],
+    "consoleErrors": []
+  },
+  "completedAt": "2026-10-13T16:04:09.045Z"
+}

@@ -1,0 +1,20 @@
+{
+  "at": "2026-10-13T14:15:37.603966+00:00",
+  "scope": "partial remote independentagentNFTpilot interrupted before verification; not a passed pilot",
+  "passed": false,
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "api": "https://network-release-production.up.railway.app",
+  "web": "https://solana-classic-soc.vercel.app",
+  "senderPublicKey": "Av3Mt4r5i3Jj3jw57JwmRJwe998qcFpzkfPYuDBkJPug",
+  "recipientPublicKey": "GNLmws5qo63LazMAxGqNcLLCTy7VCmjvwXLNefV1m65S",
+  "faucetClaimsSubmitted": 1,
+  "faucetReceiptObserved": "GbUBxB8AecKy1zPZAq5kQS1fxceUTmCDpAXsHtXLA5wLeievsHob3PbYfRT9paaUuiRssw6cZBB4kgtiiBJUJFr",
+  "faucetBalanceObservedTEST": "1.0000",
+  "nftMintSubmitted": true,
+  "nftName": "PilotAtomicTwo",
+  "nftSymbol": "PATWO",
+  "mintCompletionVerified": false,
+  "transferSubmitted": false,
+  "interruption": "Model-capacity interruption; resumed CUA reports prior ownedtabmissing. In-memory wallet accesslost as disclosed. No privatekey read/import/export.",
+  "nextFundingPolicy": "No additional publicfaucetclaim; freshUIwallet requires authorizedoperatorTESTprefund."
+}

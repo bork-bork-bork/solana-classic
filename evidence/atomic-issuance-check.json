@@ -1,0 +1,28 @@
+{
+  "at": "2026-10-13T07:47:08.823Z",
+  "scope": "remote atomic SDK issuance and idempotent receipt retry; not bounded load acceptance",
+  "passed": true,
+  "api": "https://recovery-drill-production.up.railway.app",
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "chainSourceSha256": "728d07b1fa5023ec41b2eb701eb75d59899fca0607d81d3387221e706c25da53",
+  "results": [
+    {
+      "kind": "meme",
+      "mint": "CzfwXwSfSFfGYqMSKrWYoB1ZnjAoh9Y3pewTwML1QNui",
+      "signature": "5NNMUBqzCthMVKdSS3sCPWzhEz9AfBpKRwu3QRZs7kxYRzGwfmQHcAcperXeroYF8gcSteFCQ28tCP1X8tHVfj1n",
+      "transferSignature": "44nfiRh1sY923szH3ynZwXUjXSuP7uhSMMsRNsU5kh7Q1xqGM1ig3VWrwo8bUJ5icTmenCe9X1xHMS8hHRn6fk88",
+      "confirmedMs": 3011,
+      "serializedBytes": 813,
+      "sameReceiptRetry": true
+    },
+    {
+      "kind": "nft",
+      "mint": "Gk4c3is3TYTVt35d5jDXaNaEc8ANgapysPD3eiKjo5Y7",
+      "signature": "2S2fgATMVMfNtcUUiMamGGKYLwKVPZyxht2c2xvfmRh71Nx1cTVyuFBvd4nactqowQ56uYVNGV8xZsYLovzhJtkF",
+      "transferSignature": "32if7z7pkhN9ZVL6SgRgHvXaYByNPtE1fvGCtD9UhP4NY9RUYQf5GQvH7D1gtbKQWhp5mASJkqvPdcFES5ojcKF2",
+      "confirmedMs": 2997,
+      "serializedBytes": 812,
+      "sameReceiptRetry": true
+    }
+  ]
+}

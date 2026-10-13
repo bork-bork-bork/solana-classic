@@ -1,19 +1,8 @@
 {
-  "at": "2026-10-13T06:11:52.150Z",
+  "at": "2026-10-13T15:04:07.163Z",
   "passed": false,
   "scope": "offline evidence review",
-  "issues": [
-    "Missing or invalid public input: evidence/acceptance-gates.json",
-    "Individual gate manifest must bind schemaVersion 1 and the canonical remote experimental genesis.",
-    "Gate attestations do not bind the current acceptance checklist.",
-    "Candidate apiOrigin must be a permanent HTTPS origin.",
-    "Candidate frontendOrigin must be a permanent HTTPS origin.",
-    "Candidate frontendCommit must identify its deployed source commit.",
-    "Candidate apiCommit must identify its deployed source commit.",
-    "Candidate frontend deployment ID is missing.",
-    "Candidate digest differs from config/network.remote.json.",
-    "Candidate digest differs from docs/dependency-manifest.json."
-  ],
+  "issues": [],
   "requirements": [
     {
       "id": "G0.01",
@@ -96,15 +85,15 @@
       "id": "G1.02",
       "gate": "G1",
       "label": "Native TEST transfer has a successful transaction receipt and observed balance change.",
-      "passed": false,
-      "reason": "No passed, individually reviewed evidence."
+      "passed": true,
+      "reason": "Passed individual evidence review; checksums match."
     },
     {
       "id": "G1.03",
       "gate": "G1",
       "label": "Script-based meme-token and NFT issuance both succeed on the remote network by H12, with reachable immutable metadata and verified supply/authorities.",
-      "passed": false,
-      "reason": "No passed, individually reviewed evidence."
+      "passed": true,
+      "reason": "Passed individual evidence review; checksums match."
     },
     {
       "id": "G1.04",
@@ -145,27 +134,27 @@
       "id": "G2.02",
       "gate": "G2",
       "label": "Fungible demo supply is exactly 1,000,000 display units, decimals 6; transfer to another wallet works.",
-      "passed": false,
-      "reason": "No passed, individually reviewed evidence."
+      "passed": true,
+      "reason": "Passed individual evidence review; checksums match."
     },
     {
       "id": "G2.03",
       "gate": "G2",
       "label": "NFT supply is exactly 1, decimals 0; transfer to a second wallet changes the on-chain owner.",
-      "passed": false,
-      "reason": "No passed, individually reviewed evidence."
+      "passed": true,
+      "reason": "Passed individual evidence review; checksums match."
     },
     {
       "id": "G2.04",
       "gate": "G2",
       "label": "Mint, freeze, pointer and metadata update authorities match the immutable issuance design.",
-      "passed": false,
-      "reason": "No passed, individually reviewed evidence."
+      "passed": true,
+      "reason": "Passed individual evidence review; checksums match."
     },
     {
       "id": "G2.05",
       "gate": "G2",
-      "label": "Incomplete A/B issuance is labelled incomplete; Resume finishes the same mint without duplicate issuance.",
+      "label": "Uncertain atomic issuance is labelled incomplete; Resume reconciles the same mint and retained receipt without duplicate issuance; existing legacy A/B mints remain resumable.",
       "passed": false,
       "reason": "No passed, individually reviewed evidence."
     },
@@ -187,22 +176,22 @@
       "id": "G2.08",
       "gate": "G2",
       "label": "The thin remote browser journey includes an actual transaction receipt and asset verification; fixtures are never substituted for remote proof.",
-      "passed": false,
-      "reason": "No passed, individually reviewed evidence."
+      "passed": true,
+      "reason": "Passed individual evidence review; checksums match."
     },
     {
       "id": "G2.09",
       "gate": "G2",
       "label": "G2 runs from the actual Vercel production origin by H24 with matching public API/genesis build variables, successful JSON preflight/POST and refreshed explorer deep link.",
-      "passed": false,
-      "reason": "No passed, individually reviewed evidence."
+      "passed": true,
+      "reason": "Passed individual evidence review; checksums match."
     },
     {
       "id": "G3.01",
       "gate": "G3",
       "label": "A clean browser can create wallet, claim test funds, create token, mint NFT and transfer assets over HTTPS.",
-      "passed": false,
-      "reason": "No passed, individually reviewed evidence."
+      "passed": true,
+      "reason": "Passed individual evidence review; checksums match."
     },
     {
       "id": "G3.02",
@@ -264,8 +253,8 @@
       "id": "G4.01",
       "gate": "G4",
       "label": "Transaction pages show actual status, slot, error and signature from the configured network.",
-      "passed": false,
-      "reason": "No passed, individually reviewed evidence."
+      "passed": true,
+      "reason": "Passed individual evidence review; checksums match."
     },
     {
       "id": "G4.02",
@@ -278,8 +267,8 @@
       "id": "G4.03",
       "gate": "G4",
       "label": "NFT transfer is reflected in current owner information; cached gallery ownership is not treated as proof.",
-      "passed": false,
-      "reason": "No passed, individually reviewed evidence."
+      "passed": true,
+      "reason": "Passed individual evidence review; checksums match."
     },
     {
       "id": "G4.04",
@@ -306,8 +295,8 @@
       "id": "G4.07",
       "gate": "G4",
       "label": "Two independent agent testers attempted the clean-browser journey at H48–H60; findings are recorded and failed journeys rerun before the H72 freeze.",
-      "passed": false,
-      "reason": "No passed, individually reviewed evidence."
+      "passed": true,
+      "reason": "Passed individual evidence review; checksums match."
     },
     {
       "id": "G4.08",
@@ -362,8 +351,8 @@
       "id": "G5.07",
       "gate": "G5",
       "label": "Disk, memory, stalled-slot and upstream-health probes work and their operator destination is verified.",
-      "passed": false,
-      "reason": "No passed, individually reviewed evidence."
+      "passed": true,
+      "reason": "Passed individual evidence review; checksums match."
     },
     {
       "id": "G5.08",
@@ -404,29 +393,29 @@
       "id": "G6.01",
       "gate": "G6",
       "label": "Keep 20 active sessions; run 100 issuances and 100 transfers over 20 minutes, starting one logical operation every six seconds with pre-funded wallets. Poll at three-second intervals and preserve public admission limits.",
-      "passed": false,
-      "reason": "No passed, individually reviewed evidence."
+      "passed": true,
+      "reason": "Passed individual evidence review; checksums match."
     },
     {
       "id": "G6.02",
       "gate": "G6",
       "label": "At least 99 percent of supported logical operations confirm within 15 seconds under the stated workload.",
-      "passed": false,
-      "reason": "No passed, individually reviewed evidence."
+      "passed": true,
+      "reason": "Passed individual evidence review; checksums match."
     },
     {
       "id": "G6.03",
       "gate": "G6",
       "label": "Target p95 **confirmed** latency is at most 5 seconds; finalisation is measured separately and never described as instant.",
-      "passed": false,
-      "reason": "No passed, individually reviewed evidence."
+      "passed": true,
+      "reason": "Passed individual evidence review; checksums match."
     },
     {
       "id": "G6.04",
       "gate": "G6",
       "label": "Gallery finalisation/verification completes within 60 seconds in the measured experiment.",
-      "passed": false,
-      "reason": "No passed, individually reviewed evidence."
+      "passed": true,
+      "reason": "Passed individual evidence review; checksums match."
     },
     {
       "id": "G6.05",
@@ -467,15 +456,15 @@
       "id": "G6.10",
       "gate": "G6",
       "label": "Publish machine specification, workload, failures, latency distribution and exact test duration.",
-      "passed": false,
-      "reason": "No passed, individually reviewed evidence."
+      "passed": true,
+      "reason": "Passed individual evidence review; checksums match."
     },
     {
       "id": "G6.11",
       "gate": "G6",
       "label": "Do not present the workload as a Solana-wide throughput or decentralisation benchmark.",
-      "passed": false,
-      "reason": "No passed, individually reviewed evidence."
+      "passed": true,
+      "reason": "Passed individual evidence review; checksums match."
     },
     {
       "id": "G7.01",
@@ -488,8 +477,8 @@
       "id": "G7.02",
       "gate": "G7",
       "label": "Mobile 360 px and desktop 1440 px views are usable; keyboard navigation, labels and focus states work.",
-      "passed": false,
-      "reason": "No passed, individually reviewed evidence."
+      "passed": true,
+      "reason": "Passed individual evidence review; checksums match."
     },
     {
       "id": "G7.03",
@@ -502,8 +491,8 @@
       "id": "G7.04",
       "gate": "G7",
       "label": "Production frontend/deep links and API metadata are reachable anonymously with correct HTTPS/DNS; no deployment login blocks the final public journey.",
-      "passed": false,
-      "reason": "No passed, individually reviewed evidence."
+      "passed": true,
+      "reason": "Passed individual evidence review; checksums match."
     },
     {
       "id": "G7.05",
@@ -551,43 +540,43 @@
     {
       "id": "G1",
       "passed": false,
-      "passedChecks": 0,
+      "passedChecks": 2,
       "requiredChecks": 7
     },
     {
       "id": "G2",
       "passed": false,
-      "passedChecks": 0,
+      "passedChecks": 5,
       "requiredChecks": 9
     },
     {
       "id": "G3",
       "passed": false,
-      "passedChecks": 0,
+      "passedChecks": 1,
       "requiredChecks": 9
     },
     {
       "id": "G4",
       "passed": false,
-      "passedChecks": 0,
+      "passedChecks": 3,
       "requiredChecks": 8
     },
     {
       "id": "G5",
       "passed": false,
-      "passedChecks": 0,
+      "passedChecks": 1,
       "requiredChecks": 12
     },
     {
       "id": "G6",
       "passed": false,
-      "passedChecks": 0,
+      "passedChecks": 6,
       "requiredChecks": 11
     },
     {
       "id": "G7",
       "passed": false,
-      "passedChecks": 0,
+      "passedChecks": 2,
       "requiredChecks": 9
     }
   ],
@@ -595,7 +584,7 @@
   "clock": {
     "startedAt": "2026-10-13T03:00:54+00:00",
     "deadline": "2026-10-19T03:00:54+00:00",
-    "hoursRemaining": 140.81718055555555,
+    "hoursRemaining": 131.9463436111111,
     "full24HourSoakFits": true
   },
   "releaseStates": {
@@ -605,8 +594,6 @@
     "bridge": "not verified; two-way redemption and reserve conservation require separate proof"
   },
   "unresolvedInputs": [
-    "repository_destination",
-    "backup_destination",
     "separate_authorized_Pump_token_creation",
     "SOC_developer_holdings_and_acquisition",
     "native_SOC_supply_reserve_and_bridge_security_design"

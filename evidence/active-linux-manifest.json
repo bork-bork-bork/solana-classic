@@ -1,0 +1,20 @@
+{
+  "at": "2026-10-13T14:18:29.693103Z",
+  "scope": "remote active Linux software installation and executable hashes",
+  "passed": true,
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "source": "Authenticated cat of /app/evidence/agave-install-v3.0.14-x86_64-unknown-linux-gnu.json on running deployment818db2ce-bca0-45bd-a6bf-1bb8257fadc7",
+  "release": "v3.0.14",
+  "fullCommit": "f516a8927c76c07f0ebc54ca7a4ce8b2046eee86",
+  "archiveSha256": "65614325423316a48f57f1ceeaa91ca78f4516e165e305b38c01873cf8c6b8b4",
+  "archiveBytes": 214232615,
+  "executableSha256": {
+    "solana": "92ea14b1007481adbaf0821a2b2a972de7d181569e4b853b3acc1cb4f4985d71",
+    "solana-test-validator": "80f3bc0e3fa6a3090e69bafbfe00b249eaa655c5874ac83aebb6acdb157140ab",
+    "solana-keygen": "36694aaaabc3a24a7f3de402c167f355235dc4f8eb78ac6a55431aa9f7de685a"
+  },
+  "node": "24.19.0",
+  "pnpm": "10.34.7",
+  "tokenProgramVersion": "10.0.0",
+  "tokenProgramSha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68"
+}

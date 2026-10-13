@@ -3,7 +3,7 @@
 ## A focused SVM home for memes and NFTs
 
 **Solana Classic / SOC**  
-**Draft for founder review | Version 0.4 | 13 October 2026**
+**Draft for founder review | Version 0.6 | 13 October 2026**
 
 **Open to everyone. Built for memes and NFTs.**
 
@@ -13,7 +13,7 @@ The founder believes that the early meme and NFT community was central to Solana
 
 The response is a focused ecosystem with understandable creation tools, visible developer holdings, clear unlock rules, inspectable fees and funding that can be traced back to creator activity. Buyers should be treated as participants in that ecosystem. The project will judge progress by completed creation journeys, returning participants, better disclosure and delivered creative work. A token price is not evidence that this mission is working.
 
-The first deliverable is a six-day experimental playground: create a disposable test wallet, receive valueless TEST, issue a demo meme asset, mint a demo NFT and transfer it with visible chain receipts. The design uses an independently initialized Agave ledger and one founder-operated validator. The remote script journey has passed; browser and operating gates remain pending. The larger product mechanisms and economic network are later phases. **The intended SOC lifecycle starts with a Pump.fun launch on Solana and later adds native Classic SOC redeemable one-to-one for the original token in display units.** The token and bridge have not launched, and redemption is unavailable until its own implementation and review pass.
+The first deliverable is a six-day experimental playground: create a disposable test wallet, receive valueless TEST, issue a demo meme asset, mint a demo NFT and transfer it with visible chain receipts. The design uses an independently initialized Agave ledger and one founder-operated validator. Remote script and production-origin browser journeys and restart checks have passed; load and final operating gates remain pending. The larger product mechanisms and economic network are later phases. **The intended SOC lifecycle starts with a Pump.fun launch on Solana and later adds native Classic SOC redeemable one-to-one for the original token in display units.** The token and bridge have not launched, and redemption is unavailable until its own implementation and review pass.
 
 ### Evidence checkpoint
 
@@ -21,7 +21,7 @@ The implementation began on **13 October 2026 at 03:00:54 UTC**. A frontend prev
 
 The remote SDK smoke check **passed on 13 October 2026 at 05:29:17.715 UTC**, recording seven action receipts: two test fundings, a native TEST transfer, meme issuance and transfer, and NFT issuance and transfer. It checked native balances and the NFT's current holder. This is actual chain execution, with signatures recorded in `evidence/chain-smoke-remote.json`.
 
-Browser journeys, restart persistence, backup/restore, bounded load, external testers and the candidate soak still need acceptance. Earlier probes were stopped and retained: the v4.3.0 attempt failed on mandatory `io_uring`, and the earlier `8w` candidate exposed a bundled Token-2022 compatibility defect. The new candidate uses the official programme fix; no published release-candidate ledger was reset. The Pump-origin SOC token, native mainnet, bridge and SOC market have not launched. No complete G0 through G7 gate is claimed at this checkpoint.
+The production-origin Chromium journey passed at **05:51:13.818 UTC**, and the provider container/process restart check passed at **05:56:05.685 UTC**, preserving the genesis, balances, asset records and faucet request identifier. This was not a host reboot or restore. Two independent agent browser pilots passed at 06:02 to 06:03 UTC; the founder selected agent pilots, and no human usability research was performed. A cold archive was created at **06:31:55.567 UTC**, and a provider-native backup exists. Isolated cold restore verification passed at 07:42:11 UTC, preserving the same genesis, balances, mint data, ownership, immutable files, gallery and faucet receipt. The first 20-minute load run failed: 98.5 percent confirmed within 15 seconds and p95 logical confirmation was 10.269 seconds. Its sequential issuance path has been replaced by an atomic transaction; meme and NFT checks passed on the restored TEST node at about 3 seconds each. A new bounded-load run is pending. The final core candidate is not frozen, the 24 hour soak has not started, and account-email delivery still needs verification. A controlled monitor-service failure produced a native provider alert at 07:44:28 UTC; aggregation took about six minutes. Earlier probes were stopped and retained: the v4.3.0 attempt failed on mandatory `io_uring`, and the earlier `8w` candidate exposed a bundled Token-2022 compatibility defect. The new candidate uses the official programme fix; no published release-candidate ledger was reset. The Pump-origin SOC token, native mainnet, bridge and SOC market have not launched. No complete G0 through G7 gate is claimed at this checkpoint.
 
 Descriptions below distinguish **selected design**, **release requirements** and **later proposals**. They are not claims that those features have already passed acceptance. This checkpoint must be revised from evidence before publication as a live-network whitepaper.
 
@@ -87,7 +87,7 @@ Together, these mechanisms define "fairer" in operational terms: clearer holding
 
 | Phase | Concrete product outcome | Evidence to seek |
 | --- | --- | --- |
-| Six-day TEST experiment | Disposable wallet, faucet, four presets, meme/NFT issuance, transfer, verified gallery and receipts | Real chain journeys, persistence and recovery, external pilot and candidate soak |
+| Six-day TEST experiment | Disposable wallet, faucet, four presets, meme/NFT issuance, transfer, verified gallery and receipts | Real chain journeys, persistence and recovery, selected agent pilots and candidate soak |
 | Creator and buyer pilot | Prototype public launch records, declared wallet groups, allocation and fee views, and clear unlock labels | Can users explain supply/control; disclosures match their cited records; creators can complete and maintain them |
 | Community standards and funding | Adopted admission terms, reviewed controls where needed, published funding decisions and spending reports | Coverage of launch disclosures; verified restrictions; delivered work; unresolved gaps made visible |
 | Native mainnet and redemption | Protected SOC reserve, one-to-one bridge, reviewed wallets and defined market infrastructure | Monetary conservation, security review, two-way settlement and funded operation |
@@ -124,8 +124,8 @@ SOC is intended to begin as a Solana token launched through Pump.fun and later b
 
 | Scope | Current state | Meaning |
 | --- | --- | --- |
-| Experimental devnet | Remote script journey passed; complete release gates pending | One operator; native denomination TEST; no monetary value |
-| Playground meme assets and NFTs | Remote issuance and transfer proof passed; browser acceptance pending | Token-2022 demo assets on the experiment; no monetary value |
+| Experimental devnet | Remote script/browser journeys and restart check passed; complete release gates pending | One operator; native denomination TEST; no monetary value |
+| Playground meme assets and NFTs | Remote script/browser issuance and transfer proof passed; full release pending | Token-2022 demo assets on the experiment; no monetary value |
 | Original SOC on Solana | Pump.fun launch intended; token not created | Canonical original token for the proposed redemption model |
 | Solana Classic mainnet and native SOC | Planned and unimplemented; no mainnet genesis | Native currency released from a protected reserve against original SOC escrow |
 | Redemption bridge | Planned and unimplemented; no deployed addresses | Intended 1 original SOC to 1 native SOC in display units, with separate fees |
@@ -141,7 +141,7 @@ The original SOC token requires actual venue creation and mint verification. Nat
 
 The initial runtime selection was upstream **Agave v4.3.0**, which Anza labels stable. Its official binaries were verified, but its Railway startup failed on unavailable mandatory `io_uring` support. There is no active, accepted v4.3.0 validator. An upstream release label does not establish compatibility with this hosting environment or production readiness for this project. [Agave v4.3.0 release](https://github.com/anza-xyz/agave/releases/tag/v4.3.0) [7]
 
-Official **Agave v3.0.14** is running as the compatibility candidate. Its account-storage directory-removal code can fall back to standard filesystem operations when `io_uring` is unsupported or remover initialization fails. The fresh deployed candidate has passed startup, block progression, identity, health and the remote SDK action journey. Persistence, recovery and the wider release gates still require proof. No custom runtime patch or relaxation of kernel protections is part of this approach. [Agave v3.0.14 account-storage source](https://raw.githubusercontent.com/anza-xyz/agave/v3.0.14/accounts-db/src/utils.rs) [16]
+Official **Agave v3.0.14** is running as the compatibility candidate. Its account-storage directory-removal code can fall back to standard filesystem operations when `io_uring` is unsupported or remover initialization fails. The fresh candidate has passed startup, block progression, identity, health, SDK/browser journeys and the provider container/process restart check. Recovery, load and the wider release gates still require proof. No custom runtime patch or relaxation of kernel protections is part of this approach. [Agave v3.0.14 account-storage source](https://raw.githubusercontent.com/anza-xyz/agave/v3.0.14/accounts-db/src/utils.rs) [16]
 
 The earlier Agave candidate's bundled Token-2022 programme failed variable metadata reallocation. The official Token-2022 v10.0.0 release fixes compatibility with `stricter_abi_and_runtime_constraints`. Its verified official artifact was loaded under the existing standard Token-2022 programme identity on the fresh candidate. This is an upstream programme update, not a bespoke token contract or a new asset standard. [Official Token-2022 v10.0.0 release](https://github.com/solana-program/token-2022/releases/tag/program@v10.0.0) [18]
 
@@ -153,7 +153,7 @@ The earlier Agave candidate's bundled Token-2022 programme failed variable metad
 | Official archive SHA256 | `65614325423316a48f57f1ceeaa91ca78f4516e165e305b38c01873cf8c6b8b4` |
 | Token-2022 v10.0.0 commit | `3350a3ba856f5997c4ade91fd1e5c8b515e5df33` |
 | Token-2022 artifact SHA256 | `a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68` |
-| Proof scope | Identity, health, block progression, programme bytes and seven remote SDK actions; full acceptance pending |
+| Proof scope | Identity, health, programme bytes, remote SDK/browser journeys, restart, agent pilots and isolated recovery; load/soak pending |
 
 The planned service uses `solana-test-validator` with persistent storage. Anza describes this tool as a full-featured single-node development cluster. The experiment will use a newly generated ledger and will not clone Solana accounts or programs from a public cluster. Required built-in and token programs must be checked on the actual deployed runtime before asset issuance is accepted. [Anza test validator documentation](https://docs.anza.xyz/cli/examples/test-validator) [8]
 
@@ -170,9 +170,9 @@ The browser and gateway must both check the expected genesis before mutations. A
 | SQLite | Durable faucet reservations, quotas, asset documents and gallery discovery records |
 | Linux storage | Persistent validator ledger, database, artwork and immutable metadata |
 | Agave validator | Actual SVM execution, account state and transaction receipts |
-| Caddy and systemd | HTTPS gateway, restricted service exposure and supervised processes |
+| Railway ingress and container supervisor | HTTPS gateway, restricted service exposure and supervised processes |
 
-The browser calls a fixed API origin. The API forwards allowed RPC methods to a fixed private validator upstream. Direct public access to the validator RPC, WebSocket and native faucet ports must be blocked and externally checked. The API itself binds locally behind Caddy. Vercel does not host the validator or persistent chain storage. The Linux service still needs accepted machine capacity, persistent storage and operator access; those requirements are not satisfied by the live frontend preview.
+The browser calls a fixed API origin. The API forwards allowed RPC methods to the validator's loopback endpoint. The Railway container exposes only API port 3000 through provider HTTPS ingress; raw RPC, WebSocket and native faucet ports are private. Its supervisor manages the API and validator together, and the persistent volume stores the ledger, SQLite and immutable files. The selected cap is four vCPUs and 16 decimal GB; accepted load and stability runs must establish its limits.
 
 The permanent API and metadata hostname must be established before remote immutable minting. Preview deployment URLs and localhost are unsuitable for those remote asset URIs. The production frontend may use the newly created Vercel project's stable production hostname. Frontend availability, API availability and ledger continuity are separate conditions and must be reported separately.
 
@@ -194,11 +194,11 @@ The four presets are **Circle Face, Stepped Geometry, Grid Face and Orbit**. The
 
 ### Issuance and immutable authorities
 
-The verified two-phase issuance model separates mint setup from completed issuance. Transaction A allocates the mint's fixed extension space, funds rent for its complete metadata and initializes the metadata pointer, mint and inline token metadata. The pointer has no authority, the freeze authority is absent, and the test wallet temporarily holds the authorities needed to complete issuance.
+The verified atomic issuance path creates the mint and inline metadata, creates the token account, mints the fixed supply and removes mint and metadata update authorities in one transaction. It funds rent for the complete metadata while initially allocating the fixed extension space. The pointer has no authority, and the freeze authority is absent.
 
-Transaction B creates the recipient token account if needed, mints the fixed amount, revokes mint authority and clears the temporary metadata update authority. Supply issuance and these authority changes are atomic. Both meme and NFT paths passed the remote script journey on the compatible official programme. The Token Program's authority instruction and the token-metadata interface's update-authority instruction are distinct operations; clearing one does not prove that the other was cleared. [Token authority documentation](https://solana.com/docs/tokens/basics/set-authority) [10], [Token metadata documentation](https://solana.com/docs/tokens/extensions/metadata) [9]
+Both meme and NFT paths passed actual remote atomic issuance, authority verification, same-receipt retry and transfer checks on the restored TEST node. The verified transaction sizes were 813 and 812 bytes, below the 1,232-byte limit. These two checks are not a capacity benchmark. The Token Program's authority instruction and the token-metadata interface's update-authority instruction are distinct operations; clearing one does not prove that the other was cleared. [Token authority documentation](https://solana.com/docs/tokens/basics/set-authority) [10], [Token metadata documentation](https://solana.com/docs/tokens/extensions/metadata) [9]
 
-A successful setup is an incomplete asset. If finalization fails, the interface must offer a resume action on the same in-memory mint. It must not quietly create another mint. The app serializes and simulates each transaction, checks its size and records submission, confirmation and finalization as separate states. A signature returned by RPC is not evidence of successful issuance.
+If submission or finalization is uncertain, the interface retains the anticipated receipt and offers Resume on the same in-memory mint. It must reconcile that receipt rather than quietly create another mint. Existing incomplete mints from the earlier two-transaction path remain resumable. The app serializes and simulates each transaction, checks its size and records submission, confirmation and finalization as separate states. A signature returned by RPC is not evidence of successful issuance.
 
 The gallery accepts an asset only after finalized chain verification establishes the expected Token-2022 program, mint and issuance transaction, fixed supply, decimals, metadata URI, and absent mint, freeze, pointer and metadata update authorities. Its database is a discovery registry, not ownership truth. Current NFT ownership is derived from the actual token account; the mint's program owner is not the holder. If an NFT is burned, the interface shows no current holder. If the chain cannot be read, ownership is unavailable rather than asserted from a stale registry row.
 
@@ -231,7 +231,7 @@ The founder is the intended operator. One validator and one Linux host concentra
 
 The normal service command must not reset the ledger. Restarts must preserve the genesis, balances and issued assets. Any deliberate reset requires disclosure and a new network identity record. Nothing in this experiment guarantees perpetual availability or preservation of valueless assets.
 
-Before public release, the operator must have a working monitoring and recovery procedure. The selected monitoring cadence is 30 seconds, with alerts for repeated RPC failure, no slot progress for 60 seconds, disk use above 80 percent and memory use above 85 percent. Identity failure stops the faucet and new mint admission. The founder must choose an authorized alert destination and response arrangement; an agent chat is not continuous hosting or operations.
+Before public release, the operator must have a working monitoring and recovery procedure. The selected monitoring cadence is 30 seconds, with alerts for repeated RPC failure, no slot progress for 60 seconds, memory use at 80 percent (12.8 GB of the 16 decimal GB cap) and persistent-volume use at 85 percent (42,500 MB of 50,000 MB). Identity failure stops the faucet and new mint admission. Provider-native memory and volume alerts with account-email notification are configured; actual delivery and the response arrangement still need verification. An agent chat is not continuous hosting or operations.
 
 The first recovery drill is due by H36. It must stop services, create a consistent backup, restore into an isolated directory and verify the same genesis, balances and known assets. The backup covers the ledger, SQLite, immutable artwork and configuration, with protected operator files handled without disclosure. The procedure is reconfirmed on the candidate before freeze. Frontend rollback is tested separately from restoring Linux state.
 
@@ -317,7 +317,7 @@ The programme started at T0 on 13 October 2026 at 03:00:54 UTC. Delayed access d
 | --- | --- | --- | --- |
 | H24 thin journey | 14 Oct 03:00:54 | 14 Oct 04:00:54 | Production frontend through API to remote chain, with persistence proof |
 | H36 recovery | 14 Oct 15:00:54 | 14 Oct 16:00:54 | First isolated backup and restore proof |
-| H48 to H60 pilot | 15 Oct 03:00:54 to 15:00:54 | 15 Oct 04:00:54 to 16:00:54 | Two external users; failures repaired and rerun |
+| H48 to H60 pilot | 15 Oct 03:00:54 to 15:00:54 | 15 Oct 04:00:54 to 16:00:54 | Two independent agent browser pilots, as selected by founder; findings recorded and failures rerun |
 | H72 freeze | 16 Oct 03:00:54 | 16 Oct 04:00:54 | Candidate frozen; first full soak begins |
 | H108 first release target | 17 Oct 15:00:54 | 17 Oct 16:00:54 | Release if first soak and final gates pass; otherwise repaired candidate frozen |
 | H132 replacement soak | 18 Oct 15:00:54 | 18 Oct 16:00:54 | Reserved replacement 24 hour soak completed |
@@ -331,12 +331,12 @@ The programme started at T0 on 13 October 2026 at 03:00:54 UTC. Delayed access d
 | G1 | Independent remote genesis; native transfer; token and NFT proofs with reachable metadata |
 | G2 | Actual production browser journey through the Linux API; durable faucet, receipts, restart and deep-link refresh |
 | G3 | Complete usable journey, verified discovery and first successful recovery drill |
-| G4 | Two external testers complete clean-browser journeys; failed journeys repaired and rerun |
+| G4 | Two independent agent testers complete clean-browser journeys under the founder-selected scope; findings recorded, failures repaired and rerun |
 | G5 | Negative, bounded-load and recovery controls pass; operator review and candidate freeze |
 | G6 | Uninterrupted 24 hour soak of the final core candidate |
 | G7 | Final regression, release evidence, reachable anonymous HTTPS and operator handover |
 
-The external pilot is performed by humans outside the implementation team without terminal access or developer intervention. Agent QA can find defects and exercise journeys; it does not satisfy that user gate. Both testers must exercise the wallet, faucet, issuance, gallery, receipts and transfer path. Difficulties are recorded with the step, browser, outcome and repair evidence.
+The founder selected two independent agent browser pilots for this sprint rather than booking human testers. Their combined paths cover wallet creation, faucet, meme and NFT issuance, gallery, receipts and transfer; each report states its narrower scope and limitations. They provide technical and interface evidence, not human usability or demand research. Difficulties are recorded with the step, browser, outcome and repair evidence. G4 still requires consolidated review of that evidence before formal acceptance.
 
 The soak covers the validator, gateway, faucet, signing and issuance logic, storage and recovery configuration. A core change restarts the full 24 hour requirement. Static copy or artwork selection changes use targeted checks; changes to transaction logic, metadata origin or executable asset content do not receive that exception. A replacement soak is reserved so a serious defect can be repaired without deleting the stability requirement.
 
@@ -352,7 +352,7 @@ Every technical report must identify its scope as local or remote, UTC test wind
 | Is the service stable | Slot progress and health samples; outages and duration; CPU, memory and disk during a stated workload |
 | How fast is the pilot | Submission-to-confirmation and submission-to-finalization times, sample count, median and p95 where sample size supports them |
 | Is state recoverable | Before/after genesis, balances, supply, authorities and ownership for named test assets after restart and restore |
-| Does focus matter to people | External task completion and feedback; later opt-in return visits and repeat creation, reported separately from agent traffic |
+| Does focus matter to people | Later human task completion and feedback; opt-in return visits and repeat creation, reported separately from agent traffic |
 
 Latency comparisons must include hardware, concurrency, action type, network path, admission settings and failures. Admission caps are not throughput measurements. A small sample cannot establish tail behavior or broad capacity. No benchmark result is published before measurement, and upstream performance claims are not transferred to this one-host experiment.
 
@@ -360,9 +360,9 @@ Cultural evaluation also has limits. A wallet address is not a person; refreshin
 
 ## 10 Conditions for a later mainnet programme
 
-After a passed release, the proposed first step is to operate the pilot, interview participants and learn whether creators return. A later multi-validator experiment and supported-wallet evaluation would need named operators, funding and a separate test plan. Weeks 3 to 4 and weeks 5 to 8 are planning windows for those decisions, not promised launch dates.
+After release, operate the pilot and interview participants about continued use. A multi-validator experiment and supported-wallet evaluation need named operators, funding and separate tests. Weeks 3 to 4 and 5 to 8 are decision windows, not promised launch dates.
 
-The intended production direction is an independent Solana Classic mainnet with native SOC redeemable one-to-one for the original Pump-launched SOC through a reviewed bridge. It needs evidence that a separate chain serves creators better than an application on an existing network. It also needs independent validators, economic security analysis, reserve and fee design, wallet and infrastructure readiness, security review, recovery plans and credible operating funding. Neither a market listing nor a successful single-validator soak supplies those conditions.
+Native Classic SOC requires evidence that independent infrastructure serves creators better than an existing-chain application, alongside independent validators, economic security analysis, reserve and fee design, wallet and infrastructure readiness, security review, recovery plans and funded operation. A market listing or single-validator soak does not meet these conditions.
 
 The redemption bridge and any later pools require their own specification, budget, security work and acceptance evidence. Their launch date is not set by the six-day experiment or the original token's creation. TEST and demo assets have no conversion entitlement to mainnet SOC. Any additional migration or asset support needs an explicit design before it is offered.
 
@@ -370,7 +370,7 @@ The thesis is weakened if people cannot complete the creation journey, do not re
 
 ## 11 Founder decisions and release disclosures
 
-The immediate work is to complete browser journeys against the script-tested Railway candidate, verify persistence and recovery, pass bounded load and the candidate soak, establish active backup storage and an alert/response arrangement, and book two external testers. The passed seven-action remote proof is recorded alongside the retained earlier probes. The frontend preview is live on Vercel, but full network, browser and operating acceptance is still pending.
+Next, accept bounded load, verify alert delivery and operator response, freeze the final core candidate and pass its uninterrupted 24 hour soak. Isolated recovery passed within its recorded scope. Browser and SDK journeys, provider container/process restart and two founder-selected agent pilots passed within their recorded scopes. Archive creation alone is not restore proof; the separate isolated verification supplies that evidence. Complete G0 through G7 acceptance remains pending.
 
 For the initial Pump launch, the founder must resolve final metadata, the release decision, current venue settings, authorized spending, developer-retained quantity and how it is obtained, custody and public-address disclosures, and creator-fee policy. The original token's actual supply and authorities are recorded after creation. No free developer allocation is assumed.
 
@@ -378,7 +378,7 @@ For mainnet native SOC, the founder must approve the reserve quantity and protec
 
 For the bridge and later pools, the founder must choose the verifier/trust model, security-review scope, escrow and reserve control, recovery and emergency powers, and any additional venue, pair, liquidity funding and LP-ownership arrangements. Those decisions remain unresolved. No deployed address or security guarantee is invented here.
 
-Every public release must disclose its actual genesis, software and hashes, operator count, reset policy, supported actions, measured limitations, deployment and evidence references, known defects and operator contact. Original SOC, native mainnet, redemption bridge and market states are reported independently within the same lifecycle. Readers should be able to distinguish the live frontend preview, an accepted TEST devnet, a created original SOC token, a launched native mainnet, an operating redemption bridge and any actual pool.
+Every release must disclose genesis, software and hashes, operator count, reset policy, supported actions, measured limits, deployment and evidence, known defects and operator contact. Report frontend, TEST-devnet, original SOC, native-mainnet, bridge and pool states separately.
 
 ## References
 
@@ -405,4 +405,4 @@ Primary and first-party sources consulted on 13 October 2026. The Bitcoin Cash a
 
 ### Project sources
 
-The experimental design and implementation records are maintained in `CONTRIBUTING.md`, `docs/planning/ACCEPTANCE_CHECKLIST.md`, `docs/CONTRACTS.md`, `docs/sprint-clock.json`, `docs/STATUS.md`, `docs/access-status.json`, `config/network.json`, `config/network.remote.json`, `config/launch.json`, `evidence/remote-bootstrap.json`, `evidence/chain-smoke-remote.json` and `packages/config/src/index.ts`. The Pump-first origin and intended one-to-one native redemption follow the founder's current decision. This whitepaper does not replace acceptance records. A live-network release requires the completed evidence packet and a new dated checkpoint.
+The experimental design and implementation records are maintained in `CONTRIBUTING.md`, `docs/planning/ACCEPTANCE_CHECKLIST.md`, `docs/CONTRACTS.md`, `docs/sprint-clock.json`, `docs/STATUS.md`, `docs/access-status.json`, `config/network.json`, `config/network.remote.json`, `config/launch.json`, `evidence/remote-bootstrap.json`, `evidence/chain-smoke-remote.json`, `evidence/browser-remote.json`, `evidence/restart-check.json`, `evidence/pilot-agent-one.json`, `evidence/pilot-agent-two.json`, `evidence/cold-backup-created.json` and `packages/config/src/index.ts`. The Pump-first origin and intended one-to-one native redemption follow the founder's current decision. This whitepaper does not replace acceptance records. A live-network release requires the completed evidence packet and a new dated checkpoint.

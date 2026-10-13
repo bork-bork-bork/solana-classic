@@ -1,0 +1,28 @@
+{
+  "at": "2026-10-13T07:44:45.164Z",
+  "scope": "remote atomic SDK issuance; incomplete or failed",
+  "passed": false,
+  "api": "https://recovery-drill-production.up.railway.app",
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "results": [
+    {
+      "kind": "meme",
+      "mint": "GzKAr4Aebe8KD7VWap7aL7Pcz6QMaYmE6h9bxgM7GwLD",
+      "signature": "3xteUt9YqRJ4VKnvdGx9Ymfi5xEeiabsWw5H5sXYsrNWCuGhKeZ4bfJNSwEaHLKhpqxoQWBDfJnWC5xMzuDH7hg",
+      "transferSignature": "8DxuJfJTGRCv9RE7QtjNeaSb4HtHkug3c1jNwQEQ4nJo2yzHkUH94ZpQA5hH662iBSeVCC63wG5FJ3LczHCBCeS",
+      "confirmedMs": 2034,
+      "serializedBytes": 385,
+      "sameReceiptRetry": true
+    },
+    {
+      "kind": "nft",
+      "mint": "DTWYLxWqF8quVtFdVXPY1EuXKEegbFQyErkXeb11ey4y",
+      "signature": "CTQDVh9V4Ldnj9PJoQhaGn11DseTqBfAejqwAc4227ZJRRHtQ93ptZCk6UDkneM3o4MRW6F6YoPWS94isUu7pwR",
+      "transferSignature": "5q3SFrmz8jftmPMtxa4Eh753e7kRTJx5khhqey2nuRv4VoB1ncAc6ghEWjT5YQnwFCTRFxJxLLKLpKWWa9UdsHiK",
+      "confirmedMs": 1400,
+      "serializedBytes": 385,
+      "sameReceiptRetry": true
+    }
+  ],
+  "error": "Not an allowed public path."
+}
