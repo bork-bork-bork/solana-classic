@@ -1,0 +1,18 @@
+{
+  "at": "2026-10-13T18:01:18.868614+00:00",
+  "scope": "repository branding-only display rename preparation; current running TEST candidate unchanged",
+  "passed": true,
+  "displayName": "tSOC",
+  "meaning": "Display alias for the existing valueless experimental native TEST units. No conversion entitlement, new mint, supply or balance change.",
+  "roadmapUpdated": true,
+  "playgroundPatch": "docs/planning/TSOC_DISPLAY_RENAME.patch",
+  "playgroundPatchSha256": "69d6ba204af6ac20c3099ae58f6e4a94023b279d539595a2281388d817192af8",
+  "replacementCounts": {
+    "apps/web/src/App.tsx": 1,
+    "apps/web/src/Pages.tsx": 7,
+    "apps/web/src/Playground.tsx": 6
+  },
+  "all41FrozenFilesUnchanged": true,
+  "playgroundPublished": false,
+  "publicationPlan": "Apply presentation-only patch after active24hoursoak completes; run affected browser/content checks and document copy-only exception before release review."
+}

@@ -1,0 +1,31 @@
+{
+  "at": "2026-10-13T18:10:25.914331+00:00",
+  "scope": "remote branded roadmap read-only verification; playground alias is prepared only",
+  "passed": true,
+  "deploymentId": "dpl_4BuCo6VdPHEHmNW6VDTjHbCy9TbA",
+  "roadmapOrigin": "https://solana-classic-roadmap.vercel.app",
+  "displayName": "tSOC",
+  "networkLabel": "Solana Classic Testnet",
+  "htmlSha256": "17274ad47310a37663f5d9cbe69bdb0deb70b4cb5e7727538632298a87b039ae",
+  "clientSha256": "093833a1f2c179caa432184f72c321e3e8669439d00532f98ffb9ed583e53f48",
+  "all41FrozenFilesUnchanged": true,
+  "soak": {
+    "state": "running",
+    "runnerState": "starting",
+    "freezeMatches": true,
+    "progressFreezeMatches": true,
+    "startedAt": "2026-10-13T16:48:22.762Z",
+    "endsAt": "2026-10-14T16:48:22.762Z",
+    "reportAt": "2026-10-13T18:08:50.240Z",
+    "progressStale": false,
+    "completedJourneys": 17,
+    "totalJourneys": 288,
+    "observations": 160,
+    "accepted": false,
+    "activationAt": "2026-10-13T16:47:36.929Z",
+    "issues": [],
+    "elapsedMs": 4923150
+  },
+  "playgroundPublished": false,
+  "preparedPatch": "docs/planning/TSOC_DISPLAY_RENAME.patch"
+}

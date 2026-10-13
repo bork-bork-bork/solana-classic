@@ -29,7 +29,7 @@ function checklist(data) {
  const c=data.checkpoint,p=c.proofs;
  const rows=[
   {id:'identity',title:'Network & chain identity',description:'Independent genesis, pinned node software and fail-closed public-chain checks.',proofs:['genesis-public-guard-repaired','remote-fault-reconfirmation']},
-  {id:'flows',title:'Memecoin and NFT flows',description:'Create, transfer, gallery ownership and explorer receipts on TEST.',proofs:['pilot-agent-one','pilot-agent-two']},
+  {id:'flows',title:'Memecoin and NFT flows',description:'Create, transfer, gallery ownership and explorer receipts on Solana Classic Testnet.',proofs:['pilot-agent-one','pilot-agent-two']},
   {id:'load',title:'Load test',description:`${c.load.confirmedWithin15Seconds}/${c.load.operations} confirmed within 15 seconds · p95 ${(c.load.p95ConfirmedMs/1000).toFixed(2)} seconds`,proofs:['load']},
   {id:'recovery',title:'Restart & recovery',description:'Process restart, isolated backup restore and persistent-state verification.',proofs:['restart-check','backup-check']},
   {id:'pilots',title:'Independent agent pilots',description:'Two separate agent journeys, mobile layout and keyboard checks.',proofs:['pilot-agent-one','pilot-agent-two']},
