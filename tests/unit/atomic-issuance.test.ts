@@ -70,9 +70,15 @@ describe('atomic issuance safety (real builders, mocked RPC only)', () => {
     expect(methods.getSignatureStatuses.mock.calls.at(-1)?.[0]).toEqual([state.preparationSignature]);
     expect(state.mint).toBe(originalMint); expect(state.issuanceSignature).toBe(state.preparationSignature);
   });
-  it.each(['different-private-genesis','5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp'])('does not simulate or broadcast on initially wrong/public genesis %s', async actual => {
+  it.each(['different-private-genesis','5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d'])('does not simulate or broadcast on initially wrong/public genesis %s', async actual => {
     const { wallet, state, methods, connection } = fixture(); methods.getGenesisHash.mockResolvedValue(actual);
     await expect(prepareIssuance(connection, genesis, wallet, state)).rejects.toThrow('Transactions are disabled');
+    expect(methods.simulateTransaction).not.toHaveBeenCalled(); expect(methods.sendRawTransaction).not.toHaveBeenCalled();
+    expect(state.preparationSignature).toBeNull(); expect(state.issuanceSignature).toBeNull();
+  });
+  it.each(['5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d','EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG'])('refuses issuance even when the full public hash %s matches the expected configuration', async actual => {
+    const { wallet, state, methods, connection } = fixture(); methods.getGenesisHash.mockResolvedValue(actual);
+    await expect(prepareIssuance(connection, actual, wallet, state)).rejects.toThrow('Transactions are disabled');
     expect(methods.simulateTransaction).not.toHaveBeenCalled(); expect(methods.sendRawTransaction).not.toHaveBeenCalled();
     expect(state.preparationSignature).toBeNull(); expect(state.issuanceSignature).toBeNull();
   });

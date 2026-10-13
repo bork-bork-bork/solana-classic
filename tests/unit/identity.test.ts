@@ -13,8 +13,8 @@ vi.mock('node:fs', async importOriginal => {
 
 type Connection = Parameters<typeof assertNetwork>[0];
 const publicGenesisHashes = [
-  '5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp',
-  'EtWTRABZaYq6iMfeYKouRu166VU2xqa1',
+  '5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d',
+  'EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG',
   '4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY',
 ];
 const chainRequire = createRequire(new URL('../../packages/chain/package.json', import.meta.url));

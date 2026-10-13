@@ -3,7 +3,8 @@ import { TOKEN_2022_PROGRAM_ID, ASSOCIATED_TOKEN_PROGRAM_ID, ExtensionType, getM
 import { pack, createInitializeInstruction, createUpdateAuthorityInstruction } from '@solana/spl-token-metadata';
 import { MEME_SUPPLY, LIMITS, type AssetDocument, type ActionProgress } from '@solana-classic/config';
 
-export const KNOWN_PUBLIC_GENESIS = new Set(['5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp', 'EtWTRABZaYq6iMfeYKouRu166VU2xqa1', '4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY']);
+// Complete hashes returned by the public RPCs, not abbreviated display values.
+export const KNOWN_PUBLIC_GENESIS = new Set(['5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d', 'EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG', '4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY']);
 export function validateExperimentalGenesis(expected: string | null, actual: string): void {
   if (!expected || KNOWN_PUBLIC_GENESIS.has(actual) || KNOWN_PUBLIC_GENESIS.has(expected) || actual !== expected) throw new Error('Experimental network identity is not verified. Transactions are disabled.');
 }

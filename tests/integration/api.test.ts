@@ -195,7 +195,7 @@ describe('API integration (in-process app and mocked upstream; no chain proof)',
     expect(upstream).not.toHaveBeenCalled();
   });
 
-  it.each(['another-private-genesis', '5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp'])('disables faucet and asset mutations on wrong/public genesis %s', async actualGenesis => {
+  it.each(['another-private-genesis', '5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d'])('disables faucet and asset mutations on wrong/public genesis %s', async actualGenesis => {
     vi.spyOn(context.connection, 'getGenesisHash').mockResolvedValue(actualGenesis);
     const airdrop = vi.spyOn(context.connection, 'requestAirdrop');
     const faucet = await context.app.inject({ method: 'POST', url: '/api/faucet', payload: { publicKey: wallet, requestId: randomUUID() } });
@@ -210,6 +210,24 @@ describe('API integration (in-process app and mocked upstream; no chain proof)',
     expect(upstream).not.toHaveBeenCalled();
     expect(grantCount()).toEqual({ count: 0 });
     expect(context.store.db.prepare('SELECT COUNT(*) AS count FROM assets').get()).toEqual({ count: 0 });
+  });
+
+  it.each(['5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d', 'EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG'])('blocks all mutations when the complete public genesis %s is incorrectly configured as expected', async actualGenesis => {
+    await context.app.close();
+    settings = { ...settings, network: { ...settings.network, expectedGenesisHash: actualGenesis } };
+    context = await createApp(settings); await context.app.ready();
+    vi.spyOn(context.connection, 'getGenesisHash').mockResolvedValue(actualGenesis);
+    const airdrop = vi.spyOn(context.connection, 'requestAirdrop'); upstream.mockClear();
+    const transaction = Buffer.concat([Buffer.from([1]), Buffer.alloc(64), Buffer.from([1, 0, 0, 1]), Buffer.alloc(64), Buffer.from([0])]).toString('base64');
+    const requests = [
+      ['/api/faucet', { publicKey: wallet, requestId: randomUUID() }],
+      ['/api/assets', assetInput],
+      ['/api/gallery', { mint: wallet, issuanceSignature: signature, contentHash: 'a'.repeat(64) }],
+      ['/api/rpc', rpc('sendTransaction', { params: [transaction, { encoding: 'base64' }] })],
+    ] as const;
+    for (const [url, payload] of requests) expect((await context.app.inject({ method: 'POST', url, payload })).statusCode).toBe(503);
+    expect(airdrop).not.toHaveBeenCalled(); expect(upstream).not.toHaveBeenCalled();
+    for (const table of ['faucet', 'assets', 'gallery', 'counters']) expect(context.store.db.prepare(`SELECT COUNT(*) AS count FROM ${table}`).get()).toEqual({ count: 0 });
   });
 
   it('keeps one uncertain grant on duplicate retry and process restart after an upstream timeout', async () => {
