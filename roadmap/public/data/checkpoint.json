@@ -168,7 +168,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-14T11:30:05.448629+00:00",
+    "reviewedAt": "2026-10-14T11:57:53.354075+00:00",
     "scope": "Development checkpoint only; separate from the live testnet release",
     "projects": [
       {
@@ -209,7 +209,7 @@
         "title": "SOC redemption bridge",
         "state": "building",
         "description": "Original SOC escrow and a native Classic reserve, targeting exact 1:1 display-unit redemption in both directions.",
-        "currentScope": "V2 bridge now passes 14 actual checks on two fresh private Agave3.0.14 ledgers: bytecode/authority pins, source lock, bootstrap without native payout, consumed receipts, reserve floor and return/redemption. Both processes stopped; counters/escrow1950000 origin units, reserve52000000 native units, protected floor2000000. Budget is an explicitly hypothetical projection, not complete test-validator/mainnet backing. Actual inventory/custody, unknown landing/fork/cold restore and independent review remain. Historical V1 recovery proofs are preserved.",
+        "currentScope": "V2 bridge passes14 fresh private Agave execution checks and now8 actual cold archive/extraction/restore checks: all20 bridge accounts, bootstrap record/floor, balances, counters and replay receipts preserved. Four copied-ledger processes stopped; zero broadcasts; original ledgers unchanged. Nine copy/admission guards pass. Budget remains hypothetical; funded mainnet inventory/custody, hard crash/unknown landing/fork and independent review remain open.",
         "source": "https://github.com/solana-classic/solana-classic/tree/main/bridge",
         "milestones": [
           {
@@ -251,6 +251,11 @@
             "title": "V2 bootstrap and protected reserve on fresh Agave ledgers",
             "state": "rehearsal-passed",
             "detail": "14 actual private-ledger checks + 3 worker guards; exact deployed bytes/authority, finalized bootstrap and roundtrip, replay/quorum/bad-budget/floor rejection. Hypothetical attested budget; full genesis/backing gate remains open."
+          },
+          {
+            "title": "V2 bridge cold archive extraction and restore",
+            "state": "rehearsal-passed",
+            "detail": "8 actual checks + 9 guards. Extracted private archive, rebased snapshot links, exact20-account continuity and four rejected replay simulations. Four copy processes stopped, originals unchanged, zero broadcasts. Controlled-stop cold restore; no power-loss/fork or funded-mainnet acceptance."
           },
           {
             "title": "Bootstrap reconciliation, custody and recovery",

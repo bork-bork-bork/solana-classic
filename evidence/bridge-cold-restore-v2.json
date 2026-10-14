@@ -1,0 +1,202 @@
+{
+  "schemaVersion": 1,
+  "scope": "Actual private V2 Agave cold archive/extraction/restore; exact bridge-account continuity and replay simulations, no broadcasts",
+  "startedAt": "2026-10-14T11:53:57.511Z",
+  "state": "passed",
+  "productionReady": false,
+  "canonicalNetworkChanged": false,
+  "genesi": [
+    "J8LsGtrVHe95w5Yxv3wR2Ux9uNWyDG3svK8LonczuuNh",
+    "EWjA6VWd5uw1XP9fZXBnxAd2doRFf6KQke2RUwj14QE2"
+  ],
+  "broadcasts": 0,
+  "checks": [
+    "Working copies match passed V2 fixture: 20 finalized accounts, bootstrap record/floor, both counters, token escrow and consumed receipts",
+    "Archive-restored ledgers preserve all 20 finalized account bytes, owners, balances and programme authorities",
+    "Restored observer accepts exact original events at or above retained same-genesis finalized checkpoints",
+    "Native/original settlement replay, altered bootstrap recipient and second bootstrap still reject after archive restore",
+    "Four rejected simulations leave bridge state unchanged; zero broadcasts",
+    "Stopped backup archive hash, complete extraction and cold inventories match before restored start",
+    "All four copy processes have no original/forbidden working ledger account paths open or mapped",
+    "Original two cold-ledger inventories remain unchanged; all four private processes stopped"
+  ],
+  "globalBacking": {
+    "completeInventoryVerified": false,
+    "actualGenesisBackingVerified": false,
+    "hypotheticalNativeBudgetUnits": "2000000000",
+    "observedNativeGlobalSupplyUnitsAtStart": "503000511071959133",
+    "budgetMatchesObservedGlobalSupply": false,
+    "note": "Synthetic 2-row accounting projection intentionally does not cover the complete test-validator supply. Cannot pass B3 or any monetary-release gate."
+  },
+  "accountCounts": [
+    11,
+    9
+  ],
+  "baselineSlots": [
+    745,
+    600
+  ],
+  "restoredSlots": [
+    765,
+    621
+  ],
+  "replays": [
+    {
+      "side": 1,
+      "error": {
+        "InstructionError": [
+          0,
+          "AccountAlreadyInitialized"
+        ]
+      },
+      "scope": "Actual compiled bridge RPC simulation; never broadcast"
+    },
+    {
+      "side": 0,
+      "error": {
+        "InstructionError": [
+          0,
+          "AccountAlreadyInitialized"
+        ]
+      },
+      "scope": "Actual compiled bridge RPC simulation; never broadcast"
+    },
+    {
+      "side": 1,
+      "error": {
+        "InstructionError": [
+          0,
+          "AccountAlreadyInitialized"
+        ]
+      },
+      "scope": "Actual compiled bridge RPC simulation; never broadcast"
+    },
+    {
+      "side": 1,
+      "error": {
+        "InstructionError": [
+          0,
+          "InvalidArgument"
+        ]
+      },
+      "scope": "Actual compiled bridge RPC simulation; never broadcast"
+    }
+  ],
+  "completedAt": "2026-10-14T11:54:24.936Z",
+  "coldArchive": {
+    "sha256": "52969a1cb07aae38ca7f4cbab7b0f5907d88d6f141ec8da11c4a4c944ecb759b",
+    "bytes": 410562560,
+    "extractionVerified": true,
+    "restoredInventoriesMatch": true,
+    "snapshotLinksRebased": 4
+  },
+  "originalColdInventory": [
+    {
+      "sha256": "c0a45b8193d1b83e33b48073796d18da76dacf7fbb41b08175de461ec2a8f879",
+      "entries": 57,
+      "links": 2
+    },
+    {
+      "sha256": "3791bf3151c3eee092a60688f1df628e61fc35efb3e69d09890de6c5eead59ab",
+      "entries": 59,
+      "links": 2
+    }
+  ],
+  "originalLedgersUnchanged": true,
+  "processes": {
+    "starts": [
+      {
+        "group": "working",
+        "side": 0,
+        "minimumFinalizedSlot": 0,
+        "genesisMatches": true,
+        "forbiddenLedgerPathsOpened": false
+      },
+      {
+        "group": "working",
+        "side": 1,
+        "minimumFinalizedSlot": 0,
+        "genesisMatches": true,
+        "forbiddenLedgerPathsOpened": false
+      },
+      {
+        "group": "restored",
+        "side": 0,
+        "minimumFinalizedSlot": 745,
+        "genesisMatches": true,
+        "forbiddenLedgerPathsOpened": false
+      },
+      {
+        "group": "restored",
+        "side": 1,
+        "minimumFinalizedSlot": 600,
+        "genesisMatches": true,
+        "forbiddenLedgerPathsOpened": false
+      }
+    ],
+    "stops": [
+      {
+        "side": 0,
+        "signal": "SIGINT",
+        "returnCode": -2,
+        "applicationGracefulFlushVerified": false
+      },
+      {
+        "side": 1,
+        "signal": "SIGINT",
+        "returnCode": -2,
+        "applicationGracefulFlushVerified": false
+      },
+      {
+        "side": 0,
+        "signal": "SIGINT",
+        "returnCode": -2,
+        "applicationGracefulFlushVerified": false
+      },
+      {
+        "side": 1,
+        "signal": "SIGINT",
+        "returnCode": -2,
+        "applicationGracefulFlushVerified": false
+      }
+    ],
+    "allStopped": true
+  },
+  "sourceBinarySHA256": "3d3140bf93c9bc967220ffd8989d8b0267b723915d32203132ecc36d2c63a49a",
+  "bridgeSBF_SHA256": "556adf3132c6d102458c0c3b13e22457401bd748b6c3a37a422fb7a339a68e53",
+  "uploadedSourceHashes": {
+    "cold_restore.py": "4bb25eec0923810c2fb8e7406f04eff26887abcfb7f5d4e78052981e0247cd5e",
+    "cold_copy.py": "42bef261f9f273a1f525b515eabfcda61b8d6a1cbb62fd637ebbdd0f23a95b6d",
+    "bootstrap_driver.py": "200a81128b1dc697b32365ac939d7eef27c6e8b4cf3d48aa51faed4a65164a5c",
+    "cold-restore.mjs": "0dfa807f0fe6d25ab84465c4a8668800d5549b5c51f8c7ff907dc1d4350beea9",
+    "sdk.mjs": "e603242692bedc2457ec9dd3cb144122ca1adb7341506d244ec864943bd8c988",
+    "bridge/sdk.mjs": "e603242692bedc2457ec9dd3cb144122ca1adb7341506d244ec864943bd8c988",
+    "bridge/bootstrap.mjs": "76303de82557f8ba2a88773ef55bbc5234a88164673f0afe2458f21e46c1d04e",
+    "mainnet/bootstrap.mjs": "83eb564446ad5be431f66d931fa61ca9e3d8fd15a5b7420ec87182011cce1beb",
+    "bridge.so": "556adf3132c6d102458c0c3b13e22457401bd748b6c3a37a422fb7a339a68e53"
+  },
+  "remainingWork": [
+    "Hard-crash/power-loss and pre-finalized fork/unknown-landing recovery",
+    "Complete actual funded mainnet inventory/backing and custody",
+    "Capable full-validator host, independent operators/verifiers and security review"
+  ],
+  "sourceHashes": {
+    "engine/rehearsal/cold_restore.py": "4bb25eec0923810c2fb8e7406f04eff26887abcfb7f5d4e78052981e0247cd5e",
+    "engine/rehearsal/cold_copy.py": "42bef261f9f273a1f525b515eabfcda61b8d6a1cbb62fd637ebbdd0f23a95b6d",
+    "engine/rehearsal/bootstrap.py": "200a81128b1dc697b32365ac939d7eef27c6e8b4cf3d48aa51faed4a65164a5c",
+    "bridge/rehearsal/cold-restore.mjs": "0dfa807f0fe6d25ab84465c4a8668800d5549b5c51f8c7ff907dc1d4350beea9",
+    "bridge/sdk.mjs": "e603242692bedc2457ec9dd3cb144122ca1adb7341506d244ec864943bd8c988",
+    "bridge/bootstrap.mjs": "76303de82557f8ba2a88773ef55bbc5234a88164673f0afe2458f21e46c1d04e",
+    "mainnet/bootstrap.mjs": "83eb564446ad5be431f66d931fa61ca9e3d8fd15a5b7420ec87182011cce1beb"
+  },
+  "localBoundaryTests": {
+    "passed": true,
+    "coldCopyAndArchiveTests": 6,
+    "workerAdmissionTests": 3,
+    "sourceHashes": {
+      "engine/rehearsal/cold_copy_test.py": "e6365a93a25d0779d1f72ba8aa90d03310ecd4fa095653bf4e4a9f214d491733",
+      "engine/rehearsal/cold_restore_test.py": "788f0a45d72c8f45aeb587aff266e1329db97a035a70544214a2e4815c543c25"
+    }
+  },
+  "processOpenPathCheckScope": "At each process startup readiness, /proc fd/maps sampled for original/forbidden ledger paths; not continuous host auditing."
+}

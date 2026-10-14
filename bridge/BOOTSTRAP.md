@@ -114,3 +114,35 @@ This is deliberate isolated program testing and demonstrates why a committee
 attestation alone cannot establish genesis backing. Actual inventory, funded
 escrow, custody, full-validator consensus and independent review remain gates.
 No previous private fixture was upgraded; no canonical network changed.
+
+## V2 cold archive extraction and restore
+
+`engine/rehearsal/cold_restore.py`, `cold_copy.py` and
+`bridge/rehearsal/cold-restore.mjs` now pass eight actual worker checks. A new
+private working copy establishes the finalized baseline, stops, and becomes a
+410,562,560-byte archive. The archive is extracted and copied into separate
+restored ledgers; four snapshot links are rebased to absolute paths inside
+those ledgers. No original V2 ledger is opened by a validator.
+
+All 20 selected bridge accounts retain exact bytes, owners, balances and
+programme authorities, including bootstrap record/floor, both counters, escrow
+and consumed receipts. Same-genesis finalized observation survives restore.
+Four actual RPC simulations reject settlement replays, an altered bootstrap
+recipient and a second bootstrap; all leave state unchanged. Zero broadcasts.
+
+Six copy/archive boundary tests and three worker guards pass. The bounded
+extractor checks paths, types, link ancestry, duplicate members and size before
+creating the destination, writes owner-only files before symlinks, and refuses
+external links or writes below a link. It does not use unrestricted extraction.
+Original cold inventory hashes remain unchanged. At each startup, Linux fd/maps
+samples verify the copied processes have no forbidden original/working ledger
+paths open; this is not continuous host auditing. All four copy processes stop
+with recorded SIGINT exits; application flushing, power loss and forks remain
+separate tests.
+
+See `evidence/bridge-cold-restore-v2.json`. The private archive and all raw
+ledgers, keys, checkpoints and logs remain on the worker. Preserve the passed
+`/data/bridge-cold-restore-v2` attempt; a future drill needs a new reviewed root.
+This restores the synthetic prototype, whose budget is still not complete
+funded mainnet backing. Full-validator consensus, custody, independent operators
+and security review remain required.
