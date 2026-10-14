@@ -168,7 +168,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-14T08:18:26.610956+00:00",
+    "reviewedAt": "2026-10-14T08:54:01.957475+00:00",
     "scope": "Development checkpoint only; separate from the live testnet release",
     "projects": [
       {
@@ -204,7 +204,7 @@
         "title": "SOC redemption bridge",
         "state": "building",
         "description": "Original SOC escrow and a native Classic reserve, targeting exact 1:1 display-unit redemption in both directions.",
-        "currentScope": "Thirteen checks passed on two fresh private Agave 3.0.14 ledgers (historical observer). Updated observer adds a second genesis check and recovery-slot floor; 13 SDK/local HTTP recovery checks pass with synthetic responses. Actual ledger restart/fork drills, backed bootstrap and independent review remain.",
+        "currentScope": "Historical 13-check finalized round trip plus 7 actual recovery checks on two private Agave ledgers pass. Both RPC outages refuse observations; restarted ledgers retain finalized events, receipts, exact balances/counters and replay protection. Controlled SIGINT exits recorded; no new broadcasts. Pending-operation recovery, fork/SIGKILL/cold-restore drills, backed bootstrap and independent review remain.",
         "source": "https://github.com/solana-classic/solana-classic/tree/main/bridge",
         "milestones": [
           {
@@ -221,6 +221,11 @@
             "title": "Observer identity and RPC recovery guards",
             "state": "local-passed",
             "detail": "13 checks; real local HTTP with synthetic replies rejects outage, disconnect, missing event, stale state, RPC errors and chain replacement. No actual Agave fork proof."
+          },
+          {
+            "title": "Actual private-ledger RPC outage and process recovery",
+            "state": "rehearsal-passed",
+            "detail": "7 checks, two private ledgers, preserved cold archive, four starts/stops. Finalized state and replay protection survive controlled SIGINT restarts. No fork or production acceptance."
           },
           {
             "title": "Bootstrap reconciliation, custody and recovery",

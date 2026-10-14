@@ -1,0 +1,263 @@
+{
+  "schemaVersion": 1,
+  "scope": "Actual retained private source-built Agave ledgers; controlled SIGINT process/RPC outages and finalized state continuity, no broadcasts",
+  "startedAt": "2026-10-14T08:50:53.105Z",
+  "state": "passed",
+  "productionReady": false,
+  "canonicalNetworkChanged": false,
+  "genesi": [
+    "98Ddpz1EnmPr93Szo56cyKE74PAF6NWiX6if3M9hDxFo",
+    "HawwZ5mK5sF9T9wFEBZWydhHm9kPQF18vfBoP8QMgi7s"
+  ],
+  "checks": [
+    "both retained genesi, finalized events, receipts, balances and 600000-unit counters verified",
+    "origin actual RPC outage refuses observation; other ledger remains unchanged",
+    "origin restart preserves finalized event and all account bytes/lamports",
+    "native actual RPC outage refuses observation; other ledger remains unchanged",
+    "both recovered ledgers preserve original finalized event PDAs, receipts and exact balances",
+    "native release and original redemption replays still fail in the compiled bridge after restart",
+    "rejected replay simulations do not alter escrow, reserve, receipts or counters"
+  ],
+  "broadcasts": 0,
+  "accountCounts": [
+    9,
+    7
+  ],
+  "replayResults": [
+    {
+      "side": 1,
+      "error": {
+        "InstructionError": [
+          0,
+          "AccountAlreadyInitialized"
+        ]
+      },
+      "scope": "Actual compiled bridge simulation after restart; never broadcast"
+    },
+    {
+      "side": 0,
+      "error": {
+        "InstructionError": [
+          0,
+          "AccountAlreadyInitialized"
+        ]
+      },
+      "scope": "Actual compiled bridge simulation after restart; never broadcast"
+    }
+  ],
+  "completedAt": "2026-10-14T08:51:06.516Z",
+  "coldArchive": {
+    "sha256": "fc721dba4e56a9c1f505a69811d6b84dd36e216fcba422b7ebb6a963ff5c8be7",
+    "bytes": 392478720,
+    "scope": "Stopped private ledgers retained before reopening; not a tested cold restore"
+  },
+  "processRecovery": {
+    "starts": [
+      {
+        "side": 0,
+        "genesisMatches": true,
+        "minimumFinalizedSlot": 0
+      },
+      {
+        "side": 1,
+        "genesisMatches": true,
+        "minimumFinalizedSlot": 0
+      },
+      {
+        "side": 0,
+        "genesisMatches": true,
+        "minimumFinalizedSlot": 678
+      },
+      {
+        "side": 1,
+        "genesisMatches": true,
+        "minimumFinalizedSlot": 552
+      }
+    ],
+    "stops": [
+      {
+        "side": 0,
+        "signal": "SIGINT",
+        "returnCode": -2,
+        "applicationGracefulFlushVerified": false
+      },
+      {
+        "side": 1,
+        "signal": "SIGINT",
+        "returnCode": -2,
+        "applicationGracefulFlushVerified": false
+      },
+      {
+        "side": 0,
+        "signal": "SIGINT",
+        "returnCode": -2,
+        "applicationGracefulFlushVerified": false
+      },
+      {
+        "side": 1,
+        "signal": "SIGINT",
+        "returnCode": -2,
+        "applicationGracefulFlushVerified": false
+      }
+    ],
+    "allStopped": true
+  },
+  "sourceBinarySHA256": "3d3140bf93c9bc967220ffd8989d8b0267b723915d32203132ecc36d2c63a49a",
+  "remainingWork": [
+    "Pending-operation settlement recovery",
+    "SIGKILL/power-loss and cold-restore drills",
+    "Pre-finalized fork/reorg policy and independent finality verification",
+    "Backed bootstrap and independent operators/security review"
+  ],
+  "sourceHashes": {
+    "recovery.py": "39b11723247807387e124fdc7b5120fa5b0c02ee08d29b3e011edd451b28272c",
+    "recovery.mjs": "b5c1c80de79ee303418c88f3e8fc8759e5e350c6bdb115726d9ccc981176e850",
+    "sdk.mjs": "4e54cb3f68a66caaca7cece0365fc038490fb84c4fd20f533f50ec69b59c329f"
+  },
+  "baselineAccounts": [
+    {
+      "contextSlot": 678,
+      "accounts": [
+        {
+          "address": "6WN2coFQw8TFLH6BBqtHXYmPJ2dhx5MHV7cT7zEy4Zc9",
+          "owner": "HSaYLC7L5qSizTb434cU9nUepcpqHNn4pUKWXWipyLpr",
+          "lamports": 3549600,
+          "executable": false,
+          "bytes": 382,
+          "dataSHA256": "e07715901c7843e1c030fa9c302775f56ef8035f6c3bb785fe7dc99a9f659619"
+        },
+        {
+          "address": "6kSTbHSZGKtBZsyrVe9qHpfaTrTYUfKDZoMzUXwrdfWN",
+          "owner": "HSaYLC7L5qSizTb434cU9nUepcpqHNn4pUKWXWipyLpr",
+          "lamports": 946560,
+          "executable": false,
+          "bytes": 8,
+          "dataSHA256": "aac9b012d05298a41f48769d55b4ad0e12bcba7abab77fa7cab9cb0def0e3c90"
+        },
+        {
+          "address": "HSaYLC7L5qSizTb434cU9nUepcpqHNn4pUKWXWipyLpr",
+          "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+          "lamports": 1141440,
+          "executable": true,
+          "bytes": 36,
+          "dataSHA256": "342092b0f0e1fc4115c589f5c385c28a057f40e3a0b000d05cbc268ad11f1876"
+        },
+        {
+          "address": "EzZSXeYYidGQh3NZ1GQtu3PRR9euUruWBR8rWhQWtvqq",
+          "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+          "lamports": 1375943280,
+          "executable": false,
+          "bytes": 197565,
+          "dataSHA256": "7fa157a05922fe0df3c0eaf12250c1fb921875b235303fa4099f7226a829c494"
+        },
+        {
+          "address": "GEATyyR28o4wUX61XbMb9S8tbe1R1CjCSyopDmeeXYcV",
+          "owner": "HSaYLC7L5qSizTb434cU9nUepcpqHNn4pUKWXWipyLpr",
+          "lamports": 2958000,
+          "executable": false,
+          "bytes": 297,
+          "dataSHA256": "3e4bf5c66457de717f2c0428a49fae66e397d9294e74c66066e8529b61bb76cc"
+        },
+        {
+          "address": "7sfoUfx9kuL6ZJytwBmUMprkCnGoW8xR1k3qNWk8UVnN",
+          "owner": "HSaYLC7L5qSizTb434cU9nUepcpqHNn4pUKWXWipyLpr",
+          "lamports": 1113600,
+          "executable": false,
+          "bytes": 32,
+          "dataSHA256": "033ebf2ebeddbfc7c8c033431398e9f2f33c12b4a1688832a04a8d113e2b339c"
+        },
+        {
+          "address": "3wmkwheZzH2JHdJZnPkhScDiZJt3Qpam4dFE7jXoZv86",
+          "owner": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+          "lamports": 2039280,
+          "executable": false,
+          "bytes": 165,
+          "dataSHA256": "e08f3bc618448ca70fec51528974e15f6b52afe103471be33850b46036038e50"
+        },
+        {
+          "address": "3DNcG2hjdC764T7Cw2761E1SW6qL9Y4aJtt9x1CFMnvo",
+          "owner": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+          "lamports": 2074080,
+          "executable": false,
+          "bytes": 170,
+          "dataSHA256": "b68157b17c4901e8d82bfaae380072f889ecc2ee754e2c92491e03a25f65047f"
+        },
+        {
+          "address": "pcr6E1fw8PHM17sDe2wwk7ND1NXzzDcxfKp2raFX3GY",
+          "owner": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+          "lamports": 1461600,
+          "executable": false,
+          "bytes": 82,
+          "dataSHA256": "2f9eac5075c2690740c2eae86e05b218ae4ba574861e75377b67b9930cceff58"
+        }
+      ]
+    },
+    {
+      "contextSlot": 552,
+      "accounts": [
+        {
+          "address": "AvguF6iQ56S2ZBSBdBaLepKrvqaLTvUgfAR2ubLubj7E",
+          "owner": "57UYXg2M4XJAZdy3PynnoracjvFHLrZPH4RnnWcQAioV",
+          "lamports": 3549600,
+          "executable": false,
+          "bytes": 382,
+          "dataSHA256": "0bead90c08e2d8d63e91cadf32af0f53be000ce0aba11e86f5fcc74547cb3f63"
+        },
+        {
+          "address": "24KfAcTpUuHtpjLuDuq6xNhU6TmBtUpRkLZJ3v2ef5Dw",
+          "owner": "57UYXg2M4XJAZdy3PynnoracjvFHLrZPH4RnnWcQAioV",
+          "lamports": 1400946560,
+          "executable": false,
+          "bytes": 8,
+          "dataSHA256": "aac9b012d05298a41f48769d55b4ad0e12bcba7abab77fa7cab9cb0def0e3c90"
+        },
+        {
+          "address": "57UYXg2M4XJAZdy3PynnoracjvFHLrZPH4RnnWcQAioV",
+          "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+          "lamports": 1141440,
+          "executable": true,
+          "bytes": 36,
+          "dataSHA256": "b5c43bcc434df58f61166e4ec4060afeb97bb5509b3c312d307bbdab98564e90"
+        },
+        {
+          "address": "GDRJuJy2NMMbMETmrmbQTCq2eXs6vVf96gvGL3PB6AHu",
+          "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+          "lamports": 1375943280,
+          "executable": false,
+          "bytes": 197565,
+          "dataSHA256": "26b396b531ba91f9f12bec724960db39a41bb25506e51c433958185c90cc5876"
+        },
+        {
+          "address": "Duxu9tgiY9ZsgaysRJWKD8zysya1pWZXG1kmVohsDHpu",
+          "owner": "57UYXg2M4XJAZdy3PynnoracjvFHLrZPH4RnnWcQAioV",
+          "lamports": 2958000,
+          "executable": false,
+          "bytes": 297,
+          "dataSHA256": "b84cd2e63875ab3a3223f30e606c6480b9cd4f7f54e49bb9b7bc49654136e1c6"
+        },
+        {
+          "address": "QTDfvQHMHyeZcyuaXuKWkCdPioSA8NAwNf4Sp9yK6iq",
+          "owner": "57UYXg2M4XJAZdy3PynnoracjvFHLrZPH4RnnWcQAioV",
+          "lamports": 1113600,
+          "executable": false,
+          "bytes": 32,
+          "dataSHA256": "686a0b88c77630d640bd3ffe85331af429fe87b701e836d23031c6195c6fd58a"
+        },
+        {
+          "address": "9YQQfWbtMwV75TuMY8N3kaiK2ZzdFk3psUedBQgwJPFg",
+          "owner": "11111111111111111111111111111111",
+          "lamports": 697042000,
+          "executable": false,
+          "bytes": 0,
+          "dataSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    }
+  ],
+  "repositorySourceHashes": {
+    "engine/rehearsal/recovery.py": "39b11723247807387e124fdc7b5120fa5b0c02ee08d29b3e011edd451b28272c",
+    "bridge/rehearsal/recovery.mjs": "b5c1c80de79ee303418c88f3e8fc8759e5e350c6bdb115726d9ccc981176e850",
+    "bridge/sdk.mjs": "4e54cb3f68a66caaca7cece0365fc038490fb84c4fd20f533f50ec69b59c329f"
+  },
+  "boundaryTests": 4
+}

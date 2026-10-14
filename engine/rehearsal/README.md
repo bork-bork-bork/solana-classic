@@ -33,3 +33,29 @@ Serialize the two-ledger and three-validator jobs to bound memory use.
 No monetary mainnet, native SOC distribution, original SOC purchase, liquidity
 pool, public bridge route or production signer custody is activated. The verified
 old source-build record and migration image remain unchanged.
+
+## Controlled process/RPC recovery
+
+`recovery.py` and `bridge/rehearsal/recovery.mjs` reopen only the completed,
+stopped private bridge fixture. The source-built test-validator binary is
+checksum-pinned. A new `/data/bridge-recovery-v1` directory refuses attempt
+replay, any active private validator, public/soaking genesi or changed fixture
+identity. A cold tar archive retains the old stopped ledgers and private input
+before reopening them; it is not a tested cold restore.
+
+Seven actual checks passed: finalized events and claim receipts exist; each
+RPC outage refuses observation; the other ledger's accounts remain unchanged;
+both process restarts preserve account bytes, owners, lamports and counters;
+consumed native-release/original-redemption claims still reject replay in the
+compiled bridge; those simulations leave state unchanged. Zero new broadcasts.
+Four Python boundary tests pass:
+
+```sh
+python3 -m unittest engine/rehearsal/recovery_test.py
+```
+
+The worker recorded SIGINT exits (-2), not application-level graceful flushing.
+All four started processes stopped. See `evidence/bridge-ledger-recovery.json`.
+Pending-operation settlement, a competing pre-finalized fork, SIGKILL/power
+loss, cold restore and independent finality verification remain separate work.
+Do not rerun/reset these retained attempts or expose their keys/archives/logs.

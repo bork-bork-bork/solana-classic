@@ -52,3 +52,10 @@ and recovery, not Agave consensus or an actual network fork. A dishonest RPC
 can still lie about finalized state. Independent source verification, actual
 private-ledger restart/fork drills and production custody remain open. Preserve
 the older two-chain proof's source hashes: that proof ran the previous observer.
+
+The updated observer subsequently passed seven real private-ledger recovery
+checks, including each RPC outage, matching finalized state after SIGINT
+restart, and compiled-bridge replay rejection. No new transactions were
+broadcast; this is not a pending-settlement, fork or cold-restore result. See
+[recovery evidence](../evidence/bridge-ledger-recovery.json) and the
+[finality/recovery policy draft](FINALITY_RECOVERY.md).

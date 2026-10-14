@@ -131,3 +131,19 @@ A new read-only devnet account continuity tool verifies the deployed custom
 programme, upgraded bytecode and both counter states. Its current finalized
 sample is not a stopped-writer backup or cutover acceptance. Follow
 `engine/migration/DEVELOPER_CONTINUITY.md` before any reviewed migration.
+
+## Actual private-ledger recovery checkpoint
+
+Seven checks now pass against the retained, source-built private Agave ledgers.
+Each actual RPC outage returns no source observation. Both SIGINT process
+restarts preserve finalized events, receipts, exact account bytes/balances and
+600,000 origin-unit outstanding counters. Native-release and original-redemption
+replays still fail in actual compiled-bridge simulations; no new broadcasts.
+All rehearsal processes stopped. A private cold archive was retained before
+reopening, but no cold restore or application-level graceful flush is claimed.
+
+See `evidence/bridge-ledger-recovery.json` and the reviewed source hashes there.
+This extends client recovery evidence; pending-operation settlement, actual
+fork/reorg policy, hard-crash/cold-restore tests and independent finality remain
+open. `bridge/FINALITY_RECOVERY.md` makes those verifier responsibilities,
+same-receipt recovery states and emergency-policy decisions explicit as a draft.
