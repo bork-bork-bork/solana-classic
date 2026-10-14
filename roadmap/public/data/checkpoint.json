@@ -168,7 +168,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-14T15:01:39.316344+00:00",
+    "reviewedAt": "2026-10-14T15:32:59.424175+00:00",
     "scope": "Development checkpoint only; separate from the live testnet release",
     "projects": [
       {
@@ -209,7 +209,7 @@
         "title": "SOC redemption bridge",
         "state": "building",
         "description": "Original SOC escrow and a native Classic reserve, targeting exact 1:1 display-unit redemption in both directions.",
-        "currentScope": "V2 bootstrap, cold restore and known-finalized crash proofs pass. Native pending claim recovered FINALIZED after pre-finality crash. New original-redemption case:7 actual expiry guards, one broadcast with confirmation unknown before SIGKILL; no token payout after restart, original journal retained as EXPIRED_UNRESOLVED. No retry/refund/counter reset; all copies stopped and originals unchanged. Event rent verified separately from native return. Manual recovery signer/quorum policy, successful pending-redemption recovery, competing fork, funded inventory/custody and independent review remain open. Offline expiry-review preflight now passes7 new/33 regression checks; actual retained signed journal inspected unchanged without RPC/validator starts. Distinct observer reports are unsigned assertions; retries/refunds stay disabled and independent verification remains open.",
+        "currentScope": "V2 bootstrap, cold restore and crash proofs pass. Both native release and original-token withdrawal now recover their original signed transaction after an observed pre-finality process crash. New nonce7 withdrawal:7 actual checks, one broadcast, confirmed slot944 vs finalized913 before SIGKILL; exact10000-unit token payout finalized after restart, escrow/counters1950000. Separate nonce6 expiry remains unresolved; no retry/refund/reset. Offline review passes structural guards but reports are unauthenticated assertions. Competing forks, complete funded backing, signer/custody/code controls, independent operators and review remain open.",
         "source": "https://github.com/solana-classic/solana-classic/tree/main/bridge",
         "milestones": [
           {
@@ -282,6 +282,12 @@
             "state": "local-passed",
             "detail": "7 new +33 regression checks; signed original attempt and pending liability bound, changed/late/stale/duplicate assertions rejected. Actual retained private journal inspected unchanged, zero RPC/validator starts/broadcasts. No authenticated independent observations, recovery approval or enabled retry.",
             "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/bridge-expired-review.json"
+          },
+          {
+            "title": "V2 original withdrawal recovers after observed pending crash",
+            "state": "rehearsal-passed",
+            "detail": "7 actual checks +10 copy/crash guards. New nonce7, one broadcast; confirmed slot944 vs finalized913 before guarded SIGKILL. Original signature finalizes with exact10000-unit escrow debit/recipient credit and unchanged bootstrap floor/record. Finalized height912 before kill,943 after recovery, original expiry1060. All3copy starts stopped, source baseline unchanged. Separate nonce6 expiry stays unresolved; no retry or production acceptance.",
+            "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/bridge-v2-redemption-pending-crash.json"
           },
           {
             "title": "Bootstrap reconciliation, custody and recovery",

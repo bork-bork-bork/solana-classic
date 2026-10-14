@@ -105,5 +105,6 @@ append-only. This draft supplies no recovery signer, approval verifier or
 broadcast. Before implementing or enabling it, test late receipt appearance,
 concurrent old/recovery submissions, independent-node disagreement, upgrades,
 epoch/pause/backing changes, duplicate approvals and signer/broadcast crashes.
-Successful pending original-redemption recovery remains a separate positive
-test to obtain. See the exact scope in the public rehearsal evidence.
+A separate new nonce7 withdrawal now passes observed-pending crash recovery
+and exact finalized token payout. It does not retry or resolve the expired
+nonce6 journal. See `../evidence/bridge-v2-redemption-pending-crash.json`.

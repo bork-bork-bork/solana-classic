@@ -380,3 +380,25 @@ previous native-settlement baseline. Never replay/reset either attempt or
 reuse nonces5/6. Successful pending original redemption, actual competing
 forks, custody/code pins, independent verification, funded complete backing
 and security review remain release gates.
+
+
+## Positive V2 pending original withdrawal
+
+Seven actual checks now pass on NEW private ledger copies with native return
+nonce7 and one journaled original withdrawal. A confirmed withdrawal at slot944
+was observed with finalized root913 before guarded copied-origin SIGKILL(-9).
+The same original signature, signed bytes and receipt finalized after restart,
+with exact10000-token escrow debit and recipient credit. Recipient native
+balance stayed unchanged; exact large fee-payer metadata remained lossless.
+
+Finalized heights912 before kill and943 after recovery are below the original
+signed expiry1060. Both outstanding counters and escrow reconcile at1950000,
+original user50000, native reserve52000000/floor2000000, bootstrap unchanged.
+Ten copy/crash guards pass. All3copied process starts stopped, original baseline
+ledgers/input/native journal unchanged, canonical runtime frozen.
+
+This is a new positive process-crash case, not an authorized retry of the
+separate unresolved nonce6 operation. Competing forks, physical host failure,
+independent verification/custody, actual funded inventory, full validators
+and external security review remain open. See
+`evidence/bridge-v2-redemption-pending-crash.json`.
