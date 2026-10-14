@@ -1,5 +1,7 @@
 # Third-party notices
 
+PDF reader update (14 October 2026): the public whitepaper reader ships Mozilla PDF.js (`pdfjs-dist` 5.4.624), licensed Apache 2.0. Its dependency and integrity lock are in `infra/custom-domain/pdf-reader`; the supplied license is published at `/pdf-reader/LICENSE.txt`. Original reader UI code remains under the project MIT license. Optional server-side canvas packages are not shipped in the browser.
+
 Engine source consolidation (13 October 2026): the complete unmodified Agave v3.0.14 source tree is now included at engine/agave, with its upstream LICENSE and all supplied legal notices intact. That subtree retains Apache 2.0 and any file-specific terms supplied by upstream; the root MIT LICENSE does not relicense it. See engine/upstream.json for exact commit and tree provenance. The earlier installed-package inventory below is a dated inventory, not a complete inventory of Rust dependencies or a new source-build attestation.
 
 Publication update (13October2026): the root MIT LICENSE now grants rights to the original project material. The earlier no-root-license observation below remains a dated review checkpoint; it does not override that new license. Third-party components retain their supplied licenses.

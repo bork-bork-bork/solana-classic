@@ -12,7 +12,7 @@ export default function Home() {
     </section>
     <section className="classic-home-story">
       <div><h2>We came for the art.<br/>We stayed for the people.</h2><p>A collection, a joke, a group chat that became something more. That is the part of Solana we want to keep building for.</p><a href="/about">Why Solana Classic</a></div>
-      <div className="classic-home-play"><h2>Start with something you made.</h2><p>Create a test wallet, get tSOC and mint an image or a meme asset. Send it to another wallet, find it in the gallery and follow its receipt in the explorer.</p><p className="home-test-note">The playground runs on an experimental network with one operator. tSOC and test assets have no monetary value. SOC mainnet and the proposed bridge are future work.</p><a href="/gallery">See the gallery</a><a href="/network">Network details</a></div>
+      <div className="classic-home-play"><h2>Start with something you made.</h2><p>Create a test wallet, get tSOC and mint an image or a meme asset. Send it to another wallet, find it in the gallery and follow its receipt in the explorer.</p><p className="home-test-note">Devnet is live. The Solana Classic team runs its single validator - the computer that checks and records transactions. tSOC and test assets have no monetary value. SOC mainnet and the proposed bridge are future work.</p><a href="/gallery">See the gallery</a><a href="/network">Network details</a></div>
     </section>
   </>;
 }

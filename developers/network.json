@@ -1,7 +1,7 @@
 {
   "name": "Solana Classic Devnet",
-  "apiBase": "https://network-release-production.up.railway.app",
-  "rpcUrl": "https://network-release-production.up.railway.app/api/rpc",
+  "apiBase": "https://api.solanaclassic.net",
+  "rpcUrl": "https://rpc.solanaclassic.net",
   "expectedGenesisHash": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
   "explorer": "https://solanaclassic.net/explorer",
   "displaySymbol": "tSOC",
@@ -11,5 +11,9 @@
   "agaveVersion": "3.0.14",
   "tokenProgram": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
   "associatedTokenProgram": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
-  "mainnet": { "available": false, "launchDate": null, "parameters": null }
+  "mainnet": {
+    "available": false,
+    "launchDate": null,
+    "parameters": null
+  }
 }

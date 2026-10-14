@@ -126,12 +126,12 @@ class Cover(Flowable):
         p.drawOn(c, 0, 140 - ph)
         c.setFillColor(PURPLE)
         c.setFont("SCArialBold", 10)
-        c.drawString(0, 75, "Public edition 0.10")
+        c.drawString(0, 75, "Public edition 0.11")
         c.setFont("SCArial", 10)
         c.setFillColor(MUTED)
         c.drawString(0, 55, "14 October 2026    solanaclassic.net")
         c.setFont("SCArial", 9)
-        c.drawString(0, 26, "Devnet. SOC, mainnet and bridge are not live.")
+        c.drawString(0, 26, "Devnet is live. SOC, mainnet and bridge are not live.")
 
 
 def decorate(canvas, doc):
@@ -148,7 +148,7 @@ def decorate(canvas, doc):
         canvas.drawString(MARGIN + 29, PAGE_H - 26, "SOLANA CLASSIC / SOC")
         canvas.setFont("SCArial", 8.2)
         canvas.setFillColor(MUTED)
-        canvas.drawRightString(PAGE_W - MARGIN, PAGE_H - 26, "WHITEPAPER 0.10")
+        canvas.drawRightString(PAGE_W - MARGIN, PAGE_H - 26, "WHITEPAPER 0.11")
         canvas.setStrokeColor(LINE)
         canvas.setLineWidth(0.5)
         canvas.line(MARGIN, 43, PAGE_W - MARGIN, 43)

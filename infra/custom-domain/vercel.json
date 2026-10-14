@@ -2,29 +2,120 @@
   "version": 2,
   "framework": null,
   "outputDirectory": "public",
-  "functions": { "api/proxy.js": { "maxDuration": 20 } },
-  "headers": [{ "source": "/(.*)", "headers": [
-    { "key": "X-Content-Type-Options", "value": "nosniff" },
-    { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
-  ] }],
-  "rewrites": [
-    { "source": "/chain-assets/:path*", "destination": "/api/asset-proxy?path=:path*" },
-    { "source": "/uploaded-assets/:path*", "destination": "/api/uploaded-asset-proxy?path=:path*" },
-    { "source": "/_network/:path*", "destination": "/api/proxy?path=:path*" },
-    { "source": "/roadmap", "destination": "/roadmap.html" },
-    { "source": "/roadmap/:path*", "destination": "https://solana-classic-roadmap.vercel.app/:path*" },
-    { "source": "/playground", "destination": "/index.html" },
-    { "source": "/wallet", "destination": "/index.html" },
-    { "source": "/gallery", "destination": "/index.html" },
-    { "source": "/builders", "destination": "/index.html" },
-    { "source": "/developers", "destination": "/index.html" },
-    { "source": "/collectors", "destination": "/index.html" },
-    { "source": "/collectors/:path*", "destination": "/index.html" },
-    { "source": "/explorer", "destination": "/index.html" },
-    { "source": "/explorer/:path*", "destination": "/index.html" },
-    { "source": "/network", "destination": "/index.html" },
-    { "source": "/token", "destination": "/index.html" }
-    ,{ "source": "/about", "destination": "/index.html" }
-    ,{ "source": "/whitepaper", "destination": "/index.html" }
+  "functions": {
+    "api/proxy.js": {
+      "maxDuration": 20
+    },
+    "api/developer-rpc.js": {
+      "maxDuration": 20
+    },
+    "api/developer-api.js": {
+      "maxDuration": 20
+    }
+  },
+  "routes": [
+    {
+      "src": "/(.*)",
+      "headers": {
+        "X-Content-Type-Options": "nosniff",
+        "Referrer-Policy": "strict-origin-when-cross-origin"
+      },
+      "continue": true
+    },
+    {
+      "src": "^/(.*)$",
+      "has": [
+        {
+          "type": "host",
+          "value": "rpc.solanaclassic.net"
+        }
+      ],
+      "dest": "/api/developer-rpc?path=$1"
+    },
+    {
+      "src": "^/(.*)$",
+      "has": [
+        {
+          "type": "host",
+          "value": "api.solanaclassic.net"
+        }
+      ],
+      "dest": "/api/developer-api?path=$1"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "^/chain\\-assets(?:/(.*))?/?$",
+      "dest": "/api/asset-proxy?path=$1"
+    },
+    {
+      "src": "^/uploaded\\-assets(?:/(.*))?/?$",
+      "dest": "/api/uploaded-asset-proxy?path=$1"
+    },
+    {
+      "src": "^/_network(?:/(.*))?/?$",
+      "dest": "/api/proxy?path=$1"
+    },
+    {
+      "src": "^/roadmap/?$",
+      "dest": "/roadmap.html"
+    },
+    {
+      "src": "^/roadmap(?:/(.*))?/?$",
+      "dest": "https://solana-classic-roadmap.vercel.app/$1"
+    },
+    {
+      "src": "^/playground/?$",
+      "dest": "/index.html"
+    },
+    {
+      "src": "^/wallet/?$",
+      "dest": "/index.html"
+    },
+    {
+      "src": "^/gallery/?$",
+      "dest": "/index.html"
+    },
+    {
+      "src": "^/builders/?$",
+      "dest": "/index.html"
+    },
+    {
+      "src": "^/developers/?$",
+      "dest": "/index.html"
+    },
+    {
+      "src": "^/collectors/?$",
+      "dest": "/index.html"
+    },
+    {
+      "src": "^/collectors(?:/(.*))?/?$",
+      "dest": "/index.html"
+    },
+    {
+      "src": "^/explorer/?$",
+      "dest": "/index.html"
+    },
+    {
+      "src": "^/explorer(?:/(.*))?/?$",
+      "dest": "/index.html"
+    },
+    {
+      "src": "^/network/?$",
+      "dest": "/index.html"
+    },
+    {
+      "src": "^/token/?$",
+      "dest": "/index.html"
+    },
+    {
+      "src": "^/about/?$",
+      "dest": "/index.html"
+    },
+    {
+      "src": "^/whitepaper/?$",
+      "dest": "/index.html"
+    }
   ]
 }

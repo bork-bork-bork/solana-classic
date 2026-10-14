@@ -4,7 +4,7 @@ Solana Classic is an open-source blockchain project putting meme and NFT communi
 
 **Our goal: build an open development community focused on how far art, NFTs and memes can go.**
 
-[Website](https://solanaclassic.net) · [Our story](https://solanaclassic.net/about) · [Try the testnet](https://solanaclassic.net/playground) · [Live roadmap](https://solanaclassic.net/roadmap) · [Whitepaper](https://solanaclassic.net/whitepaper.pdf)
+[Website](https://solanaclassic.net) · [Our story](https://solanaclassic.net/about) · [Try the testnet](https://solanaclassic.net/playground) · [Live roadmap](https://solanaclassic.net/roadmap) · [Whitepaper](https://solanaclassic.net/whitepaper) · [Build on Classic](https://solanaclassic.net/developers)
 
 ## Why we are building this
 
@@ -61,11 +61,17 @@ The frustrations above give that work a reason. They do not prescribe one answer
 
 ## What you can use today
 
-A working experimental test network is live, operated by one project-controlled validator—the computer that verifies its transactions.
+Devnet is live. The Solana Classic team currently runs its single validator - the computer that checks and records transactions.
 
 In the [playground](https://solanaclassic.net/playground), you can create a temporary test wallet, receive test units, create a demo meme token or NFT, transfer it, and inspect ownership and transaction records in the gallery and explorer. The wallet stays in browser memory; reloading loses access to it.
 
 **TEST/tSOC balances and demo assets have no monetary value or right to conversion into SOC.** Production mainnet, the SOC token and the bridge are not live. Current build, test and release results—including failed or pending gates—are on the [live roadmap](https://solanaclassic.net/roadmap).
+
+## Build an application
+
+The [developer preview](https://solanaclassic.net/developers) has a connection manifest, identity-checked Node client and working NFT/meme mint examples. Both examples have passed on the actual devnet. Start with the [developer quickstart](developers/README.md), or [propose your project](https://github.com/solana-classic/solana-classic/issues/new?template=builder.yml).
+
+Developers can deploy and upgrade their own SBF programs with the tested HTTP tool, then call them from browser apps through our public RPC. Start with [program deployment](developers/DEPLOY_PROGRAMS.md). Standard CLI/Anchor deployment RPC, WebSockets and production wallet custody remain later work. The [mainnet preparation plan](developers/MAINNET_LAUNCH.md) proposes at least 21 days for builders after the full preview is ready. No mainnet date is announced yet.
 
 ## How SOC is intended to work
 
@@ -88,6 +94,7 @@ The live test network uses verified official upstream binaries. Building and tes
 | [infra/image-assets](infra/image-assets) | Persistent uploaded artwork, metadata and verified gallery |
 | [apps/api](apps/api) | Backend, test faucet and asset services |
 | [packages](packages) | Shared transaction and network rules |
+| [developers](developers) | Program deploy/upgrade tools, browser starter and launch preparation |
 | [roadmap](roadmap) | Live progress page |
 | [docs](docs) and [evidence](evidence) | Whitepaper, operating instructions and dated test results |
 

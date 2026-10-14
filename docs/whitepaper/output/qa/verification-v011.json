@@ -1,0 +1,14 @@
+{
+  "version": "0.11",
+  "pages": 20,
+  "pdfSHA256": "b0ab88cb6e853ad97d645b00a2663e261e081927ccdbc719930603eb79ac3eaa",
+  "sourceSHA256": "1e60d026cbe7db58c0c811cb82ebdc8acb301b470c0f4f795dcfe0c07daae4f9",
+  "textBoundsPassed": true,
+  "removedHostingVendorsPassed": true,
+  "removedExperimentalWordingPassed": true,
+  "plainDevnetWordingPassed": true,
+  "singleValidatorExplanationPassed": true,
+  "renderedAllPages": true,
+  "visualReview": "All 20 Poppler-rendered pages reviewed, including cover, revised overview, scope table and founder-control explanation. No clipping, overlaps or layout defects observed.",
+  "publicReadiness": "Presentation only; monetary launch and network release gates remain separate"
+}

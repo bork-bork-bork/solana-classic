@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-14T07:39:48.870529+00:00",
+  "scope": "Actual canonical valueless devnet; Node deployment plus a separate localhost browser app using public branded HTTPS RPC/API. No runtime restart or mainnet activation.",
+  "passed": true,
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "rpc": "https://rpc.solanaclassic.net",
+  "api": "https://api.solanaclassic.net",
+  "program": "4wBqYCqaKL9MA8GLS3oGHgkFM4yX2TDeW41xKezDiLab",
+  "programData": "DXSuufMpVUH22mo1URhxtS5UKVGGsgxYgUagV5bz4jNQ",
+  "authority": "HLX6k1mmp5fGX862kU8iNAvCSkKMfPNCqg3CPHL2VdpQ",
+  "deploy": {
+    "bytes": 3504,
+    "sha256": "cbf999bb25f5ac09468603499ac499b742e7891b091cadd0d47ffb34e572eca3",
+    "signature": "346rPX6x7PWQHjPx4sfqTEfXpMroRtk8weJmEKWBJtdzh11iix3p4HoB1JZ3GQvD6X2fRmNGXDqjMQPxaipL5Bjf",
+    "finalizedBytecodeAndAuthorityVerified": true,
+    "resumeAfterTransientReadResetPassed": true
+  },
+  "upgrade": {
+    "bytes": 3456,
+    "sha256": "6555ed5d83319fcc45d7c64c7638cb357097314ae73d1a0c55df35a3e1d6798f",
+    "signature": "iTsDs9qmDpSkcGuGjtvmnqaztWUiEaf3KynM1jNiwvj2mwUz8qxTjBDQ3TwK8Bc93u44H7QZc2owQNbLCsriB8M",
+    "finalizedBytecodeAndAuthorityVerified": true,
+    "scope": "Counter protocol unchanged; log text upgraded to v2."
+  },
+  "nodeExecution": {
+    "state": "4iAaLTmxBTTwT8hakxkAcnBRDhEjKR6fswzm9tTQiou7",
+    "before": "0",
+    "after": "1",
+    "wrongAuthorityRejected": true,
+    "negativeWasSimulationOnly": true
+  },
+  "browserExecution": {
+    "origin": "http://127.0.0.1:3910",
+    "publicWallet": "3WSLMmLVgVaC25PFnMCk5W4gAZ14KMHVb28Z3t6rGxta",
+    "state": "9Qrh33uJs3EJcdJ9uD8bys23XGbozpnTvLAJSdoRHwfZ",
+    "before": "0",
+    "after": "1",
+    "faucet": "43EyJMnW27My32o1LVDBnR6zmDVH342ehfKYWzjktzrZNGjeda2M43oYvhQ3sqofGzsEgQfaborjN89bqmsixhP5",
+    "initialize": "3kgL76bmPcpkqH4T2CQJXkssVaWw7MvW4Jd1dWP6cjeQJ46fFDyJXw4aSPYNz9SvZKQ1NjtZZBT5RbuD6A2zGqgk",
+    "increment": {
+      "signature": "3DF3KgtRrKKNUrLi5hN3cYfsugdywFKJ86N37dDxdD7g5KN4Xr9bnQf5mZ4uFWsmF2QYCaAu6Tw9NvC9NPGtHqhZ",
+      "slot": 224281,
+      "feeLamports": 5000,
+      "finalized": true,
+      "customProgramLogVerified": true
+    },
+    "pageErrors": [],
+    "privateKeys": "Browser memory only; not exported"
+  },
+  "checks": {
+    "developerAdmission": 9,
+    "transportAndExistingMediaProxy": 12,
+    "typecheck": true,
+    "desktopMobileSiteQA": true
+  },
+  "limitations": [
+    "HTTP-only; no WebSockets or batches",
+    "Standard CLI/Anchor deployment RPC methods remain unsupported; compile to SBF then use the tested deployer",
+    "Public relay shares upstream quotas; large-cohort faucet/capacity work remains",
+    "No production wallet, mainnet launch or live bridge",
+    "Devnet programme/data accounts do not automatically migrate to mainnet"
+  ]
+}

@@ -6,8 +6,8 @@ A mainnet launch should open a usable ecosystem, with builders already able to t
 
 | Stage | Deliverable | Evidence required |
 | --- | --- | --- |
-| Available now | Node developer preview, network manifest, token/NFT examples, source, explorer and builder proposals | Actual finalized devnet receipts and clean-clone setup |
-| Developer access release | Stable public developer RPC; required CLI/Anchor deployment methods; origin onboarding; appropriate faucet capacity; reset/version policy; deployable custom-program starter; wallet signing interface | Independent app deployment, program interaction, browser signing, limit/negative tests |
+| Available now | Node/browser developer preview, branded HTTP RPC/API, custom SBF deploy/upgrade tool, token/NFT examples, explorer and builder proposals | Actual finalized devnet receipts and clean-clone setup |
+| Developer access release | Broader CLI/Anchor RPC compatibility; larger-cohort funding/capacity; reset/version policy; production wallet signing interface | Independent app deployment, program interaction, browser signing, limit/negative tests |
 | Launch-date decision | Validator-capable hosting, multi-node consensus/recovery, independent operators, exact backed genesis/supply, token/bridge custody decisions and security review plan | Published readiness record with unresolved items; operator/founder release decision |
 | T−21 or earlier | Announce the calendar date, freeze developer interfaces and publish signed/versioned mainnet genesis, chain parameters, program list and RPC/explorer URLs | Builders can simulate the same parameters on a staging network; no invented addresses |
 | T−14 | App previews and integration week | Each team provides a working demo, source/ownership, required programmes and test receipts |

@@ -40,6 +40,7 @@ app = "import GitHubLink from './GitHubLink';\n" + app
 assert app.count('</nav></header>') == 1 and app.count('</footer>') == 1
 app = app.replace('</nav></header>', '<GitHubLink/></nav></header>').replace('</footer>', '<GitHubLink/></footer>')
 shutil.copy2(root / 'infra/custom-domain/GitHubLink.tsx', overlay / 'src/GitHubLink.tsx')
+app = app.replace('Experimental devnet · 1 operator', 'Devnet is live · Run by the Solana Classic team')
 app = app.replace('<span className="brand-mark" aria-hidden="true"/>', '<span className="brand-logo" aria-hidden="true"/>').replace('TEST','tSOC')
 app = "import About from './About';\nimport Whitepaper from './Whitepaper';\n" + app
 app = app.replace("path === '/' ? <Home/>", "path === '/about' ? <About/> : path === '/' ? <Home/>")
@@ -58,9 +59,10 @@ app = app.replace("path === '/about' ? <About/>", "path === '/developers' ? <Dev
 for name in ['Builders.tsx', 'Collectors.tsx', 'Whitepaper.tsx', 'Developers.tsx']:
     shutil.copy2(root / 'infra/custom-domain' / name, overlay / 'src' / name)
 shutil.copy2(root / 'developers/network.json', overlay / 'src/developer-network.json')
-paper_edition = json.loads((root / 'docs/whitepaper/output/qa/verification-v010.json').read_text())
+paper_edition = json.loads((root / 'docs/whitepaper/output/qa/verification-v011.json').read_text())
 (overlay / 'src/whitepaper-edition.json').write_text(json.dumps({'version': paper_edition['version'], 'pages': paper_edition['pages']}))
 shutil.copy2(root / 'infra/custom-domain/About.tsx', overlay / 'src/About.tsx')
+shutil.copy2(root / 'infra/custom-domain/public-copy.ts', overlay / 'src/public-copy.ts')
 shutil.copy2(root / 'infra/custom-domain/ImageUpload.tsx', overlay / 'src/ImageUpload.tsx')
 shutil.copy2(root / 'infra/custom-domain/Transactions.tsx', overlay / 'src/Transactions.tsx')
 shutil.copy2(root / 'infra/custom-domain/AddressDetails.tsx', overlay / 'src/AddressDetails.tsx')
@@ -78,11 +80,21 @@ playground=playground.replace('<ImageUpload value={customImage}', '<p className=
 playground=playground.replace('The network is being prepared. Test actions become available once connected.', 'Checking the testnet connection. <button className="text-button" onClick={() => window.dispatchEvent(new Event("sc-network-retry"))}>Try connection again</button>')
 (overlay / 'src/Playground.tsx').write_text(playground)
 network=(overlay / 'src/useNetwork.ts').read_text()
+network="import { publicCopy } from './public-copy';\n"+network
+network=network.replace('setFacts(f); setStatus(s);', "setFacts({ ...f, name: publicCopy(f.name), resetPolicy: publicCopy(f.resetPolicy) }); setStatus({ ...s, message: s.state === 'online' ? 'Devnet is live.' : publicCopy(s.message) });")
 network=network.replace('void load(); const timer', "window.addEventListener('sc-network-retry', load); void load(); const timer")
 network=network.replace('active = false; clearInterval(timer);', "active = false; clearInterval(timer); window.removeEventListener('sc-network-retry', load);")
 (overlay / 'src/useNetwork.ts').write_text(network)
+api_source=(overlay / 'src/api.ts').read_text()
+api_source="import { publicCopy } from './public-copy';\n"+api_source
+api_source=api_source.replace("new Error(result.error?.message ?? 'The network could not complete this request.')", "new Error(publicCopy(result.error?.message ?? 'The network could not complete this request.'))")
+api_source=api_source.replace('new Error(result.error.message)', 'new Error(publicCopy(result.error.message))')
+(overlay / 'src/api.ts').write_text(api_source)
 pages=(overlay / 'src/Pages.tsx').read_text().replace('TEST','tSOC')
 pages=pages.replace('href="/whitepaper.pdf" download', 'href="/whitepaper"')
+pages=pages.replace('Experimental by design. Transparent about its limits.', 'Devnet is live. Here is how it works today.')
+pages=pages.replace('<dt>Operators</dt><dd>1 — project operated</dd>', '<dt>Who runs the devnet</dt><dd>The Solana Classic team runs one validator - the computer that checks and records transactions.</dd>')
+pages=pages.replace('One operator controls network availability and the experimental ledger.', 'The Solana Classic team controls the devnet server and ledger. It can stop the service, change its software or reset the ledger. Independent teams do not yet run validators on this devnet.')
 home_start = pages.index('export function Home()')
 home_end = pages.index('export function Gallery()', home_start)
 pages = pages[:home_start] + "export { default as Home } from './Home';\n" + pages[home_end:]
@@ -106,10 +118,13 @@ shutil.copy2(root / 'infra/custom-domain/solana-classic-logo-cutout.png', overla
 shutil.copy2(root / 'infra/custom-domain/favicon.svg', overlay / 'public/favicon.svg')
 # Public copy uses Devnet. The frozen source and network identity checks stay intact.
 for source in (overlay / 'src').rglob('*'):
-    if source.suffix in {'.ts', '.tsx'}:
+    if source.suffix in {'.ts', '.tsx'} and source.name != 'public-copy.ts':
         copy = source.read_text().replace('Experimental devnet', 'Devnet').replace('experimental devnet', 'devnet')
         copy = copy.replace('experimental network', 'devnet').replace('Experimental network', 'Devnet')
+        copy = copy.replace('an devnet', 'a devnet').replace('devnet testnet', 'devnet')
         copy = re.sub(r'\bexperimental\b', 'devnet', copy, flags=re.IGNORECASE)
+        if re.search(r'\ban devnet\b|\bdevnet testnet\b|\bone operator\b|\b1 operator\b', copy, flags=re.IGNORECASE):
+            raise SystemExit('Unclear public devnet wording: ' + str(source))
         source.write_text(copy)
 subprocess.run(['python3', 'scripts/pnpm.py', '--filter', '@solana-classic/web', 'exec',
                 'vite', 'build', str(overlay), '--config', str(overlay / 'vite.config.ts'),
@@ -152,7 +167,7 @@ assert old_deadline in roadmap
 roadmap = roadmap.replace(old_deadline, '<section class="release-criteria"><h2>Before release</h2><p>The final candidate must pass an uninterrupted 24-hour stability test, browser regression and operator review. Unresolved checks stay visible here.</p></section>')
 roadmap = roadmap.replace('/roadmap/app.js', '/roadmap-app.js')
 (destination / 'public/roadmap.html').write_text(roadmap)
-paper_qa = json.loads((root / 'docs/whitepaper/output/qa/verification-v010.json').read_text())
+paper_qa = json.loads((root / 'docs/whitepaper/output/qa/verification-v011.json').read_text())
 assert paper_qa['pdfSHA256'] == hashlib.sha256((destination / 'public/whitepaper.pdf').read_bytes()).hexdigest()
 assert paper_qa['sourceSHA256'] == hashlib.sha256((root / 'docs/whitepaper/WHITEPAPER.md').read_bytes()).hexdigest()
 roadmap_app = (root / 'infra/custom-domain/roadmap-app.js').read_text()

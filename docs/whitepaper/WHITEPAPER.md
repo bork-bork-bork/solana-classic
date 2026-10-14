@@ -3,7 +3,7 @@
 ## Shared roots. A focused future for art, NFTs and memes.
 
 **Solana Classic / SOC**  
-**Public edition | Version 0.10 | 14 October 2026**
+**Public edition | Version 0.11 | 14 October 2026**
 
 **Bring back the fun. Build what comes next.**
 
@@ -13,11 +13,11 @@ We remember mint nights, new profile pictures and group chats that became commun
 
 Solana pursues a broad future across finance and many other categories. We want a development community whose attention stays on the culture we came for. Scams, concealed incentives and abandoned projects give that work urgency, but no single tool or launch standard is the mission. Our ambition is an open, focused home where creative work continues beyond the first burst of attention. A token price is not evidence that this ambition is working.
 
-The first deliverable is an devnet playground on a fresh, independent Agave ledger with one project-operated validator. Participants can create a disposable wallet, receive valueless test units, issue demo meme assets and NFTs, transfer them and inspect chain receipts. **The intended SOC lifecycle starts with a Pump.fun launch on Solana and later adds native Classic SOC redeemable one-to-one for the original token in display units.** SOC, mainnet and the bridge have not launched. TEST, also displayed as tSOC, has no monetary value or right to conversion.
+Devnet is live on a fresh, independent Agave ledger. The Solana Classic team runs its single validator - the computer that checks and records transactions. Participants can create a disposable wallet, receive valueless test units, issue demo meme assets and NFTs, transfer them and inspect chain receipts. **The intended SOC lifecycle starts with a Pump.fun launch on Solana and later adds native Classic SOC redeemable one-to-one for the original token in display units.** SOC, mainnet and the bridge have not launched. TEST, also displayed as tSOC, has no monetary value or right to conversion.
 
 ### Where the project stands
 
-The playground at [solanaclassic.net](https://solanaclassic.net) runs on an independent devnet with one project-operated validator. It supports disposable test wallets, artwork and meme-asset creation, transfers, a verified gallery and transaction receipts. Test units have no monetary value. SOC, native mainnet and the proposed bridge are not live.
+Devnet is live at [solanaclassic.net](https://solanaclassic.net). The Solana Classic team currently runs the validator that checks and records its transactions. It supports disposable test wallets, artwork and meme-asset creation, transfers, a verified gallery and transaction receipts. Test units have no monetary value. SOC, native mainnet and the proposed bridge are not live.
 
 The network uses official **Agave v3.0.14 and Token-2022 v10.0.0**. Its software identity, browser journeys, restart and isolated recovery have been checked within their recorded scopes. A bounded load test completed 200 operations across 20 sessions; that result is not a claim about chain-wide capacity. The uninterrupted 24-hour stability test and final release review remain pending. Separate artwork-upload and explorer services require their own checks.
 
@@ -127,7 +127,7 @@ SOC is intended to begin as a Solana token launched through Pump.fun and later b
 
 | Scope | Current state | Meaning |
 | --- | --- | --- |
-| Devnet | SDK/browser journeys, restart, recovery and bounded load passed; 24-hour soak and full release pending | One operator; TEST units also displayed as tSOC; no monetary value |
+| Devnet | SDK/browser journeys, restart, recovery and bounded load passed; 24-hour soak and full release pending | The Solana Classic team runs one validator; tSOC test units have no monetary value |
 | Playground meme assets and NFTs | Remote script/browser issuance and transfer proof passed; full release pending | Token-2022 demo assets on the experiment; no monetary value |
 | Original SOC on Solana | Pump.fun launch intended; token not created | Canonical original token for the proposed redemption model |
 | Solana Classic mainnet and native SOC | Planned and unimplemented; no mainnet genesis | Native currency released from a protected reserve against original SOC escrow |
@@ -158,13 +158,13 @@ The earlier Agave candidate's bundled Token-2022 programme failed variable metad
 | Token-2022 artifact SHA256 | `a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68` |
 | Proof scope | Identity, health, programme bytes, SDK/browser journeys, restart, automated browser checks, qualified isolated recovery and bounded load; soak/release pending |
 
-The service uses `solana-test-validator` with persistent storage. Anza describes this tool as a full-featured single-node development cluster. The experiment has its own genesis and does not clone Solana accounts or programmes from a public cluster. Required built-in and token programmes are checked on the deployed runtime. This development tool and one operator do not establish production consensus security. [Anza test validator documentation](https://docs.anza.xyz/cli/examples/test-validator) [7]
+The service uses `solana-test-validator` with persistent storage. Anza describes this tool as a full-featured single-node development cluster. The devnet has its own genesis and does not clone Solana accounts or programmes from a public cluster. Required built-in and token programmes are checked on the deployed runtime. This development tool, with its validator run by the project team, does not establish production consensus security. [Anza test validator documentation](https://docs.anza.xyz/cli/examples/test-validator) [7]
 
 The full Agave v3.0.14 source is included in `engine/agave`, with its exact upstream commit, tree and Apache 2.0 provenance recorded. It currently has no project-specific engine changes. Source compilation and tests run on a separate worker and fresh isolated ledger. The live network continues to use verified official upstream binaries. A successful isolated build or test does not accept a current-ledger migration or replace a new stability run after an executable change.
 
 The genesis hash is the project's network identity. Local development and the remote public experiment must have separate records. The canonical remote hash is recorded only after the remote node exists, is compared against known public Solana networks and has passed the required proofs. A local hash cannot stand in for it.
 
-The browser and gateway must both check the expected genesis before mutations. An unset or mismatching identity disables those actions. This reduces the risk of submitting test transactions to the wrong endpoint. It is a routing and verification control, not a cryptographic guarantee against a compromised frontend or operator-controlled RPC. Release evidence must therefore also bind the frontend deployment, API configuration and validator software to their recorded versions.
+The browser and gateway must both check the expected genesis before mutations. An unset or mismatching identity disables those actions. This reduces the risk of submitting test transactions to the wrong endpoint. It is a routing and verification control, not a cryptographic guarantee against a compromised frontend or RPC controlled by the project team. Release evidence must therefore also bind the frontend deployment, API configuration and validator software to their recorded versions.
 
 ### Devnet architecture
 
@@ -236,7 +236,7 @@ The service permits the exact production frontend origin and explicitly listed p
 
 ### Founder responsibility and concentrated control
 
-The founder is the intended operator. One validator and one Linux host concentrate execution, storage and availability in that operator. The founder can stop the service, control gateway access, change software and deliberately reset the devnet ledger. Persistent storage and backups reduce accidental loss; they do not create independent consensus security.
+The founder currently runs the devnet on behalf of the Solana Classic team. Its single validator is the computer that checks and records transactions. The same team controls the validator and server, so it can stop the service, control gateway access, change software and deliberately reset the devnet ledger. Persistent storage and backups reduce accidental loss; they do not create independent consensus security.
 
 The normal service command must not reset the ledger. Restarts must preserve the genesis, balances and issued assets. Any deliberate reset requires disclosure and a new network identity record. Nothing in this experiment guarantees perpetual availability or preservation of valueless assets.
 
@@ -244,7 +244,7 @@ Before public release, the operator must have a working monitoring and recovery 
 
 The first recovery drill was required by H36 and passed within its recorded isolated scope. Its candidate reconfirmation preserved known genesis, balances, mint data, ownership, files and database rows, with the historical-transaction qualification described above. A recovery procedure must stop writers, create a consistent backup, restore separately and verify known state. The original backup covers the runtime ledger, SQLite, preset artwork and configuration; it does not certify the later upload service. Protected operator files stay undisclosed. Frontend rollback is tested separately from restoring Linux state.
 
-The principal security limits are concentrated operator control, wrong-network configuration, frontend compromise, dependency defects, faulty issuance finalization, inconsistent backup, metadata unavailability and service abuse. Passing the specified controls can make the pilot reviewable and recoverable. It cannot justify handling production economic value or claiming Solana-scale security.
+The principal security limits are control concentrated in the project team, wrong-network configuration, frontend compromise, dependency defects, faulty issuance finalization, inconsistent backup, metadata unavailability and service abuse. Passing the specified controls can make the pilot reviewable and recoverable. It cannot justify handling production economic value or claiming Solana-scale security.
 
 ## 8 SOC launch and redeemable native currency
 
@@ -266,7 +266,7 @@ The intended mainnet currency is also **SOC**, native to Solana Classic. It woul
 
 The selected economic direction is **1 original Solana SOC redeemable for 1 native Classic SOC in display units**, and the reverse. Native SOC is intended as a bridge-backed representation of the original asset rather than an independent inflationary supply. The proposed implementation uses a protected native reserve allocated at mainnet genesis. Its quantity, custody, upgrade powers and release rules are not yet specified. Reserve units must not be freely spendable by developers or validators while simultaneously presented as collateral-controlled capacity.
 
-The pilot's TEST balances do not become mainnet SOC. The single-operator devnet service does not establish an independent production validator set, an economic security model or support for real-money custody. SOC does not confer an ownership interest, guaranteed income, return or governance right through this whitepaper.
+The pilot's TEST balances do not become mainnet SOC. The devnet is currently run by one project team. It does not establish a production network run by independent validator teams, an economic security model or support for real-money custody. SOC does not confer an ownership interest, guaranteed income, return or governance right through this whitepaper.
 
 ### Proposed escrow and reserve bridge
 
