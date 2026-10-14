@@ -11,7 +11,25 @@
   "passed": true,
   "deploymentId": "dpl_8bf5uHuTCSo29mBnkR9Tfr6Eshbb",
   "unitChecksPassed": 14,
-  "originalRuntimeUnchanged": true,
   "readOnlyProcessApproved": true,
-  "historyScope": "retained finalized blocks; pruned history unavailable"
+  "historyScope": "retained finalized blocks; pruned history unavailable",
+  "primaryApiValidatorIdentityUnchanged": true,
+  "runtimeAddition": "Explicitly approved private read-only block adapter; extra process and bounded RPC read load",
+  "finalLayoutVerification": {
+    "at": "2026-10-14T00:37:18.577487+00:00",
+    "deploymentId": "dpl_HG8tHRWTXabYqVtcmLKvx7yqfeXy",
+    "desktopViewport": [
+      1440,
+      1000
+    ],
+    "mobileViewport": [
+      390,
+      844
+    ],
+    "errors": [],
+    "overflow": false,
+    "passed": true,
+    "visuallyReviewed": true,
+    "scope": "Latest compact account layout; functional mint and feed evidence above from preceding deployment"
+  }
 }
