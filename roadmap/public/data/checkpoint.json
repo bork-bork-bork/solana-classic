@@ -168,7 +168,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-14T13:02:54.027171+00:00",
+    "reviewedAt": "2026-10-14T13:25:17.807954+00:00",
     "scope": "Development checkpoint only; separate from the live testnet release",
     "projects": [
       {
@@ -209,7 +209,7 @@
         "title": "SOC redemption bridge",
         "state": "building",
         "description": "Original SOC escrow and a native Classic reserve, targeting exact 1:1 display-unit redemption in both directions.",
-        "currentScope": "V2:14 fresh-ledger execution checks,8 cold restore checks and10 SIGKILL recovery checks. Exact-native client:33 local checks and now10 actual checks on new copies of retained V1 ledgers/journals. Both original signed transactions reconcile with raw native balances above Number precision; one-unit errors/retries reject. Zero broadcasts, both copied validators stopped, originals unchanged. First startup lacked history and stopped; separate fresh attempt verified both transactions. Unknown landing/fork, actual funded inventory/custody and independent review remain open.",
+        "currentScope": "V2:14 fresh-ledger execution checks,8 cold restore and10 known-finalized SIGKILL checks. New pending-claim drill:7 actual checks, one claim broadcast, SIGKILL with claim confirmed at690 while finalized root659, then same-signature finalization, exact payout/counters and protected floor. Three copy starts stopped and originals unchanged. Exact-native client:33 local checks plus10 real V1 journal checks. Remaining: original-redemption pending fault, competing fork/expiry branches, actual funded inventory/custody and independent review.",
         "source": "https://github.com/solana-classic/solana-classic/tree/main/bridge",
         "milestones": [
           {
@@ -266,6 +266,11 @@
             "title": "Exact large-native balance metadata and journal reconciliation",
             "state": "rehearsal-passed",
             "detail": "33 local checks +10 actual private-ledger checks +9 worker/copy guards. Both original signatures/bytes/receipts reconcile with exact large native metadata; one-unit errors and repeat handoffs reject. Zero broadcasts; originals unchanged and copies stopped. Known-finalized V1 operations, not unknown landing/fork or production custody."
+          },
+          {
+            "title": "V2 native-claim crash before observed finality",
+            "state": "rehearsal-passed",
+            "detail": "7 actual checks +9 copy/kill guards. One claim broadcast, confirmed slot690 vs finalized659 before SIGKILL(-9); same original signature finalizes after restart with exact10million-native-unit payout and unchanged bootstrap floor/record. No retry; all copies stopped, originals unchanged. Native direction only; no fork/physical power-loss or funded-mainnet acceptance."
           },
           {
             "title": "Bootstrap reconciliation, custody and recovery",

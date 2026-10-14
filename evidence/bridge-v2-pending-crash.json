@@ -1,0 +1,174 @@
+{
+  "schemaVersion": 1,
+  "scope": "New synthetic V2 lock/claim on copied real Agave ledgers, destination SIGKILL before observed claim finality and no-resubmission recovery",
+  "state": "passed",
+  "startedAt": "2026-10-14T13:21:11.693Z",
+  "canonicalNetworkChanged": false,
+  "productionReady": false,
+  "genesi": [
+    "J8LsGtrVHe95w5Yxv3wR2Ux9uNWyDG3svK8LonczuuNh",
+    "EWjA6VWd5uw1XP9fZXBnxAd2doRFf6KQke2RUwj14QE2"
+  ],
+  "globalBacking": {
+    "completeInventoryVerified": false,
+    "actualGenesisBackingVerified": false,
+    "hypotheticalNativeBudgetUnits": "2000000000",
+    "observedNativeGlobalSupplyUnitsAtStart": "503000511071959133",
+    "budgetMatchesObservedGlobalSupply": false,
+    "note": "Synthetic 2-row accounting projection intentionally does not cover the complete test-validator supply. Cannot pass B3 or any monetary-release gate."
+  },
+  "checks": [
+    "Fresh copies match V2 programme bytes/authority, bootstrap record/floor and1950000-unit baseline",
+    "One new synthetic10000-unit source lock finalized; exact escrow and source counter agree",
+    "Exact fully signed claim fsynced before one broadcast; no destination finality wait",
+    "Actual killed-destination RPC outage preserves journal bytes/signature and refuses another handoff",
+    "Same original signature/receipt and exact large-native metadata reconcile finalized V2 settlement after pre-finality crash",
+    "Bootstrap floor/record and source backing survive; attempt/signature unchanged and repeat handoff forbidden",
+    "Actual pre-finality destination SIGKILL exit-9, three copy starts stopped and original ledgers/fixture unchanged"
+  ],
+  "sourceBroadcasts": 1,
+  "claimBroadcasts": 1,
+  "initialNative": {
+    "reserve": 52000000,
+    "recordHash": "cba73a439ce5cbfaa48ce7317ed7b1465b83022993afbf27a0ea9b3e06054327",
+    "floor": "2000000"
+  },
+  "recipientNativeBefore": 1945042000,
+  "sourceSignature": "5EqTWvmf7mmKND5UG5G44rkDpLbrHT8CavrxxhXzkXnFLi5CGKCB6UHXiGGh2C9dXetstfwMC95kRb4jMVhAGeNr",
+  "operation": {
+    "id": "J5x5U82o7MdUPvZ7e7FBbBA7ounJ25mC4xAgW2G6QUzn",
+    "signature": "D5aE6dbUh2pvyVkteVdvDpxdVuYhkr33dDqpTbHRCbVN6MJtEQcztbzqh3v2BZhVtgijWRo4H2Fa9gbqSWP6Wic",
+    "eventHash": "49005db99fc3a47633f2d4f05f75e75aab13ada6212197f8fd9d070a780f2038",
+    "transactionHash": "0fd37034fa1abffa67117a44b848409bf4272acd4d3338433d61e3b2a20d3b12",
+    "state": "FINALIZED",
+    "attempts": 1,
+    "productionReady": false
+  },
+  "operationStateBeforeBroadcast": "SUBMISSION_ATTEMPTED",
+  "claimSignature": "D5aE6dbUh2pvyVkteVdvDpxdVuYhkr33dDqpTbHRCbVN6MJtEQcztbzqh3v2BZhVtgijWRo4H2Fa9gbqSWP6Wic",
+  "clientConfirmationWithheld": true,
+  "largeNativeMetadata": {
+    "payerPreNativeUnits": "499999996569763400",
+    "payerPostNativeUnits": "499999996568629800",
+    "finalizedSlot": 690
+  },
+  "settlementAccepted": true,
+  "recovery": {
+    "state": "FINALIZED",
+    "transientRPCUnavailable": false,
+    "originOutstandingUnits": "1960000",
+    "nativeOutstandingUnits": "1960000",
+    "originEscrowUnits": "1960000",
+    "originUserUnits": "40000",
+    "reserveNativeUnits": "42000000",
+    "protectedFloorNativeUnits": "2000000",
+    "bootstrapRecordUnchanged": true
+  },
+  "completedAt": "2026-10-14T13:21:43.862Z",
+  "processes": {
+    "scope": "new synthetic V2 pre-finality pending-operation SIGKILL on copies",
+    "state": "passed",
+    "starts": [
+      {
+        "side": 0,
+        "genesisMatches": true,
+        "originalLedgerPathsOpened": false
+      },
+      {
+        "side": 1,
+        "genesisMatches": true,
+        "originalLedgerPathsOpened": false
+      },
+      {
+        "side": 1,
+        "genesisMatches": true,
+        "originalLedgerPathsOpened": false
+      }
+    ],
+    "crashes": [
+      {
+        "side": 1,
+        "signal": "SIGKILL",
+        "returnCode": -9,
+        "claimStatusBeforeKill": {
+          "confirmationStatus": "confirmed",
+          "confirmations": 1,
+          "err": null,
+          "slot": 690,
+          "status": {
+            "Ok": null
+          }
+        },
+        "processedSlotBeforeKill": 690,
+        "finalizedSlotBeforeKill": 659,
+        "waitedForClaimFinality": false,
+        "knownFinalizedBeforeFault": false,
+        "competingForkTested": false,
+        "physicalPowerLossTested": false
+      }
+    ],
+    "stops": [
+      {
+        "side": 0,
+        "signal": "SIGINT",
+        "returnCode": -2,
+        "applicationGracefulFlushVerified": false
+      },
+      {
+        "side": 1,
+        "signal": "SIGINT",
+        "returnCode": -2,
+        "applicationGracefulFlushVerified": false
+      }
+    ],
+    "canonicalNetworkChanged": false,
+    "productionReady": false,
+    "allStopped": true
+  },
+  "originalColdInventory": [
+    {
+      "sha256": "920d3ae289d2185368934d75e543f1447ded66be04ab7281eccc9e7dcd640c04",
+      "entries": 89,
+      "links": 2
+    },
+    {
+      "sha256": "bf8098efff9fb023f17e5c566ae41444190711ff2c39a7658fb05e0226995548",
+      "entries": 82,
+      "links": 2
+    }
+  ],
+  "originalLedgersUnchanged": true,
+  "originalFixtureUnchanged": true,
+  "sourceBinarySHA256": "3d3140bf93c9bc967220ffd8989d8b0267b723915d32203132ecc36d2c63a49a",
+  "bridgeSBF_SHA256": "556adf3132c6d102458c0c3b13e22457401bd748b6c3a37a422fb7a339a68e53",
+  "uploadedSourceHashes": {
+    "pending-crash.mjs": "dc4231c97aa10674d07d14bae1e36fdd7755037940f25e7c0ccbf9451787154b",
+    "pending_crash.py": "6755b633b18a505a8750ba0a2c07c95e7a780944e56578ff91192ec6183e470a",
+    "bootstrap_driver.py": "200a81128b1dc697b32365ac939d7eef27c6e8b4cf3d48aa51faed4a65164a5c",
+    "cold_copy.py": "42bef261f9f273a1f525b515eabfcda61b8d6a1cbb62fd637ebbdd0f23a95b6d",
+    "sdk.mjs": "e603242692bedc2457ec9dd3cb144122ca1adb7341506d244ec864943bd8c988",
+    "pending-claim.mjs": "bd3fae5723f6d56d2e40380f6d2ade960f3070298d44a22b31576de9eb92edd2",
+    "lossless-native-rpc.mjs": "5ebed7db063afd9178925eab883a4955dd15ad878bbdad19878ab75225f3398b"
+  },
+  "processOpenPathCheckScope": "Readiness /proc fd/maps samples only; not continuous host auditing",
+  "remainingWork": [
+    "Competing fork/reorg, physical host failure and two-direction pending fault coverage",
+    "Production code/authority pins, custody, independent verifiers and security review",
+    "Complete funded backing and capable full-validator hosting/operators"
+  ],
+  "localChecks": {
+    "journalAndParser": 33,
+    "pendingCrashGuards": 3,
+    "coldCopyBoundaries": 6,
+    "passed": true
+  },
+  "coreFreeze": {
+    "files": 41,
+    "allMatch": true
+  },
+  "coverageLimits": [
+    "The actual recovered outcome was FINALIZED; the expired-unresolved runner branch was not exercised by this run",
+    "One local validator per private chain, not independent consensus/finality or a competing fork",
+    "Synthetic budget is not complete funded genesis backing; no live/mainnet service was changed"
+  ]
+}

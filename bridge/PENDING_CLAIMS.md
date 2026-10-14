@@ -140,3 +140,31 @@ for actual source hashes, signatures and scope; 33 client and nine worker/copy
 checks also pass. Preserve both private attempt roots, never replay/reset them.
 Production custody/code pins, independent finality/backing and security review
 remain separate release gates.
+
+
+## V2 claim crash before observed finality
+
+Seven checks pass on new private ledger copies with one new synthetic
+10000-origin-unit lock (nonce4) and one journaled native-claim broadcast.
+Immediately afterward, the fault harness observed the claim confirmed at
+slot690 while the finalized root was659, then killed only the pinned copied
+destination process with SIGKILL (actual exit-9). It did not wait for claim
+finality. The client journal remained submission-attempted during the outage,
+kept its original signed bytes/signature and refused another handoff.
+
+After same-genesis restart, the original claim finalized. Current exact-u64
+metadata verifies the transaction and10000000-native-unit payout; both
+counters and source escrow equal1960000, original user40000. The reserve
+is42000000 native units with its2000000 floor and bootstrap record unchanged.
+All three copied process starts stopped; original cold-restored ledgers and
+fixture input remain unchanged. Nine worker/copy guards and33 journal/parser
+regressions pass. See `evidence/bridge-v2-pending-crash.json`.
+
+This adds a pre-finality native-claim process-crash case to the earlier
+known-finalized drills. It does not test original-redemption pending faults,
+a competing fork or physical host failure. The runner's expired-unresolved
+branch was not exercised: this attempt recovered FINALIZED. Hypothetical
+budget/global-backing gates remain false, and independent custody/verifiers,
+code pins, full validators and security review remain required. Preserve
+`/data/bridge-v2-pending-crash-v1`; never rerun/reset it. Future drills need
+new copies and new nonces.
