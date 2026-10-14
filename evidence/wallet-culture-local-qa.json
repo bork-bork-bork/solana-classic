@@ -5,7 +5,7 @@
   "scope": "Local custom-domain production bundle with mocked RPC; no live transaction claim",
   "cultureUI": {
     "passed": true,
-    "at": "2026-10-14T05:32:45.934Z",
+    "at": "2026-10-14T05:44:15.192Z",
     "scope": "local production bundle, mocked RPC/metadata; Browser plugin not available, regular Playwright used",
     "checks": [
       {
@@ -101,7 +101,7 @@
   "productionWalletOrBridgeEnabled": false,
   "sourceHashes": {
     "infra/custom-domain/Builders.tsx": "443a6e73f4349a66db315df67334d51f66cdb030e0e2cb33872c22cb9061217a",
-    "infra/custom-domain/Collectors.tsx": "5a1e3457f8fc3ae1a47c65f7c491f4758ac54695c47f10baffc26d598116d915",
+    "infra/custom-domain/Collectors.tsx": "4b09663ff3217d866c6fadb2d41e33f7010bde12cc84c62d2050308d52576dc8",
     "infra/custom-domain/build.py": "c288ac00b8e13cdf99b3f01a8dfdbf3dc035ad16487dac619a996db98d84f5dc",
     "infra/custom-domain/styles.css": "bc95da1a19b4440a9c49bd0eb94548313b22cd21896cc69e3b6e104a3796dbb1",
     "infra/custom-domain/vercel.json": "66d9a9b68501527690000022a6aaaf929b8726895584c1f0a38e80988fc519fa",

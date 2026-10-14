@@ -7,7 +7,7 @@ type Account={owner:string;data:{parsed?:{type:string;info:Info}}};
 type Asset={mint:string;amount:string;decimals:number;kind:'NFT'|'Token';name:string;symbol:string;image?:string};
 const validUnits=(value:unknown):value is string=>typeof value==='string'&&/^\d{1,20}$/.test(value)&&BigInt(value)<=0xffffffffffffffffn;
 function units(value:string,decimals:number){const b=value.padStart(decimals+1,'0');return decimals?b.slice(0,-decimals)+(b.slice(-decimals).replace(/0+$/,'')?'.'+b.slice(-decimals).replace(/0+$/,''):''):b;}
-function safeImage(value:string){return /^https:\/\/(image-assets-production|network-release-production)\.up\.railway\.app\/assets\/[a-f0-9]{64}\/image\.(png|svg)$/.test(value)?value:undefined;}
+function safeImage(value:string){const match=/^https:\/\/(image-assets-production|network-release-production)\.up\.railway\.app\/assets\/([a-f0-9]{64})\/(image\.(png|svg))$/.exec(value);if(!match)return undefined;if(match[1]==='image-assets-production'&&match[4]==='png')return '/uploaded-assets/'+match[2]+'/'+match[3];if(match[1]==='network-release-production'&&match[4]==='svg')return '/chain-assets/'+match[2]+'/'+match[3];return undefined;}
 export default function Collectors({path}:{path:string}){
   const address=path.startsWith('/collectors/')?path.slice(12):'';
   const [query,setQuery]=useState(address),[assets,setAssets]=useState<Asset[]>([]),[filter,setFilter]=useState('All'),[error,setError]=useState(''),[busy,setBusy]=useState(false),[slot,setSlot]=useState<number|null>(null),[limited,setLimited]=useState(false),[revision,setRevision]=useState(0);

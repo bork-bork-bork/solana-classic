@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "at": "2026-10-14T05:34:34.449782+00:00",
+  "at": "2026-10-14T05:49:31.963557+00:00",
   "scope": "Actual public solanaclassic.net devnet wallet browser journey; CUA; disposable synthetic test session",
   "sourceCommit": "dcf2318",
   "initialSiteDeployment": "dpl_2SxsJn3NT2xPU9CdvKo5jvXB3DC2",
@@ -33,7 +33,8 @@
     "Both immutable artworks loaded from bounded same-origin proxies",
     "Two finalized owned assets verified in the same wallet",
     "Same address retained across collector/site navigation",
-    "Public collector view found both holdings"
+    "Public collector view found both holdings",
+    "Actual reviewed native transfer finalized; recipient balance exactly 0.01 tSOC"
   ],
   "consoleErrors": [],
   "privateKeysExported": false,
@@ -42,6 +43,63 @@
     "found": "Gallery request used 100 entries above server limit 50",
     "fixedInSource": true,
     "localContractQA": true,
-    "publicCorrectionVerified": false
+    "publicCorrectionVerified": true
+  },
+  "receipts": [
+    {
+      "signature": "4yGW2if5D1e4yNjyRwyzzUnihz5BQTx8CBySd8iLkeopShWvqFpZsv8DaNjLB9zK6r74cfqKA5pNNtFudgMCCwpf",
+      "state": "finalized",
+      "slot": 208093,
+      "error": null
+    },
+    {
+      "signature": "5uxHa6PzfbvSsioBh1u2hyCqKZkjJgJjzYi4n2Db2GvZA67GYgoGpw889upNvWZfd77JkzuXuKLzqXPLVqZ37TUj",
+      "state": "finalized",
+      "slot": 206766,
+      "error": null
+    },
+    {
+      "signature": "282KxwzZAtBsbbFUGJPwwvuQWhuL71QVvNcs4CBTjNaC1JfcL235We7aKVgw2KaxuN1azybZpWmUWnRJLtXnXqfs",
+      "state": "finalized",
+      "slot": 205846,
+      "error": null
+    },
+    {
+      "signature": "4GCSysiAiF4JduYVT9p7QCLJWjFDKfNzbXvH4RGkKzpNTPapVW5FDbBTvaR2tLbDoTYdjMmoE1X6zedXgKrJWh6B",
+      "state": "finalized",
+      "slot": 205320,
+      "error": null
+    }
+  ],
+  "nativeTransfer": {
+    "recipient": "56zs3WgMjVjnbW3qJgmZrZqiBm9uga2evgHwWqKcLHLt",
+    "units": "10000000",
+    "confirmedFinalizedBalance": "10000000",
+    "passed": true
+  },
+  "siteDeployment": "dpl_FqkKW68d8YHN4mFWMd7yf1qXDXiv",
+  "roadmapDeployment": "dpl_9q8fBxsrLCpcR5aCotC1iL3a1j5u",
+  "collectorArtworkRouting": {
+    "fixed": "Preset and uploaded previews use the existing same-origin bounded media proxies",
+    "bothImagesLoaded": true,
+    "noOverflow": true
+  },
+  "builders": {
+    "actualProjects": 5,
+    "verifiedPublicPage": true
+  },
+  "finalSourceHashes": {
+    "infra/custom-domain/Collectors.tsx": "4b09663ff3217d866c6fadb2d41e33f7010bde12cc84c62d2050308d52576dc8"
+  },
+  "stabilityObservation": {
+    "at": "2026-10-14T05:49:32.397Z",
+    "completedJourneys": 157,
+    "totalJourneys": 288,
+    "startedAt": "2026-10-13T16:48:22.762Z",
+    "endsAt": "2026-10-14T16:48:22.762Z",
+    "issues": [],
+    "identityMatches": true,
+    "freezeMatches": true,
+    "accepted": false
   }
 }
