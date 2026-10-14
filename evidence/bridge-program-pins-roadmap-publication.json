@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-14T16:17:34.895844+00:00",
+  "scope": "Anonymous roadmap verification after read-only programme/policy pin rehearsal; no canonical cutover, signing/handoff integration or mainnet activation",
+  "passed": true,
+  "sourceCommit": "b074e8c",
+  "deploymentId": "dpl_AFzYp8hJMKhKs4XMs4dxvhyaianV",
+  "publicURL": "https://solanaclassic.net/roadmap",
+  "checkpointSHA256": "b446592420af476ee82704eb023ed024d2773e9e9f715be5f2106f5d668f6bee",
+  "publicMilestone": {
+    "title": "Deployed bridge code, authority and policy pin observer",
+    "state": "rehearsal-passed",
+    "detail": "12 local +2 worker guards;5 actual private-copy checks. Both deployed V2 programmes match reviewed artifact, full ProgramData, upgrade authority and static committee/epoch/pause/cap policy. Wrong code/authority/policy pins reject against real accounts. Two finalized snapshots per side; zero signing/simulations/broadcasts, originals unchanged and copies stopped. Separate observer; signer integration and independent verification remain open.",
+    "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/bridge-program-pins.json"
+  },
+  "observedAt": "2026-10-14T16:17:33.890Z",
+  "network": {
+    "state": "online",
+    "genesisMatches": true,
+    "slot": 300939,
+    "finalizedSlot": 300860,
+    "identityMatches": true,
+    "monitorState": "online",
+    "monitorAt": "2026-10-14T16:17:13.892Z",
+    "lastProgressAt": "2026-10-14T16:17:13.825Z"
+  },
+  "soak": {
+    "state": "running",
+    "runnerState": "starting",
+    "freezeMatches": true,
+    "progressFreezeMatches": true,
+    "startedAt": "2026-10-13T16:48:22.762Z",
+    "endsAt": "2026-10-14T16:48:22.762Z",
+    "reportAt": "2026-10-14T16:13:50.219Z",
+    "progressStale": false,
+    "completedJourneys": 282,
+    "totalJourneys": 288,
+    "observations": 2810,
+    "accepted": false,
+    "activationAt": "2026-10-13T16:47:36.929Z",
+    "issues": [],
+    "elapsedMs": 84551128
+  },
+  "productionReady": false,
+  "releaseAccepted": false,
+  "canonicalNetworkChanged": false
+}
