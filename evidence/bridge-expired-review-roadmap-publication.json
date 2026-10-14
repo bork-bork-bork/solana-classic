@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-14T15:05:42.810787+00:00",
+  "scope": "Anonymous main-site roadmap verification after offline expiry packet/source publication; no runtime, settlement or mainnet activation",
+  "passed": true,
+  "sourceCommit": "bfaac3f",
+  "deploymentId": "dpl_VNkfT2vLQfP1fcKAQgCLCzFQqLQo",
+  "publicURL": "https://solanaclassic.net/roadmap",
+  "checkpointSHA256": "5f39d76838963d6804db3a5e7a6799162bec9eacfc05252420025893fe08c734",
+  "publicMilestone": {
+    "title": "Offline expired-redemption review packet",
+    "state": "local-passed",
+    "detail": "7 new +33 regression checks; signed original attempt and pending liability bound, changed/late/stale/duplicate assertions rejected. Actual retained private journal inspected unchanged, zero RPC/validator starts/broadcasts. No authenticated independent observations, recovery approval or enabled retry.",
+    "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/bridge-expired-review.json"
+  },
+  "observedAt": "2026-10-14T15:05:42.193Z",
+  "network": {
+    "state": "online",
+    "genesisMatches": true,
+    "slot": 290535,
+    "finalizedSlot": 290503,
+    "identityMatches": true,
+    "monitorState": "online",
+    "monitorAt": "2026-10-14T15:05:41.862Z",
+    "lastProgressAt": "2026-10-14T15:05:41.568Z"
+  },
+  "soak": {
+    "state": "running",
+    "runnerState": "starting",
+    "freezeMatches": true,
+    "progressFreezeMatches": true,
+    "startedAt": "2026-10-13T16:48:22.762Z",
+    "endsAt": "2026-10-14T16:48:22.762Z",
+    "reportAt": "2026-10-14T15:03:53.238Z",
+    "progressStale": false,
+    "completedJourneys": 268,
+    "totalJourneys": 288,
+    "observations": 2671,
+    "accepted": false,
+    "activationAt": "2026-10-13T16:47:36.929Z",
+    "issues": [],
+    "elapsedMs": 80239431
+  },
+  "settlementAccepted": false,
+  "releaseAccepted": false,
+  "canonicalNetworkChanged": false
+}
