@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-14T11:34:34.698399+00:00",
+  "scope": "Anonymous main-site roadmap verification after separate roadmap publication; private V2 rehearsal only, no canonical service or mainnet deployment",
+  "passed": true,
+  "sourceCommit": "0ec7ab4",
+  "deploymentId": "dpl_GvJLiFrji89YuymAEucbDTjWGPeo",
+  "publicURL": "https://solanaclassic.net/roadmap",
+  "checkpointSHA256": "850fe5d8361fd596bceb01a12153796a2f0bcac4e5b4293db0a8cd45fcb7c209",
+  "publicMilestone": {
+    "title": "V2 bootstrap and protected reserve on fresh Agave ledgers",
+    "state": "rehearsal-passed",
+    "detail": "14 actual private-ledger checks + 3 worker guards; exact deployed bytes/authority, finalized bootstrap and roundtrip, replay/quorum/bad-budget/floor rejection. Hypothetical attested budget; full genesis/backing gate remains open."
+  },
+  "observedAt": "2026-10-14T11:34:34.557Z",
+  "network": {
+    "state": "online",
+    "genesisMatches": true,
+    "slot": 259938,
+    "finalizedSlot": 259838,
+    "identityMatches": true,
+    "monitorState": "online",
+    "monitorAt": "2026-10-14T11:34:06.014Z",
+    "lastProgressAt": "2026-10-14T11:34:05.723Z"
+  },
+  "soak": {
+    "state": "running",
+    "runnerState": "starting",
+    "freezeMatches": true,
+    "progressFreezeMatches": true,
+    "startedAt": "2026-10-13T16:48:22.762Z",
+    "endsAt": "2026-10-14T16:48:22.762Z",
+    "reportAt": "2026-10-14T11:33:53.276Z",
+    "progressStale": false,
+    "completedJourneys": 226,
+    "totalJourneys": 288,
+    "observations": 2251,
+    "accepted": false,
+    "activationAt": "2026-10-13T16:47:36.929Z",
+    "issues": [],
+    "elapsedMs": 67571795
+  },
+  "releaseAccepted": false,
+  "canonicalNetworkChanged": false
+}
