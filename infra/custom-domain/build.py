@@ -54,6 +54,9 @@ app = app.replace('!playground ? <section', '!playground && path !== "/wallet" ?
 app = app.replace("['/about', 'About']", "['/builders', 'Build'], ['/collectors', 'Collectors'], ['/about', 'About'], ['/whitepaper', 'Whitepaper']")
 app = app.replace('playground|gallery|explorer|network|token', 'playground|gallery|explorer|network|token|wallet|builders|developers|collectors|about|whitepaper')
 app = app.replace("path === '/about' ? <About/>", "path === '/developers' ? <Developers/> : path === '/builders' ? <Builders/> : path.startsWith('/collectors') ? <Collectors path={path}/> : path === '/whitepaper' ? <Whitepaper/> : path === '/about' ? <About/>")
+header_start, header_end = app.index('<header className="site-header">'), app.index('</header>') + len('</header>')
+app = "import SiteHeader from './SiteHeader';\n" + app[:header_start] + '<SiteHeader path={path} routes={routes}/>' + app[header_end:]
+shutil.copy2(root / 'infra/custom-domain/SiteHeader.tsx', overlay / 'src/SiteHeader.tsx')
 (overlay / 'src/App.tsx').write_text(app)
 (overlay / 'src/ClassicWallet.tsx').write_text("export { default } from '../../../wallet/src/ClassicWallet';\n")
 for name in ['Builders.tsx', 'Collectors.tsx', 'Whitepaper.tsx', 'Developers.tsx']:
