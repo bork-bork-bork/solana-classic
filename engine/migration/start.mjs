@@ -21,8 +21,9 @@ if(process.env.SC_MIGRATION_MODE==='image-probe'){
   for(const path of ['/data/ledger/genesis.bin','/data/network.json','/data/operator/bootstrap.json','/data/app/app.sqlite'])if(!existsSync(path))throw Error('Existing dataset required; initialization forbidden');
   if(JSON.parse(readFileSync('/data/network.json')).expectedGenesisHash!==manifest.genesis)throw Error('Saved genesis mismatch');
   const reader=spawn(process.execPath,['infra/explorer/block-reader.mjs'],{stdio:'inherit'});
-  for(const signal of ['SIGTERM','SIGINT'])process.once(signal,()=>reader.kill('SIGTERM'));
+  let stopping=false;
+  for(const signal of ['SIGTERM','SIGINT'])process.once(signal,()=>{stopping=true;reader.kill('SIGTERM');});
   reader.once('error',()=>process.kill(process.pid,'SIGTERM'));
-  reader.once('exit',()=>process.kill(process.pid,'SIGTERM'));
+  reader.once('exit',()=>{if(!stopping)process.kill(process.pid,'SIGTERM');});
   await import('../../scripts/railway-start.ts');
 }

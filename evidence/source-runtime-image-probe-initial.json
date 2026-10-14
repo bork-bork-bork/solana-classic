@@ -1,0 +1,39 @@
+{
+  "at": "2026-10-14T01:46:01.263389+00:00",
+  "scope": "remote prepared Debian Node runtime image verified four source-built executable bytes and versions; no validator, ledger or key opened",
+  "passed": true,
+  "migrationId": "a48f94a4-82bb-42f2-aa6f-eec52fdbb203",
+  "coreSha256": "38a055424ae721388cb2290b96945270f8b72d55f78ee8c2cb16e5c1aa66747a",
+  "serviceId": "226510f3-1b2c-4ff9-b598-095c43d0e33b",
+  "deploymentId": "b19eff32-0bee-41d8-9e64-a6716bf57f1e",
+  "imageDigest": "sha256:312996da581e3447491dc7b6845c7310721a9f29c05e6d9a35bb1a5514ce217f",
+  "checks": {
+    "passed": true,
+    "scope": "source runtime image ABI and executable verification only; no ledger, key or validator opened",
+    "runId": "40de48b7-6963-429b-ae3e-81a610d81b7d",
+    "migrationId": "a48f94a4-82bb-42f2-aa6f-eec52fdbb203",
+    "binaries": {
+      "agave-validator": {
+        "sha256": "34e468747f1a0d69399b61fd40edc32ce4690ec5a200b5684474aa60a97a6910",
+        "bytes": 74406832,
+        "version": "agave-validator 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+      },
+      "solana-test-validator": {
+        "sha256": "3d3140bf93c9bc967220ffd8989d8b0267b723915d32203132ecc36d2c63a49a",
+        "bytes": 73661760,
+        "version": "solana-test-validator 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+      },
+      "solana": {
+        "sha256": "6a880f1c79ec0e0d7b3ee972eaa9ad8d75b503616e1f0c29efa587137a129dcd",
+        "bytes": 28209480,
+        "version": "solana-cli 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+      },
+      "solana-keygen": {
+        "sha256": "2f00a742ab0d99cad929e7a82b2d80f7c519cab9038ec45844fdbe9c305dea65",
+        "bytes": 2804464,
+        "version": "solana-keygen 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+      }
+    }
+  },
+  "productionNetworkChanged": false
+}
