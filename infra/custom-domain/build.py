@@ -43,7 +43,7 @@ shutil.copy2(root / 'infra/custom-domain/GitHubLink.tsx', overlay / 'src/GitHubL
 app = app.replace('<span className="brand-mark" aria-hidden="true"/>', '<span className="brand-logo" aria-hidden="true"/>').replace('TEST','tSOC')
 app = "import About from './About';\nimport Whitepaper from './Whitepaper';\n" + app
 app = app.replace("path === '/' ? <Home/>", "path === '/about' ? <About/> : path === '/' ? <Home/>")
-app = "import Builders from './Builders';\nimport Collectors from './Collectors';\n" + app
+app = "import Builders from './Builders';\nimport Collectors from './Collectors';\nimport Developers from './Developers';\n" + app
 app = app.replace("import { useEffect, useState }", "import { lazy, Suspense, useEffect, useState }")
 app = app.replace("const routes =", "const ClassicWallet = lazy(() => import('./ClassicWallet'));\nconst walletGateway = { apiBase: '/_network' as const };\nconst routes =")
 app = app.replace("['/playground', 'Playground']", "['/wallet', 'Wallet'], ['/playground', 'Playground']")
@@ -51,12 +51,13 @@ app = app.replace("const playground = path === '/playground';", "const playgroun
 app = app.replace('<main id="main-content">', '<main id="main-content"><div hidden={path !== "/wallet"}>{walletVisited ? <Suspense fallback={<p role="status">Loading Classic Wallet…</p>}><ClassicWallet gateway={walletGateway}/></Suspense> : null}</div>')
 app = app.replace('!playground ? <section', '!playground && path !== "/wallet" ? <section')
 app = app.replace("['/about', 'About']", "['/builders', 'Build'], ['/collectors', 'Collectors'], ['/about', 'About'], ['/whitepaper', 'Whitepaper']")
-app = app.replace('playground|gallery|explorer|network|token', 'playground|gallery|explorer|network|token|wallet|builders|collectors|about|whitepaper')
-app = app.replace("path === '/about' ? <About/>", "path === '/builders' ? <Builders/> : path.startsWith('/collectors') ? <Collectors path={path}/> : path === '/whitepaper' ? <Whitepaper/> : path === '/about' ? <About/>")
+app = app.replace('playground|gallery|explorer|network|token', 'playground|gallery|explorer|network|token|wallet|builders|developers|collectors|about|whitepaper')
+app = app.replace("path === '/about' ? <About/>", "path === '/developers' ? <Developers/> : path === '/builders' ? <Builders/> : path.startsWith('/collectors') ? <Collectors path={path}/> : path === '/whitepaper' ? <Whitepaper/> : path === '/about' ? <About/>")
 (overlay / 'src/App.tsx').write_text(app)
 (overlay / 'src/ClassicWallet.tsx').write_text("export { default } from '../../../wallet/src/ClassicWallet';\n")
-for name in ['Builders.tsx', 'Collectors.tsx', 'Whitepaper.tsx']:
+for name in ['Builders.tsx', 'Collectors.tsx', 'Whitepaper.tsx', 'Developers.tsx']:
     shutil.copy2(root / 'infra/custom-domain' / name, overlay / 'src' / name)
+shutil.copy2(root / 'developers/network.json', overlay / 'src/developer-network.json')
 paper_edition = json.loads((root / 'docs/whitepaper/output/qa/verification-v010.json').read_text())
 (overlay / 'src/whitepaper-edition.json').write_text(json.dumps({'version': paper_edition['version'], 'pages': paper_edition['pages']}))
 shutil.copy2(root / 'infra/custom-domain/About.tsx', overlay / 'src/About.tsx')
@@ -115,6 +116,19 @@ subprocess.run(['python3', 'scripts/pnpm.py', '--filter', '@solana-classic/web',
                 '--outDir', str(root / '.tools/custom-domain-site/public'), '--emptyOutDir'],
                cwd=root, env=env, check=True)
 destination = root / '.tools/custom-domain-site'
+reader_source = root / 'infra/custom-domain/pdf-reader'
+reader_dist = reader_source / 'node_modules/pdfjs-dist'
+if not (reader_dist / 'build/pdf.min.mjs').exists():
+    raise SystemExit('Install the pinned PDF reader: npm ci --prefix infra/custom-domain/pdf-reader --ignore-scripts')
+assert json.loads((reader_dist / 'package.json').read_text())['version'] == json.loads((reader_source / 'package.json').read_text())['dependencies']['pdfjs-dist'], 'PDF reader dependency does not match its pin.'
+reader_public = destination / 'public/pdf-reader'
+reader_public.mkdir(exist_ok=True)
+for name in ['reader.html', 'reader.css', 'reader.mjs']:
+    shutil.copy2(reader_source / name, reader_public / name)
+for name in ['pdf.min.mjs', 'pdf.worker.min.mjs']:
+    shutil.copy2(reader_dist / 'build' / name, reader_public / name)
+shutil.copy2(reader_dist / 'web/pdf_viewer.css', reader_public / 'pdf_viewer.css')
+shutil.copy2(reader_dist / 'LICENSE', reader_public / 'LICENSE.txt')
 for name in ['package.json', 'vercel.json']:
     shutil.copy2(root / 'infra/custom-domain' / name, destination / name)
 shutil.copytree(root / 'infra/custom-domain/api', destination / 'api', dirs_exist_ok=True)

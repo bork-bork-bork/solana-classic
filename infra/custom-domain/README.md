@@ -49,3 +49,16 @@ ownership. Legacy SPL holdings and creator identity are not inferred.
 immutable media proxies with exact paths, bounds and PNG validation. The earlier
 preset asset proxy and network admission routes are unchanged. Public browser
 and receipt checks remain separate from the frozen stability candidate.
+
+`/whitepaper` embeds a same-origin PDF.js reader with continuous pages, selectable
+text, page navigation and zoom; `/whitepaper.pdf` remains the unchanged public
+edition. Before building a clean checkout, run
+`npm ci --prefix infra/custom-domain/pdf-reader --ignore-scripts --omit=optional`.
+PDF.js is pinned and its Apache 2.0 license is included with the public assets.
+The document and worker are fixed local URLs; no third-party document service is
+used. Only the page being read and nearby pages retain their rendered canvases.
+
+`/developers`, reached from Build → Developer quickstart, publishes the Node
+preview, exact devnet identity, access limitations and the proposed builder
+window. It does not announce a mainnet date or imply unrestricted public RPC,
+CLI deployment or third-party wallet support. See [developer docs](../../developers).

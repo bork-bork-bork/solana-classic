@@ -162,7 +162,7 @@
     "canonicalCutoverAccepted": false
   },
   "development": {
-    "reviewedAt": "2026-10-14T05:32:42.560274+00:00",
+    "reviewedAt": "2026-10-14T06:24:57.805173+00:00",
     "scope": "Development checkpoint only; separate from the live testnet release",
     "projects": [
       {
@@ -275,6 +275,35 @@
           {
             "title": "Community project submissions and discovery",
             "state": "pending"
+          }
+        ]
+      },
+      {
+        "id": "developers",
+        "title": "Developer kit & launch applications",
+        "state": "building",
+        "description": "Help teams build meme, NFT and community applications before the mainnet opening.",
+        "currentScope": "Node preview and identity-checked NFT/meme starters pass on the real devnet; nine admission checks pass. Developer page, docs and builder proposal form published. General programme deployment, browser origin admission and wallet signing remain next-release work. Proposed 21-day preparation window; no mainnet date announced.",
+        "source": "https://github.com/solana-classic/solana-classic/tree/main/developers",
+        "milestones": [
+          {
+            "title": "Network manifest, setup and mint examples",
+            "state": "live-passed",
+            "detail": "Real finalized NFT and meme receipts, verified assets and nine admission checks; disposable keys, no monetary assets."
+          },
+          {
+            "title": "Developer page, docs and builder submissions",
+            "state": "live-passed",
+            "detail": "Published .net quickstart and docs; public GitHub builder proposal template. Desktop/mobile checks and live browser entry flow pass."
+          },
+          {
+            "title": "Public developer RPC, programme deployment and signing",
+            "state": "pending"
+          },
+          {
+            "title": "Mainnet date, builder window and application rehearsal",
+            "state": "pending",
+            "detail": "Proposed minimum 21-day window after full developer preview; hosting/security gates and an explicit date decision remain."
           }
         ]
       }

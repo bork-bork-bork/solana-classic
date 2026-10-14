@@ -15,8 +15,8 @@ export default function Whitepaper() {
     </div>
     <div className="whitepaper-reader">
       <div className="whitepaper-reader-label"><span>Solana Classic</span><span>Edition {edition.version} · {edition.pages} pages</span></div>
-      <iframe src="/whitepaper.pdf#view=FitH" title="Solana Classic whitepaper PDF reader" />
+      <iframe src="/pdf-reader/reader.html" title="Solana Classic whitepaper PDF reader" />
     </div>
-    <p className="whitepaper-reader-note">Read and scroll above. If your browser doesn’t support the embedded reader, <a href="/whitepaper.pdf" target="_blank" rel="noopener noreferrer">open the PDF</a> in its own tab.</p>
+    <p className="whitepaper-reader-note">Read, scroll and zoom above. Prefer a full-screen view? <a href="/pdf-reader/reader.html" target="_blank" rel="noopener noreferrer">Open the reader ↗</a></p>
   </section>;
 }

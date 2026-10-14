@@ -17,6 +17,7 @@
     { "source": "/wallet", "destination": "/index.html" },
     { "source": "/gallery", "destination": "/index.html" },
     { "source": "/builders", "destination": "/index.html" },
+    { "source": "/developers", "destination": "/index.html" },
     { "source": "/collectors", "destination": "/index.html" },
     { "source": "/collectors/:path*", "destination": "/index.html" },
     { "source": "/explorer", "destination": "/index.html" },

@@ -1,0 +1,48 @@
+{
+  "at": "2026-10-14T06:24:57.805173+00:00",
+  "scope": "Actual public devnet Node preview; synthetic tSOC and disposable memory-only keys. Local desktop/mobile UI checks plus live in-app-browser verification.",
+  "passed": true,
+  "mainnetAvailable": false,
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "read": {
+    "finalizedSlot": 213920,
+    "programsVerified": true
+  },
+  "receipts": [
+    {
+      "kind": "nft",
+      "mint": "3AnxureBgqSFy4wcww4GAbB38NkocnfBP8cbzXUDSaUi",
+      "signature": "4SuDtjMSvjbaWQsC4ttdJE5mQvuaPinZQP8dc9BPp7yroT3EwdVvGFVY6gHznsYUNexKXoyjKHS5wfzy7Kp118rJ",
+      "finalized": true,
+      "assetVerified": true
+    },
+    {
+      "kind": "meme",
+      "mint": "31DV2szPtDiRGZHm4wPZiZaM9WMUa28yJ7HgRUtD1dZ7",
+      "signature": "RRjXgyBVLXV477C1asjaTTzajpBbjfer8SgijTveJ7jBwxEG2Bdk9enjRRzSAYdWriQuHPjPtJeJjFkNaw6BvUV",
+      "finalized": true,
+      "assetVerified": true
+    }
+  ],
+  "unitChecksPassed": 9,
+  "website": "https://solanaclassic.net/developers",
+  "deploymentId": "dpl_4h2XPJrHRvYuEVmhMAEo3BDGdrev",
+  "pdfReader": {
+    "url": "https://solanaclassic.net/whitepaper",
+    "pdfSHA256": "e0825942956e3f3efb696839dce7e5e8c3d61e46f34d8eb84a0133e9ed4584b2",
+    "localViewports": [
+      1440,
+      390
+    ],
+    "page1And20NavigationZoomSelectableTextPassed": true,
+    "liveEmbeddedRenderingVerified": true
+  },
+  "limitations": [
+    "General CLI/Anchor program deployment endpoint pending",
+    "Third-party browser origins pending",
+    "WebSockets and wallet signing interface pending",
+    "No mainnet date announced; proposed 21-day builder window after full developer preview",
+    "Validator host/security/operator/backing gates remain separate"
+  ],
+  "secretsSaved": false
+}

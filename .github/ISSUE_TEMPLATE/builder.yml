@@ -1,0 +1,48 @@
+name: Build on Solana Classic
+description: Propose a meme, NFT or community product and join the developer preview.
+title: "[Builder] "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: "Devnet has valueless tSOC. Mainnet dates and parameters are not final. Share public information only; never include keys, credentials or private contact details."
+  - type: input
+    id: project
+    attributes:
+      label: Project name
+    validations:
+      required: true
+  - type: textarea
+    id: purpose
+    attributes:
+      label: What are you building and who is it for?
+      description: Launchpad, minting platform, NFT marketplace, collector tools, wallet or another idea.
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Public source or demo link
+  - type: dropdown
+    id: stage
+    attributes:
+      label: Current stage
+      options:
+        - Idea
+        - Local prototype
+        - Devnet prototype
+        - Preparing for mainnet
+    validations:
+      required: true
+  - type: textarea
+    id: requirements
+    attributes:
+      label: What access or infrastructure do you need?
+      description: Program deployment, browser origin, RPC methods, funding limits, indexing or wallet integration. No secrets.
+    validations:
+      required: true
+  - type: textarea
+    id: readiness
+    attributes:
+      label: What must pass before your launch?
+      description: Tests, security review, authority disclosures, recovery and estimated development time.
