@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-14T21:17:52.602Z",
+  "scope": "remote anonymous roadmap checkpoint and GitHub evidence publication verification; no rendered-browser claim",
+  "passed": true,
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "sourceCommit": "e4bbcd8",
+  "roadmapDeployment": "dpl_6sxHbfm3eDFtQYFR8bx1xFNG3Uky",
+  "checkpointSHA256": "54484f5cb7cc3d48c183fe32aa8506f8f3f1f94c36326581cb540c5b1f7a139a",
+  "publicReviewSHA256": "cb14d885946c1726350e3e27b248919b13396821ec9bfdeb06a021a326844b58",
+  "supportedRequirements": [
+    "G1.01",
+    "G1.04",
+    "G1.07"
+  ],
+  "originalSoakAccepted": true,
+  "originalRuntimeMatches": true,
+  "frozenFilesUnchanged": true,
+  "releaseAccepted": false,
+  "canonicalProcessChanged": false
+}
