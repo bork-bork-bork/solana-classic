@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-14T04:18:21.143701+00:00",
+  "scope": "Public presentation/read-only verification; no production blockchain, bridge, wallet release or stability acceptance",
+  "siteDeployment": "dpl_jm6HGHz6UvmhgjH9QiQkUBM4FX5x",
+  "initialRoadmapDeployment": "dpl_CwxeLwL8yNhGeQWpVdoLvTNepkFf",
+  "origin": "https://solanaclassic.net",
+  "publicPdfMatches": true,
+  "whitepaperVersion": "0.10",
+  "whitepaperSha256": "e0825942956e3f3efb696839dce7e5e8c3d61e46f34d8eb84a0133e9ed4584b2",
+  "developmentProjects": [
+    "mainnet",
+    "bridge",
+    "wallet"
+  ],
+  "network": {
+    "state": "online",
+    "identityMatches": true,
+    "soakState": "running",
+    "journeys": 138,
+    "issues": []
+  }
+}

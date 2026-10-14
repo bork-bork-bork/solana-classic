@@ -98,9 +98,9 @@
     },
     "whitepaper": {
       "passed": true,
-      "at": "2026-10-14T02:08:45.008072+00:00",
-      "scope": "remote read-only observation of the separately published custom-domain whitepaper; byte checksum matches its presentation QA record; original frozen candidate paper unchanged",
-      "sha256": "cc0d8c178d180a4b2fce212cf4e631af78f8eabd4e7f99d41510509abf789166"
+      "at": "2026-10-14T04:18:21.143701+00:00",
+      "scope": "Verified current public-domain PDF bytes; frozen candidate PDF unchanged",
+      "sha256": "8173f66a14bf93d63f42b3391991129d7b411f64a76bfd31f9406374ecbc5cdf"
     },
     "engine-migration-review": {
       "passed": true,
@@ -117,11 +117,11 @@
     "p95FinalizedMs": 15167
   },
   "whitepaper": {
-    "version": "0.8",
+    "version": "0.10",
     "pages": 20,
-    "sha256": "7cd2d53af11a86a8a3aec2ab44f814287cac72292bca9c99cd6a3c3caa801901",
+    "sha256": "e0825942956e3f3efb696839dce7e5e8c3d61e46f34d8eb84a0133e9ed4584b2",
     "url": "https://solanaclassic.net/whitepaper.pdf",
-    "scope": "remote read-only observation of the separately published custom-domain whitepaper; byte checksum matches its presentation QA record; original frozen candidate paper unchanged"
+    "scope": "Verified current public-domain PDF bytes; frozen candidate PDF unchanged"
   },
   "releaseAccepted": false,
   "planned": [
