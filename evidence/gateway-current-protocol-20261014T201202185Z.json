@@ -1,0 +1,334 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-14T20:12:02.185Z",
+  "scope": "remote current frozen canonical-devnet protocol-only gateway audit; no grants,usable transactions,asset creation or quota exhaustion",
+  "passed": true,
+  "api": "https://network-release-production.up.railway.app",
+  "web": "https://solana-classic-soc.vercel.app",
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "candidate": {
+    "apiOrigin": "https://network-release-production.up.railway.app",
+    "frontendOrigin": "https://solana-classic-soc.vercel.app",
+    "frontendDeploymentId": "dpl_3aWWzKDohr4SrgijgrB8dWgHHS5r",
+    "frontendCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "apiCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "networkConfigSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+    "dependencyManifestSha256": "e6da27717e6a84ca7b29d707ff63591b2ff0cfc38892d3b4667f8615bdf7bbc0"
+  },
+  "checks": [
+    {
+      "name": "no-Origin canonical genesis read",
+      "passed": true,
+      "status": 200,
+      "code": null,
+      "headers": {
+        "cache-control": "no-store"
+      },
+      "responseSHA256": "9e4e504e81872ff6dc77fba6d871dcdc6aa02f8d30c04e001d23baec8ef71bcd"
+    },
+    {
+      "name": "approved frozen browser genesis read",
+      "passed": true,
+      "status": 200,
+      "code": null,
+      "headers": {
+        "access-control-allow-origin": "https://solana-classic-soc.vercel.app",
+        "cache-control": "no-store"
+      },
+      "responseSHA256": "9e4e504e81872ff6dc77fba6d871dcdc6aa02f8d30c04e001d23baec8ef71bcd"
+    },
+    {
+      "name": "approved SDK preflight",
+      "passed": true,
+      "status": 204,
+      "code": null,
+      "headers": {
+        "access-control-allow-origin": "https://solana-classic-soc.vercel.app",
+        "access-control-allow-headers": "Content-Type, solana-client",
+        "access-control-allow-methods": "GET, POST, OPTIONS",
+        "cache-control": "no-store"
+      },
+      "responseSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "approved faucet preflight without grant",
+      "passed": true,
+      "status": 204,
+      "code": null,
+      "headers": {
+        "access-control-allow-origin": "https://solana-classic-soc.vercel.app",
+        "access-control-allow-headers": "Content-Type, solana-client",
+        "access-control-allow-methods": "GET, POST, OPTIONS",
+        "cache-control": "no-store"
+      },
+      "responseSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "approved asset preflight without creation",
+      "passed": true,
+      "status": 204,
+      "code": null,
+      "headers": {
+        "access-control-allow-origin": "https://solana-classic-soc.vercel.app",
+        "access-control-allow-headers": "Content-Type, solana-client",
+        "access-control-allow-methods": "GET, POST, OPTIONS",
+        "cache-control": "no-store"
+      },
+      "responseSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "unknown browser origin https://unapproved.example.test",
+      "passed": true,
+      "status": 403,
+      "code": "ORIGIN_REJECTED",
+      "headers": {
+        "cache-control": "no-store"
+      },
+      "responseSHA256": "4fbbbafdfec607be31f4db811fe82ef679b2cbb738aa4cb24a1249d019bf6cb6"
+    },
+    {
+      "name": "unknown browser origin null",
+      "passed": true,
+      "status": 403,
+      "code": "ORIGIN_REJECTED",
+      "headers": {
+        "cache-control": "no-store"
+      },
+      "responseSHA256": "4fbbbafdfec607be31f4db811fe82ef679b2cbb738aa4cb24a1249d019bf6cb6"
+    },
+    {
+      "name": "unknown browser preflight denied",
+      "passed": true,
+      "status": 403,
+      "code": null,
+      "headers": {
+        "cache-control": "no-store"
+      },
+      "responseSHA256": "1ca5246ff30d88260485b91a53616ed31ddfe33a463215f68ff4f67edcee163b"
+    },
+    {
+      "name": "unsafe preflight permissions excluded",
+      "passed": true,
+      "status": 204,
+      "code": null,
+      "headers": {
+        "access-control-allow-origin": "https://solana-classic-soc.vercel.app",
+        "access-control-allow-headers": "Content-Type, solana-client",
+        "access-control-allow-methods": "GET, POST, OPTIONS",
+        "cache-control": "no-store"
+      },
+      "responseSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "forbidden method requestAirdrop",
+      "passed": true,
+      "status": 400,
+      "code": "INVALID_INPUT",
+      "headers": {
+        "cache-control": "no-store"
+      },
+      "responseSHA256": "7625d73f1c69d8ce9b2482699bcbe951a856dcb50bc1ae2b97baa58ceb15014e"
+    },
+    {
+      "name": "forbidden method getIdentity",
+      "passed": true,
+      "status": 400,
+      "code": "INVALID_INPUT",
+      "headers": {
+        "cache-control": "no-store"
+      },
+      "responseSHA256": "7625d73f1c69d8ce9b2482699bcbe951a856dcb50bc1ae2b97baa58ceb15014e"
+    },
+    {
+      "name": "forbidden method getClusterNodes",
+      "passed": true,
+      "status": 400,
+      "code": "INVALID_INPUT",
+      "headers": {
+        "cache-control": "no-store"
+      },
+      "responseSHA256": "7625d73f1c69d8ce9b2482699bcbe951a856dcb50bc1ae2b97baa58ceb15014e"
+    },
+    {
+      "name": "forbidden method getProgramAccounts",
+      "passed": true,
+      "status": 400,
+      "code": "INVALID_INPUT",
+      "headers": {
+        "cache-control": "no-store"
+      },
+      "responseSHA256": "7625d73f1c69d8ce9b2482699bcbe951a856dcb50bc1ae2b97baa58ceb15014e"
+    },
+    {
+      "name": "JSON-RPC batch",
+      "passed": true,
+      "status": 400,
+      "code": "INVALID_INPUT",
+      "headers": {
+        "cache-control": "no-store"
+      },
+      "responseSHA256": "071363dd7d8429941afa72e23967d0c69c6e34f7f58cebb7249dc575e578dcdd"
+    },
+    {
+      "name": "caller-selected URL",
+      "passed": true,
+      "status": 400,
+      "code": "INVALID_INPUT",
+      "headers": {
+        "cache-control": "no-store"
+      },
+      "responseSHA256": "91722f146ba342384e183485c729c68a885a2fdf903b621796d374dbaa06813a"
+    },
+    {
+      "name": "caller-selected upstream",
+      "passed": true,
+      "status": 400,
+      "code": "INVALID_INPUT",
+      "headers": {
+        "cache-control": "no-store"
+      },
+      "responseSHA256": "a9defccd2d3a23c9300719d4670aeafa2e087ba3c38b68a63c0956630081a78a"
+    },
+    {
+      "name": "wrong JSON-RPC version",
+      "passed": true,
+      "status": 400,
+      "code": "INVALID_INPUT",
+      "headers": {
+        "cache-control": "no-store"
+      },
+      "responseSHA256": "24a395af55f35dd6d39f9ba18f9ca1dc4339d1169fd7854c205df3ba68be2cd6"
+    },
+    {
+      "name": "oversized request ID",
+      "passed": true,
+      "status": 400,
+      "code": "INVALID_INPUT",
+      "headers": {
+        "cache-control": "no-store"
+      },
+      "responseSHA256": "dce858d6d36b98b50950e237ffbdd6e91ce4e7824e9fb66a1a8bfb756ef75353"
+    },
+    {
+      "name": "too many top-level parameters",
+      "passed": true,
+      "status": 400,
+      "code": "INVALID_INPUT",
+      "headers": {
+        "cache-control": "no-store"
+      },
+      "responseSHA256": "b3def83c97d05cf2777d7788a0c700b3a14b0a65829dc30bff6a8d83e37fb8cf"
+    },
+    {
+      "name": "too many account queries",
+      "passed": true,
+      "status": 400,
+      "code": "QUERY_BOUND",
+      "headers": {
+        "cache-control": "no-store"
+      },
+      "responseSHA256": "dd338f06b866a10aa8b016f77f1744dc7f72de095e579ae8df8ccc5abb1ef94c"
+    },
+    {
+      "name": "too many signature queries",
+      "passed": true,
+      "status": 400,
+      "code": "QUERY_BOUND",
+      "headers": {
+        "cache-control": "no-store"
+      },
+      "responseSHA256": "dd338f06b866a10aa8b016f77f1744dc7f72de095e579ae8df8ccc5abb1ef94c"
+    },
+    {
+      "name": "rent allocation size bound",
+      "passed": true,
+      "status": 400,
+      "code": "QUERY_BOUND",
+      "headers": {
+        "cache-control": "no-store"
+      },
+      "responseSHA256": "03546326b7e95d382b6b1aced8ec0105f85230559a0350403a88f43f6efeb4b8"
+    },
+    {
+      "name": "invalid simulation bytes",
+      "passed": true,
+      "status": 400,
+      "code": "INVALID_TRANSACTION",
+      "headers": {
+        "cache-control": "no-store"
+      },
+      "responseSHA256": "d03e00caf0c26054e7a20507fb1a4aec66344328a37497199e5be7efe3e27dec"
+    },
+    {
+      "name": "unusable oversize transaction bytes",
+      "passed": true,
+      "status": 413,
+      "code": "TRANSACTION_SIZE",
+      "headers": {
+        "cache-control": "no-store"
+      },
+      "responseSHA256": "e7f6b5370d86acdab4507d013efc31f8c5b7e0bfe9734f4386c169a5299836fd"
+    },
+    {
+      "name": "oversized RPC body",
+      "passed": true,
+      "status": 413,
+      "code": "SERVICE_UNAVAILABLE",
+      "headers": {
+        "cache-control": "no-store"
+      },
+      "responseSHA256": "de3d2f585bf76a70832e399605af296becc07057cc14d92b3dab38e090d27c8f"
+    }
+  ],
+  "requests": 28,
+  "validFaucetRequests": 0,
+  "signedTransactions": 0,
+  "assetsCreated": 0,
+  "quotaExhaustionAttempts": 0,
+  "canonicalProcessChanged": false,
+  "releaseAccepted": false,
+  "cutoverAccepted": false,
+  "runtimeBefore": {
+    "configured": true,
+    "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+    "sourceCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "coreSha256": "30697f3e9b441b05a036d0704b42322d723b3998840ed43d88b18a0d7ef7d1dd",
+    "apiBootId": "e52b81b5-662e-425e-99bc-71f1edc838f1",
+    "apiStartedAt": "2026-10-13T15:54:07.867Z",
+    "validatorBootId": "6e5e1439-8c2b-4fc9-a49b-51b1ab61ff64",
+    "validatorStartedAt": "2026-10-13T15:53:34.139Z",
+    "deploymentId": "04c379cd-369c-4ff4-9d14-d29467d68a28",
+    "agaveVersion": "3.0.14",
+    "tokenProgramVersion": "10.0.0",
+    "tokenProgramSha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+    "observedAt": "2026-10-14T20:12:03.455Z"
+  },
+  "networkFacts": {
+    "name": "Solana Classic experimental devnet",
+    "mode": "remote",
+    "expectedGenesisHash": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+    "denomination": "TEST",
+    "operatorCount": 1,
+    "hasMonetaryValue": false,
+    "tokenProgram": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+    "associatedTokenProgram": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+    "resetPolicy": "Persistent experimental ledger. No automatic reset. Any deliberate reset will be disclosed; test assets have no monetary value."
+  },
+  "runtimeAfter": {
+    "configured": true,
+    "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+    "sourceCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "coreSha256": "30697f3e9b441b05a036d0704b42322d723b3998840ed43d88b18a0d7ef7d1dd",
+    "apiBootId": "e52b81b5-662e-425e-99bc-71f1edc838f1",
+    "apiStartedAt": "2026-10-13T15:54:07.867Z",
+    "validatorBootId": "6e5e1439-8c2b-4fc9-a49b-51b1ab61ff64",
+    "validatorStartedAt": "2026-10-13T15:53:34.139Z",
+    "deploymentId": "04c379cd-369c-4ff4-9d14-d29467d68a28",
+    "agaveVersion": "3.0.14",
+    "tokenProgramVersion": "10.0.0",
+    "tokenProgramSha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+    "observedAt": "2026-10-14T20:12:21.314Z"
+  },
+  "frozenFilesUnchanged": true,
+  "completedAt": "2026-10-14T20:12:21.137Z"
+}

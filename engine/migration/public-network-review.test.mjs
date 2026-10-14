@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {softwareMatches} from './public-network-review.mjs';
+const read=p=>JSON.parse(readFileSync(new URL('../../'+p,import.meta.url)));
+const fixture=()=>['docs/agave-compatibility-release.json','docs/token-program-release.json','docs/dependency-manifest.json'].map(read);
+test('published current software identities match exact release and runtime pins',()=>assert(softwareMatches(...fixture())));
+test('foreign release or replaced full commit cannot inherit published identity',()=>{for(const field of ['tag','full_commit']){const f=fixture();f[0][field]='changed';assert.equal(softwareMatches(...f),false);}});
+test('replaced token artifact,missing artifacts and wrong source revision reject',()=>{for(const mode of ['artifact','empty','revision']){const f=fixture();if(mode==='artifact')f[1].assets[0].digest='sha256:'+'0'.repeat(64);if(mode==='empty')f[1].assets=[];if(mode==='revision')f[1].full_commit='0'.repeat(40);assert.equal(softwareMatches(...f),false);}});
+test('changed Node,pnpm or SDK version rejects even with valid chain manifests',()=>{for(const field of ['node_local','pnpm','sdk']){const f=fixture();if(field==='sdk')f[2].packages['@solana/web3.js']='changed';else f[2][field]='changed';assert.equal(softwareMatches(...f),false);}});

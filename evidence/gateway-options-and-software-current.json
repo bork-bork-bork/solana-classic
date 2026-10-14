@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-14T20:23:47.964828+00:00",
+  "scope": "remote actual canonical installed-file hashes and OPTIONS-only database aggregate continuity; read-only service inspection, no rows or secrets",
+  "passed": true,
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "installedFileSHA256": {
+    "solana-test-validator": "80f3bc0e3fa6a3090e69bafbfe00b249eaa655c5874ac83aebb6acdb157140ab",
+    "token2022": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68"
+  },
+  "databaseBefore": {
+    "faucet": 40,
+    "assets": 996,
+    "gallery": 617,
+    "counters": 118
+  },
+  "databaseAfter": {
+    "faucet": 40,
+    "assets": 996,
+    "gallery": 617,
+    "counters": 118
+  },
+  "persistedCounterTotalBefore": 2112,
+  "persistedCounterTotalAfter": 2112,
+  "configuredAllowedOrigins": [
+    "https://solana-classic-soc.vercel.app"
+  ],
+  "configuredSource": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+  "options": {
+    "at": "2026-10-14T20:17:10.939292+00:00",
+    "checks": [
+      {
+        "path": "/api/rpc",
+        "status": 204,
+        "allowOrigin": "https://solana-classic-soc.vercel.app"
+      },
+      {
+        "path": "/api/faucet",
+        "status": 204,
+        "allowOrigin": "https://solana-classic-soc.vercel.app"
+      },
+      {
+        "path": "/api/assets",
+        "status": 204,
+        "allowOrigin": "https://solana-classic-soc.vercel.app"
+      }
+    ],
+    "validPOSTs": 0
+  },
+  "originalInstallationProofSHA256": "4499478b45ae354399b8745011fee886ce0e7571d1e09d9cde62fe269b2d760d",
+  "canonicalProcessChanged": false,
+  "releaseAccepted": false,
+  "limits": [
+    "Aggregate counts cover this short observation interval,not a complete database inventory or persistent-state backup",
+    "No operator credentials,key files,row contents,ledger data or raw logs accessed/exported",
+    "Installed hashes are file observations,not independent attestation of running resident memory",
+    "Preflight consumes transient ingress rate counters; persistent faucet/asset/gallery/counter totals did not change",
+    "Original backend CORS policy has one approved frozen origin; branded developer transports have separate intentional permission policy",
+    "First provider control-plane read failed TLS handshake; preserved separately,no result inferred,no host-check bypass"
+  ]
+}

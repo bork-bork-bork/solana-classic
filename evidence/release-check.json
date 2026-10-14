@@ -1,5 +1,5 @@
 {
-  "at": "2026-10-14T19:51:56.068Z",
+  "at": "2026-10-14T20:32:43.200Z",
   "passed": false,
   "scope": "offline evidence review",
   "issues": [],
@@ -309,8 +309,8 @@
       "id": "G5.01",
       "gate": "G5",
       "label": "Public RPC rejects airdrop, administrative methods, arbitrary upstream URLs, batches and excessive bodies.",
-      "passed": false,
-      "reason": "No passed, individually reviewed evidence."
+      "passed": true,
+      "reason": "Passed individual evidence review; checksums match."
     },
     {
       "id": "G5.02",
@@ -337,8 +337,8 @@
       "id": "G5.05",
       "gate": "G5",
       "label": "Exact production/approved preview CORS origins work; unknown browser origins fail; OPTIONS creates no faucet reservation or mutation; server-side admission remains effective without Origin headers.",
-      "passed": false,
-      "reason": "No passed, individually reviewed evidence."
+      "passed": true,
+      "reason": "Passed individual evidence review; checksums match."
     },
     {
       "id": "G5.06",
@@ -484,8 +484,8 @@
       "id": "G7.03",
       "gate": "G7",
       "label": "Public URL, actual genesis, software manifest, operator count and limitations are accessible.",
-      "passed": false,
-      "reason": "No passed, individually reviewed evidence."
+      "passed": true,
+      "reason": "Passed individual evidence review; checksums match."
     },
     {
       "id": "G7.04",
@@ -564,7 +564,7 @@
     {
       "id": "G5",
       "passed": false,
-      "passedChecks": 0,
+      "passedChecks": 2,
       "requiredChecks": 12
     },
     {
@@ -576,7 +576,7 @@
     {
       "id": "G7",
       "passed": false,
-      "passedChecks": 3,
+      "passedChecks": 4,
       "requiredChecks": 9
     }
   ],
@@ -584,7 +584,7 @@
   "clock": {
     "startedAt": "2026-10-13T03:00:54+00:00",
     "deadline": "2026-10-19T03:00:54+00:00",
-    "hoursRemaining": 103.14942555555555,
+    "hoursRemaining": 102.46966666666667,
     "full24HourSoakFits": true
   },
   "releaseStates": {

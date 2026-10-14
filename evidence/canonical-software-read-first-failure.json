@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-14T20:22:47.084540+00:00",
+  "scope": "failed read-only canonical executable-hash request via provider CLI; no public hash result returned",
+  "passed": false,
+  "failure": "Provider GraphQL control-plane TLS handshake EOF; no result received",
+  "hostChecksDisabled": false,
+  "canonicalProcessChanged": false,
+  "retry": "Same bounded read retried once; never treated as a passed file or node-health check"
+}

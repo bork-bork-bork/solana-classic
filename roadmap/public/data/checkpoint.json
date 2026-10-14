@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "reviewedAt": "2026-10-14T19:51:55.420045+00:00",
+  "reviewedAt": "2026-10-14T20:32:42.453934+00:00",
   "t0": "2026-10-13T03:00:54Z",
   "deadline": "2026-10-19T03:00:54Z",
   "target": "2026-10-17T15:00:54Z",
@@ -432,7 +432,7 @@
         "title": "Devnet release evidence",
         "state": "building",
         "description": "Individual review of the build that passed its original 24-hour stability test.",
-        "currentScope": "Seven original stability requirements and three final browser requirements are individually reviewed. Fresh360px touch-emulated journeys on both frozen and.net sites passed native transfer,meme/NFT mint/transfer and finalized receipts,including uploaded artwork on.net. Two failed driver attempts remain preserved. Full release,physical-device/all-browser testing and operator handover remain pending. Later.net signing/uploads do not inherit the original frozen website soak.",
+        "currentScope": "Seven original stability requirements,two current gateway/origin requirements and four final browser/discovery requirements are individually reviewed. Full360px journeys passed. Current gateway passed25protocol checks; OPTIONS left persistent aggregates unchanged; installed binaries and public software manifests match reviewed pins. Both sites expose actual genesis/operator/reset limits and desktop/phone navigation works. Full release,other individual requirements and operator handover remain pending; later.netcode does not inherit the original soak.",
         "source": "https://github.com/solana-classic/solana-classic/blob/main/engine/migration/STABILITY_RELEASE_REVIEW.md",
         "milestones": [
           {
@@ -455,6 +455,12 @@
             "state": "live-passed",
             "detail": "Two fresh360x844 Chromium touch-emulated sessions,frozen and current.net sites. Four verified demo assets,12finalized receipts,two logical faucet grants across passed runs; uploaded PNG NFT on.net. Native and both asset transfers,exact final balances/owners,no body overflow or page/console errors. Two earlier failed driver attempts preserved separately. G7.02original-candidate width/keyboard/label/focus evidence individually reviewed with prior desktop/pilots; not physical-device,all-browser or WCAG acceptance.",
             "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/browser-mobile-original-review.json"
+          },
+          {
+            "title": "Current gateway controls and public network discovery",
+            "state": "live-passed",
+            "detail": "25 actual frozen-backend protocol checks,28requests,no valid grants/assets/usable submissions. Wrong RPC methods,upstreams,batches,query/body bounds and unknown origins reject. Three OPTIONS preflights leave persisted aggregates unchanged; validator/Token-2022 installed hashes match reviewed releases. Anonymous software manifests and home-to-network navigation pass on1440/360px for both sites.12 audit guards+61existing in-process regressions pass. G5.01,G5.05,G7.03 individually reviewed; no current429quota/forged-IP/consensus or resident-memory acceptance.",
+            "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/gateway-current-individual-review.json"
           },
           {
             "title": "Remaining individual release requirements",

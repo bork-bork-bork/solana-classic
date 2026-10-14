@@ -1,6 +1,6 @@
 # Acceptance report
 
-Generated 2026-10-14T19:51:56.068Z. Scope: offline review of recorded evidence; this command performs no chain or browser actions.
+Generated 2026-10-14T20:32:43.200Z. Scope: offline review of recorded evidence; this command performs no chain or browser actions.
 
 preview/experimental preparation; public release blocked. Local tests and a deployed preview do not certify G0–G7. The founder selected two independent agent browser pilots for this first release; these are agent evidence, not human usability testing.
 
@@ -13,9 +13,9 @@ T0: 2026-10-13T03:00:54+00:00. Fixed H144: 2026-10-19T03:00:54+00:00. A full 24-
 | G2 | pending / failed | 0/9 |
 | G3 | pending / failed | 0/9 |
 | G4 | pending / failed | 0/8 |
-| G5 | pending / failed | 0/12 |
+| G5 | pending / failed | 2/12 |
 | G6 | pending / failed | 7/11 |
-| G7 | pending / failed | 3/9 |
+| G7 | pending / failed | 4/9 |
 
 ## Supporting remote results
 
@@ -76,11 +76,9 @@ None.
 - G4.06: Explorer scope is disclosed as account/transaction lookup and app-known assets, not exhaustive indexing. — No passed, individually reviewed evidence.
 - G4.07: Two independent agent testers attempted the clean-browser journey at H48–H60; findings are recorded and failed journeys rerun before the H72 freeze. — No passed, individually reviewed evidence.
 - G4.08: Filters, rich address inventory and extra artwork are cuttable; they do not block the verified baseline. — No passed, individually reviewed evidence.
-- G5.01: Public RPC rejects airdrop, administrative methods, arbitrary upstream URLs, batches and excessive bodies. — No passed, individually reviewed evidence.
 - G5.02: Faucet rejects malformed keys; atomic limits work under concurrent requests and after restart. — No passed, individually reviewed evidence.
 - G5.03: A request timeout cannot trigger a second faucet grant; pending transactions reconcile by signature. — No passed, individually reviewed evidence.
 - G5.04: Forged forwarding headers cannot bypass rate limits. — No passed, individually reviewed evidence.
-- G5.05: Exact production/approved preview CORS origins work; unknown browser origins fail; OPTIONS creates no faucet reservation or mutation; server-side admission remains effective without Origin headers. — No passed, individually reviewed evidence.
 - G5.06: Asset creation obeys body/generated-file/per-IP/global/storage limits from its first exposure; identical content is idempotent. — No passed, individually reviewed evidence.
 - G5.07: Disk, memory, stalled-slot and upstream-health probes work and their operator destination is verified. — No passed, individually reviewed evidence.
 - G5.08: Provider process/container restart and a fresh deployment preserve state; hardware-host reboot is outside Railway operator control. — No passed, individually reviewed evidence.
@@ -92,7 +90,6 @@ None.
 - G6.08: Repair core runtime/gateway/signing/minting/faucet/storage/recovery defects immediately and run a new full 24-hour soak. H96–H108 repair plus H108–H132 replacement soak is the reserved late-failure window. If time expires first, the public release gate remains failed. — No passed, individually reviewed evidence.
 - G6.09: Documentation/static-copy/art-selection/mainnet-link changes receive targeted content/browser checks; they do not reset core stability evidence. Executable content, metadata origins and signing logic are excluded from this exception. — No passed, individually reviewed evidence.
 - G6.10: Publish machine specification, workload, failures, latency distribution and exact test duration. — No passed, individually reviewed evidence.
-- G7.03: Public URL, actual genesis, software manifest, operator count and limitations are accessible. — No passed, individually reviewed evidence.
 - G7.05: `pnpm release:check` passes every required public-testnet check. — Every other required check must pass first.
 - G7.06: Operator receives restart, backup, recovery and monitoring runbooks and verifies access. — No passed, individually reviewed evidence.
 - G7.07: Handover includes the Vercel project, deployment ID, public environment/DNS settings and verified frontend rollback alongside Linux runbooks. — No passed, individually reviewed evidence.

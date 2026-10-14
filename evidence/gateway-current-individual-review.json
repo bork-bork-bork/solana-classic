@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-14T20:32:42.453934+00:00",
+  "scope": "remote current frozen-candidate gateway protocol and browser-origin review; no runtime changes,grants,assets or usable submissions",
+  "passed": true,
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "api": "https://network-release-production.up.railway.app",
+  "web": "https://solana-classic-soc.vercel.app",
+  "candidate": {
+    "apiOrigin": "https://network-release-production.up.railway.app",
+    "frontendOrigin": "https://solana-classic-soc.vercel.app",
+    "frontendDeploymentId": "dpl_3aWWzKDohr4SrgijgrB8dWgHHS5r",
+    "frontendCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "apiCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "networkConfigSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+    "dependencyManifestSha256": "e6da27717e6a84ca7b29d707ff63591b2ff0cfc38892d3b4667f8615bdf7bbc0"
+  },
+  "protocolChecks": 25,
+  "requestsInPassedProtocolRun": 28,
+  "sourceAndProofHashes": {
+    "engine/migration/gateway-review.mjs": "8d54a97e83bfbeeef28000e642b534fd45465b06eb1e0e54708eeb2ca59b4701",
+    "engine/migration/gateway-review.test.mjs": "5f593e6d8a651b0a4b4a280f6571f873bda47d95bea0da275c2b6b291c427e93",
+    "apps/api/src/app.ts": "ac3bd0b827ebce48e22b2e8db6704e624b4243a4ef2a23bf329bedc934af3056",
+    "packages/config/src/index.ts": "6f2c81341cb7b9cea9cab806936b2a2e7e36c1eeedd958d7c3745ffa8e6ae545",
+    "tests/integration/api.test.ts": "00406f5ccd9dc004ced93208b3701b54a1ca2d5b4b0d448ed4a0994c9e584644",
+    "tests/unit/identity.test.ts": "6d26d7634c3b61742817e04f3522e5f9e9c29e609da8b0ac3252c9f37016a3df",
+    "evidence/gateway-current-protocol-20261014T201202185Z.json": "e662041a767be3bb16982c77642d46e299baade7455936e3555ab7e6a1d77845",
+    "evidence/gateway-options-and-software-current.json": "50aeb55cb0e75cd7b4d10303d7534e826e8544186ecf35931654c66c3d42df03",
+    "evidence/gateway-current-protocol-20261014T200855310Z.json": "88dd7e60b5920a897658d75a3af27e942708075a71e01fca6dfa126a8ea80ee8",
+    "evidence/gateway-current-first-executed-driver.mjs.txt": "ee03b6907ab7a4bc017c1b68e195d819e53287556d06a984520df97f704c7b33"
+  },
+  "originalRuntimeBootsMatch": true,
+  "frozenFilesUnchanged": true,
+  "supportedRequirements": [
+    "G5.01",
+    "G5.05"
+  ],
+  "configuredProductionOrigins": [
+    "https://solana-classic-soc.vercel.app"
+  ],
+  "configuredPreviewOrigins": [],
+  "preflightPersistedCountsUnchanged": true,
+  "fixtureRegressionCounts": {
+    "gatewayAuditGuards": 8,
+    "existingAPIAndIdentity": 61
+  },
+  "firstAuditorFailurePreserved": {
+    "report": "evidence/gateway-current-protocol-20261014T200855310Z.json",
+    "cause": "Oversized body correctly rejected413; auditor incorrectly expected INVALID_INPUT instead of frozen handler SERVICE_UNAVAILABLE. Source expectation corrected without changing runtime/limits."
+  },
+  "canonicalProcessChanged": false,
+  "releaseAccepted": false,
+  "limits": [
+    "No destructive administration call sent remotely; actual administrative read/query refusals plus unchanged whitelist and in-process validatorExit/setLogFilter rejection support method policy",
+    "No current rate/quota exhaustion,forged-IP attribution/concurrent admission or asset idempotency acceptance; G6.05 and other unreviewedG5 requirements stay pending",
+    "OPTIONS aggregates cover short observation interval; no complete inventory,backup or resident-memory attestation",
+    "Branded developer transports intentionally have separate origin policy; this review applies to original frozen backend/candidate",
+    "First provider executable-hash request failed control-plane TLS handshake; preserved separately and retried with host checks enabled"
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-14T20:32:42.453934+00:00",
+  "scope": "remote anonymous original-candidate public URL,genesis,software manifest,operator count and limits review;current.net discovery reported separately",
+  "passed": true,
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "web": "https://solana-classic-soc.vercel.app",
+  "api": "https://network-release-production.up.railway.app",
+  "candidate": {
+    "apiOrigin": "https://network-release-production.up.railway.app",
+    "frontendOrigin": "https://solana-classic-soc.vercel.app",
+    "frontendDeploymentId": "dpl_3aWWzKDohr4SrgijgrB8dWgHHS5r",
+    "frontendCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "apiCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "networkConfigSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+    "dependencyManifestSha256": "e6da27717e6a84ca7b29d707ff63591b2ff0cfc38892d3b4667f8615bdf7bbc0"
+  },
+  "sourceAndProofHashes": {
+    "evidence/gateway-options-and-software-current.json": "50aeb55cb0e75cd7b4d10303d7534e826e8544186ecf35931654c66c3d42df03",
+    "engine/migration/public-network-review.mjs": "c526c275c7fc0e35a81d362035642b061799e1921c47057452a994c8c777cea7",
+    "engine/migration/public-network-review.test.mjs": "3995d81daed213a22ecbb35bcdecd4d6e24a01097e092e7cf304c7d6afc0b85c",
+    "evidence/canonical-software-read-first-failure.json": "926bed9830199eb31d1a0b947e84fa7503f8ba2db88cacb55aa2ed2089161637",
+    "evidence/public-network-current-20261014T202945223Z.json": "c96b982bfd697ef21c48d39e0044117a6c10ee1257c8862997c61a34591b7225",
+    "evidence/public-network-current-20261014T202033205Z.json": "9e3a3f9ca7f2d29ac0df0f0b750ab27c28e7c6085c7b36fe13ef4ab15fffd256",
+    "evidence/public-network-first-executed-driver.mjs.txt": "dba10d3e467351765b446c328c8dda0ceb859637dc481d01b9f85dc4ce086ca4"
+  },
+  "factsAccessible": true,
+  "originalFrozenNetworkPage": {
+    "name": "frozen",
+    "url": "https://solana-classic-soc.vercel.app/network",
+    "title": "Solana Classic \u2014 Memes & NFTs",
+    "genesisVisible": true,
+    "operatorLimitVisible": true,
+    "valuelessVisible": true,
+    "resetPolicyVisible": true,
+    "noSolanaStateInheritanceVisible": true,
+    "widths": [
+      1440,
+      360
+    ],
+    "navigationFromHomeVerified": true,
+    "pageErrors": 0
+  },
+  "currentCustomNetworkPage": {
+    "name": "custom",
+    "url": "https://solanaclassic.net/network",
+    "title": "Solana Classic",
+    "genesisVisible": true,
+    "operatorLimitVisible": true,
+    "valuelessVisible": true,
+    "resetPolicyVisible": true,
+    "noSolanaStateInheritanceVisible": true,
+    "widths": [
+      1440,
+      360
+    ],
+    "navigationFromHomeVerified": true,
+    "pageErrors": 0
+  },
+  "publishedSoftwareManifests": [
+    {
+      "path": "docs/agave-compatibility-release.json",
+      "url": "https://raw.githubusercontent.com/solana-classic/solana-classic/main/docs/agave-compatibility-release.json",
+      "sha256": "f813183d22f230bbc013cede8e1e6e6639bf380a8d4d23195597cdbcc60a43ac",
+      "anonymous": true
+    },
+    {
+      "path": "docs/token-program-release.json",
+      "url": "https://raw.githubusercontent.com/solana-classic/solana-classic/main/docs/token-program-release.json",
+      "sha256": "102284543f657b73cae643ddd363260d9439006fe6afc98eec5b2d12ae552ef3",
+      "anonymous": true
+    },
+    {
+      "path": "docs/dependency-manifest.json",
+      "url": "https://raw.githubusercontent.com/solana-classic/solana-classic/main/docs/dependency-manifest.json",
+      "sha256": "e6da27717e6a84ca7b29d707ff63591b2ff0cfc38892d3b4667f8615bdf7bbc0",
+      "anonymous": true
+    }
+  ],
+  "currentInstalledFileHashesMatchPriorReviewedRelease": true,
+  "browser": "Chromium1440/360 read-only; Browser plugin not available",
+  "softwareGuardUnitChecks": 4,
+  "canonicalProcessChanged": false,
+  "releaseAccepted": false,
+  "limits": [
+    "Software manifests accessible anonymously through publicGitHub source,not new manifest buttons on frozen network page",
+    "OriginalNetworkpage remains immutable;current.netseparate discovery is not originalsoak acceptance",
+    "Installed file hashes are not independent attestation of resident programme memory",
+    "No physical mobile/Safari/Firefox/WCAG or hardware/consensus/operatorhandover acceptance"
+  ]
+}

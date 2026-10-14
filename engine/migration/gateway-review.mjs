@@ -1,0 +1,88 @@
+// Fixed canonical-devnet protocol audit. No signing, usable transaction bytes,
+// valid faucet grants, asset creation, quota exhaustion or server control.
+import {readFileSync,writeFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import {fileURLToPath} from 'node:url';
+const ROOT=fileURLToPath(new URL('../../',import.meta.url));
+const freeze=JSON.parse(readFileSync(ROOT+'evidence/candidate-freeze.json'));
+const API='https://network-release-production.up.railway.app';
+const WEB='https://solana-classic-soc.vercel.app';
+const hash=b=>createHash('sha256').update(b).digest('hex');
+const wait=ms=>new Promise(r=>setTimeout(r,ms));
+const headers=['access-control-allow-origin','access-control-allow-headers','access-control-allow-methods','access-control-allow-credentials','cache-control','x-content-type-options'];
+export function runtimeMatches(r){
+  return ['genesis','sourceCommit','coreSha256','apiBootId','validatorBootId','deploymentId','tokenProgramSha256'].every(k=>r?.[k]===freeze.runtime[k]);
+}
+const rpc=(method,params=[],extra={})=>({jsonrpc:'2.0',id:'protocol-review',method,params,...extra});
+export function probes(){
+  const preflight={Origin:WEB,'Access-Control-Request-Method':'POST','Access-Control-Request-Headers':'content-type,solana-client'};
+  const invalid=(name,body,expected=400,code='INVALID_INPUT')=>({name,path:'/api/rpc',method:'POST',body,expected,code});
+  return [
+    {name:'no-Origin canonical genesis read',path:'/api/rpc',method:'POST',body:rpc('getGenesisHash'),expected:200,result:freeze.genesis},
+    {name:'approved frozen browser genesis read',path:'/api/rpc',method:'POST',body:rpc('getGenesisHash'),headers:{Origin:WEB},expected:200,result:freeze.genesis,allowOrigin:WEB},
+    {name:'approved SDK preflight',path:'/api/rpc',method:'OPTIONS',headers:preflight,expected:204,allowOrigin:WEB,preflight:true},
+    {name:'approved faucet preflight without grant',path:'/api/faucet',method:'OPTIONS',headers:preflight,expected:204,allowOrigin:WEB,preflight:true},
+    {name:'approved asset preflight without creation',path:'/api/assets',method:'OPTIONS',headers:preflight,expected:204,allowOrigin:WEB,preflight:true},
+    ...['https://unapproved.example.test','null'].map(origin=>({name:'unknown browser origin '+origin,path:'/api/network',method:'GET',headers:{Origin:origin},expected:403,code:'ORIGIN_REJECTED',denyOrigin:true})),
+    {name:'unknown browser preflight denied',path:'/api/rpc',method:'OPTIONS',headers:{...preflight,Origin:'https://unapproved.example.test'},expected:403,denyOrigin:true},
+    {name:'unsafe preflight permissions excluded',path:'/api/rpc',method:'OPTIONS',headers:{...preflight,'Access-Control-Request-Method':'PUT','Access-Control-Request-Headers':'content-type,authorization,x-upstream-url'},expected:204,preflight:true,allowOrigin:WEB},
+    // Only harmless read methods represent administration/enumeration here.
+    // Never send validatorExit or any actual node-control instruction remotely.
+    ...['requestAirdrop','getIdentity','getClusterNodes','getProgramAccounts'].map(method=>invalid('forbidden method '+method,rpc(method))),
+    invalid('JSON-RPC batch',[rpc('getGenesisHash'),rpc('getHealth')]),
+    invalid('caller-selected URL',rpc('getGenesisHash',[],{url:'https://unapproved.example.test'})),
+    invalid('caller-selected upstream',rpc('getGenesisHash',[],{upstream:'http://127.0.0.1:8899'})),
+    invalid('wrong JSON-RPC version',{...rpc('getHealth'),jsonrpc:'1.0'}),
+    invalid('oversized request ID',{...rpc('getHealth'),id:'x'.repeat(101)}),
+    invalid('too many top-level parameters',rpc('getHealth',[0,0,0,0,0])),
+    invalid('too many account queries',rpc('getMultipleAccounts',[Array(101).fill('11111111111111111111111111111111')]),400,'QUERY_BOUND'),
+    invalid('too many signature queries',rpc('getSignatureStatuses',[Array(101).fill('2'.repeat(88))]),400,'QUERY_BOUND'),
+    invalid('rent allocation size bound',rpc('getMinimumBalanceForRentExemption',[16385]),400,'QUERY_BOUND'),
+    invalid('invalid simulation bytes',rpc('simulateTransaction',['%%%']),400,'INVALID_TRANSACTION'),
+    invalid('unusable oversize transaction bytes',rpc('sendTransaction',[Buffer.alloc(1233).toString('base64')]),413,'TRANSACTION_SIZE'),
+    invalid('oversized RPC body',{...rpc('getGenesisHash'),padding:'x'.repeat(32769)},413,'SERVICE_UNAVAILABLE'),
+  ];
+}
+export function accepts(probe,reply){
+  if(reply.status!==probe.expected)return false;
+  if(probe.code&&reply.body?.error?.code!==probe.code)return false;
+  if(probe.result!==undefined&&(reply.body?.result!==probe.result||reply.body?.jsonrpc!=='2.0'||reply.body?.id!=='protocol-review'))return false;
+  if(probe.allowOrigin&&reply.headers['access-control-allow-origin']!==probe.allowOrigin)return false;
+  if(probe.denyOrigin&&reply.headers['access-control-allow-origin'])return false;
+  if(probe.preflight){
+    const list=name=>(reply.headers[name]??'').split(',').map(s=>s.trim().toLowerCase()).sort();
+    if(JSON.stringify(list('access-control-allow-headers'))!==JSON.stringify(['content-type','solana-client'])||JSON.stringify(list('access-control-allow-methods'))!==JSON.stringify(['get','options','post'])||reply.headers['access-control-allow-credentials'])return false;
+  }
+  return true;
+}
+export async function run(fetcher=fetch){
+  const at=new Date().toISOString();
+  const result={schemaVersion:1,at,scope:'remote current frozen canonical-devnet protocol-only gateway audit; no grants,usable transactions,asset creation or quota exhaustion',passed:false,api:API,web:WEB,genesis:freeze.genesis,candidate:freeze.candidate,checks:[],requests:0,validFaucetRequests:0,signedTransactions:0,assetsCreated:0,quotaExhaustionAttempts:0,canonicalProcessChanged:false,releaseAccepted:false,cutoverAccepted:false};
+  async function request(probe){
+    result.requests++;const response=await fetcher(API+probe.path,{method:probe.method??'GET',headers:{Accept:'application/json',...(probe.body===undefined?{}:{'Content-Type':'application/json'}),...probe.headers},body:probe.body===undefined?undefined:JSON.stringify(probe.body),redirect:'error',signal:AbortSignal.timeout(15000)});
+    const selectedHeaders=Object.fromEntries(headers.flatMap(k=>response.headers.has(k)?[[k,response.headers.get(k)]]:[]));
+    if(response.status===204&&!response.body)return {status:204,body:{},headers:selectedHeaders,responseSHA256:hash(Buffer.alloc(0))};
+    if(!response.body)throw Error('Missing bounded public response');
+    const reader=response.body.getReader(),chunks=[];let size=0;
+    try{while(true){const next=await reader.read();if(next.done)break;size+=next.value.byteLength;if(size>262144)throw Error('Public response exceeds bound');chunks.push(Buffer.from(next.value));}}finally{await reader.cancel();reader.releaseLock();}
+    const bytes=Buffer.concat(chunks);let body={};if(bytes.length){try{body=JSON.parse(bytes.toString());}catch{throw Error('Non-JSON public response');}}
+    return {status:response.status,body,headers:selectedHeaders,responseSHA256:hash(bytes)};
+  }
+  try{
+    const before=await request({path:'/api/runtime'});if(before.status!==200||!runtimeMatches(before.body))throw Error('Original runtime admission failed');result.runtimeBefore=before.body;
+    const facts=await request({path:'/api/network'});if(facts.status!==200||facts.body.mode!=='remote'||facts.body.hasMonetaryValue!==false||facts.body.expectedGenesisHash!==freeze.genesis||facts.body.operatorCount!==1)throw Error('Wrong valueless devnet facts');result.networkFacts=facts.body;
+    if(Object.entries(freeze.coreFiles).some(([p,h])=>hash(readFileSync(ROOT+p))!==h))throw Error('Frozen source changed');
+    for(const probe of probes()){
+      await wait(250);const reply=await request(probe),passed=accepts(probe,reply);
+      result.checks.push({name:probe.name,passed,status:reply.status,code:reply.body?.error?.code??null,headers:reply.headers,responseSHA256:reply.responseSHA256});
+      if(!passed)throw Error('Protocol expectation failed: '+probe.name);
+    }
+    const after=await request({path:'/api/runtime'});if(after.status!==200||!runtimeMatches(after.body))throw Error('Runtime continuity failed');result.runtimeAfter=after.body;
+    result.frozenFilesUnchanged=true;result.passed=true;
+  }catch(error){result.failure=String(error.message).slice(0,300);}
+  result.completedAt=new Date().toISOString();return result;
+}
+if(process.argv[1]===fileURLToPath(import.meta.url)){
+  if(process.argv.length!==4||process.argv[2]!=='--ack'||process.argv[3]!=='protocol-only')throw Error('Use --ack protocol-only; fixed valueless devnet only');
+  const result=await run(),path=ROOT+'evidence/gateway-current-protocol-'+result.at.replace(/[^0-9TZ]/g,'')+'.json';writeFileSync(path,JSON.stringify(result,null,2)+'\n',{flag:'wx'});console.log(JSON.stringify({passed:result.passed,checks:result.checks.length,requests:result.requests,evidence:path.slice(ROOT.length),failure:result.failure}));if(!result.passed)process.exitCode=1;
+}
