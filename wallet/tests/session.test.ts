@@ -1,0 +1,29 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { Keypair } from '@solana/web3.js';
+import { TestSession, type SendPlan } from '../src/session';
+test('session mutation lock blocks concurrent sends and session replacement', async () => {
+  const session = new TestSession(); const sender = session.create();
+  let release!: () => void;
+  const gate = new Promise<void>(resolve => { release = resolve; });
+  session.verify = async () => { await gate; throw new Error('Mock network unavailable'); };
+  const plan: SendPlan = { sender, recipient: Keypair.generate().publicKey.toBase58(), amount: 1, fee: 5000 };
+  const first = session.send(plan, () => {});
+  await assert.rejects(session.send(plan, () => {}), /already running/);
+  await assert.rejects(session.claim(), /already running/);
+  assert.throws(() => session.forget(), /current action/);
+  assert.throws(() => session.create(), /current action/);
+  release(); await assert.rejects(first, /Mock network unavailable/);
+  assert.doesNotThrow(() => session.forget()); assert.equal(session.address(), '');
+});
+test('transfer reviews are immutable and fabricated or cloned approvals cannot sign', async () => {
+  const session = new TestSession(); session.create();
+  session.verify = async () => ({ state: 'online', slot: 1, genesisMatches: true, lastProgressAt: null, message: 'Mocked identity' });
+  session.connection.getLatestBlockhash = async () => ({ blockhash: '11111111111111111111111111111111', lastValidBlockHeight: 999999 });
+  session.connection.getBalance = async () => 1_000_000_000;
+  session.connection.getFeeForMessage = async () => ({ context: { slot: 1 }, value: 5000 });
+  const plan = await session.plan(Keypair.generate().publicKey.toBase58(), '0.01');
+  assert.equal(Object.isFrozen(plan), true);
+  assert.throws(() => { plan.amount = 1; }, TypeError);
+  await assert.rejects(session.send({ ...plan }, () => {}), /fresh transfer review/);
+});

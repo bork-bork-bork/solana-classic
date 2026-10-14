@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "scope": "second code-review pass by the wallet implementation agent; not an external independent audit",
+  "status": "concrete findings corrected; local prototype verification passed",
+  "productionSecurityApproval": false,
+  "findings": [
+    {
+      "problem": "The shared native transfer helper fetched another blockhash and fee after the displayed fee was rechecked, without enforcing that review's maximum fee.",
+      "fix": "Wallet builds one exact message, checks fee/balance before signing and again after simulation, and rejects any fee above the immutable reviewed cap before broadcasting.",
+      "proof": ["changed-fee", "changed-fee-exact-message", "changed-fee-before-broadcast"]
+    },
+    {
+      "problem": "Session mutation exclusion relied on the React busy flag, which would not protect future direct application integrations.",
+      "fix": "Internal mutation lock rejects concurrent sends/faucet requests and blocks session replacement or closure while a mutation is active.",
+      "proof": "session mutation lock blocks concurrent sends and session replacement"
+    },
+    {
+      "problem": "A transfer review remained visible after an uncertain send was later reconciled as confirmed, allowing an accidental second confirmation of that old review.",
+      "fix": "Review objects are immutable, wallet-issued and single-use once broadcast is attempted. Reconciliation clears the visible old review. The anticipated receipt remains recorded before broadcast.",
+      "proof": ["transfer reviews are immutable and fabricated or cloned approvals cannot sign", "uncertain-send-reconciliation"]
+    }
+  ],
+  "remainingLimits": [
+    "Client prototype only; all browser RPC/API verification is local and mocked.",
+    "No persistent key vault, recovery, extension, mobile package, arbitrary dApp signing or mainnet/bridge signing.",
+    "No separately approved public wallet origin or live-network wallet journey.",
+    "RPC/gateway authenticity is based on the fixed HTTPS origin; this is not a trustless light client.",
+    "Memory-only secrets cannot be guaranteed securely erased by JavaScript garbage collection.",
+    "A definitive failed pending transaction can require operator/session reconciliation; no automatic resend is attempted."
+  ],
+  "visibleDenomination": "tSOC",
+  "protocolDenomination": "TEST",
+  "verification": { "build": "passed", "typecheck": "passed", "unitTests": 9, "browserScenarios": 10, "browserEvidence": "wallet/evidence/local-qa.json", "liveTransactions": false },
+  "primarySources": {
+    "phantomIntegrationSdk": "https://github.com/phantom/phantom-connect-sdk",
+    "phantomProviderIntegration": "https://docs.phantom.com/solana/integrating-phantom",
+    "phantomPublicOrganization": "https://github.com/phantom",
+    "backpackCurrentRootGplV3": "https://raw.githubusercontent.com/coral-xyz/backpack/master/LICENSE"
+  },
+  "sourceConclusion": "Phantom publishes an integration SDK; no complete extension/mobile wallet-client repository was verified in this review. This does not prove that all Phantom code is closed. Backpack's current root LICENSE is GPL version 3; a pinned fork still requires review of applicable package licenses."
+}

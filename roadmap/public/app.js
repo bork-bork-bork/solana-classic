@@ -1,3 +1,4 @@
+import { renderDevelopment } from './development.mjs';
 const validDate = value => typeof value === 'string' && Number.isFinite(Date.parse(value));
 export function proofState(proofs, ids) {
   return ids.length && ids.every(id => proofs?.[id]?.passed === true && validDate(proofs[id].at) && /^[a-f0-9]{64}$/.test(proofs[id].sha256 ?? '')) ? 'passed' : 'verification-needed';
@@ -21,7 +22,7 @@ const dateTime = value => value && Number.isFinite(Date.parse(value)) ? new Intl
 const shortTime = value => value && Number.isFinite(Date.parse(value)) ? new Intl.DateTimeFormat('en-GB', {day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit',timeZone:'Europe/London',hour12:false}).format(new Date(value)) : 'Not started';
 const labels = { waiting:'Waiting for activation', starting:'Starting first journey', running:'Running', passed:'Passed', ready:'Ready for review', failed:'Failed — review needed', blocked:'Blocked', stale:'Progress report overdue', interrupted:'Interrupted', unknown:'Live verification unavailable', 'candidate-changed':'Candidate changed', 'verification-needed':'Completion needs verification', pending:'Pending',prepared:'Prepared' };
 let current = null; let busy = false; let lastSuccess = null; let refreshFailed = false; let serverAt = null;
-function el(tag, text, cls) { const item=document.createElement(tag); if(text !== undefined)item.textContent=text; if(cls)item.className=cls;return item; }
+function el(tag, text, cls) { const item=document.createElement(tag); if(text !== undefined)item.textContent=String(text).replace(/\bexperimental\b/gi,'devnet'); if(cls)item.className=cls;return item; }
 function duration(ms) { const total=Math.max(0,Math.floor(ms/1000));return `${String(Math.floor(total/3600)).padStart(2,'0')}:${String(Math.floor(total%3600/60)).padStart(2,'0')}:${String(total%60).padStart(2,'0')}`; }
 function marker(passed) { const item=el('span',undefined,'check-icon');item.setAttribute('aria-hidden','true');if(passed){const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('viewBox','0 0 24 24');const path=document.createElementNS('http://www.w3.org/2000/svg','path');path.setAttribute('d','m5 12 4 4 10-10');svg.append(path);item.append(svg);}return item; }
 function proofDetails(parent, id, checkpoint) { const proof=checkpoint.proofs[id];if(!proof)return;const box=el('div',undefined,'proof');box.append(el('strong',id.replaceAll('-',' ')),el('p',proof.scope),el('p','Verified '+dateTime(proof.at)),el('span','SHA-256 '+proof.sha256,'hash'));parent.append(box); }
@@ -63,6 +64,7 @@ function checklist(data) {
  $('checks').replaceChildren(fragment);if(summaryFocus&&document.activeElement===document.body){document.getElementById(summaryFocus)?.querySelector('summary')?.focus({preventScroll:true});}
 }
 function render(data) {
+ renderDevelopment(data.checkpoint.development);
  current=data;$('step-status').textContent=data.soak.accepted?data.releaseAccepted?'Passed':'Pending final review':labels[data.soak.state]??'Checking…';$('current-title').textContent=data.soak.accepted?'Final regression & release decision':'24-hour stability test';
  $('network-state').textContent=data.network.state==='online'&&data.network.genesisMatches?'Online':data.network.state==='unknown'?'Unavailable':'Degraded';$('network-state').className=data.network.state==='online'&&data.network.genesisMatches?'good':'bad';
  $('slot').textContent=data.network.finalizedSlot===null?'Unavailable':data.network.finalizedSlot.toLocaleString('en-GB');$('identity').textContent=data.network.identityMatches===true?'Matches freeze':data.network.identityMatches===false?'Changed':'Unavailable';$('identity').className=data.network.identityMatches===true?'good':'bad';$('monitor').textContent={online:'Online',degraded:'Degraded',stale:'Stale / unavailable'}[data.network.monitorState];$('monitor').className=data.network.monitorState==='online'?'good':'bad';$('refreshed').textContent=dateTime(data.fetchedAt);

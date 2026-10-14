@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "scope": "local-browser-mocked-api-rpc",
+  "liveTransactions": false,
+  "browser": "Chromium",
+  "browserPlugin": "not available; regular Playwright",
+  "target": "http://127.0.0.1:5188/",
+  "createdAt": "2026-10-14T03:56:57.284Z",
+  "checks": [
+    {
+      "name": "desktop",
+      "viewport": {
+        "width": 1280,
+        "height": 1040
+      },
+      "identity": "passed",
+      "meaningfulContent": "passed",
+      "console": "passed",
+      "explicitConfirmation": "passed",
+      "singleBroadcast": "passed",
+      "gallery": "passed",
+      "receipts": "passed",
+      "emptyBrowserStorage": "passed",
+      "sessionLostOnReload": "passed",
+      "closeSession": "passed",
+      "noHorizontalOverflow": "passed",
+      "screenshot": "/tmp/classic-wallet-desktop.png"
+    },
+    {
+      "name": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "identity": "passed",
+      "meaningfulContent": "passed",
+      "console": "passed",
+      "explicitConfirmation": "passed",
+      "singleBroadcast": "passed",
+      "gallery": "passed",
+      "receipts": "passed",
+      "emptyBrowserStorage": "passed",
+      "sessionLostOnReload": "passed",
+      "closeSession": "passed",
+      "noHorizontalOverflow": "passed",
+      "screenshot": "/tmp/classic-wallet-mobile.png"
+    },
+    {
+      "name": "wrong-genesis",
+      "passed": true
+    },
+    {
+      "name": "faucet-uncertain-retry",
+      "passed": true
+    },
+    {
+      "name": "changed-fee",
+      "passed": true,
+      "broadcasts": 0
+    },
+    {
+      "name": "changed-fee-exact-message",
+      "passed": true,
+      "broadcasts": 0
+    },
+    {
+      "name": "changed-fee-before-broadcast",
+      "passed": true,
+      "broadcasts": 0
+    },
+    {
+      "name": "simulation-rejected",
+      "passed": true,
+      "broadcasts": 0
+    },
+    {
+      "name": "genesis-changes-before-broadcast",
+      "passed": true,
+      "broadcasts": 0
+    },
+    {
+      "name": "uncertain-send-reconciliation",
+      "passed": true,
+      "broadcasts": 1,
+      "staleReviewRemoved": true
+    }
+  ],
+  "passed": true
+}

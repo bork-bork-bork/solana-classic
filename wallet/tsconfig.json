@@ -1,0 +1,9 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": { "react": ["../apps/web/node_modules/@types/react"], "react/*": ["../apps/web/node_modules/@types/react/*"], "react-dom/*": ["../apps/web/node_modules/@types/react-dom/*"] }
+  },
+  "include": ["src", "vite.config.mts"],
+  "exclude": ["dist"]
+}

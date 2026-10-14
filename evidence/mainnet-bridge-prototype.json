@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-14T04:07:54.393680+00:00",
+  "scope": "Local genesis planner, compiled bridge SBF executed in two in-process LiteSVM instances with synthetic keys/balances, SDK mocked observation; no live networks, real SOC, production deployment or security audit",
+  "state": "LOCAL_PROTOTYPES_TESTED",
+  "tests": {
+    "genesisPlanner": 6,
+    "bridgeSdk": 5,
+    "rustUnit": 7,
+    "sbfRuntime": 3
+  },
+  "sbf": {
+    "sha256": "d9f3822ec9097f0a7ede222f20a68c3cba92b6fba46459af8ed0025652f2f9f7",
+    "bytes": 197520,
+    "compiler": "cargo-build-sbf4.0.0/platform-tools1.53/rust1.89.0",
+    "vm": "LiteSVM0.9.0/Agave3.1.8 local VM",
+    "token2022Sha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68"
+  },
+  "checks": [
+    "Actual escrow transfer_checked",
+    "Native reserve release and return",
+    "Original-token redemption",
+    "Source-event PDA, chain, program, recipient and epoch binding",
+    "Replay receipts and source nonce reuse",
+    "Three distinct signers; two signers fail",
+    "Starts paused and quorum unpause",
+    "Upgrade-authority initialization; prefunded PDA",
+    "Mutable mint rejection",
+    "Insufficient native reserve and atomic failed-claim rollback",
+    "Exact decimal conversion and overflow",
+    "Backed genesis allocation and inflation rejection",
+    "Loopback observer rejects public endpoints and soaking genesis"
+  ],
+  "productionReady": false,
+  "productionDeployments": false,
+  "liveValidatorChanged": false,
+  "remaining": [
+    "Actual fresh two-chain Agave integration",
+    "Source-built genesis and multi-validator rehearsal",
+    "Backed bootstrap/counter reconciliation",
+    "Verifier custody, finality/reorg/recovery and governance design",
+    "Independent security review and explicit production release"
+  ],
+  "sources": [
+    {
+      "path": "bridge/README.md",
+      "sha256": "33467375a0b899ef66ca0c4280ec76a9da10c433dcd6e9491c5c87a48d598ecc"
+    },
+    {
+      "path": "bridge/program/.gitignore",
+      "sha256": "b53ee26e6ff1da219b0563333a76d2c9ec19eec713d6ee54e11a1edacb0e9f3d"
+    },
+    {
+      "path": "bridge/program/Cargo.lock",
+      "sha256": "533e7be81be8541a427c3423066eb5aa77b18be8f47edc1ecd55f56a38fb3bb8"
+    },
+    {
+      "path": "bridge/program/Cargo.toml",
+      "sha256": "b96d287180548bf607fecde0a3c3244d90be62aa55dd4eb629a1545eb28c7335"
+    },
+    {
+      "path": "bridge/program/src/lib.rs",
+      "sha256": "6eeefeef306e4648ac8d6f9c3ac4dcd27868c56b5f172d6ec3fc25ffd11c2792"
+    },
+    {
+      "path": "bridge/program/src/state.rs",
+      "sha256": "e132c6cf14ac5576ff202e3d057b50583ebfe138057afdc65bb9f35b7e62f05d"
+    },
+    {
+      "path": "bridge/program/tests/runtime.rs",
+      "sha256": "60b0387f69c10264fbd5af7939fadf5a2b3374a11fe9e254aa11e6fa53219a22"
+    },
+    {
+      "path": "bridge/sdk.mjs",
+      "sha256": "c3870534d89378919f48d6a918db7a65e7701980d67607ed1a7a564844793d1a"
+    },
+    {
+      "path": "bridge/sdk.test.mjs",
+      "sha256": "3591eab8bcb7d899c2fcb54bef5694a06896a267961670e28ea0ee9e142307b6"
+    },
+    {
+      "path": "mainnet/README.md",
+      "sha256": "b074ad4b171baf28b7b09621b4c120d11241357ca4f48712f1221b256299e11e"
+    },
+    {
+      "path": "mainnet/plan.mjs",
+      "sha256": "66f1f3d18720fd4ab69337fe4822865c926ba3ec31e7d9602fedf766a7d8ce31"
+    },
+    {
+      "path": "mainnet/plan.test.mjs",
+      "sha256": "5a1c0537c7064eb7906f4e1e905026abcedbf692a4a47d4f8b73532dfbe3aa62"
+    }
+  ]
+}

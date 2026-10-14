@@ -160,5 +160,93 @@
     "migrationId": "ae834e71-fb59-4beb-b26b-4485be3a386f",
     "imageDigest": "sha256:19595c406b6effe8bc5a3fdb618822755f46866e4e6ebfb1c6371513e51d2e32",
     "canonicalCutoverAccepted": false
+  },
+  "development": {
+    "reviewedAt": "2026-10-14T04:07:54.393680+00:00",
+    "scope": "Development checkpoint only; separate from the live testnet release",
+    "projects": [
+      {
+        "id": "mainnet",
+        "title": "Native SOC mainnet",
+        "state": "building",
+        "description": "A separate production-network implementation, beginning with exact genesis supply and backed validator bootstrap.",
+        "currentScope": "Genesis planning code and six local checks pass. No mainnet genesis or running validator set is claimed.",
+        "source": "https://github.com/solana-classic/solana-classic/tree/main/mainnet",
+        "milestones": [
+          {
+            "title": "Genesis budget and validator planner",
+            "state": "local-passed",
+            "detail": "Six checks: exact units, backing, inflation, identities and ports."
+          },
+          {
+            "title": "Source-built genesis and private validator rehearsal",
+            "state": "pending"
+          },
+          {
+            "title": "Backed bootstrap and full supply reconciliation",
+            "state": "pending"
+          },
+          {
+            "title": "Operators, consensus, recovery and production release",
+            "state": "pending"
+          }
+        ]
+      },
+      {
+        "id": "bridge",
+        "title": "SOC redemption bridge",
+        "state": "building",
+        "description": "Original SOC escrow and a native Classic reserve, targeting exact 1:1 display-unit redemption in both directions.",
+        "currentScope": "Compiled SBF passes local escrow/release/return/redemption tests. Prototype uses a proposed 3-of-5 verifier committee; no live bridge or independent audit.",
+        "source": "https://github.com/solana-classic/solana-classic/tree/main/bridge",
+        "milestones": [
+          {
+            "title": "Escrow, native reserve and replay-protected receipts",
+            "state": "local-passed",
+            "detail": "SBF build, seven Rust checks, three VM cases and five SDK/observer checks."
+          },
+          {
+            "title": "Two-chain finality and verifier workflow",
+            "state": "pending"
+          },
+          {
+            "title": "Bootstrap reconciliation, custody and recovery",
+            "state": "pending"
+          },
+          {
+            "title": "Independent security review and live redemption",
+            "state": "pending"
+          }
+        ]
+      },
+      {
+        "id": "wallet",
+        "title": "Classic Wallet",
+        "state": "building",
+        "description": "One wallet application for balances, transfers, artwork, memes and chain receipts.",
+        "currentScope": "Original browser prototype with in-memory test sessions. Nine unit checks and ten mocked browser scenarios pass; no imported wallets, persistent custody or live integration.",
+        "source": "https://github.com/solana-classic/solana-classic/tree/main/wallet",
+        "milestones": [
+          {
+            "title": "Wallet session, fee review and transaction receipts",
+            "state": "local-passed",
+            "detail": "Desktop/mobile checks plus fee-rise, chain-change and uncertain-send controls."
+          },
+          {
+            "title": "Shared mint studio, gallery and verified owned assets",
+            "state": "pending"
+          },
+          {
+            "title": "Reviewed persistent custody and recovery",
+            "state": "pending"
+          },
+          {
+            "title": "Extension/mobile and mainnet/bridge integration",
+            "state": "pending"
+          }
+        ]
+      }
+    ],
+    "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/mainnet-bridge-prototype.json"
   }
 }

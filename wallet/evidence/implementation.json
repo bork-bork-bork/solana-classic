@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-10-14T03:57:33.113Z",
+  "status": "isolated-testnet-client-prototype",
+  "scope": "local-only; no live gateway, validator or soak changes",
+  "productionWallet": false,
+  "phantomFork": false,
+  "build": {
+    "passed": true,
+    "command": "node apps/web/node_modules/vite/bin/vite.js build wallet --config wallet/vite.config.mts --configLoader runner",
+    "assets": [
+      {
+        "name": "index-1FbrLD9K.js",
+        "gzipBytes": 79479
+      },
+      {
+        "name": "session-BfRmkUE0.js",
+        "gzipBytes": 99399
+      }
+    ]
+  },
+  "typecheck": {
+    "passed": true,
+    "command": "node node_modules/typescript/bin/tsc --project wallet/tsconfig.json"
+  },
+  "guardTests": {
+    "passed": true,
+    "count": 9,
+    "command": "node --import tsx --test wallet/tests/guards.test.ts wallet/tests/session.test.ts"
+  },
+  "browserEvidence": "wallet/evidence/local-qa.json",
+  "mainnetOrBridgeSigning": false,
+  "importsSeeds": false,
+  "exportsSecrets": false,
+  "persistsSecrets": false,
+  "approvedOriginIntegration": "pending",
+  "files": [
+    {
+      "path": "wallet/.gitignore",
+      "sha256": "ed19d3c9c8a5e34d0179e0b1a9c2907d2e657738733e4a432a8cf81c76ce56f1"
+    },
+    {
+      "path": "wallet/APP_PLAN.md",
+      "sha256": "9fd02371d4b45f04278d8df7474a8bd79e3edac58f2f85183ae2883c50e9a12b"
+    },
+    {
+      "path": "wallet/README.md",
+      "sha256": "5720eff06d1d7a50dbbde8cee7e78811d4594b0c2aabe03b06ebd817831952cf"
+    },
+    {
+      "path": "wallet/index.html",
+      "sha256": "655388ed2a647d3d6d4cfc88bdb7dbe87f5ea37223fa353fd443acdb8485282a"
+    },
+    {
+      "path": "wallet/src/display.ts",
+      "sha256": "6a344186bf74bd3ecf73a326343f681f92eca33cd8a884982cbfcec1d4e85e85"
+    },
+    {
+      "path": "wallet/src/guards.ts",
+      "sha256": "32c3798894a42788252e390f6fc4592116c10baa230decae6f44280938a09cd2"
+    },
+    {
+      "path": "wallet/src/main.tsx",
+      "sha256": "97fc4759ab3cc6476ab17ac3876769fc38f7262a122ea86860e93dae46d980eb"
+    },
+    {
+      "path": "wallet/src/session.ts",
+      "sha256": "c2bcb8d593e2c113ed5e1dc3b7ff481d5104e9039c5682113654438756a1a957"
+    },
+    {
+      "path": "wallet/src/styles.css",
+      "sha256": "efee90d42ce9ecfa2352cc4f6212cee0b54eb2c3cb801b9c0a56df346709f15a"
+    },
+    {
+      "path": "wallet/tests/browser-qa.mjs",
+      "sha256": "8e14dad171da43dae57c3728123f4a560c0ab618815cd7d9bcdd8a468f6923b5"
+    },
+    {
+      "path": "wallet/tests/guards.test.ts",
+      "sha256": "122a20e9475806069868b1d3694c3ff8f17b0cd1bddd9f90141446b562a63e93"
+    },
+    {
+      "path": "wallet/tests/session.test.ts",
+      "sha256": "1ad0f55aa7ca2ff366be225f289428417bd8e349d765080802ab335b700cf949"
+    },
+    {
+      "path": "wallet/tsconfig.json",
+      "sha256": "0fcaa7f6c837d47d811be776ac88264224ce42ca30d6cbf898e42c15cd06218e"
+    },
+    {
+      "path": "wallet/vite.config.mts",
+      "sha256": "118c35fa695127c4519b2b3eebab415f8d86ee0ba8a5dabe92291c7cb98e6530"
+    }
+  ],
+  "visibleDenomination": "tSOC",
+  "protocolDenomination": "TEST",
+  "transferReview": {
+    "immutable": true,
+    "walletIssued": true,
+    "singleUse": true,
+    "exactMessageFeeCap": true,
+    "internalMutationLock": true,
+    "uncertainReceiptRetained": true,
+    "confirmedReconciliationClearsStaleReview": true
+  }
+}
