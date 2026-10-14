@@ -1,0 +1,9 @@
+{
+  "at": "2026-10-14T02:08:45.008072+00:00",
+  "scope": "remote read-only observation of the separately published custom-domain whitepaper; byte checksum matches its presentation QA record; original frozen candidate paper unchanged",
+  "passed": true,
+  "version": "0.8",
+  "pages": 20,
+  "sha256": "7cd2d53af11a86a8a3aec2ab44f814287cac72292bca9c99cd6a3c3caa801901",
+  "url": "https://solanaclassic.net/whitepaper.pdf"
+}
