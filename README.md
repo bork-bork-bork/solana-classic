@@ -1,7 +1,5 @@
 [![Solana Classic — Bring back the fun.](.github/brand/readme-banner.png)](https://solanaclassic.net)
 
-# Solana Classic
-
 Solana Classic is an open-source blockchain project putting meme and NFT communities at the centre of its products and roadmap. We are bringing together developers, artists and communities who care about this category, so its future gets sustained attention and focused development.
 
 **Our goal: build an open development community focused on how far art, NFTs and memes can go.**
