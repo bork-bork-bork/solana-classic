@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-14T11:06:40.312204+00:00",
+  "scope": "Anonymous main-site roadmap verification after separate roadmap deployment; no canonical runtime deployment or mainnet activation",
+  "passed": true,
+  "sourceCommit": "13ecf21",
+  "deploymentId": "dpl_G3Yzz9AU3suUhipM7G9q6YSzA6Dw",
+  "publicURL": "https://solanaclassic.net/roadmap",
+  "checkpointSHA256": "242b12e8613d24343e25cb350ce2ae63ec0bbdcabde6ac06732c50396a4e4220",
+  "publicMilestone": {
+    "title": "One-time native bootstrap and protected reserve floor",
+    "state": "local-passed",
+    "detail": "10 Rust units, 9 compiled-SBF VM scenarios and 5 unsigned-client checks. No duplicate backing release; protects rent/extra backing; rejects old vault ABI. Synthetic budget, not funded genesis or new Agave integration."
+  },
+  "observedAt": "2026-10-14T11:06:40.249Z",
+  "network": {
+    "state": "online",
+    "genesisMatches": true,
+    "slot": 255917,
+    "finalizedSlot": 255873,
+    "identityMatches": true,
+    "monitorState": "online",
+    "monitorAt": "2026-10-14T11:06:35.372Z",
+    "lastProgressAt": "2026-10-14T11:06:35.087Z"
+  },
+  "soak": {
+    "state": "running",
+    "runnerState": "starting",
+    "freezeMatches": true,
+    "progressFreezeMatches": true,
+    "startedAt": "2026-10-13T16:48:22.762Z",
+    "endsAt": "2026-10-14T16:48:22.762Z",
+    "reportAt": "2026-10-14T11:03:50.314Z",
+    "progressStale": false,
+    "completedJourneys": 220,
+    "totalJourneys": 288,
+    "observations": 2190,
+    "accepted": false,
+    "activationAt": "2026-10-13T16:47:36.929Z",
+    "issues": [],
+    "elapsedMs": 65897487
+  },
+  "releaseAccepted": false,
+  "canonicalNetworkChanged": false
+}
