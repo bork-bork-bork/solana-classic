@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-14T20:38:37.014689+00:00",
+  "scope": "Remote anonymous gateway/discovery milestone and public source verification; data-only roadmap update",
+  "passed": true,
+  "sourceCommit": "2d0a1ff",
+  "roadmapDeployment": "dpl_BVUbd35hvgumsetGAaRt37hX54Zq",
+  "web": "https://solanaclassic.net/roadmap",
+  "statusFetchedAt": "2026-10-14T20:38:35.608Z",
+  "checkpointExactMatch": true,
+  "newMilestone": "Current gateway controls and public network discovery",
+  "milestoneState": "live-passed",
+  "actualGatewayChecks": 25,
+  "protocolRequestsInPassedRun": 28,
+  "optionsDatabaseCountsUnchanged": true,
+  "installedValidatorAndTokenHashesMatch": true,
+  "publicNetworkDiscoveryBothSites": true,
+  "individualRequirementsReviewed": [
+    "G5.01",
+    "G5.05",
+    "G7.03"
+  ],
+  "proofs": {
+    "evidence/gateway-current-individual-review.json": "dd182e79ce31e33f22e19b811eb812930d7fb077e075d24175a26fdac3aa2b02",
+    "evidence/public-network-individual-review.json": "4213fd50943b8871b70d9e5e06cc07d89bb66756e06f88b40474f25d80d5d247"
+  },
+  "originalSoakAccepted": true,
+  "runtimeMatches": true,
+  "frozenFilesUnchanged": true,
+  "releaseAccepted": false,
+  "cutoverAccepted": false,
+  "canonicalProcessChanged": false,
+  "limits": "Original frozen backend policy scope; no current quota/forged-IP/concurrency or production signing custody acceptance. Both-sites Chromium1440/360 discovery is not physical-device,all-browser,WCAG or full release acceptance."
+}
