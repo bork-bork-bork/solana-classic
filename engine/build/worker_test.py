@@ -24,6 +24,22 @@ class BoundaryTests(unittest.TestCase):
             finally:
                 connection.close()
 
+    def test_cold_snapshot_link_matches_agave_literal_account_run_path(self):
+        with tempfile.TemporaryDirectory() as directory:
+            source = (Path(directory) / 'ledger').resolve(); source.mkdir()
+            target = source / 'accounts/snapshot/100'; target.mkdir(parents=True)
+            (target / '100.0').write_bytes(b'appendvec-fixture')
+            links = source / 'snapshots/100/accounts_hardlinks'; links.mkdir(parents=True)
+            (links / 'account_path_0').symlink_to(target)
+            backup = Path(directory) / 'backup'; worker.copy_cold_ledger(source, backup)
+            restored = Path(directory) / 'restored'; worker.copy_cold_ledger(backup, restored)
+            # runtime/src/snapshot_utils.rs computes this from read_link(),
+            # then compares it directly against the configured account run path.
+            literal = (restored / 'snapshots/100/accounts_hardlinks/account_path_0').readlink()
+            self.assertTrue(literal.is_absolute())
+            self.assertEqual(literal.parent.parent / 'run', restored.resolve() / 'accounts/run')
+            self.assertEqual((literal / '100.0').read_bytes(), b'appendvec-fixture')
+
     def test_cold_copy_rejects_links_outside_ledger(self):
         with tempfile.TemporaryDirectory() as directory:
             source = Path(directory) / 'ledger'; source.mkdir()

@@ -1,0 +1,121 @@
+{
+  "at": "2026-10-14T00:39:46.110988+00:00",
+  "scope": "Remote isolated source build; compilation,163 actual upstream tests,transactions and same-ledger restart passed. Cold restore rejected due to literal account-path mismatch. No main-network cutover.",
+  "progress": {
+    "schemaVersion": 1,
+    "runId": "0a556ba4-c001-499e-9814-4fbdebaae411",
+    "startedAt": "2026-10-14T00:20:21.473405+00:00",
+    "updatedAt": "2026-10-14T00:32:28.334477+00:00",
+    "state": "failed",
+    "phase": "cold-restore",
+    "passed": false,
+    "upstreamCommit": "f516a8927c76c07f0ebc54ca7a4ce8b2046eee86",
+    "upstreamTree": "a4c75a1781d4ca56e7325a39d0614e1faa26030d",
+    "sourceRepositoryCommit": "d5b663f45281202c9457ccb6a15d073003123616",
+    "sourceManifestSha256": "9c643fd9fa625ef6c05616f745c3a036bb47fd5b6a744a500f7e54de620cbc2b",
+    "workerSha256": "72d2fa77793b8afe260a4710be7bd54a94f508523b1bbfc9d2bdb67131dee2b5",
+    "lastActivityAt": "2026-10-14T00:32:26.206138+00:00",
+    "lastPackage": "solana-genesis-utils",
+    "cargoPackagesStarted": 49,
+    "steps": {
+      "source": {
+        "state": "passed",
+        "startedAt": "2026-10-14T00:20:21.474218+00:00",
+        "completedAt": "2026-10-14T00:20:21.594990+00:00",
+        "durationSeconds": 0.12
+      },
+      "toolchain": {
+        "state": "passed",
+        "startedAt": "2026-10-14T00:20:21.595283+00:00",
+        "completedAt": "2026-10-14T00:20:21.674830+00:00",
+        "durationSeconds": 0.079
+      },
+      "compile": {
+        "state": "passed",
+        "startedAt": "2026-10-14T00:20:21.674995+00:00",
+        "completedAt": "2026-10-14T00:30:35.195721+00:00",
+        "durationSeconds": 613.521
+      },
+      "upstream-tests": {
+        "state": "passed",
+        "startedAt": "2026-10-14T00:30:35.196389+00:00",
+        "completedAt": "2026-10-14T00:30:57.517479+00:00",
+        "durationSeconds": 22.321
+      },
+      "program": {
+        "state": "passed",
+        "startedAt": "2026-10-14T00:30:57.517802+00:00",
+        "completedAt": "2026-10-14T00:30:57.816309+00:00",
+        "durationSeconds": 0.298
+      },
+      "isolated-start": {
+        "state": "passed",
+        "startedAt": "2026-10-14T00:30:57.816485+00:00",
+        "completedAt": "2026-10-14T00:30:59.818951+00:00",
+        "durationSeconds": 2.002
+      },
+      "transactions": {
+        "state": "passed",
+        "startedAt": "2026-10-14T00:30:59.819102+00:00",
+        "completedAt": "2026-10-14T00:32:19.746330+00:00",
+        "durationSeconds": 79.927
+      },
+      "restart": {
+        "state": "passed",
+        "startedAt": "2026-10-14T00:32:19.746707+00:00",
+        "completedAt": "2026-10-14T00:32:26.205718+00:00",
+        "durationSeconds": 6.459
+      },
+      "cold-restore": {
+        "state": "failed",
+        "startedAt": "2026-10-14T00:32:26.206133+00:00",
+        "completedAt": "2026-10-14T00:32:28.334456+00:00"
+      }
+    },
+    "toolchain": {
+      "rust": "rustc 1.86.0 (05f9846f8 2025-03-31)",
+      "cargo": "cargo 1.86.0 (adf9b6ad1 2025-02-28)",
+      "node": "v24.19.0",
+      "architecture": "x86_64",
+      "cargoJobs": 2,
+      "releaseLto": "thin",
+      "unitTestProfile": "standard test profile, debug assertions enabled; separate target directory"
+    },
+    "binaries": {
+      "agave-validator": {
+        "sha256": "34e468747f1a0d69399b61fd40edc32ce4690ec5a200b5684474aa60a97a6910",
+        "bytes": 74406832,
+        "version": "agave-validator 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+      },
+      "solana-test-validator": {
+        "sha256": "3d3140bf93c9bc967220ffd8989d8b0267b723915d32203132ecc36d2c63a49a",
+        "bytes": 73661760,
+        "version": "solana-test-validator 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+      },
+      "solana": {
+        "sha256": "6a880f1c79ec0e0d7b3ee972eaa9ad8d75b503616e1f0c29efa587137a129dcd",
+        "bytes": 28209480,
+        "version": "solana-cli 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+      },
+      "solana-keygen": {
+        "sha256": "2f00a742ab0d99cad929e7a82b2d80f7c519cab9038ec45844fdbe9c305dea65",
+        "bytes": 2804464,
+        "version": "solana-keygen 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+      }
+    },
+    "isolatedGenesis": "Ae9A7WENxuUbVRF2JE8QWncA48cyZMjEodbW8H1UNcyt",
+    "tokenProgramSha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+    "testSummaries": [
+      "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+      "test result: ok. 71 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.13s",
+      "test result: ok. 92 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.62s"
+    ],
+    "message": "Build/test step failed; private diagnostic log retained for review. No running network was changed.",
+    "at": "2026-10-14T00:39:46.125368+00:00",
+    "processAlive": false,
+    "productionNetworkChanged": false,
+    "cutoverAccepted": false
+  },
+  "diagnosis": "Agave rebuild_storages_from_snapshot_dir uses read_link() as a literal absolute account path. Our copy harness rebased it to a relative path. Fix preserves absolute targets within the restored ledger; original ledger data is never reused.",
+  "localBoundaryTestsPassed": 6
+}

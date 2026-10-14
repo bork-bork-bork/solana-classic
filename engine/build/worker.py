@@ -193,7 +193,7 @@ def build():
 
 def copy_cold_ledger(source, destination):
     source = Path(source).resolve()
-    destination = Path(destination)
+    destination = Path(destination).resolve()
     links = []
     for path in source.rglob('*'):
         mode = path.lstat().st_mode
@@ -211,12 +211,13 @@ def copy_cold_ledger(source, destination):
     def transient(directory, names):
         return ['admin.rpc'] if Path(directory) == source and 'admin.rpc' in names and stat.S_ISSOCK((source / 'admin.rpc').lstat().st_mode) else []
     shutil.copytree(source, destination, symlinks=True, ignore=transient)
-    # Snapshot symlinks may be absolute. Rebase each validated internal target
-    # so restore cannot silently read the original ledger's account files.
+    # Agave reads snapshot links as literal account paths, without resolving
+    # relative targets. Keep them absolute, rebased into the new ledger, so
+    # restore neither fails path matching nor reads the original account files.
     for relative, target in links:
         link = destination / relative
         link.unlink()
-        link.symlink_to(os.path.relpath(destination / target, link.parent))
+        link.symlink_to(destination / target)
 
 def workflow(manifest):
     try:
