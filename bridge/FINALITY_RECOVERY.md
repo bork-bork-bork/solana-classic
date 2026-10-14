@@ -96,3 +96,18 @@ emergency authority and independent review remain production decisions.
 See [the implementation and gate matrix](../docs/planning/MAINNET_BRIDGE.md),
 [bridge code](program/src/lib.rs), [event/domain validation](program/src/state.rs)
 and [the local observer](sdk.mjs). No monetary activation is authorized here.
+
+## Observed pending-redemption expiry
+
+The V2 redemption crash drill exercised an actual unknown-confirmation case:
+one withdrawal broadcast, no signature status visible before the copied origin
+validator was killed, then EXPIRED_UNRESOLVED after restart. The client checks
+finalized block height against the signed transaction's last-valid height; its
+wall-clock polling limit cannot finalize a withdrawal or authorize a retry.
+The original tokens were not paid out, the native return remained in its
+reserve, and signed journal/attempt count remained intact. This is a passed
+expiry guard, not completed redemption or production recovery.
+
+See [the expired-operation review policy](EXPIRED_RECOVERY.md) and
+[sanitized evidence](../evidence/bridge-v2-redemption-crash-expiry.json).
+The current journal cannot perform replacement signing or broadcast.

@@ -229,3 +229,31 @@ budget/global-backing gates remain false, and independent custody/verifiers,
 code pins, full validators and security review remain required. Preserve
 `/data/bridge-v2-pending-crash-v1`; never rerun/reset it. Future drills need
 new copies and new nonces.
+
+
+## V2 original-redemption crash: actual expiry guard
+
+Seven actual checks pass on new V2 copies after one native return and one
+original redemption broadcast. No withdrawal signature status was observed
+before copied-origin SIGKILL(-9), with processed944/finalized913. After
+same-genesis restart the original withdrawal remained EXPIRED_UNRESOLVED:
+no token payout, second handoff, replacement, refund or counter reset. This
+is a passed expiry guard, not successful redemption recovery. Its finalized
+branch was not exercised. See `evidence/bridge-v2-redemption-crash-expiry.json`
+and `bridge/EXPIRED_RECOVERY.md` for unimplemented manual recovery policy.
+
+Escrow/counter1960000 equals native outstanding1950000 plus pending original
+redemption10000; original user40000, native reserve52000000/floor2000000.
+Bootstrap record unchanged. All3copy starts stopped; original ledgers/input
+and prior native journal unchanged. 33journal/parser+4worker+6copy checks
+pass; all41frozen hashes match. Source return10000000 credits reserve;
+event rent2958000 separately raises sender debit to12958000, with a separate
+network fee payer. This is synthetic-chain rent, not a production fee quote.
+
+First v1 attempt failed an assertion omitting that rent after one source
+return, before any withdrawal broadcast. It is preserved/stopped with nonce5.
+Passed `/data/bridge-v2-redemption-crash-v2` uses nonce6 on NEW copies of the
+previous native-settlement baseline. Never replay/reset either attempt or
+reuse nonces5/6. Successful pending original redemption, actual competing
+forks, custody/code pins, independent verification, funded complete backing
+and security review remain release gates.

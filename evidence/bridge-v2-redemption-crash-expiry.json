@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "kind": "origin-redemption",
+  "scope": "Synthetic V2 native return/original-token redemption on fresh Agave copies; destination SIGKILL before observed redemption finality, same-signature recovery",
+  "state": "passed",
+  "startedAt": "2026-10-14T14:16:46.225Z",
+  "canonicalNetworkChanged": false,
+  "productionReady": false,
+  "genesi": [
+    "J8LsGtrVHe95w5Yxv3wR2Ux9uNWyDG3svK8LonczuuNh",
+    "EWjA6VWd5uw1XP9fZXBnxAd2doRFf6KQke2RUwj14QE2"
+  ],
+  "globalBacking": {
+    "completeInventoryVerified": false,
+    "actualGenesisBackingVerified": false,
+    "hypotheticalNativeBudgetUnits": "2000000000",
+    "observedNativeGlobalSupplyUnitsAtStart": "503000511071959133",
+    "budgetMatchesObservedGlobalSupply": false,
+    "note": "Synthetic 2-row accounting projection intentionally does not cover the complete test-validator supply. Cannot pass B3 or any monetary-release gate."
+  },
+  "checks": [
+    "New copies match accepted V2 native settlement: programme bytes/authority, bootstrap floor/record and1960000 counters",
+    "One native return finalized: exact10000000-unit reserve credit; sender debit includes separately verified event-record rent",
+    "Exact fully signed original redemption fsynced before one broadcast; no destination finality wait",
+    "Actual killed-origin RPC outage preserves original redemption bytes/signature and refuses a second handoff",
+    "After expiry, original redemption remains unresolved without token payout, repeat handoff or native-source refund",
+    "Native return backing and bootstrap floor/record survive; no duplicate withdrawal, new signature or attempt reset",
+    "Actual pre-finality destination SIGKILL exit-9, three copy starts stopped and original ledgers/fixture unchanged"
+  ],
+  "sourceBroadcasts": 1,
+  "claimBroadcasts": 1,
+  "initialNative": {
+    "reserve": 42000000,
+    "recordHash": "cba73a439ce5cbfaa48ce7317ed7b1465b83022993afbf27a0ea9b3e06054327",
+    "floor": "2000000"
+  },
+  "recipientNativeBefore": 991126000,
+  "sourceSignature": "4YVWuGNiWpDhexdjdjT6EtxVKoUWhQEYjbseio63wEmVbyYUw69tSsj7onxVSt2tfa746awu3FNANWdNcNkAPa8g",
+  "sourceCosts": {
+    "returnedNativeUnits": "10000000",
+    "eventRentNativeUnits": "2958000",
+    "senderTotalDebitNativeUnits": "12958000",
+    "sourceEvent": "4ixxVdtCHchrR2mhy3So3YWSmUET4JHVtt814gqpcp9P",
+    "nonce": "6",
+    "transactionFeePayerSeparateFromSender": true
+  },
+  "operation": {
+    "id": "QUp2p2FWa1D2oEGmABgDEQBEToUktg3cv8NR5ub8ypF",
+    "signature": "2uyTE7Yrnr8R36JCfSrEkKUkGCgCyA4n4VToFYdn3pYKmTh1sJSdCE7dTfvnKK4vvdijzKymf4BGaT5RX1igMD1i",
+    "eventHash": "ec71bd0f57ba17ed75a8cb49ae02e9d726d77cf8f3e0f9e040c101b9a27e1dc7",
+    "transactionHash": "2b626c41d79c2b4e1b912eeb11e44667423cc96df8394b90249a102f87118e50",
+    "state": "EXPIRED_UNRESOLVED",
+    "attempts": 1,
+    "productionReady": false
+  },
+  "operationStateBeforeBroadcast": "SUBMISSION_ATTEMPTED",
+  "claimSignature": "2uyTE7Yrnr8R36JCfSrEkKUkGCgCyA4n4VToFYdn3pYKmTh1sJSdCE7dTfvnKK4vvdijzKymf4BGaT5RX1igMD1i",
+  "clientConfirmationWithheld": true,
+  "settlementAccepted": false,
+  "recovery": {
+    "state": "EXPIRED_UNRESOLVED",
+    "transientRPCUnavailable": false,
+    "originOutstandingUnits": "1960000",
+    "nativeOutstandingUnits": "1950000",
+    "originEscrowUnits": "1960000",
+    "originUserUnits": "40000",
+    "reserveNativeUnits": "52000000",
+    "protectedFloorNativeUnits": "2000000",
+    "bootstrapRecordUnchanged": true
+  },
+  "completedAt": "2026-10-14T14:18:07.262Z",
+  "processes": {
+    "scope": "new synthetic V2 original-redemption pre-finality SIGKILL on copies",
+    "state": "passed",
+    "starts": [
+      {
+        "side": 0,
+        "genesisMatches": true,
+        "originalLedgerPathsOpened": false
+      },
+      {
+        "side": 1,
+        "genesisMatches": true,
+        "originalLedgerPathsOpened": false
+      },
+      {
+        "side": 0,
+        "genesisMatches": true,
+        "originalLedgerPathsOpened": false
+      }
+    ],
+    "crashes": [
+      {
+        "side": 0,
+        "signal": "SIGKILL",
+        "returnCode": -9,
+        "claimStatusBeforeKill": null,
+        "processedSlotBeforeKill": 944,
+        "finalizedSlotBeforeKill": 913,
+        "waitedForClaimFinality": false,
+        "knownFinalizedBeforeFault": false,
+        "competingForkTested": false,
+        "physicalPowerLossTested": false
+      }
+    ],
+    "stops": [
+      {
+        "side": 1,
+        "signal": "SIGINT",
+        "returnCode": -2,
+        "applicationGracefulFlushVerified": false
+      },
+      {
+        "side": 0,
+        "signal": "SIGINT",
+        "returnCode": -2,
+        "applicationGracefulFlushVerified": false
+      }
+    ],
+    "canonicalNetworkChanged": false,
+    "productionReady": false,
+    "allStopped": true
+  },
+  "originalColdInventory": [
+    {
+      "sha256": "aab2e011572fa77ff11c7cb3ac5ed909828fb77e7aa9b9491d7ccdcb80d174d7",
+      "entries": 99,
+      "links": 2
+    },
+    {
+      "sha256": "349408148ce3549b71ce0b2557a996030d352cb411e249a619d71b14eb7d638b",
+      "entries": 90,
+      "links": 2
+    }
+  ],
+  "originalLedgersUnchanged": true,
+  "originalFixtureUnchanged": true,
+  "priorNativeJournalUnchanged": true,
+  "priorNativeJournalSHA256": "f19bbf4d17e7e86e147fb5a74f641a9cf9d3f2fdc687dafb043f7b77fe16285d",
+  "sourceBinarySHA256": "3d3140bf93c9bc967220ffd8989d8b0267b723915d32203132ecc36d2c63a49a",
+  "bridgeSBF_SHA256": "556adf3132c6d102458c0c3b13e22457401bd748b6c3a37a422fb7a339a68e53",
+  "uploadedSourceHashes": {
+    "redemption-crash.mjs": "6ed9f3960ef7697137729367547966d08186c8f83c62875b4873fc3695dcb583",
+    "redemption_crash.py": "166796efe4104b164a6a7acb3f16e2f4d74c256b34f98d3ad8e6c18c7c4e92dc",
+    "bootstrap_driver.py": "200a81128b1dc697b32365ac939d7eef27c6e8b4cf3d48aa51faed4a65164a5c",
+    "cold_copy.py": "42bef261f9f273a1f525b515eabfcda61b8d6a1cbb62fd637ebbdd0f23a95b6d",
+    "sdk.mjs": "e603242692bedc2457ec9dd3cb144122ca1adb7341506d244ec864943bd8c988",
+    "pending-claim.mjs": "bd3fae5723f6d56d2e40380f6d2ade960f3070298d44a22b31576de9eb92edd2",
+    "lossless-native-rpc.mjs": "5ebed7db063afd9178925eab883a4955dd15ad878bbdad19878ab75225f3398b"
+  },
+  "processOpenPathCheckScope": "Readiness /proc fd/maps samples only; not continuous host auditing",
+  "priorAttempt": {
+    "root": "/data/bridge-v2-redemption-crash-v1",
+    "state": "failed",
+    "sourceBroadcasts": 1,
+    "claimBroadcasts": 0,
+    "copiedProcessesStopped": true,
+    "reason": "Harness sender-debit expectation omitted native event-record rent; failed nonce5 retained, new attempt uses nonce6"
+  },
+  "remainingWork": [
+    "Competing fork/reorg, deliberate expiry/pruning and physical host failure",
+    "Production code/authority pins, custody, independent verifiers and security review",
+    "Complete funded backing and capable full-validator hosting/operators"
+  ],
+  "localChecks": {
+    "journalAndParser": 33,
+    "redemptionCrashGuards": 4,
+    "coldCopyBoundaries": 6,
+    "passed": true
+  },
+  "coreFreeze": {
+    "files": 41,
+    "allMatch": true
+  },
+  "coverageLimits": [
+    "Actual outcome EXPIRED_UNRESOLVED: no original-token payout; finalized-redemption branch not exercised",
+    "No signature status observed at kill, not a proven processed/confirmed original withdrawal",
+    "Expiry derives from actual finalized block-height comparison in pinned client; numeric height was not separately exported",
+    "One private validator per chain; no independent finality, competing fork or physical host failure",
+    "Synthetic budget lacks complete funded backing; manual recovery signer/approval/broadcast remains unimplemented"
+  ]
+}
