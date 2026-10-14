@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-14T13:05:19.916848+00:00",
+  "scope": "Anonymous main-site roadmap verification after two-direction real V1 journal exact-metadata proof; no canonical service/mainnet deployment",
+  "passed": true,
+  "sourceCommit": "a69a97e",
+  "deploymentId": "dpl_3h8AT3txApw8UjyAAdbHq63yuBn4",
+  "publicURL": "https://solanaclassic.net/roadmap",
+  "checkpointSHA256": "8da2577beeef90d0505b3e7d908c01b7a39715a1821077cadaf36210b615d1ef",
+  "publicMilestone": {
+    "title": "Exact large-native balance metadata and journal reconciliation",
+    "state": "rehearsal-passed",
+    "detail": "33 local checks +10 actual private-ledger checks +9 worker/copy guards. Both original signatures/bytes/receipts reconcile with exact large native metadata; one-unit errors and repeat handoffs reject. Zero broadcasts; originals unchanged and copies stopped. Known-finalized V1 operations, not unknown landing/fork or production custody."
+  },
+  "observedAt": "2026-10-14T13:05:19.799Z",
+  "network": {
+    "state": "online",
+    "genesisMatches": true,
+    "slot": 273087,
+    "finalizedSlot": 273028,
+    "identityMatches": true,
+    "monitorState": "online",
+    "monitorAt": "2026-10-14T13:05:08.333Z",
+    "lastProgressAt": "2026-10-14T13:05:08.049Z"
+  },
+  "soak": {
+    "state": "running",
+    "runnerState": "starting",
+    "freezeMatches": true,
+    "progressFreezeMatches": true,
+    "startedAt": "2026-10-13T16:48:22.762Z",
+    "endsAt": "2026-10-14T16:48:22.762Z",
+    "reportAt": "2026-10-14T13:03:50.187Z",
+    "progressStale": false,
+    "completedJourneys": 244,
+    "totalJourneys": 288,
+    "observations": 2430,
+    "accepted": false,
+    "activationAt": "2026-10-13T16:47:36.929Z",
+    "issues": [],
+    "elapsedMs": 73017037
+  },
+  "releaseAccepted": false,
+  "canonicalNetworkChanged": false
+}
