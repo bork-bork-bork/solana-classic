@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-14T12:34:16.268835+00:00",
+  "scope": "Local exact-u64 native transaction JSON parsing and same-signed-claim journal reconciliation with synthetic metadata; includes actual loopback HTTP, not a new Agave settlement or production claim",
+  "passed": true,
+  "productionReady": false,
+  "activationEnabled": false,
+  "canonicalNetworkChanged": false,
+  "sourceHashes": {
+    "bridge/lossless-native-rpc.mjs": "5ebed7db063afd9178925eab883a4955dd15ad878bbdad19878ab75225f3398b",
+    "bridge/lossless-native-rpc.test.mjs": "2e6e2c515a63561a67fc11bcf336b881ad123f412499588bc2d70c5e5606e3b1",
+    "bridge/pending-large-native.test.mjs": "47aeba7792802c939fd34372a78c8470503a64cc75137f05a451877228ba331b",
+    "bridge/pending-claim.mjs": "bd3fae5723f6d56d2e40380f6d2ade960f3070298d44a22b31576de9eb92edd2",
+    "bridge/pending-claim.test.mjs": "19e8d6c84bf2a954f9fce21f3c796421f7ff3ebc0b057b6c9b5c4628c9e5570d",
+    "bridge/pending-redemption.test.mjs": "1557f1ee6d2714cf66d12a8098bd926a5c289199426af879f3d6254bb96e7eae",
+    "bridge/test-fixtures/pending.mjs": "48c7d5b7f027bcd87d49c13d43af3e68254583c68c1564f36f32f3c2a61f8f11"
+  },
+  "runtime": {
+    "localNode": "24.19.0",
+    "privateWorkerNode": "24.19.0",
+    "rawNumberSourceProbe": "9007199254740993",
+    "workerProbeScope": "Read-only runtime feature probe, no private ledger process started"
+  },
+  "checks": {
+    "parserTests": 5,
+    "largeNativeJournalTests": 5,
+    "existingTwoDirectionJournalTests": 23,
+    "totalTests": 33,
+    "actualLoopbackHTTPScenarios": 1,
+    "frozenCoreFilesUnchanged": 41
+  },
+  "exactValuesTested": {
+    "largestNativeU64": "18446744073709551615",
+    "beyondNumberPrecision": "9007199254740993",
+    "nativeRecipientBefore": "600000000000000000",
+    "nativeReserveBefore": "900000000000000000",
+    "expectedNativeDelta": "1000000000",
+    "oneUnitWrongDeltaRejected": "1000000001"
+  },
+  "guards": [
+    "Original raw decimal JSON digits converted to bounded u64 BigInt before economic comparison",
+    "Negative, overflowing, fractional, exponent, string/null and missing/oversized metadata refuse finalization",
+    "Metadata account counts equal the exact signed transaction account keys",
+    "One-unit difference above Number precision rejects without changing submission count or journal state",
+    "Null/pruned transactions retain unresolved handling; existing both-direction tests pass",
+    "Node runtime without raw JSON number source support fails closed"
+  ],
+  "remaining": [
+    "Read-only large-metadata reconciliation on new copies of retained real Agave journal fixtures",
+    "Independent RPC/source-finality verification, signer custody and code/authority pins",
+    "Unknown landing/pending-operation crash/fork and reviewed extended origin mint handling",
+    "Actual funded mainnet backing/custody and security review"
+  ]
+}

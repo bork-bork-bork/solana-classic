@@ -285,3 +285,20 @@ or physical power loss. The synthetic budget still lacks complete funded
 mainnet backing. See `evidence/bridge-hard-crash-v2.json`. Keys/checkpoints/logs
 stay private in the retained `/data/bridge-hard-crash-v2` attempt; future drills
 need a new reviewed root, never replay/reset this driver.
+
+## Exact large-native RPC metadata
+
+The journal now reads `getTransaction` native balances from original JSON
+decimal digits using Node24 reviver source support and checked u64 BigInt.
+Values above Number precision, including the u64 maximum, remain exact.
+Canonical nonnegative integer numeric tokens and exact signed-account counts
+are required; fractional/exponent/string/null/overflow metadata rejects.
+Other finality/expiry fields retain the existing safe-number guards.
+
+Thirty-three checks pass: five parser, five large-balance journal scenarios
+(including actual loopback HTTP with synthetic replies), and 23 original
+two-direction regressions. A one-unit incorrect delta above Number precision
+cannot finalize or reset a submission attempt. No new real-ledger claim or
+reconciliation is claimed; previous private rehearsal evidence retains its
+historical source hashes. Include `lossless-native-rpc.mjs` in future private
+journal uploads. See `evidence/bridge-lossless-native-metadata.json`.

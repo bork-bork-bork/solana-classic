@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-14T12:34:16.251958+00:00",
+  "scope": "Anonymous main-site SIGKILL roadmap verification; separate private copied-ledger recovery, no canonical service/mainnet deployment",
+  "passed": true,
+  "sourceCommit": "558971a",
+  "deploymentId": "dpl_CC4GfajsjwEZW53iggCW91mzzCmh",
+  "publicURL": "https://solanaclassic.net/roadmap",
+  "publicMilestone": {
+    "title": "V2 bridge SIGKILL process and RPC recovery",
+    "state": "rehearsal-passed",
+    "detail": "10 actual checks + 10 copy/crash guards. Two verified private SIGKILL exits(-9), same-genesis restart, exact20-account state and rejected replays; zero broadcasts and originals unchanged. Known-finalized operations only; no pending landing, fork or physical power-loss proof."
+  },
+  "observedAt": "2026-10-14T12:32:42.372Z",
+  "network": {
+    "state": "online",
+    "genesisMatches": true,
+    "slot": 268359,
+    "finalizedSlot": 268316,
+    "identityMatches": true,
+    "monitorState": "online",
+    "monitorAt": "2026-10-14T12:32:37.464Z",
+    "lastProgressAt": "2026-10-14T12:32:37.183Z"
+  },
+  "soak": {
+    "state": "running",
+    "runnerState": "starting",
+    "freezeMatches": true,
+    "progressFreezeMatches": true,
+    "startedAt": "2026-10-13T16:48:22.762Z",
+    "endsAt": "2026-10-14T16:48:22.762Z",
+    "reportAt": "2026-10-14T12:28:50.285Z",
+    "progressStale": false,
+    "completedJourneys": 237,
+    "totalJourneys": 288,
+    "observations": 2360,
+    "accepted": false,
+    "activationAt": "2026-10-13T16:47:36.929Z",
+    "issues": [],
+    "elapsedMs": 71059610
+  },
+  "releaseAccepted": false,
+  "canonicalNetworkChanged": false
+}

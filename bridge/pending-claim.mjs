@@ -5,6 +5,7 @@ import { resolve, join } from 'node:path';
 import { createHash } from 'node:crypto';
 import { PublicKey, Transaction } from '@solana/web3.js';
 import { encodeEvent, decodeEvent, validateEvent, nativeClaimInstruction, originClaimInstruction, TOKEN_2022, exactNativeUnits, observeLocalEvent, PUBLIC_GENESIS } from './sdk.mjs';
+import { parseNativeTransactionRPC } from './lossless-native-rpc.mjs';
 const soaking='7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon';
 const states=new Set(['PREPARED','SUBMISSION_ATTEMPTED','PENDING','EXPIRED_UNRESOLVED','CONSUMED_REVIEW_REQUIRED','FAILED_REVIEW_REQUIRED','FINALIZED']);
 const hash=b=>createHash('sha256').update(b).digest('hex');
@@ -76,7 +77,7 @@ async function rpc(record,method,params,fetcher,source=false) {
   const r=await fetcher(source?record.sourceRpc:record.rpc,{method:'POST',redirect:'error',headers:{'Content-Type':'application/json'},body:JSON.stringify({jsonrpc:'2.0',id:1,method,params}),signal:AbortSignal.timeout(5000)});
   if(!r.ok)throw new Error('Rehearsal RPC unavailable');
   const raw=await r.text();if(raw.length>65536)throw new Error('Rehearsal response exceeds bound');
-  const d=JSON.parse(raw);if(d.jsonrpc!=='2.0'||d.id!==1||d.error||!Object.hasOwn(d,'result'))throw new Error('RPC rejected reconciliation');return d.result;
+  const d=method==='getTransaction'?parseNativeTransactionRPC(raw):JSON.parse(raw);if(d.jsonrpc!=='2.0'||d.id!==1||d.error||!Object.hasOwn(d,'result'))throw new Error('RPC rejected reconciliation');return d.result;
 }
 async function admit(record,fetcher) {
   if(await rpc(record,'getGenesisHash',[],fetcher)!==record.expectedGenesis)throw new Error('Destination genesis mismatch');
@@ -163,7 +164,8 @@ export function reconcilePendingClaim(directory,id,fetcher=fetch) {
       else {
         if(!receipt.value||landed.meta?.err!==null||!Number.isSafeInteger(landed.slot)||landed.slot!==status.slot||landed.slot>receipt.context.slot||landed.transaction?.[1]!=='base64'||!Buffer.from(landed.transaction[0],'base64').equals(raw))throw new Error('Finalized transaction/receipt mismatch');
         const keys=tx.compileMessage().accountKeys;const recipient=keys.findIndex(k=>k.toBase58()===event.recipient),vault=keys.findIndex(k=>k.equals(ix.keys[2].pubkey));
-        const delta=index=>{const a=landed.meta.preBalances?.[index],b=landed.meta.postBalances?.[index];if(!Number.isSafeInteger(a)||!Number.isSafeInteger(b)||a<0||b<0)throw new Error('Invalid economic balance metadata');return BigInt(b)-BigInt(a);};
+        if(landed.meta.preBalances.length!==keys.length||landed.meta.postBalances.length!==keys.length)throw new Error('Economic metadata does not match signed account count');
+        const delta=index=>{const a=landed.meta.preBalances?.[index],b=landed.meta.postBalances?.[index];if(typeof a!=='bigint'||typeof b!=='bigint'||a<0n||b<0n||a>(1n<<64n)-1n||b>(1n<<64n)-1n)throw new Error('Invalid economic balance metadata');return b-a;};
         const amount=exactNativeUnits(event.originAmount,record.originDecimals);
         if(event.direction===0) {
           if(delta(recipient)!==amount||delta(vault)!==-amount)throw new Error('Finalized native movement differs from signed event');

@@ -92,8 +92,8 @@ Its fault harness also waited for finality before outage; unknown landing,
 expiry/pruning and actual fork testing remain open. Earlier native evidence
 retains its historical source hashes. Shared native regression tests pass.
 
-RPC balance metadata must be safe JavaScript integers in this prototype.
-Larger values are rejected; production needs lossless integer parsing. An
+RPC native balance metadata now uses raw JSON source digits and exact u64
+BigInt balances in `lossless-native-rpc.mjs`; Node24 source support is mandatory. An
 attempt count is a conservative no-resubmission marker, not a measurement of
 network broadcasts. The actual rehearsal separately records its one broadcast.
 
@@ -101,3 +101,20 @@ Production still needs a durable signer/custody service,
 programme code/upgrade-authority pins, independent source-transaction/backing
 verification, crash-safe storage recovery, independent verifiers and review.
 See [the finality policy draft](FINALITY_RECOVERY.md).
+
+## Exact large-native RPC metadata
+
+The journal now reads `getTransaction` native balances from original JSON
+decimal digits using Node24 reviver source support and checked u64 BigInt.
+Values above Number precision, including the u64 maximum, remain exact.
+Canonical nonnegative integer numeric tokens and exact signed-account counts
+are required; fractional/exponent/string/null/overflow metadata rejects.
+Other finality/expiry fields retain the existing safe-number guards.
+
+Thirty-three checks pass: five parser, five large-balance journal scenarios
+(including actual loopback HTTP with synthetic replies), and 23 original
+two-direction regressions. A one-unit incorrect delta above Number precision
+cannot finalize or reset a submission attempt. No new real-ledger claim or
+reconciliation is claimed; previous private rehearsal evidence retains its
+historical source hashes. Include `lossless-native-rpc.mjs` in future private
+journal uploads. See `evidence/bridge-lossless-native-metadata.json`.
