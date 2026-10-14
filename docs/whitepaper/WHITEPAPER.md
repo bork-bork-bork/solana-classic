@@ -3,7 +3,7 @@
 ## Shared roots. A focused future for art, NFTs and memes.
 
 **Solana Classic / SOC**  
-**Public edition | Version 0.12 | 14 October 2026**
+**Public edition | Version 0.13 | 14 October 2026**
 
 **Bring back the fun. Build what comes next.**
 
@@ -13,27 +13,27 @@ We remember mint nights, new profile pictures and group chats that became commun
 
 Solana pursues a broad future across finance and many other categories. We want a development community whose attention stays on the culture we came for. Scams, concealed incentives and abandoned projects give that work urgency, but no single tool or launch standard is the mission. Our ambition is an open, focused home where creative work continues beyond the first burst of attention. A token price is not evidence that this ambition is working.
 
-Devnet is live on a fresh, independent Agave ledger. The Solana Classic team runs its single validator - the computer that checks and records transactions. Participants can create a disposable wallet, receive valueless test units, issue demo meme assets and NFTs, transfer them and inspect chain receipts. **The intended SOC lifecycle starts with a Pump.fun launch on Solana and later adds native Classic SOC redeemable one-to-one for the original token in display units.** SOC, mainnet and the bridge have not launched. TEST, also displayed as tSOC, has no monetary value or right to conversion.
+Devnet is live on a fresh, independent Agave ledger. The Solana Classic team runs its single validator - the computer that checks and records transactions. Participants can create a disposable wallet, receive valueless test units, issue demo meme assets and NFTs, transfer them and inspect chain receipts. **SOC is intended to be the network token of Solana Classic, with a planned one-to-one bridge between original SOC on Solana and native SOC on Classic in display units.** Mainnet and the bridge are not live. The official mint and token terms have not yet been published here. TEST, also displayed as tSOC, has no monetary value or right to conversion.
 
 ### Where the project stands
 
 Devnet is live at [solanaclassic.net](https://solanaclassic.net). The Solana Classic team currently runs the validator that checks and records its transactions. It supports disposable test wallets, artwork and meme-asset creation, transfers, a verified gallery and transaction receipts. Test units have no monetary value. SOC, native mainnet and the proposed bridge are not live.
 
-The network uses official **Agave v3.0.14 and Token-2022 v10.0.0**. Its software identity, browser journeys, restart and isolated recovery have been checked within their recorded scopes. A bounded load test completed 200 operations across 20 sessions; that result is not a claim about chain-wide capacity. The uninterrupted 24-hour stability test and final release review remain pending. Separate artwork-upload and explorer services require their own checks.
+The network uses official **Agave v3.0.14 and Token-2022 v10.0.0**. Its software identity, browser journeys, restart and isolated recovery have been checked within their recorded scopes. A bounded load test completed 200 operations across 20 sessions; that result is not a claim about chain-wide capacity. The original frozen candidate passed its uninterrupted 24-hour stability test; final release review remains pending. Separate artwork-upload and explorer services require their own checks.
 
 This paper sets out the purpose, current network, intended SOC model and conditions for later releases. Current behaviour, proposed work and release requirements are identified separately. The [live roadmap](https://solanaclassic.net/roadmap) carries dated updates; detailed technical records remain in the project repository.
 
 ## 1 A focused home for memes and NFTs
 
-For us, Solana's appeal has always included the people around it. [Solana Monkey Business](https://solanamonkey.business/) [18], [Okay Bears](https://www.okaybears.com/) [19], [BONK](https://www.bonkcoin.com/about) [20] and [dogwifhat (WIF)](https://dogwifcoin.org/) [21] bring back a timeline, a mint night, a profile picture or a joke a group chat suddenly understood. We remember discovering art, finding our people and staying in a community after the chart stopped being interesting. The projects named here inspire us; they are not affiliated with Solana Classic.
+For us, Solana's appeal has always included the people around it. [Solana Monkey Business](https://solanamonkey.business/) [15], [Okay Bears](https://www.okaybears.com/) [16], [BONK](https://www.bonkcoin.com/about) [17] and [dogwifhat (WIF)](https://dogwifcoin.org/) [18] bring back a timeline, a mint night, a profile picture or a joke a group chat suddenly understood. We remember discovering art, finding our people and staying in a community after the chart stopped being interesting. The projects named here inspire us; they are not affiliated with Solana Classic.
 
 Fast transactions and accessible fees gave that experimentation room to happen. Artists, collectors, meme makers and communities gave it a personality. We respect the engineers and builders who made that world possible. Solana's December 2021 community update records NFT projects and fan communities alongside financial applications: culture was important, and the network was always broader than one category. [Solana Foundation community update](https://solana.com/news/december-2021-community-update) [1]
 
 ### Why focus matters
 
-Millions of tokens have been launched. A September 2026 study collected information on 15 million Pump.fun coins launched over two years and identified manipulation strategies, including obscured creator addresses, coordinated selling and wash trading. This supports the scale of launches and the presence of manipulation; it does not establish that every launch is abusive or that one institution caused those abuses. [Meme Coin Factories](https://arxiv.org/abs/2609.10246) [22]
+Millions of tokens have been launched. A September 2026 study collected information on 15 million Pump.fun coins launched over two years and identified manipulation strategies, including obscured creator addresses, coordinated selling and wash trading. This supports the scale of launches and the presence of manipulation; it does not establish that every launch is abusive or that one institution caused those abuses. [Meme Coin Factories](https://arxiv.org/abs/2609.10246) [19]
 
-Our frustration is with scams, concealed incentives, extraction and work that disappears after launch. Too often, participation feels like competing for the next ticker instead of helping something grow. That is our experience and founding view. Solana also publishes guidance on scams and transaction safety, and builders continue to innovate across its ecosystem. Our concern is about sustained development priorities. [Staying Safe on Solana](https://solana.com/learn/staying-safe-on-solana) [23]
+Our frustration is with scams, concealed incentives, extraction and work that disappears after launch. Too often, participation feels like competing for the next ticker instead of helping something grow. That is our experience and founding view. Solana also publishes guidance on scams and transaction safety, and builders continue to innovate across its ecosystem. Our concern is about sustained development priorities. [Staying Safe on Solana](https://solana.com/learn/staying-safe-on-solana) [20]
 
 Solana's public agenda includes tokenized capital markets, from equities and debt to institutional infrastructure. We want art, NFTs and memes to have a development community that keeps working on their future. [Solana tokenization](https://solana.com/solutions/tokenization) [2]
 
@@ -43,7 +43,7 @@ On 27 July 2025, Solana co-founder Anatoly Yakovenko posted the following during
 
 > "I’ve said this for years. Memecoins and NFTs are digital slop and have no intrinsic value."
 
-In the same post, Yakovenko compared them with mobile-game loot boxes. Pollak defended the value of content and creators. [Yakovenko's 27 July 2025 post](https://x.com/toly/status/1949548737208181137) [16]
+In the same post, Yakovenko compared them with mobile-game loot boxes. Pollak defended the value of content and creators. [Yakovenko's 27 July 2025 post](https://x.com/toly/status/1949548737208181137) [13]
 
 For us, that language makes a cultural disagreement visible. We see imagination, shared identity and people making things together. We want developers who see those possibilities too. That belief does not make every token valuable or excuse manipulation. It gives us a reason to take creative participation seriously.
 
@@ -95,7 +95,7 @@ A proposed funding initiative would need a funded budget, a disclosed decision p
 | Contributor proposals | Adopt, revise or stop individual ideas after testing | Named owners, achievable scope, reviewed claims and evidence that the idea serves participants |
 | Native mainnet and redemption | Protected SOC reserve, one-to-one bridge, reviewed wallets and defined market infrastructure | Monetary conservation, security review, two-way settlement and funded operation |
 
-Community proposals have no promised delivery date or fixed sequence. The intended economic network has separate technical and security conditions. The original Pump launch is a founder-controlled economic action; it cannot substitute for useful products, a sustainable community or bridge readiness.
+Community proposals have no promised delivery date or fixed sequence. The intended economic network has separate technical and security conditions. An official token announcement is a separate economic decision; it cannot substitute for useful products, a sustainable community or bridge readiness.
 
 ### Founding community roles and outcomes
 
@@ -123,16 +123,16 @@ Solana Classic is an independent project. Its name and use of open-source techno
 
 ## 4 TEST and the intended SOC lifecycle
 
-SOC is intended to begin as a Solana token launched through Pump.fun and later be usable as the native currency of Solana Classic through a one-to-one redemption bridge. The original Solana token is the proposed bridge's canonical backing asset. Native Classic SOC is a distinct ledger representation backed under the proposed model. The experiment uses valueless TEST as its protocol denomination. **tSOC is a frontend display name for those same TEST units**, with unchanged genesis and balances; it is not a new token or a claim on future SOC. A working playground is not a launched SOC economic network.
+SOC is intended to be the network token of Solana Classic. A planned one-to-one redemption bridge would connect original SOC on Solana with native SOC on Classic. The original Solana token is the proposed bridge's canonical backing asset. Native Classic SOC is a distinct ledger representation backed under the proposed model. The experiment uses valueless TEST as its protocol denomination. **tSOC is a frontend display name for those same TEST units**, with unchanged genesis and balances; it is not a new token or a claim on future SOC. A working playground is not a launched SOC economic network.
 
 | Scope | Current state | Meaning |
 | --- | --- | --- |
-| Devnet | SDK/browser journeys, restart, recovery and bounded load passed; 24-hour soak and full release pending | The Solana Classic team runs one validator; tSOC test units have no monetary value |
+| Devnet | SDK/browser journeys, restart, recovery and bounded load passed; original 24-hour soak passed; full release pending | The Solana Classic team runs one validator; tSOC test units have no monetary value |
 | Playground meme assets and NFTs | Remote script/browser issuance and transfer proof passed; full release pending | Token-2022 demo assets on the experiment; no monetary value |
-| Original SOC on Solana | Pump.fun launch intended; token not created | Canonical original token for the proposed redemption model |
+| Original SOC on Solana | Official mint and token terms not published here | Canonical original token for the proposed redemption model |
 | Solana Classic mainnet and native SOC | Planned and unimplemented; no mainnet genesis | Native currency released from a protected reserve against original SOC escrow |
 | Redemption bridge | Planned and unimplemented; no deployed addresses | Intended 1 original SOC to 1 native SOC in display units, with separate fees |
-| SOC markets | Initial Pump market intended; no SOC market launched | Bonding curve first; any PumpSwap graduation is conditional; further pools unresolved |
+| SOC markets | Verified venues and pool addresses not published here | Trading infrastructure and liquidity remain separate from the bridge |
 
 The TEST experiment grants no conversion right, airdrop entitlement or allocation in mainnet SOC. Its founding testnet art is participation in a technical and cultural pilot. Test units are not sold, redeemable or represented as an investment. The validator's bootstrap balances are development configuration, not a proposed SOC supply. The planned mainnet bridge does not make TEST redeemable.
 
@@ -144,9 +144,9 @@ The original SOC token requires actual venue creation and mint verification. Nat
 
 The initial runtime selection was upstream **Agave v4.3.0**, which Anza labels stable. Its official binaries were verified, but startup on the devnet host failed on unavailable mandatory `io_uring` support. There is no active, accepted v4.3.0 validator. An upstream release label does not establish compatibility with a particular environment or production readiness for this project. [Agave v4.3.0 release](https://github.com/anza-xyz/agave/releases/tag/v4.3.0) [6]
 
-Official **Agave v3.0.14** is running as the compatibility candidate. Its account-storage directory-removal code can fall back to standard filesystem operations when `io_uring` is unsupported or remover initialization fails. The candidate has passed startup, block progression, identity, health, SDK/browser journeys, provider container/process restart, qualified recovery and bounded load. The full soak and remaining release attestations are pending. No custom runtime patch or relaxation of kernel protections is part of this approach. [Agave v3.0.14 account-storage source](https://raw.githubusercontent.com/anza-xyz/agave/v3.0.14/accounts-db/src/utils.rs) [15]
+Official **Agave v3.0.14** is running as the compatibility candidate. Its account-storage directory-removal code can fall back to standard filesystem operations when `io_uring` is unsupported or remover initialization fails. The candidate has passed startup, block progression, identity, health, SDK/browser journeys, provider container/process restart, qualified recovery and bounded load. The original full soak passed; remaining release attestations are pending. No custom runtime patch or relaxation of kernel protections is part of this approach. [Agave v3.0.14 account-storage source](https://raw.githubusercontent.com/anza-xyz/agave/v3.0.14/accounts-db/src/utils.rs) [12]
 
-The earlier Agave candidate's bundled Token-2022 programme failed variable metadata reallocation. The official Token-2022 v10.0.0 release fixes compatibility with `stricter_abi_and_runtime_constraints`. Its verified official artifact was loaded under the existing standard Token-2022 programme identity on the fresh candidate. This is an upstream programme update, not a bespoke token contract or a new asset standard. [Official Token-2022 v10.0.0 release](https://github.com/solana-program/token-2022/releases/tag/program@v10.0.0) [17]
+The earlier Agave candidate's bundled Token-2022 programme failed variable metadata reallocation. The official Token-2022 v10.0.0 release fixes compatibility with `stricter_abi_and_runtime_constraints`. Its verified official artifact was loaded under the existing standard Token-2022 programme identity on the fresh candidate. This is an upstream programme update, not a bespoke token contract or a new asset standard. [Official Token-2022 v10.0.0 release](https://github.com/solana-program/token-2022/releases/tag/program@v10.0.0) [14]
 
 | Devnet fact | Recorded value |
 | --- | --- |
@@ -156,7 +156,7 @@ The earlier Agave candidate's bundled Token-2022 programme failed variable metad
 | Official archive SHA256 | `65614325423316a48f57f1ceeaa91ca78f4516e165e305b38c01873cf8c6b8b4` |
 | Token-2022 v10.0.0 commit | `3350a3ba856f5997c4ade91fd1e5c8b515e5df33` |
 | Token-2022 artifact SHA256 | `a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68` |
-| Proof scope | Identity, health, programme bytes, SDK/browser journeys, restart, automated browser checks, qualified isolated recovery and bounded load; soak/release pending |
+| Proof scope | Identity, health, programme bytes, SDK/browser journeys, restart, automated browser checks, qualified isolated recovery and bounded load; original soak passed; release pending |
 
 The service uses `solana-test-validator` with persistent storage. Anza describes this tool as a full-featured single-node development cluster. The devnet has its own genesis and does not clone Solana accounts or programmes from a public cluster. Required built-in and token programmes are checked on the deployed runtime. This development tool, with its validator run by the project team, does not establish production consensus security. [Anza test validator documentation](https://docs.anza.xyz/cli/examples/test-validator) [7]
 
@@ -250,15 +250,11 @@ The principal security limits are control concentrated in the project team, wron
 
 ### The original SOC token on Solana
 
-The founder intends the original **SOC** token to launch through Pump.fun on Solana. It is the proposed canonical backing asset for future native Classic SOC. The initial market is on Solana. Its actual mint, supply, decimals, authorities, venue state and creator-fee arrangements must be checked after authorized creation rather than predicted from a project name or an old venue example.
+Original **SOC** on Solana is the proposed canonical backing asset for native Classic SOC. Any official recognition will identify the exact mint, supply, decimals, mint and freeze authorities, distribution, team involvement and fee recipients. A token name or ticker alone does not establish official status.
 
-Pump's current documentation describes creation of a bonding-curve market, with initial parameters drawn from the programme's global state. Buying is a separate operation. A completed curve can migrate to PumpSwap, where the resulting LP tokens are burned. These are venue mechanics; they do not promise that SOC will complete its curve or acquire sustained liquidity. [Pump programme documentation](https://raw.githubusercontent.com/pump-fun/pump-public-docs/main/docs/PUMP_PROGRAM_README.md) [13]
+Team holdings must be explained by their actual acquisition method and funding. Any purchased or otherwise acquired team balance, its source, custody, restrictions and public addresses require disclosure. Creation does not establish an arbitrary free developer allocation. A token announcement does not itself activate mainnet or redemption.
 
-Current `create_v2` documentation initializes a Token-2022 mint with six decimals and distinguishes creation from the buy instruction used by combined create-and-buy flows. Regular creation modes and fee settings must be verified immediately before launch. [Pump creation instructions](https://github.com/pump-fun/pump-public-docs/blob/main/docs/instructions/COIN_CREATION.md) [12]
-
-The founder intends developers to retain some SOC, but the amount, acquisition method and funding are unresolved. Standard creation must not be assumed to grant developers an arbitrary free allocation. Any purchased or otherwise acquired developer balance, its source, custody, restrictions and public addresses require explicit disclosure. The mint's actual supply and distribution must be recorded after launch. No founder purchase or market transaction follows automatically from the hosting budget or this whitepaper.
-
-Any creator-fee recipient and use policy must be disclosed before release. Fees are subject to the current venue rules, and fee income cannot be the sole validator operating budget. No percentage or revenue is assumed here. [Pump fees](https://pump.fun/docs/fees) [14]
+If the team receives creator or trading fees, publish who receives them, how the rights were obtained and how the proceeds are used with the official announcement. Fee revenue is not guaranteed and cannot be the sole validator operating budget. Published token terms must cover both team allocations and fee rights.
 
 ### Native Classic SOC
 
@@ -272,7 +268,7 @@ The pilot's TEST balances do not become mainnet SOC. The devnet is currently run
 
 A bridge connects separate networks through an explicit verification mechanism. General bridge approaches differ in their custody and trust assumptions; sharing the SVM does not supply cross-chain verification. [Ethereum.org bridge documentation](https://ethereum.org/developers/docs/bridges/) [11]
 
-The **candidate mechanism** is to escrow original Pump-launched SOC on Solana and, after verifying a final deposit, release an equal display-unit quantity of native SOC from the protected reserve on Solana Classic. The reverse path first returns native SOC to that reserve; only after verifying that finalized return can the bridge unlock the corresponding original SOC on Solana. This describes intended backing and redemption. No escrow, reserve, verifier, relayer or redemption service is deployed.
+The **candidate mechanism** is to escrow original SOC on Solana and, after verifying a final deposit, release an equal display-unit quantity of native SOC from the protected reserve on Solana Classic. The reverse path first returns native SOC to that reserve; only after verifying that finalized return can the bridge unlock the corresponding original SOC on Solana. This describes intended backing and redemption. No escrow, reserve, verifier, relayer or redemption service is deployed.
 
 The bridge releases existing native reserve balances. It does not assume that an ordinary SPL mint instruction can create native currency. A native burn-and-reissue design would require different monetary and authority rules and is not the selected model. Native issuance, bridge settlement and developer holdings cannot be conflated.
 
@@ -294,7 +290,7 @@ One-to-one redemption is not a price peg guarantee or instant access to a market
 
 ### Markets and later pools
 
-The intended initial venue is Pump.fun on Solana, beginning with its bonding curve. A PumpSwap pool requires the venue's completion and migration conditions; it is not promised at token creation. Future Solana Classic pools or additional Solana venues remain unresolved. A native-chain pool would need a supported trading programme and a defined counterpart asset. An existing Solana venue must not be assumed to operate on the independent chain.
+Trading venues and official pool addresses will be published when verified. Future Solana Classic pools or additional Solana venues remain unresolved. A native-chain pool would need a supported trading programme and a defined counterpart asset. An existing Solana venue must not be assumed to operate on the independent chain.
 
 Any additional pool needs a chosen venue and pair, authorized funding, verified asset identities, review of its trading programme, and a published liquidity-ownership and fee policy. No deposit amount, initial ratio, lock arrangement or pool address is adopted. A bridge and a market are separate systems. Neither a deployment nor a deposit establishes buyers, market depth, execution price, returns or permanent liquidity.
 
@@ -306,7 +302,7 @@ The original token launch and later native mainnet need separate release evidenc
 
 | Area | Required evidence and decisions |
 | --- | --- |
-| Original SOC launch | Founder release decision; current Pump settings; actual mint facts; disclosed developer acquisition and holdings; authorized spending and fee policy |
+| Original SOC launch | Official recognition decision; verified mint facts; disclosed team involvement, acquisition and holdings; authorized spending and fee recipients |
 | Native monetary design | Protected genesis reserve; no independent inflation; approved decimal mapping, fee accounting and validator incentives; verified native configuration |
 | Chain security and operation | Independent validator plan; consensus and recovery testing; secure operator keys; funded monitoring and incident response |
 | Bridge specification | Defined trust model; escrow/reserve conservation; finality policy; replay protection; pending-transfer and recovery rules |
@@ -369,9 +365,9 @@ The thesis is weakened if developers do not sustain useful work, participants fi
 
 ## 11 Decisions before release
 
-Next, complete and review the frozen candidate's uninterrupted 24-hour soak, final browser regression and remaining release attestations. Bounded load, qualified isolated recovery, SDK/browser journeys, provider container/process restart and automated browser checks passed within their recorded scopes; the founder confirmed actual alert emails. Separate frontend/upload checks and isolated source-build tests retain their own scope and unresolved gates. Complete G0 through G7 acceptance remains pending.
+The original frozen candidate completed its 24-hour browser soak on 14 October 2026, with 288 journeys and 2,880 observer checks. The retained report covers a bounded workload on one validator. Final browser regression and individual release attestations remain separate requirements. A reviewed switch to the source-built runtime needs a fresh backup, continuity checks and its own full stability run. Bounded load, qualified isolated recovery, SDK/browser journeys, provider container/process restart and automated browser checks passed within their recorded scopes; the founder confirmed actual alert emails. Separate frontend/upload checks and isolated source-build tests retain their own scope and unresolved gates. Complete G0 through G7 acceptance remains pending.
 
-For the initial Pump launch, the founder must resolve final metadata, the release decision, current venue settings, authorized spending, developer-retained quantity and how it is obtained, custody and public-address disclosures, and creator-fee policy. The original token's actual supply and authorities are recorded after creation. No free developer allocation is assumed.
+Before any official token announcement, resolve final metadata, the exact mint, verified supply and authorities, team involvement, holdings and their acquisition, custody, public addresses and creator-fee recipients. The official announcement must describe these relationships accurately. No free developer allocation is assumed.
 
 For mainnet native SOC, the founder must approve the reserve quantity and protections, decimal mapping, native fee and burn treatment, validator incentives, governance, upgrade powers and operating funding within the selected one-to-one model. Independent native inflation is excluded unless a revised model is explicitly adopted. These decisions must be checked against the deployed genesis and ledger.
 
@@ -394,18 +390,15 @@ Primary and first-party sources consulted on 13–14 October 2026. The Bitcoin C
 9. Solana documentation. **Set Authority**. https://solana.com/docs/tokens/basics/set-authority
 10. Solana documentation. **Accounts**. https://solana.com/docs/core/accounts
 11. Ethereum.org. **Bridges**. https://ethereum.org/developers/docs/bridges/
-12. Pump. **Coin Creation Instructions**. https://github.com/pump-fun/pump-public-docs/blob/main/docs/instructions/COIN_CREATION.md
-13. Pump. **Pump Programme**. https://raw.githubusercontent.com/pump-fun/pump-public-docs/main/docs/PUMP_PROGRAM_README.md
-14. Pump. **Pump.fun fees**. https://pump.fun/docs/fees
-15. Anza. **Agave v3.0.14 account-storage source**, directory-operation fallback. https://raw.githubusercontent.com/anza-xyz/agave/v3.0.14/accounts-db/src/utils.rs
-16. Anatoly Yakovenko (toly). **Post on meme coins and NFTs**. Published 27 July 2025. https://x.com/toly/status/1949548737208181137
-17. Solana Program maintainers. **Token-2022 programme v10.0.0 release**. https://github.com/solana-program/token-2022/releases/tag/program@v10.0.0
-18. Solana Monkey Business. **Official project and collections**. https://solanamonkey.business/
-19. Okay Bears. **Official website**, now redirects to We Are Okay. https://www.okaybears.com/
-20. BONK. **About BONK**. https://www.bonkcoin.com/about
-21. dogwifhat. **Official WIF website**. https://dogwifcoin.org/
-22. Nicolas Szwajcok and co-authors. **Meme Coin Factories: Uncovering Large-Scale Manipulations on pump.fun**. Submitted 9 September 2026; arXiv:2609.10246. https://arxiv.org/abs/2609.10246
-23. Solana. **Staying Safe on Solana**. https://solana.com/learn/staying-safe-on-solana
+12. Anza. **Agave v3.0.14 account-storage source**, directory-operation fallback. https://raw.githubusercontent.com/anza-xyz/agave/v3.0.14/accounts-db/src/utils.rs
+13. Anatoly Yakovenko (toly). **Post on meme coins and NFTs**. Published 27 July 2025. https://x.com/toly/status/1949548737208181137
+14. Solana Program maintainers. **Token-2022 programme v10.0.0 release**. https://github.com/solana-program/token-2022/releases/tag/program@v10.0.0
+15. Solana Monkey Business. **Official project and collections**. https://solanamonkey.business/
+16. Okay Bears. **Official website**, now redirects to We Are Okay. https://www.okaybears.com/
+17. BONK. **About BONK**. https://www.bonkcoin.com/about
+18. dogwifhat. **Official WIF website**. https://dogwifcoin.org/
+19. Nicolas Szwajcok and co-authors. **Meme Coin Factories: Uncovering Large-Scale Manipulations on pump.fun**. Submitted 9 September 2026; arXiv:2609.10246. https://arxiv.org/abs/2609.10246
+20. Solana. **Staying Safe on Solana**. https://solana.com/learn/staying-safe-on-solana
 
 ### Project sources
 

@@ -1,10 +1,10 @@
 # Whitepaper verification
 
-Public edition 0.12, 20 A4 pages. All pages rendered with Poppler and visually reviewed. Text bounds passed.
+Public edition 0.13, 20 A4 pages. All pages rendered with Poppler and visually reviewed. Text bounds and sequential references pass.
 
-Public wording says Devnet is live and explains that the Solana Classic team runs the single validator: the computer that checks and records transactions. Project control, valueless test assets and the future mainnet/bridge conditions remain explicit. The cover and overview use blockchain, with blockchain project removed. No occurrence of experimental, Vercel, Railway, an devnet, devnet testnet, one operator or 1 operator remains in extracted PDF text.
+SOC copy describes the intended network token and one-to-one bridge without announcing an initial launch venue. Official mint, team involvement, acquisition, holdings and fee recipients remain required disclosures. The historical research citation about token manipulation is retained. Original frozen stability passed; full release and migration remain separate.
 
-PDF SHA256: a8b457af442c7a5a426b61f22cc619c77edff16e09e05db988ebe784a9c6f3e9
-Source SHA256: 103d39b0f621ccfc588e963e987ffb5780e527e5f65c13b22412d307f3a81d2f
+PDF SHA256: 05ab937c2fb52eef718f6392890a0ae876e9ab4fda001931a997b70e6381e575
+Source SHA256: ce600ca80ca18d7dbf74e02f36098769de91d4c61e5e42fd74c525f35042f270
 
-The custom-domain edition is separate from the frozen stability candidate and its earlier PDF. No release or monetary-launch acceptance is implied.
+The current .net edition is separate from the original frozen PDF, which is unchanged. No monetary launch or migration approval is implied.

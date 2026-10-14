@@ -107,6 +107,12 @@
       "at": "2026-10-14T02:03:53.871854+00:00",
       "scope": "repository migration/rollback runbook review with actual remote fresh-ledger mixed-binary rehearsal, cold restores, prepared-image binary/ABI/TypeScript checks and held API injection; no canonical cutover or stability acceptance",
       "sha256": "9563d34ff7270c81ab89480ab4ee9f82fb92cb2f5c1d04d92dc6c37c53794f96"
+    },
+    "original-soak-terminal": {
+      "passed": true,
+      "at": "2026-10-14T16:48:23.028Z",
+      "scope": "remote original frozen browser soak evidence review; recorded receipts, not independent transaction replay or full release acceptance",
+      "sha256": "50462038ce8992d5988af1e9c602eddb2de47ce48fbcd87a1cfd95a3702d6612"
     }
   },
   "load": {
@@ -117,9 +123,9 @@
     "p95FinalizedMs": 15167
   },
   "whitepaper": {
-    "version": "0.12",
+    "version": "0.13",
     "pages": 20,
-    "sha256": "a8b457af442c7a5a426b61f22cc619c77edff16e09e05db988ebe784a9c6f3e9",
+    "sha256": "05ab937c2fb52eef718f6392890a0ae876e9ab4fda001931a997b70e6381e575",
     "url": "https://solanaclassic.net/whitepaper.pdf",
     "scope": "Verified current public-domain PDF bytes; frozen candidate PDF unchanged"
   },
@@ -165,10 +171,22 @@
       "state": "live-read-passed",
       "scope": "Four finalized programme/state accounts match fresh baseline; not a stopped-writer backup or cutover",
       "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/developer-migration-continuity.json"
+    },
+    "admission": {
+      "reviewedAt": "2026-10-14T17:01:25.389359+00:00",
+      "state": "maintenance-ready",
+      "originalSoakPassed": true,
+      "terminalArchiveVerified": true,
+      "canEnterMaintenance": true,
+      "canSwitchNow": false,
+      "freshBackupPending": true,
+      "canonicalCutoverAccepted": false,
+      "detail": "Original 24-hour run passed. Awaiting the founder maintenance decision, a fresh stopped-writer backup and held-candidate continuity checks. No validator switch has been performed.",
+      "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/agave-migration-preflight.json"
     }
   },
   "development": {
-    "reviewedAt": "2026-10-14T16:33:38.272827+00:00",
+    "reviewedAt": "2026-10-14T17:01:25.389359+00:00",
     "scope": "Development checkpoint only; separate from the live testnet release",
     "projects": [
       {

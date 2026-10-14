@@ -1,0 +1,2382 @@
+{
+  "at": "2026-10-14T16:48:23.028Z",
+  "scope": "remote uninterrupted 24-hour production-origin isolated browser TEST soak; not chainwide capacity",
+  "passed": true,
+  "api": "https://network-release-production.up.railway.app",
+  "web": "https://solana-classic-soc.vercel.app",
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "candidate": {
+    "apiOrigin": "https://network-release-production.up.railway.app",
+    "frontendOrigin": "https://solana-classic-soc.vercel.app",
+    "frontendDeploymentId": "dpl_3aWWzKDohr4SrgijgrB8dWgHHS5r",
+    "frontendCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "apiCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "networkConfigSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+    "dependencyManifestSha256": "e6da27717e6a84ca7b29d707ff63591b2ff0cfc38892d3b4667f8615bdf7bbc0"
+  },
+  "runtime": {
+    "configured": true,
+    "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+    "sourceCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "coreSha256": "30697f3e9b441b05a036d0704b42322d723b3998840ed43d88b18a0d7ef7d1dd",
+    "apiBootId": "e52b81b5-662e-425e-99bc-71f1edc838f1",
+    "apiStartedAt": "2026-10-13T15:54:07.867Z",
+    "validatorBootId": "6e5e1439-8c2b-4fc9-a49b-51b1ab61ff64",
+    "validatorStartedAt": "2026-10-13T15:53:34.139Z",
+    "deploymentId": "04c379cd-369c-4ff4-9d14-d29467d68a28",
+    "agaveVersion": "3.0.14",
+    "tokenProgramVersion": "10.0.0",
+    "tokenProgramSha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+    "observedAt": "2026-10-13T15:55:51.009Z"
+  },
+  "prerequisites": [
+    {
+      "name": "load",
+      "at": "2026-10-13T16:26:24.383Z"
+    },
+    {
+      "name": "backup-check",
+      "at": "2026-10-13T16:01:06.171Z"
+    },
+    {
+      "name": "restart-check",
+      "at": "2026-10-13T15:55:51.917Z"
+    },
+    {
+      "name": "pilot-agent-one",
+      "at": "2026-10-13T16:08:42.357274+00:00"
+    },
+    {
+      "name": "pilot-agent-two",
+      "at": "2026-10-13T16:15:49.454688+00:00"
+    },
+    {
+      "name": "monitoring-config",
+      "at": "2026-10-13T16:35:34.934352+00:00"
+    },
+    {
+      "name": "frontend-rollback",
+      "at": "2026-10-13T15:35:39.554567+00:00"
+    },
+    {
+      "name": "remote-negative-controls",
+      "at": "2026-10-13T15:48:27.642Z"
+    }
+  ],
+  "startedAt": "2026-10-13T16:48:22.762Z",
+  "durationMs": 86400266,
+  "smokeEveryMs": 300000,
+  "observationEveryMs": 30000,
+  "observations": 2880,
+  "completedJourneys": 288,
+  "payer": "FKCo7xW3mvZoQZuJEwaS7bFKfE49qqczxPatJ2LEoLYD",
+  "fundingSignature": "3i5rgvZw4DcCGaubHS6RTrMfvzXv4WWAgjWys5EZbbNZ6czFCP89MAiZ3MDUk3F1D6X68vnmDgKaFAHDzotMd35J",
+  "faucetCalls": 0,
+  "lastSlot": 305401,
+  "journeys": [
+    {
+      "at": "2026-10-13T16:48:22.763Z",
+      "mint": "GyEHcTHL2dA2DTgzRctA34E1JsXhp54UdvSmJehKLTYt",
+      "recipient": "99QTWdZDtpZkFYBYi91f1xX6tftPKRRqSumg6stV4cpS",
+      "transferSignature": "2bbrmXSg37z8hD1aKsxkeMxgsrWnuqvBHERtrbkawjC94xg7GcVhrJicvAQ8m2uRWQKKaQnkUy8XWEwvZh1Yx6uB",
+      "durationMs": 27670,
+      "scheduleDelayMs": 1
+    },
+    {
+      "at": "2026-10-13T16:53:22.765Z",
+      "mint": "A8upDYU6JrYDdjZAjjCJirnXpZJtqGUiC7BLTHCwvJBL",
+      "recipient": "HV84cEgRxJmAB7CTmMm2CuKzTnYbHyctDgjmo2GSm1H9",
+      "transferSignature": "3JMjTjFbB9WBHkLXJLCYsUuLud4ZAHDfwE8HAoaNRUQh1i2oytFYH7ojYsni4hnawohNjqPQrv6v9dATaqWogXAg",
+      "durationMs": 27532,
+      "scheduleDelayMs": 3
+    },
+    {
+      "at": "2026-10-13T16:58:22.767Z",
+      "mint": "7E5jd5abk8epp1j5tATuNqSC6qLcM5hiFjvyjwB3CJHo",
+      "recipient": "2uiyCTpq83V9svbTKjFLq8VNBzrL3i2KccKb8LEzgfmF",
+      "transferSignature": "5vrnREUdrXYJqM1vTQTBnmTNu84s23Hd5skQNny6YVxdeCgkFBsYxnUmLKzFR1JV1nWRZjLugP8t9VSkNkHz33ML",
+      "durationMs": 27419,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-13T17:03:22.766Z",
+      "mint": "HSPLJHVd7i2nXBXyJyzaLzzCQM66voWLGyym8uazxLgD",
+      "recipient": "4UB5xKea4KvyGcm8iGdGVVJL34CN7RnWPC7teRcxheKR",
+      "transferSignature": "mBmTmw45YkPMduG8ZyJik9GejFFXXwp9wNdWzHmEFK12egSWEap7mRyTGgByKvPT6YuNeKq5CKysZZS69ucMdH9",
+      "durationMs": 27472,
+      "scheduleDelayMs": 4
+    },
+    {
+      "at": "2026-10-13T17:08:22.765Z",
+      "mint": "F5zfzcqEZktUECSomssq6654JWLCq9Uw966NpSUVdbKU",
+      "recipient": "BmFEMiVfsJNgkQLpFGruxhYv13d79xe3snWsuXKPKy8G",
+      "transferSignature": "gGtXABLnEFxUZ5ahK4AZoKmhxtESES2DqFPjuLs4MpTsXCfnMDapWHCQLGj8ehnJYHTtFikKMtCoEnaNuYnvq6j",
+      "durationMs": 27470,
+      "scheduleDelayMs": 3
+    },
+    {
+      "at": "2026-10-13T17:13:22.766Z",
+      "mint": "D9o5ArrTjFL9XPAAESK5v2v8kuEHkKZwzK25QZaRGxzf",
+      "recipient": "9QNqzmxjPbM6oG1xpUajHWbfPaWUJBA55Kr5pyKwEb3f",
+      "transferSignature": "2ddb12iYdeALkiUsDZTr8c6YgVMfMR3BX8yj6JCti2B7pTPmZwTswYAuuaMGepRHMn4kYLxDKToTB5f3RT8MaiE4",
+      "durationMs": 27470,
+      "scheduleDelayMs": 4
+    },
+    {
+      "at": "2026-10-13T17:18:22.765Z",
+      "mint": "5S58P8wcXSykReVABryfzSe4NrLG2srBUaRxpipoVhEg",
+      "recipient": "BbSQUwq3YkFjeQFw4DwXqvwe2gyWk79V3GysuNETce8R",
+      "transferSignature": "3JyM6H5YGN9NCeBYMCxm9UdxR34dZytDqc6fHVe8E78fy1z348UF3U4b9Wvsd6UK66KS81ZpnodnQHLJmhxJnMMz",
+      "durationMs": 27529,
+      "scheduleDelayMs": 3
+    },
+    {
+      "at": "2026-10-13T17:23:22.768Z",
+      "mint": "4bD6PsahhjvCUe9PLyhxDUUipDGKaieoLPQivr76XMUv",
+      "recipient": "6qNEXNomW83sAxNdEJduA3MwwYmwMhru9jaHMEUvkMEj",
+      "transferSignature": "5zBN18xYvPTgt5RtEhcGFhvF7KVeHJaZtWh6w67PmJqW9WrXfcqHgZjahZ7t7FFKZACeQ3Vggv5sYmQ57jzJFi52",
+      "durationMs": 27626,
+      "scheduleDelayMs": 6
+    },
+    {
+      "at": "2026-10-13T17:28:22.766Z",
+      "mint": "4NyBdHmePBa1XskL7V843dWBxYuDYruVG8KZBapRfBR3",
+      "recipient": "7RPHURw6Pacj4fbGfhNAQGPjCrnEVRMwwc8UQF2xhTdq",
+      "transferSignature": "5SPeJwagwEmUUoHFTT5HbHm93ZME8DHDduRatJHRRpL8c3cyWj1Nq1uPfb3q5SQ3LHx53QzAtNSgw1uhpwJ51d1K",
+      "durationMs": 27462,
+      "scheduleDelayMs": 4
+    },
+    {
+      "at": "2026-10-13T17:33:22.768Z",
+      "mint": "5x1Z4faJYRZRcFjEQdhDNBKyFJYgZNy6pJVgds7TVzSq",
+      "recipient": "A9e9w4evZ4415sz65728Ge8GZCmFtP5e3Ac7WXwGR3Wn",
+      "transferSignature": "WXdA6nnyUJe92WGTzECa7zpPJGsPb4wcBQihLFS5AEVMgheK2jNtJnFfQQRtw1fuU19XeBXxU9RVSf7ibP8hXnn",
+      "durationMs": 27550,
+      "scheduleDelayMs": 6
+    },
+    {
+      "at": "2026-10-13T17:38:22.764Z",
+      "mint": "gxbMfAs6v7vVzZiuUruNRLKZ5xWV6jbAoyNBtND36HU",
+      "recipient": "BaXavvvHKnMhrRYEaKZx2D17Jzy5rJBEDewFxyRj5ZBg",
+      "transferSignature": "2weFQNwCVBUH3PrJAM2bax5GNqw489BcNcZKeZQtJZzLPzARezbgFVXVd92JKfQ6g4JPk8teKL4pGCuzFWtPdhZF",
+      "durationMs": 27472,
+      "scheduleDelayMs": 2
+    },
+    {
+      "at": "2026-10-13T17:43:22.773Z",
+      "mint": "BybHHx9fiKRPMv6skAd2RmEGE78pUZQNSLo2G6wGcjrm",
+      "recipient": "52CQSG9EyHrXf2Ttz4hYHEBgwu2Sxx8it8qWLCqEkPVZ",
+      "transferSignature": "5HR7Gcyk9pG68ZexCCqk372ZCHPHXXEArg3LahKLgt5yg9zDqt4ArWApKmmeQcaJP9G3fGnUBHwmoFegesPvdfzV",
+      "durationMs": 27578,
+      "scheduleDelayMs": 11
+    },
+    {
+      "at": "2026-10-13T17:48:22.769Z",
+      "mint": "3YDuRHojSWGAdNKZCn2kB6FWyBiM6mfDqP1ZCLJuuw1X",
+      "recipient": "AHzU7X6nVbmxnCQKXTNxbBgtj52aYmxoFwKS8b7nHHAF",
+      "transferSignature": "5rRuZq1pv37yanjt4wb6A4syWRWbez3heABN6Khq2RxZC8x7fchDWFV8jo7X9em7VAZGdU36kCsCPpkMHJcXncvP",
+      "durationMs": 27481,
+      "scheduleDelayMs": 7
+    },
+    {
+      "at": "2026-10-13T17:53:22.769Z",
+      "mint": "EUXSzeLcg8qRCK3kDUwVTQh59UJQMrMDvV7BSbDc1YaL",
+      "recipient": "GmMHfMWqDUjjPmUzvxwo9HiYdF2aykcdz1D68uYbAVcd",
+      "transferSignature": "4pAo6A3eUouGdfNQ4FSWGuLp9CdrFDhRTVU25QWJrAbqELcbCc8KTyqYVDvLPyLnZurJisG9k4DvDCZq8J5hn9AJ",
+      "durationMs": 27646,
+      "scheduleDelayMs": 7
+    },
+    {
+      "at": "2026-10-13T17:58:22.767Z",
+      "mint": "uvqXzP7MTbbBH5qNGMGdSCjBKn2CoUvRLjRZtsJVpSp",
+      "recipient": "C5B49Kq38SBRgSTGh6GFBRVC5xMsDm9DHQTXyow6Aghj",
+      "transferSignature": "3EHBNZArU4SPiNzdHhB4JwcDytUJLBim5dYDUpTBXktPAEtWaCf2mBevx6PEct6xZYeHGnLELSCp3zA2ydAsKthx",
+      "durationMs": 27486,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-13T18:03:22.769Z",
+      "mint": "DJNRmgawHB2q8YmSb5MQGHny1D8xv4vDsBnkd7cqyJTC",
+      "recipient": "2oxqG4qUNG4DLfkK7XiuXrgr7WRMiwr3uhcK2UHeTDWx",
+      "transferSignature": "2MZLrQUQAJB4VFUf3KbrDYVxvwK4L4UrxuiUM3nJ9uRXbbZ9RHCt8UgqavJFa4uch8J9ZTfabYTm9Eunqk4dQz7n",
+      "durationMs": 27491,
+      "scheduleDelayMs": 7
+    },
+    {
+      "at": "2026-10-13T18:08:22.764Z",
+      "mint": "DQg4VEprNiye2S9eiq4kNUtVxre1yZwVUfRGAFie49uY",
+      "recipient": "12hF4ix8cr47pPdhuJv8ksAnCXcPvKAxAAhKY2wuAQea",
+      "transferSignature": "4nkMQV5c6Gfej6Gom9BgduC9k8jrLJHazL2RotQdqsyep3k9d7fn9pBcBBJJFSJ4s19vF3awVLYACjzcatYbC3g",
+      "durationMs": 27476,
+      "scheduleDelayMs": 2
+    },
+    {
+      "at": "2026-10-13T18:13:22.763Z",
+      "mint": "3Za9kf6DUj7QRJxdMd8ySPdVJ19Xm3StUN57uNSHRkFj",
+      "recipient": "Cv3GwzKmjK6NSLaDFQrmx1zVmY2WPqfjPyd4omPe4kxZ",
+      "transferSignature": "4XsqA2MQM7qHvuBnB7aPSSXuWL3P1KXuir17tH9KDEYbFj2vEqLJ8DAUsYyGmbxxCDbZf5kuq76bFetkvu1XMYF1",
+      "durationMs": 27475,
+      "scheduleDelayMs": 1
+    },
+    {
+      "at": "2026-10-13T18:18:22.767Z",
+      "mint": "EUuFhqZPfFptaVSBtPbDi1KKuqT1PqAenNNXCcd4mppa",
+      "recipient": "3MED1DDPvstGuQZFiYdjXKkP3wxfisA8TSQo74LDz9o2",
+      "transferSignature": "4h2CuWaHnmTeyvoKDjfnFpXGrvxCWXEuLcaeoeKf5UXwSaHfB7uUu6FgERWqVCwtyiPEgfotbBQaiMvrYoErLkpq",
+      "durationMs": 27457,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-13T18:23:22.764Z",
+      "mint": "AcZsK1oh6oWqz93riN1qe2Hp9DNrbeaZtnng8VSqbXLx",
+      "recipient": "4PfFLsxxJfG4itTQzLevmTxju2zHMz8YbECEBD3KthoA",
+      "transferSignature": "3ZxhKH8qCo7mHQ3Rbjpx1hmGP6A38V6rxnghCa2wGgwPeoNU5vwzATqwkWMyFq3gakU1rZL5BsSmJRzEx3kSQhZd",
+      "durationMs": 29386,
+      "scheduleDelayMs": 2
+    },
+    {
+      "at": "2026-10-13T18:28:22.765Z",
+      "mint": "CibjUdPDSfF1KMUjL9gMBfNkJC5ts8LDd9sc6hQKX8s6",
+      "recipient": "7RE3xXC6sBXVtZPcf8jzrAvkQ4fCWbDteejsZGx918Z3",
+      "transferSignature": "2dcoSeoimc361NBomaRnrdGWqWTK8MTGNdqgJ2QKhmo8ym9pUJtFbTbDMHHsF944ZsG7oqYchd8AUHMFMGk67Kou",
+      "durationMs": 27469,
+      "scheduleDelayMs": 3
+    },
+    {
+      "at": "2026-10-13T18:33:22.767Z",
+      "mint": "Ax567TeHLSUdhNbmaUCCgVqNaLn7Fuuf5B2275yZfzE5",
+      "recipient": "6i4eMBMUPK8jofahkZMpqKP8hr3HG4AeFih85aXDoUkJ",
+      "transferSignature": "3oeEXjf3EKQJzHaXeozLoGoPfLF1WU9YjkdMbnHFFamx2J72hBrs1ikt52yDy7PxPmMiBgzDdwaqcpo5UMSMG2mq",
+      "durationMs": 30563,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-13T18:38:22.769Z",
+      "mint": "DoTRNL4jxW9Qt1FYgyh2KufeZ7K1Nm2xcZB1Vj58t18x",
+      "recipient": "GUS21Z6ZGGifg9TnfKJm3PEQLkCbxYFdwh9FSPYnbB6i",
+      "transferSignature": "5v3kanrwzYzrNbykc3PLSUmStA1Q3Suq1hSxw2qEd7LibN8j86dRm4WEo9ta8Zqvde5WLP9ch5jm6GJ4mnhhFHSh",
+      "durationMs": 30454,
+      "scheduleDelayMs": 7
+    },
+    {
+      "at": "2026-10-13T18:43:22.768Z",
+      "mint": "bg4ouxCy8HMhW1dBpffCmdsbqnLJ3UAQUFfgfQST2YF",
+      "recipient": "FUb9Fjt22QWBx7RR4VXCu9Lo1RXgoypsjuweXQHq1YSY",
+      "transferSignature": "VGK878FJPL3RiZUn4h4GmVGxeY1XQtqybn3FR8jzdbT4ERdoMvuPBc9ukzg1g4xg4BMm3SUKZ3keVgbBWmQMacY",
+      "durationMs": 27525,
+      "scheduleDelayMs": 6
+    },
+    {
+      "at": "2026-10-13T18:48:22.768Z",
+      "mint": "AvY5NfgBzGfFa1AaEnMNM2Qd1mPdArs8GWhrBcgm2LoC",
+      "recipient": "5r9orQxC1Nmce8GysnXds82N23UDyQRScQFTGpJcFVC3",
+      "transferSignature": "3HrFFEM4SPiqVSBym6PLWjXarK7qFRf6UcV9Ch9Q87cJTih9FWC9ugJURQS6ViiPfWmGJzFPTzdVb6NWP4uTgFAM",
+      "durationMs": 27566,
+      "scheduleDelayMs": 6
+    },
+    {
+      "at": "2026-10-13T18:53:22.767Z",
+      "mint": "8pajMhv9frDh3CFGgh2khKLuWAGAmuh5XepiDYfYANSx",
+      "recipient": "8QumGkVM3ax4PWjb5JdHCD1Vwey1ptGGueAUnnUtAz4R",
+      "transferSignature": "65k5shY7tgeQspwDaYL14tz4Bk4DoRBwpZAL9vYQH1Pgs9XPn8Ur98ne7HSXuM93adHoBQfzdSoqdm9fe5URMDni",
+      "durationMs": 27530,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-13T18:58:22.767Z",
+      "mint": "EGhkdEKjzsqSbNZGqqVfhqjoiiHjB1QZGUrzjBS5v4ym",
+      "recipient": "8VfgVWnJ8ZKqSMA74EpZeHgRrsaofs9U26oiRC4Keuzo",
+      "transferSignature": "2s8eXwZTthSoK3TQYqSGR9vkAvNvvyURAFhx7CA1HY3vQetQ77gaSQFvHJPMz9QwpFUgkFzrH58hFqN9qRs778wz",
+      "durationMs": 27375,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-13T19:03:22.770Z",
+      "mint": "97NnrWfTmMjyqThoYmFYVRF8GpxJbpoYbL7xyujqzi6W",
+      "recipient": "CvoBfYhrzTVDNHftGziJR34evJTKxwTqcavMfS6bzmqJ",
+      "transferSignature": "MyHaPutPwUnJGxF1XoQShaPNsgKPKxPK2jwaiYMCjquEVbqdcvCYCdp5yJq5XtKjebG4eQrdoaUEfshTJ1Bt7nf",
+      "durationMs": 27555,
+      "scheduleDelayMs": 8
+    },
+    {
+      "at": "2026-10-13T19:08:22.767Z",
+      "mint": "2icQUBy5RNmjiyUMqFCw2MvmWcipf4BJwE7Eqqu1f9YF",
+      "recipient": "BveG8trcbvhgtzUNMkbrKEK3pdDsXWymFhuhX5FeqQ4s",
+      "transferSignature": "cQU1Ex5VvnqiXXy5p1P4pVnHu5ZBkyJCxEeDMbcUqEgapg19tPwXcQL3MsSTwToBSjFU1aJnXKU1oX4hitoXuTa",
+      "durationMs": 27428,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-13T19:13:22.773Z",
+      "mint": "8V5FWq4BdEwmwaZKCCsMBb8DU45YiCSiDGXfCxJ4qCDS",
+      "recipient": "CzEMuDDqCEpyntpPGrXj7DdJKyqXVeUbBQQnLE6t9hxP",
+      "transferSignature": "3QmVWxdZzt5vSt1rgLun9ppCNxbAVQi7BvK2x63N4KNmg32bWPLpZ7gCrUtQutVU2CDtewQyZXBsMGiAV4aidFLy",
+      "durationMs": 27451,
+      "scheduleDelayMs": 11
+    },
+    {
+      "at": "2026-10-13T19:18:22.767Z",
+      "mint": "8GqhWoG9Npu1hhAwhupuEuW399Bym2oBMzwjXkfht9DZ",
+      "recipient": "46AQAX6s2sawNo5gfRT5JZgLFZBoQzV37aiib3ZUcCzC",
+      "transferSignature": "587iA7hn3csXvtwYgGin7ZnYekP25kWcy9Qq2gKVRMLeNnPnY33fmVnJPaX28iDEs8n5RrXML5jxZMzAiMBS3aWv",
+      "durationMs": 27549,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-13T19:23:22.767Z",
+      "mint": "6hrJXzAAHgJqJdYvvtk2RKzt1G8Yn6F6D9bvYsLUKSV6",
+      "recipient": "AGyijfS1UicTxK46c8w1PG5SQHsMA84ZGrWTvFTZkGQa",
+      "transferSignature": "5tJMiQ1F6oke12PzbMyafxfsggbjbdtqdRUTWYQp873fcVycLXD6Cfcq426XvdTTQyAtTfMMXZThc73iPkjQzhTn",
+      "durationMs": 27506,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-13T19:28:22.769Z",
+      "mint": "9kjCguTfhsVDdDz7QDzvRvz1rSkCTq3jFewgA6xs1Ut7",
+      "recipient": "FsMHMJYRHyTvMGaPZsESDUss6ZR8n4Df2hQUyASxYzZg",
+      "transferSignature": "5gPWju325uTJqEUuAorgYXd1YyKWxGZdjE4f7qLP9uWMTDb6t2QkcKeqADt75pde1dYEKjUDw4hAr9841FwZTtej",
+      "durationMs": 27496,
+      "scheduleDelayMs": 7
+    },
+    {
+      "at": "2026-10-13T19:33:22.769Z",
+      "mint": "AKh2KCZ9gp8qyhs4opX1vuupYkHujRKeE6XrDWH2XAcV",
+      "recipient": "AMoYgTh1DBX1ESt5KHqUxuxX4dwD6FgaFqveX8bdB4sw",
+      "transferSignature": "243TnEiUAimMjsgj5ejHAVa6K6zQ7dYTkL9rwo1JZmmaxFTjbYDnzzp5ybvJA7xuWJX2oCus81W6rsCqoYqV7nnJ",
+      "durationMs": 27522,
+      "scheduleDelayMs": 7
+    },
+    {
+      "at": "2026-10-13T19:38:22.766Z",
+      "mint": "7vUHEDRJdb6zme3E42HWvmdRX7QVrQh3a6DVwuaEwwM7",
+      "recipient": "3mmzVXxcPihVazKPNVz3m4PFcCvy9YyV46bUh15vCugZ",
+      "transferSignature": "3e6rkq9YLZUwqrY39SBAQvbQj1REDN5CJvQ75aZxoS4KjAhyhf4TaR7SF2ZuTFYpYJjVYBDz87bwLN1riwEgBEvQ",
+      "durationMs": 27551,
+      "scheduleDelayMs": 4
+    },
+    {
+      "at": "2026-10-13T19:43:22.767Z",
+      "mint": "7qcurEPCscuyCdzHrr3M1V6ZUMRM26ha2WdqSCXvLAQE",
+      "recipient": "6fqDjuYCTqyLKBEb7JSTiZ2aK3HyTWpuN3LzqMzbaV1s",
+      "transferSignature": "kSipKfZgbYZvZ6RPkarz25T6VGF3x5AyJV42cEFnSGSoRCK8trCZX32rUspSwh1SwF4wJGhdU3v6c1yKjd5LbXy",
+      "durationMs": 28488,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-13T19:48:22.766Z",
+      "mint": "E57ZENd4VoX6MdFCEydi3RpFDgSmTCCoUbXxyGZVWQnx",
+      "recipient": "3doinGx2A18M5yGUiwirT3XaQRFwZbPGbsgkYQG5NMHX",
+      "transferSignature": "3tXjp2QjMrmm6qf7f7yz5WkpRvgo6WUgpCwKJTN8yqc63w4TuHr5uAH8rF8x36b7xLpv2eJUZ2mvSFZyi5QhcK8K",
+      "durationMs": 27523,
+      "scheduleDelayMs": 4
+    },
+    {
+      "at": "2026-10-13T19:53:22.767Z",
+      "mint": "6Znv9gBmkn5YLGBPuLDaEsNa4SNnDfC4AqeCayECQ9YU",
+      "recipient": "DnUe4JW56dR8HC6iFKaCWYeduF8aa1UciNcRTGiYyuyd",
+      "transferSignature": "3EpFmAR4RW2E88m5SqmSAKHWWRd9rhWTBCCQzjsKFF6ufcxYw8ogNoSTNneChsbvWqBB1jMBCGYy4fdhAJweSaxx",
+      "durationMs": 27642,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-13T19:58:22.767Z",
+      "mint": "2rRBCZBkkap7jsvrEggfCqwSa4pMiWBhfXcXLYB4xPKJ",
+      "recipient": "Fjk9MXrrq572dGMo3nABwyHbpUj1NJc7G8um8cmf2agG",
+      "transferSignature": "3h6rUkLYRfvpearm9V6Nby1dJnxV1ijx3XwPpMpNJczNJZjsqAJSX12E3B2FasaAzpsAdCgN1LiBrv8wpQqEsiwo",
+      "durationMs": 30484,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-13T20:03:22.768Z",
+      "mint": "v3diUaT4k9CAFw2XUt1Uakq4kS5cAgaKVYc9do3vWPS",
+      "recipient": "8V7jQVLcMFucN2DMAQ3CAck61uPbxBNZsm86DEzvaEb4",
+      "transferSignature": "5Pv7Dg7enDDtJEAqnxXFA8agiAfTHatLaF5pifmy1MHmW5abYBQAwWb9Jx8qcEsFXnXRuJRYAbPoFVpJMtS6dmoP",
+      "durationMs": 27514,
+      "scheduleDelayMs": 6
+    },
+    {
+      "at": "2026-10-13T20:08:22.767Z",
+      "mint": "AS7jivr52mmq3EuHzH6WHodwGRfeC8N9VG4YKU33tQ1U",
+      "recipient": "EZZKtS4Zo1YfaaNFJZxUsQNufg9j4K5pHiRgmFEJM6YN",
+      "transferSignature": "4BazioPmboHEzYkncWCYB3CureHGMBEpuWLYuoJ6BmBvCKaDHSa5k8XTi9P5vbcCZPQskZjeFwBjHqXJi752Przy",
+      "durationMs": 29401,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-13T20:13:22.765Z",
+      "mint": "H6A9ad7rCvefGzv3hJoSwyNY7S7dtN5HjSTRDNygZVe1",
+      "recipient": "FPynQL5TgFyf2wpGihjifcRY98M246JnFqBu5Ski3YMu",
+      "transferSignature": "47XHHeJiGvu5zbe3n9eWgAarWoc2HJ7aQp74YhTeaDAcgZnCS2w5AxEVSrsgsB2156WhVYHeioPY6tBEJydjehm1",
+      "durationMs": 27485,
+      "scheduleDelayMs": 3
+    },
+    {
+      "at": "2026-10-13T20:18:22.766Z",
+      "mint": "3fN9xqxpHwYuwLx4jYi4GxfD7Urbm6AumSZcF4XQ4LaQ",
+      "recipient": "B6RsuttVcBA7yP6h3ks1SCvDDJzF4NUwkJAYRic1f9Yt",
+      "transferSignature": "4ou3pgySAhzKkEsnwYTKwLn8USnYN4k4nqZ4fQPdjMqG2ii3hiehxs7e3H81GzmYpeM9R9tC2hLoy7VwZoxbhJFv",
+      "durationMs": 27468,
+      "scheduleDelayMs": 4
+    },
+    {
+      "at": "2026-10-13T20:23:22.767Z",
+      "mint": "Swdxcs1KMMSe4xpFhZvmdqcbBWryskV2xuPpowQCtp1",
+      "recipient": "GmwTFnijgpmmKXJ9Dn14oa27EZTLAWvjVpo6WtXB18fi",
+      "transferSignature": "331Xov1KfNBvrcjU8Dv55QtEgaAxMCXxpFvhhSrycdotpgfvv7riofmzztQeABispSdf3euw5sA5TDXk44s6hfCV",
+      "durationMs": 27571,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-13T20:28:22.770Z",
+      "mint": "3BWsydb2ViqTGVzXwTNvmnMQGgQoS5SuAXRq3jzcPBSB",
+      "recipient": "CnN85phWVis3dUFbEpauoFuwRgv5M8G61LGYQb5JQdfv",
+      "transferSignature": "3EezAzSJwE1mzp9QHEv9wz8M15BJDeeu7r2m9sSUeYt28nw5914E7A3g9T6Y1RCmqraFjYrYWEPEeZDvVewi8BJb",
+      "durationMs": 27651,
+      "scheduleDelayMs": 8
+    },
+    {
+      "at": "2026-10-13T20:33:22.768Z",
+      "mint": "J36E4qxvaoHGvxFAPT1onJVwaN3vNeaKnw5DcysVqJKi",
+      "recipient": "Ci6qJmQcEA2WXCgVWgSHJ5vueWzY3j56oVYsp6WYehjx",
+      "transferSignature": "5hRzx1wPGzPJeVbmVq2GG3Rn2pWe8DZZj3GfWHsDQTkfcB5zacCMjkkvnNzSDabsyRvnsZ6LHi9ZmLEfmLEh73VX",
+      "durationMs": 29531,
+      "scheduleDelayMs": 6
+    },
+    {
+      "at": "2026-10-13T20:38:22.765Z",
+      "mint": "GjPV3F3L5PSNrfkJbvYWSNraBSDpUBS7QgrBPCKQ9E2B",
+      "recipient": "4d81aQc9UDyAbd9cqg9otvJUF9wvgA7nDjpXz1Y8oHYH",
+      "transferSignature": "2aXwacM4DPivjLcxwKR5EJ6UB2z4RzKjgLJ8StMG675zm5TKP3jCWugL9JTStMXk2FrqHFnzcUX3kaFeQHkjS7FU",
+      "durationMs": 28439,
+      "scheduleDelayMs": 3
+    },
+    {
+      "at": "2026-10-13T20:43:22.767Z",
+      "mint": "AX283vt5fHjXWutxFpvX4yhL6mGgJB48UJdgnoEiK27M",
+      "recipient": "4EvL4jz6ADxvd2DatPzPMVBeWCpasYDncVQUcGs9P6br",
+      "transferSignature": "4pK7Ahw7nqKw6FPhTNrCxDne6qNS633oQm2iz6rLGPFeLPt3vzqxmKQjtFFir7h3kFAP3QQf2jmeGVr3wtHruvoy",
+      "durationMs": 27463,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-13T20:48:22.767Z",
+      "mint": "AwNNnHZhZYfUZeN5Chdex9Jr8HsTp43nBRUhXWPuuVkz",
+      "recipient": "CQnqnGm5mx7isot9AaghhLW9pD3xVrWNYbF72oaJx3Un",
+      "transferSignature": "3nG4yBQcvhp4WoXny94U8vJbheestuoQcej6WzypUNwgWDfE2qhzTLZ6JAVdsfxXDm9GpTzNP1kTP9JsEb8Hc8UH",
+      "durationMs": 27475,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-13T20:53:22.768Z",
+      "mint": "9bDdAD2dhG8XhxpLD982derztrYjsse2GghqmefuTX3y",
+      "recipient": "3wAMHMGrisCHU9MuzFNqMJyiuHgmV38jwViiuNkkbTq3",
+      "transferSignature": "3WLKgRpLLKBTPJU8sLAvxa16Vt7zAbcwEVYE6gowVBqW7UPf3fp5S8SSbJJB8GyL939j944oDWS5zx5Gw5ad4hPN",
+      "durationMs": 27469,
+      "scheduleDelayMs": 6
+    },
+    {
+      "at": "2026-10-13T20:58:22.767Z",
+      "mint": "HJ133bwTrrUAyds978RVSg82S1pG66fMpzkd1DbGPYMi",
+      "recipient": "7DHAdEZQFotbZ6c5y2uKSn9fdJvhQMygKMpTMBWZRbYW",
+      "transferSignature": "V31oUrf1goAJSGGyCTp5kHbPBHQwq6nQ8jdhgmxkYrzzac1x4LDMmYqs4yoe2nBATqvDsz9sjxgWSaAvFpEGb4F",
+      "durationMs": 27625,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-13T21:03:22.767Z",
+      "mint": "4avmBSMZJ3dy5fVZggJN1JXaeNXwGvVqcoVjaTNXvoFj",
+      "recipient": "77A6BaHbW7rCh94R3MSG2CkrBJSPZBZmfNAat8hQLv5G",
+      "transferSignature": "5VGgFikkj5kyBZPayr6F6oSWszbCxGSfSZ9caRBxMZxnUBdLYzV55MiQq8GWjTqaYsm9mBRgUZCidyDHRdDwF1zN",
+      "durationMs": 27651,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-13T21:08:22.767Z",
+      "mint": "72mVN2mUepTNe29AUSrXMrdN6GGZrUkNdEWvcYi8Q1nk",
+      "recipient": "Hm6XRoqNS2pUKoQ2UDRyDdxP54w5peUCeTHVnwzqJESw",
+      "transferSignature": "XgeLHav6eoXhFsNBwQsAw7HBSYvkKAAQtUgYAyeTEG2EoC8dfNvD8ziKcKuFPjdQwQrEyoiaeHfsZNeDWC1EjE5",
+      "durationMs": 28465,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-13T21:13:22.763Z",
+      "mint": "9eXEKY3Dut3rWvoXLo6XrnD5Cd7Q1Pje2mqU4pCxHd3Z",
+      "recipient": "J6LQCWrfBBnpZMSXxg8VR2AwWE8LNzqp7mwS3vkFoXLk",
+      "transferSignature": "49fdmothNLFBvHwkrzfZDfQtSDQEDmUncgdqV1RPWunSSSjCCKMjpiN4nrZ98Fq1HQbMsrWSfUvtAxwuVBkZR61y",
+      "durationMs": 27424,
+      "scheduleDelayMs": 1
+    },
+    {
+      "at": "2026-10-13T21:18:22.767Z",
+      "mint": "FoKHTHzXkJYtTe3W73QoUWBJuLHhpS5JRbeksjXda9qb",
+      "recipient": "5r8VNhaw9UfoTUYnF36C5TeMKTphsGzjR8m8Avu7TSNw",
+      "transferSignature": "3M1pH7ABAdhDHyknZ7o44J1E9byhSRFsvRAuVhbJc4vt2PPkKA7RqeXZYyJm5GeUZwzePJ34hMgaK83TXeVdbz4C",
+      "durationMs": 27420,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-13T21:23:22.764Z",
+      "mint": "3GEJvC3AiH5aSnmHmF1Va28DbqmSBLnhrR1nAkVbpK1P",
+      "recipient": "GVHwtuMQWwYqNjT1zLRT8iBsiS4vNmtPtc4iYCW78TQM",
+      "transferSignature": "4pMmFjM7cuuX2c2moYuTUkDj2PuvbEx6LZp35LpiDAhwk3qNUqFojSo7bcYvpUZn4Yb1cnXY8KEJJSaLF3VBPBCP",
+      "durationMs": 27455,
+      "scheduleDelayMs": 2
+    },
+    {
+      "at": "2026-10-13T21:28:22.767Z",
+      "mint": "9ZeBTAoMxKd6qSNkhiRLYaAPQBXLy33Cqg7SLN1wCYYV",
+      "recipient": "CwNQTkQQgs6BLjw6rdQQrb59X6KdPKHCRLtYH9KPk5V2",
+      "transferSignature": "zoqSscqepF2Xr7cEEXVNVDNvdyJkv6DcRDuXUYkNkq5p62HATRgD2951qrkg7q9MvKmyvKCQmLoidjH5Svmtfaa",
+      "durationMs": 27466,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-13T21:33:22.778Z",
+      "mint": "3ewzgmEviPNLr1xkwFqnNVeijjjiQgHwGhCwQFvgLAHM",
+      "recipient": "38eYzKNcPZ86rfsp6P9ZvkR33FuStChZ9h29pja6WkgF",
+      "transferSignature": "66Lmbb5YothSkRxc1UcFtfzaf2iqtoKTc4H9CupApoYDFht33ymA5CeBHfebKhkyFX7zU3d7aqYKncCd4taS8pDm",
+      "durationMs": 27461,
+      "scheduleDelayMs": 16
+    },
+    {
+      "at": "2026-10-13T21:38:22.767Z",
+      "mint": "D4tbyBvUhQMnWuWGuhFptL4wf8eQ8W2p6wh4NmRM7qy4",
+      "recipient": "BUtv9WUmsn9ahREahtNvXHN7H82MNXZ9CGTZtguG6F13",
+      "transferSignature": "2WUFt7zSWdkDQAdkXiJyVfPDbiUmA2ZUVPDL4HLBriaj9oMbVc45abvh3GYj8pxeznez7vZfy25gF5tR9PjBfTch",
+      "durationMs": 27472,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-13T21:43:22.767Z",
+      "mint": "5pMyii4Mop1JC12CeGKi4rDc95MBcdFS3dNDdWD3rWZU",
+      "recipient": "FDKVAZ8SX4pzNyUkxzy7MRGgptvvaqy8WXQHs8xm8Tvq",
+      "transferSignature": "2sLTDWHXm43j1yJuTUQRKBthU9FVYZo3Aqw8X589CcngHPa9f62Wfqc38QN8CWQefFfJCmhW2PUkrTSHBR4v8BBN",
+      "durationMs": 27597,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-13T21:48:22.767Z",
+      "mint": "7kRFMChnG6uBPuA5S2A57dgZ68ERBLPrDikFTZe4wWUr",
+      "recipient": "3oy9Xmeh4ipQNd51DKR4pQMqpyTYhvZbBMYhdQ6U7kiZ",
+      "transferSignature": "5pd7LUqfqjAP8MocKm5jqXWNoTSeGujVfXCTC7s2Cn3rgJWRX9BR6YAuEdbeAD4HCdkzoA5nZVTs4HDDk933ihhM",
+      "durationMs": 27620,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-13T21:53:22.768Z",
+      "mint": "6qoZKaLso6yTMkxq5NRpBCYXeiynysW4Mbr4eqmyJu5o",
+      "recipient": "3PXJHzBL4Gdp34ziKm3s4tzNyJMV9BxXdaAJfJBEko3R",
+      "transferSignature": "5csMQaMWniizm984zW4gnauDvBLLJQytEfUQ1WgLQPhAxqFr9M9xbzNCZq6wzYAZTV12DgMAYZjr97Tm7q1TLGFf",
+      "durationMs": 27471,
+      "scheduleDelayMs": 6
+    },
+    {
+      "at": "2026-10-13T21:58:22.767Z",
+      "mint": "BWqSsyjLmox2SgyGSoCB3RQnqgJ1gotDbt2JduYzkrmE",
+      "recipient": "FvwbSPr1D6Cm1kbjsyq7pR59gHW5t848WqXQSdmvoJvE",
+      "transferSignature": "461R4wwEQDuiwHPeumF5Wxvzx1WHKhS1sSHT3MPhhEXMnmFjTCU6MQBh8AZCNNN1P8521HLmZ4oerjH89SeNjbXu",
+      "durationMs": 27466,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-13T22:03:22.764Z",
+      "mint": "45YJcirVn1JHeqvfCdJr2XG5QTattcgUMJnZ3M1jZRk5",
+      "recipient": "3ypQCunxainWaJ5AKxDEBWfgUdbvEMtK2EYeohD8V1hj",
+      "transferSignature": "2rd3ybwWdQMsowq1sZomnHf6c37fHA1rLjfsLfu7r8iQ2nvwRqnyUiavBritQ5NBR6foQg1gWq4zBkS3MuCU2Yc9",
+      "durationMs": 27416,
+      "scheduleDelayMs": 2
+    },
+    {
+      "at": "2026-10-13T22:08:22.766Z",
+      "mint": "4DxCTjjsmSVcqTLcyL5sJjWj5tQGKue8AWoVrbRakexZ",
+      "recipient": "4FH7o13tbQJ3R1wxPs8zsqz7cjxUtDoZqh3XB11x9qtT",
+      "transferSignature": "4NUjMfb8v43W1MFUdhLCcRgDnrc8UetLdDbrWisv6c3V73nB8vQuHn2fCXyS5zL4gpcddHjBPe5nPwHUQuV3Sbha",
+      "durationMs": 28464,
+      "scheduleDelayMs": 4
+    },
+    {
+      "at": "2026-10-13T22:13:22.767Z",
+      "mint": "B8nkYc55J21opg3HLNsSYKCFGqNdiwkM8ReQswn391By",
+      "recipient": "2d32oUciiYmdDoDiqZ6e9ZwMUaJDK6rYFVCGpkZ9PNgz",
+      "transferSignature": "2sXp2DezoLqTrjULffvwLvqBsExdjnHv21NXPbuyGMGru68oLBbvR4izGq6i8JATFUHAFLQnx1kSUHgaiJz6k5mS",
+      "durationMs": 27976,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-13T22:18:22.767Z",
+      "mint": "BquED2ghUTt5ErjqUZRebTBsLxXSUSU1T4cRD5o7xYU8",
+      "recipient": "FEWb3goch6GbiNWTzb4UmMzijDLibtZqZPTzLwi18AKc",
+      "transferSignature": "3rMb7LtXe5Ah5R53FbcaV69Xs7ue3yvQagF3mWEbaV2YciqD8tku31B9kYwZb3ySj7k1r21LPg7T6aV5F4shDQ7B",
+      "durationMs": 30442,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-13T22:23:22.766Z",
+      "mint": "6odiJtYmRa9wJsTnnrCVenjT7bQMyhfP8hrGmNPkS8Y5",
+      "recipient": "GUhc3j9tBSHqvfrCuvNwxabSjAUA66Tqt5JprF2ZB2Dk",
+      "transferSignature": "5yFHJbea9bHDisKUWXNHQLyAW1mT5smRdseiA4U64ES3BYEtxb4LkXLwq88KFWAPCvut9FRaDqCMR2DTogtuJLSq",
+      "durationMs": 27462,
+      "scheduleDelayMs": 4
+    },
+    {
+      "at": "2026-10-13T22:28:22.764Z",
+      "mint": "14HZfW9eMZ9cT1jh3omvavc4xSKPVcTbxz5jCnUu9SiT",
+      "recipient": "6Dg4wKfqtq9GvPELjXWD7uLcTKzBvcbJJgtwYGVtQv3Y",
+      "transferSignature": "5kDkKjcXsMWdCvRke79EXxs7EBwb4XhpJAWo4sZPE9pLEMGEqMSXa17BmUVTLoUX6DV88f8Z2nZqc4wy1H3SYhtn",
+      "durationMs": 27385,
+      "scheduleDelayMs": 2
+    },
+    {
+      "at": "2026-10-13T22:33:22.767Z",
+      "mint": "H3e671ybL5Wq7Ycuj39PjYR755oqRiEfR5czT5vq1yuV",
+      "recipient": "9Ays4e2piM8PT5yVec4uJr7Dqk6QJzkQUkZZXMAejK7U",
+      "transferSignature": "3mHDhSt15iEb16d2Vx4Cv1GK6oHQ19WmAv9RyRVoipnrUudCQRHd9Zev9BU63LhL9xuek3CSkUZZwiRB1U9NBXvn",
+      "durationMs": 27551,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-13T22:38:22.767Z",
+      "mint": "4hPmuTE4riXnPNsybroZzu2W1QJ54zjhCtURnX62qjSu",
+      "recipient": "6oTRKN6rrnCgtUWFmFVjyqdS5rsSMvwGUhGpPLAk6dG9",
+      "transferSignature": "D7iHzMNxjyT247bDEnrpioktf6Aw5aWSn9YkY2nymTutsAg7NuLyvBrmkSDWn1hNQiMgvDhEpjf1d3xcm1ivuV1",
+      "durationMs": 30268,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-13T22:43:22.769Z",
+      "mint": "F7TVgMJCz78a6LqR3Jrhh7zw2UZpoF8kbQGDt7taYcnA",
+      "recipient": "7cUM4MSDsidvX95Ne9NK58S2SDt7bNk9EBbZTcficpqu",
+      "transferSignature": "496gAmcyEHtW8SRz1CzafdUZvd6fdWnD915RYJC8r6LJkSZ1osEQdXXKBMhfKP3eAaKZy3hFu5SVVvFhWNZ4zj2B",
+      "durationMs": 27423,
+      "scheduleDelayMs": 7
+    },
+    {
+      "at": "2026-10-13T22:48:22.766Z",
+      "mint": "Ax9FavcHiBqap6gxznkwubCAcFguWaQJ6DHmQRgsoFva",
+      "recipient": "2ebGu8NQdnA7s4o1gTZqpsdht9WYpSMYcULqVQY8aXRx",
+      "transferSignature": "4Y8z89mUNNhazRJ5AiSxRtJmmKscyf6xCEsiV3VA2focwxYBDL6HVRZZEBZJmT5pFu2rEyidLCrDPgkKPvYjMdRk",
+      "durationMs": 27404,
+      "scheduleDelayMs": 4
+    },
+    {
+      "at": "2026-10-13T22:53:22.764Z",
+      "mint": "4fdFa7H2AqECdr5sb2fNow7WeDJi6QUiTfb5sQthuKmG",
+      "recipient": "8fey7Yufau4UmXmcrVa4HNFitEmErPRFyeAh89yf6u67",
+      "transferSignature": "2zyB4fT4fvXUJuXvQLmbQuymEeh9dggcBAs2wqBxcngSgg9PqEWGYi5oF1SPVZFxYR99fZcv8kZhY8xiyiaxmgdn",
+      "durationMs": 27410,
+      "scheduleDelayMs": 2
+    },
+    {
+      "at": "2026-10-13T22:58:22.767Z",
+      "mint": "HemMauJ9perNd3ESMJzjWJiSr34rexEvAbYDRqbvgzU2",
+      "recipient": "2ioQASSbAmBsNE93J5MfM1SXDh4JLYcazycCHQXSuT3q",
+      "transferSignature": "3xE7FP1HsD7382W69dJR5abaWVmF5cP3qT4wEaGrAznpYXuqZ1feKBszrWj5PhAStw2ZYap2ebYK2cV2esyJxtAp",
+      "durationMs": 27471,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-13T23:03:22.771Z",
+      "mint": "EyvmuSab4Wtjbp3Pfg2g1fu9R6gcewPqiJk1oWzJkvGq",
+      "recipient": "5xxxjAdWGue6tENnHorCfqZ6iuWpH9pRN22ccta3akkn",
+      "transferSignature": "223rJFGWSKiyfm2f1Yy1z5V7FdXnGp5fYSMJpd5pisLRXbdCYnSzZv59EnFYn6garkNMGgjv6F1y73UsN2SGzvnh",
+      "durationMs": 27486,
+      "scheduleDelayMs": 9
+    },
+    {
+      "at": "2026-10-13T23:08:22.765Z",
+      "mint": "6syAu3xnXnHog73YRMgtH3PgwmZ5EQntFhztj766P2Ls",
+      "recipient": "4TZtqoY6CfhDNwz1xQQyYLLt69TKWZf1GTvSzXpmUaaa",
+      "transferSignature": "44hbPVuCFYHQx73rkn3GDgN13doNno6bnRRQJmJGrvgc8K6yMtusvugy7ngo7YqaQ61zZ52euTfnGousYh9ywEk6",
+      "durationMs": 30405,
+      "scheduleDelayMs": 3
+    },
+    {
+      "at": "2026-10-13T23:13:22.765Z",
+      "mint": "41WvjoAbf3bdPRNau9u6zpBjoqEP2x9Gzir21iB9DZHe",
+      "recipient": "9YJDi9xxnSBDnt5f2QNEWLVNvFoQ4EZ9UVfsPrRKWaEK",
+      "transferSignature": "BRYJQeaanRdMzeoUXyU7VCLP6z7voL1jkBdYGrP4c3ZpTv8DQSqF7BmjEuEYCsuWcj1AGX3he33Endbopdqmqd8",
+      "durationMs": 27472,
+      "scheduleDelayMs": 3
+    },
+    {
+      "at": "2026-10-13T23:18:22.766Z",
+      "mint": "HGx3yGiNoR76S18axxiDX2YZcmFP8aT6Vag8at5m1L35",
+      "recipient": "5PSpuxS8sX7TEHP6UoWC3JE2WUaefLYknUgG8zkqBQ7B",
+      "transferSignature": "2LHGzvDBLdogexJq631rN2oRHP672Mb2B6b3jmrayN4amnhmspR1pjCrVNj4EYdBQJdrtdCxgSCbRFsonvuB6Jv2",
+      "durationMs": 27929,
+      "scheduleDelayMs": 4
+    },
+    {
+      "at": "2026-10-13T23:23:22.766Z",
+      "mint": "3gvgUjywgG2zBpeXbBwqjX56a7uVum65q33jXWsztuHs",
+      "recipient": "AewUTECjquTJMvQA6f6qrBbYCR6HJoo3kawJp41Pb4DZ",
+      "transferSignature": "5MektJQVcfnDVEb76qHKwx3fGuAxp2ZLosr4e3rH81JHywGD4YjgLG4MpWpKjN65iHKSh48FPeFu1SrzEm8C1N3Q",
+      "durationMs": 27462,
+      "scheduleDelayMs": 4
+    },
+    {
+      "at": "2026-10-13T23:28:22.770Z",
+      "mint": "4jYqim32VSTob1JDQesoVc2kh5GgXRBJASvJ5NjW3Cso",
+      "recipient": "7MckLbkrjxdKF5nCZBG1HAFxZV9YWYoUnW8QukjepCnS",
+      "transferSignature": "34cnL6fW5NqixHZkVdpsPw6kVj7fZYp6xMD9M2M2viyudez3fDho3X6zTzRHGL43PivzuiEXPcXUorykJDTykZxP",
+      "durationMs": 27384,
+      "scheduleDelayMs": 8
+    },
+    {
+      "at": "2026-10-13T23:33:22.766Z",
+      "mint": "EqeFbLQE2V4hnYixfSjEDvzC3xM2ZWCPjkRUqGuhXcTh",
+      "recipient": "A2wuLbDiBp3KsNerMjri2hWMb84VEsnHjjaBKaZBc2bq",
+      "transferSignature": "4sAtMgJGAUSu9qKLgtcJak4uupmnbhWhVZSq2G2du8FEwCMmZf8X4hbxVW2SyfSi5BvGJqwR5y7jt7fErzp9VCVa",
+      "durationMs": 30655,
+      "scheduleDelayMs": 4
+    },
+    {
+      "at": "2026-10-13T23:38:22.769Z",
+      "mint": "BX3pyS5pZe7RoqoKzNsacsTQRsKBuLfRxMgTDXn7QmPR",
+      "recipient": "28NWERHASHDhTyBBro1aLSLEyRL8gBN7zjcktHtRQx4H",
+      "transferSignature": "4Yc7KYFuJTtkykNwcndV3Cw8K3Sc9sgATxqMafL6NiagyLQSzeWoDJQokZesjMutDBVSnLrC5zScXwgZH5EDUXD5",
+      "durationMs": 27502,
+      "scheduleDelayMs": 7
+    },
+    {
+      "at": "2026-10-13T23:43:22.766Z",
+      "mint": "C3TA4hDKAcZePy5Jf9ed6mFAW8fWRt7LYMzpTU75Mydy",
+      "recipient": "enfLmxU6V3jnyPsEoFaKBRKizQyvUzQv7XhaHxJi2GY",
+      "transferSignature": "5w1vkwDjcV2e3Aj7R3wDNR6tQgjmVDiCzCWNqqAoqvcPBQtmBAvmqsLJL4tcugL3txztqxXMbZSbYdHbdXjRFQdo",
+      "durationMs": 27433,
+      "scheduleDelayMs": 4
+    },
+    {
+      "at": "2026-10-13T23:48:22.764Z",
+      "mint": "9eaLbxxBgtnrufy6NbED5FQ46LQPSjMkAbyCJW7sYAju",
+      "recipient": "9rcU4vh9S99bpmGWFzYdXdLsJyaKc1nQydnPJD9Jnv3d",
+      "transferSignature": "2AEwekBcDq3ZgDrATgzCe1sUr3XwvG2cW3cdua49kZgyKLGHquph5pKJ4JN6MttbXxfcPzK5j85QKSe1QmdHPeBd",
+      "durationMs": 27469,
+      "scheduleDelayMs": 2
+    },
+    {
+      "at": "2026-10-13T23:53:22.768Z",
+      "mint": "23vAvsr4aAEFpsC9vU3vxEywGJ1KmmZWWFLvpe3Fa4Fz",
+      "recipient": "DsuVrBzYEPwuHbGKAza9N4DD6fURq3RE4RS8sNNCk131",
+      "transferSignature": "Y6FL2DHwx29as5gN7ZspkaoFRVPtGWALieXCrGVskZ2hypjjVb8VZqypb4TcUsPtSvAouGkFKqmZLR14LmKoEcw",
+      "durationMs": 27477,
+      "scheduleDelayMs": 6
+    },
+    {
+      "at": "2026-10-13T23:58:22.767Z",
+      "mint": "ACtuRWcbufEd1P2aKHwxXPDN2egQhACRDwV2fZMro16",
+      "recipient": "48bFzKhhgwcGt5aGvf3uAiziqj1CRNfCrwGNCToZQZ8r",
+      "transferSignature": "3GWkM8UsHuRFsrCDWNeH9StrwvHoQBfuT7ruQW5GjBF32ymzvdNM9EmXmntTZhFTGkU2KmtYdMm3cq7wSpa4yhCY",
+      "durationMs": 27407,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T00:03:22.764Z",
+      "mint": "ChYxA68b6kZ43vWPp3vHgQ1hotYCTK9AiYt9oM8BJm3k",
+      "recipient": "DazcRF377yTGWiUcpvGn5XFKpPi66LZDQGeZR15nJfB2",
+      "transferSignature": "5APfAcXPEqHnt3tagFAxFLq1ATeSpyzC96dz9jeKH5jgEwPqx9KfRfGc9xchdGHyHWPVTfiaL9oqHZ4vX36EHNEn",
+      "durationMs": 27427,
+      "scheduleDelayMs": 2
+    },
+    {
+      "at": "2026-10-14T00:08:22.766Z",
+      "mint": "M3Ufe8SQvqgPDnJDH6Y9p6WSxzdfWhQfDCd4iWTELzw",
+      "recipient": "MRanYKMyMBVdSNCRWhkmxymtwan9uALg5JUuenemqUi",
+      "transferSignature": "2Zh38NKQFBLjKZ4zETgiVo9HWVX1QzTqim7WkCnHEddFPhAZTDNg185oYkELL2wHaBuMk16UcyWfygT34cxcKNR2",
+      "durationMs": 27466,
+      "scheduleDelayMs": 4
+    },
+    {
+      "at": "2026-10-14T00:13:22.764Z",
+      "mint": "6Yf8UeohCXabVGxXxKPSppUxe2e7neyCnc5SKZR78PH2",
+      "recipient": "319pAfWLfwCFyDeZ7kiZjMeph2APSQavpTZiCbK4gbZF",
+      "transferSignature": "3W7mA65frzLos7ijEyhnTvdwR3nan8RCv9ek6VULpwrQHt2vJdiFr9fi3uc946uq1eAuw7yPd2NcRUzXHNW1ByAt",
+      "durationMs": 27494,
+      "scheduleDelayMs": 2
+    },
+    {
+      "at": "2026-10-14T00:18:22.766Z",
+      "mint": "2L4zFJ2TqV7jnzzX6g8nybrDexMx5vtsZTRdMp9WdCSH",
+      "recipient": "HR1dhzs4fnv4orw2JJvP2RpbQtD4XGspV4q9phzHsEn6",
+      "transferSignature": "4GLtjyhXa8ytR3aLirHZRW26ke244xQqZCbg1yYZLABu3bXgcwN1Ccto1JAiJbkLgwbxYcxFdS16EKNPKqW2aGaL",
+      "durationMs": 30489,
+      "scheduleDelayMs": 4
+    },
+    {
+      "at": "2026-10-14T00:23:22.769Z",
+      "mint": "ESt9Gnh6WFvxgfYW2hcXoq2XSf3c8EHSuUjQPR4cbfjK",
+      "recipient": "DruWdifiNzYGVcEEhKgWvP5n96i8CScZngXDdHBZKJSH",
+      "transferSignature": "2hSkLb1dZKvGfoRzXqgVAN2YkrnznWc6W9Ci9rJwxyykX2DZ2LPYQ6pqabf6ALww4cvUZ1jzPRggwB6A54RkXDho",
+      "durationMs": 30470,
+      "scheduleDelayMs": 7
+    },
+    {
+      "at": "2026-10-14T00:28:22.764Z",
+      "mint": "2An3R7boFvUyCTMAbURzpLhPoFRckGB7SJkbJJAx8EK4",
+      "recipient": "Dvm2UF5Byf7L5M21dJUbWRmgtuZk9XySdrhMYMbfaUTK",
+      "transferSignature": "SsGcLYSjxPF7d6Z8rR57wfgmZStLtijvLZnvm2JwTszdiXqoMg9q4F5VkhgoaAjdUwmBVHQSj8XxRULKeEAxHQ3",
+      "durationMs": 27420,
+      "scheduleDelayMs": 2
+    },
+    {
+      "at": "2026-10-14T00:33:22.767Z",
+      "mint": "2Vf5Cfq44GnxytmraY8tqs7Uum6cPavyUNAmg1UNz9F7",
+      "recipient": "BtjDVThLvnFYPahFC7gv9XFqnM6Uhrt7k55PxjYa12bE",
+      "transferSignature": "5Uuw3WSBkGmZ6P83Q3tpgHdaJGLu9QQnk3U7B7Q8iuQqvehXZVfwGaSkcfBMkYCEAy4mF6btmqgFFpTkb1uhFf3A",
+      "durationMs": 28550,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T00:38:22.770Z",
+      "mint": "HEMojTrkdV1MyLwPzh63DjiHEAffKfLYahohcCperMNH",
+      "recipient": "7C117RBNaub7YhkJCbp7hPv5v8KfuqqR9EaFnb7xgbkc",
+      "transferSignature": "52m2E2tzNGtdS5hsgjY85sCirWmdqKXHNW2WXsVvRP4sggWZM2ZJMPAnwTReMv2ymAeGC9iiEdA1CmuouJsVeD2T",
+      "durationMs": 27412,
+      "scheduleDelayMs": 8
+    },
+    {
+      "at": "2026-10-14T00:43:22.767Z",
+      "mint": "3eDoRGQFFNMUpvu9TUNB8uEfQUgC2ksBBrhCxbRKsemr",
+      "recipient": "D821dUVZAZATLLd1HhNUEjfXkyT9xP3o8MaVJkaiyN74",
+      "transferSignature": "1tX8U1viG9WSSqtvLtVdhqd2iaF95AAcwCMHcZGPXNLJYtLvz37z9EZc8sLpLpkdzwjvkQ5FCUd1BKPdbiASA6D",
+      "durationMs": 27478,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T00:48:22.763Z",
+      "mint": "3GdaaVUBffeDoaSHUB8r31Xo33e7jbdYfZH5Lj2brn6A",
+      "recipient": "9igBmfxVS5A7imbttWLZtrp7h6sYsUPyi2Mjv9iasqAK",
+      "transferSignature": "2qrVGdsZK9NHCXFaKZZtUKffq45W77rPMSZH2N9JLqeJcQ61DxdzVtscsbxYMFA55L6d8pqfXsV1zLWcAFQqwdPd",
+      "durationMs": 27396,
+      "scheduleDelayMs": 1
+    },
+    {
+      "at": "2026-10-14T00:53:22.766Z",
+      "mint": "4gUKxz7TB9haMxAoxxXwYDMMegAXPpUcAPn6tF6nKtdA",
+      "recipient": "3DNANpj74Eio85Qb3aNwqywjwH2dBZP2xTLhM1cZUtgy",
+      "transferSignature": "2MZHqUewdV1xMvc6gELyjnuAmckRhvw5fBsq5qpFop7PCczBkXoHGbeXS7SZ9CQtm7NRYJf95kCZ5ArGWFqA2og7",
+      "durationMs": 27618,
+      "scheduleDelayMs": 4
+    },
+    {
+      "at": "2026-10-14T00:58:22.767Z",
+      "mint": "HXQowPBNwHdALuBFgtUutgWH5wbE9KGnC6h7vv3i6gdg",
+      "recipient": "AMRgeVusKvpXmwn1femwCG4WUPyX8LRXLtatm5tdBAL9",
+      "transferSignature": "Lsb5443ALYw4ef8drrkwubXeCzsV8ibhBBnUCgEjzapJq9kwdKtsxHy5TmfFmeXJqpZLnm5Wdvm57rT5ELr6upK",
+      "durationMs": 27467,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T01:03:22.764Z",
+      "mint": "5Ezq9LDgoz6AmF9LpaEaUUnGzhs7ikyCfr2J3A7a1bfi",
+      "recipient": "hBfV5LGbyNsGgDoV4EZZHCTDFUvxfzWs6egQfAdp3Nj",
+      "transferSignature": "ikAZWR4vN8DQuXE5agP8J2wyk2AxepmZXcHQpPJrSxWFAo5jJV4Dne7xuNT25DWDhCdgLMpfqmm1JKTC1zoeiVb",
+      "durationMs": 27552,
+      "scheduleDelayMs": 2
+    },
+    {
+      "at": "2026-10-14T01:08:22.767Z",
+      "mint": "4v99uEM647bF1gtgbMsXB2ZdkjwpKMMwvVzd9JxaN7Hu",
+      "recipient": "2iQvT1LT2kXBayiLQ6DGwtG7dqKqvfmjT5GnwpfgFXs6",
+      "transferSignature": "4cj2ccZJf3iA2Mmsa44PcHYYZhGVnPcWbWMr34kMnm8WyHvv6NM7JVkxx8vsq9c7tgGe92tww34bnHkMivaSFdg1",
+      "durationMs": 27473,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T01:13:22.765Z",
+      "mint": "EfrBVWPnHmFM6wppN5yCz7XhvUhVVYLH7gq4WXRSqFvQ",
+      "recipient": "521BmBqCoiRR4VD2LwoZECnnVUXNowZt8NtLCv1UrF7a",
+      "transferSignature": "2aSFqhE5V3MQ7nJFYvCc2qEHvWieiyY1ej6Th2ctmeMasVRPonuGSk2G4UBqgNPGGeLdyd2EMejFzvR3HmVsraKA",
+      "durationMs": 27466,
+      "scheduleDelayMs": 3
+    },
+    {
+      "at": "2026-10-14T01:18:22.768Z",
+      "mint": "tQR16NKYc9T5jBBaTx8DRao1Ya62AaJHNHRZhvcoz8R",
+      "recipient": "HoGcQFNw18GnRGxRdvS5ADSeD6z4Czzv4t5CSf1y8iUo",
+      "transferSignature": "4Y6tCqwDd6ehnWs2ucSPY323sDc19YhCn31oJomV3aajPWqAAkz6sJX5PJJjLSuL5NwaSdVLJFHex2TkUiNtnq1k",
+      "durationMs": 27500,
+      "scheduleDelayMs": 6
+    },
+    {
+      "at": "2026-10-14T01:23:22.767Z",
+      "mint": "HBFZR5R9oXoeGtC9crzneJtzP3bW742hjhmCCZEv4ehf",
+      "recipient": "7JMeBhqxhbWCe4gjUnGHFCjbMpe8Nps6yC6W6RmKNvje",
+      "transferSignature": "2UtqFzdUhLkLYC4BcvTXbpuTZURZVW5CCno9wwbKYzcddEQVt2U1yVAEYZZCrEiakKN4X7TXJxWb5g572X159Wii",
+      "durationMs": 27414,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T01:28:22.763Z",
+      "mint": "8BKEJsM24SbpFSpYDocACY5Aa3TRtJHvfimgDXwyYs47",
+      "recipient": "urvnSREEo5EHCfNATcqCEoRP661w2ZHEiFijXVLehv9",
+      "transferSignature": "47YAw1hV9zN2y7P6742q3RyynNPHpPJRRfyVbXXpavDcepKan1w4pVqkZxbSa7VNNKnJFGH7qRAqmd2jnbiMqZU9",
+      "durationMs": 27374,
+      "scheduleDelayMs": 1
+    },
+    {
+      "at": "2026-10-14T01:33:22.767Z",
+      "mint": "7Y7FsPMo9KiagTyGnGpFMHdJtjHmvo1L34oQbXYSbLvz",
+      "recipient": "2Jfg2KEywKGrz65KxohC9sJheP9SWCxnrmJ5nyfK6DUs",
+      "transferSignature": "BwfiJmcz3BFRVKfy22phfEYb8jvmh8iuQgxW7XH2Mbdkw5vYYDjmHS2kFPT5RgDAmwJH9xFtNu6JX6MrLffeBZt",
+      "durationMs": 27419,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T01:38:22.767Z",
+      "mint": "9ogH4ZSrmM8vPcXKMUEN8QyJH1nF9YEGmch9N2HgPo3j",
+      "recipient": "14eCmoed8FxGtCHpXAytKYv7VG6EaeumBmj3QVbvg8Kt",
+      "transferSignature": "3DJ2cJwLBx32ZmoWJV1YoaqJAmb6fiXggYuuzGjA9uitmSZjqqMUMvnYfVK4899XZwKPGodxVGphEryR5YENrBSU",
+      "durationMs": 27417,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T01:43:22.768Z",
+      "mint": "GzdKwnDrmZnDuLqBE2CBg5uHi6aTWNihRF35UBWqDGT2",
+      "recipient": "6uPG8QDi3F6DXhEqLkM8cDCotaATJUMsJWgF9NKBs2Vf",
+      "transferSignature": "JCTHVnQ28pnNdgwxq7gGSx7WESEaXPzYGegqLNxEqLmm86aCsfZZFNDC4xrejdUgnTmdbqDiAjhyiqFwAxRWKyh",
+      "durationMs": 30475,
+      "scheduleDelayMs": 6
+    },
+    {
+      "at": "2026-10-14T01:48:22.768Z",
+      "mint": "DWoBb1HPdUM4L7GrS4fda9WA4nxvmDB7cS1pAg6dyXBq",
+      "recipient": "3Gb5GUaczEGiRynKjBtuPkXJeUfhkehU9MGaLn2rHaEH",
+      "transferSignature": "nYMJDugrMZm4yfW8MyJxMvhug4CqUvHuMocZLFtDKTdaeDBVUCK79gjzRfkTMGzSwEThGaSHtZR3K1ddtahJ557",
+      "durationMs": 27585,
+      "scheduleDelayMs": 6
+    },
+    {
+      "at": "2026-10-14T01:53:22.765Z",
+      "mint": "9ZfFEXojs64deG59VxvGqXpGwS8WbNxiPY5hSURuiFYX",
+      "recipient": "8d28jrttGjekF2UmrujwmfnqCvoy93sJ3bRBTFgKpHnu",
+      "transferSignature": "4jbUU9KicnpCWascHRVj7tK6dKXcM3FHq8Z87z8rJ9EVjaoEqgPWTFDgW4TPg7eJTjURkYobxc4xpiJhDVAWigMf",
+      "durationMs": 27466,
+      "scheduleDelayMs": 3
+    },
+    {
+      "at": "2026-10-14T01:58:22.764Z",
+      "mint": "U2Fp7APTZ72mZuRbQpV79dBX64yTqMu7rUc5hYk1B2n",
+      "recipient": "7x1gu4HFpcCqj5VMLqbqyrf3bJTZXJZfP4Uby4Asrm8X",
+      "transferSignature": "3XCMthtfn5sMjUzFZyZksSeghCNXKdvQoyLnhwB1FRjMo5BTDcBKXKKKxFtkSLWfTcAEqMxPWzGzRb3FBqgfksRJ",
+      "durationMs": 27489,
+      "scheduleDelayMs": 2
+    },
+    {
+      "at": "2026-10-14T02:03:22.764Z",
+      "mint": "5NZLEEJumEfSidJw7AhKpwXzoPuitHmtH75gzyonTGd3",
+      "recipient": "DhA1PifWy3GmAUvW33UfjHhjicbPw2merzs7z3jUJ748",
+      "transferSignature": "44yCPjAFcbCrv9sRvNW3seYAkKrd3zyp2AG2Wt98u3ft2LjLmsWSnQRGhJa7NsyaD7yKsYyHMVpT2sMaJMmr8sJ4",
+      "durationMs": 27446,
+      "scheduleDelayMs": 2
+    },
+    {
+      "at": "2026-10-14T02:08:22.766Z",
+      "mint": "BjHd6F3qpsegMdzxqwcmqwn5hfJUoAzYwpnXzS75fN4U",
+      "recipient": "8CfFwMGbazqSfcc4D7bo266nYxPM3az7GkkjWWB7KLEM",
+      "transferSignature": "2x3nXqptXnsnpm4NL6phmY7JAs7hNTBdZ24pRvhoqFzkL2kFcFEEHLCTfNmwk2D3cmtNK42oCuPEiDnpqJP6Wg8V",
+      "durationMs": 27404,
+      "scheduleDelayMs": 4
+    },
+    {
+      "at": "2026-10-14T02:13:22.768Z",
+      "mint": "4VWNj7guRFfPAXQ2Q8wSHsumfsqNsBvGTscuNXrUXXp3",
+      "recipient": "wUjmQHMTUVkiLoobpEPipkZYCVYxSGXqAuzbnZkgNLK",
+      "transferSignature": "3jrsiD3uVxim3bhXZk6pTcGPyJ7P3wD3HoqbpgKTCziPuKpan1QuVSMPZsFibGDM7VLrqP6b1msUMgCtZpW1W3Fr",
+      "durationMs": 27472,
+      "scheduleDelayMs": 6
+    },
+    {
+      "at": "2026-10-14T02:18:22.767Z",
+      "mint": "7Zp1fQBA7XUnK2HUjvGafbugdroGcmLvDwmmHSjNmvYj",
+      "recipient": "Df5LWcH2hf8r4dePTa2aLPaq5w1WRUuViLUdpWL6JD1a",
+      "transferSignature": "4c8FQJANFX8GPKcoqkmjvZZMbvwutad19TnsGoVPeCmwoozQsb5TVbWbokgVBbgNUTfd6EwCPGTaHgUjQdtcKLE4",
+      "durationMs": 27466,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T02:23:22.768Z",
+      "mint": "2go5yMiP4gxvdwkwg7ZzrP4Q1iKjZQyBfV9jvMxE9fqs",
+      "recipient": "B8THPwbrJ5QcVQRRRJ1VXngYXB3Fv3NYEaRGF7Yvumvp",
+      "transferSignature": "5iZnuXtLm9WKFwQr9i2CZEuBJmMZjs9PEY4N8YjXa9fvgYFvfH7aA3HTkriXy4uNF6aeMFRuSj89ABjDgQPf56L1",
+      "durationMs": 27486,
+      "scheduleDelayMs": 6
+    },
+    {
+      "at": "2026-10-14T02:28:22.767Z",
+      "mint": "8GEduFveRUqfQPuuLkU5f2o45K8u7NGQr1TccfYD584v",
+      "recipient": "73m4nqqc6qXKZmufSbCAgRZ3ozXCpV7h5jyWVrv5aFSo",
+      "transferSignature": "h48CwMoJJLM1zEPVUrBHoiwWsdWXF9oxNji5wZfPPC377M61yHH3xWSpxD8u7HZfACF5fnce66WPeB3NpgkvA66",
+      "durationMs": 27487,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T02:33:22.768Z",
+      "mint": "3Ji4NYftjHyWiFBTFt86qyYTzBd6tWhUJVYYtKtoCb4v",
+      "recipient": "HrGYsbweu7VgAcBX6z718pcRn5CyEKEHM1dym5th1TAf",
+      "transferSignature": "34MRX648WA7MqaZLGyQfoetPJE8JWXcJ31hmeWXKkpe39WCas41nCRodp4Q2BggoziqGbBGqYhA4WgQpCGCLuBUM",
+      "durationMs": 27483,
+      "scheduleDelayMs": 6
+    },
+    {
+      "at": "2026-10-14T02:38:22.766Z",
+      "mint": "9Wsfz6R6WQLJDQnWhJjGpAtvZZ52uuwJ6vN8zQPVdLS7",
+      "recipient": "5gQDZNu8pTTwSupWgY3i4ReGp2mmxqWTVPSmSfhrNwBx",
+      "transferSignature": "5PQYbRYiBPc56iABQd9q2m8eoE9VhQTg15nr199itnJJwSVbvXS5AKh6HnTpcL7MWdVX9XjQ99hpuc13KfM1SXgR",
+      "durationMs": 30486,
+      "scheduleDelayMs": 4
+    },
+    {
+      "at": "2026-10-14T02:43:22.770Z",
+      "mint": "McxjXnWbJwFH3ykBMMFUA9yZ1BuEM3cw7sQXdNvnE8X",
+      "recipient": "FBf2HaQ63FzjUWX1cpZMnsEmnj2fbnuR3Ak3x1undPcR",
+      "transferSignature": "5nKraNBYRdLS2dzCzpdjLMZkWLCLD4134Vsk9RLegUmTRETxVJrSi6zHA6wg516UBqLJVCsBYqfE2Z69AJLks5na",
+      "durationMs": 27455,
+      "scheduleDelayMs": 8
+    },
+    {
+      "at": "2026-10-14T02:48:22.770Z",
+      "mint": "3Ct94LMtyw2fCCQPR45JNTRtooz5Agy4T4E9i1Jyg5pk",
+      "recipient": "2pMbP56gqGBDjuF71tmQtJykyGiJb3EztmJF25SMLYm9",
+      "transferSignature": "4moum3ubFSKJrk1FDt3H3hfFmarqpNveEyQtojbSP9bTdbCRKmqx4t3Jka9neh7U3REQFyBVQ224orZ7RTu7F7WH",
+      "durationMs": 29365,
+      "scheduleDelayMs": 8
+    },
+    {
+      "at": "2026-10-14T02:53:22.769Z",
+      "mint": "6ByDipPwHxWeuUzp6UB8iy1PWKM2ZBsrKb8JhuBat7Uq",
+      "recipient": "4ve1rWSZvcbcxB9q1u7T4Gbyuaz6vCwCpfyrXf96Abhq",
+      "transferSignature": "gvb5JD3D5HJyf4xxbLE58ZX8kQgxHe9yzkaiPWowbrFoiK1EPpeahjvjchXDT9xxDiHUCx2Q6gEvWsgZDvd6VNj",
+      "durationMs": 27412,
+      "scheduleDelayMs": 7
+    },
+    {
+      "at": "2026-10-14T02:58:22.767Z",
+      "mint": "8H44YARSVrN8oEdepG9LpP9c3MH3KdMjDFgUXhZPNf5A",
+      "recipient": "FbmvdXKeHaW4pKNaV5Pk8T6dntSDaz2hwqpUwbaaWFpE",
+      "transferSignature": "4XnUNJNcg9PEbS2W9Vxx4pd9cdb9W1wcgMjS86dqzsHoDxTAp1YzzmbgBWdBp14r4DsgVBmiwj1rDYRiZqPJxENG",
+      "durationMs": 27451,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T03:03:22.767Z",
+      "mint": "H6V5dVQrpuWQHyRQgEuXg39uh3RBKTdFx1uQrorXY9JF",
+      "recipient": "3VLGWfxePdSC3GaWGqG9kb7knh2Sy36M8A3sZUfZqPtt",
+      "transferSignature": "mHMsqaifjtkp25JmtPRsu9V4Q8XE7XDYKH4VnoUUbMG7mzMQU3bBFcb8zdppbUNY9PF6icwGH8RKdA6h1HCSTDP",
+      "durationMs": 27517,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T03:08:22.765Z",
+      "mint": "2LcK8YgtDhnkguUvTLJQFwLGv66n21JzaznJpSWAReRA",
+      "recipient": "DHxd3gu4RZQNMhjKHzkorFnEnKaemPJsrdxwwyS36sqt",
+      "transferSignature": "5VAiRCYdrvTC8mk5K7XWJh8iHiuDLRx8SrTsMBc6jd9m7wbsZx2n2irPkPkjus3uaAsfyWNoB4oh3Xkuojqf5byP",
+      "durationMs": 27439,
+      "scheduleDelayMs": 3
+    },
+    {
+      "at": "2026-10-14T03:13:22.764Z",
+      "mint": "7TZ96VVPjXKQphxcspoWiGtz1HcZRqvZULre6PKbvAjX",
+      "recipient": "PgksPZJv5kZVpiDz3YpPfKoCuEMuxFZLcLUnELWX7Hf",
+      "transferSignature": "37QkQxeYDhsHRh4sxJhhnH5RYT7oCQyCYkiWwhmaf9AVp6gvYtLvHoafomAvfkrF6P8EdySqMEHTvBBW2PbSeB1G",
+      "durationMs": 27487,
+      "scheduleDelayMs": 2
+    },
+    {
+      "at": "2026-10-14T03:18:22.768Z",
+      "mint": "Bzk6W3cSd24e2FkZyNznEx3GZWeYg6x4uY1r5EUqDPna",
+      "recipient": "5Umv5TpPMvFTCXDQab4JDTBns6EAibSxTBXgt9atwpa",
+      "transferSignature": "5SEZAx74wUo1TPKtnt3WfjukWHMCn7jfGAfGGJ2CpSzRz34HcrfwirE2gi95X8ZoYW1WX2JWpvoewu4icke6ZFBM",
+      "durationMs": 27540,
+      "scheduleDelayMs": 6
+    },
+    {
+      "at": "2026-10-14T03:23:22.765Z",
+      "mint": "AnVRx9YuRmyNfgr1m13SxFC3YZzoZWJX3CpqxjTi6qYZ",
+      "recipient": "23yjH82XqsKCSK67fn79tHRKRZPYzQtmkNkVCU6QiLDQ",
+      "transferSignature": "36LZcA3BAs3fth6DbXRfud2LmutKqA23iofWfQBZ1vRH9kmzGAQHzatHajZgxuhoWhnNyiFT2kJr2djZnBCry8V1",
+      "durationMs": 27376,
+      "scheduleDelayMs": 3
+    },
+    {
+      "at": "2026-10-14T03:28:22.767Z",
+      "mint": "3By4rpytVKfCUeGioaJYKw3LeRTNMUtHtxW1RArHPpQQ",
+      "recipient": "3mhgeTazJo5meWebDq61tG2Y7MyBu1qKRiGSevBZHvnH",
+      "transferSignature": "4ZQGuuHUjnZ9BWNvaMqxP54mMKn2X9TavXzirPTrRjXnfbLcBp5ezgvzut7tUianua8jTRTWaq4smLYZPQuFZnon",
+      "durationMs": 27475,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T03:33:22.767Z",
+      "mint": "2sYRQ4Rb7x9VGgtrw4sCjigsyDG48CuyRHAi9DhyWbRm",
+      "recipient": "CTnPbd5ydctuPGrx1CF33WucZcyb29gUH5TsgL8eDHS",
+      "transferSignature": "2vwYarXz1fQhxiSQyrm7p9bJVwCpwT2ZXye25992J9wLhuXBhcSc3Yf4cios7dwCKfMahQS9mRRxL4humQZ1z3AL",
+      "durationMs": 27470,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T03:38:22.766Z",
+      "mint": "5bXk1X4CStNRAudJDyGizUPm641qfysUk2tnsQCMtxAF",
+      "recipient": "5SumaFNh5jM29gnkSmsBiELQ3rSjEQkUUhHYG2hSpQRi",
+      "transferSignature": "2zJMKZndjkRCzRWHjtqarGLBRaCHUkbcJ9YMZdeTgtys9UWfLPLSMLf5gxizzh4WLWYCyHipNK4y9YVULQzK9yNY",
+      "durationMs": 27396,
+      "scheduleDelayMs": 4
+    },
+    {
+      "at": "2026-10-14T03:43:22.764Z",
+      "mint": "4meYizZRC4WUMDzKUL5rLtkvs8ydqCkpcxfCeqpamQKF",
+      "recipient": "F1gX7E51GopugC1x1N1VbHeSayjhLBzytdkABMnSQpYB",
+      "transferSignature": "3Zk1jJ3KQD16V8RN5eMLT94j5nxKy4E6StUC6KReXee5AXGgDhASQV8hVWN4HvohunQu5x8mSuCBoYVDwsNchSq",
+      "durationMs": 27437,
+      "scheduleDelayMs": 2
+    },
+    {
+      "at": "2026-10-14T03:48:22.767Z",
+      "mint": "9Nzcv96wnrt9XSxoJTQWQ5FhePXXYiNvauanYsibprHi",
+      "recipient": "B56sNr5BKz1kJmHKQe1esP5j6dQK9s92ghWuFzBTz3HE",
+      "transferSignature": "66jQi4T6hGpe26DUiHCJCCHBGZzGBwJBPTTzuM5v38JESTmxPnncnHDHoVPnzBwvbt4pbot9E6oyMK6So7HU4595",
+      "durationMs": 27416,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T03:53:22.767Z",
+      "mint": "BU3P968q79z1rnkFTFGg9uA38B4tGLYutEgK3UreFFz3",
+      "recipient": "7FxgV1DmCEVW14Ldk5RA29J2TAsAYiUGKVoLzkn2r5Q6",
+      "transferSignature": "2ArN5am8QGHHeQ4DdAG5Uembf5RSnuJCiaWL3DV51CCXAZC4XLq32ReHWN7wu5wiRPLSDfiL39oLzktwDr8NwXR3",
+      "durationMs": 27447,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T03:58:22.767Z",
+      "mint": "8jRaCNtEG4Sc8Uy2z5WDwAkTfMVpz4SAkDhUDWdhzTSP",
+      "recipient": "5SfSxp8GbxYnsmWxpvJ9oggnFKaiGBLRE5Gvzxrm1U2Z",
+      "transferSignature": "2Rw7268KeFDadDPj5PEBCRNq14XkatFwojrgBvcpyp1avAjUSj9d6d4aiNU6nQSaijjzWXTDir8ytDS4KZ68f1xE",
+      "durationMs": 30385,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T04:03:22.768Z",
+      "mint": "65jCjVU83BtY8cgQrnsATGsESFaXoRrb2pwaUDrnDFiX",
+      "recipient": "8oa4Zg1VxDJMuxt3R7VGUGy4sRmsLpXhngqw7YjSbMFf",
+      "transferSignature": "3vFz2rconnhdwXNJWANVrdb9DXtjHqDhXm3mBoV1KuwhUDbUmz6PXzHFMKnU6du566PhzeUGugqxsCDZRCcf4CTY",
+      "durationMs": 27492,
+      "scheduleDelayMs": 6
+    },
+    {
+      "at": "2026-10-14T04:08:22.765Z",
+      "mint": "4rrX7dh28jeQe9f2VqV4NYkpkwJrxAwLed6beijtroX1",
+      "recipient": "HF9MrMHSE67TMdj5E6Mhs82ZTaodktNBGJwzjGDja7LQ",
+      "transferSignature": "5Vcn1f71pf8c5TKdrsVHb1ATD5WN3b4dMZEMk9zksFFx8obeBbkVkM1MjMqD1RqWJcVpTjdjXBRHvBBVjkZutvjM",
+      "durationMs": 27382,
+      "scheduleDelayMs": 3
+    },
+    {
+      "at": "2026-10-14T04:13:22.767Z",
+      "mint": "H2pXXExWcgcVAYBWCoRPekb3whLkxNTLTVG8fsi3Fmsd",
+      "recipient": "APkY394k1NL2vTbUehSEEEnpEDneESDdAaX11KSv7MKL",
+      "transferSignature": "3MWRkFnn1wBCaKeyZKBPvib6ZD6r7SEjmKQhNEGLPPQzmvgtJUHihHqb4KP2uuJhVRj3uGjEwqr7debrbihysfhN",
+      "durationMs": 27387,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T04:18:22.768Z",
+      "mint": "njGsd3JooMSpA5rUc5YttedMp6ZsuWMrrnvcVXTPKeU",
+      "recipient": "6MYy7jC3zZ5hktQxrxyNSFgmbHKyVaPriftA4ztZVF3D",
+      "transferSignature": "5MG6WDByRBCwLF5wXj6gcaX1eiWb86ogZLN4pTVcXznP3wnSTxckVxNCjHt5gJjqAnMWP74ApPdPsVf2AWRhPbof",
+      "durationMs": 30381,
+      "scheduleDelayMs": 6
+    },
+    {
+      "at": "2026-10-14T04:23:22.766Z",
+      "mint": "At8Rp2MmCabsn9ERheXcPhkVUP9qBLGgPoTAoEB6z4ca",
+      "recipient": "GwHG8W5LP7Ci4AkVMH4JQ6Vy5LY7p9FNpYCAG82zoTH1",
+      "transferSignature": "YsZR2v4RU4tzi71ihS1omYGbRMmiDzhQLkLkPHwgeKEYbtBpwn4yQiDjoe6uQ2Qe58LpKJys5b9TgqUniDdZ7jh",
+      "durationMs": 27385,
+      "scheduleDelayMs": 4
+    },
+    {
+      "at": "2026-10-14T04:28:22.768Z",
+      "mint": "Exv7Z5p1UnSScCxxHW9zTioSA8v4bqFW2cHe4XDMREhf",
+      "recipient": "3xunH8jvraBc7328mV3RUnJzmNGXpssqkJHQAfAkQ1gg",
+      "transferSignature": "3X5wxxrTZCLfYf2Sh61M9ztHdSfZuVWLgcW7Z6NxdV2yHwo95kehf6dUYzycP3cFU6ngFibQUR1iRmdKUrdyfjeL",
+      "durationMs": 27379,
+      "scheduleDelayMs": 6
+    },
+    {
+      "at": "2026-10-14T04:33:22.767Z",
+      "mint": "3Jyhvon3QKMSHKjBwd7R6fmMg7EQAqWKjXFu9Q4b2teh",
+      "recipient": "FrTzakHaQwGVYuumHVecZ1ymWgSDgkA1tsiwkDSQDdH5",
+      "transferSignature": "5QHf4uJYMCZmjT1u7fLcAft3vEpA5UY291yxxMM6ydmrzaEFgaGuNbQCn3LDRKw8t5sgEzsxSpAeCbq4qjtV7hZN",
+      "durationMs": 27513,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T04:38:22.768Z",
+      "mint": "3xqRJDWag4zto9ctMZKvJ1dDT1jqmYT4sFBAsL4wfP5h",
+      "recipient": "A5xQBZMVY9BojhvY4PKQactmq9KQJV9qS573tU9HqLRZ",
+      "transferSignature": "2NRDg1vMgqhmZjuoeMa72xk5Rqo56atmaD59jfd6nPjxLv9E1JCahR5NdEBk4yPhopYfu4MqF9dVVzVSiSxrbvci",
+      "durationMs": 27494,
+      "scheduleDelayMs": 6
+    },
+    {
+      "at": "2026-10-14T04:43:22.766Z",
+      "mint": "2jDRPTPxKx8X7MTHq7oiF5gLg5yUG4Bw74qsuWjZDB84",
+      "recipient": "egyWUnib9BKQYLTYuqKCnj5mBmXokyvR3YWvb1riEUK",
+      "transferSignature": "2pM2tYi4SPUCSioT1PsEtVfj2UaVDRhi7dajdVYiHFpHqQViYDPPKQwgcXwzKUUuZB4AJUb9eZqvoKz7oseTgig",
+      "durationMs": 27467,
+      "scheduleDelayMs": 4
+    },
+    {
+      "at": "2026-10-14T04:48:22.764Z",
+      "mint": "4FzRqJwSPPjwr2oeKgFs57Z8DwVYTik7L2eyJF8rfymm",
+      "recipient": "4fweLyfQ9Qdn3EfQ2JvLXekghUYBDyhQJpvw7HRQ479U",
+      "transferSignature": "5xRfAUaTwPn7jWvw1nVyQ1XrXsZseVG62t7GP8kSuKpDupnSp3sHZvAf8y2cLd3AXSoZypFrL9B8aEQCuVauCERk",
+      "durationMs": 27484,
+      "scheduleDelayMs": 2
+    },
+    {
+      "at": "2026-10-14T04:53:22.767Z",
+      "mint": "D377vNWDPrANkcN8j9D9BPCxGU1oBGVHbBAu961i5u6g",
+      "recipient": "EmBwkCc1ukHF6BtModgSikgHxeePhL8Jof7NWHodttAp",
+      "transferSignature": "5swm1EvYK5NnrFXeA99cQxhZN9VK7iL7xsJ3WKK3ckXUWoT5ypygWiquFENX258QQ4kU5HDct9PiEhFJ1bzAiVJm",
+      "durationMs": 27414,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T04:58:22.767Z",
+      "mint": "48ihmXxF8r4ZLGs2ZzpFriSWofNvnh49PKUpPGnkDX3M",
+      "recipient": "DXkn7YaCbHVWizZs5s3M7Xem2DLnKVCskxbSw3W2CGZu",
+      "transferSignature": "4J1AT7nUVCyyQV393CAEiJJwQYc2hATzPGu8vojQuAYQVyNgEeVdC6HZh9nn6Yihst7A9ioHmwQ99hT7F3qTvS1a",
+      "durationMs": 27414,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T05:03:22.764Z",
+      "mint": "A5oeVmkSn7stFcFJaUbtrZaitsSmrYFa6tyu8onDnmfa",
+      "recipient": "6ruMTXLPraMUt8wRvMprw3FBA6v5CcyfP5bHBN7wMhmG",
+      "transferSignature": "4vhknLHzxmNPgRURwVAnRVNcymwGpQdm7nTEwidr5jvGwpXE3E94FJhaa5GBUkovietF33GgLXCiba3ULxT673zP",
+      "durationMs": 27680,
+      "scheduleDelayMs": 2
+    },
+    {
+      "at": "2026-10-14T05:08:22.767Z",
+      "mint": "8mvS4KbRTmpgS9viqBgV2bPFm74JQ3tpmrEv5Uarct5m",
+      "recipient": "GLZuR2rSYJ9DkT2WtZyt2HAvBv875cHfuu8WcvKLDn7Y",
+      "transferSignature": "N2jgfv24PsiYm5QUTt5VR654tZKHie7NSDCv3miovrngSuSSG4RvsBbqMCoJmU7xtPSjCXQzzFabTw4vSmTGua1",
+      "durationMs": 27402,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T05:13:22.766Z",
+      "mint": "3uE2jJrWyGRVhXv6Re3ayaXm1MJnFCm9uXfQUug9Cp9t",
+      "recipient": "8ygbL1LMEfZLPzenQgfZp9Lsg7e9yWypjVoq6QCd5uNP",
+      "transferSignature": "4NrFb2Er5WRFMa9UaX63RpjQv1cA4ftM36yzxKXVvGw1fQDpjoZkfvqTv39VubrDr5w1h4Nnw3aPkp1gjkw7abFA",
+      "durationMs": 27388,
+      "scheduleDelayMs": 4
+    },
+    {
+      "at": "2026-10-14T05:18:22.767Z",
+      "mint": "GswKFX3wiF2nRiK2p53ff4roxBqTnNcQLCYG9X7KE5Ze",
+      "recipient": "4J5ycwjVrLE9cJ81vJDzupZXJvS8yiUAoi5ShGPBZzX2",
+      "transferSignature": "4Bt5TE5C9bjaFURNS9Bho8y2eg7f31etzgxZgRzNUh7exCf2xJw9k29crobG1UT2wqWkRZnMuj9TrszQsRG4uG1x",
+      "durationMs": 27420,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T05:23:22.766Z",
+      "mint": "Fy5J21cGS48KwJWra9tHkyuWnJHbMLuKVBhP581mNP3x",
+      "recipient": "DmR5s7V18Rpr49FgMbjp2edxH6syaYfdAUjSgG589TQ7",
+      "transferSignature": "5MAHAaLwXenXMsDwdRA8du4K5bGj9xycuBu3PjqaQhS8SNTS8SJdQzfoscKLgjUL1JTNr33e2K61R4HvEEhar2Qo",
+      "durationMs": 28473,
+      "scheduleDelayMs": 4
+    },
+    {
+      "at": "2026-10-14T05:28:22.766Z",
+      "mint": "ABgpLsN1h5U3w2Scck459MxpaBasf47CD65y4vKGif2J",
+      "recipient": "us4yM2RVBgafwTNRWCNF5vGUEaF8E6owMvxYvBnWr8D",
+      "transferSignature": "3fVas6S4DAM44tugfQ68xH4oKMVfhrnUFuGtT9BXoSGMsUKiB5ZSTc4cWK4QuzgUknsu8yZ47eTrjZ1tS18XGZLa",
+      "durationMs": 30416,
+      "scheduleDelayMs": 4
+    },
+    {
+      "at": "2026-10-14T05:33:22.764Z",
+      "mint": "8QeqzTpa4qUc6ixYDSAivKBCagSXjMF6CVd5huHitwbG",
+      "recipient": "FyvU3uWD47i7Uue1Bi6gH8NBWBdruMpZtKZw9RDXXnf2",
+      "transferSignature": "23uhpJxuGfiYTQHoeJNgMCQsCLgKuSFT7MENSQ8xcCKHokg6uJpjFTMwH9quHvchDLZGLK547msEBXQVHiSL2HaG",
+      "durationMs": 27410,
+      "scheduleDelayMs": 2
+    },
+    {
+      "at": "2026-10-14T05:38:22.767Z",
+      "mint": "HR3uaY8GnwcpiYXg7PFYrs9UdpJxSUJdvxdp1eVovAJU",
+      "recipient": "8tVapsjB9GqH7i8BHQbfkzhQ2vW2QVeW5eHkFE9D8gTB",
+      "transferSignature": "2XVbasyVBsFZzVPi6iM1FFvFaQEJFfM7kFDeL9pN5GrJjWaXKJPvBrZ1axTQB4r61G5tignYRCSfRD5CZx3jh6Lc",
+      "durationMs": 27426,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T05:43:22.766Z",
+      "mint": "5KUmtG5yByTBZf9wobivZFqGVBC4ZYTTjgNX2dUENgsG",
+      "recipient": "2Kp5QnmsdF7grK8VYQTUeQxL2GJoeceENYAwkHRxhtgH",
+      "transferSignature": "5JPVwPRJXZ5pZtCBpsFhNLbwL8Rpv1FcKALKvTwMRDMzaL8o7b2KzELywh9B8VxsKoV4ugfZZT6KYqDyctBsiDZG",
+      "durationMs": 30459,
+      "scheduleDelayMs": 4
+    },
+    {
+      "at": "2026-10-14T05:48:22.767Z",
+      "mint": "675QZSzPd5xpxLujRPF65AvdJAFtgnLRYHeAUidHSvYa",
+      "recipient": "7GkN5dh16kcj5vLmTVLrvGT8ikLQPpDj2zBE18gy8Fzc",
+      "transferSignature": "35nhEFFsYv3tSGSqgVv8HBRFpcpfUP94b8FA9tTjHDLrtnNkkTRSzc3DhSb6r6uwYrcqS1M1HeKTiFMcTj4UrR9",
+      "durationMs": 27382,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T05:53:22.765Z",
+      "mint": "J3jWTLaaEQHZEmDSzaneTKL9VakgtywdvAvcZnn7KdHn",
+      "recipient": "Ab8b3XGHJnrbSPnmttFDe53qVdzvtaELC6MYyyCXi6ia",
+      "transferSignature": "3UBEET3wjUMCnC41bx69jKzsx2rzBDsAMKaURY3BgagBJ8JeVUvMZMM8e59mqjHFmSSptgHW2ANytjVkaA5vUshm",
+      "durationMs": 30469,
+      "scheduleDelayMs": 3
+    },
+    {
+      "at": "2026-10-14T05:58:22.771Z",
+      "mint": "4X3VYFn8FKgUGqGW6Ar8eKcHctEyvQneAPjdEZh18cCk",
+      "recipient": "7utMefCZdZUoy1VudPr21hDV2kZj8DxQ7fgX21fLDmTi",
+      "transferSignature": "4Hb9LVx3Eak3V1TJRJ2LhZbkyTotBm3NaQPAyP8pY4cNa7qwcbBMVWbysf6x1nnQ9j7jEfdHRj3j9nC4uZay6pM4",
+      "durationMs": 27373,
+      "scheduleDelayMs": 9
+    },
+    {
+      "at": "2026-10-14T06:03:22.767Z",
+      "mint": "4U3DVtTmptDar3s7zZUxYA6379rYwcRnowqjeX3PAkoZ",
+      "recipient": "DnF16qohVSEtEjXCPwFzFLoQGresBH8QXLxT5SDRkxpn",
+      "transferSignature": "3HArR6BhEZDBsYbCyy2i3GYPGucdq6B4Q4R8c55ahtJYCutg2xwUfvULM1L6nq6ncXiH45jJevCLRe4qBFeNLtqK",
+      "durationMs": 27419,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T06:08:22.767Z",
+      "mint": "BTsRmxbcs8ySJ7LykDbaKwhD7W9x7FnhDyySoftTKdQ9",
+      "recipient": "BhuwbWjJYCV4xojwzcmQHfATD9SXwNdy2Pu1k3C8EWsQ",
+      "transferSignature": "3kcWk71MmfRWsNsEgsmgzXv7ZDjsfgqejveQ6EAR1GZuRVnnaheYxQwvXK1dK1SkjzeLmCyg9Cm89vinHtQJu79G",
+      "durationMs": 27418,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T06:13:22.766Z",
+      "mint": "DgSRR7ugxT629GzTy9cyGCcwnGQ7gnjrjW4GkFxydz77",
+      "recipient": "AA83Yk7ukgMFuDmgv2xc8MbWLNSzHHrDmn3rXnUS562Z",
+      "transferSignature": "UDa3Z1edBsRrx6u2uRR1m1nubYDd9DnytkqeysfaHYaQFKPGQLXH4YwkpBAEyoqvx5yu62Zjgtj993tdSMUVRuJ",
+      "durationMs": 30415,
+      "scheduleDelayMs": 4
+    },
+    {
+      "at": "2026-10-14T06:18:22.765Z",
+      "mint": "HN3rtxkAivW6HEc9bwaWyk8vzgq1z98iS4EeuDgSehKb",
+      "recipient": "AvVSWLCeKH7NiugmuHyf8wfsyMT4yPNUHqAsi5AELK88",
+      "transferSignature": "2CKBWtoWWdyWkHqx42pFbvzGxwavGSgXv6eevyEj5T247kDpd4VpSbizCKYpEwc79mLvzC9qQ1MoczNuqvCVWfZ2",
+      "durationMs": 27368,
+      "scheduleDelayMs": 3
+    },
+    {
+      "at": "2026-10-14T06:23:22.766Z",
+      "mint": "EQyP3AoCG36tXpvynTdQPgA3gytcpbTknywdmMnkoofJ",
+      "recipient": "FLJbtscSFAaMmVWJGbQmi2QJJAELAHuxUEbHFqym8Lb9",
+      "transferSignature": "29vGQtJaH2zJxmDPcV355LzYgWfdfm5nLs6krLEZaGQGQ6PvFXFntowLRy5a7hqEaNfqbXA2z3hLCv3gT3KT4vCw",
+      "durationMs": 28405,
+      "scheduleDelayMs": 4
+    },
+    {
+      "at": "2026-10-14T06:28:22.767Z",
+      "mint": "8VcQZHt1svEeCqtui7KnnmfVLbhemMcKdnK9bMrmhv4b",
+      "recipient": "AfgCgPH4eHNKvuzkvda413yRpoWDaJgJmXZjLCaGEKH9",
+      "transferSignature": "3ueTJF9eMSWfgjmyTudbN1eiJNQd2gZs53FbNFeQTeb2xH9Vhc5fsThupEhso7DLWBJESuy31wAPMjUENK7sS9U6",
+      "durationMs": 27457,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T06:33:22.768Z",
+      "mint": "c6g5eLZppo2aHtvJBTEvwJhsPSRjmXUz3VSBnEJv2yJ",
+      "recipient": "HV734iMCYCSz28LBSpdnkkg2JhT1TPK3TQWYDhwpLMW8",
+      "transferSignature": "3EZgndzBVVDGrtZKPucAfvykDUY6yFNQoQ3Ukp4t8rR2G9raTxLZpNehHz9dbKtUnk84K1uj6RBVnRVZKWTzsrFK",
+      "durationMs": 30453,
+      "scheduleDelayMs": 6
+    },
+    {
+      "at": "2026-10-14T06:38:22.769Z",
+      "mint": "9YCsPJTsaReL2NYPfEsEQnZqVVszKJthnj8xvDBuMrxr",
+      "recipient": "5jyEERY2TWaTuK6mS55AfjjfHaBizSf1L7BvhDYcgmmb",
+      "transferSignature": "3sTRe54iVXoRpV3hYJ4YHbWFRGjfwGhKDQLoUZDz99WuZ85iTpLJqaocu7kUu6uEPQZMeioSJhJ92M3qrZbTq6a2",
+      "durationMs": 32515,
+      "scheduleDelayMs": 7
+    },
+    {
+      "at": "2026-10-14T06:43:22.765Z",
+      "mint": "EK3RRAgxY5u8iwcSYQPkjepz6dAsrQSjag8v4FvEwxKi",
+      "recipient": "Bmfw5CktPB6D7HHg9svV3uQjGXybvrECn9Uvc7W5qKtd",
+      "transferSignature": "jPszh8ESi69HmMUFn1VLszXvs9m45cpX8HyWf4QwsVwU3nreiUHBVh33FwG24shv6L236GwaYYtVWTFjqiUEQGG",
+      "durationMs": 27400,
+      "scheduleDelayMs": 3
+    },
+    {
+      "at": "2026-10-14T06:48:22.767Z",
+      "mint": "GGDxwDbWsQeEtdz9LUxDwrfnWDR8kH5Uqa1MQfEgMhxk",
+      "recipient": "BXRyw9usfCKeXpheq4Uu1gho9qHzs4r88L6bMnBaxj78",
+      "transferSignature": "42myWTzXVrWnFg38WaQH2AyK3uTTyV5ATtCfmPNuY6pNVaGdZKXdS6MJVL1FirMa5K2nQHJhwBfu1kf3Zsktz4hL",
+      "durationMs": 27399,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T06:53:22.765Z",
+      "mint": "7wr8uMoJZruEEcQKWxuAEKvqHyweTYCkEuwEFt14Bjg3",
+      "recipient": "HXim4TwWUiC9yeDjp1foT92GA9K4dEB3SLaHiaRuFziL",
+      "transferSignature": "2Gr2bWD3B93bgkX7aUpSk14UkFcsrAnrak6HCEHo4SVND2tej7aykvJF8gvjKojiF9S5wUDcXhqGGbfLDTukn6xh",
+      "durationMs": 27549,
+      "scheduleDelayMs": 3
+    },
+    {
+      "at": "2026-10-14T06:58:22.767Z",
+      "mint": "38CVis58sdmbBzpWbkQT6fYnSw8HDNxvLR7LoMr5XZQ7",
+      "recipient": "BxiTakYgwob3juuE4GYGDWgdtc3TRRBYycDFYfWWK2kr",
+      "transferSignature": "28TMmePw7E4HVsATA15TMb6Hp4jgpDPNrfVE5PYHJKqi67MdHcwUx4RyCmDYVdKUViHgJCpJCZgXJeDME5E4mD8S",
+      "durationMs": 27935,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T07:03:22.766Z",
+      "mint": "2ogStZNx4dBXMjsGqAqYKndpHMyQo7JkMEjivezUHXC3",
+      "recipient": "DKCQkFxEjoBMYVm7vF4FdKYQk7uJRTLMdc7DEA8cgr5s",
+      "transferSignature": "niGLuEYG86cLnv5XYKjD9SzQqSj3Q6ncnzX2C4j43reN8aeEkJwiFGrFFaN3o6zT9R7sKVVvLD5ztnsCZdGkucX",
+      "durationMs": 27431,
+      "scheduleDelayMs": 4
+    },
+    {
+      "at": "2026-10-14T07:08:22.767Z",
+      "mint": "EMiLYPqyF8CLnFQtDa6f1tghhsuA7VUb9V7oHfUCtkED",
+      "recipient": "3EatNjJiRpVucnYeocfVUKYak1XssCkhNgNcsnUh6o5T",
+      "transferSignature": "64B3VeJ23CBRRoaxVV1LmnUfSEwgz7NqmUegujWLJvbgojj2vH3ru5r8btJBGcNtZpFfVGE9G13utqHDpzo2sPaL",
+      "durationMs": 27457,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T07:13:22.770Z",
+      "mint": "9kJ13GUhAcMf3KtpzrwCHZfBcgL8vNJ7aMHiNXB45BZQ",
+      "recipient": "7jNk1oeft4pAuGzyMcdgbzWx3mJcvjDyShFYrEgCZVZD",
+      "transferSignature": "5SQ5BweGwsCqyWtzMQjrdN2jLZLVzyktvKkU3GaiYe747QRSsJwhbh6kZBo7RhMioT1gDuD28HyBVugH2ScWxo7s",
+      "durationMs": 30407,
+      "scheduleDelayMs": 8
+    },
+    {
+      "at": "2026-10-14T07:18:22.769Z",
+      "mint": "8nLjZbkMfeFhrput2TqvcKdXzoAD9gVTf8r7iXdjRv5n",
+      "recipient": "CBfeARvQ9UREgJGowMj7CicpCg37EcD56WkDTJtGJXTB",
+      "transferSignature": "5sbVKu3ffkj8yxoGRUPpevWJSEnM6fdrnSL8VfBgLAKvqq6QUF6uFukRXQhcteDJNjTh54LHHNsXJDH1wv9LiDRP",
+      "durationMs": 27444,
+      "scheduleDelayMs": 7
+    },
+    {
+      "at": "2026-10-14T07:23:22.768Z",
+      "mint": "3no8VhahG5K5jvMq1qK1nRAvAKShUjQzKZUfquUf1wHv",
+      "recipient": "4cemwnUwVE9Nhq1nAewawJ89NZ3po1S6WiPjfgdDmMsa",
+      "transferSignature": "3YDwCsxH8Ny5RkW4QhTD4EnkueWLqMkq14n88rYFt7hkeBMDy64fYjierqcVJLKCBtgvomjZa3gkAouDFtgPuGD",
+      "durationMs": 27482,
+      "scheduleDelayMs": 6
+    },
+    {
+      "at": "2026-10-14T07:28:22.769Z",
+      "mint": "Acq3MFUxZQqviPE7FemLcuZoCK8VQFzGtB6rQnCu5Npn",
+      "recipient": "Cb7amMxBViahkqQyKb6fwT7Ua4E4m4phj5eb4fB9FBU6",
+      "transferSignature": "2bZJzsPGjT9aU43HrsuAVY1m1g3vzWkuPaDtRESJ5QHz8W1soC2CQgSYqX6Z3aPiUQ6M3NXcTkChM5hYezrnyeq3",
+      "durationMs": 27473,
+      "scheduleDelayMs": 7
+    },
+    {
+      "at": "2026-10-14T07:33:22.764Z",
+      "mint": "7LZz5WVWTbHZDxK4X5pK35qkNnNHyrNyY5MDnyxRQPSb",
+      "recipient": "6GpvTnkJ1HNJch2PZiJ2BGDBxmwdVgrXPEmBWU1Ex7zA",
+      "transferSignature": "2sJ4ASM9DHiXic46LiQdRNBHr8F2SxCD3GLpCPDmvRVWZRBxWm41fH1KLX7KvbyUsNoXCjFgXZMXLivn4w7iFLyj",
+      "durationMs": 27467,
+      "scheduleDelayMs": 2
+    },
+    {
+      "at": "2026-10-14T07:38:22.766Z",
+      "mint": "AeG1KNhcagv2SzkV3PagafQwTQfFwhn828Mt48veHQTC",
+      "recipient": "BXd2nSDh8XL9Gmj4k9qWke3m1ZiYkWkqHA6zWYzw14gW",
+      "transferSignature": "2AN1Tsgbcx3c19ZS3nPj1sT9fzVvbq2hDKz5fMPAywbn7D2C4TrfiAJpog9MWbbg5FdWtWmjddohe3S5RWdf7UYa",
+      "durationMs": 27442,
+      "scheduleDelayMs": 4
+    },
+    {
+      "at": "2026-10-14T07:43:22.763Z",
+      "mint": "8FY9SYmfvsoq5FTnDgnDoy3xF6ajgLtoETdct8XCS7Y4",
+      "recipient": "FYZgWVdQinNXUGycjkrzh7ZbxLDJizYFwxz3RU4tV4D5",
+      "transferSignature": "5N5P3BMVF7s4Vtjkrh1ygeyyRoeLsWgMXDrwFGiNuFDmTSZk1wxTQ8zeWhUDNRXuBRugBGtXDYx7aLsecBgCakSV",
+      "durationMs": 27448,
+      "scheduleDelayMs": 1
+    },
+    {
+      "at": "2026-10-14T07:48:22.765Z",
+      "mint": "7yi2YoHmTsoSeshP3zCFYVPJuSCNwdP8xiLcxtS9DVxT",
+      "recipient": "8m3eFRYeJMS9tdeA9tJJo22LxxBY4ALr39ZUNkkbhR5J",
+      "transferSignature": "5ku2ifSfGT1QHZm6YtbsTHgAhGj8tkYyMpF6T5JjNVccoTXbZVZvBEXPivNNc2VUpHAmFaftx1DvzrDhbLZYDvES",
+      "durationMs": 27423,
+      "scheduleDelayMs": 3
+    },
+    {
+      "at": "2026-10-14T07:53:22.767Z",
+      "mint": "3Jhro4zLheUXeMiYhLocf7XEKqzKAjRJtKPsr44fMEA2",
+      "recipient": "4KnxAZ2ZuW2TKC2mgs6o6RmMpP5KCg7aBwEs67H4mjfD",
+      "transferSignature": "5GotNaZo3LDLR78NXgkfCnYqUmRPudQYucUeuYpQ5Kw9bWMwchsakDDfR5nuAUaLihq1R4bAugsPyficYevzTBme",
+      "durationMs": 27505,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T07:58:22.764Z",
+      "mint": "5AyKo2xHryba8jLsYBAptVXSM23WPdLjHmaYNFXSpsHM",
+      "recipient": "BRhwEQb87qRF9srbDimHjWBZeBwQkezxNmZPu268Jxay",
+      "transferSignature": "NvkyjGUCqQkDwDMDNeHswZc41iVBJX5KHycCUNPB31PYBk1L1xsr611z3yiyN3Xc26HsULFUhsoy5EPBXjyhMyB",
+      "durationMs": 27393,
+      "scheduleDelayMs": 2
+    },
+    {
+      "at": "2026-10-14T08:03:22.766Z",
+      "mint": "EmGT2cgy9hYaFZGSyDMzfwduNEfnbz6kuH1XqdV55EDY",
+      "recipient": "4DCAdTAxetzT7wa32iurYtkdA6SPoH3qXud5CcCzuEwz",
+      "transferSignature": "2hGUcY7uVVepuPdj84EnsEtT6243usu2rozoaYbFPXfPLN2mPrJ8aEX4B1A7rHVZHGZnUCv8uZarrZSPZGaYmyks",
+      "durationMs": 27418,
+      "scheduleDelayMs": 4
+    },
+    {
+      "at": "2026-10-14T08:08:22.767Z",
+      "mint": "D4SVTCPZVbFk4Bgcvpmw9rgkrAw2vnR8ed4xDGi3Xk56",
+      "recipient": "4VQ4z7cDVu5SUujstvft18vs1ujNF8XeGiuHetEKLAqN",
+      "transferSignature": "2AKBoo1s4XoB2PaRtADK4rS3TABdBt5WgXFwSmFeX8KRzjGUxwG4Deo5Nxf2Zif64i3HkNj2UGnJAW8U1RsZJi6z",
+      "durationMs": 27497,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T08:13:22.767Z",
+      "mint": "6vqPjzj4gNAkfXtEYX8C6udRsCvEEPtw2ojoqL9knJ2A",
+      "recipient": "2Jnqrh8wQ8dDADG7LGd5gU1HqPnya3f7Kf1V4G3PA9Uo",
+      "transferSignature": "26UsdKmAp1K1fzNDyQyBHzFrAGP7mGZbeRh8JCEcuBr8EodKxsYexw5QgF1k856UZsfX9PqBdcipPZd1kpGd2WNf",
+      "durationMs": 27446,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T08:18:22.767Z",
+      "mint": "8oykJvgJt6j5nWNfHHUV9q7h1mksj97bzYiL8UyxWHMb",
+      "recipient": "B66pkyawntT9CxoBFHEFfqEh3Hb7okFBN9KxzRCvU2LJ",
+      "transferSignature": "2eXySRandDxFNJUkPcJwDyphuKoc1CX5tZ9Ho2XaNAGyfUuxrYm81V7osZukuvjScNbA3sUMzrSsfhcmW9igfjxh",
+      "durationMs": 27395,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T08:23:22.763Z",
+      "mint": "93CdJ8jfegzH6NooEtgeK4Nk1xhBcHtEBfFWR8s4W7oL",
+      "recipient": "6V5ei1JTCja7qPxKMEq2mhhvvWbVoHdsB3Vuj99BSqk1",
+      "transferSignature": "5VKNMKYgneMunMK2x16QDD7MBAS89Y5QXFcEJ9HNmSqxvADykmhmUyK3Ct7w6tN2AhacffuN5Z7cfatVLM9r77jo",
+      "durationMs": 27507,
+      "scheduleDelayMs": 1
+    },
+    {
+      "at": "2026-10-14T08:28:22.767Z",
+      "mint": "89jtFMzQ4XYVQG2xkLD2wHrgzDxL3qnkS7LL6KQmrmwi",
+      "recipient": "67bpcVJYSQFcxonLgxBrMoDTMUQwit6jNsK9GQcSwkqW",
+      "transferSignature": "3L6cUp1EtMYu1Kh1qZb9Mz3wmLicnHHyLhX2PjQz24v6j4f9CTgeYMMZaLcUvMpVfprpJgK2dXDhvijwDmVACQm8",
+      "durationMs": 27441,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T08:33:22.770Z",
+      "mint": "2QK7SY1d1mBW2g4JJLsp9uFgobNhV9kJeLkzoGfWj7cM",
+      "recipient": "4HgmkFHmEUXcN4j1pAy5ubKcYBPpUr3E9e3Qf4PgiUGf",
+      "transferSignature": "54ybBiNBztejixTfcmUoAyLxVEGTY9UC4jDVEesH68KCd2LRgrvw45xyikoNJuxHPDSpxCx9yZY24bNP5C7kcpbP",
+      "durationMs": 27461,
+      "scheduleDelayMs": 8
+    },
+    {
+      "at": "2026-10-14T08:38:22.767Z",
+      "mint": "41eckPUphHiH6CVSmhzQTHN2Z2RV4RZk7h87PLsm99UG",
+      "recipient": "DSr29zS1MUhffmjxUEo8YPP4UXNKXWc5VsbZ9jShq9xv",
+      "transferSignature": "4VdmMKVtCFmSqzoXfCiyJbmxUXMPuggKU7bCrdV6FKqGngUPHHHCBwxz5Ynpm4cqQRJAcJZJjrS1RycaSjdLCAx",
+      "durationMs": 27418,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T08:43:22.768Z",
+      "mint": "A9N1xaLFbPjLbFzzpvc231FkuxNf77cwr9iVXzXkN8UL",
+      "recipient": "3S59vBaiy27i3vSwLmtNNeVJGoaEPpdSMkBqq4s5hqFM",
+      "transferSignature": "4ddMP88CpeVUhtAoeBVM6mK2TvtceRCEBbsDweE8AHpSr3pcwDT253aH5EeshEtse4vfwL5FcWgkpHLUtj4B73ZG",
+      "durationMs": 30453,
+      "scheduleDelayMs": 6
+    },
+    {
+      "at": "2026-10-14T08:48:22.768Z",
+      "mint": "2PgqzYiKAFTJCB51kUv6QVgW5egxCo7iT46LqrWFjCyE",
+      "recipient": "DjhkVRJW2yWmgYuA6kXeJv6FNHhGYDd635dz2jkR1bjW",
+      "transferSignature": "59NXcbYVYiEDZMdDAyZjcQmxDXVTuqnMhgh4LcZLfrcVWKkTjEqETf5gEaUtk5F6wRaAcs8ewyAz9r1F1sFaKWkW",
+      "durationMs": 27401,
+      "scheduleDelayMs": 6
+    },
+    {
+      "at": "2026-10-14T08:53:22.767Z",
+      "mint": "79HitFSDwz4QKr2QmzaVKhxw59E1Q2Z696idvCTCwHZi",
+      "recipient": "5KNS6GfNzCYnqcW9nVCADrnwK5D6xTteBY5WGAQKKSh5",
+      "transferSignature": "3QFW7hYYjKGM5ePRWQuGQv7gq44QeVNyuiEaH9btKVpWxu6VTPtjB5E2TkKzY8x1VGFwBCCwZqW8855ow21GVP6z",
+      "durationMs": 27510,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T08:58:22.764Z",
+      "mint": "H5mF7jJipQaaBbtiacrfJZEDYkJmJBLa6jJkRR8XwSoz",
+      "recipient": "EzUBoeCwyEKJtjCREcTt5ircVuvjhDp8LkX8TnaunooB",
+      "transferSignature": "32MkZF8E6h4GimMamf5fGjnaH9EjFQqrj64KwP4GCvkMSbJv9fRmQEjhVQvEf43HSfRdQJFu8nSKfQy662iHdRK",
+      "durationMs": 27403,
+      "scheduleDelayMs": 2
+    },
+    {
+      "at": "2026-10-14T09:03:22.764Z",
+      "mint": "4A11JsE8K6MfraMFFQJx8ZAegFMpXs1T1TRxXySHuubb",
+      "recipient": "DR5QnzPSJbAgo2omRSxdMsZBkwguBgTZ4HzFY2T5b5Sy",
+      "transferSignature": "2LbknwE1vXR3ArZ53m1kPNmvHjifq4hEvZBaL5mpdJu56aGi7NmgVCx4EumRQEy56YeLT9BuxU7ruiscMY2YNnAL",
+      "durationMs": 27553,
+      "scheduleDelayMs": 2
+    },
+    {
+      "at": "2026-10-14T09:08:22.766Z",
+      "mint": "6JSxHpHPDdodaikJzLv936e5toJjY5gJFG2xt7pkfbtJ",
+      "recipient": "3EHahbJJBrs3fkrBZx3RtYERgzRo2HdeYRU3KYJ4zHoE",
+      "transferSignature": "3Tvh2eQNAjV5Ex2tNC4wKvLVUxzmieo89iEw3wz2oQWhUsTD2EfQa3scurdASm9nH5PrUDaWG7FRhM8eZwA6wDGS",
+      "durationMs": 27426,
+      "scheduleDelayMs": 4
+    },
+    {
+      "at": "2026-10-14T09:13:22.767Z",
+      "mint": "13A8mA9qqQF413iasr1m54hYXCkUtyUTAwHRUPjVsjDL",
+      "recipient": "4WifgSPXW3FZpg6djr8c1eg9SLEzvxtGM6UyM8k7p5kj",
+      "transferSignature": "4dQYhrKYYdnXXUkGhsPKh4fTpRorfYpWYPScDQoc7ozatEvep4eJE66knBFjjmPRzjTHPgUrXkrEFnuAnHdqBocD",
+      "durationMs": 30439,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T09:18:22.768Z",
+      "mint": "CfLLS3GqRNxfTUUaRfqTdgsHcPF3oFsf7uLeKXxAwMJc",
+      "recipient": "BxvNodVmEEWsqFh477kwdDGgKKUGESzL5WaNsUZrqRsH",
+      "transferSignature": "bpAPSMTHzdLGrxQnp2KsvdF4MSfxfckgWz9iUMrwpXF3edTXtSqjoMG5C4LN7Xvu1fuecPxyAys4KWjJp2k4wQm",
+      "durationMs": 27472,
+      "scheduleDelayMs": 6
+    },
+    {
+      "at": "2026-10-14T09:23:22.767Z",
+      "mint": "5JXUUadAJBPnyuurT4udJu2DViBTE37E3Cbqjr3DW2aB",
+      "recipient": "2tSwcrad4Qaw9AG6AbM6X2Q2xu6We3fVThispWi6g4eQ",
+      "transferSignature": "zr3GERvZnWCJB5MmHYoJtxyRbP6UtGr3qkALehCHu241WxuKn9U1xQHeTbRAsi53A97S6hYHs8p8uGkKeUGRQqY",
+      "durationMs": 27394,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T09:28:22.767Z",
+      "mint": "2T9UePY14tz93HfKUdhCQvacTYCoGsJCAgo5FPj4Ep9a",
+      "recipient": "DxZ3TPi2U3v97dun9h4MvoxSecmfCHSAPV7xfhNaGVNr",
+      "transferSignature": "9V2KkJ9h6E12bzkFukD4p5Zc7NBXdxb1iBT2ryofHRXUnEahSbKxtHM8sJJN67dW4TwAziBeH8hpymGqDi5XmwH",
+      "durationMs": 30380,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T09:33:22.769Z",
+      "mint": "5cy98mh79wYmxrjrX35E8GC1jpMef4JHETCKLDNjZLTA",
+      "recipient": "86LMLWEzBAbpBmzH9AwaRhDYvBy9oYrRDorfZugYC8Xy",
+      "transferSignature": "4J48AeiQUPtb6BtH15qEnrzXLWsitY4PhsGQR8ZFabzn12k1YnmGWUqxW5M3ba7dAi35ba3ZZYBwkdaZjLs4Qkvo",
+      "durationMs": 27517,
+      "scheduleDelayMs": 7
+    },
+    {
+      "at": "2026-10-14T09:38:22.767Z",
+      "mint": "HibFQjBXWiYrHbFo9KoWk9WxSttJv36GaGREpLyqAm1F",
+      "recipient": "mEjrhtdXjtMyBDevX9T5zfA35a5R93Q7eFhWNNUJPiU",
+      "transferSignature": "4JU23FpVAf7Pc2KXbEKGYrqYZr5unw4oQwgvGvz6aJUsokSbetsVkyDMuW8h3iNVnd5foTXAx8q1uQc9xCHwwTQa",
+      "durationMs": 27412,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T09:43:22.768Z",
+      "mint": "krTQBRTXjkf5iLKvA7j182JXeZSUyBVkH2dGAhZGxTd",
+      "recipient": "FEr3c35nTA3GQssWqC7ow2owNSj7FPrEN7CyHhinFW3k",
+      "transferSignature": "2W1xEX6GWWTkzfmmTJXF9r3zy2SVWHChNaEc14YQDqC6Mq54jmma46ex6fmdxFNngSAFVVoHhPjTZwx3PUVHwyLj",
+      "durationMs": 29477,
+      "scheduleDelayMs": 6
+    },
+    {
+      "at": "2026-10-14T09:48:22.765Z",
+      "mint": "8ytxzjrxha7Fekp283YBzcMEncsgjAfkHU5dAuuQfUeA",
+      "recipient": "9DLXFunjAf8H2T1bMUAp7MhntR2KDLBPxjrmu1uMaacd",
+      "transferSignature": "HUZM2Xx3gEho6WQFGeTwEvy1Biv7ypz8xoa67Fz7yBUHE3sQF873MiTezQnVPuyCVkjJvMUKYuyUH5AtZNkEu78",
+      "durationMs": 27421,
+      "scheduleDelayMs": 3
+    },
+    {
+      "at": "2026-10-14T09:53:22.766Z",
+      "mint": "DRKN171SddkvtADBNsfzJuFvpSgavYAfg2kQJaQYf8wv",
+      "recipient": "6RD5MZa4nPSjxrLqDi1oxw4AMhMHyhvywqYFwCdGg7A8",
+      "transferSignature": "3TrWAoihUJueicJn9gcD2rPJwwNVjG26FDcZ58seZUJuMcGzj7Bxf7jchctrjhfqm5jpTjyh9rijtX2ChgNq56DW",
+      "durationMs": 27695,
+      "scheduleDelayMs": 4
+    },
+    {
+      "at": "2026-10-14T09:58:22.764Z",
+      "mint": "GXt5TpE9Wp4fgkumAHQKrdnidQoSggLaCea62EyYzvca",
+      "recipient": "Bek2NjaEFCLccwcoCgS1ZGWH7c3jLWgQJwJQ7thJobrT",
+      "transferSignature": "3pYMkA24SkE82JeSD9ezTG4u5mtL2JH2JmXpyVuL3jeYwC2uzeTU42ojLFZZh4QMTMWqhUcPbaCbhSAaSJ8ciJqB",
+      "durationMs": 30431,
+      "scheduleDelayMs": 2
+    },
+    {
+      "at": "2026-10-14T10:03:22.768Z",
+      "mint": "Au1xLeXzDtz52KdKM9SMgHahhpfmGyps6r8qLaT43wfw",
+      "recipient": "Eozun1aVT3Athj5ikgk4J9BN9icxgAVFoLoz7uwXYhhj",
+      "transferSignature": "5V2HHFs8Y532vgta57cbr9QteDxRmN57eDhstDMtmQ2Fdi9REEzCLS3maGVyfycdWZxB7UNQ4T8WuxFwj8mTPFfa",
+      "durationMs": 27431,
+      "scheduleDelayMs": 6
+    },
+    {
+      "at": "2026-10-14T10:08:22.769Z",
+      "mint": "7XqPGMvGXBxVmzeDXXg51Spqn44AFufxGrGTuqELMWYN",
+      "recipient": "G1xNtvJqQpC7CSQF3FeEdRHvoek6ZforP1bpx8Cw7xde",
+      "transferSignature": "3ZFyVNLTcv2U84mE2NDSX53MhKvvHfxUeA6zt6f6YHrRCLwrfthZA6XBeA6cSfNbvkJb7Uy52z9UNaHzrpuEWVXy",
+      "durationMs": 27499,
+      "scheduleDelayMs": 7
+    },
+    {
+      "at": "2026-10-14T10:13:22.766Z",
+      "mint": "EyJyfL7oCQfSG8Eao3H5ZFFCM4NEEUw2axhSkBdtvRqB",
+      "recipient": "8CMrkhSPzoGxq3zzs75kdAeAfAkgdjVnVcPggciSkZ6o",
+      "transferSignature": "3HWe83WJjRRjkk3gCxpyTuMJJjvdF7AT6YBwJCy4QqZ9HWwNTQgqiTxmYcgJNLUgHfhyEwoyHDFNazWZDaEBJbGs",
+      "durationMs": 27508,
+      "scheduleDelayMs": 4
+    },
+    {
+      "at": "2026-10-14T10:18:22.766Z",
+      "mint": "5RVJLSqh1yQdfBrC8nNRcz4HBEjQEy61U6j4yzPEN9ph",
+      "recipient": "Ddk6VCkXfNQHyMrGGdgPrsuQMpXWW2ekazarTmgkzuxq",
+      "transferSignature": "3cShG4KCrt1J3aVG2YwzHen4KtLLeA3xDMkfVqKCiSM6uFeDA5baZFN4ENQ2nLNRroKYREKTMp6q9uwWqQHyo8MG",
+      "durationMs": 27465,
+      "scheduleDelayMs": 4
+    },
+    {
+      "at": "2026-10-14T10:23:22.765Z",
+      "mint": "4hT3EP4d3u5HKyPqqP5fygjDptMJWYDTNp684Q7rSZ7J",
+      "recipient": "7dgVp7zfgDGwwHo2Zn4zbu3W4HRySc2Gus4ayAyk3Fix",
+      "transferSignature": "3nNKY4m8gKerjaMRp7HoPpR3YE7DUZqxotzSfdWcm4SjSuMcmZt7XKg4ZEQByCLhasRVdW1dHHj2arUc3d4dBqog",
+      "durationMs": 27448,
+      "scheduleDelayMs": 3
+    },
+    {
+      "at": "2026-10-14T10:28:22.767Z",
+      "mint": "DJ78J9DfJJmrGECeRvvL726syAKdwiH32vG2s4kGRPBP",
+      "recipient": "6KTguwJJ1jzhswTdfX1oCuiEbjAV4mt1yG6mp4w8Qxdj",
+      "transferSignature": "CesJxFab7VgijG2iXBaCt16QRBtKxm4UwyfyXkRfjY1H6jEe9wBkKG1s1tBcqjqBL7XE4beuDgoX4Zk2y693RUL",
+      "durationMs": 27469,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T10:33:22.764Z",
+      "mint": "EcczqwdmsTbyY33GDeFUiNCNDcaVMPubjGhCk5wXk4hC",
+      "recipient": "4YaCdYQYQUoAZQbe2sPpv9QM3RiGWc26fP3yxpfKm2X5",
+      "transferSignature": "kCoTXjfaXogp1MaaXqdoQ52V4HPvBJytQ8sUjScQfzdTSy7qbY67jookSCkSFmjxUznSTvmJziXzXeemj2WcSAS",
+      "durationMs": 27676,
+      "scheduleDelayMs": 2
+    },
+    {
+      "at": "2026-10-14T10:38:22.768Z",
+      "mint": "DRPZeKwJ23W1oYa96ewVtJZAVM2Mot8dCNoWjuyzMcM6",
+      "recipient": "6Pn9oNbiQ6McW2g6GERufXGuE2J95BHMAxbAUDTFwYWV",
+      "transferSignature": "2RmmAUjXJsJM3iYD7QBQLrYAPnu4ApWQYufsyHKRnHDvoV3k4JTK54DPqvB73Pq2dQFueCEHmiTRiw39mo5zxttZ",
+      "durationMs": 27463,
+      "scheduleDelayMs": 6
+    },
+    {
+      "at": "2026-10-14T10:43:22.768Z",
+      "mint": "GmpbUhdvh2g9hjbxAL9NYLd5sNBXFwKbv319CcEsTYDG",
+      "recipient": "7qBgfoBwq2NqTXSysaQc7Gyn1c2A1tanJqrByFbSYvZY",
+      "transferSignature": "5axHtccpGpB7jPkDi8doxAvMJWGS8LF8soDnBiXLV7HyGtsYjGFrqrpYNhi4jPE6b1ALTS8uDbJdwiRsScsqvRNS",
+      "durationMs": 27430,
+      "scheduleDelayMs": 6
+    },
+    {
+      "at": "2026-10-14T10:48:22.767Z",
+      "mint": "AiMR3fKCeUYAidn2e5tb7h5gGJBHBengYgPJtWGe1rbQ",
+      "recipient": "56RDJCXymC967pw4V6VK4yYjdrAde6rEyxtecyuEp4bZ",
+      "transferSignature": "2c9avok9vMK3NtkAVwh46fbqwRidM5E91caLTMAzXquFXkByT6RiTnvDF8oTuJTPDiBDNYRSgM47iF4bzR1BPmL1",
+      "durationMs": 27510,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T10:53:22.767Z",
+      "mint": "AaJeK6nh6fLHNgDhMvkCsfiiL3m2cqaz7pviqXtu2gGk",
+      "recipient": "FGtt33yiU6Qj6S2rr2D3QkFN1kSL8kZiAYQ7hZRA5VGz",
+      "transferSignature": "3p4wDGyDyHStG7U3YozFeDxA5idnqDehFtzKqcvte7QkEnTiepZ8meSQ9vZr3qbcojm4tBbKBR9KjpwScqGFv4jF",
+      "durationMs": 30447,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T10:58:22.764Z",
+      "mint": "3wEupFN7xNznqAUNmQRLnaXiPMgaaVRKwpR1E6vE7hbY",
+      "recipient": "2WRdfLxPk9h4SRNY9VJdsnd1ErDupMRiNkd5BAiZ76rq",
+      "transferSignature": "4g2tE4Vy6w62CwRNHT5feoBCRdhBH5tUZBqmCAof7jdqGM5bdw54FB9wXBN77gXi3qKWSkyCsyLfQpgtBfduPNVK",
+      "durationMs": 27527,
+      "scheduleDelayMs": 2
+    },
+    {
+      "at": "2026-10-14T11:03:22.768Z",
+      "mint": "CHpdi6JQQRMzWbRUBv6KQNYFBQRTeRFrbzvWQb2n9dHJ",
+      "recipient": "FoHGpr1vYAmVVdJeWPHqGQb4S18Ky8oYZnRS3EhUw16r",
+      "transferSignature": "trSEya1gKYYkDEvmmCCFv5Jy6y6YmTWnKqtJy2CDxqVy5zCFfJc7TK6idWNStekEyZiwDrdWpSTncokMgU1UGEd",
+      "durationMs": 27546,
+      "scheduleDelayMs": 6
+    },
+    {
+      "at": "2026-10-14T11:08:22.767Z",
+      "mint": "ATPwWhfh8mL2HLGdmFM7HoxgCVzvxC2qiq8iNP8RdehP",
+      "recipient": "6dudWQo2C6h2L2Bkvf3JNf1DFQjzRjqEgCQJR8DrAQpv",
+      "transferSignature": "3N7fUixBJcpZEKRtgweRNcjfRyvGmajfrWnGRm4kqyxvP7SXkmbaxvPVufnauDaiVH6mCCjQhYKGbUSiHYHMLJjh",
+      "durationMs": 27514,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T11:13:22.764Z",
+      "mint": "2qtjyiZA9tXNNXqucpfBgkbD7pprfjD9RMNM6td91Ug7",
+      "recipient": "HcHJcPnwZvWbe78LYAsHgY9ZQGPEJBichf9tXUPGZByg",
+      "transferSignature": "4XNSnYkotwDFnXeEomDa3FMJEznxP9ak8EDwtQf19ebm87RYMNkgcpQfs9NykfFdbyoveHAbausuc7pcjy9ZBnU3",
+      "durationMs": 27477,
+      "scheduleDelayMs": 2
+    },
+    {
+      "at": "2026-10-14T11:18:22.767Z",
+      "mint": "2UD5vHkaVLVhpojycQvHMismfteLceuigkTbgyNYDcuQ",
+      "recipient": "7ELHNfxfoVBaq9F6kmkcF1SbPv78teFWSSvQCn8j5qtt",
+      "transferSignature": "2dhmJiaXXZjx3uf2aHoW11Ae1ds8qtKEcezTdHJym4gTGrGcAjZbGyPAnbpMxtfXzeUbQqMdPbU2hMZAFJixjNAh",
+      "durationMs": 27470,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T11:23:22.765Z",
+      "mint": "7QDTGz1T77WYurJVxtkZTkCknL5vatw3aYZybXPmxwk",
+      "recipient": "HkavvjMSSrvvrPc9DMotbN6mo4LDB8CoZuNFhZU43SRT",
+      "transferSignature": "4GsX1jdt5t2Qrjo7E2Tsuwxk7ZMVsS3Qg5yUS4ohnk1v4mw279qoJTyfVQLSbgmbTE8zGrbMJAY3EEE5zoYozjzK",
+      "durationMs": 27510,
+      "scheduleDelayMs": 3
+    },
+    {
+      "at": "2026-10-14T11:28:22.769Z",
+      "mint": "Y4jZDdfYeFhzbistBo1R1TgheTrSD9NePnDzC9rMake",
+      "recipient": "Fx3baBzsrGpk5NF4ev1tQeLeoo6Sz7k4VonfZ5Zwz73i",
+      "transferSignature": "5HG5pfxWAWSqjMDdVHptjAqviFiA3DAfL2Dar86EnXs6UZ3EjcZQ3z7PfPCaHoxxg5x6ptUVUdvAWRFUAeRsiG3r",
+      "durationMs": 27514,
+      "scheduleDelayMs": 7
+    },
+    {
+      "at": "2026-10-14T11:33:22.773Z",
+      "mint": "J7QGGxmfErR9ivaB69XrijNndV4mWQRbDF9uWFexwZ7s",
+      "recipient": "F7LudYovG2ikWjP7KbLdRgiGvKrAXDbGVdSf2dj3P3f5",
+      "transferSignature": "uYCqjEPoNJQzzBtcExRDMWwCNfpzwKLV9LGAZf6zExPjo3bvxh6UHsrMyEM7Jnt4vtve3EeEKe14Lt5KNiEbLLJ",
+      "durationMs": 30503,
+      "scheduleDelayMs": 11
+    },
+    {
+      "at": "2026-10-14T11:38:22.769Z",
+      "mint": "239mRoo8fWeDTfiyfasYLKR73Aw55F8gkM7NFEFsJM76",
+      "recipient": "BhGxHhB5kcJ2C6o9kKc3oxbfZWJQ7GjXcXr1m71cKGd6",
+      "transferSignature": "KBbqbuTJPbdSkyRXVfTWzcc3AuKvmKAjDszsux9b1UzpbgwEPdmcnNryDEBbd9YLuCXkMDYBvSyb2zNMBNdSgMz",
+      "durationMs": 27481,
+      "scheduleDelayMs": 7
+    },
+    {
+      "at": "2026-10-14T11:43:22.769Z",
+      "mint": "4j7VpdrCJ9WD1acdunxEv55tTs8phKXkGRL3iZ6pH2Sd",
+      "recipient": "CprfknuQFkrMrXk6CXfAJXfEJZBm5fB5uMFtqrEE3Hhz",
+      "transferSignature": "5Tb3x2mSQKkvYjbT98nfckQ68dhRrPqcrdBkQNm7X9mrUeSzFcdEpA9qobspPqmGW7xiZSVEsmwrXE5Y5ERjJBTm",
+      "durationMs": 27450,
+      "scheduleDelayMs": 7
+    },
+    {
+      "at": "2026-10-14T11:48:22.763Z",
+      "mint": "2NbHiLmyshvYSvS9cjTzVkgGoL1kEm6MGEqTijCux2E2",
+      "recipient": "9LiiLj9P6Nvcvb4onbL2tsf7vBpGR56E9Kzk9HyUxgnm",
+      "transferSignature": "3PawDFhpah42Nn5Ubf6C5km4pfMz3YJf76rKXwZ6EsNJ72UwYZRC2zNuFhnGRogy9pWwRWzMnCgwKAEG5dJ541jg",
+      "durationMs": 30416,
+      "scheduleDelayMs": 1
+    },
+    {
+      "at": "2026-10-14T11:53:22.774Z",
+      "mint": "6ctnQgFoJpeAkK851RPHsGw3SKnE2ipDCDYNwfE8d318",
+      "recipient": "GgQapQpUdf2yFsUU3YvWjz37Nw3FveNqVSTNQgFiwrFY",
+      "transferSignature": "617v6wxEjp2raNQscU3YdxmCpURy8qT9Kfj2eZ3AJHy59WF1MYoEjz6x1BW5gzYRTfjPStczKv5gokRWcNdmT4o",
+      "durationMs": 27493,
+      "scheduleDelayMs": 12
+    },
+    {
+      "at": "2026-10-14T11:58:22.768Z",
+      "mint": "36KphPVnzxSzp38ThE2czue4Ui8Uw17zVJNDjACAGYhq",
+      "recipient": "WvihUuWBbrncEBiGY7wtfmSs3St74MMsPv4ZgJyuMPq",
+      "transferSignature": "2jLQ9yj3Xdn6Tu9dHwi8Vs5Xs7VWjELD5vz71btxMnCJXuUkr2p9rbbydsDcPi4sbKtoQ7AAHnJgVAhFCb7A6qKZ",
+      "durationMs": 27451,
+      "scheduleDelayMs": 6
+    },
+    {
+      "at": "2026-10-14T12:03:22.767Z",
+      "mint": "GTAPa3Mye8oXY9rYCrANwJUw6xPye8CXZcG87uThqFJW",
+      "recipient": "HWHDc81KtrTLUyNHnSAZ9JmS4yD9vJNFTdtZvBHMaQw7",
+      "transferSignature": "dSCowb6t6njJeFTi26q8kprm3hVV4BZu4SoavskfwJV8e7bBuX9SCpDA9A6gjDBe2DDavY2yPJwmDLMFR936pj6",
+      "durationMs": 30735,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T12:08:22.768Z",
+      "mint": "Frk6Np4L36RjHdKikYrawPArG6vo6KUmQi6cUT2fNgtM",
+      "recipient": "CiSszDDMFLCBBk2btoJahcS3pGY3wLeEjjKVtJVFjKqc",
+      "transferSignature": "4BFLVUiEcSBH2vydoFtFNoDRXVVFZ1s9NkCDjK37rd8247aspEABsf3gAF9t4R9emVCF8gWkHPREfjtDLjLpuuN2",
+      "durationMs": 27467,
+      "scheduleDelayMs": 6
+    },
+    {
+      "at": "2026-10-14T12:13:22.762Z",
+      "mint": "DBTTzvBCHXALbjd2HfNq9dwvB2HtfzVuV6CQTFLYo7sX",
+      "recipient": "85LApBSJCSqd3dpKSfLkh8mojeBc3zuiAxc2qWFfGdpE",
+      "transferSignature": "4i2LgEtCEbXpPxY7umeTK4xbFQoeBezn7P8S3mvaYEJimzPDAo7QqSTRZqAxPUmfZc3BgDyfAeQ5deNVd7BWJAVo",
+      "durationMs": 27483,
+      "scheduleDelayMs": 0
+    },
+    {
+      "at": "2026-10-14T12:18:22.780Z",
+      "mint": "2DTbypja5eTXSDHTrtpu6wsJKz1uQdU8Xk6FXcp36bng",
+      "recipient": "J7svGubiReVn8NKW98Pjs6vn1fkNkyJdJ4VysgqvmZBa",
+      "transferSignature": "23WdNGQGnU84nqgwXvmybhC5uQWKb92gFkKcZxVWPmPA6zYtVd6dsAZaK9FEE1DjRV38xVvrdL57XmHPnXyE2D73",
+      "durationMs": 30467,
+      "scheduleDelayMs": 18
+    },
+    {
+      "at": "2026-10-14T12:23:22.768Z",
+      "mint": "3P8kVQRKvDwZp2CjTH34jECHujKJgYiSs5dzEjibtz1R",
+      "recipient": "93morTr7KcCmtsbn2yqABSPsuqWAD2cESroa6X3HkX3D",
+      "transferSignature": "3y9SqcNLyL1xGPk6sBUfBUw7yH5iDfCBaSTiaytx7jTMT9myc1etGKtgghB1Pt1BWW6f1aLqT2exV2RUaLV3NPSY",
+      "durationMs": 27370,
+      "scheduleDelayMs": 6
+    },
+    {
+      "at": "2026-10-14T12:28:22.767Z",
+      "mint": "3yVBkMhsAPFsUqMyDcjiexEuCLFSMRJuWUJF6Ef18JwT",
+      "recipient": "4bYXT9zrDehWhuW4id4Z976B6kEdRX18Dvaj3qJZNiK8",
+      "transferSignature": "3b4FPxPpxwwVqDG5yKiSB1cGEUKuMgb7JheHqeKmiY4Hj5eEdpx1otPAfZkna5t3xMigCayB2XeXpDUotCxS9cCq",
+      "durationMs": 27518,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T12:33:22.764Z",
+      "mint": "3gmugdXnR9GkHMPWqCcvTfT9gzshiJuwbtdQQuDt7fBL",
+      "recipient": "44swvdMKPYnckV3BzDr1AKBWH2qmgGieUVX2WoycjKvo",
+      "transferSignature": "3GgkjmVCn4kchuTZQnm5LRsSg9sa2Axet2U4yTbgdmZzEpe2LQdw1ud8Fgpui4fdqeBMMCriBtpa7sWfAuZcR5EL",
+      "durationMs": 29367,
+      "scheduleDelayMs": 2
+    },
+    {
+      "at": "2026-10-14T12:38:22.765Z",
+      "mint": "Fd9RBJvypsr5Yh5oF1H61AYCSTdAJNmYknPH3yXn14UN",
+      "recipient": "6ZhkLmDTHxx1snfVBzs35qoa7f8oFo1SpxJxjpP4sXa",
+      "transferSignature": "d9eL1Q5cUNausHhsx64w68BceU4XoU3kL1LJZEMDD59AiKzSqbspAymctuXRPdfr3fwDWPH8atWSWfewAPKJKfM",
+      "durationMs": 27465,
+      "scheduleDelayMs": 3
+    },
+    {
+      "at": "2026-10-14T12:43:22.764Z",
+      "mint": "9ZVjdmQQAir52FE24tcEBNSAxXnMf21F9Dc6BGnRfKor",
+      "recipient": "8eXYL2omLfRRhBD7PVZQfc1h3oKLh4NHbMvaG4dtpt8y",
+      "transferSignature": "3M9tnFLbqjwnDhikKbfhrdV5MDJdxepi4SSD4EWZpTgfjquYZofVs9BC1CrHN3x36MXU5foih9xVGFVUoDU2Sxo9",
+      "durationMs": 27474,
+      "scheduleDelayMs": 2
+    },
+    {
+      "at": "2026-10-14T12:48:22.769Z",
+      "mint": "Dxy3jJ1AZdREc9iJPLdF5Un3zfnkknhpau6W34cP3ZQn",
+      "recipient": "3afBh51ieZvcjj3Ki61VM9XmRQiYSfm8AXNb6e6gtFz9",
+      "transferSignature": "5LHmP75m1mP3wXiSC6nvCMqiVsY4tAnpkTGQdo6feznGb5VhD8GTknAurK5nuvFAYd8J48aYU7c77v43FAG6G4Qd",
+      "durationMs": 27412,
+      "scheduleDelayMs": 7
+    },
+    {
+      "at": "2026-10-14T12:53:22.774Z",
+      "mint": "313iuy6pHqhKFnzgooHEmkMFKArjhp732mDSsBFYgabZ",
+      "recipient": "DGtSKeNh7uvLEcvTNRWiMAA374QqevAwRozwxg8ZvWE6",
+      "transferSignature": "2Fhe95dQrWY6MgtqGa9EndmTSufxvXYZG7DxiWef1uQWFMMSYVQhk4UZABozkA1v2Nzg5aVjfwW7SWGCnoqX6Dy2",
+      "durationMs": 27459,
+      "scheduleDelayMs": 12
+    },
+    {
+      "at": "2026-10-14T12:58:22.767Z",
+      "mint": "77wX5ot2ZQ1Ma5WSANu4L6oVmKhtoCphu5SLD3K28jPo",
+      "recipient": "D2YMhBqNdWVhjG9gf4Bmgwcs4gbc7GrakhaoHp4fhsAt",
+      "transferSignature": "AuvcNu7N8dqbvdwHvQT3xjitj7yWrNTr5cc4UxeSauvqLoHZp7BAWKitbBiyqcz1UyeBGtnnzEumX9QeP5yz7wG",
+      "durationMs": 27489,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T13:03:22.767Z",
+      "mint": "73Gwp3vajsghY7qRxY9F5qv9S37nowNu6mA3oRAjSSVv",
+      "recipient": "4Xqe9aMKWjDywHomApg3QhYwsg59SWJpAiW7Wae9sYim",
+      "transferSignature": "5JZot5zNTmTAdjq3xCKmhdUq19XPPNpxmL1ZS3dUbYufynWJUQMxYkvETfbuUJZ5U2rbed1bNb4wcjfhQgUrXnNS",
+      "durationMs": 27420,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T13:08:22.772Z",
+      "mint": "BM1PnWsPeZZq2ffSnAzHfTgEcNmUHd92CttHE5WdFc2W",
+      "recipient": "6y4jwps8L2zsZJhEW6CbvCnqiRYjv4rsRtJ3o7BcZVHx",
+      "transferSignature": "v7jSEML3g7tZUvQqkxrDK1n5BxJn8bLgb8uiXftoaLkUt9J4qTXK5dBTU3NJec3rsRidcWWyBkSaBeVadJhgMiv",
+      "durationMs": 27523,
+      "scheduleDelayMs": 10
+    },
+    {
+      "at": "2026-10-14T13:13:22.766Z",
+      "mint": "BLfwWj8Xee1A5hJeNkf1Txgu2VRhYRwxFdGgP63EGu5z",
+      "recipient": "DZj5AHLFTSC4vGoRda6WkBNERTBUodEyfzcN6zTM8yMm",
+      "transferSignature": "Y3c1pf87TrXUoqhGVyb2f4kcwRR3ZCM32T7A2NMnULRUFgEfn9xfjiohi2Yz4aqRGteesmq2k2Eyi5XsF1ncci6",
+      "durationMs": 27479,
+      "scheduleDelayMs": 4
+    },
+    {
+      "at": "2026-10-14T13:18:22.766Z",
+      "mint": "2WcCUG1FcRkq2Bu86ianyrVe1tgQvays3GixNdxFpCNT",
+      "recipient": "4jw8DdFCCdwWVgT14NCM9HB9MMbJz2iquuVqL6rRoEsK",
+      "transferSignature": "dG8APRUyyjuSBHPbq91kocfSgaFxdFZLwJEq8VSJEq6MGxb8y6dFG5vc4TygEV7P4QA38bmwoqRwaP9C2SY5XkV",
+      "durationMs": 27475,
+      "scheduleDelayMs": 4
+    },
+    {
+      "at": "2026-10-14T13:23:22.765Z",
+      "mint": "9UCNXJ8VX9B1JxUovTHaSL39wdhKwZ5qqjPXsZbtUaGN",
+      "recipient": "Gejd6ustiFmUdLarTXbMLRWT8D3fMm7yFqLbv8VR9C9s",
+      "transferSignature": "4tW7g1vXunGVPv4SaFzmYmtH8JoZRvDyDhDXHqWKBYyh1aDW2tnBhZhDk4591JC9dHoiWnV2GHKHx1PYLyX3yNgd",
+      "durationMs": 27428,
+      "scheduleDelayMs": 3
+    },
+    {
+      "at": "2026-10-14T13:28:22.768Z",
+      "mint": "FG8w6EKKyqjvQCEv2B7buxVVE7b5Z3UAtP82mRt2FshB",
+      "recipient": "C4hV5oiW4NBbkz6zVaSehfE1ekytocS94g2MRtXoBed8",
+      "transferSignature": "3wxXdfDu5sDDPHz6w3g1wXDVc2sPY2xcfBdpeJ3ujCyuugErL6s34qa5ZuMGJe59eJA4FrHae5rCvNCk6FF6Z8qY",
+      "durationMs": 27530,
+      "scheduleDelayMs": 6
+    },
+    {
+      "at": "2026-10-14T13:33:22.765Z",
+      "mint": "A5bYqFFDGJwkzsfyGLC6neFaRY39vEQQkJremsKtWpdq",
+      "recipient": "FX1xyJbG3DSQ9kX9mpcDggjNL2Ffg7T9faP58mGZ5i2t",
+      "transferSignature": "5TtWyGPgUg8XeuVohWcvw3JHRQrsoTPoKsgY3WrzvTEw8zbc7GoXWi6rGD6PBfxGSusosX9WrLYLdEahkeyHt8dd",
+      "durationMs": 27415,
+      "scheduleDelayMs": 3
+    },
+    {
+      "at": "2026-10-14T13:38:22.766Z",
+      "mint": "AAa1BdjTjEwzxdqTHqnSKRNE3bjAToc1rGN1vkAcEu9P",
+      "recipient": "G6jebCSucjUa9gF5vqEVT1aqern6ANeD8q7BFWvXt8oH",
+      "transferSignature": "5oitqta3TxLMEkYkbWvHsZmCwev4Vs9zENHCmeywzeLHEqyNKVC17QjZyrCQVtQGj7Zc6WQMvLSKcc8ssha6mWEw",
+      "durationMs": 27554,
+      "scheduleDelayMs": 4
+    },
+    {
+      "at": "2026-10-14T13:43:22.767Z",
+      "mint": "BbiZtb2gQF2yqoDfmD3Vt3EWLkEmNamVk7PaHGQ5MW85",
+      "recipient": "66VLEPAKNcp15v1r3JYZeTfBrrGXcbtoVE9CUsCogKNG",
+      "transferSignature": "NrinK4k8nbSNGTm5pupU7sG6uhjGYwyWgVdHdq3JNFbpHaRcVjZrFn3FRxQxJ4Kzd1PnwuqtW9mnX4zDxuNDBKS",
+      "durationMs": 27467,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T13:48:22.767Z",
+      "mint": "66qTURuQU8LAFWwRE1rUECn1CoWAxGxyPoRHkFiPUuZH",
+      "recipient": "DFwyPdjXvAoSeJzJZ6uN76CMnS6gFdmKMAjKJ2QSjPUi",
+      "transferSignature": "3TqokNdtpBscdrkCFHH4FCmAXnL2Df3YtAW2xDWtSKbqCogwbDgVKymPriEjVtzBDdAvudmNAVQF5M1jMwoah45e",
+      "durationMs": 27445,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T13:53:22.767Z",
+      "mint": "98LdXKSMDmzsnUPc3UqxjdMcKJjX4pGPUSXm3c7fCMtS",
+      "recipient": "G2uAnznHkyjPZuu4TgfVSz8ECtzFYeKoqP7ojk4Po4aQ",
+      "transferSignature": "2DEDNUko1FqpqRczZugW9MJsf75qo2Mgowb4AmaQZs7PcbFSJhYoF9Gfb9G5bQnb3aS7fmQiQRrYgTsXuRPkmqqJ",
+      "durationMs": 27440,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T13:58:22.767Z",
+      "mint": "21pKB3SbGCYq3pwbLBuEAANTJ8iuqZuqmSkhU9EhoWao",
+      "recipient": "GWgKM22YL1LmZTfjxQtBkLS4AeX21NF6fwrQLcvDSoAN",
+      "transferSignature": "3X9YKqtL2Rxt2GBuWSrgb659CLgPftURSqyjQTuqAauDkMEkWNyn5Sp97aWJp21266y3KMpx42TqhshCtTzA1hKY",
+      "durationMs": 27420,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T14:03:22.768Z",
+      "mint": "Ese2tS3RKtcJNYPHSyfN2CgF2NXJzndCD5dZ3f3MZn8r",
+      "recipient": "8vQ7tXdf4kwTZmfKqzL9QQAQL82XiFA3ZJ5hnQZQCdZe",
+      "transferSignature": "5QjdChuThws3m5uWTzu9eE2oG2vRnuxnHprHWAG1DoftQCUz2whR2MQzPnrsphAwoXwawZ4e9pmw9nREXhHoiU9g",
+      "durationMs": 27594,
+      "scheduleDelayMs": 6
+    },
+    {
+      "at": "2026-10-14T14:08:22.764Z",
+      "mint": "7m8G1VMsAxQGRYhhfdo3GWWRyopwTTHs3XEu4JviJHBx",
+      "recipient": "FYTR6URFERk3ziymFGzCp2wh6dzdDeBdbTpseTkv7WUr",
+      "transferSignature": "2i4WjV2zVMVFhqEb7QuRWZ7QSi4MRAxWYFxjChDyG7Tbtgu3vGYZ6nmMHVsTWiA22fExCot6nngKkHGzF4emdTEk",
+      "durationMs": 27471,
+      "scheduleDelayMs": 2
+    },
+    {
+      "at": "2026-10-14T14:13:22.767Z",
+      "mint": "H499AH2NSuyoJudp3mFVa3kzK3HiUgxcb4EuPwRCfHwR",
+      "recipient": "7qZwgkgBdYq2h7Jnz1Q5Kerfu1NwRfJLNSKSpUKA4UDJ",
+      "transferSignature": "4B7rb73ssPGzWguxBrqyvLXX2tjdN3hARHfewKmH7mZWmUKwkbWQCcyAbXeh9U5VShDVh65kKTRNktRRPn955kps",
+      "durationMs": 27490,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T14:18:22.768Z",
+      "mint": "5mAcQH6cxL1e5KPWXuFtFvDMCmiQEXRxu1YpajwcS5Jt",
+      "recipient": "BLcUTRo5WBWgCuSnhJLe1sQmBC3sZufd7NguGfLMvANH",
+      "transferSignature": "2iHkHiBSWdyt9npjNP4RxFM9YeCySzKnTasxJk7mUqcCL2yU3AzC2pbkStu5eriwccNZ8JVfJvEnCnvVdgM8KMk1",
+      "durationMs": 27672,
+      "scheduleDelayMs": 6
+    },
+    {
+      "at": "2026-10-14T14:23:22.767Z",
+      "mint": "7Uu4TeTfaAZdmN52HWq4ehg7gwNyQCyrqiboYumAmkJf",
+      "recipient": "De9Rv9SH2x9QW4k59hsqFg8sDyZeB2gDrvNYVP6TjwuG",
+      "transferSignature": "3qJLssnPG2unETMYLBRxRupnbbW8uunnuN2fsm6NyML2ZdDgF11uMg2SDxdhxYXAYjc7ExLjtPtv6jG2rzQ93UB1",
+      "durationMs": 29488,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T14:28:22.766Z",
+      "mint": "4Udxmujzj5eg6oFXEtPxLx5Tf7ApgwLruotVsqdorw5i",
+      "recipient": "7xiXmAccmVYeKySJDTxGn1sd5huJNgXaQRJkKymrx2Mx",
+      "transferSignature": "3iGLodqYbUPyVfryjDAaATz5PNnkmfH4TShAEBzwjvtHYikbFjHfX7hJco6ML1bEa1Lv5FSMNHx476LiMG8SAmWp",
+      "durationMs": 29368,
+      "scheduleDelayMs": 4
+    },
+    {
+      "at": "2026-10-14T14:33:22.765Z",
+      "mint": "7EPXTLpNkR8B6KBm1kQqKuuarRS7RhS2K8FT5B3NUqd4",
+      "recipient": "GgUpDALQY5A1R8x6QNWwiwgTLhRwmYBm5544Ni4TNcwZ",
+      "transferSignature": "4KayUGe2S21ZSdc4JMF1j9erkCNRM8HhbnNYxqgz724HUXVGQvNtrDhpMGKMoj6fqv4Rcm3XordWXN8hYDSH8H7u",
+      "durationMs": 29485,
+      "scheduleDelayMs": 3
+    },
+    {
+      "at": "2026-10-14T14:38:22.765Z",
+      "mint": "Buo6fFr8RSPKJASp6MQWuYPvWMJGAcnELXpoV5oLt4XJ",
+      "recipient": "Aftv7TxBk3d2aCQbYBb8onwpnEysomXZ6YeU4oBZb3c1",
+      "transferSignature": "2G2rKyczqJm1QicxcBRNaNLzCYXYRjFYueoNpCfDmbSXsaDpvihLGPGGNHWGmukubg8uXpYKeDthEQKMjRft5AKS",
+      "durationMs": 27424,
+      "scheduleDelayMs": 3
+    },
+    {
+      "at": "2026-10-14T14:43:22.768Z",
+      "mint": "DddHas6QDDEGqyjcTzeLZfu3QjepX7Y9QffBFM15Nagr",
+      "recipient": "DW7KwHKVWwjwLmtqQVBVYBsaiLf5QkXdyLnz8dDj6Am5",
+      "transferSignature": "2MuKnKf5Xxh2bFQ5eXkwNMtStaP52LKi6p43RsyXuUfiHLdMKPCpTXCenxumDNiYmiBtptYm87sXc2C6gzphpdur",
+      "durationMs": 27415,
+      "scheduleDelayMs": 6
+    },
+    {
+      "at": "2026-10-14T14:48:22.766Z",
+      "mint": "8VhZ6xiYCx8DE73vekAiaGsnsuTZ751MZuxB9qETpypA",
+      "recipient": "J8kKPGx5oDPkVhRe2JwwA5Wr4BujK6zHd2mrUaDz6gD9",
+      "transferSignature": "4HVHWSjDd4VwaLnwCNkLYvfagvanw3qXSD3SKxW1mbDbxcwMXbeeEvZVtcYjmn8VBfWGLxY4k3Aj4AoVJcfoyf5n",
+      "durationMs": 30451,
+      "scheduleDelayMs": 4
+    },
+    {
+      "at": "2026-10-14T14:53:22.767Z",
+      "mint": "6ymKZarb6XNTiLxvmS1ABdYFtnLa4RN4jGYck7WGoKBZ",
+      "recipient": "9cwqDqYZeQragsEfTh6CWeMGgcWyNKFuEufAQW7Eukur",
+      "transferSignature": "yXgPEhSycfc6HsEiZkaD6kXA7K85f7tMc3f9dNeRSZsceLoWSLi2agDL7UkAcJnvnVs9pbKGgytXov1u482Q8w3",
+      "durationMs": 27484,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T14:58:22.767Z",
+      "mint": "9rqR9kxXeAMc4QdBe4Euoho6HFnj5QmLUmGgygWnFW7z",
+      "recipient": "JADUxcigzq18RomJi1BWu5heBM24Zgi8hriZ5HtnqNs3",
+      "transferSignature": "4GnLg3ZnkFTet6JR7YSuigNhc6tUd4k1R9QMZm5NjJeXQ4R6RpVQSmrazVns4gZZUtp4nCwFD4pHZEM71G51eU6R",
+      "durationMs": 27440,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T15:03:22.766Z",
+      "mint": "4VHSRm2Lw4eHFhu2DR4YivdH6ufgUwduB1JyDMd47jpm",
+      "recipient": "8hv8d41PzfKvGX7tHhmfQxu8fQ5DyBcCZ5TrVMXWpyrv",
+      "transferSignature": "5CXdDzTk1fraCRGyvtGqtqWW9wdGEA3VR8FYnFR7BPhhk2B4dscuY7Kaznm5Uu2YZYu2qfNqua9QkiHoCVmMFYrU",
+      "durationMs": 30472,
+      "scheduleDelayMs": 4
+    },
+    {
+      "at": "2026-10-14T15:08:22.768Z",
+      "mint": "79SJtu4pYX3oSLF9vhLWn6qVhf1MwAPeZ8VikDaSuMFH",
+      "recipient": "6NftaMcJr22EWoe9RgHsWGLZhb9tBAjQhpbUPadz47uG",
+      "transferSignature": "4tmttE9qMujkfMBb3TBC5bxbTAavsDGqvBsYSZ2ShkGp88CaYuLpZXzdRYCAr6pniFMxf6698Wdio36KHdijfuaJ",
+      "durationMs": 27467,
+      "scheduleDelayMs": 6
+    },
+    {
+      "at": "2026-10-14T15:13:22.768Z",
+      "mint": "5hzJ5hhf7Yk4u3sqBZNpeqSXxX2ZK9sJeEh9iMJL2zWU",
+      "recipient": "F21Cg1Znr2AR16ZD6HcSNN1EwdSNsf3xzypTQaZf5zeU",
+      "transferSignature": "23CFruQnSrdL6jfaJREfPYNrAnpY4qd3yEYEph3inL2KEn7HSKcuZEj2DTFRr66yTF59x63FSKoKv1BjFveGvMow",
+      "durationMs": 27505,
+      "scheduleDelayMs": 6
+    },
+    {
+      "at": "2026-10-14T15:18:22.767Z",
+      "mint": "9uE58SESzYMw9BByFdUivupkY4UPKRJvxon1rkCcMn7Y",
+      "recipient": "GsvVMvqT7ig8kapkoDNx19ADZre3Hts2Hh3qFmgLatFu",
+      "transferSignature": "3PnWrM1SoR6zsgR4LLe2y2X4wKhU7LhTJ8aTmd9gHUvNbEYPN5XEbCFTXnPG7EtoafW2NCbNUwfBKTx1TGrvZvgA",
+      "durationMs": 27471,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T15:23:22.767Z",
+      "mint": "9gpzoDPnT7BAjC9XYZUFMPP8ANRMfPVtc46jcJnFBbko",
+      "recipient": "6EghFwU5Yojwb2ZWDoYxxHmj6c4EH8W64A35cA7Fofvr",
+      "transferSignature": "47TxgPtuQjeQ6oiESb4zsfpVdbJrShPAj3KY9HYPrt6NkFZWW3VVMjhXCnFNcbyduLxuznbhF1Fy7XNWtwotXfmK",
+      "durationMs": 27733,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T15:28:22.766Z",
+      "mint": "8KgxSM4oj5PrKPLu8t26S1TCVBM9zA7rDzekqgNv1KCQ",
+      "recipient": "FZyTCV3rFPc4ydzh9sV128KTpfWSd1p8KeCKRdMCkJv1",
+      "transferSignature": "2wmBPEXLuKeKb7diiBRZMVcqzqpbModNWjfhPGRJSxgyBY1jQg74jKyPCVbL8SckPM5JrWgnYCZdpmuzTgEfEgnP",
+      "durationMs": 27399,
+      "scheduleDelayMs": 4
+    },
+    {
+      "at": "2026-10-14T15:33:22.767Z",
+      "mint": "5TeLdASg4uFxVFcLXHPsZWaFiECaGSA9UJ1kuRzZhtb5",
+      "recipient": "DCNxKtgbzUXrVeLJoTkWPBWonwT4JF53ZovZeVrtkah",
+      "transferSignature": "2g9sjmBHeY8RgRiyTwtQEjrWW4zpytPTR3naxspWAhGpJPux1pkhHAEWKxa6HXEDfw4fh855GPkAnVWHgGKhrhb8",
+      "durationMs": 27455,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T15:38:22.767Z",
+      "mint": "2ZQbfFeREwribud59XFW8fxQ8f8YH8frZPgj7qgQAhWR",
+      "recipient": "EcTPduowgUcfNsLBq8S3myCfrzfFz4tW719Usd35teo2",
+      "transferSignature": "3NSfsZomcSbXJ6JMNeBLL97VLGRMeUqEbUUisJw9bUGtpaPawdSECFaaYZyNNf5uk7U41AyDwEAuEgYiMARdReCM",
+      "durationMs": 27474,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T15:43:22.768Z",
+      "mint": "6ZtfDuHqHS7X8vjKTigaALSBLKZY6ggy2T1K7GZ2KTiN",
+      "recipient": "C1feeieBhhzi86oewWtBvZmjp2EW3aonzjzXFb3Aevqe",
+      "transferSignature": "54oT2aoomWEhDWsLK9U565MhjiFNGqe9RadgLeG6TWvD3ZkwDvQmEbVFJ17B86V5XajqjesxcB22aCdsEZhKyqq5",
+      "durationMs": 27475,
+      "scheduleDelayMs": 6
+    },
+    {
+      "at": "2026-10-14T15:48:22.767Z",
+      "mint": "9MeF4GXmVgDo6dUgS5DYPcSBK2UBmdQLZqxCkWwnKrPt",
+      "recipient": "FE5oQ1ZKsfcpHMvfEJeiGSwXrSRe2qYdr1K9ZKBjgdK4",
+      "transferSignature": "Ba5k3i8LiiK6prFhsZWHHtGz8HmR8WufNqfyffJ8e3QH6g3mbfuhuKgXupK7RacR3eDcevbzRYkHGBtqmTn4Rve",
+      "durationMs": 27460,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T15:53:22.767Z",
+      "mint": "ABbvHCuJbgKCgRCY5BSrMcwnmqnrsomZwyxvShqWGfmt",
+      "recipient": "3e6d6QwndjFVSYuFzBtJGLoT6WL47oBgtE89s1omyzRr",
+      "transferSignature": "3jW7AUasXYWQpWwaJCtNXkHsL489ArdxVjrFcaEGt3amKcHFem4Tnk2io7DMLRQgc3DLWEk8kLsoNYv7D6ubgepo",
+      "durationMs": 27460,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T15:58:22.765Z",
+      "mint": "8PX7bdfoUuNNowZhknXGe7ei4Zq2RhZ14BMDnfr1zirv",
+      "recipient": "9dDjJAovJzw979y2f4ZPcE5oK3stXBLmpmRwc44ZLGxe",
+      "transferSignature": "2gt6oApctEY3YquVsgs5ikHf5id5C71wsMLenGZDLHCfwz6kmt9jGs3d29eUXEMjkjKbKZoWN1m6He9kaSnnyKh7",
+      "durationMs": 27396,
+      "scheduleDelayMs": 3
+    },
+    {
+      "at": "2026-10-14T16:03:22.767Z",
+      "mint": "7e1AJNGJ6KRfir1gDfPM5qr43k56abdsSPfVE8K56se6",
+      "recipient": "GT9ySVD3bCWdwwKhxNcPqaVJjdwrpheSPMQxfN6Us6Uw",
+      "transferSignature": "3peLW6REKjLKSgqEsC6z9AenWvgwESKa54ZWqAsDqPDPy4mAV2aSNJo9NxLx74PjFWa2uAfBQSyd5uEcwumjgxh5",
+      "durationMs": 30420,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T16:08:22.773Z",
+      "mint": "3y1Dw2L25MHyWdTyY4LdibanT4KCm4XN9UKBLWHdux2q",
+      "recipient": "GUe1JR7vcZtQRQHpxFXkpywAJkqPeH3DESf28sNGML95",
+      "transferSignature": "4z2TfQ9CLQxTrjnTnxeSxJJXQEHWGxqPrSLKkT4xpUq9tcBRiGytJ4u2EUoT4BtX713ZghPwSjr5vWeYHZWeLXZi",
+      "durationMs": 27470,
+      "scheduleDelayMs": 11
+    },
+    {
+      "at": "2026-10-14T16:13:22.765Z",
+      "mint": "AMKwAwCpYUhheBRRxVLqPQXCyBxGi6JvMuJ92nmSCev5",
+      "recipient": "GegVGCgZDc3dvbuNPc7JAUGRCeSFnXS3H9UpxXxsfKBZ",
+      "transferSignature": "6ZWe6bLNxY2y59X3yDhXqnaPUBgfkocRaEG43ZioQqgi2JvU45WcJM3FSmVEToQVZ8wEKoK5qR3cZJKmFHi1Ecr",
+      "durationMs": 27454,
+      "scheduleDelayMs": 3
+    },
+    {
+      "at": "2026-10-14T16:18:22.771Z",
+      "mint": "59dHbc4oT9m8tG33efjYcayTUNBsVcwJ4f8KvEWFK6jw",
+      "recipient": "4XkWkKyAxpjYXGQoamUx2LEdhhske8ZSpQroxauyVgKD",
+      "transferSignature": "3GodcSV9i2vGrCry9CuLWPMUXK9D4nb7CMbrvLvp2ysZxrfEGCwJZ1TS6K9Aw9nzRM13WVyqrVGJeGAmGve8zeex",
+      "durationMs": 27509,
+      "scheduleDelayMs": 9
+    },
+    {
+      "at": "2026-10-14T16:23:22.767Z",
+      "mint": "5eeVojd5hkiSMowqAJZ4qHQZ1Jthqurwy7eDyz4x8cqu",
+      "recipient": "DAaBDEQJGfK7v6ufz6y6cEvKCCHyXzJdaBwefU3erNQ2",
+      "transferSignature": "qdDb3cwWb2Niz6c2Rs5Qi4hWz9CCDMMrMgKbPnF3Mxk7UpKXeVC53iLBwu5YcdYutsVjPkiKHyj36jppWw9fW11",
+      "durationMs": 27581,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T16:28:22.767Z",
+      "mint": "6VqSrGvbsf9Q7bz45w2K7sTqCNGyWafQpmsXFi3hQ5tg",
+      "recipient": "3Xao9GG9hYhuGuWmyGszxaiRkuW7fXYKZ5Gm6Bi73r9W",
+      "transferSignature": "2YL9VUPKpyQGM9sQ21S4T7SNs2zAaM25NMYp5B3gnwNFcGrbYyskkM8FFk7LPGboC9E2x7qmpLSYL9aPvu6LPNg2",
+      "durationMs": 27465,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T16:33:22.767Z",
+      "mint": "EFyqjHamdgZKxQLUqHZfnDRjTtyfbKy5RvWGbTgops4e",
+      "recipient": "Bx2sq4na5pwJPjje489PKwyxJCD7wCVATLJmrq5ErNFC",
+      "transferSignature": "44rsATjYdQMcCjreeWW61M3HF7hUEJzzx6kLytPuwKQC9scbz5mCP6LYfgHexPsXFu1Ps9n8yXYuTrjP1XspLFiV",
+      "durationMs": 27474,
+      "scheduleDelayMs": 5
+    },
+    {
+      "at": "2026-10-14T16:38:22.768Z",
+      "mint": "8xGYMmx4gn8vA3Xp8U6bPVfgzgFPVsh8sV4E5q8ct8tK",
+      "recipient": "4oZwg7qpGTQvq4bh6cTV8qe4Z8FM2huADRnMdNGZY3C9",
+      "transferSignature": "4nhGYc2qBuzED2b2nJv6HnB9AJT6V1qRPr3cgrYwytHWBZuStjb6wpTADRLQP7jJPuVVNhCcnaN6QmM32pJUcgsx",
+      "durationMs": 27621,
+      "scheduleDelayMs": 6
+    },
+    {
+      "at": "2026-10-14T16:43:22.764Z",
+      "mint": "BkUZpPtxmELTKzVR8zssbtkHBYpEo6y1G4mokBUhRsxs",
+      "recipient": "DS46Nqnvb56qrcwSXRDdM9jZ5ZxrDpy7DoBGYmjopu7K",
+      "transferSignature": "2yY88pvuMV9p5hDvmCb7ANMq8UHQvHNozBP1jk1oXpNbDyeP3bkZk35jMoeFGSVEQtnYYJzXuNGRfvEE3kYUCdR2",
+      "durationMs": 27514,
+      "scheduleDelayMs": 2
+    }
+  ]
+}

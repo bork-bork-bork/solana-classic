@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-14T16:58:54.657437+00:00",
+  "scope": "remote original frozen browser soak evidence review; recorded receipts, not independent transaction replay or full release acceptance",
+  "passed": true,
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "candidate": {
+    "apiOrigin": "https://network-release-production.up.railway.app",
+    "frontendOrigin": "https://solana-classic-soc.vercel.app",
+    "frontendDeploymentId": "dpl_3aWWzKDohr4SrgijgrB8dWgHHS5r",
+    "frontendCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "apiCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "networkConfigSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+    "dependencyManifestSha256": "e6da27717e6a84ca7b29d707ff63591b2ff0cfc38892d3b4667f8615bdf7bbc0"
+  },
+  "runtime": {
+    "configured": true,
+    "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+    "sourceCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "coreSha256": "30697f3e9b441b05a036d0704b42322d723b3998840ed43d88b18a0d7ef7d1dd",
+    "apiBootId": "e52b81b5-662e-425e-99bc-71f1edc838f1",
+    "apiStartedAt": "2026-10-13T15:54:07.867Z",
+    "validatorBootId": "6e5e1439-8c2b-4fc9-a49b-51b1ab61ff64",
+    "validatorStartedAt": "2026-10-13T15:53:34.139Z",
+    "deploymentId": "04c379cd-369c-4ff4-9d14-d29467d68a28",
+    "agaveVersion": "3.0.14",
+    "tokenProgramVersion": "10.0.0",
+    "tokenProgramSha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+    "observedAt": "2026-10-13T15:55:51.009Z"
+  },
+  "freezeSha256": "de996a8ca58a9d12cf2b264ab86d4e6eab6a3230a779d250402918b288309b82",
+  "startedAt": "2026-10-13T16:48:22.762Z",
+  "completedAt": "2026-10-14T16:48:23.028Z",
+  "observedAt": "2026-10-14T16:55:28.863Z",
+  "durationMs": 86400266,
+  "completedJourneys": 288,
+  "observations": 2880,
+  "faucetCalls": 0,
+  "uniqueMints": 288,
+  "uniqueTransferSignatures": 288,
+  "maxScheduleDelayMs": 18,
+  "journeyDurationMs": {
+    "minimum": 27368,
+    "maximum": 32515,
+    "p95": 30454
+  },
+  "productionNetworkChanged": false,
+  "cutoverAccepted": false,
+  "releaseAccepted": false,
+  "mainnetAccepted": false,
+  "bridgeAccepted": false,
+  "limitations": [
+    "One validator, bounded valueless browser workload.",
+    "Recorded journey verification is not a fresh replay of pruned transaction history.",
+    "Migration requires a new stopped-writer backup and continuity comparison.",
+    "The source runtime requires its own full stability run."
+  ],
+  "frozenFileCount": 41,
+  "archive": "evidence/stability-original-20261014T164823Z",
+  "files": {
+    "soak.json": {
+      "sha256": "cbc8d82b025f69c3ce190fee647c70d8c2d404482304bb4651c1fc2a7da44f6d",
+      "bytes": 104937
+    },
+    "status.json": {
+      "sha256": "4d8fb3f6e6e3b732792fcaa4e9182e785fb5481c84da4a3bd5b7261f6cf0f468",
+      "bytes": 26403
+    },
+    "runtime.json": {
+      "sha256": "b6e508fa211e31075ad47bffeca9b8adf8867a28313904e33f49247aa8b21fc0",
+      "bytes": 649
+    },
+    "qa.json": {
+      "sha256": "4d396885e96e90a7c9d1e8c9de82de73c2dd5427388cac98f11cf12531a5af1b",
+      "bytes": 607
+    },
+    "progress.json": {
+      "sha256": "b6c29d835740eb973b1f669b66efbd723eb98d46438b60244945e6d0b9cc3b9a",
+      "bytes": 1603
+    },
+    "monitor.json": {
+      "sha256": "0f071874249b5af739716585c1389114b82a8482d214a3c1fc3da9fb4220b72d",
+      "bytes": 840
+    },
+    "candidate-freeze.json": {
+      "sha256": "de996a8ca58a9d12cf2b264ab86d4e6eab6a3230a779d250402918b288309b82",
+      "bytes": 6591
+    }
+  }
+}

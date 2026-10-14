@@ -1,8 +1,27 @@
 """Read-only cutover admission report. No deployment, restart or signing actions."""
-import argparse,datetime,hashlib,json,urllib.request
+import argparse,datetime,hashlib,json,urllib.request,importlib.util
 from pathlib import Path
+_spec=importlib.util.spec_from_file_location('migration_terminal_review',Path(__file__).with_name('terminal_review.py'))
+_terminal=importlib.util.module_from_spec(_spec);_spec.loader.exec_module(_terminal)
+public_file,review_terminal,FILES=_terminal.public_file,_terminal.review,_terminal.FILES
 ROOT=Path(__file__).resolve().parents[2]
 URL='https://solanaclassic.net/roadmap/api/status'
+def terminal_archive_verified(root=ROOT):
+    """Recheck the exclusive original archive; a passed flag alone is insufficient."""
+    try:
+        proof=json.loads(public_file(root/'evidence/stability-original-terminal-review.json'))
+        archive='evidence/stability-original-20261014T164823Z'
+        if proof.get('archive')!=archive or proof.get('passed') is not True:return False
+        folder=root/archive
+        if folder.is_symlink():return False
+        raws={name+'.json':public_file(folder/(name+'.json')) for name in FILES}
+        raws['candidate-freeze.json']=public_file(folder/'candidate-freeze.json')
+        if any(proof.get('files',{}).get(name)!={'sha256':hashlib.sha256(raw).hexdigest(),'bytes':len(raw)} for name,raw in raws.items()):return False
+        freeze_raw=public_file(root/'evidence/candidate-freeze.json')
+        if raws['candidate-freeze.json']!=freeze_raw:return False
+        result=review_terminal({name:json.loads(raws[name+'.json']) for name in FILES},json.loads(freeze_raw),hashlib.sha256(freeze_raw).hexdigest())
+        return all(proof.get(key)==result[key] for key in ['genesis','candidate','runtime','freezeSha256','startedAt','completedAt','durationMs','completedJourneys','observations','faucetCalls','uniqueMints','uniqueTransferSignatures'])
+    except (OSError,ValueError,KeyError,TypeError):return False
 def admitted(status,freeze,now):
     soak=status.get('soak',{});network=status.get('network',{});engine=status.get('engineBuild',{})
     started=soak.get('startedAt');end=soak.get('endsAt')
@@ -24,6 +43,7 @@ def main():
         if len(raw)>262144:raise RuntimeError('Public status exceeds bound')
     status=json.loads(raw);now=datetime.datetime.now(datetime.timezone.utc)
     gates=admitted(status,freeze,now.timestamp())
+    gates['originalTerminalArchiveVerified']=terminal_archive_verified()
     gates['frozenFilesUnchanged']=all(hashlib.sha256((ROOT/path).read_bytes()).hexdigest()==sha for path,sha in freeze['coreFiles'].items())
     rehearsal=json.loads((ROOT/'evidence/agave-migration-rollback-rehearsal.json').read_text())
     gates['mixedBinaryRollbackRehearsal']=rehearsal.get('passed') is True and rehearsal.get('sourceBuildRunId')=='40de48b7-6963-429b-ae3e-81a610d81b7d' and rehearsal.get('productionNetworkChanged') is False

@@ -75,9 +75,9 @@ Developers can deploy and upgrade their own SBF programs with the tested HTTP to
 
 ## How SOC is intended to work
 
-SOC is intended to become the network token of Solana Classic. The proposed path is an initial token launch on Pump.fun on Solana, followed by native SOC on the independent production network and a reserve-backed bridge allowing one-to-one redemption between the two forms.
+SOC is intended to be the network token of Solana Classic. A reserve-backed bridge is planned to make original SOC on Solana redeemable one-to-one for native SOC on the independent production network.
 
-The aim is one economic supply: moving to native SOC requires backing from original tokens held in reserve. Mainnet, reserve protection, bridge security, fees and founder holdings still need implementation, published terms and review. Redemption is unavailable today. The [whitepaper](docs/whitepaper/WHITEPAPER.md) explains the proposed model.
+The aim is one economic supply: moving to native SOC requires backing from original tokens held in reserve. The official mint, team involvement, holdings and fee recipients will be published with any official token announcement. Mainnet, reserve protection and bridge security still need implementation, published terms and review. Redemption is unavailable today. The [whitepaper](docs/whitepaper/WHITEPAPER.md) explains the proposed model.
 
 ## What is in this repository
 
