@@ -117,3 +117,17 @@ and `evidence/mainnet-validator-rehearsal.json`.
 The unified wallet passes 14 unit and 17 mocked browser scenarios; public
 custom-domain verification is recorded separately. Builder and collector pages
 are part of that same public frontend. These are devnet applications.
+
+## Observer recovery preparation
+
+The observer now rechecks genesis after reading a finalized event and refuses
+state older than its supplied recovery checkpoint. Thirteen SDK/recovery tests
+pass, including actual loopback HTTP failures/recovery against synthetic
+responses. This is client admission evidence, not a new two-Agave-ledger result
+or proof of fork choice. The previous two-chain integration evidence retains
+its original source hashes; actual ledger restart/fork drills remain open.
+
+A new read-only devnet account continuity tool verifies the deployed custom
+programme, upgraded bytecode and both counter states. Its current finalized
+sample is not a stopped-writer backup or cutover acceptance. Follow
+`engine/migration/DEVELOPER_CONTINUITY.md` before any reviewed migration.

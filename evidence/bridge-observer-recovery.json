@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-14T08:18:26.610956+00:00",
+  "scope": "SDK unit tests and real loopback HTTP transport with synthetic RPC responses; not an Agave ledger restart/fork drill",
+  "passed": true,
+  "tests": 13,
+  "transportFailureScenarios": [
+    "HTTP503 outage",
+    "Socket disconnect",
+    "Finalized context older than checkpoint",
+    "Missing source event",
+    "RPC minimum context error",
+    "Genesis changes between event and post-read identity"
+  ],
+  "recovery": "Fresh successful observation after outage; no cached authorization, signing or broadcast",
+  "sourceHashes": {
+    "bridge/sdk.mjs": "4e54cb3f68a66caaca7cece0365fc038490fb84c4fd20f533f50ec69b59c329f",
+    "bridge/sdk.test.mjs": "18d9777b3deb5770177e20e3a75d02839dc04d35734ab4226ba5d49cb294ca29",
+    "bridge/observer-recovery.test.mjs": "588e6c93fb5a37580f8f3b57c3adc02d50277982dee33390fb14aa2a1ef30690"
+  },
+  "canonicalNetworkChanged": false,
+  "productionReady": false,
+  "previousTwoChainEvidence": "evidence/bridge-two-chain-rehearsal.json retains historical observer source hash; not rerun with this observer",
+  "remaining": [
+    "Actual private-ledger restart and fork-policy drills",
+    "Independent RPC/verifier and custody operators",
+    "Backed bootstrap reconciliation",
+    "Independent security review"
+  ]
+}

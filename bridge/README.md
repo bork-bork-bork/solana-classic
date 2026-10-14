@@ -20,7 +20,7 @@ and SBF compiler. Dependencies are pinned by `program/Cargo.lock`. Test data is
 synthetic; generated compiler keys and binaries stay under ignored `.tools/`.
 
 ```sh
-node --test mainnet/plan.test.mjs bridge/sdk.test.mjs
+node --test mainnet/plan.test.mjs bridge/sdk.test.mjs bridge/observer-recovery.test.mjs
 CARGO_TARGET_DIR=.tools/bridge-target cargo test --manifest-path bridge/program/Cargo.toml --locked --lib
 python3 scripts/install-token-program.py
 CARGO_TARGET_DIR="$PWD/.tools/bridge-sbf-target" cargo-build-sbf --manifest-path bridge/program/Cargo.toml --sbf-out-dir .tools/bridge-artifacts -- --locked
@@ -37,3 +37,18 @@ No code here calls a public RPC, deploys a programme, imports a wallet or sends
 real assets. The read-only observer is limited to loopback rehearsal endpoints.
 Production mint/bridge initialization and upgrades need a separately reviewed
 design and release tooling.
+
+## Observer recovery checkpoint
+
+The local read-only observer accepts `minimumContextSlot` from a retained,
+same-genesis observation. It requests finalized state with `minContextSlot`,
+rejects a response below that checkpoint, and rechecks genesis after reading
+the event. An outage, missing event, changed owner/domain, RPC error or chain
+replacement yields no observation; it never returns cached settlement approval.
+
+Thirteen SDK/recovery checks pass, including six real loopback HTTP transport
+failure scenarios with synthetic RPC responses. They cover client admission
+and recovery, not Agave consensus or an actual network fork. A dishonest RPC
+can still lie about finalized state. Independent source verification, actual
+private-ledger restart/fork drills and production custody remain open. Preserve
+the older two-chain proof's source hashes: that proof ran the previous observer.

@@ -37,13 +37,17 @@ export function nativeClaimInstruction({event,expected,payer,committee}){
   return new TransactionInstruction({programId:program,keys:[{pubkey:key(payer),isWritable:true,isSigner:true},{pubkey:config,isWritable:true,isSigner:false},{pubkey:vault,isWritable:true,isSigner:false},{pubkey:claim,isWritable:true,isSigner:false},{pubkey:key(event.recipient),isWritable:true,isSigner:false},{pubkey:key(zero),isWritable:false,isSigner:false},...committee.map(k=>({pubkey:key(k),isWritable:false,isSigner:true}))],data:Buffer.concat([Buffer.from([2]),encodeEvent(event)])});
 }
 function localEndpoint(rpc){const u=new URL(rpc);if(!['http:','https:'].includes(u.protocol)||!['127.0.0.1','[::1]'].includes(u.hostname)||u.username||u.password||u.search||u.hash)throw new Error('Observation only supports an explicit loopback rehearsal RPC');return u;}
-export async function observeLocalEvent({rpc,expectedGenesis,eventAddress,expected},fetcher=fetch){
+export async function observeLocalEvent({rpc,expectedGenesis,eventAddress,expected,minimumContextSlot=0},fetcher=fetch){
   const u=localEndpoint(rpc);if(!expectedGenesis||PUBLIC_GENESIS.has(expectedGenesis)||expectedGenesis==='7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon')throw new Error('Fresh isolated genesis is required');
-  async function request(method,params){const response=await fetcher(u,{method:'POST',redirect:'error',headers:{'Content-Type':'application/json'},body:JSON.stringify({jsonrpc:'2.0',id:1,method,params}),signal:AbortSignal.timeout(5000)});if(!response.ok)throw new Error('RPC unavailable');const body=await response.text();if(body.length>32768)throw new Error('RPC response exceeds bound');const data=JSON.parse(body);if(data.error||data.id!==1)throw new Error('RPC rejected observation');return data.result;}
+  if(!Number.isSafeInteger(minimumContextSlot)||minimumContextSlot<0)throw new Error('Recovery context must be a nonnegative safe slot');
+  async function request(method,params){const response=await fetcher(u,{method:'POST',redirect:'error',headers:{'Content-Type':'application/json'},body:JSON.stringify({jsonrpc:'2.0',id:1,method,params}),signal:AbortSignal.timeout(5000)});if(!response.ok)throw new Error('RPC unavailable');const body=await response.text();if(body.length>32768)throw new Error('RPC response exceeds bound');const data=JSON.parse(body);if(data.jsonrpc!=='2.0'||data.error||data.id!==1||!Object.hasOwn(data,'result'))throw new Error('RPC rejected observation');return data.result;}
   const genesis=await request('getGenesisHash',[]);if(genesis!==expectedGenesis||genesis!==expected.sourceChain)throw new Error('Source genesis mismatch');
-  const snapshot=await request('getAccountInfo',[key(eventAddress).toBase58(),{encoding:'base64',commitment:'finalized'}]);
+  const snapshot=await request('getAccountInfo',[key(eventAddress).toBase58(),{encoding:'base64',commitment:'finalized',minContextSlot:minimumContextSlot}]);
   if(snapshot?.value?.owner!==expected.sourceProgram||snapshot.value.executable||!Array.isArray(snapshot.value.data)||snapshot.value.data[1]!=='base64')throw new Error('Event account owner or data is invalid');
   const event=validateEvent(decodeEvent(Buffer.from(snapshot.value.data[0],'base64')),expected);
-  if(event.sourceEvent!==eventAddress||!Number.isSafeInteger(snapshot.context?.slot)||BigInt(snapshot.context.slot)<event.slot)throw new Error('Finalized account context precedes the event');
+  if(event.sourceEvent!==eventAddress||!Number.isSafeInteger(snapshot.context?.slot)||snapshot.context.slot<minimumContextSlot||BigInt(snapshot.context.slot)<event.slot)throw new Error('Finalized account context precedes the event or recovery checkpoint');
+  // An RPC restart or endpoint replacement during the read must not admit an
+  // event from a different chain. Never return cached observations on failure.
+  if(await request('getGenesisHash',[])!==genesis)throw new Error('Source genesis changed during observation');
   return {state:'UNSIGNED_LOCAL_OBSERVATION',genesis,commitment:'finalized',contextSlot:snapshot.context.slot,event,signatures:[],productionReady:false};
 }

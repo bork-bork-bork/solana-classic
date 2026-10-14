@@ -98,9 +98,9 @@
     },
     "whitepaper": {
       "passed": true,
-      "at": "2026-10-14T04:18:21.143701+00:00",
+      "at": "2026-10-14T08:18:26.610956+00:00",
       "scope": "Verified current public-domain PDF bytes; frozen candidate PDF unchanged",
-      "sha256": "8173f66a14bf93d63f42b3391991129d7b411f64a76bfd31f9406374ecbc5cdf"
+      "sha256": "f856c87d13b99f95c396c2ea1f211344836ff9200f792ece2e9dc39b5627f944"
     },
     "engine-migration-review": {
       "passed": true,
@@ -117,9 +117,9 @@
     "p95FinalizedMs": 15167
   },
   "whitepaper": {
-    "version": "0.10",
+    "version": "0.11",
     "pages": 20,
-    "sha256": "e0825942956e3f3efb696839dce7e5e8c3d61e46f34d8eb84a0133e9ed4584b2",
+    "sha256": "b0ab88cb6e853ad97d645b00a2663e261e081927ccdbc719930603eb79ac3eaa",
     "url": "https://solanaclassic.net/whitepaper.pdf",
     "scope": "Verified current public-domain PDF bytes; frozen candidate PDF unchanged"
   },
@@ -159,10 +159,16 @@
     "reviewedAt": "2026-10-14T02:03:53.871854+00:00",
     "migrationId": "ae834e71-fb59-4beb-b26b-4485be3a386f",
     "imageDigest": "sha256:19595c406b6effe8bc5a3fdb618822755f46866e4e6ebfb1c6371513e51d2e32",
-    "canonicalCutoverAccepted": false
+    "canonicalCutoverAccepted": false,
+    "developerContinuity": {
+      "reviewedAt": "2026-10-14T08:18:26.610956+00:00",
+      "state": "live-read-passed",
+      "scope": "Four finalized programme/state accounts match fresh baseline; not a stopped-writer backup or cutover",
+      "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/developer-migration-continuity.json"
+    }
   },
   "development": {
-    "reviewedAt": "2026-10-14T07:39:48.870529+00:00",
+    "reviewedAt": "2026-10-14T08:18:26.610956+00:00",
     "scope": "Development checkpoint only; separate from the live testnet release",
     "projects": [
       {
@@ -198,7 +204,7 @@
         "title": "SOC redemption bridge",
         "state": "building",
         "description": "Original SOC escrow and a native Classic reserve, targeting exact 1:1 display-unit redemption in both directions.",
-        "currentScope": "Thirteen checks passed on two fresh private Agave 3.0.14 ledgers, including finalized lock/release/return/redemption and exact counters. Synthetic funds and local co-signers; recovery and independent review remain.",
+        "currentScope": "Thirteen checks passed on two fresh private Agave 3.0.14 ledgers (historical observer). Updated observer adds a second genesis check and recovery-slot floor; 13 SDK/local HTTP recovery checks pass with synthetic responses. Actual ledger restart/fork drills, backed bootstrap and independent review remain.",
         "source": "https://github.com/solana-classic/solana-classic/tree/main/bridge",
         "milestones": [
           {
@@ -210,6 +216,11 @@
             "title": "Two-chain finalized round trip and local co-signers",
             "state": "rehearsal-passed",
             "detail": "Two real private ledgers; 13 checks. RPC recovery/fork-policy drills remain."
+          },
+          {
+            "title": "Observer identity and RPC recovery guards",
+            "state": "local-passed",
+            "detail": "13 checks; real local HTTP with synthetic replies rejects outage, disconnect, missing event, stale state, RPC errors and chain replacement. No actual Agave fork proof."
           },
           {
             "title": "Bootstrap reconciliation, custody and recovery",
