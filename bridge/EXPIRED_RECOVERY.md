@@ -108,3 +108,42 @@ epoch/pause/backing changes, duplicate approvals and signer/broadcast crashes.
 A separate new nonce7 withdrawal now passes observed-pending crash recovery
 and exact finalized token payout. It does not retry or resolve the expired
 nonce6 journal. See `../evidence/bridge-v2-redemption-pending-crash.json`.
+
+## Signed observer reports, review only
+
+`observer-reports.mjs` now supplies a canonical unsigned report message and
+Ed25519 signature verification. It never accepts a private signing key, signs
+or broadcasts. The message includes a dedicated signing-domain prefix,
+review-only purpose, fixed three-of-five roster hash, original receipt/journal,
+event/transaction/instruction hashes, both chain/programme identities, source
+event, original signature, mint/recipient token account, amount/nonce/epoch,
+programme-pin digest, accounting digest and dated observation fields.
+
+`verifyObserverReports` requires three to five distinct signatures from the
+explicit five-key isolated review roster. Unknown or duplicate keys/evidence,
+wrong domains/rosters/bindings, malformed signatures, noncanonical schemas,
+stale/future observations and unsafe numeric fields reject. Reports can express
+present/conflicting receipts or incomplete history; signature validity does
+not establish that a report describes a safe recovery state.
+
+`reviewAuthenticatedExpiry` combines key authentication with the existing
+structural expiry review and reinspects the journal. A late finalized journal,
+present receipt, changed obligation or missing history cannot inherit an old
+snapshot. Caller inputs are selected before asynchronous inspection. It does
+not save or reset the journal, hand out signed transaction bytes or authorize
+recovery. All retry/refund/reset/settlement/production flags remain false.
+
+A verified signature authenticates a selected public key. It does not identify
+a person or prove that distinct keys belong to independently operated nodes.
+No production roster has been appointed. Source economic movement, complete
+history, code/custody/finality and actual backing remain separately reviewed
+claims. The programme-pin digest is bound by the reports, but this offline
+module does not fetch or independently validate its underlying observations.
+Signed observation payloads and any assembled dossier should remain private.
+
+Twelve new local synthetic tests cover signature forgery/substitution,
+three-of-five quorum, replay domains, operation/policy/accounting bindings,
+freshness/schema/precision, late settlement, unchanged journals and caller
+mutation across asynchronous inspection. Seven existing structural-review
+regressions also pass. This is local fixture evidence, not new Agave-ledger,
+independent-operator or production recovery acceptance.

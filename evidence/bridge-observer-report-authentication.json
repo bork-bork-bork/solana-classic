@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-14T16:33:38.272827+00:00",
+  "state": "local-passed",
+  "scope": "Local Ed25519/canonical report and private temporary journal tests using synthetic RPC fixtures. No real-ledger observation, production reviewer roster or signing service.",
+  "localChecks": {
+    "authenticatedObserverReports": 12,
+    "structuralExpiryRegressions": 7,
+    "passed": true
+  },
+  "sourceHashes": {
+    "bridge/observer-reports.mjs": "b2a8aea84311f0e443a6b9eaf5371519f43362fff35c2cb12c232c7a1b75780b",
+    "bridge/observer-reports.test.mjs": "bfe8f3719d7fd280ad8dfd4176612c496d090620fbf7f9be5791fa5b2a33989f",
+    "bridge/expired-review.mjs": "4714ce4581b9723bf139fbb31f32fb928b6477390bf84d870cc734a6ec906db2",
+    "bridge/pending-claim.mjs": "0da698bdbeb010547745d0a4655fcfa37bcf0df1a6fc7d7582aaf8f3f0341ccd"
+  },
+  "checks": [
+    "Three distinct selected keys in fixed five-key roster authenticate domain-separated canonical review reports",
+    "Forgery, substituted/duplicate signatures, wrong purpose/roster and changed original operation/policy/accounting digests reject",
+    "Stale/future reports, noncanonical schemas, unsafe contexts and fractional unit encodings reject",
+    "Combined expiry review rejects present receipts, finalized signature, missing history, changed obligations or later finalized journal",
+    "Caller roster/report/accounting mutation across await cannot change selected review inputs",
+    "Original journal remains unchanged and second handoff/retry/refund/reset/settlement/production controls stay disabled"
+  ],
+  "keyAuthenticationImplemented": true,
+  "productionRosterAppointed": false,
+  "operatorIdentityVerified": false,
+  "operatorIndependenceVerified": false,
+  "canRetry": false,
+  "canSign": false,
+  "canBroadcast": false,
+  "settlementAccepted": false,
+  "productionReady": false,
+  "canonicalNetworkChanged": false,
+  "coreFreeze": {
+    "files": 41,
+    "allMatch": true
+  },
+  "coverageLimits": [
+    "Distinct authenticated keys do not prove distinct operators or truthful observations",
+    "Programme/accounting digests are signed bindings, not independent chain/economic/history proofs",
+    "No real verifier deployment, signer custody, manual recovery approval or competing fork test",
+    "All synthetic private ledger attempts remain preserved; no new transactions or nonce use",
+    "Full-validator hosting, independent operators, funded backing and external review remain open"
+  ]
+}

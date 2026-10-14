@@ -417,3 +417,18 @@ Production integration, authenticated independent observers, upgrade/custody
 controls and review remain open. A pinned RPC snapshot is not complete
 backing, permanent immutability or finality consensus. See
 `bridge/FINALITY_RECOVERY.md` for the exact scope and bounds.
+
+## Authenticated review-report codec
+
+`bridge/observer-reports.mjs` verifies domain-separated Ed25519 reports from
+three distinct keys in a fixed five-key private review roster. Reports bind
+the original operation, code-pin/accounting digests and observation context.
+The combined expiry review reinspects the journal and rejects late settlement,
+changed obligations or missing history. Twelve new local synthetic tests and
+seven structural regressions pass. No private signing keys are accepted by the verifier;
+no signing, RPC, journal mutation, retry or broadcast method is enabled.
+
+Key authentication does not establish operator identity, independence or the
+truth of asserted history/backing. A production roster, verifier processes,
+reviewed custody and signer integration remain open. All release/settlement
+and retry controls stay disabled. See `bridge/EXPIRED_RECOVERY.md`.
