@@ -148,6 +148,10 @@ deployment or upgrade custody, signing enforcement, authenticated operators,
 independent history/backing verification and external security review. The
 combined pinned-journal path still needs its own private-ledger drill. Earlier
 standalone real programme-pin and crash results keep their historical hashes.
+Future private uploads of `pending-claim.mjs` must also include its sibling
+`claim-pin-policy.mjs`, `program-pins.mjs`, `sdk.mjs` and
+`lossless-native-rpc.mjs`, with every uploaded dependency hash recorded. Do
+not patch retained passed attempt directories to update their dependencies.
 
 ```sh
 node --test bridge/pinned-pending.test.mjs bridge/program-pins.test.mjs \
