@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render the local, review-only whitepaper with ReportLab. No network calls."""
+"""Render the public whitepaper with ReportLab. No network calls."""
 
 from __future__ import annotations
 
@@ -107,45 +107,31 @@ class Cover(Flowable):
     def draw(self):
         c = self.canv
         top = self.height
-        c.setFillColor(PURPLE)
-        c.setFont("SCArialBold", 10)
-        c.drawString(0, top - 22, "SOLANA CLASSIC / SOC")
-        c.drawImage(str(LOGO), CONTENT_W - 82, top - 94, width=82, height=82, mask='auto')
         c.setFillColor(INK)
-        c.setFont("SCArialBold", 39)
-        c.drawString(0, top - 94, "Solana Classic")
-        c.drawString(0, top - 140, "Whitepaper")
-        c.setFont("SCArial", 18)
-        c.drawString(0, top - 181, "Shared roots. Two directions.")
-        c.drawString(0, top - 206, "A focused home for builders.")
-
-        c.drawImage(str(LOGO), CONTENT_W - 194, top - 453, width=194, height=194, mask='auto')
-
-        c.setFillColor(INK)
-        c.setFont("SCArialBold", 20)
-        c.drawString(0, top - 304, "Bring back the fun.")
-        c.drawString(0, top - 333, "Build what comes next.")
-        p = Paragraph(
-            "Developers. Artists. Communities.<br/>"
-            "Focused on art, NFTs and memes.<br/><br/>"
-            "Independent experimental testnet.<br/>Valueless tSOC assets.<br/>"
-            "SOC, mainnet and 1:1 bridge remain future work.",
-            styles["BodySC"],
-        )
-        _, ph = p.wrap(260, 160)
-        p.drawOn(c, 0, top - 470 - ph)
-
-        c.setStrokeColor(LINE)
-        c.setLineWidth(0.8)
-        c.line(0, 100, CONTENT_W, 100)
-        c.setFillColor(PURPLE)
-        c.setFont("SCArialBold", 10)
-        c.drawString(0, 78, "DRAFT FOR FOUNDER REVIEW")
+        c.setFont("SCArialBold", 44)
+        c.drawString(0, top - 66, "Solana Classic")
+        c.setFont("SCArial", 24)
+        c.drawString(0, top - 105, "Whitepaper")
+        c.setFont("SCArial", 15)
         c.setFillColor(MUTED)
-        c.setFont("SCArial", 9.5)
-        c.drawString(0, 58, "Version 0.7 | 14 October 2026")
-        c.drawString(0, 40, "solanaclassic.net | Experimental testnet live. Mainnet and bridge not live.")
-        c.drawString(0, 22, "Independent project. No Solana, Solana Labs or Anza affiliation implied.")
+        c.drawString(0, top - 151, "Art, memes and the people behind them.")
+        c.drawImage(str(LOGO), CONTENT_W - 290, top - 464,
+                    width=280, height=280, mask='auto')
+        p = Paragraph(
+            "An independent blockchain project for artists, developers and communities. "
+            "This paper explains the experimental network, the intended SOC model "
+            "and the work required before later releases.", styles["BodySC"],
+        )
+        _, ph = p.wrap(355, 100)
+        p.drawOn(c, 0, 140 - ph)
+        c.setFillColor(PURPLE)
+        c.setFont("SCArialBold", 10)
+        c.drawString(0, 75, "Public edition 0.9")
+        c.setFont("SCArial", 10)
+        c.setFillColor(MUTED)
+        c.drawString(0, 55, "14 October 2026    solanaclassic.net")
+        c.setFont("SCArial", 9)
+        c.drawString(0, 26, "Experimental testnet. SOC, mainnet and bridge are not live.")
 
 
 def decorate(canvas, doc):
@@ -162,12 +148,12 @@ def decorate(canvas, doc):
         canvas.drawString(MARGIN + 29, PAGE_H - 26, "SOLANA CLASSIC / SOC")
         canvas.setFont("SCArial", 8.2)
         canvas.setFillColor(MUTED)
-        canvas.drawRightString(PAGE_W - MARGIN, PAGE_H - 26, "WHITEPAPER 0.7")
+        canvas.drawRightString(PAGE_W - MARGIN, PAGE_H - 26, "WHITEPAPER 0.9")
         canvas.setStrokeColor(LINE)
         canvas.setLineWidth(0.5)
         canvas.line(MARGIN, 43, PAGE_W - MARGIN, 43)
         canvas.setFont("SCArial", 7.8)
-        canvas.drawString(MARGIN, 29, "Draft for founder review | 14 October 2026")
+        canvas.drawString(MARGIN, 29, "Public edition | 14 October 2026")
         canvas.drawRightString(PAGE_W - MARGIN, 29, str(doc.page - 1))
     canvas.restoreState()
 
@@ -228,7 +214,7 @@ def table(rows):
         ("BOTTOMPADDING", (0, 0), (-1, -1), 9),
     ]))
     parts = [Spacer(1, 3), item, Spacer(1, 12)]
-    return [KeepTogether(parts)] if len(rows) <= 5 else parts
+    return parts
 
 
 def parse(text):
@@ -244,10 +230,10 @@ def parse(text):
         if line.startswith("# "):
             i += 1
             continue
-        if line == "## A focused SVM home for memes and NFTs":
+        if line == "## Shared roots. A focused future for art, NFTs and memes.":
             i += 1
             continue
-        if line.startswith("**Solana Classic / SOC") or line.startswith("**Draft for founder") or line.startswith("**Open to everyone."):
+        if line.startswith("**Solana Classic / SOC") or line.startswith("**Public edition") or line.startswith("**Bring back the fun."):
             i += 1
             continue
         if line.startswith("## "):
@@ -276,7 +262,14 @@ def parse(text):
                 if not all(re.fullmatch(r"[-: ]+", cell) for cell in cells):
                     rows.append(cells)
                 i += 1
-            result.extend(table(rows))
+            parts = table(rows)
+            if result and isinstance(result[-1], Paragraph) and result[-1].style.name in ("SubsectionSC", "SectionSC"):
+                heading = result.pop()
+                result.append(KeepTogether([heading, *parts]))
+            elif len(rows) <= 5:
+                result.append(KeepTogether(parts))
+            else:
+                result.extend(parts)
             continue
         group = [line]
         i += 1

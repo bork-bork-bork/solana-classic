@@ -1,10 +1,10 @@
 # Whitepaper verification
 
-Version0.7,21A4pages. All21pages were rendered with Poppler and reviewed in four contact sheets. The cover and founding sections were inspected at render resolution. Text-content and page-bound checks passed.
+Public edition 0.9, 20 A4 pages. All pages rendered with Poppler and visually reviewed; the revised architecture page was also checked at full size. Text bounds passed.
 
-The paper now uses the green crystal logo and builder-first cultural mission: shared roots, two development directions, focused contributors and nostalgic community context. Technical conditions, original24-hourcandidate scope and separate custom-domain/upload/reader checks remain explicit. No mainnet, monetary launch, bridge or full historical index is claimed.
+Removed hosting-vendor names and infrastructure-provider URLs from the public paper. Architecture describes the web application, bounded gateway, private validator endpoint, process supervision and persistent storage. Operational provider details remain in the operator documentation. The single-operator experiment and future mainnet/bridge requirements remain explicit.
 
-PDFSHA256: 6851f8dd85221d38bbc6f4ddf01a33c8d8782b6009282620c566e79469257a7a
-SourceSHA256: b245a219ab0c076ae84df85d0704e9cffe2befd4902b098674fec95c31714d67
+PDF SHA256: ddca5fc9d916fc7b030c97560c9da74f534ac637a01da6a73718d8390c519e60
+Source SHA256: 5c04e74e888c188273cb306ac11e7c64a649e815b1a69e343c05859db545d047
 
-This PDF is published only through the separate custom-domain frontend. The original frozen Vercel candidate retains its previous PDF bytes.
+The custom-domain frontend packages this PDF. Frozen candidate files and its earlier PDF remain unchanged. This is a presentation update, not network-release, monetary-launch or bridge acceptance.

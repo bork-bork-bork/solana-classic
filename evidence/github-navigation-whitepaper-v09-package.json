@@ -1,0 +1,167 @@
+{
+  "purpose": "GitHub header/footer links and whitepaper0.9 vendor-neutral architecture",
+  "destination": "solanaclassic.net",
+  "siteProject": "solana-classic-domain",
+  "frozenCoreUnchanged": true,
+  "gatewayAdaptersAndRoutingUnchanged": true,
+  "changedPublicFiles": [
+    "public/index.html",
+    "public/domain.css",
+    "public/roadmap-app.js",
+    "public/roadmap.html",
+    "public/whitepaper.pdf",
+    "public/assets/index-DW0tWhiP.js",
+    "public/assets/index.browser.esm-COh7rSDY.js",
+    "public/assets/src-DwXDNys2.js",
+    "public/assets/index-D6bKiSFr.css"
+  ],
+  "totalFiles": 47,
+  "whitepaper": {
+    "version": "0.9",
+    "pages": 20,
+    "pdfSHA256": "ddca5fc9d916fc7b030c97560c9da74f534ac637a01da6a73718d8390c519e60",
+    "sourceSHA256": "5c04e74e888c188273cb306ac11e7c64a649e815b1a69e343c05859db545d047",
+    "textBoundsPassed": true,
+    "removedHostingVendorsPassed": true,
+    "removedPublicFramingPassed": true,
+    "renderedAllPages": true,
+    "visualReview": "All 20 rendered pages reviewed; revised architecture page also inspected at full size. Cover, tables, page transitions and references checked.",
+    "publicReadiness": "presentation only; network release gates remain separate"
+  },
+  "uiQA": {
+    "passed": true,
+    "browserPlugin": "not available; installed local Playwright used",
+    "scope": "Local navigation and responsive rendering with offline API fixtures; no chain actions",
+    "checks": [
+      {
+        "width": 1440,
+        "route": "/",
+        "githubVisible": true,
+        "correctDestination": true,
+        "overflow": false,
+        "title": "Solana Classic"
+      },
+      {
+        "width": 1440,
+        "route": "/about",
+        "githubVisible": true,
+        "correctDestination": true,
+        "overflow": false,
+        "title": "Solana Classic"
+      },
+      {
+        "width": 1440,
+        "route": "/explorer",
+        "githubVisible": true,
+        "correctDestination": true,
+        "overflow": false,
+        "title": "Solana Classic"
+      },
+      {
+        "width": 1440,
+        "route": "/roadmap",
+        "githubVisible": true,
+        "correctDestination": true,
+        "overflow": false,
+        "title": "Solana Classic"
+      },
+      {
+        "width": 1200,
+        "route": "/",
+        "githubVisible": true,
+        "correctDestination": true,
+        "overflow": false,
+        "title": "Solana Classic"
+      },
+      {
+        "width": 1200,
+        "route": "/about",
+        "githubVisible": true,
+        "correctDestination": true,
+        "overflow": false,
+        "title": "Solana Classic"
+      },
+      {
+        "width": 1200,
+        "route": "/explorer",
+        "githubVisible": true,
+        "correctDestination": true,
+        "overflow": false,
+        "title": "Solana Classic"
+      },
+      {
+        "width": 1200,
+        "route": "/roadmap",
+        "githubVisible": true,
+        "correctDestination": true,
+        "overflow": false,
+        "title": "Solana Classic"
+      },
+      {
+        "width": 390,
+        "route": "/",
+        "githubVisible": true,
+        "correctDestination": true,
+        "overflow": false,
+        "title": "Solana Classic"
+      },
+      {
+        "width": 390,
+        "route": "/about",
+        "githubVisible": true,
+        "correctDestination": true,
+        "overflow": false,
+        "title": "Solana Classic"
+      },
+      {
+        "width": 390,
+        "route": "/explorer",
+        "githubVisible": true,
+        "correctDestination": true,
+        "overflow": false,
+        "title": "Solana Classic"
+      },
+      {
+        "width": 390,
+        "route": "/roadmap",
+        "githubVisible": true,
+        "correctDestination": true,
+        "overflow": false,
+        "title": "Solana Classic"
+      },
+      {
+        "width": 360,
+        "route": "/",
+        "githubVisible": true,
+        "correctDestination": true,
+        "overflow": false,
+        "title": "Solana Classic"
+      },
+      {
+        "width": 360,
+        "route": "/about",
+        "githubVisible": true,
+        "correctDestination": true,
+        "overflow": false,
+        "title": "Solana Classic"
+      },
+      {
+        "width": 360,
+        "route": "/explorer",
+        "githubVisible": true,
+        "correctDestination": true,
+        "overflow": false,
+        "title": "Solana Classic"
+      },
+      {
+        "width": 360,
+        "route": "/roadmap",
+        "githubVisible": true,
+        "correctDestination": true,
+        "overflow": false,
+        "title": "Solana Classic"
+      }
+    ],
+    "interaction": "GitHub header button opened the correct repository in a new tab"
+  }
+}

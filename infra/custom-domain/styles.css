@@ -3,6 +3,14 @@
 .brand-logo{display:block;width:38px;height:36px;flex:none;background:transparent url(/solana-classic-logo-cutout.png) center/contain no-repeat;border-radius:0}
 .brand{font-size:25px;gap:12px;letter-spacing:-.9px}.site-header{min-height:82px}
 .site-header nav{gap:22px}
+.github-link{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-size:14px;font-weight:600;white-space:nowrap}
+.github-link svg{width:18px;height:18px;flex:none}
+.site-header nav a.github-link,.roadmap-header-links .github-link{padding:10px 14px;min-height:44px;background:#e4eee9;border:1px solid #bfd4c8;border-radius:5px;color:#08764c}
+.site-header nav a.github-link:hover,.roadmap-header-links .github-link:hover{background:#d5e8de;border-color:#08764c}
+.site-footer{flex-wrap:wrap}.site-footer .github-link{font:inherit;min-height:44px}
+.roadmap-header-links{display:flex;align-items:center;gap:24px}
+@media(max-width:1280px){.site-header{flex-wrap:wrap;gap:10px;padding:14px 0}.site-header nav{width:100%;margin-left:0;flex-wrap:wrap}}
+@media(max-width:700px){.roadmap-header-links{gap:18px;flex-wrap:wrap}.roadmap-header-links .playground{font-size:14px}}
 .about-page{padding:54px 0 60px}
 .about-kicker{font:13px 'IBM Plex Mono',monospace;color:#1c9b68;margin-bottom:24px;letter-spacing:.04em}
 .about-hero{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(200px,1fr);gap:55px;align-items:center;padding-bottom:54px;border-bottom:var(--line)}

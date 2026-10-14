@@ -1,0 +1,12 @@
+{
+  "version": "0.9",
+  "pages": 20,
+  "pdfSHA256": "ddca5fc9d916fc7b030c97560c9da74f534ac637a01da6a73718d8390c519e60",
+  "sourceSHA256": "5c04e74e888c188273cb306ac11e7c64a649e815b1a69e343c05859db545d047",
+  "textBoundsPassed": true,
+  "removedHostingVendorsPassed": true,
+  "removedPublicFramingPassed": true,
+  "renderedAllPages": true,
+  "visualReview": "All 20 rendered pages reviewed; revised architecture page also inspected at full size. Cover, tables, page transitions and references checked.",
+  "publicReadiness": "presentation only; network release gates remain separate"
+}

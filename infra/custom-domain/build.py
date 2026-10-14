@@ -28,6 +28,10 @@ if not (overlay / 'node_modules').exists():
     (overlay / 'node_modules').symlink_to(root / 'apps/web/node_modules', target_is_directory=True)
 app = (overlay / 'src/App.tsx').read_text()
 app = app.replace("['/token', 'Token']];", "['/token', 'Token'], ['/about', 'About'], ['/roadmap', 'Roadmap']];")
+app = "import GitHubLink from './GitHubLink';\n" + app
+assert app.count('</nav></header>') == 1 and app.count('</footer>') == 1
+app = app.replace('</nav></header>', '<GitHubLink/></nav></header>').replace('</footer>', '<GitHubLink/></footer>')
+shutil.copy2(root / 'infra/custom-domain/GitHubLink.tsx', overlay / 'src/GitHubLink.tsx')
 app = app.replace('<span className="brand-mark" aria-hidden="true"/>', '<span className="brand-logo" aria-hidden="true"/>').replace('TEST','tSOC')
 app = "import About from './About';\n" + app
 app = app.replace("path === '/' ? <Home/>", "path === '/about' ? <About/> : path === '/' ? <Home/>")
@@ -84,6 +88,9 @@ title_start, title_end = roadmap.index('<title>'), roadmap.index('</title>')
 roadmap = roadmap[:title_start] + '<title>Solana Classic</title>' + roadmap[title_end + len('</title>'):]
 roadmap = roadmap.replace('https://solana-classic-soc.vercel.app/playground', '/playground').replace('https://solana-classic-soc.vercel.app', '/')
 roadmap = roadmap.replace('<span class="brand-dot" aria-hidden="true"></span>', '<span class="brand-logo" aria-hidden="true"></span>')
+github = '<a class="github-link" href="https://github.com/solana-classic/solana-classic" target="_blank" rel="noopener noreferrer" aria-label="GitHub source code (opens in a new tab)">GitHub</a>'
+roadmap = roadmap.replace('<a class="playground"', '<nav class="roadmap-header-links" aria-label="Project links"><a class="playground"').replace('</header>', github + '</nav></header>')
+roadmap = roadmap.replace('https://github.com/solana-classic/solana-classic', 'https://github.com/solana-classic/solana-classic')
 roadmap = roadmap.replace('</head>', '<link rel="stylesheet" href="/domain.css"><link rel="icon" type="image/svg+xml" href="/favicon.svg"></head>')
 (destination / 'public/roadmap.html').write_text(roadmap)
 (destination / 'public/domain.css').write_text((root / 'infra/custom-domain/styles.css').read_text())
