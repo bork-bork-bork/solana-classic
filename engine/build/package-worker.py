@@ -17,7 +17,14 @@ head = git('rev-parse', 'HEAD').decode().strip()
 tree = git('rev-parse', 'HEAD:engine/agave').decode().strip()
 if tree != 'a4c75a1781d4ca56e7325a39d0614e1faa26030d':
     raise SystemExit('Engine tree changed; review the source pin and worker before packaging.')
-(output / 'source.tar').write_bytes(git('archive', 'HEAD:engine/agave'))
+source_archive = io.BytesIO(git('archive', 'HEAD:engine/agave'))
+with tarfile.open(fileobj=source_archive) as source, tarfile.open(output / 'source.tar', 'w') as target:
+    for member in source.getmembers():
+        member.mtime = 0
+        member.uid = member.gid = 0
+        member.uname = member.gname = ''
+        member.pax_headers = {}
+        target.addfile(member, source.extractfile(member) if member.isfile() else None)
 files = {}
 for line in git('ls-tree', '-r', 'HEAD:engine/agave').decode().splitlines():
     metadata, relative = line.split('\t')

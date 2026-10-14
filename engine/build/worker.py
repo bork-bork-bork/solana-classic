@@ -2,7 +2,7 @@
 from pathlib import Path
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import urlsplit
-import datetime, hashlib, json, os, platform, re, shutil, signal, subprocess, threading, time, urllib.request
+import datetime, hashlib, json, os, platform, re, shutil, signal, stat, subprocess, threading, time, traceback, urllib.request
 
 APP = Path('/app')
 DATA = Path('/data')
@@ -191,6 +191,33 @@ def build():
         binaries[name] = {'sha256': sha(path), 'bytes': path.stat().st_size, 'version': version[:240]}
     save(binaries=binaries)
 
+def copy_cold_ledger(source, destination):
+    source = Path(source).resolve()
+    destination = Path(destination)
+    links = []
+    for path in source.rglob('*'):
+        mode = path.lstat().st_mode
+        if stat.S_ISSOCK(mode):
+            if path != source / 'admin.rpc':
+                raise RuntimeError('Unexpected socket in cold ledger.')
+        elif path.is_symlink():
+            target = path.resolve(strict=False)
+            if not target.is_relative_to(source):
+                raise RuntimeError('Cold ledger link escapes its source.')
+            links.append((path.relative_to(source), target.relative_to(source)))
+        elif not (stat.S_ISREG(mode) or stat.S_ISDIR(mode)):
+            raise RuntimeError('Unexpected special file in cold ledger.')
+    # A stopped validator leaves this transient IPC socket; it carries no state.
+    def transient(directory, names):
+        return ['admin.rpc'] if Path(directory) == source and 'admin.rpc' in names and stat.S_ISSOCK((source / 'admin.rpc').lstat().st_mode) else []
+    shutil.copytree(source, destination, symlinks=True, ignore=transient)
+    # Snapshot symlinks may be absolute. Rebase each validated internal target
+    # so restore cannot silently read the original ledger's account files.
+    for relative, target in links:
+        link = destination / relative
+        link.unlink()
+        link.symlink_to(os.path.relpath(destination / target, link.parent))
+
 def workflow(manifest):
     try:
         step('source', lambda: check_source(manifest))
@@ -199,7 +226,7 @@ def workflow(manifest):
         # Upstream #[should_panic] tests exercise debug_assert! checks. The
         # standard test profile enables them; --release does not. Keep test
         # artifacts separate so they cannot replace our release binaries.
-        step('upstream-tests', lambda: run(['cargo', 'test', '--locked', '-p', 'solana-svm', '-p', 'solana-genesis-utils', '--lib', '--', '--test-threads=2'], 'upstream-tests', timeout=7200, extra_env={'CARGO_TARGET_DIR': '/data/unit-target', 'CARGO_PROFILE_DEV_DEBUG': '0', 'CARGO_PROFILE_TEST_DEBUG': '0'}))
+        step('upstream-tests', lambda: run(['cargo', 'test', '--locked', '-p', 'solana-svm', '-p', 'solana-program-runtime', '-p', 'solana-genesis-utils', '--lib', '--', '--test-threads=2'], 'upstream-tests', timeout=7200, extra_env={'CARGO_TARGET_DIR': '/data/unit-target', 'CARGO_PROFILE_DEV_DEBUG': '0', 'CARGO_PROFILE_TEST_DEBUG': '0'}))
         step('program', program)
         ledger = Path(STATE['runDirectory']) / 'ledger'
         step('isolated-start', lambda: start_validator(ledger, initial=True))
@@ -211,12 +238,16 @@ def workflow(manifest):
             stop_validator()
             backup = Path(STATE['runDirectory']) / 'cold-backup'
             restored = Path(STATE['runDirectory']) / 'restored-ledger'
-            shutil.copytree(ledger, backup, symlinks=True)
-            shutil.copytree(backup, restored, symlinks=True)
+            copy_cold_ledger(ledger, backup)
+            copy_cold_ledger(backup, restored)
             start_validator(restored); smoke('verify'); stop_validator()
         step('cold-restore', restore)
         save(state='completed', phase='review', passed=True, completedAt=utc(), message='Source build and bounded isolated tests passed. Production cutover and a new 24-hour run still require separate acceptance.')
     except Exception:
+        diagnostic = Path(STATE['runDirectory']) / 'workflow-error-private.log'
+        with diagnostic.open('a') as output:
+            os.chmod(diagnostic, 0o600)
+            traceback.print_exc(file=output)
         phase = STATE.get('phase', 'source')
         steps = STATE.get('steps', {}).copy()
         steps[phase] = {**steps.get(phase, {}), 'state': 'failed', 'completedAt': utc()}

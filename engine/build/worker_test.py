@@ -1,5 +1,7 @@
 import importlib.util
 import unittest
+import socket
+import tempfile
 from pathlib import Path
 
 spec = importlib.util.spec_from_file_location('worker', Path(__file__).with_name('worker.py'))
@@ -7,6 +9,28 @@ worker = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(worker)
 
 class BoundaryTests(unittest.TestCase):
+    def test_cold_copy_skips_only_admin_socket_and_rebases_snapshot_links(self):
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / 'ledger'; source.mkdir()
+            accounts = source / 'accounts'; accounts.mkdir(); (accounts / 'state').write_bytes(b'fixture-state')
+            (source / 'snapshot-link').symlink_to(accounts)
+            connection = socket.socket(socket.AF_UNIX); connection.bind(str(source / 'admin.rpc'))
+            try:
+                backup = Path(directory) / 'backup'; worker.copy_cold_ledger(source, backup)
+                restored = Path(directory) / 'restored'; worker.copy_cold_ledger(backup, restored)
+                self.assertFalse((backup / 'admin.rpc').exists())
+                self.assertEqual((restored / 'snapshot-link').resolve(), (restored / 'accounts').resolve())
+                self.assertEqual((restored / 'snapshot-link/state').read_bytes(), b'fixture-state')
+            finally:
+                connection.close()
+
+    def test_cold_copy_rejects_links_outside_ledger(self):
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / 'ledger'; source.mkdir()
+            (source / 'escape').symlink_to(Path(directory) / 'outside')
+            with self.assertRaises(RuntimeError):
+                worker.copy_cold_ledger(source, Path(directory) / 'backup')
+
     def test_production_and_public_genesis_rejected(self):
         for genesis in {*worker.PUBLIC_GENESIS, worker.CANONICAL_GENESIS, None, '', 'http://example.com'}:
             with self.assertRaises(RuntimeError):
