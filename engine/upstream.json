@@ -15,5 +15,10 @@
   "licenseFile": "engine/agave/LICENSE",
   "projectEngineModifications": false,
   "activeDeploymentUses": "Checksum-verified official upstream release binaries, unchanged by this source import",
-  "engineBuildFromThisRepositoryVerified": false
+  "engineBuildFromThisRepositoryVerified": true,
+  "sourceBuildVerification": {
+    "runId": "40de48b7-6963-429b-ae3e-81a610d81b7d",
+    "evidence": "evidence/engine-source-build-snapshot-path-retry.json",
+    "activeNetworkSwitched": false
+  }
 }

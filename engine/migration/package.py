@@ -14,7 +14,7 @@ if not release['passed'] or hashlib.sha256(archive.read_bytes()).hexdigest()!=re
 destination=ROOT/'.tools/source-runtime-candidate';destination.mkdir(exist_ok=False)
 for path in freeze['coreFiles']:
     target=destination/path;target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(ROOT/path,target)
-for path in ['tsconfig.json','docs/token-program-release.json','engine/migration/start.mjs','engine/migration/hold.mjs','engine/migration/hold.d.mts','engine/migration/Dockerfile','infra/explorer/block-reader.mjs']:
+for path in ['tsconfig.json','docs/token-program-release.json','scripts/evidence.ts','scripts/release-check.ts','engine/migration/start.mjs','engine/migration/hold.mjs','engine/migration/hold.d.mts','engine/migration/Dockerfile','infra/explorer/block-reader.mjs']:
     target=destination/path;target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(ROOT/path,target)
 shutil.copy2(archive,destination/'source-binaries.tar.gz')
 release.update({'migrationId':str(uuid.uuid4()),'genesis':freeze['genesis'],'preparedAt':datetime.datetime.now(datetime.timezone.utc).isoformat()})

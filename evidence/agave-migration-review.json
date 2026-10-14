@@ -1,0 +1,27 @@
+{
+  "at": "2026-10-14T02:03:53.871854+00:00",
+  "scope": "repository migration/rollback runbook review with actual remote fresh-ledger mixed-binary rehearsal, cold restores, prepared-image binary/ABI/TypeScript checks and held API injection; no canonical cutover or stability acceptance",
+  "passed": true,
+  "prepared": true,
+  "migrationId": "ae834e71-fb59-4beb-b26b-4485be3a386f",
+  "imageDigest": "sha256:19595c406b6effe8bc5a3fdb618822755f46866e4e6ebfb1c6371513e51d2e32",
+  "coreSha256": "533950731d4ed6d94b59e71517613be002b6ec416b0ebb3a20a592fe5ec6f22f",
+  "productionNetworkChanged": false,
+  "canonicalCutoverAccepted": false,
+  "freshBackupPendingUntilMaintenance": true,
+  "proofs": {
+    "evidence/agave-migration-rollback-rehearsal.json": "e75e25e8721298a6ca7ebd2520f8ee903c033a465200f98e2b31b8498cb47c52",
+    "evidence/source-runtime-image-probe.json": "5dbb274fe7321ce75e37feaa20f31a03f25304288d9fab5f65934274e1763ae3",
+    "evidence/source-runtime-api-hold-probe.json": "e573af75d8beb6bb13a7c595d1a98a8533bd50d16f07ae72ec322173d4ff56e1",
+    "evidence/source-runtime-candidate-package.json": "4fec10ec29e4064ff45e0142f21a781c4f68f6d8958d1b231df4db6e71febf4e",
+    "docs/AGAVE_MIGRATION.md": "da0bacbbf031bc17ef89d9842d5fdf6c2eb1e73dcb695bff023ef6021a48f321"
+  },
+  "checks": {
+    "mixedBinaryRehearsal": true,
+    "imageVerified": true,
+    "heldApiVerified": true,
+    "localHoldTests": 4,
+    "localPreflightTests": 4,
+    "roadmapTests": 28
+  }
+}

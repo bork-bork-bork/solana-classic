@@ -17,16 +17,16 @@ uses `solana-test-validator`; this does not create a multi-validator mainnet.
 | Official rollback deployment | `04c379cd-369c-4ff4-9d14-d29467d68a28` |
 | Source-build run | `40de48b7-6963-429b-ae3e-81a610d81b7d` |
 | Upstream commit | `f516a8927c76c07f0ebc54ca7a4ce8b2046eee86` |
-| Prepared package source commit | `e8f6baa`; full hash is in the package proof |
-| Migration ID | `a48f94a4-82bb-42f2-aa6f-eec52fdbb203` |
-| Candidate core digest | `38a055424ae721388cb2290b96945270f8b72d55f78ee8c2cb16e5c1aa66747a` |
+| Prepared package source commit | `119f25e`; full hash is in the package proof |
+| Migration ID | `ae834e71-fb59-4beb-b26b-4485be3a386f` |
+| Candidate core digest | `533950731d4ed6d94b59e71517613be002b6ec416b0ebb3a20a592fe5ec6f22f` |
 | Image-probe service | `226510f3-1b2c-4ff9-b598-095c43d0e33b` |
-| Verified probe deployment | `b19eff32-0bee-41d8-9e64-a6716bf57f1e` |
-| Verified image digest | `sha256:312996da581e3447491dc7b6845c7310721a9f29c05e6d9a35bb1a5514ce217f` |
+| Verified probe deployment | `745f6733-1538-4f5b-a4bc-d4ec82798a87` |
+| Verified image digest | `sha256:19595c406b6effe8bc5a3fdb618822755f46866e4e6ebfb1c6371513e51d2e32` |
 | Source test-validator SHA-256 | `3d3140bf93c9bc967220ffd8989d8b0267b723915d32203132ecc36d2c63a49a` |
 | Official test-validator SHA-256 | `80f3bc0e3fa6a3090e69bafbfe00b249eaa655c5874ac83aebb6acdb157140ab` |
 
-The reviewed local upload context is `.tools/source-runtime-candidate`. Its 52
+The reviewed local upload context is `.tools/source-runtime-candidate`. Its 54
 named files and four public executables are checksum-bound in
 `evidence/source-runtime-candidate-package.json`. It contains no runtime data or
 keys. Preserve this exact context; regenerating it creates a different migration
@@ -93,7 +93,7 @@ change these settings during the original run.
    and SHA-256, matching canonical genesis, archive inspection, and sufficient
    remaining free space. Keep the entire archive private: it contains protected
    TEST operator material. Retain it separately under
-   `/data/backups/migration-a48f94a4-82bb-42f2-aa6f-eec52fdbb203/`; copy/rename only
+   `/data/backups/migration-ae834e71-fb59-4beb-b26b-4485be3a386f/`; copy/rename only
    after the backup is complete. The October 13 archive is an older checkpoint
    and must never stand in for this fresh backup.
 4. While the public API remains in maintenance, use the official binary locally
@@ -125,7 +125,7 @@ change these settings during the original run.
    Explorer block/address reads. Expect `/api/status` to return maintenance 503
    while the gate is held. The original successful soak is now historical.
 7. Only after those real comparisons pass, write private regular `0600` control
-   files in `/data/migration/a48f94a4-82bb-42f2-aa6f-eec52fdbb203/`.
+   files in `/data/migration/ae834e71-fb59-4beb-b26b-4485be3a386f/`.
    `continuity-pass.json` must contain `passed:true`, the migration/build IDs,
    canonical genesis, source `validatorSha256`, actual `backupArchiveSha256`
    and actual verification timestamp `at`. Retain the complete comparison proof

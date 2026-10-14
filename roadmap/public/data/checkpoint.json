@@ -101,6 +101,12 @@
       "at": "2026-10-14T00:29:02.820354+00:00",
       "scope": "Version0.7 PDF: all21pages rendered and visually reviewed; source/bounds and anonymous custom-domain served bytes verified; no economic launch acceptance",
       "sha256": "75b3a2fdb6c3840546367c8984d54d54503283eb25ddcb54670b45bc378afd1b"
+    },
+    "engine-migration-review": {
+      "passed": true,
+      "at": "2026-10-14T02:03:53.871854+00:00",
+      "scope": "repository migration/rollback runbook review with actual remote fresh-ledger mixed-binary rehearsal, cold restores, prepared-image binary/ABI/TypeScript checks and held API injection; no canonical cutover or stability acceptance",
+      "sha256": "9563d34ff7270c81ab89480ab4ee9f82fb92cb2f5c1d04d92dc6c37c53794f96"
     }
   },
   "load": {
@@ -147,5 +153,12 @@
     "pages": 21,
     "sha256": "a012bab19803fed9e9a043faf8f5ed892ea3c56c8ed9495e9e023f19bbaeaeb0",
     "url": "https://solana-classic-soc.vercel.app/whitepaper.pdf"
+  },
+  "migrationPreparation": {
+    "prepared": true,
+    "reviewedAt": "2026-10-14T02:03:53.871854+00:00",
+    "migrationId": "ae834e71-fb59-4beb-b26b-4485be3a386f",
+    "imageDigest": "sha256:19595c406b6effe8bc5a3fdb618822755f46866e4e6ebfb1c6371513e51d2e32",
+    "canonicalCutoverAccepted": false
   }
 }

@@ -1,0 +1,23 @@
+{
+  "at": "2026-10-14T02:02:31.037766+00:00",
+  "scope": "read-only migration admission review; not a cutover or release acceptance",
+  "preparationReviewed": true,
+  "canEnterMaintenance": false,
+  "canSwitchNow": false,
+  "gates": {
+    "freshStatus": true,
+    "canonicalRuntimeStillMatches": true,
+    "originalSoakPassed": false,
+    "sourceBuildReady": true,
+    "newFullDayFitsFixedDeadline": true,
+    "frozenFilesUnchanged": true,
+    "mixedBinaryRollbackRehearsal": true,
+    "preparedPackageMatches": true,
+    "runtimeImageVerified": true
+  },
+  "remainingAtMaintenance": [
+    "Create and verify a fresh stopped-writer backup and continuity baseline.",
+    "Verify canonical ledger, database and immutable assets in the held candidate before opening writes."
+  ],
+  "productionNetworkChanged": false
+}

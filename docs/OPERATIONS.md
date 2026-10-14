@@ -10,7 +10,7 @@ Railway project `356bcb0b-49c4-4bd3-bf10-bff7db8f33fe`, production environment `
 
 Independent genesis: `7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon`. Executable source 35f0eaf1dede45452c9cdf9e6403669e966c427d, core manifest 30697f3e9b441b05a036d0704b42322d723b3998840ed43d88b18a0d7ef7d1dd. Read `/api/runtime` for actual current deployment and process boot IDs. Official Agave3.0.14 and Token-2022v10.0.0 binary hashes are recorded in evidence/active-linux-manifest.json and docs/token-program-release.json.
 
-The repository is the local Git checkout on branch `build/six-day-mvp`. No remote repository has been supplied. Root Vercel configuration builds the static web package; API, SQLite and generated assets are not Vercel functions. Public build variables identify the fixed API and genesis; no signer belongs in a VITE variable. No owned domain is needed for the current provider URLs.
+The repository is the local Git checkout on branch `build/six-day-mvp`. Public source is at https://github.com/solana-classic/solana-classic. Root Vercel configuration builds the static web package; API, SQLite and generated assets are not Vercel functions. Public build variables identify the fixed API and genesis; no signer belongs in a VITE variable. The separately verified public frontend is https://solanaclassic.net; the original provider frontend remains the frozen stability candidate.
 
 ## Routine checks and alerts
 
@@ -53,3 +53,7 @@ Preserve failed results, timestamps, signatures and deployment IDs. Record passe
 ## Bounded transaction history
 
 The validator prunes older transaction history. At recovery reconfirmation, first available block72413 exceeded the initial restore verification slot11020, so the original grant could no longer be re-read from RPC. Its persisted confirmed UUID/signature, exact balance and no-double-grant replay remain verified, with historical finality retained in the original proof. Account state and original asset records remain available. Explorer lookup does not provide archival transaction indexing; preserve important signed receipts and evidence separately.
+
+## Source-build migration
+
+Read [the reviewed migration and rollback procedure](AGAVE_MIGRATION.md). The pinned source build, mixed-binary rollback rehearsal and volume-free runtime image checks are separate from canonical cutover acceptance. Keep the original stability run untouched until its actual final result passes.
