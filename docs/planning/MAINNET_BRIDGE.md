@@ -453,3 +453,18 @@ are not authenticated by their policy digest. Production upgrade controls,
 independent history/backing/finality and security review remain required.
 See `bridge/PENDING_CLAIMS.md` and
 `evidence/bridge-pinned-journal-integration.json`.
+
+
+## Actual pinned-journal private round trip
+
+Eight checks pass on new private copied Agave ledgers, with two source and
+two settlement broadcasts, both directions finalized, six deliberately wrong
+expected pin handoffs rejected and exact final counters/escrow/reserve restored
+to baseline. Both copies stopped and original ledger/input/journal hashes match.
+First zero-transaction checkpoint-RPC refusal is preserved; fresh v2 readiness
+waited for retained finalized minima without lowering them. Three worker and
+six copy guards pass. See `evidence/bridge-pinned-journal-agave.json`.
+
+This is functional known-finalized integration, not a new crash/fork, actual
+upgrade, production custody or funded-mainnet proof. All previous private
+branches, including expired nonce6, remain preserved and separate.

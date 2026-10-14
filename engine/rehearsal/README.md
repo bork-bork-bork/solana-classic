@@ -257,3 +257,37 @@ previous native-settlement baseline. Never replay/reset either attempt or
 reuse nonces5/6. Successful pending original redemption, actual competing
 forks, custody/code pins, independent verification, funded complete backing
 and security review remain release gates.
+
+
+## Pinned-journal two-direction rehearsal
+
+`pinned_journal.py` and `bridge/rehearsal/pinned-journal.mjs` use NEW cold
+copies of the stopped positive nonce7 branch, isolated loopback ports and the
+pinned source-built test-validator. Retained historical public programme pins
+are uploaded with all current client dependencies and included in source
+hashes. Health alone is insufficient: both finalized roots must reach the
+retained checkpoints before pin observations. Checkpoint values are never
+lowered to make a run pass.
+
+The first `/data/bridge-pinned-journal-v1` attempt refused a checkpoint-bound
+RPC observation before any transaction. Both copy processes stopped; original
+baseline/journal hashes match the prior reviewed proof. Its source and public
+failed outcome remain in `evidence/bridge-pinned-journal-first-*`. No raw keys,
+signed journals or private logs are exported. Do not rerun/reset that root.
+
+The repaired v2 attempt uses distinct unused origin-lock nonce8 and native-return
+nonce9 on new copies. At most two source and two journaled settlement broadcasts
+are permitted. Before each valid handoff, three deliberately wrong expected
+code/authority/policy pins must reject against actual accounts, leave their
+private prepared records unchanged and produce no economic movement. These
+are wrong-pin tests, not actual upgrades or malicious policy changes. Valid
+version2 journals must reconcile the same finalized signatures and exact
+native/token movements, retain their pin admissions at later checkpoints and
+refuse every repeated handoff. Final escrow/counters/reserve and bootstrap
+floor/record must return to the selected baseline.
+
+This is a known-finalized functional integration. It does not reuse or gain
+the earlier SIGKILL, fork, physical power-loss or economic-backing acceptance.
+Independent custody/upgrade/signing controls and funded complete genesis
+backing remain required. Preserve every attempt root after completion, stop
+all copied processes and verify original ledger/input/journal hashes.

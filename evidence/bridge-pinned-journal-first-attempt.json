@@ -1,0 +1,62 @@
+{
+  "state": "failed",
+  "failure": "Pin RPC rejected observation",
+  "starts": [
+    {
+      "side": 0,
+      "genesisMatches": true,
+      "originalLedgerPathsOpened": false
+    },
+    {
+      "side": 1,
+      "genesisMatches": true,
+      "originalLedgerPathsOpened": false
+    }
+  ],
+  "stops": [
+    {
+      "side": 0,
+      "signal": "SIGINT",
+      "returnCode": -2,
+      "applicationGracefulFlushVerified": false
+    },
+    {
+      "side": 1,
+      "signal": "SIGINT",
+      "returnCode": -2,
+      "applicationGracefulFlushVerified": false
+    }
+  ],
+  "sourceBroadcasts": 0,
+  "claimBroadcasts": 0,
+  "sourceHashes": {
+    "pinned-journal.mjs": "a63f6c40d12d25447ef4c1fa0dde8c77adc64c515fce2de16206d68c221b5367",
+    "pinned_journal.py": "80be4daab2f6147ff8f78fd26be0a908581a05f759a7316041d7a78ae4d6a426",
+    "program-pins.mjs": "1f72a2007be0d4ebd6b1a3080dc2ad93224177e49ae32e0513beb2e163256d42",
+    "claim-pin-policy.mjs": "9ee31bcd58218860fcb5660624531e22c7038d29b34f8bd22590d72c70bb8893",
+    "pending-claim.mjs": "5a7ffcc1d0ce86ca7eddce9e0227f632e07f42f0f0d4a3d65b27cfc186ed4b26",
+    "lossless-native-rpc.mjs": "5ebed7db063afd9178925eab883a4955dd15ad878bbdad19878ab75225f3398b",
+    "sdk.mjs": "e603242692bedc2457ec9dd3cb144122ca1adb7341506d244ec864943bd8c988",
+    "bootstrap_driver.py": "200a81128b1dc697b32365ac939d7eef27c6e8b4cf3d48aa51faed4a65164a5c",
+    "cold_copy.py": "42bef261f9f273a1f525b515eabfcda61b8d6a1cbb62fd637ebbdd0f23a95b6d",
+    "reviewed-pins-public.json": "508b789e263f67ef371cdc138a927b1dcf36e410e4d6dfb55d40f34e2e509086"
+  },
+  "baselineMatchesPriorReviewedColdInventoryAndJournal": true,
+  "minimumPinCheckpoints": [
+    960,
+    772
+  ],
+  "privateValidatorProcesses": 0,
+  "schemaVersion": 1,
+  "at": "2026-10-14T19:08:33.009239+00:00",
+  "scope": "Failed fresh private copied-ledger pinned-journal attempt; first checkpoint-bound RPC observation refused; zero broadcasts",
+  "allStopped": true,
+  "canonicalNetworkChanged": false,
+  "productionReady": false,
+  "diagnosis": "Driver admitted healthy endpoints without requiring the later retained finalized pin checkpoints. The observer refused its RPC request. Upstream error was redacted; no broader finality or chain fault is inferred.",
+  "repair": "Fresh v2 attempt waits for finalized slots to reach retained minima before invoking observer; no checkpoint lowered or previous attempt reset.",
+  "executedSourceArchive": {
+    "pinned_journal.py": "evidence/bridge-pinned-journal-first-driver.py.txt",
+    "pinned-journal.mjs": "evidence/bridge-pinned-journal-first-harness.mjs.txt"
+  }
+}

@@ -254,3 +254,25 @@ previous native-settlement baseline. Never replay/reset either attempt or
 reuse nonces5/6. Successful pending original redemption, actual competing
 forks, custody/code pins, independent verification, funded complete backing
 and security review remain release gates.
+
+
+## Actual combined pinned-journal integration
+
+Eight checks now pass on fresh private source-built Agave copies. Two source
+events and two pinned-journal settlements finalized, with exact native release
+and original-token redemption. Six deliberately wrong expected code/authority/
+policy pins refused handoff against real accounts and preserved prepared
+records/economics. Both original signatures reconcile once; later checkpoints
+retain admission metadata and repeated handoffs refuse. Final escrow/counters
+1950000, original user50000, reserve52000000 and floor2000000 return to the
+selected baseline, with bootstrap record unchanged. Both copies stopped and
+original ledger/input/journal hashes match. Three worker and six copy guards
+also pass. See `evidence/bridge-pinned-journal-agave.json`.
+
+The first attempt refused a checkpoint-bound RPC request before any broadcast.
+Its two processes stopped, zero-transaction outcome and executed source are
+preserved. Fresh v2 waits for finalized roots to reach the retained pin
+checkpoints; no checkpoint was lowered. Preserve both attempt roots. This
+known-finalized functional round trip does not test an actual code upgrade,
+new crash/fork, physical power loss or production custody. Complete funded
+backing, independent operators/verifiers and security review remain open.

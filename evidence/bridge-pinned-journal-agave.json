@@ -1,0 +1,350 @@
+{
+  "schemaVersion": 1,
+  "scope": "Actual pinned-journal synthetic round trip on NEW private copied Agave ledgers; known-finalized settlement, no crash or real upgrade",
+  "state": "passed",
+  "startedAt": "2026-10-14T19:09:37.052Z",
+  "checks": [
+    "New copies match baseline counters/escrow/user/reserve, bootstrap floor/record and independently selected historical code/policy pins",
+    "Direction0 source nonce8 finalizes once with exact10000-origin-unit event; sender rent verified separately",
+    "Direction0 wrong expected code, authority and policy refuse handoff against actual accounts without journal or economic change",
+    "Direction0 pinned journal hands off once and same signature/receipt/exact economics finalize; repeat handoff refuses",
+    "Direction1 source nonce9 finalizes once with exact10000-origin-unit event; sender rent verified separately",
+    "Direction1 wrong expected code, authority and policy refuse handoff against actual accounts without journal or economic change",
+    "Direction1 pinned journal hands off once and same signature/receipt/exact economics finalize; repeat handoff refuses",
+    "Both copy processes stopped; original ledgers, fixture and finalized journal hashes unchanged"
+  ],
+  "genesi": [
+    "J8LsGtrVHe95w5Yxv3wR2Ux9uNWyDG3svK8LonczuuNh",
+    "EWjA6VWd5uw1XP9fZXBnxAd2doRFf6KQke2RUwj14QE2"
+  ],
+  "sourceBroadcasts": 2,
+  "claimBroadcasts": 2,
+  "negativeHandoffs": 6,
+  "operations": [
+    {
+      "id": "2MfRQszjG1nwtYrt5J9JAoZG5VTvbzffTtEjTmDks93n",
+      "signature": "2rJLGRkk1zvRaoBTw3hBzKd1DtJBcjmtje6PRHFfpmgVv8gk3k9RYXR7gj35HoNS6SryhKDYNjtwnz75y2e2G5fS",
+      "eventHash": "ff034e6ce11732ff523a293bb525e7da2b80d469b6e8beac1a86c7cfc745e3f0",
+      "transactionHash": "573972913ef2fb51e233a1ed608be1ac00fbb395618fcc812448f5f257948d2c",
+      "state": "FINALIZED",
+      "attempts": 1,
+      "productionReady": false
+    },
+    {
+      "id": "FrTi54wNzksLPx5RLaF9YUkQsbk7XyCBjfd4fjgbfXmq",
+      "signature": "4ECt8tn1gHhYPdKJK1718dyirGoV7nXpqq8rK2AAemVSr15Q3DxV4WnLXEMSLoPdsR3TeDLcNCFrmL8GRDz4VqA7",
+      "eventHash": "d4233eb7025e42285633a448b833ad6d48a69a0933eface08f808e6e9246ca98",
+      "transactionHash": "6f35432c0ef04350a7413a41fe48061911a466ab15f95f5af0bf231ee6c4c8ae",
+      "state": "FINALIZED",
+      "attempts": 1,
+      "productionReady": false
+    }
+  ],
+  "pinAdmissions": [
+    {
+      "direction": 0,
+      "policySHA256": "102becc7ca50f97db4c988bee27685b07fc5255d5cb5ee6917f8b9766d11ab41",
+      "source": {
+        "schemaVersion": 1,
+        "state": "PINNED_PRIVATE_OBSERVATION",
+        "genesis": "J8LsGtrVHe95w5Yxv3wR2Ux9uNWyDG3svK8LonczuuNh",
+        "firstContextSlot": 1019,
+        "contextSlot": 1019,
+        "program": "AkhzSc1JHmF8ELCZkoeCWtcUv51J18AvbBRQNjFWK2g2",
+        "programData": "7brJF5nGtuQWr7YqR21p4WvsfrFXpGSWGpLZPPGeL8kW",
+        "config": "ESSJ69TWaJ2vq5seyYzCckh1DRquzoQa1Fme5rs2JjKy",
+        "elfSHA256": "556adf3132c6d102458c0c3b13e22457401bd748b6c3a37a422fb7a339a68e53",
+        "elfBytes": 203920,
+        "programDataSHA256": "fed65001c89dcf9fda8edcdeda0f564fdb5cbbef4df5e64bc6e487b0c0f9bfab",
+        "upgradeAuthority": "DkFYo99FDvGtbQ3MD7T8d5iLohtMWJmy57YeZHjxDRZr",
+        "policySHA256": "80c6ef8ddc586311333d88270407165007293d9f9274c61fa1132d00c5815f75",
+        "bridge": "56bF3pvPzNeJGE4VZtR1gqeAS9uK2HfseCs8gRkqf5Sm",
+        "remoteGenesis": "EWjA6VWd5uw1XP9fZXBnxAd2doRFf6KQke2RUwj14QE2",
+        "remoteProgram": "8uajXCr14fhbmCYW1EbLJtURtFBBrU4zXDgHu3gXBME2",
+        "originMint": "3gxnbecjqmYAytS2AjJTyLtPYNuz2H9GSc8Fs7m8NJBF",
+        "side": 0,
+        "originDecimals": 6,
+        "nativeDecimals": 9,
+        "committee": [
+          "CA5ax1MtmkjuxCx3SSPFLWuvRj8GN8itjXXCto2XNdTj",
+          "C2ERRPH4Pb9YLbQ9bEf6WHpZ4CDFBQjdS3JQbyP4v8rf",
+          "H2dst2LVn3Ah3k5WuLb9JvVPREFbKi1goCW713Qh4KGW",
+          "6ZRC2JT7Bj8czc8iqChngHVyCJyNjbjnJigLseUNiFEg",
+          "HKuFXmsaqH1kxm228UvpNLeqSqcbAFxG69g2TY8dooyK"
+        ],
+        "epoch": "1",
+        "newLocksPaused": false,
+        "settlementPaused": false,
+        "transferLimitUnits": "2000000",
+        "dailyLimitUnits": "4000000",
+        "outstandingUnits": "1960000",
+        "observations": 2,
+        "independentVerification": false,
+        "canSign": false,
+        "canBroadcast": false,
+        "productionReady": false
+      },
+      "destination": {
+        "schemaVersion": 1,
+        "state": "PINNED_PRIVATE_OBSERVATION",
+        "genesis": "EWjA6VWd5uw1XP9fZXBnxAd2doRFf6KQke2RUwj14QE2",
+        "firstContextSlot": 808,
+        "contextSlot": 808,
+        "program": "8uajXCr14fhbmCYW1EbLJtURtFBBrU4zXDgHu3gXBME2",
+        "programData": "8YGZRLiawozgj7WKgKeDfaWp1GSoxz6SA9ZqKheVu5LK",
+        "config": "7QW6JexGs6pzqPCY65eFpk73RwQhXLDMYQdzyaneLp4C",
+        "elfSHA256": "556adf3132c6d102458c0c3b13e22457401bd748b6c3a37a422fb7a339a68e53",
+        "elfBytes": 203920,
+        "programDataSHA256": "5c47a1345a4c75bb827d509c744a3a6379e2d41db17979ca28ac4c9e480f6dd3",
+        "upgradeAuthority": "DkFYo99FDvGtbQ3MD7T8d5iLohtMWJmy57YeZHjxDRZr",
+        "policySHA256": "d04c9f6b23d2125ff2e20e400df50b555185e9bdeee3e4cc44510c34fea35d1a",
+        "bridge": "56bF3pvPzNeJGE4VZtR1gqeAS9uK2HfseCs8gRkqf5Sm",
+        "remoteGenesis": "J8LsGtrVHe95w5Yxv3wR2Ux9uNWyDG3svK8LonczuuNh",
+        "remoteProgram": "AkhzSc1JHmF8ELCZkoeCWtcUv51J18AvbBRQNjFWK2g2",
+        "originMint": "3gxnbecjqmYAytS2AjJTyLtPYNuz2H9GSc8Fs7m8NJBF",
+        "side": 1,
+        "originDecimals": 6,
+        "nativeDecimals": 9,
+        "committee": [
+          "CA5ax1MtmkjuxCx3SSPFLWuvRj8GN8itjXXCto2XNdTj",
+          "C2ERRPH4Pb9YLbQ9bEf6WHpZ4CDFBQjdS3JQbyP4v8rf",
+          "H2dst2LVn3Ah3k5WuLb9JvVPREFbKi1goCW713Qh4KGW",
+          "6ZRC2JT7Bj8czc8iqChngHVyCJyNjbjnJigLseUNiFEg",
+          "HKuFXmsaqH1kxm228UvpNLeqSqcbAFxG69g2TY8dooyK"
+        ],
+        "epoch": "1",
+        "newLocksPaused": false,
+        "settlementPaused": false,
+        "transferLimitUnits": "2000000",
+        "dailyLimitUnits": "4000000",
+        "outstandingUnits": "1950000",
+        "observations": 2,
+        "independentVerification": false,
+        "canSign": false,
+        "canBroadcast": false,
+        "productionReady": false
+      }
+    },
+    {
+      "direction": 1,
+      "policySHA256": "de2b039533d079d5d0d5669849e878a19e4ecd88844b55e2883b65f1860b301c",
+      "source": {
+        "schemaVersion": 1,
+        "state": "PINNED_PRIVATE_OBSERVATION",
+        "genesis": "EWjA6VWd5uw1XP9fZXBnxAd2doRFf6KQke2RUwj14QE2",
+        "firstContextSlot": 873,
+        "contextSlot": 873,
+        "program": "8uajXCr14fhbmCYW1EbLJtURtFBBrU4zXDgHu3gXBME2",
+        "programData": "8YGZRLiawozgj7WKgKeDfaWp1GSoxz6SA9ZqKheVu5LK",
+        "config": "7QW6JexGs6pzqPCY65eFpk73RwQhXLDMYQdzyaneLp4C",
+        "elfSHA256": "556adf3132c6d102458c0c3b13e22457401bd748b6c3a37a422fb7a339a68e53",
+        "elfBytes": 203920,
+        "programDataSHA256": "5c47a1345a4c75bb827d509c744a3a6379e2d41db17979ca28ac4c9e480f6dd3",
+        "upgradeAuthority": "DkFYo99FDvGtbQ3MD7T8d5iLohtMWJmy57YeZHjxDRZr",
+        "policySHA256": "d04c9f6b23d2125ff2e20e400df50b555185e9bdeee3e4cc44510c34fea35d1a",
+        "bridge": "56bF3pvPzNeJGE4VZtR1gqeAS9uK2HfseCs8gRkqf5Sm",
+        "remoteGenesis": "J8LsGtrVHe95w5Yxv3wR2Ux9uNWyDG3svK8LonczuuNh",
+        "remoteProgram": "AkhzSc1JHmF8ELCZkoeCWtcUv51J18AvbBRQNjFWK2g2",
+        "originMint": "3gxnbecjqmYAytS2AjJTyLtPYNuz2H9GSc8Fs7m8NJBF",
+        "side": 1,
+        "originDecimals": 6,
+        "nativeDecimals": 9,
+        "committee": [
+          "CA5ax1MtmkjuxCx3SSPFLWuvRj8GN8itjXXCto2XNdTj",
+          "C2ERRPH4Pb9YLbQ9bEf6WHpZ4CDFBQjdS3JQbyP4v8rf",
+          "H2dst2LVn3Ah3k5WuLb9JvVPREFbKi1goCW713Qh4KGW",
+          "6ZRC2JT7Bj8czc8iqChngHVyCJyNjbjnJigLseUNiFEg",
+          "HKuFXmsaqH1kxm228UvpNLeqSqcbAFxG69g2TY8dooyK"
+        ],
+        "epoch": "1",
+        "newLocksPaused": false,
+        "settlementPaused": false,
+        "transferLimitUnits": "2000000",
+        "dailyLimitUnits": "4000000",
+        "outstandingUnits": "1950000",
+        "observations": 2,
+        "independentVerification": false,
+        "canSign": false,
+        "canBroadcast": false,
+        "productionReady": false
+      },
+      "destination": {
+        "schemaVersion": 1,
+        "state": "PINNED_PRIVATE_OBSERVATION",
+        "genesis": "J8LsGtrVHe95w5Yxv3wR2Ux9uNWyDG3svK8LonczuuNh",
+        "firstContextSlot": 1084,
+        "contextSlot": 1084,
+        "program": "AkhzSc1JHmF8ELCZkoeCWtcUv51J18AvbBRQNjFWK2g2",
+        "programData": "7brJF5nGtuQWr7YqR21p4WvsfrFXpGSWGpLZPPGeL8kW",
+        "config": "ESSJ69TWaJ2vq5seyYzCckh1DRquzoQa1Fme5rs2JjKy",
+        "elfSHA256": "556adf3132c6d102458c0c3b13e22457401bd748b6c3a37a422fb7a339a68e53",
+        "elfBytes": 203920,
+        "programDataSHA256": "fed65001c89dcf9fda8edcdeda0f564fdb5cbbef4df5e64bc6e487b0c0f9bfab",
+        "upgradeAuthority": "DkFYo99FDvGtbQ3MD7T8d5iLohtMWJmy57YeZHjxDRZr",
+        "policySHA256": "80c6ef8ddc586311333d88270407165007293d9f9274c61fa1132d00c5815f75",
+        "bridge": "56bF3pvPzNeJGE4VZtR1gqeAS9uK2HfseCs8gRkqf5Sm",
+        "remoteGenesis": "EWjA6VWd5uw1XP9fZXBnxAd2doRFf6KQke2RUwj14QE2",
+        "remoteProgram": "8uajXCr14fhbmCYW1EbLJtURtFBBrU4zXDgHu3gXBME2",
+        "originMint": "3gxnbecjqmYAytS2AjJTyLtPYNuz2H9GSc8Fs7m8NJBF",
+        "side": 0,
+        "originDecimals": 6,
+        "nativeDecimals": 9,
+        "committee": [
+          "CA5ax1MtmkjuxCx3SSPFLWuvRj8GN8itjXXCto2XNdTj",
+          "C2ERRPH4Pb9YLbQ9bEf6WHpZ4CDFBQjdS3JQbyP4v8rf",
+          "H2dst2LVn3Ah3k5WuLb9JvVPREFbKi1goCW713Qh4KGW",
+          "6ZRC2JT7Bj8czc8iqChngHVyCJyNjbjnJigLseUNiFEg",
+          "HKuFXmsaqH1kxm228UvpNLeqSqcbAFxG69g2TY8dooyK"
+        ],
+        "epoch": "1",
+        "newLocksPaused": false,
+        "settlementPaused": false,
+        "transferLimitUnits": "2000000",
+        "dailyLimitUnits": "4000000",
+        "outstandingUnits": "1960000",
+        "observations": 2,
+        "independentVerification": false,
+        "canSign": false,
+        "canBroadcast": false,
+        "productionReady": false
+      }
+    }
+  ],
+  "globalBacking": {
+    "completeInventoryVerified": false,
+    "actualGenesisBackingVerified": false,
+    "hypotheticalNativeBudgetUnits": "2000000000",
+    "observedNativeGlobalSupplyUnitsAtStart": "503000511071959133",
+    "budgetMatchesObservedGlobalSupply": false,
+    "note": "Synthetic 2-row accounting projection intentionally does not cover the complete test-validator supply. Cannot pass B3 or any monetary-release gate."
+  },
+  "productionReady": false,
+  "canonicalNetworkChanged": false,
+  "independentOperatorsVerified": false,
+  "pinSource": {
+    "historicalPublicProofSHA256": "508b789e263f67ef371cdc138a927b1dcf36e410e4d6dfb55d40f34e2e509086",
+    "policy": "Derived from reviewed synthetic fixture, not learnt from fresh endpoint",
+    "programmeData": "Previously reviewed cold-checkpoint full account hashes"
+  },
+  "initial": {
+    "originOutstandingUnits": "1950000",
+    "nativeOutstandingUnits": "1950000",
+    "originEscrowUnits": "1950000",
+    "originUserUnits": "50000",
+    "reserveNativeUnits": "52000000",
+    "protectedFloorNativeUnits": "2000000",
+    "bootstrapRecordSHA256": "cba73a439ce5cbfaa48ce7317ed7b1465b83022993afbf27a0ea9b3e06054327"
+  },
+  "final": {
+    "originOutstandingUnits": "1950000",
+    "nativeOutstandingUnits": "1950000",
+    "originEscrowUnits": "1950000",
+    "originUserUnits": "50000",
+    "reserveNativeUnits": "52000000",
+    "protectedFloorNativeUnits": "2000000",
+    "bootstrapRecordSHA256": "cba73a439ce5cbfaa48ce7317ed7b1465b83022993afbf27a0ea9b3e06054327"
+  },
+  "completedAt": "2026-10-14T19:10:29.806Z",
+  "processes": {
+    "scope": "New private copies for pinned-journal round trip",
+    "state": "passed",
+    "starts": [
+      {
+        "side": 0,
+        "genesisMatches": true,
+        "originalLedgerPathsOpened": false,
+        "retainedMinimumFinalizedSlot": 960,
+        "finalizedSlotAtReadiness": 964
+      },
+      {
+        "side": 1,
+        "genesisMatches": true,
+        "originalLedgerPathsOpened": false,
+        "retainedMinimumFinalizedSlot": 772,
+        "finalizedSlotAtReadiness": 773
+      }
+    ],
+    "stops": [
+      {
+        "side": 0,
+        "signal": "SIGINT",
+        "returnCode": -2,
+        "applicationGracefulFlushVerified": false
+      },
+      {
+        "side": 1,
+        "signal": "SIGINT",
+        "returnCode": -2,
+        "applicationGracefulFlushVerified": false
+      }
+    ],
+    "canonicalNetworkChanged": false,
+    "productionReady": false,
+    "originalColdInventory": [
+      {
+        "sha256": "f12227059352b49203c51d16733985173997c3db837c72262cfab44ba265da3e",
+        "entries": 100,
+        "links": 2
+      },
+      {
+        "sha256": "50b97592108f440ab00c9a56b10284b4ced565ff43763684ae5256e3e305d54c",
+        "entries": 103,
+        "links": 2
+      }
+    ],
+    "originalFixtureSHA256": "5f27a9d2ec9781b2e6825e666bdf86d3896e2bbe6cba55b7cbc1a59aabd97a67",
+    "originalJournalSHA256": "166cc2b415f605071cd5a0f64a2871a64e23f8cb51742ab12032d1220ad0dccc",
+    "allStopped": true
+  },
+  "sourceBinarySHA256": "3d3140bf93c9bc967220ffd8989d8b0267b723915d32203132ecc36d2c63a49a",
+  "uploadedSourceHashes": {
+    "pinned-journal.mjs": "c833c3ddcd1099a2f7a7f9e0a0a5cb32d80684f2d0f9bb5977f08e24f50cc225",
+    "pinned_journal.py": "caceab4b63a36c95e592fa34cd11e139bfa7a20a777ff65d86e76f58ba4ef3eb",
+    "program-pins.mjs": "1f72a2007be0d4ebd6b1a3080dc2ad93224177e49ae32e0513beb2e163256d42",
+    "claim-pin-policy.mjs": "9ee31bcd58218860fcb5660624531e22c7038d29b34f8bd22590d72c70bb8893",
+    "pending-claim.mjs": "5a7ffcc1d0ce86ca7eddce9e0227f632e07f42f0f0d4a3d65b27cfc186ed4b26",
+    "lossless-native-rpc.mjs": "5ebed7db063afd9178925eab883a4955dd15ad878bbdad19878ab75225f3398b",
+    "sdk.mjs": "e603242692bedc2457ec9dd3cb144122ca1adb7341506d244ec864943bd8c988",
+    "bootstrap_driver.py": "200a81128b1dc697b32365ac939d7eef27c6e8b4cf3d48aa51faed4a65164a5c",
+    "cold_copy.py": "42bef261f9f273a1f525b515eabfcda61b8d6a1cbb62fd637ebbdd0f23a95b6d",
+    "reviewed-pins-public.json": "508b789e263f67ef371cdc138a927b1dcf36e410e4d6dfb55d40f34e2e509086"
+  },
+  "originalLedgersUnchanged": true,
+  "originalFixtureUnchanged": true,
+  "originalJournalUnchanged": true,
+  "originalJournalSHA256": "166cc2b415f605071cd5a0f64a2871a64e23f8cb51742ab12032d1220ad0dccc",
+  "originalColdInventory": [
+    {
+      "sha256": "f12227059352b49203c51d16733985173997c3db837c72262cfab44ba265da3e",
+      "entries": 100,
+      "links": 2
+    },
+    {
+      "sha256": "50b97592108f440ab00c9a56b10284b4ced565ff43763684ae5256e3e305d54c",
+      "entries": 103,
+      "links": 2
+    }
+  ],
+  "processOpenPathCheckScope": "Readiness fd/maps samples; not continuous host auditing",
+  "localChecks": {
+    "pinnedJournalAndRelatedRegressions": 82,
+    "workerGuards": 3,
+    "copyGuards": 6,
+    "passed": true
+  },
+  "coreFreeze": {
+    "files": 41,
+    "allMatch": true
+  },
+  "bridgeSBF_SHA256": "556adf3132c6d102458c0c3b13e22457401bd748b6c3a37a422fb7a339a68e53",
+  "realLedgerPinnedJournalIntegration": true,
+  "previousFailedAttempt": "evidence/bridge-pinned-journal-first-attempt.json",
+  "coverageLimits": [
+    "Functional known-finalized pinned-journal integration only; no new crash, competing fork, real programme upgrade or physical power-loss test",
+    "Six wrong expected pin handoffs rejected against real accounts; actual code/authority/policy did not change",
+    "Three disposable co-signing keys on one worker; no independent operator, verifier or production custody acceptance",
+    "Pins cannot prove historical execution or stop authorized upgrade after observation; journal digest is not authenticated storage",
+    "Complete genesis backing remains hypothetical/unfunded; actual mint/backing, production upgrades, signing custody and external review remain gates",
+    "All raw keys/signed journals/private ledger data and logs stay remote; earlier attempts and expired nonce6 remain preserved"
+  ]
+}
