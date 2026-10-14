@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-14T13:28:56.683142+00:00",
+  "scope": "Anonymous main-site roadmap verification after actual V2 native pending-claim pre-finality crash; no canonical service/mainnet deployment",
+  "passed": true,
+  "sourceCommit": "166f918",
+  "deploymentId": "dpl_C6e9b9Ra535eG36mc6GMrFskYs4i",
+  "publicURL": "https://solanaclassic.net/roadmap",
+  "checkpointSHA256": "f3e110b7f6483be96b1dcb81df7aab40be08e635d14ae9c99860d8e31b5f50c7",
+  "publicMilestone": {
+    "title": "V2 native-claim crash before observed finality",
+    "state": "rehearsal-passed",
+    "detail": "7 actual checks +9 copy/kill guards. One claim broadcast, confirmed slot690 vs finalized659 before SIGKILL(-9); same original signature finalizes after restart with exact10million-native-unit payout and unchanged bootstrap floor/record. No retry; all copies stopped, originals unchanged. Native direction only; no fork/physical power-loss or funded-mainnet acceptance."
+  },
+  "observedAt": "2026-10-14T13:28:56.531Z",
+  "network": {
+    "state": "online",
+    "genesisMatches": true,
+    "slot": 276510,
+    "finalizedSlot": 276436,
+    "identityMatches": true,
+    "monitorState": "online",
+    "monitorAt": "2026-10-14T13:28:38.991Z",
+    "lastProgressAt": "2026-10-14T13:28:38.695Z"
+  },
+  "soak": {
+    "state": "running",
+    "runnerState": "starting",
+    "freezeMatches": true,
+    "progressFreezeMatches": true,
+    "startedAt": "2026-10-13T16:48:22.762Z",
+    "endsAt": "2026-10-14T16:48:22.762Z",
+    "reportAt": "2026-10-14T13:28:50.298Z",
+    "progressStale": false,
+    "completedJourneys": 249,
+    "totalJourneys": 288,
+    "observations": 2480,
+    "accepted": false,
+    "activationAt": "2026-10-13T16:47:36.929Z",
+    "issues": [],
+    "elapsedMs": 74433769
+  },
+  "releaseAccepted": false,
+  "canonicalNetworkChanged": false
+}
