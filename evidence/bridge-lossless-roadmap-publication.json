@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-14T12:39:58.820752+00:00",
+  "scope": "Anonymous main-site roadmap verification after local exact-metadata client publication; no canonical service/mainnet deployment or new claim",
+  "passed": true,
+  "sourceCommit": "9708f2a",
+  "deploymentId": "dpl_6v4egRHM8fmYsirTjc5X5WS3u1PU",
+  "publicURL": "https://solanaclassic.net/roadmap",
+  "checkpointSHA256": "4cde5a80709953f25dd8dd0686ad512cbb20a48b4bb4ee374285452b958d4d36",
+  "publicMilestones": [
+    {
+      "title": "V2 bridge SIGKILL process and RPC recovery",
+      "state": "rehearsal-passed",
+      "detail": "10 actual checks + 10 copy/crash guards. Two verified private SIGKILL exits(-9), same-genesis restart, exact20-account state and rejected replays; zero broadcasts and originals unchanged. Known-finalized operations only; no pending landing, fork or physical power-loss proof."
+    },
+    {
+      "title": "Exact large-native balance metadata and journal reconciliation",
+      "state": "local-passed",
+      "detail": "33 checks:5 parser+5 large-value journal(including real loopback HTTP with synthetic replies)+23 both-direction regressions. Raw u64 digits, exact one-unit delta rejection and signed account-count checks. No new real-ledger settlement or production custody proof."
+    }
+  ],
+  "observedAt": "2026-10-14T12:39:58.704Z",
+  "network": {
+    "state": "online",
+    "genesisMatches": true,
+    "slot": 269413,
+    "finalizedSlot": 269331,
+    "identityMatches": true,
+    "monitorState": "online",
+    "monitorAt": "2026-10-14T12:39:37.459Z",
+    "lastProgressAt": "2026-10-14T12:39:37.375Z"
+  },
+  "soak": {
+    "state": "running",
+    "runnerState": "starting",
+    "freezeMatches": true,
+    "progressFreezeMatches": true,
+    "startedAt": "2026-10-13T16:48:22.762Z",
+    "endsAt": "2026-10-14T16:48:22.762Z",
+    "reportAt": "2026-10-14T12:38:50.230Z",
+    "progressStale": false,
+    "completedJourneys": 239,
+    "totalJourneys": 288,
+    "observations": 2380,
+    "accepted": false,
+    "activationAt": "2026-10-13T16:47:36.929Z",
+    "issues": [],
+    "elapsedMs": 71495942
+  },
+  "releaseAccepted": false,
+  "canonicalNetworkChanged": false
+}
