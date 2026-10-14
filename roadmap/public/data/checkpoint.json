@@ -168,7 +168,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-14T11:02:49.493608+00:00",
+    "reviewedAt": "2026-10-14T11:30:05.448629+00:00",
     "scope": "Development checkpoint only; separate from the live testnet release",
     "projects": [
       {
@@ -209,7 +209,7 @@
         "title": "SOC redemption bridge",
         "state": "building",
         "description": "Original SOC escrow and a native Classic reserve, targeting exact 1:1 display-unit redemption in both directions.",
-        "currentScope": "New V2 bootstrap compiles and passes 10 Rust units, 9 local SBF scenarios and 5 unsigned-client checks: initial counter, one-time backing receipt and protected reserve floor. No native release during bootstrap. Synthetic in-process scope; prior two-ledger recovery proofs/artifacts preserved (23 journal tests; 6 native + 6 origin recovery checks). Funded bootstrap, fresh Agave V2 integration, unknown landing/fork/cold restore, custody and independent review remain.",
+        "currentScope": "V2 bridge now passes 14 actual checks on two fresh private Agave3.0.14 ledgers: bytecode/authority pins, source lock, bootstrap without native payout, consumed receipts, reserve floor and return/redemption. Both processes stopped; counters/escrow1950000 origin units, reserve52000000 native units, protected floor2000000. Budget is an explicitly hypothetical projection, not complete test-validator/mainnet backing. Actual inventory/custody, unknown landing/fork/cold restore and independent review remain. Historical V1 recovery proofs are preserved.",
         "source": "https://github.com/solana-classic/solana-classic/tree/main/bridge",
         "milestones": [
           {
@@ -246,6 +246,11 @@
             "title": "One-time native bootstrap and protected reserve floor",
             "state": "local-passed",
             "detail": "10 Rust units, 9 compiled-SBF VM scenarios and 5 unsigned-client checks. No duplicate backing release; protects rent/extra backing; rejects old vault ABI. Synthetic budget, not funded genesis or new Agave integration."
+          },
+          {
+            "title": "V2 bootstrap and protected reserve on fresh Agave ledgers",
+            "state": "rehearsal-passed",
+            "detail": "14 actual private-ledger checks + 3 worker guards; exact deployed bytes/authority, finalized bootstrap and roundtrip, replay/quorum/bad-budget/floor rejection. Hypothetical attested budget; full genesis/backing gate remains open."
           },
           {
             "title": "Bootstrap reconciliation, custody and recovery",

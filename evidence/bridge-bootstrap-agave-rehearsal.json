@@ -1,0 +1,191 @@
+{
+  "schemaVersion": 1,
+  "scope": "Two fresh private source-built Agave 3.0.14 test-validator ledgers; V2 bootstrap wire/state execution using a synthetic committee-attested budget, not complete ledger/genesis backing",
+  "startedAt": "2026-10-14T11:24:29.029Z",
+  "state": "passed",
+  "productionReady": false,
+  "canonicalNetworkChanged": false,
+  "genesi": [
+    "J8LsGtrVHe95w5Yxv3wR2Ux9uNWyDG3svK8LonczuuNh",
+    "EWjA6VWd5uw1XP9fZXBnxAd2doRFf6KQke2RUwj14QE2"
+  ],
+  "signatures": [
+    {
+      "side": 0,
+      "signature": "4DvBSMPso6frwj9hw9Qr2xvcyyqi5Eg8sgH9a3vhdJmx6oC4BnqmCXhvzSXhaSkPn25PE2gamfVdWGm4kbDd2qiV",
+      "state": "finalized"
+    },
+    {
+      "side": 1,
+      "signature": "42k6ypSSGop53G8X8JBxNB5pek9fdnQWjWCaVmhfqtBnHYYLRPCD867eYjho2WK8epmn2uihuCtCxdNBEptnBSmB",
+      "state": "finalized"
+    },
+    {
+      "side": 0,
+      "signature": "35K56k5yAfwRwr2oR9eXRceXLWhTfB33NZEVcSK8BqfwVLYoRpKNnH35VJgkCz535Bhtc3drZvfWPeZSs2HPKUDT",
+      "state": "finalized"
+    },
+    {
+      "side": 1,
+      "signature": "5ZJ2bCcLFboyXE8uuFLnC7181Uejd2rSQWcGs742Z7iUiJiXzv696URioCg73ZSfbhh4MkbkBX4GwANUWVzj1QA3",
+      "state": "finalized"
+    },
+    {
+      "side": 1,
+      "signature": "3BQMR5ySg1UFppeYhMnxgkmuARwNL763ntLzueyJbcG6tyuyw5HP8Foe2iGNecJzipqPrSG3gm6MpbrXm2RiBBdU",
+      "state": "finalized"
+    },
+    {
+      "side": 0,
+      "signature": "3Mh5mQrjZfF14ZdvqnJ7XCaYERjNbwsX1hwBhs59dViWRCUyt9k9MhgvTRXewaQK5UvqNm5kuxVi2xumvEZRg7bc",
+      "state": "finalized"
+    },
+    {
+      "side": 0,
+      "signature": "2u4gexgU94ynR78QLsVLj1Q8id4UzkRpt6QpjJytEBnDgMuM1rcnEKoGR4a5XCs6qkEKj4Ri69HzKzFTZopZJ5z9",
+      "state": "finalized"
+    },
+    {
+      "side": 1,
+      "signature": "4ZS9VUrWoEJw3BN4RR6YPL5VAVoeQTFwKmQ8RRARsXgPt7Yox3NjY9rybBqnRwq4uAVf7reyLGAi5nbdwgKxs2oy",
+      "state": "finalized"
+    },
+    {
+      "side": 1,
+      "signature": "4yvxcZ5pGPNA6NL2nMtwmLtfuGNwVRGNBBLRKYSErY2TgJLtJQv1p9AWJPdFdJy1JEvcSHMEKiKJMm4qqVapCow9",
+      "state": "finalized"
+    },
+    {
+      "side": 0,
+      "signature": "53NK4aNpP5gThn5MokEJ1qNGdSH7v7YmKjeBBUYQsGrWPSmJ1unky88gjtkK4v7aAMHQAroPXjFarJpfYZadSHa8",
+      "state": "finalized"
+    },
+    {
+      "side": 1,
+      "signature": "5LrwZwHxNnG75Zwt3PnxyWW89kLEF9jqButZchWEg94MTxGzcw4NsSV5HyAXsSjwotKiWhf5NcXERyN9Gt1iLofo",
+      "state": "finalized"
+    },
+    {
+      "side": 1,
+      "signature": "5vpHLx1qWGVfX8ihUX9AZyvbCw8jgnF9NJcn9jap1mMWV2zgF43rtTD8ybwPWEpjqD8DvsmaEFqYfo4pdPdnuiV4",
+      "state": "finalized"
+    },
+    {
+      "side": 0,
+      "signature": "3LC9RRyTVPprNeiUpSiPkj1advmjAbWwt2VYpp9GKBZhurCGPRj8FC3ZuSWEAoMmESaCeo4158X9CfVNVBs5rswb",
+      "state": "finalized"
+    }
+  ],
+  "checks": [
+    "two distinct fresh genesi; no public or soaking network",
+    "Both finalized upgradeable programs match exact V2 bytes and pinned local authority",
+    "immutable synthetic Token-2022 mint created on isolated origin",
+    "V2 native vault funded to exact bounded reserve through actual system transfer",
+    "Actual immutable source lock to native vault, finalized escrow and origin counter agree",
+    "Malformed total budget rejects without bootstrap record or native counter change",
+    "Two actual committee signatures cannot bootstrap",
+    "Finalized bootstrap sets matching initial counters and consumed receipt without native release",
+    "Second bootstrap transaction rejects",
+    "Bootstrap backing cannot be released again, including changed recipient",
+    "Release exceeding protected floor rejects atomically even when reserve remains above rent",
+    "Exact future source deposit releases only unprotected reserve capacity",
+    "Native return and original redemption reconcile both counters after bootstrap",
+    "Original redemption replay rejects on actual ledger"
+  ],
+  "programs": [
+    {
+      "program": "AkhzSc1JHmF8ELCZkoeCWtcUv51J18AvbBRQNjFWK2g2",
+      "programData": "7brJF5nGtuQWr7YqR21p4WvsfrFXpGSWGpLZPPGeL8kW",
+      "upgradeAuthority": "DkFYo99FDvGtbQ3MD7T8d5iLohtMWJmy57YeZHjxDRZr",
+      "sha256": "556adf3132c6d102458c0c3b13e22457401bd748b6c3a37a422fb7a339a68e53"
+    },
+    {
+      "program": "8uajXCr14fhbmCYW1EbLJtURtFBBrU4zXDgHu3gXBME2",
+      "programData": "8YGZRLiawozgj7WKgKeDfaWp1GSoxz6SA9ZqKheVu5LK",
+      "upgradeAuthority": "DkFYo99FDvGtbQ3MD7T8d5iLohtMWJmy57YeZHjxDRZr",
+      "sha256": "556adf3132c6d102458c0c3b13e22457401bd748b6c3a37a422fb7a339a68e53"
+    }
+  ],
+  "mint": "3gxnbecjqmYAytS2AjJTyLtPYNuz2H9GSc8Fs7m8NJBF",
+  "globalBacking": {
+    "completeInventoryVerified": false,
+    "actualGenesisBackingVerified": false,
+    "hypotheticalNativeBudgetUnits": "2000000000",
+    "observedNativeGlobalSupplyUnitsAtStart": "503000511071959133",
+    "budgetMatchesObservedGlobalSupply": false,
+    "note": "Synthetic 2-row accounting projection intentionally does not cover the complete test-validator supply. Cannot pass B3 or any monetary-release gate.",
+    "activationEnabled": false
+  },
+  "reconciliation": {
+    "originEscrowUnits": "1950000",
+    "originUserUnits": "50000",
+    "nativeOutstandingOriginUnits": "1950000",
+    "originOutstandingUnits": "1950000",
+    "originDecimals": 6,
+    "nativeDecimals": 9,
+    "initialPrelockOriginUnits": "102000",
+    "protectedFloorNativeUnits": "2000000",
+    "finalReserveNativeUnits": "52000000",
+    "bootstrapRecord": "By35fdy2d4Q152WbuUmpebGbpcBxFpAUXvNPwcPVQfK8",
+    "bootstrapReceipt": "DDYyrx7txL7sQ531KXywMT5ftvxjRUgN3V28g4zfPSq1",
+    "bootstrapInventorySHA256": "9a850d34a8540a5bf4c0e3642c2a6960952f37c87a99e0da0bb3a1446c4d4789"
+  },
+  "completedAt": "2026-10-14T11:28:09.038Z",
+  "sourceBinarySHA256": "3d3140bf93c9bc967220ffd8989d8b0267b723915d32203132ecc36d2c63a49a",
+  "bridgeSBF_SHA256": "556adf3132c6d102458c0c3b13e22457401bd748b6c3a37a422fb7a339a68e53",
+  "uploadedSourceHashes": {
+    "bootstrap.py": "200a81128b1dc697b32365ac939d7eef27c6e8b4cf3d48aa51faed4a65164a5c",
+    "bridge/rehearsal/bootstrap.mjs": "e79a2126219a57c5ffad0005cfb93591f239b7f45433845a869e672f12a13f9c",
+    "bridge/sdk.mjs": "e603242692bedc2457ec9dd3cb144122ca1adb7341506d244ec864943bd8c988",
+    "bridge/bootstrap.mjs": "76303de82557f8ba2a88773ef55bbc5234a88164673f0afe2458f21e46c1d04e",
+    "mainnet/bootstrap.mjs": "83eb564446ad5be431f66d931fa61ca9e3d8fd15a5b7420ec87182011cce1beb",
+    "bridge.so": "556adf3132c6d102458c0c3b13e22457401bd748b6c3a37a422fb7a339a68e53",
+    "token2022.so": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68"
+  },
+  "processes": {
+    "starts": [
+      {
+        "side": 0,
+        "genesis": "J8LsGtrVHe95w5Yxv3wR2Ux9uNWyDG3svK8LonczuuNh"
+      },
+      {
+        "side": 1,
+        "genesis": "EWjA6VWd5uw1XP9fZXBnxAd2doRFf6KQke2RUwj14QE2"
+      }
+    ],
+    "stops": [
+      {
+        "side": 0,
+        "signal": "SIGINT",
+        "returnCode": -2,
+        "applicationGracefulFlushVerified": false
+      },
+      {
+        "side": 1,
+        "signal": "SIGINT",
+        "returnCode": -2,
+        "applicationGracefulFlushVerified": false
+      }
+    ],
+    "allStopped": true
+  },
+  "remainingWork": [
+    "Actual complete activation inventory and finalized backing/custody",
+    "Full Agave validators/consensus and independent operators",
+    "Unknown landing, fork/reorg, crash/cold-restore and security review"
+  ],
+  "sourceHashes": {
+    "engine/rehearsal/bootstrap.py": "200a81128b1dc697b32365ac939d7eef27c6e8b4cf3d48aa51faed4a65164a5c",
+    "bridge/rehearsal/bootstrap.mjs": "e79a2126219a57c5ffad0005cfb93591f239b7f45433845a869e672f12a13f9c",
+    "bridge/sdk.mjs": "e603242692bedc2457ec9dd3cb144122ca1adb7341506d244ec864943bd8c988",
+    "bridge/bootstrap.mjs": "76303de82557f8ba2a88773ef55bbc5234a88164673f0afe2458f21e46c1d04e",
+    "mainnet/bootstrap.mjs": "83eb564446ad5be431f66d931fa61ca9e3d8fd15a5b7420ec87182011cce1beb",
+    ".tools/bridge-bootstrap-artifacts/classic_bridge_program.so": "556adf3132c6d102458c0c3b13e22457401bd748b6c3a37a422fb7a339a68e53",
+    ".tools/programs/spl_token_2022-v10.0.0.so": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68"
+  },
+  "localBoundaryTests": {
+    "passed": true,
+    "tests": 3,
+    "sourceSHA256": "7e4e4167fe48416708cf6a43c4db430f694d4cfa32981cd19fe9f03dd52ec916"
+  }
+}

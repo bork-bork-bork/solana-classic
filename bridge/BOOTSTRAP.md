@@ -98,3 +98,19 @@ tests still exist, so a production release must explicitly require the verified
 bootstrap record. Full-validator consensus, actual funded escrow, custody,
 independent verifiers, code/upgrade controls and external security review remain
 open. See [sanitized local evidence](../evidence/bridge-bootstrap-local.json).
+
+## Fresh Agave execution evidence
+
+Fourteen checks now pass on two new private source-built Agave3.0.14 ledgers.
+Deployed V2 bytes/authority, immutable source lock, bootstrap without payout,
+receipt/counter initialization, replay/quorum/bad-budget/floor rejection and
+subsequent return/redemption are verified. Both processes stopped. Three
+worker boundary checks pass. See
+`evidence/bridge-bootstrap-agave-rehearsal.json`.
+
+The native attested budget is a hypothetical projection, not a complete
+test-validator inventory: exact observed global supply exceeds that budget.
+This is deliberate isolated program testing and demonstrates why a committee
+attestation alone cannot establish genesis backing. Actual inventory, funded
+escrow, custody, full-validator consensus and independent review remain gates.
+No previous private fixture was upgraded; no canonical network changed.

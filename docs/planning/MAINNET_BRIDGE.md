@@ -219,3 +219,19 @@ private ledgers and historical evidence remain preserved. Actual custody
 transition, funded finalized backing, independent source verification,
 full-validator consensus and security review still block B3/R1/R2. See
 `bridge/BOOTSTRAP.md` and `evidence/bridge-bootstrap-local.json`.
+
+## Fresh Agave execution evidence
+
+Fourteen checks now pass on two new private source-built Agave3.0.14 ledgers.
+Deployed V2 bytes/authority, immutable source lock, bootstrap without payout,
+receipt/counter initialization, replay/quorum/bad-budget/floor rejection and
+subsequent return/redemption are verified. Both processes stopped. Three
+worker boundary checks pass. See
+`evidence/bridge-bootstrap-agave-rehearsal.json`.
+
+The native attested budget is a hypothetical projection, not a complete
+test-validator inventory: exact observed global supply exceeds that budget.
+This is deliberate isolated program testing and demonstrates why a committee
+attestation alone cannot establish genesis backing. Actual inventory, funded
+escrow, custody, full-validator consensus and independent review remain gates.
+No previous private fixture was upgraded; no canonical network changed.
