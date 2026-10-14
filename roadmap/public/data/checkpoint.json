@@ -168,7 +168,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-14T10:30:15.666883+00:00",
+    "reviewedAt": "2026-10-14T11:02:49.493608+00:00",
     "scope": "Development checkpoint only; separate from the live testnet release",
     "projects": [
       {
@@ -176,7 +176,7 @@
         "title": "Native SOC mainnet",
         "state": "blocked",
         "description": "A separate production-network implementation, beginning with exact genesis supply and backed validator bootstrap.",
-        "currentScope": "Pinned genesis/account audit pass; new offline bootstrap auditor reconciles all 249 accounts, protected vault rent, precision slack and declared bridge counters (13 auditor + 7 planner checks). Original backing is hypothetical/unfunded; zero initial counters flagged. On-chain bootstrap/custody remain open. Full-validator startup still blocked by host file ceiling 524288 vs required 1000000; no consensus/mainnet acceptance.",
+        "currentScope": "Pinned genesis/account audit pass; offline auditor now covers V2 16-byte vault rent (14 auditor + 7 planner checks). New one-time bridge bootstrap passes 10 Rust units, 9 compiled-SBF scenarios and 5 unsigned-client checks. Backing/inventory are synthetic; actual funded genesis-to-vault custody and Agave integration remain open. Full-validator startup blocked by host file ceiling 524288 vs required 1000000; no consensus/mainnet acceptance.",
         "source": "https://github.com/solana-classic/solana-classic/tree/main/mainnet",
         "milestones": [
           {
@@ -192,7 +192,7 @@
           {
             "title": "Exact genesis backing, protected rent and precision audit",
             "state": "local-passed",
-            "detail": "13 auditor + 7 planner checks; replayed retained 249-account inventory. Separates backed reserve from new-deposit capacity and flags zero counter mismatch. Hypothetical backing; no monetary or on-chain bootstrap acceptance."
+            "detail": "14 auditor + 7 planner checks; retained 249-account inventory and V2 rent regression. Historical eight-byte evidence preserved. Declared synthetic backing does not prove escrow or actual counter initialization."
           },
           {
             "title": "Backed bootstrap and full supply reconciliation",
@@ -209,7 +209,7 @@
         "title": "SOC redemption bridge",
         "state": "building",
         "description": "Original SOC escrow and a native Classic reserve, targeting exact 1:1 display-unit redemption in both directions.",
-        "currentScope": "Private bridge journals now cover both directions: 23 journal tests pass, plus separate 6-check native and 6-check original-token pending recovery drills. Each used one settlement broadcast, withheld client confirmation, actual destination RPC outage/restart and original-signature economic reconciliation. Current escrow/outstanding counters reconcile at 600000 origin units. Unknown landing/fork/cold restore, backed bootstrap, production custody and independent review remain.",
+        "currentScope": "New V2 bootstrap compiles and passes 10 Rust units, 9 local SBF scenarios and 5 unsigned-client checks: initial counter, one-time backing receipt and protected reserve floor. No native release during bootstrap. Synthetic in-process scope; prior two-ledger recovery proofs/artifacts preserved (23 journal tests; 6 native + 6 origin recovery checks). Funded bootstrap, fresh Agave V2 integration, unknown landing/fork/cold restore, custody and independent review remain.",
         "source": "https://github.com/solana-classic/solana-classic/tree/main/bridge",
         "milestones": [
           {
@@ -241,6 +241,11 @@
             "title": "Original-token redemption journal and pending recovery",
             "state": "rehearsal-passed",
             "detail": "Shared 23 journal checks; 6 actual private-ledger checks. Immutable mint/recipient authority validation and exact token debits/credits after RPC restart. Plain Token-2022 mint/ATA prototype; no production custody."
+          },
+          {
+            "title": "One-time native bootstrap and protected reserve floor",
+            "state": "local-passed",
+            "detail": "10 Rust units, 9 compiled-SBF VM scenarios and 5 unsigned-client checks. No duplicate backing release; protects rent/extra backing; rejects old vault ABI. Synthetic budget, not funded genesis or new Agave integration."
           },
           {
             "title": "Bootstrap reconciliation, custody and recovery",

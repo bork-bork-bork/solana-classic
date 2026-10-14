@@ -4,6 +4,8 @@ use solana_program::pubkey::Pubkey;
 
 pub const CONFIG_MAGIC: [u8; 8] = *b"SCCFG001";
 pub const EVENT_MAGIC: [u8; 8] = *b"SCEVT001";
+pub const VAULT_MAGIC: [u8; 8] = *b"SCVLT002";
+pub const BOOTSTRAP_MAGIC: [u8; 8] = *b"SCBST001";
 pub const ESCROW: u8 = 0;
 pub const NATIVE: u8 = 1;
 pub const LOCK: u8 = 0;
@@ -106,6 +108,40 @@ pub enum BridgeInstruction {
     Deposit { origin_amount: u64, nonce: u64, recipient: [u8; 32] },
     Claim(Event),
     SetPause { new_locks: bool, settlement: bool },
+    Bootstrap { event: Event, witness: BootstrapWitness },
+}
+
+// Committee-attested inventory, not an on-chain proof of genesis or remote
+// escrow. The audit digest binds the complete separately reviewed inventory.
+#[derive(BorshSerialize, BorshDeserialize, Clone, Debug, PartialEq, Eq)]
+pub struct BootstrapWitness {
+    pub audit_digest: [u8; 32],
+    pub origin_supply: u64,
+    pub total_native: u64,
+    pub outside_native: u64,
+    pub reserve_native: u64,
+}
+impl BootstrapWitness {
+    pub fn protected_floor(&self, c: &Config, locked: u64, minimum_rent: u64) -> Result<u64, ProgramError> {
+        c.validate()?;
+        if c.side != NATIVE || self.audit_digest == [0;32] || self.origin_supply == 0
+            || locked > self.origin_supply || self.outside_native == 0 { return Err(BAD); }
+        let factor = 10u64.pow((c.native_decimals - c.origin_decimals) as u32);
+        let total = self.origin_supply.checked_mul(factor).ok_or(ProgramError::ArithmeticOverflow)?;
+        if total != self.total_native || self.outside_native.checked_add(self.reserve_native) != Some(total) { return Err(BAD); }
+        let floor = c.native_amount(locked)?.checked_sub(self.outside_native).ok_or(BAD)?;
+        if floor < minimum_rent || floor > self.reserve_native { return Err(BAD); }
+        Ok(floor)
+    }
+}
+
+#[derive(BorshSerialize, BorshDeserialize, Clone, Debug, PartialEq, Eq)]
+pub struct BootstrapRecord {
+    pub magic: [u8;8],
+    pub witness: BootstrapWitness,
+    pub source_event: [u8;32],
+    pub origin_amount: u64,
+    pub protected_native: u64,
 }
 
 #[cfg(test)]
@@ -155,5 +191,33 @@ pub mod tests {
     #[test] fn codec_roundtrip_rejects_trailing_bytes() {
         let c=config(NATIVE);let mut data=borsh::to_vec(&c).unwrap();assert_eq!(Config::try_from_slice(&data).unwrap(),c);
         data.push(0);assert!(Config::try_from_slice(&data).is_err());
+    }
+    #[test] fn bootstrap_floor_accounts_for_all_allocations_and_extra_backing() {
+        let c=config(NATIVE);
+        let w=BootstrapWitness{audit_digest:[42;32],origin_supply:1_000_000,total_native:1_000_000_000,outside_native:100_000_000,reserve_native:900_000_000};
+        assert_eq!(w.protected_floor(&c,102_000,1_002_240).unwrap(),2_000_000);
+        assert!(w.protected_floor(&c,101_002,1_002_240).is_err());
+        assert_eq!(w.protected_floor(&c,101_003,1_002_240).unwrap(),1_003_000);
+        assert!(w.protected_floor(&config(ESCROW),102_000,1_002_240).is_err());
+    }
+    #[test] fn bootstrap_witness_rejects_overflow_supply_and_unbound_audit() {
+        let c=config(NATIVE);
+        let w=BootstrapWitness{audit_digest:[42;32],origin_supply:1_000_000,total_native:1_000_000_000,outside_native:100_000_000,reserve_native:900_000_000};
+        for i in 0..7 {let mut bad=w.clone();match i {
+            0=>bad.audit_digest=[0;32],1=>bad.origin_supply=u64::MAX,2=>bad.total_native+=1,
+            3=>bad.outside_native=u64::MAX,4=>bad.reserve_native+=1,5=>bad.outside_native=0,_=>bad.origin_supply=0,
+        };assert!(bad.protected_floor(&c,102_000,1_002_240).is_err());}
+        assert!(w.protected_floor(&c,1_000_001,1_002_240).is_err());
+        let mut invalid=c.clone();invalid.origin_decimals=10;assert!(w.protected_floor(&invalid,102_000,1_002_240).is_err());
+    }
+    #[test] fn bootstrap_wire_layout_preserves_previous_opcodes_and_exact_client_offsets() {
+        let c=config(NATIVE);let e=event(&c);
+        let w=BootstrapWitness{audit_digest:[42;32],origin_supply:1_000_000,total_native:1_000_000_000,outside_native:100_000_000,reserve_native:900_000_000};
+        let bytes=borsh::to_vec(&BridgeInstruction::Bootstrap{event:e.clone(),witness:w.clone()}).unwrap();
+        assert_eq!(bytes.len(),362);assert_eq!(bytes[0],4);assert_eq!(&bytes[1..298],borsh::to_vec(&e).unwrap());
+        assert_eq!(bytes[298..330],[42;32]);assert_eq!(&bytes[330..338],&w.origin_supply.to_le_bytes());
+        assert_eq!(borsh::to_vec(&BridgeInstruction::Claim(e.clone())).unwrap()[0],2);
+        let record=BootstrapRecord{magic:BOOTSTRAP_MAGIC,witness:w,source_event:e.source_event,origin_amount:e.origin_amount,protected_native:2_000_000};
+        let encoded=borsh::to_vec(&record).unwrap();assert_eq!(encoded.len(),120);assert_eq!(&encoded[72..104],&e.source_event);assert_eq!(&encoded[112..120],&2_000_000u64.to_le_bytes());
     }
 }

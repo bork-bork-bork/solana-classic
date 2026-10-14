@@ -42,7 +42,7 @@ rehearsal auditor accepts zero inflation and zero burn only.
 The pinned `solana-genesis` inventory contains 249 accounts and totals
 1,000,000,000,000 native base units. All other accounts total 330,309,622,560;
 the reserve is 669,690,377,440. For the **hypothetical** six-decimal origin budget
-and eight-byte vault, minimum rent is 946,560 native base units. Minimum
+and historical eight-byte V1 vault, minimum rent is 946,560 native base units. Minimum
 prelocked backing is 330,310,570 original base units, leaving 880 native units of
 precision slack. Backed units inside the reserve are 947,440; new-deposit
 capacity is 669,689,430,000. These are synthetic rehearsal parameters, not real
@@ -54,7 +54,7 @@ node mainnet/bootstrap-fixture.mjs
 node mainnet/bootstrap.mjs <public-rehearsal-accounting-input.json>
 ```
 
-Thirteen bootstrap and seven planner checks pass. The fixture tool uses the
+Fourteen bootstrap and seven planner checks pass. The fixture tool uses the
 retained source-build inventory; it does not rerun genesis compilation or
 consensus. See `evidence/mainnet-bootstrap-accounting.json` for source hashes
 and both counter projections. Large unit totals remain exact integer strings.
@@ -68,11 +68,19 @@ source events, original/native identities, mint, decimals, genesis inventory,
 allocations, protected reserve tranches, epoch and custody/quorum policy. It
 must reject a second bootstrap or ordinary release of the same backing events.
 
-The existing SVM programme deliberately initializes outstanding at zero. This
-auditor exposes that mismatch; it does not implement or bypass it. Supplying
-matching numbers in an input only passes a **declared counter** comparison.
-On-chain counter application, finalized backing, reserve custody, event
-consumption and security review remain false release gates.
+The SVM programme initializes outstanding at zero. The new separate V2 build
+adds a guarded one-time bootstrap that sets native outstanding and consumes a
+source lock without another release. Local compiled-SBF tests pass; this
+auditor itself remains offline. Supplying matching numbers here only passes a
+**declared counter** comparison. Actual backed-genesis integration, finalized
+backing, reserve custody and security review remain false release gates.
+
+The auditor now defaults to the V2 vault's **16 bytes**. Its default rent is
+1,002,240 native units. Applied as a hypothetical projection to the retained
+inventory, that requires 330,310,625 original base units, leaving 200 native
+units of slack. The historical eight-byte fixture/evidence remains explicit
+and unchanged; it is not a V2 backing budget. See [the program path and trust
+boundaries](../bridge/BOOTSTRAP.md). Never reuse a V1 budget for the V2 vault.
 
 Reserve custody is also unresolved: the retained rehearsal reserve is a plain
 system account controlled by a temporary fixture key, not an audited production

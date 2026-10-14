@@ -21,7 +21,7 @@ fn account(svm:&mut LiteSVM,key:Pubkey,owner:Pubkey,data:Vec<u8>,executable:bool
     svm.set_account(key,Account{lamports:svm.minimum_balance_for_rent_exemption(data.len()),owner,data,executable,..Account::default()}).unwrap();
 }
 fn install(svm:&mut LiteSVM,program:Pubkey,authority:Pubkey)->Pubkey{
-    let elf=std::fs::read(Path::new(env!("CARGO_MANIFEST_DIR")).join("../../.tools/bridge-artifacts/classic_bridge_program.so")).expect("Build the SBF artifact before runtime tests");
+    let elf=std::fs::read(Path::new(env!("CARGO_MANIFEST_DIR")).join("../../.tools/bridge-bootstrap-artifacts/classic_bridge_program.so")).expect("Build the separate bootstrap SBF artifact before runtime tests");
     let program_data=Pubkey::find_program_address(&[program.as_ref()],&bpf_loader_upgradeable::ID).0;
     let mut bytes=bincode::serialize(&UpgradeableLoaderState::ProgramData{slot:0,upgrade_authority_address:Some(authority)}).unwrap();
     bytes.resize(UpgradeableLoaderState::size_of_programdata_metadata(),0);bytes.extend_from_slice(&elf);
@@ -77,6 +77,129 @@ fn claim(s:&mut Side,payer:&Keypair,event:Event,members:&[&Keypair],destination:
     if let Some(token)=destination{accounts.extend([AccountMeta::new(s.escrow,false),AccountMeta::new(token,false),AccountMeta::new_readonly(Pubkey::new_from_array(s.config.origin_mint),false),AccountMeta::new_readonly(spl_token_2022::ID,false)]);}
     accounts.extend(members.iter().map(|k|AccountMeta::new_readonly(k.pubkey(),true)));
     call(&mut s.svm,payer,s.program,accounts,BridgeInstruction::Claim(event),members)
+}
+
+fn boot_accounts(s:&Side,payer:&Keypair,event:&Event,members:&[&Keypair])->Vec<AccountMeta>{
+    let receipt=Pubkey::find_program_address(&[b"claim",s.state.as_ref(),&event.source_event],&s.program).0;
+    let record=Pubkey::find_program_address(&[b"bootstrap",s.state.as_ref()],&s.program).0;
+    let mut accounts=vec![AccountMeta::new(payer.pubkey(),true),AccountMeta::new(s.state,false),
+        AccountMeta::new(s.vault,false),AccountMeta::new(receipt,false),AccountMeta::new(record,false),
+        AccountMeta::new_readonly(system_program::ID,false),AccountMeta::new_readonly(s.program,false),
+        AccountMeta::new_readonly(s.program_data,false)];
+    accounts.extend(members.iter().map(|k|AccountMeta::new_readonly(k.pubkey(),true)));accounts
+}
+fn bootstrap(s:&mut Side,payer:&Keypair,event:Event,witness:BootstrapWitness,members:&[&Keypair])->bool{
+    let accounts=boot_accounts(s,payer,&event,members);
+    call(&mut s.svm,payer,s.program,accounts,BridgeInstruction::Bootstrap{event,witness},members)
+}
+// The witness describes a synthetic budget; it is NOT a total inventory of
+// LiteSVM's injected balances/sysvars/fees. Test real Token-2022 source locking,
+// cross-VM attestation admission and native state transitions, not genesis.
+fn boot_fixture(payer:&Keypair,members:&[Keypair;5])->(Side,Side,Keypair,Pubkey,Keypair,Event,BootstrapWitness){
+    let op=Pubkey::new_unique();let np=Pubkey::new_unique();let mint=Pubkey::new_unique();
+    let mut origin=side(ESCROW,op,np,mint,payer,members);let mut native=side(NATIVE,np,op,mint,payer,members);
+    initialize(&mut origin,payer);initialize(&mut native,payer);
+    let source_user=Keypair::new();let recipient=Keypair::new();
+    origin.svm.airdrop(&source_user.pubkey(),1_000_000_000).unwrap();native.svm.airdrop(&recipient.pubkey(),100_000_000).unwrap();
+    let source=Pubkey::new_unique();set_token(&mut origin,source,source_user.pubkey(),2_000_000);
+    assert!(unpause(&mut origin,payer,&[&members[0],&members[1],&members[2]]));
+    let event=deposit(&mut origin,&source_user,native.vault,102_000,1,Some(source)).unwrap();
+    let mut vault=native.svm.get_account(&native.vault).unwrap();vault.lamports=1_900_000_000;native.svm.set_account(native.vault,vault).unwrap();
+    let witness=BootstrapWitness{audit_digest:[42;32],origin_supply:2_000_000,total_native:2_000_000_000,outside_native:100_000_000,reserve_native:1_900_000_000};
+    (origin,native,source_user,source,recipient,event,witness)
+}
+
+#[test] fn sbf_bootstrap_records_backing_without_release_and_preserves_floor(){
+    let payer=Keypair::new();let members=std::array::from_fn(|_|Keypair::new());let q=[&members[0],&members[1],&members[2]];
+    let (mut origin,mut native,user,source,recipient,event,witness)=boot_fixture(&payer,&members);
+    let before=native.svm.get_balance(&native.vault).unwrap();let recipient_before=native.svm.get_balance(&recipient.pubkey()).unwrap();
+    assert!(bootstrap(&mut native,&payer,event.clone(),witness.clone(),&q));
+    assert_eq!(native.svm.get_balance(&native.vault).unwrap(),before);
+    assert_eq!(native.svm.get_balance(&recipient.pubkey()).unwrap(),recipient_before);
+    let c=Config::try_from_slice(&native.svm.get_account(&native.state).unwrap().data).unwrap();assert_eq!(c.outstanding,102_000);assert!(c.settlement_paused);
+    assert_eq!(Config::try_from_slice(&origin.svm.get_account(&origin.state).unwrap().data).unwrap().outstanding,c.outstanding);
+    let record=Pubkey::find_program_address(&[b"bootstrap",native.state.as_ref()],&native.program).0;
+    let saved=BootstrapRecord::try_from_slice(&native.svm.get_account(&record).unwrap().data).unwrap();
+    assert_eq!(saved.witness,witness);assert_eq!(saved.source_event,event.source_event);assert_eq!(saved.protected_native,2_000_000);
+    let receipt=Pubkey::find_program_address(&[b"claim",native.state.as_ref(),&event.source_event],&native.program).0;
+    assert_eq!(native.svm.get_account(&receipt).unwrap().data,event.source_event);
+    assert!(!bootstrap(&mut native,&payer,event.clone(),witness,&q));
+    assert!(unpause(&mut native,&payer,&q));
+    assert!(!claim(&mut native,&payer,event.clone(),&q,None));
+    let mut altered=event.clone();altered.recipient=recipient.pubkey().to_bytes();assert!(!claim(&mut native,&payer,altered,&q,None),"same backing cannot authorize a second release even with a changed recipient");
+    let next=deposit(&mut origin,&user,recipient.pubkey(),1_898_000,2,Some(source)).unwrap();
+    let mut too_much=next.clone();too_much.origin_amount+=1;
+    assert!(!claim(&mut native,&payer,too_much,&q,None),"protected backing stays reserved even above the rent-only floor");
+    let next_receipt=Pubkey::find_program_address(&[b"claim",native.state.as_ref(),&next.source_event],&native.program).0;
+    assert!(native.svm.get_account(&next_receipt).is_none(),"failed settlement rolls back receipt and counter");
+    assert!(claim(&mut native,&payer,next,&q,None));assert_eq!(native.svm.get_balance(&native.vault).unwrap(),2_000_000);
+    let returned=deposit(&mut native,&recipient,user.pubkey(),50_000,3,None).unwrap();
+    assert!(claim(&mut origin,&payer,returned,&q,Some(source)));
+    assert_eq!(token_balance(&origin,source),50_000);assert_eq!(token_balance(&origin,origin.escrow),1_950_000);
+    assert_eq!(Config::try_from_slice(&native.svm.get_account(&native.state).unwrap().data).unwrap().outstanding,1_950_000);
+    assert_eq!(u64::from_le_bytes(native.svm.get_account(&native.vault).unwrap().data[8..].try_into().unwrap()),2_000_000);
+}
+
+#[test] fn sbf_bootstrap_rejects_bad_math_domains_and_insufficient_backing_atomically(){
+    let payer=Keypair::new();let members=std::array::from_fn(|_|Keypair::new());let q=[&members[0],&members[1],&members[2]];
+    let (_,mut native,_,_,_,event,witness)=boot_fixture(&payer,&members);
+    let baseline=native.svm.get_account(&native.state).unwrap();let vault=native.svm.get_account(&native.vault).unwrap();
+    let record=Pubkey::find_program_address(&[b"bootstrap",native.state.as_ref()],&native.program).0;
+    for i in 0..9 {
+        let mut w=witness.clone();let mut e=event.clone();match i {
+            0=>w.audit_digest=[0;32],1=>w.origin_supply=u64::MAX,2=>w.total_native+=1,
+            3=>w.reserve_native+=1,4=>{w.outside_native=101_000_000;w.reserve_native=1_899_000_000;},
+            5=>e.origin_amount=2_000_001,6=>e.destination_chain=[90;32],7=>e.recipient=payer.pubkey().to_bytes(),_=>e.source_event=[90;32],
+        }
+        // Match the smaller reserve to isolate the under-rent backing guard.
+        let mut attempt_vault=vault.clone();if i==4 {attempt_vault.lamports=w.reserve_native;native.svm.set_account(native.vault,attempt_vault.clone()).unwrap();}
+        assert!(!bootstrap(&mut native,&payer,e,w,&q));
+        assert_eq!(native.svm.get_account(&native.state).unwrap(),baseline);assert_eq!(native.svm.get_account(&native.vault).unwrap(),attempt_vault);
+        native.svm.set_account(native.vault,vault.clone()).unwrap();
+        assert!(native.svm.get_account(&record).is_none());
+    }
+    assert!(bootstrap(&mut native,&payer,event,witness,&q),"rejected witnesses must not consume the valid event");
+}
+
+#[test] fn sbf_bootstrap_requires_upgrade_authority_quorum_and_pause(){
+    let payer=Keypair::new();let members=std::array::from_fn(|_|Keypair::new());let q=[&members[0],&members[1],&members[2]];
+    let (_,mut native,_,_,_,event,witness)=boot_fixture(&payer,&members);
+    let attacker=Keypair::new();native.svm.airdrop(&attacker.pubkey(),1_000_000_000).unwrap();
+    assert!(!bootstrap(&mut native,&attacker,event.clone(),witness.clone(),&q));
+    assert!(!bootstrap(&mut native,&payer,event.clone(),witness.clone(),&q[..2]));
+    assert!(unpause(&mut native,&payer,&q));assert!(!bootstrap(&mut native,&payer,event.clone(),witness.clone(),&q));
+    assert_eq!(Config::try_from_slice(&native.svm.get_account(&native.state).unwrap().data).unwrap().outstanding,0);
+}
+
+#[test] fn sbf_bootstrap_marker_is_one_time_and_prefunding_cannot_grief(){
+    let payer=Keypair::new();let members=std::array::from_fn(|_|Keypair::new());let q=[&members[0],&members[1],&members[2]];
+    let (_,mut native,_,_,_,event,witness)=boot_fixture(&payer,&members);
+    let record=Pubkey::find_program_address(&[b"bootstrap",native.state.as_ref()],&native.program).0;
+    native.svm.set_account(record,Account{lamports:1,owner:system_program::ID,..Account::default()}).unwrap();
+    assert!(bootstrap(&mut native,&payer,event.clone(),witness.clone(),&q));
+    // Adversarial VM fixture resets the counter to exercise the persistent
+    // one-time marker independently of the counter guard. No real state edit.
+    let mut state=native.svm.get_account(&native.state).unwrap();let mut c=Config::try_from_slice(&state.data).unwrap();c.outstanding=0;state.data=borsh::to_vec(&c).unwrap();native.svm.set_account(native.state,state).unwrap();
+    let mut vault=native.svm.get_account(&native.vault).unwrap();vault.data[8..].copy_from_slice(&native.svm.minimum_balance_for_rent_exemption(16).to_le_bytes());native.svm.set_account(native.vault,vault).unwrap();
+    assert!(!bootstrap(&mut native,&payer,event,witness,&q),"bootstrap PDA cannot be allocated twice even when other guards appear fresh");
+}
+
+#[test] fn sbf_bootstrap_receipt_conflict_rolls_back_partial_allocation(){
+    let payer=Keypair::new();let members=std::array::from_fn(|_|Keypair::new());let q=[&members[0],&members[1],&members[2]];
+    let (_,mut native,_,_,_,event,witness)=boot_fixture(&payer,&members);
+    let record=Pubkey::find_program_address(&[b"bootstrap",native.state.as_ref()],&native.program).0;
+    let receipt=Pubkey::find_program_address(&[b"claim",native.state.as_ref(),&event.source_event],&native.program).0;
+    account(&mut native.svm,receipt,native.program,event.source_event.to_vec(),false);
+    let vault=native.svm.get_account(&native.vault).unwrap();let state=native.svm.get_account(&native.state).unwrap();
+    assert!(!bootstrap(&mut native,&payer,event,witness,&q));
+    assert!(native.svm.get_account(&record).is_none());assert_eq!(native.svm.get_account(&native.vault).unwrap(),vault);assert_eq!(native.svm.get_account(&native.state).unwrap(),state);
+}
+
+#[test] fn sbf_v1_vault_is_rejected_instead_of_silently_upgraded(){
+    let payer=Keypair::new();let members=std::array::from_fn(|_|Keypair::new());let q=[&members[0],&members[1],&members[2]];
+    let (_,mut native,_,_,_,event,witness)=boot_fixture(&payer,&members);
+    let mut vault=native.svm.get_account(&native.vault).unwrap();vault.data=b"SCVLT001".to_vec();native.svm.set_account(native.vault,vault.clone()).unwrap();
+    assert!(!bootstrap(&mut native,&payer,event,witness,&q));assert_eq!(native.svm.get_account(&native.vault).unwrap(),vault);
 }
 
 #[test] fn sbf_roundtrip_and_replay_domain_quorum_controls(){

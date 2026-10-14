@@ -38,6 +38,27 @@ fn config(account: &AccountInfo, program: &Pubkey) -> Result<Config, ProgramErro
     c.validate()?;pda(account, &[b"config", &c.bridge], program)?;Ok(c)
 }
 
+fn vault_floor(account: &AccountInfo, program: &Pubkey) -> Result<u64, ProgramError> {
+    let data=account.try_borrow_data()?;
+    if account.owner!=program || account.executable || data.len()!=16 || data[..8]!=VAULT_MAGIC {return Err(ProgramError::InvalidAccountData);}
+    let floor=u64::from_le_bytes(data[8..16].try_into().map_err(|_|BAD)?);
+    if floor<Rent::get()?.minimum_balance(16) {return Err(BAD);}
+    Ok(floor)
+}
+
+fn upgrade_authority(program:&Pubkey, payer:&AccountInfo, executable:&AccountInfo, program_data:&AccountInfo) -> ProgramResult {
+    signer(payer)?;
+    if executable.key != program || !executable.executable || *executable.owner != bpf_loader_upgradeable::ID
+        || *program_data.owner != bpf_loader_upgradeable::ID { return Err(ProgramError::IllegalOwner); }
+    let loader:UpgradeableLoaderState=bincode::deserialize(&executable.try_borrow_data()?).map_err(|_|BAD)?;
+    let upgrade:UpgradeableLoaderState=bincode::deserialize(&program_data.try_borrow_data()?).map_err(|_|BAD)?;
+    match (loader,upgrade) {
+        (UpgradeableLoaderState::Program{programdata_address},UpgradeableLoaderState::ProgramData{upgrade_authority_address:Some(authority),..})
+            if programdata_address==*program_data.key && authority==*payer.key => Ok(()),
+        _ => Err(ProgramError::MissingRequiredSignature),
+    }
+}
+
 // Allocate/assign rather than create_account so an unsolicited lamport transfer
 // cannot permanently grief an uninitialized PDA. Program-owned receipts cannot
 // be allocated again, including when a caller changes the message contents.
@@ -100,6 +121,7 @@ pub fn process_instruction(program: &Pubkey, accounts: &[AccountInfo], data: &[u
             let mut c=config(state,program)?; quorum(&c,iter.as_slice())?;
             c.new_locks_paused=new_locks;c.settlement_paused=settlement;write(state,&c)
         }
+        BridgeInstruction::Bootstrap{event,witness} => bootstrap(program,accounts,event,witness),
     }
 }
 
@@ -116,21 +138,16 @@ fn initialize(program: &Pubkey, accounts: &[AccountInfo], c: Config) -> ProgramR
     let mint=next_account_info(&mut iter)?;let token_program=next_account_info(&mut iter)?;
     let system_account=next_account_info(&mut iter)?;let executable=next_account_info(&mut iter)?;
     let program_data=next_account_info(&mut iter)?;signer(payer)?;
-    if executable.key != program || !executable.executable || *executable.owner != bpf_loader_upgradeable::ID
-        || *program_data.owner != bpf_loader_upgradeable::ID { return Err(ProgramError::IllegalOwner); }
-    let loader:UpgradeableLoaderState=bincode::deserialize(&executable.try_borrow_data()?).map_err(|_|BAD)?;
-    let upgrade:UpgradeableLoaderState=bincode::deserialize(&program_data.try_borrow_data()?).map_err(|_|BAD)?;
-    match (loader,upgrade) {
-        (UpgradeableLoaderState::Program{programdata_address},UpgradeableLoaderState::ProgramData{upgrade_authority_address:Some(authority),..})
-            if programdata_address==*program_data.key && authority==*payer.key => (),
-        _ => return Err(ProgramError::MissingRequiredSignature),
-    }
+    upgrade_authority(program,payer,executable,program_data)?;
     let bump=pda(state,&[b"config",&c.bridge],program)?;
     let size=borsh::to_vec(&c).map_err(|_|BAD)?.len();
     allocate(payer,state,system_account,program,size,&[b"config",&c.bridge,&[bump]])?;
     let vault_bump=pda(vault,&[b"vault",state.key.as_ref()],program)?;
-    allocate(payer,vault,system_account,program,8,&[b"vault",state.key.as_ref(),&[vault_bump]])?;
-    vault.try_borrow_mut_data()?.copy_from_slice(b"SCVLT001");
+    allocate(payer,vault,system_account,program,16,&[b"vault",state.key.as_ref(),&[vault_bump]])?;
+    let mut vault_data=vault.try_borrow_mut_data()?;
+    vault_data[..8].copy_from_slice(&VAULT_MAGIC);
+    vault_data[8..].copy_from_slice(&Rent::get()?.minimum_balance(16).to_le_bytes());
+    drop(vault_data);
     if c.side==ESCROW {
         if *token_program.key!=spl_token_2022::ID || !token_program.executable { return Err(ProgramError::IncorrectProgramId); }
         validate_mint(mint,&c)?;
@@ -149,7 +166,7 @@ fn deposit(program:&Pubkey,accounts:&[AccountInfo],amount:u64,nonce:u64,recipien
     signer(sender)?;let mut c=config(state,program)?;let native_amount=c.native_amount(amount)?;
     if recipient==[0;32] || (c.side==ESCROW && c.new_locks_paused) || (c.side==NATIVE && c.settlement_paused) { return Err(BAD); }
     pda(vault,&[b"vault",state.key.as_ref()],program)?;
-    if vault.owner!=program || &*vault.try_borrow_data()?!=b"SCVLT001" { return Err(ProgramError::IllegalOwner); }
+    vault_floor(vault,program)?;
     let nonce_bytes=nonce.to_le_bytes();let bump=pda(receipt,&[b"event",state.key.as_ref(),sender.key.as_ref(),&nonce_bytes],program)?;
     let clock=Clock::get()?;
     let event=Event{magic:EVENT_MAGIC,bridge:c.bridge,source_chain:c.local_chain,destination_chain:c.remote_chain,
@@ -187,7 +204,8 @@ fn claim(program:&Pubkey,accounts:&[AccountInfo],event:Event) -> ProgramResult {
     let mut c=config(state,program)?;verify_incoming(&c,&event,program.to_bytes(),recipient.key.to_bytes())?;
     if c.settlement_paused {return Err(BAD);}
     let bump=pda(vault,&[b"vault",state.key.as_ref()],program)?;
-    if vault.owner!=program || &*vault.try_borrow_data()?!=b"SCVLT001" || vault.key==recipient.key {return Err(BAD);}
+    let protected_floor=vault_floor(vault,program)?;
+    if vault.key==recipient.key {return Err(BAD);}
     let claim_bump=pda(consumed,&[b"claim",state.key.as_ref(),&event.source_event],program)?;
     let token_accounts = if c.side==ESCROW {Some((next_account_info(&mut iter)?,next_account_info(&mut iter)?,next_account_info(&mut iter)?,next_account_info(&mut iter)?))}else{None};
     quorum(&c,iter.as_slice())?;
@@ -205,15 +223,50 @@ fn claim(program:&Pubkey,accounts:&[AccountInfo],event:Event) -> ProgramResult {
         assert_writable(vault)?;assert_writable(recipient)?;
         if *recipient.owner!=system_program::ID || !recipient.data_is_empty() || recipient.executable {return Err(ProgramError::IllegalOwner);}
         let amount=c.native_amount(event.origin_amount)?;
-        let rent=Rent::get()?.minimum_balance(vault.data_len());
         let remaining=vault.lamports().checked_sub(amount).ok_or(ProgramError::InsufficientFunds)?;
-        if remaining<rent {return Err(ProgramError::InsufficientFunds);}
+        if remaining<protected_floor {return Err(ProgramError::InsufficientFunds);}
         let recipient_balance=recipient.lamports().checked_add(amount).ok_or(ProgramError::ArithmeticOverflow)?;
         **vault.try_borrow_mut_lamports()?=remaining;**recipient.try_borrow_mut_lamports()?=recipient_balance;
         c.outstanding=c.outstanding.checked_add(event.origin_amount).ok_or(ProgramError::ArithmeticOverflow)?;
     }
     consumed.try_borrow_mut_data()?.copy_from_slice(&event.source_event);write(state,&c)?;
     solana_program::msg!("SC_BRIDGE_CLAIM {} {}",consumed.key,event.origin_amount);Ok(())
+}
+
+// Accounts: current upgrade authority/rent payer, config, vault, normal claim
+// receipt, immutable bootstrap PDA, System, executable program, ProgramData,
+// then committee signers. No native units move. Source finality and complete
+// inventory are attestations; this instruction cannot independently prove them.
+fn bootstrap(program:&Pubkey,accounts:&[AccountInfo],event:Event,witness:BootstrapWitness) -> ProgramResult {
+    let mut iter=accounts.iter();
+    let payer=next_account_info(&mut iter)?;let state=next_account_info(&mut iter)?;
+    let vault=next_account_info(&mut iter)?;let consumed=next_account_info(&mut iter)?;
+    let record=next_account_info(&mut iter)?;let system_account=next_account_info(&mut iter)?;
+    let executable=next_account_info(&mut iter)?;let program_data=next_account_info(&mut iter)?;
+    let mut c=config(state,program)?;
+    if c.side!=NATIVE || !c.new_locks_paused || !c.settlement_paused || c.epoch!=1
+        || c.outstanding!=0 || c.day!=0 || c.daily_settled!=0 || c.committee.contains(&payer.key.to_bytes()) {return Err(BAD);}
+    upgrade_authority(program,payer,executable,program_data)?;quorum(&c,iter.as_slice())?;
+    pda(vault,&[b"vault",state.key.as_ref()],program)?;
+    let previous=vault_floor(vault,program)?;
+    let minimum=Rent::get()?.minimum_balance(16);
+    if previous!=minimum || vault.lamports()!=witness.reserve_native {return Err(BAD);}
+    verify_incoming(&c,&event,program.to_bytes(),vault.key.to_bytes())?;
+    let protected=witness.protected_floor(&c,event.origin_amount,minimum)?;
+    let claim_bump=pda(consumed,&[b"claim",state.key.as_ref(),&event.source_event],program)?;
+    let boot_bump=pda(record,&[b"bootstrap",state.key.as_ref()],program)?;
+    let value=BootstrapRecord{magic:BOOTSTRAP_MAGIC,witness,source_event:event.source_event,
+        origin_amount:event.origin_amount,protected_native:protected};
+    allocate(payer,record,system_account,program,borsh::to_vec(&value).map_err(|_|BAD)?.len(),
+        &[b"bootstrap",state.key.as_ref(),&[boot_bump]])?;
+    allocate(payer,consumed,system_account,program,32,
+        &[b"claim",state.key.as_ref(),&event.source_event,&[claim_bump]])?;
+    consumed.try_borrow_mut_data()?.copy_from_slice(&event.source_event);
+    assert_writable(vault)?;
+    vault.try_borrow_mut_data()?[8..16].copy_from_slice(&protected.to_le_bytes());
+    c.outstanding=event.origin_amount;
+    write(record,&value)?;write(state,&c)?;
+    solana_program::msg!("SC_BRIDGE_BOOTSTRAP {} {}",record.key,event.origin_amount);Ok(())
 }
 
 #[cfg(test)]

@@ -23,7 +23,7 @@ synthetic; generated compiler keys and binaries stay under ignored `.tools/`.
 node --test mainnet/plan.test.mjs bridge/sdk.test.mjs bridge/observer-recovery.test.mjs
 CARGO_TARGET_DIR=.tools/bridge-target cargo test --manifest-path bridge/program/Cargo.toml --locked --lib
 python3 scripts/install-token-program.py
-CARGO_TARGET_DIR="$PWD/.tools/bridge-sbf-target" cargo-build-sbf --manifest-path bridge/program/Cargo.toml --sbf-out-dir .tools/bridge-artifacts -- --locked
+CARGO_TARGET_DIR="$PWD/.tools/bridge-sbf-target" cargo-build-sbf --manifest-path bridge/program/Cargo.toml --sbf-out-dir .tools/bridge-bootstrap-artifacts -- --locked
 CARGO_TARGET_DIR=.tools/bridge-target cargo test --manifest-path bridge/program/Cargo.toml --locked --test runtime
 ```
 
@@ -81,3 +81,13 @@ Both counters and escrow reconcile at 600,000 synthetic origin units. The
 prototype accepts only plain immutable Token-2022 mints and a canonical ATA.
 Unknown landing, extended mint handling and production security remain open.
 See `evidence/bridge-redemption-recovery.json`.
+
+## Guarded bootstrap and protected reserve
+
+The [V2 bootstrap prototype](BOOTSTRAP.md) records initial backing once without
+moving native funds, consumes the normal replay receipt, sets the native
+counter and protects reserve rent plus extra backing from later claims. Ten
+Rust unit tests, nine compiled-SBF scenarios and five unsigned-client checks
+pass locally. The 16-byte vault rejects the previous eight-byte ABI; prior
+private ledger artifacts are preserved. Actual backed genesis, remote finality,
+custody, fresh Agave integration and production release remain unverified.

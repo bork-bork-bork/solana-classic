@@ -80,11 +80,12 @@ fee/burn behavior, custody, verifier identities, upgrade controls, pause/recover
 policy and independent review must be specified before activation. Prototype
 configuration is not an approved production monetary policy.
 
-An especially important gap is bootstrap accounting: the current native bridge
-initializes outstanding balances at zero. Genesis allocations cannot be enabled
-with that assumption. Production remains blocked until every initial native
-balance is backed, its origin escrow is finalized, and both bridge counters
-reconcile to the initial state.
+An especially important gate is bootstrap accounting: the native bridge begins
+with zero outstanding and must apply verified initial backing before monetary
+activation. A separate V2 one-time bootstrap now passes local SBF tests, but
+genesis allocations cannot rely on the unbootstrapped state. Production remains
+blocked until every initial native balance is backed, origin escrow is finalized
+and both bridge counters reconcile to the actual initial state.
 
 The current testnet, its tSOC balances and experimental NFTs do not gain a
 mainnet conversion or allocation through this implementation.
@@ -201,3 +202,20 @@ Finalized backing, enforceable reserve custody, one-time bootstrap event
 consumption, actual counter initialization, full-validator consensus and
 independent review remain required. No genesis/runtime or monetary activation
 was performed by this accounting work.
+
+## One-time bootstrap local checkpoint
+
+The new V2 SBF build records a committee-attested bootstrap lock without moving
+native funds, consumes its normal settlement receipt, sets the native counter
+and enforces a protected reserve floor. Ten Rust unit tests, nine compiled-SBF
+runtime scenarios and five unsigned-client checks pass. Counter/receipt replay,
+bad budgets/domains, wrong authority, insufficient quorum, under-rent backing,
+partial-write rollback and old vault ABI rejection are covered.
+
+The native source budget/inventory in these tests is synthetic and injected;
+this is not a complete genesis or new Agave-ledger proof. The 16-byte V2 vault
+is incompatible with old eight-byte rehearsal vaults. Previous binaries,
+private ledgers and historical evidence remain preserved. Actual custody
+transition, funded finalized backing, independent source verification,
+full-validator consensus and security review still block B3/R1/R2. See
+`bridge/BOOTSTRAP.md` and `evidence/bridge-bootstrap-local.json`.

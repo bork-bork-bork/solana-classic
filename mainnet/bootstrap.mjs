@@ -21,7 +21,7 @@ const owners={
   'NativeLoader1111111111111111111111111111111':'builtin-programmes',
 };
 
-export function auditBootstrap({schemaVersion,environment,genesisAudit,originMint,originDecimals,nativeDecimals,originSupplyUnits,prelockedOriginUnits,reserveAddress,reserveDataBytes=8,protectedReserveNativeUnits,declaredOriginCounterUnits,declaredNativeCounterUnits}) {
+export function auditBootstrap({schemaVersion,environment,genesisAudit,originMint,originDecimals,nativeDecimals,originSupplyUnits,prelockedOriginUnits,reserveAddress,reserveDataBytes=16,protectedReserveNativeUnits,declaredOriginCounterUnits,declaredNativeCounterUnits}) {
   if(schemaVersion!==1||environment!=='isolated-rehearsal')throw new Error('Only isolated rehearsal accounting is supported');
   const g=genesisAudit;
   if(g?.clusterType!=='development'||forbidden.has(g.genesis))throw new Error('A fresh private development genesis is required');
@@ -68,7 +68,7 @@ export function auditBootstrap({schemaVersion,environment,genesisAudit,originMin
   return {
     schemaVersion:1,state:'DRAFT_BOOTSTRAP_ACCOUNTING',scope:'Offline actual genesis inventory with declared synthetic original backing; no on-chain bootstrap or custody proof',
     accountingPassed:true,productionReady:false,activationEnabled:false,canonicalNetworkChanged:false,
-    genesis:g.genesis,originMint,originDecimals,nativeDecimals,accountCount:inventory.length,
+    genesis:g.genesis,originMint,originDecimals,nativeDecimals,reserveDataBytes,accountCount:inventory.length,
     inventorySHA256:createHash('sha256').update(JSON.stringify(inventory)).digest('hex'),
     categories:Object.fromEntries(Object.entries(groups).map(([k,v])=>[k,{accounts:v.accounts,nativeUnits:v.nativeUnits.toString()}])),
     totals:{originalSupplyUnits:supply.toString(),nativeGenesisUnits:total.toString(),nativeOutsideReserveUnits:allocated.toString(),reserveNativeUnits:reserve.nativeUnits.toString(),conversionFactor:factor.toString()},

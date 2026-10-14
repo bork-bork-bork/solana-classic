@@ -6,7 +6,7 @@ import { auditBootstrap } from './bootstrap.mjs';
 const key=i=>new PublicKey(Uint8Array.from({length:32},(_,j)=>(i+j)%256)).toBase58();
 function fixture() {
   const row=(i,lamports,owner='11111111111111111111111111111111',dataBytes=0)=>({address:key(i),lamports,owner,dataBytes,executable:false});
-  return {schemaVersion:1,environment:'isolated-rehearsal',originMint:key(40),originDecimals:6,nativeDecimals:9,originSupplyUnits:'1000000',prelockedOriginUnits:'100947',reserveAddress:key(1),protectedReserveNativeUnits:'946560',genesisAudit:{genesis:key(99),clusterType:'development',accountCount:3,totalLamports:'1000000000',accounts:[row(1,'900000000'),row(2,'10000000'),row(3,'90000000','Stake11111111111111111111111111111111111111',200)],inflation:{initial:0,terminal:0,taper:0,foundation:0,foundationTerm:0,unused:0},feeRateGovernor:{burnPercent:0},rent:{burn_percent:0,exemption_threshold:2,lamports_per_byte_year:3480}}};
+  return {schemaVersion:1,environment:'isolated-rehearsal',originMint:key(40),originDecimals:6,nativeDecimals:9,originSupplyUnits:'1000000',prelockedOriginUnits:'100947',reserveAddress:key(1),reserveDataBytes:8,protectedReserveNativeUnits:'946560',genesisAudit:{genesis:key(99),clusterType:'development',accountCount:3,totalLamports:'1000000000',accounts:[row(1,'900000000'),row(2,'10000000'),row(3,'90000000','Stake11111111111111111111111111111111111111',200)],inflation:{initial:0,terminal:0,taper:0,foundation:0,foundationTerm:0,unused:0},feeRateGovernor:{burnPercent:0},rent:{burn_percent:0,exemption_threshold:2,lamports_per_byte_year:3480}}};
 }
 test('bootstrap includes all outside-reserve balances, reserve rent and exact precision slack',()=>{
   const r=auditBootstrap(fixture());assert.equal(r.backing.minimumPrelockedOriginUnits,'100947');assert.equal(r.backing.precisionOrExtraBackingNativeUnits,'440');assert.equal(r.backing.backedNativeInsideReserveUnits,'947000');assert.equal(r.backing.availableForNewOriginDepositsNativeUnits,'899053000');assert.equal(r.activationEnabled,false);assert.equal(r.productionReady,false);
@@ -54,4 +54,10 @@ test('actual retained 249-account genesis exposes the protected-rent/precision b
   assert(reserve);const outside=BigInt(g.totalLamports)-BigInt(reserve.lamports);const minimum=(outside+946560n+999n)/1000n;
   const r=auditBootstrap({...fixture(),genesisAudit:g,reserveAddress:reserve.address,originSupplyUnits:'1000000000',prelockedOriginUnits:minimum.toString()});
   assert.equal(r.accountCount,249);assert.equal(r.totals.nativeOutsideReserveUnits,'330309622560');assert.equal(r.backing.minimumPrelockedOriginUnits,'330310570');assert.equal(r.backing.precisionOrExtraBackingNativeUnits,'880');assert.equal(r.gates.finalizedOriginalEscrowVerified,false);assert.equal(r.activationEnabled,false);
+});
+
+test('V2 protected vault rent requires the larger exact bootstrap budget',()=>{
+  const f=fixture();delete f.reserveDataBytes;f.protectedReserveNativeUnits='1002240';f.prelockedOriginUnits='101003';
+  const r=auditBootstrap(f);assert.equal(r.reserveDataBytes,16);assert.equal(r.backing.minimumVaultRentNativeUnits,'1002240');assert.equal(r.backing.precisionOrExtraBackingNativeUnits,'760');
+  f.protectedReserveNativeUnits='946560';assert.throws(()=>auditBootstrap(f));
 });

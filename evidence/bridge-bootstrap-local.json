@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-14T11:02:49.493608+00:00",
+  "scope": "Local compiled-SBF transactions in independent in-process LiteSVMs with injected synthetic balances and a committee-attested budget; offline complete-inventory client preparation. Not a complete VM inventory, fresh Agave ledger test, funded mainnet or source-finality proof.",
+  "passed": true,
+  "productionReady": false,
+  "activationEnabled": false,
+  "canonicalNetworkChanged": false,
+  "sourceHashes": {
+    "bridge/program/src/lib.rs": "ede30cfc36212cafd05da1bde9e65462b7864078eba8e57de60b5fcd4d3388d6",
+    "bridge/program/src/state.rs": "d63c19450d022eee686c855195e8e71340cacbc1547c2b8db6fa1e1ae6d6163a",
+    "bridge/program/tests/runtime.rs": "cb260f6727f09102db97f2aca8054405040850bca5056b077ab899000a9ba0e4",
+    "bridge/program/Cargo.toml": "b96d287180548bf607fecde0a3c3244d90be62aa55dd4eb629a1545eb28c7335",
+    "bridge/program/Cargo.lock": "533e7be81be8541a427c3423066eb5aa77b18be8f47edc1ecd55f56a38fb3bb8",
+    "bridge/bootstrap.mjs": "76303de82557f8ba2a88773ef55bbc5234a88164673f0afe2458f21e46c1d04e",
+    "bridge/bootstrap.test.mjs": "f494dec3c53808be73488abd882d480533f997c3b61f17b8902b5b5b4d6284e3",
+    "bridge/sdk.mjs": "e603242692bedc2457ec9dd3cb144122ca1adb7341506d244ec864943bd8c988",
+    "mainnet/bootstrap.mjs": "83eb564446ad5be431f66d931fa61ca9e3d8fd15a5b7420ec87182011cce1beb",
+    "mainnet/bootstrap.test.mjs": "e295e3d1bdad1364af2d1e2bd767d4c1247e4c60fe89cab4f171d9f8aa1ba3be"
+  },
+  "artifacts": {
+    "bootstrapSBF": {
+      "sha256": "556adf3132c6d102458c0c3b13e22457401bd748b6c3a37a422fb7a339a68e53",
+      "bytes": 203920,
+      "compiler": "cargo-build-sbf 4.0.0 / platform-tools v1.53 / rustc 1.89.0",
+      "vaultABI": "SCVLT002 / 16 bytes"
+    },
+    "historicalSBF": {
+      "sha256": "d9f3822ec9097f0a7ede222f20a68c3cba92b6fba46459af8ed0025652f2f9f7",
+      "unchanged": true,
+      "vaultABI": "SCVLT001 / 8 bytes"
+    },
+    "token2022": {
+      "sha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+      "version": "10.0.0"
+    }
+  },
+  "checks": {
+    "rustUnitTests": 10,
+    "compiledSBFRuntimeScenarios": 9,
+    "unsignedBootstrapClientTests": 5,
+    "offlineAuditorTests": 14,
+    "plannerTests": 7,
+    "existingSDKTests": 5,
+    "existingBothDirectionJournalTests": 23,
+    "distinctJavaScriptTests": 54,
+    "frozenCoreFilesUnchanged": 41
+  },
+  "runtimeScenarios": [
+    "sbf_mutable_mint_is_rejected_before_escrow_creation",
+    "sbf_init_authority_and_prefunded_pda",
+    "sbf_bootstrap_receipt_conflict_rolls_back_partial_allocation",
+    "sbf_v1_vault_is_rejected_instead_of_silently_upgraded",
+    "sbf_bootstrap_marker_is_one_time_and_prefunding_cannot_grief",
+    "sbf_bootstrap_requires_upgrade_authority_quorum_and_pause",
+    "sbf_bootstrap_rejects_bad_math_domains_and_insufficient_backing_atomically",
+    "sbf_roundtrip_and_replay_domain_quorum_controls",
+    "sbf_bootstrap_records_backing_without_release_and_preserves_floor"
+  ],
+  "bootstrapFixture": {
+    "originSupplyUnits": "2000000",
+    "conversionFactor": "1000",
+    "declaredNativeTotalUnits": "2000000000",
+    "declaredNativeOutsideReserveUnits": "100000000",
+    "actualNativeVaultUnitsBeforeAndAfterBootstrap": "1900000000",
+    "actualToken2022EscrowUnitsAfterSourceLock": "102000",
+    "initialBothOutstandingOriginUnits": "102000",
+    "protectedNativeFloorUnits": "2000000",
+    "futureClaimUnits": "1898000000",
+    "nativeVaultAfterFutureClaimUnits": "2000000",
+    "nativeAndOriginOutstandingAfterReturnRedemptionUnits": "1950000",
+    "originEscrowAfterReturnRedemptionUnits": "1950000",
+    "sourceAndNativeFinality": "In-process SVM execution only; no consensus/finality attestation proof"
+  },
+  "guaranteesTested": [
+    "Bootstrap moves no native reserve units; initial native counter equals actual synthetic source lock counter",
+    "Normal claim receipt consumes bootstrap backing without a second release, including altered-recipient attempts",
+    "Reserve floor protects extra backing, not just rent; failed debit does not consume the next receipt",
+    "One-time bootstrap PDA survives apparent reset of other guards in an adversarial injected fixture",
+    "Bad arithmetic/overflow/domains/source PDA, wrong upgrade authority, insufficient quorum and unpaused native state reject",
+    "Receipt conflict rolls back partially allocated bootstrap record, counter and reserve changes",
+    "V1 vault bytes reject; preserved historical private fixtures were not upgraded",
+    "Four-signature unsigned-client bootstrap fits a bounded legacy transaction"
+  ],
+  "remaining": [
+    "Actual finalized funded backing, immutable mint/supply/precision and source configuration proof",
+    "Complete native activation inventory and reviewed genesis-to-vault custody transition",
+    "Fresh private Agave integration using new V2 program/ledgers, with unique attempt roots",
+    "Full-validator host/consensus and independent validator/verifier operators",
+    "Production bootstrap-record release gate, signer custody/code pins, upgrades and independent review",
+    "Unknown landing, actual fork/reorg, crash and cold-restore coverage"
+  ]
+}
