@@ -186,7 +186,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-14T17:01:25.389359+00:00",
+    "reviewedAt": "2026-10-14T17:40:24.697811+00:00",
     "scope": "Development checkpoint only; separate from the live testnet release",
     "projects": [
       {
@@ -418,6 +418,36 @@
             "title": "Broader CLI RPC, builder funding capacity and production signing",
             "state": "pending",
             "detail": "Current tested HTTP deployer works; unrestricted RPC/WebSockets and production wallet custody are not claimed."
+          }
+        ]
+      },
+      {
+        "id": "release-review",
+        "title": "Devnet release evidence",
+        "state": "building",
+        "description": "Individual review of the build that passed its original 24-hour stability test.",
+        "currentScope": "Seven original stability requirements are individually reviewed: complete load records, confirmation/finality timing, gallery verification, prerequisite continuity, frozen deployment identity and benchmark limits. All other release requirements still need individual review. This is evidence review, not a new workload or full release approval. The validator and ledger remain unchanged.",
+        "source": "https://github.com/solana-classic/solana-classic/blob/main/engine/migration/STABILITY_RELEASE_REVIEW.md",
+        "milestones": [
+          {
+            "title": "Recalculate all original load measurements",
+            "state": "local-passed",
+            "detail": "Offline audit of actual remote records: 200 distinct receipts, 100 issuances and 100 transfers. Confirmed p95 3150ms; finalized p95 15167ms; gallery max18152ms. Eight auditor regressions pass; no new transactions."
+          },
+          {
+            "title": "Original full-day browser stability evidence",
+            "state": "live-passed",
+            "detail": "288 journeys and2880observations over24hours; original freeze/genesis/runtime match. Seven of11stability requirements individually attested."
+          },
+          {
+            "title": "Remaining individual release requirements",
+            "state": "pending",
+            "detail": "Other historical proofs need candidate-specific review; final browser regression and operator handover remain pending. Missing attestations are not newly observed product failures."
+          },
+          {
+            "title": "Source-build migration and new stability run",
+            "state": "pending",
+            "detail": "Awaiting explicit devnet maintenance decision. New stopped-writer backup and held-candidate continuity checks precede opening writes; the new runtime needs its own full24-hour test."
           }
         ]
       }

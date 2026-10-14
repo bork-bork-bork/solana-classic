@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-14T17:35:16.499089+00:00",
+  "scope": "remote original stability prerequisite evidence review; no new restart, restore, workload or pilot",
+  "passed": true,
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "candidate": {
+    "apiOrigin": "https://network-release-production.up.railway.app",
+    "frontendOrigin": "https://solana-classic-soc.vercel.app",
+    "frontendDeploymentId": "dpl_3aWWzKDohr4SrgijgrB8dWgHHS5r",
+    "frontendCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "apiCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "networkConfigSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+    "dependencyManifestSha256": "e6da27717e6a84ca7b29d707ff63591b2ff0cfc38892d3b4667f8615bdf7bbc0"
+  },
+  "freezeSha256": "de996a8ca58a9d12cf2b264ab86d4e6eab6a3230a779d250402918b288309b82",
+  "startedAt": "2026-10-13T16:48:22.762Z",
+  "records": [
+    {
+      "path": "evidence/load.json",
+      "sha256": "fc83483f50e6a87c36ef1801d45e82f10b9bd1d0ecf66e83cb73f1a32b02b29c",
+      "at": "2026-10-13T16:26:24.383Z",
+      "scope": "remote bounded 20 SDK client sessions, not chainwide throughput or browser soak"
+    },
+    {
+      "path": "evidence/backup-check.json",
+      "sha256": "a3aff6b9ef61bb12e892a0bc2b7988f274a82eb41748f3400176c8325d1c1529",
+      "at": "2026-10-13T16:01:06.171Z",
+      "scope": "remote actual final-code state reconfirmation of the prior isolated cold-backup restore; bounded transaction history limitation; no new cold archive extraction"
+    },
+    {
+      "path": "evidence/restart-check.json",
+      "sha256": "c21a2f42d0e4fb638168505a459a4475bedbc99a6152ebcb69fa6fa078c353ee",
+      "at": "2026-10-13T15:55:51.917Z",
+      "scope": "remote actual repaired-build provider process restart with hosted before/after persistence verification; not hardware host reboot or cold restore"
+    },
+    {
+      "path": "evidence/pilot-agent-one.json",
+      "sha256": "ef409a3d174e5ead96d84789ebc7a385d349ad4c29fb310c5fbc33905239e2ef",
+      "at": "2026-10-13T16:08:42.357274+00:00",
+      "scope": "remote independent agent browser pilot of final repaired production candidate; not human usability testing or full release acceptance"
+    },
+    {
+      "path": "evidence/pilot-agent-two.json",
+      "sha256": "8bf15684f9cbad8e85f9288ad002d094eb23ca09b08930fc805ab4e021a9b77c",
+      "at": "2026-10-13T16:15:49.454688+00:00",
+      "scope": "remote independent agent browser pilot two on repaired frozen TEST candidate; actual UI-generated memory-only wallets, NFT issuance/transfer/current ownership, Explorer receipt/deep-link, mobile360 and keyboard checks; not human usability research or soak acceptance"
+    },
+    {
+      "path": "evidence/monitoring-config.json",
+      "sha256": "44a609a9998efd9f542ac5c02f44b2b352209ab0926e4d52e1f357c51779a308",
+      "at": "2026-10-13T16:35:34.934352+00:00",
+      "scope": "remote current independent health probe and unchanged provider monitoring configuration review, with preserved actual native lifecycle and direct operator email receipt"
+    },
+    {
+      "path": "evidence/frontend-rollback.json",
+      "sha256": "f874526592419adfdaca439f706146225001f865cb8e626a4ec33ca9ff76fa86",
+      "at": "2026-10-13T15:35:39.554567+00:00",
+      "scope": "actual reversible remote production frontend alias rollback and restoration with anonymous hosted QA HTML/JavaScript/CSS/PDF hashes; API and validator runtime identity unchanged; no soak claim"
+    },
+    {
+      "path": "evidence/remote-negative-controls.json",
+      "sha256": "6433ad949fa4fed475f9d00615e9c6d6acc20009e34106aa0652d5209ace1f50",
+      "at": "2026-10-13T15:48:27.642Z",
+      "scope": "remote current frozen production gateway bounded protocol/schema reconfirmation with repository audit of unchanged historical controls; asset-quota execution remains historical"
+    }
+  ],
+  "allBeforeOriginalSoak": true,
+  "allBeforeH72": true,
+  "qualifiedRestoreScope": "Final-code read-only state reconfirmation of prior isolated cold restore; not a fresh archive. Older RPC transaction history was unavailable and retained finality evidence is historical.",
+  "productionNetworkChanged": false,
+  "releaseAccepted": false
+}

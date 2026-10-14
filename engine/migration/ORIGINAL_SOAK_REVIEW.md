@@ -56,12 +56,14 @@ deadline, 2026-10-19T03:00:54Z.
 
 ## Separate release checklist
 
-The current offline release aggregate remains unaccepted. Its individual gate
-manifest still references the earlier `c1a7f158` candidate and older checksums;
-many requirements have not been individually attested. The dated review is
-`evidence/devnet-release-gap-review-20261014.json`. This is an evidence-review
-backlog, not a declaration that the working features have failed. Do not repair
-it by replacing all checksums or marking all gates passed automatically.
+The current offline release aggregate remains unaccepted. The earlier gap review
+is retained in `evidence/devnet-release-gap-review-20261014.json`, and the old
+manifest is preserved in `evidence/acceptance-gates-c1a7-historical.json`. The
+new manifest individually reviews seven stability requirements against the
+repaired original candidate. See `STABILITY_RELEASE_REVIEW.md` for their exact
+scope and the remaining review backlog. Unattested requirements are not a
+declaration that the working features have failed. Never replace all historical
+checksums or mark all gates passed automatically.
 
 Review each requirement against the repaired frozen candidate and applicable
 bounded proof. A final clean-browser regression, complete operator handover

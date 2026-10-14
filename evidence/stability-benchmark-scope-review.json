@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-14T17:35:16.499089+00:00",
+  "scope": "repository source review of original measured workload disclosure and benchmark limitations",
+  "passed": true,
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "candidate": {
+    "apiOrigin": "https://network-release-production.up.railway.app",
+    "frontendOrigin": "https://solana-classic-soc.vercel.app",
+    "frontendDeploymentId": "dpl_3aWWzKDohr4SrgijgrB8dWgHHS5r",
+    "frontendCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "apiCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "networkConfigSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+    "dependencyManifestSha256": "e6da27717e6a84ca7b29d707ff63591b2ff0cfc38892d3b4667f8615bdf7bbc0"
+  },
+  "limits": [
+    "20 SDK sessions,200 recorded operations on one validator",
+    "Confirmation and finalization measured separately",
+    "288 browser journeys over24hours are a bounded stability workload",
+    "Not chain-wide throughput,decentralization,mainnet or bridge security",
+    "Later .net signing/upload/wallet code is separately tested and not covered by original soak"
+  ],
+  "loadReviewSHA256": "c3335d99eb45a9a6b0b706c33974e3efd37baf3b61a1bba3a1687ccb62ba5213",
+  "terminalReviewSHA256": "50462038ce8992d5988af1e9c602eddb2de47ce48fbcd87a1cfd95a3702d6612",
+  "productionNetworkChanged": false,
+  "releaseAccepted": false,
+  "reviewDocumentSHA256": "d5d541987377cb4402b8b2411c993198b7118340ee7aa19dfe98958c630bb3cb"
+}
