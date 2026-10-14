@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-14T17:19:18.786303+00:00",
+  "passed": true,
+  "scope": "remote anonymous public documentation and roadmap publication; no validator change, monetary release or canonical cutover",
+  "sourceCommit": "15bbfc1",
+  "mainDeployment": "dpl_FNyZW8958hhNTgQwSYpKEpDCqkXM",
+  "roadmapDeployment": "dpl_7W7wW7ZMYpSndRvwReeGXukC7foq",
+  "web": "https://solanaclassic.net",
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "candidate": {
+    "apiOrigin": "https://network-release-production.up.railway.app",
+    "frontendOrigin": "https://solana-classic-soc.vercel.app",
+    "frontendDeploymentId": "dpl_3aWWzKDohr4SrgijgrB8dWgHHS5r",
+    "frontendCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "apiCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "networkConfigSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+    "dependencyManifestSha256": "e6da27717e6a84ca7b29d707ff63591b2ff0cfc38892d3b4667f8615bdf7bbc0"
+  },
+  "checks": {
+    "publishedREADME": true,
+    "officialAnnouncementDisclosuresRetained": true,
+    "publicPDFExactHash": true,
+    "publicWhitepaperEdition": "0.13",
+    "originalSoakAccepted": true,
+    "originalTerminalArchiveVerified": true,
+    "originalRuntimeMatches": true,
+    "frozenFilesUnchanged": true,
+    "maintenanceAdmitted": true,
+    "cutoverAccepted": false,
+    "releaseAccepted": false
+  },
+  "pdfSHA256": "05ab937c2fb52eef718f6392890a0ae876e9ab4fda001931a997b70e6381e575",
+  "statusFetchedAt": "2026-10-14T17:19:17.714Z",
+  "productionNetworkChanged": false,
+  "browserValidation": {
+    "passed": true,
+    "scope": "Read-only production copy, navigation and PDF reader QA; no wallet creation, signing, minting or migration",
+    "browser": "Chromium Playwright; Browser plugin not available",
+    "checks": [
+      {
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "tokenWording": true,
+        "disclosures": true,
+        "whitepaperEdition": true,
+        "readerCanvas": true,
+        "pageTitle": true,
+        "noOverflow": true,
+        "consoleClean": true
+      },
+      {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "tokenWording": true,
+        "disclosures": true,
+        "whitepaperEdition": true,
+        "readerCanvas": true,
+        "pageTitle": true,
+        "noOverflow": true,
+        "consoleClean": true
+      },
+      {
+        "roadmapPassedSoak": true,
+        "migrationMaintenancePending": true,
+        "noVenueAnnouncement": true
+      }
+    ],
+    "limitations": "Chromium only; no minting, wallet creation, transaction signing, financial actions or migration performed."
+  }
+}
