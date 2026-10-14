@@ -168,7 +168,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-14T15:32:59.424175+00:00",
+    "reviewedAt": "2026-10-14T16:13:33.616761+00:00",
     "scope": "Development checkpoint only; separate from the live testnet release",
     "projects": [
       {
@@ -209,7 +209,7 @@
         "title": "SOC redemption bridge",
         "state": "building",
         "description": "Original SOC escrow and a native Classic reserve, targeting exact 1:1 display-unit redemption in both directions.",
-        "currentScope": "V2 bootstrap, cold restore and crash proofs pass. Both native release and original-token withdrawal now recover their original signed transaction after an observed pre-finality process crash. New nonce7 withdrawal:7 actual checks, one broadcast, confirmed slot944 vs finalized913 before SIGKILL; exact10000-unit token payout finalized after restart, escrow/counters1950000. Separate nonce6 expiry remains unresolved; no retry/refund/reset. Offline review passes structural guards but reports are unauthenticated assertions. Competing forks, complete funded backing, signer/custody/code controls, independent operators and review remain open.",
+        "currentScope": "V2 bootstrap, cold restore and crash proofs pass. Both native release and original-token withdrawal now recover their original signed transaction after an observed pre-finality process crash. New nonce7 withdrawal:7 actual checks, one broadcast, confirmed slot944 vs finalized913 before SIGKILL; exact10000-unit token payout finalized after restart, escrow/counters1950000. Separate nonce6 expiry remains unresolved; no retry/refund/reset. Offline review passes structural guards but reports are unauthenticated assertions. Competing forks, complete funded backing, signer/custody/code controls, independent operators and review remain open. Separate read-only programme observer now passes12 local checks and5 actual private-copy checks: explicit artifact/full-account/upgrade-authority/static-policy pins, two finalized snapshots and rejected wrong pins. Zero broadcasts/simulations; originals unchanged. Observer is not yet enforced by journal signing/handoff or independent production verifiers.",
         "source": "https://github.com/solana-classic/solana-classic/tree/main/bridge",
         "milestones": [
           {
@@ -288,6 +288,12 @@
             "state": "rehearsal-passed",
             "detail": "7 actual checks +10 copy/crash guards. New nonce7, one broadcast; confirmed slot944 vs finalized913 before guarded SIGKILL. Original signature finalizes with exact10000-unit escrow debit/recipient credit and unchanged bootstrap floor/record. Finalized height912 before kill,943 after recovery, original expiry1060. All3copy starts stopped, source baseline unchanged. Separate nonce6 expiry stays unresolved; no retry or production acceptance.",
             "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/bridge-v2-redemption-pending-crash.json"
+          },
+          {
+            "title": "Deployed bridge code, authority and policy pin observer",
+            "state": "rehearsal-passed",
+            "detail": "12 local +2 worker guards;5 actual private-copy checks. Both deployed V2 programmes match reviewed artifact, full ProgramData, upgrade authority and static committee/epoch/pause/cap policy. Wrong code/authority/policy pins reject against real accounts. Two finalized snapshots per side; zero signing/simulations/broadcasts, originals unchanged and copies stopped. Separate observer; signer integration and independent verification remain open.",
+            "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/bridge-program-pins.json"
           },
           {
             "title": "Bootstrap reconciliation, custody and recovery",

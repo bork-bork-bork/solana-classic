@@ -402,3 +402,18 @@ separate unresolved nonce6 operation. Competing forks, physical host failure,
 independent verification/custody, actual funded inventory, full validators
 and external security review remain open. See
 `evidence/bridge-v2-redemption-pending-crash.json`.
+
+## Programme/policy pin observer
+
+The separate read-only `bridge/program-pins.mjs` observer verifies explicit
+trusted Loader-v3 code/account/upgrade-authority pins and the bridge's static
+358-byte policy. Two finalized reads and repeated genesis admission reject
+changed programme bytes, loader pointers, authorities, committee/epoch/pause
+or caps while allowing normal exact counter updates. Twelve local tests pass.
+No signing, journal write, simulation or broadcast method is supplied.
+
+The existing journal does not yet require this observer before handoff.
+Production integration, authenticated independent observers, upgrade/custody
+controls and review remain open. A pinned RPC snapshot is not complete
+backing, permanent immutability or finality consensus. See
+`bridge/FINALITY_RECOVERY.md` for the exact scope and bounds.

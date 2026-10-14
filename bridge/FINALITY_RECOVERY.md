@@ -111,3 +111,33 @@ expiry guard, not completed redemption or production recovery.
 See [the expired-operation review policy](EXPIRED_RECOVERY.md) and
 [sanitized evidence](../evidence/bridge-v2-redemption-crash-expiry.json).
 The current journal cannot perform replacement signing or broadcast.
+
+## Read-only programme and policy pins
+
+`program-pins.mjs` supplies `observePinnedProgram({rpc, pins,
+minimumContextSlot})` for explicitly isolated loopback chains. Callers must
+select trusted pins from a reviewed release packet, not learn them from the
+endpoint being tested. The observer checks Loader-v3 executable ownership,
+the derived ProgramData pointer, full ProgramData bytes hash, exact ELF length
+and hash, unused zero-filled capacity and the pinned upgrade authority.
+
+It also pins the first358bytes of the382-byte bridge configuration: both
+network identities, programme/mint identities, five distinct committee
+members, precision, side, quorum, epoch, pause flags and transfer/daily limits.
+The final24bytes hold changing day/settled/outstanding counters. Those remain
+observable as exact decimal strings, without changing the static policy pin.
+They do not prove reserve backing or a complete pending-event inventory.
+
+Two finalized account reads require nondecreasing contexts, followed by a
+second genesis check. A detected upgrade or policy change rejects without
+cached success. RPC responses are streamed with a2MiB wire limit and1MiB
+per-account decoded limit; noncanonical base64, wrong owners/layouts, public
+or soaking genesi, missing accounts and bad contexts fail closed.
+
+This is a separate read-only component. The existing journal submission API
+does not yet enforce it, and it cannot sign, broadcast, retry or approve a
+withdrawal. A returned observation is a snapshot, not a continuous monitor
+or proof that an upgrade cannot happen immediately afterward. Integrating
+these checks with reviewed signer custody, upgrade controls, fresh source
+finality and independent verifiers remains required. No independent operator
+or production endpoint has been appointed by this implementation.

@@ -1,0 +1,161 @@
+{
+  "schemaVersion": 1,
+  "state": "passed",
+  "scope": "Actual private copied Agave programme/policy observation with reviewed synthetic fixture pins; no signing, simulations or broadcasts",
+  "completedAt": "2026-10-14T16:06:25.099Z",
+  "checks": [
+    "Side0 deployed code, authority, loader pointer and reviewed fixture policy match at two finalized contexts",
+    "Side0 wrong artifact, authority and policy pins reject against actual private accounts",
+    "Side1 deployed code, authority, loader pointer and reviewed fixture policy match at two finalized contexts",
+    "Side1 wrong artifact, authority and policy pins reject against actual private accounts",
+    "Both copy processes stopped; original ledgers, fixture and finalized journal hashes unchanged"
+  ],
+  "observations": [
+    {
+      "schemaVersion": 1,
+      "state": "PINNED_PRIVATE_OBSERVATION",
+      "genesis": "J8LsGtrVHe95w5Yxv3wR2Ux9uNWyDG3svK8LonczuuNh",
+      "firstContextSlot": 960,
+      "contextSlot": 960,
+      "program": "AkhzSc1JHmF8ELCZkoeCWtcUv51J18AvbBRQNjFWK2g2",
+      "programData": "7brJF5nGtuQWr7YqR21p4WvsfrFXpGSWGpLZPPGeL8kW",
+      "config": "ESSJ69TWaJ2vq5seyYzCckh1DRquzoQa1Fme5rs2JjKy",
+      "elfSHA256": "556adf3132c6d102458c0c3b13e22457401bd748b6c3a37a422fb7a339a68e53",
+      "elfBytes": 203920,
+      "programDataSHA256": "fed65001c89dcf9fda8edcdeda0f564fdb5cbbef4df5e64bc6e487b0c0f9bfab",
+      "upgradeAuthority": "DkFYo99FDvGtbQ3MD7T8d5iLohtMWJmy57YeZHjxDRZr",
+      "policySHA256": "80c6ef8ddc586311333d88270407165007293d9f9274c61fa1132d00c5815f75",
+      "epoch": "1",
+      "newLocksPaused": false,
+      "settlementPaused": false,
+      "transferLimitUnits": "2000000",
+      "dailyLimitUnits": "4000000",
+      "outstandingUnits": "1950000",
+      "observations": 2,
+      "independentVerification": false,
+      "canSign": false,
+      "canBroadcast": false,
+      "productionReady": false
+    },
+    {
+      "schemaVersion": 1,
+      "state": "PINNED_PRIVATE_OBSERVATION",
+      "genesis": "EWjA6VWd5uw1XP9fZXBnxAd2doRFf6KQke2RUwj14QE2",
+      "firstContextSlot": 772,
+      "contextSlot": 772,
+      "program": "8uajXCr14fhbmCYW1EbLJtURtFBBrU4zXDgHu3gXBME2",
+      "programData": "8YGZRLiawozgj7WKgKeDfaWp1GSoxz6SA9ZqKheVu5LK",
+      "config": "7QW6JexGs6pzqPCY65eFpk73RwQhXLDMYQdzyaneLp4C",
+      "elfSHA256": "556adf3132c6d102458c0c3b13e22457401bd748b6c3a37a422fb7a339a68e53",
+      "elfBytes": 203920,
+      "programDataSHA256": "5c47a1345a4c75bb827d509c744a3a6379e2d41db17979ca28ac4c9e480f6dd3",
+      "upgradeAuthority": "DkFYo99FDvGtbQ3MD7T8d5iLohtMWJmy57YeZHjxDRZr",
+      "policySHA256": "d04c9f6b23d2125ff2e20e400df50b555185e9bdeee3e4cc44510c34fea35d1a",
+      "epoch": "1",
+      "newLocksPaused": false,
+      "settlementPaused": false,
+      "transferLimitUnits": "2000000",
+      "dailyLimitUnits": "4000000",
+      "outstandingUnits": "1950000",
+      "observations": 2,
+      "independentVerification": false,
+      "canSign": false,
+      "canBroadcast": false,
+      "productionReady": false
+    }
+  ],
+  "broadcasts": 0,
+  "simulations": 0,
+  "productionReady": false,
+  "canonicalNetworkChanged": false,
+  "operatorIndependenceVerified": false,
+  "globalBacking": {
+    "completeInventoryVerified": false,
+    "actualGenesisBackingVerified": false,
+    "hypotheticalNativeBudgetUnits": "2000000000",
+    "observedNativeGlobalSupplyUnitsAtStart": "503000511071959133",
+    "budgetMatchesObservedGlobalSupply": false,
+    "note": "Synthetic 2-row accounting projection intentionally does not cover the complete test-validator supply. Cannot pass B3 or any monetary-release gate."
+  },
+  "pinSource": {
+    "programmeArtifactSHA256": "556adf3132c6d102458c0c3b13e22457401bd748b6c3a37a422fb7a339a68e53",
+    "coldCheckpointSHA256": "32b57e2e4aeffa035360a34b92918c24c4f1f9ef6db4e5107617c763b28a7111",
+    "policy": "Derived from the reviewed synthetic bootstrap fixture, not learnt from fresh RPC"
+  },
+  "processes": {
+    "scope": "New private copies for programme pin observation",
+    "state": "passed",
+    "starts": [
+      {
+        "side": 0,
+        "genesisMatches": true,
+        "originalLedgerPathsOpened": false
+      },
+      {
+        "side": 1,
+        "genesisMatches": true,
+        "originalLedgerPathsOpened": false
+      }
+    ],
+    "stops": [
+      {
+        "side": 0,
+        "signal": "SIGINT",
+        "returnCode": -2,
+        "applicationGracefulFlushVerified": false
+      },
+      {
+        "side": 1,
+        "signal": "SIGINT",
+        "returnCode": -2,
+        "applicationGracefulFlushVerified": false
+      }
+    ],
+    "canonicalNetworkChanged": false,
+    "productionReady": false,
+    "allStopped": true
+  },
+  "sourceBinarySHA256": "3d3140bf93c9bc967220ffd8989d8b0267b723915d32203132ecc36d2c63a49a",
+  "uploadedSourceHashes": {
+    "observe-pins.mjs": "c472de9818ad0093a3576fc868d0502107ec88672c1623ea65ab50aa67647e43",
+    "program_pins.py": "bb8e300760a4d1a9e7dcdfd101d5c36f3ca7debdf0c382685426f44957b3b0ef",
+    "program-pins.mjs": "61e0cf7efeaba7474e804039e497e1b22db11d6cc71a63f01895a00e55a61a11",
+    "sdk.mjs": "e603242692bedc2457ec9dd3cb144122ca1adb7341506d244ec864943bd8c988",
+    "bootstrap_driver.py": "200a81128b1dc697b32365ac939d7eef27c6e8b4cf3d48aa51faed4a65164a5c",
+    "cold_copy.py": "42bef261f9f273a1f525b515eabfcda61b8d6a1cbb62fd637ebbdd0f23a95b6d"
+  },
+  "originalLedgersUnchanged": true,
+  "originalFixtureUnchanged": true,
+  "originalJournalUnchanged": true,
+  "originalJournalSHA256": "166cc2b415f605071cd5a0f64a2871a64e23f8cb51742ab12032d1220ad0dccc",
+  "originalColdInventory": [
+    {
+      "sha256": "f12227059352b49203c51d16733985173997c3db837c72262cfab44ba265da3e",
+      "entries": 100,
+      "links": 2
+    },
+    {
+      "sha256": "50b97592108f440ab00c9a56b10284b4ced565ff43763684ae5256e3e305d54c",
+      "entries": 103,
+      "links": 2
+    }
+  ],
+  "processOpenPathCheckScope": "Readiness fd/maps samples; not continuous host auditing",
+  "localChecks": {
+    "programmeObserver": 12,
+    "workerGuards": 2,
+    "passed": true
+  },
+  "coreFreeze": {
+    "files": 41,
+    "allMatch": true
+  },
+  "coverageLimits": [
+    "One worker and one private validator per chain; no independent operators, fork/reorg or consensus proof",
+    "Actual deployed V2 code and wrong expected pins checked; no real upgrade, committee or pause mutation performed",
+    "Two observed snapshots cannot prove absence of changes between reads or a later upgrade",
+    "Snapshot observer is not yet enforced by journal handoff or a production signer",
+    "Origin mint authority/extended layouts, vault backing, complete inventory and signer custody require separate review",
+    "Synthetic backing remains unfunded; no mainnet, native SOC or real-value bridge activation"
+  ]
+}
