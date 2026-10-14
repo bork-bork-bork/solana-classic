@@ -1,0 +1,15 @@
+{
+  "version": "0.12",
+  "pages": 20,
+  "pdfSHA256": "a8b457af442c7a5a426b61f22cc619c77edff16e09e05db988ebe784a9c6f3e9",
+  "sourceSHA256": "103d39b0f621ccfc588e963e987ffb5780e527e5f65c13b22412d307f3a81d2f",
+  "textBoundsPassed": true,
+  "removedHostingVendorsPassed": true,
+  "removedExperimentalWordingPassed": true,
+  "plainDevnetWordingPassed": true,
+  "singleValidatorExplanationPassed": true,
+  "blockchainProjectWordingRemoved": true,
+  "renderedAllPages": true,
+  "visualReview": "All20 Poppler-rendered pages inspected in four contact sheets; cover and revised overview inspected at full size. No clipping, overlap or layout defects observed.",
+  "publicReadiness": "Presentation only; monetary launch and network release gates remain separate"
+}

@@ -118,7 +118,7 @@ class Cover(Flowable):
         c.drawImage(str(LOGO), CONTENT_W - 290, top - 464,
                     width=280, height=280, mask='auto')
         p = Paragraph(
-            "An independent blockchain project for artists, developers and communities. "
+            "An independent blockchain for artists, developers and communities. "
             "This paper explains the devnet, the intended SOC model "
             "and the work required before later releases.", styles["BodySC"],
         )
@@ -126,7 +126,7 @@ class Cover(Flowable):
         p.drawOn(c, 0, 140 - ph)
         c.setFillColor(PURPLE)
         c.setFont("SCArialBold", 10)
-        c.drawString(0, 75, "Public edition 0.11")
+        c.drawString(0, 75, "Public edition 0.12")
         c.setFont("SCArial", 10)
         c.setFillColor(MUTED)
         c.drawString(0, 55, "14 October 2026    solanaclassic.net")
@@ -148,7 +148,7 @@ def decorate(canvas, doc):
         canvas.drawString(MARGIN + 29, PAGE_H - 26, "SOLANA CLASSIC / SOC")
         canvas.setFont("SCArial", 8.2)
         canvas.setFillColor(MUTED)
-        canvas.drawRightString(PAGE_W - MARGIN, PAGE_H - 26, "WHITEPAPER 0.11")
+        canvas.drawRightString(PAGE_W - MARGIN, PAGE_H - 26, "WHITEPAPER 0.12")
         canvas.setStrokeColor(LINE)
         canvas.setLineWidth(0.5)
         canvas.line(MARGIN, 43, PAGE_W - MARGIN, 43)

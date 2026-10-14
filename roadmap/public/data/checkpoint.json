@@ -117,9 +117,9 @@
     "p95FinalizedMs": 15167
   },
   "whitepaper": {
-    "version": "0.11",
+    "version": "0.12",
     "pages": 20,
-    "sha256": "b0ab88cb6e853ad97d645b00a2663e261e081927ccdbc719930603eb79ac3eaa",
+    "sha256": "a8b457af442c7a5a426b61f22cc619c77edff16e09e05db988ebe784a9c6f3e9",
     "url": "https://solanaclassic.net/whitepaper.pdf",
     "scope": "Verified current public-domain PDF bytes; frozen candidate PDF unchanged"
   },

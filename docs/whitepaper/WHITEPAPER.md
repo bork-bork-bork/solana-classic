@@ -3,11 +3,11 @@
 ## Shared roots. A focused future for art, NFTs and memes.
 
 **Solana Classic / SOC**  
-**Public edition | Version 0.11 | 14 October 2026**
+**Public edition | Version 0.12 | 14 October 2026**
 
 **Bring back the fun. Build what comes next.**
 
-Solana Classic is an open-source blockchain project bringing together developers, artists and communities who care deeply about digital art, NFTs and memes. Our goal is sustained development in this category: a place where builders understand the people they are building for, share what they learn and give promising ideas time to grow. The products should emerge from the people who show up and do the work.
+Solana Classic is an open-source blockchain bringing together developers, artists and communities who care deeply about digital art, NFTs and memes. Our goal is sustained development in this category: a place where builders understand the people they are building for, share what they learn and give promising ideas time to grow. The products should emerge from the people who show up and do the work.
 
 We remember mint nights, new profile pictures and group chats that became communities. Solana Monkey Business, Okay Bears, BONK and WIF are part of the history that inspires us. Solana's engineering gave artists and meme makers room to experiment. We respect that work and build on its open-source foundations.
 
