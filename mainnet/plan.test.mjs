@@ -12,6 +12,10 @@ test('draft preserves exact supply, backed allocations and reserve, with executi
   assert.ok(p.requiredBeforeGenesis.some(x=>x.includes('bootstrap accounting')));
 });
 test('unbacked bootstrap funding is rejected',()=>{const c=input();c.prelockedOriginUnits='1';assert.throws(()=>planGenesis(c),/Unbacked/);});
+test('declared reserve protection must also be backed',()=>{
+  const c=input();c.protectedReserveNativeUnits='1000000000000';assert.throws(()=>planGenesis(c),/Unbacked/);
+  c.protectedReserveNativeUnits='946560';const p=planGenesis(c);assert.equal(p.declaredProtectedReserveNativeUnits,'946560');assert(p.requiredBeforeGenesis.some(v=>v.includes('bootstrap.mjs')));
+});
 test('production, inflation and precision mismatches fail closed',()=>{
   for(const [field,value] of [['environment','mainnet'],['inflation','full'],['originDecimals',10],['nativeDecimals',6],['runtimeSource','bad']]){
     const c=input();c[field]=value;assert.throws(()=>planGenesis(c));

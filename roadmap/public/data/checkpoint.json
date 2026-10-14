@@ -168,7 +168,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-14T09:58:20.706426+00:00",
+    "reviewedAt": "2026-10-14T10:30:15.666883+00:00",
     "scope": "Development checkpoint only; separate from the live testnet release",
     "projects": [
       {
@@ -176,18 +176,23 @@
         "title": "Native SOC mainnet",
         "state": "blocked",
         "description": "A separate production-network implementation, beginning with exact genesis supply and backed validator bootstrap.",
-        "currentScope": "Pinned genesis build and all 249 genesis-account totals pass. Full validators cannot start on the current host: Agave requires 1,000,000 open files; host hard ceiling is 524,288. Validator-capable Linux hosting is required; no mainnet/consensus acceptance.",
+        "currentScope": "Pinned genesis/account audit pass; new offline bootstrap auditor reconciles all 249 accounts, protected vault rent, precision slack and declared bridge counters (13 auditor + 7 planner checks). Original backing is hypothetical/unfunded; zero initial counters flagged. On-chain bootstrap/custody remain open. Full-validator startup still blocked by host file ceiling 524288 vs required 1000000; no consensus/mainnet acceptance.",
         "source": "https://github.com/solana-classic/solana-classic/tree/main/mainnet",
         "milestones": [
           {
             "title": "Genesis budget and validator planner",
             "state": "local-passed",
-            "detail": "Six checks: exact units, backing, inflation, identities and ports."
+            "detail": "Seven checks: exact units, declared backing/protected reserve, inflation, identities and ports; no deployment."
           },
           {
             "title": "Source-built genesis and private validator rehearsal",
             "state": "blocked",
             "detail": "Genesis source build/account audit pass; full-validator startup blocked by host open-file ceiling."
+          },
+          {
+            "title": "Exact genesis backing, protected rent and precision audit",
+            "state": "local-passed",
+            "detail": "13 auditor + 7 planner checks; replayed retained 249-account inventory. Separates backed reserve from new-deposit capacity and flags zero counter mismatch. Hypothetical backing; no monetary or on-chain bootstrap acceptance."
           },
           {
             "title": "Backed bootstrap and full supply reconciliation",

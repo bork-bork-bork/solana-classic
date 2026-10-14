@@ -1,0 +1,206 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-14T10:27:26.464Z",
+  "scope": "Offline exact accounting against retained real genesis inventory; original mint/supply/backing are hypothetical fixtures, not real escrow or production parameters",
+  "accountingPassed": true,
+  "productionReady": false,
+  "activationEnabled": false,
+  "canonicalNetworkChanged": false,
+  "sourceGenesisEvidenceSHA256": "e0b82f1e20fec4697273560befc3290f19ab8bbf26a645066ab74610100fb23e",
+  "sourceHashes": {
+    "mainnet/bootstrap.mjs": "18d0717d2991231f00f76465cc2a7203eaa97501a7cb34fd0c337827772e248a",
+    "mainnet/bootstrap.test.mjs": "3249a7276902061b11d63a8bea98a80621f4c915bf0bb47629beebe9377f30c7",
+    "mainnet/bootstrap-fixture.mjs": "b5c2dac67bf7885542aae3f119b7e24319e574a63284ed723a783819da3ff987",
+    "mainnet/plan.mjs": "bef1fb687b1cec04ec162ee563595f91e4d4710d25ee9df89fbdde8f2cfc7c7f",
+    "mainnet/plan.test.mjs": "d5eba10a730c91bf64756a453f54df813e1f663d83c5e02cfee7bea1ad895405",
+    "bridge/program/src/lib.rs": "6eeefeef306e4648ac8d6f9c3ac4dcd27868c56b5f172d6ec3fc25ffd11c2792"
+  },
+  "checks": {
+    "bootstrapTests": 13,
+    "plannerTests": 7,
+    "actualGenesisAccounts": 249,
+    "initialZeroCounterMismatchDetected": true
+  },
+  "zeroCounterProjection": {
+    "schemaVersion": 1,
+    "state": "DRAFT_BOOTSTRAP_ACCOUNTING",
+    "scope": "Offline actual genesis inventory with declared synthetic original backing; no on-chain bootstrap or custody proof",
+    "accountingPassed": true,
+    "productionReady": false,
+    "activationEnabled": false,
+    "canonicalNetworkChanged": false,
+    "genesis": "9kiokvuYP6X6N8E4rST91gozHhzNE6GxLTgFov7erHHY",
+    "originMint": "3qcJiAemQBkjRMpoBgjFsMxbxDG4pJUDToyoULod8Nuv",
+    "originDecimals": 6,
+    "nativeDecimals": 9,
+    "accountCount": 249,
+    "inventorySHA256": "345d52862f408266fb562da592e1afc8cd3cb4155c9689bb2f41a14dd63229ab",
+    "categories": {
+      "stake-accounts": {
+        "accounts": 3,
+        "nativeUnits": "300000000000"
+      },
+      "feature-accounts": {
+        "accounts": 237,
+        "nativeUnits": "225984240"
+      },
+      "system-balances": {
+        "accounts": 3,
+        "nativeUnits": "30000000000"
+      },
+      "reserve": {
+        "accounts": 1,
+        "nativeUnits": "669690377440"
+      },
+      "vote-accounts": {
+        "accounts": 3,
+        "nativeUnits": "81223200"
+      },
+      "configuration-accounts": {
+        "accounts": 1,
+        "nativeUnits": "960480"
+      },
+      "sysvar-accounts": {
+        "accounts": 1,
+        "nativeUnits": "1454640"
+      }
+    },
+    "totals": {
+      "originalSupplyUnits": "1000000000",
+      "nativeGenesisUnits": "1000000000000",
+      "nativeOutsideReserveUnits": "330309622560",
+      "reserveNativeUnits": "669690377440",
+      "conversionFactor": "1000"
+    },
+    "backing": {
+      "declaredPrelockedOriginUnits": "330310570",
+      "minimumPrelockedOriginUnits": "330310570",
+      "minimumVaultRentNativeUnits": "946560",
+      "protectedReserveNativeUnits": "946560",
+      "declaredBackingNativeUnits": "330310570000",
+      "backedNativeInsideReserveUnits": "947440",
+      "precisionOrExtraBackingNativeUnits": "880",
+      "availableForNewOriginDepositsNativeUnits": "669689430000"
+    },
+    "bootstrapCounters": {
+      "requiredOriginOutstandingUnits": "330310570",
+      "requiredNativeOutstandingOriginUnits": "330310570",
+      "declaredOriginOutstandingUnits": "0",
+      "declaredNativeOutstandingOriginUnits": "0",
+      "declaredCountersMatch": false,
+      "appliedOnChain": false
+    },
+    "gates": {
+      "genesisInventoryReconciled": true,
+      "declaredSyntheticBackingSufficient": true,
+      "declaredCountersMatch": false,
+      "finalizedOriginalEscrowVerified": false,
+      "genesisReserveCustodyVerified": false,
+      "bootstrapSourceEventsConsumed": false,
+      "onChainCountersApplied": false,
+      "fullValidatorConsensusVerified": false,
+      "independentReview": false
+    },
+    "blockers": [
+      "Actual finalized original mint/escrow and backing evidence must be verified.",
+      "Reviewed bridge bootstrap must set both initial counters and consume backing events without another release.",
+      "Protected reserve rent and excess backing must remain segregated from new-deposit claim capacity.",
+      "Reserve custody, bootstrap authority and replay controls need on-chain implementation/review.",
+      "Full-validator consensus, independent operators, custody and security review remain required."
+    ]
+  },
+  "expectedCounterProjection": {
+    "schemaVersion": 1,
+    "state": "DRAFT_BOOTSTRAP_ACCOUNTING",
+    "scope": "Offline actual genesis inventory with declared synthetic original backing; no on-chain bootstrap or custody proof",
+    "accountingPassed": true,
+    "productionReady": false,
+    "activationEnabled": false,
+    "canonicalNetworkChanged": false,
+    "genesis": "9kiokvuYP6X6N8E4rST91gozHhzNE6GxLTgFov7erHHY",
+    "originMint": "3qcJiAemQBkjRMpoBgjFsMxbxDG4pJUDToyoULod8Nuv",
+    "originDecimals": 6,
+    "nativeDecimals": 9,
+    "accountCount": 249,
+    "inventorySHA256": "345d52862f408266fb562da592e1afc8cd3cb4155c9689bb2f41a14dd63229ab",
+    "categories": {
+      "stake-accounts": {
+        "accounts": 3,
+        "nativeUnits": "300000000000"
+      },
+      "feature-accounts": {
+        "accounts": 237,
+        "nativeUnits": "225984240"
+      },
+      "system-balances": {
+        "accounts": 3,
+        "nativeUnits": "30000000000"
+      },
+      "reserve": {
+        "accounts": 1,
+        "nativeUnits": "669690377440"
+      },
+      "vote-accounts": {
+        "accounts": 3,
+        "nativeUnits": "81223200"
+      },
+      "configuration-accounts": {
+        "accounts": 1,
+        "nativeUnits": "960480"
+      },
+      "sysvar-accounts": {
+        "accounts": 1,
+        "nativeUnits": "1454640"
+      }
+    },
+    "totals": {
+      "originalSupplyUnits": "1000000000",
+      "nativeGenesisUnits": "1000000000000",
+      "nativeOutsideReserveUnits": "330309622560",
+      "reserveNativeUnits": "669690377440",
+      "conversionFactor": "1000"
+    },
+    "backing": {
+      "declaredPrelockedOriginUnits": "330310570",
+      "minimumPrelockedOriginUnits": "330310570",
+      "minimumVaultRentNativeUnits": "946560",
+      "protectedReserveNativeUnits": "946560",
+      "declaredBackingNativeUnits": "330310570000",
+      "backedNativeInsideReserveUnits": "947440",
+      "precisionOrExtraBackingNativeUnits": "880",
+      "availableForNewOriginDepositsNativeUnits": "669689430000"
+    },
+    "bootstrapCounters": {
+      "requiredOriginOutstandingUnits": "330310570",
+      "requiredNativeOutstandingOriginUnits": "330310570",
+      "declaredOriginOutstandingUnits": "330310570",
+      "declaredNativeOutstandingOriginUnits": "330310570",
+      "declaredCountersMatch": true,
+      "appliedOnChain": false
+    },
+    "gates": {
+      "genesisInventoryReconciled": true,
+      "declaredSyntheticBackingSufficient": true,
+      "declaredCountersMatch": true,
+      "finalizedOriginalEscrowVerified": false,
+      "genesisReserveCustodyVerified": false,
+      "bootstrapSourceEventsConsumed": false,
+      "onChainCountersApplied": false,
+      "fullValidatorConsensusVerified": false,
+      "independentReview": false
+    },
+    "blockers": [
+      "Actual finalized original mint/escrow and backing evidence must be verified.",
+      "Reviewed bridge bootstrap must set both initial counters and consume backing events without another release.",
+      "Protected reserve rent and excess backing must remain segregated from new-deposit claim capacity.",
+      "Reserve custody, bootstrap authority and replay controls need on-chain implementation/review.",
+      "Full-validator consensus, independent operators, custody and security review remain required."
+    ]
+  },
+  "remaining": [
+    "Actual finalized original backing and custody evidence",
+    "On-chain bootstrap counters and one-time consumption of backing events",
+    "Protected-reserve enforcement and independent review",
+    "Full-validator hosting, consensus/recovery and independent operators"
+  ]
+}

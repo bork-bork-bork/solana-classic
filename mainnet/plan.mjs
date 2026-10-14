@@ -41,7 +41,8 @@ export function planGenesis(input){
   const ports=new Set();for(const v of validators)for(const port of [v.rpcPort,v.rpcPort+1]){if(ports.has(port))throw new Error('RPC/WebSocket port collision');ports.add(port);}
   const systemBudget=units(input.systemAccountBudgetUnits,'systemAccountBudgetUnits');
   const allocated=bootstrap+systemBudget;
-  if(allocated>locked*factor)throw new Error('Unbacked bootstrap balances, stakes or system-account funding');
+  const protection=input.protectedReserveNativeUnits===undefined?0n:units(input.protectedReserveNativeUnits,'protectedReserveNativeUnits');
+  if(allocated+protection>locked*factor)throw new Error('Unbacked bootstrap balances, stakes, system-account funding or protected reserve');
   if(allocated>=supply*factor)throw new Error('No native reserve remains');
   if(input.expectedGenesis===currentTestnet)throw new Error('The existing testnet ledger must not be reused');
   const plans=validators.map(v=>({identity:v.identity,arguments:[
@@ -54,11 +55,13 @@ export function planGenesis(input){
     runtimeSource:upstream,clusterClassification:'development',inflation:'none',originMint:mint,
     originDecimals:input.originDecimals,nativeDecimals:9,totalNativeUnits:String(supply*factor),
     prelockedOriginUnits:String(locked),bootstrapAndSystemUnits:String(allocated),
+    declaredProtectedReserveNativeUnits:protection.toString(),minimumPrelockedOriginUnits:((allocated+protection+factor-1n)/factor).toString(),
     reserve:{address:reserve,nativeUnits:String(supply*factor-allocated)},validators,
     validatorArgumentDrafts:plans,
     requiredBeforeGenesis:['Compile and checksum solana-genesis from the pinned source.',
       'Verify original mint supply, immutable authorities and allowed Token-2022 extensions.',
       'Reconcile every actual genesis account and native unit against the planned budget.',
+      'Run mainnet/bootstrap.mjs on the actual inventory, including protected vault rent and precision slack.',
       'Verify finalized original-SOC backing before any allocated native units become spendable.',
       'Implement and test bridge bootstrap accounting; the prototype starts outstanding at zero.',
       'Provide bootstrap/entrypoint networking and validator-specific private credentials locally.'],

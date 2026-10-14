@@ -181,3 +181,23 @@ through origin RPC outage/restart, then its original signature/receipt and
 original user 1,400,000 units. All three private processes stopped. The fault
 harness waited for finality; this is not unknown landing, a fork or production
 redemption. See `evidence/bridge-redemption-recovery.json`.
+
+## Exact bootstrap accounting checkpoint
+
+The new offline `mainnet/bootstrap.mjs` auditor counts all 249 retained actual
+genesis accounts and reconciles declared original/native units. It includes
+protected reserve rent, exact precision slack, reserve tranches and proposed
+initial bridge counters. Thirteen bootstrap and seven planner checks pass.
+The planner now also checks any declared protected reserve budget.
+
+For the hypothetical six-decimal source budget used with this inventory,
+330,310,570 original base units cover the allocations and eight-byte vault
+rent; 880 native base units remain as precision slack. Source mint/supply/escrow
+are hypothetical and unfunded. Matching input counters do not set anything
+on-chain. Current zero-initialization is flagged as a failed bootstrap gate.
+
+See `mainnet/BOOTSTRAP.md` and `evidence/mainnet-bootstrap-accounting.json`.
+Finalized backing, enforceable reserve custody, one-time bootstrap event
+consumption, actual counter initialization, full-validator consensus and
+independent review remain required. No genesis/runtime or monetary activation
+was performed by this accounting work.
