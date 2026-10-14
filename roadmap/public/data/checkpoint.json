@@ -474,12 +474,17 @@
           },
           {
             "title": "Source-build migration and new stability run",
-            "state": "pending",
-            "detail": "Awaiting explicit devnet maintenance decision. New stopped-writer backup and held-candidate continuity checks precede opening writes; the new runtime needs its own full24-hour test."
+            "state": "running",
+            "detail": "Fresh stopped-writer backup is verified and retained. Full continuity inspection is pending available capacity. Source runtime and new stability test are not live. Work is paused for the repository history rewrite."
           }
         ]
       }
     ],
     "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/bridge-two-chain-rehearsal.json"
+  },
+  "migrationMaintenance": {
+    "authorizedAt": "2026-10-14T21:40:39.917980+00:00",
+    "state": "waiting-repository-rewrite",
+    "detail": "Fresh stopped-writer backup is verified and retained. Full continuity inspection is pending available capacity. Source runtime and new stability test are not live. Work is paused for the repository history rewrite."
   }
 }

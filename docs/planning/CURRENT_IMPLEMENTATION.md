@@ -2,6 +2,14 @@
 
 Work only this repository. User asked to continue roadmap/coding while asleep, finish actual custom-program developer access, and replace visible hosting links with our own domain. Half-hour thread follow-ups requested. No production money, mainnet activation, bridge activation, purchases or automatic validator cutover authorized by that continuation.
 
+## Repository rewrite hold
+
+The founder requested local commits and a wait for the public history rewrite. Do not push the previous branch or resume maintenance operations until the founder confirms the rewrite is complete. Then run `git fetch origin` and `git switch -c rewritten origin/main`. Reconcile the privately retained local maintenance commit with that clean branch without restoring old ancestry. Use commit author Solana Classic Labs; do not add personal identifiers or absolute user paths to tracked files.
+
+Devnet is currently in stopped-writer maintenance on deployment be0323e5-298c-4306-abf1-9190e129aff0, reusing the exact reviewed official image. Fresh raw backup SHA1d5a873e8b378555ad825d909c6ce6dd3338b928268664a5e8abee2446912a81, bytes3621519360. Protected compressed local and remote copies are verified, SHA319c0e0e83941e5d59884df658b9f710645f61ee30f5a62bfeb11fc41fdbcaaa, bytes1055669530. All old backups and the unexpected CLI rebuild attempt were retained. Public writes remain closed. The source runtime has not been deployed and the new stability test has not started.
+
+The current Linux host's enforced file ceiling blocks the standard full inventory tool. Official same-version macOS tools were verified for an isolated backup inspection alternative; incomplete extraction exhausted local disk space. Only that temporary extraction was removed; complete backups remain. Available local space after cleanup is approximately1.55GB, insufficient for the full inspection dataset. Resolve capacity through a reviewed existing isolated target or founder-provided storage; do not bypass host checks, delete retained recovery evidence, enable writes on an incomplete comparison or infer a passed continuity check. Public stage evidence is `evidence/migration-maintenance-backup-stage.json`. New pure account inventory/comparison helper has8 passing regressions; it has not yet passed a real complete-bank continuity comparison. The original successful stability archive remains historical and unchanged.
+
 ## Active work
 
 - Public main includes verified developer access, branded transport, public browser access, navigation polish, blockchain wording and whitepaper edition0.14. Local branch is build/six-day-mvp. Recent bridge proof/publication checkpoints are recorded below; do not interpret prototype milestones as production acceptance.

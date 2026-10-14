@@ -7,7 +7,7 @@
   },
   "delivery": {
     "deadline_elapsed_hours": 144,
-    "implementation_root": "<workspace>/solana-classic",
+    "implementation_root": ".",
     "scope": "experimental TEST devnet, SOC Pump launch preparation and future 1:1 native bridge design",
     "agave_release": "v3.0.14",
     "test_asset_symbol": "TEST",

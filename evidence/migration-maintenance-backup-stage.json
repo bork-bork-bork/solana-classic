@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-14T22:18:14.130995+00:00",
+  "scope": "authorized devnet maintenance backup stage; continuity not accepted",
+  "passed": false,
+  "phase": "backup-verified-inventory-blocked",
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "backupReceipt": {
+    "schemaVersion": 1,
+    "scope": "remote cold archive creation only; isolated restore pending",
+    "passed": true,
+    "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+    "archiveSha256": "1d5a873e8b378555ad825d909c6ce6dd3338b928268664a5e8abee2446912a81",
+    "archiveBytes": 3621519360,
+    "startedAt": "2026-10-14T21:51:54.894Z",
+    "completedAt": "2026-10-14T21:52:58.103Z",
+    "deploymentId": "be0323e5-298c-4306-abf1-9190e129aff0",
+    "serviceId": "d0a1de40-bd9c-47eb-a7fc-477f1c55b2d6",
+    "writerPolicy": "Fresh maintenance container; neither validator nor API started."
+  },
+  "compressedBackupBytes": 1055669530,
+  "compressedBackupSHA256": "319c0e0e83941e5d59884df658b9f710645f61ee30f5a62bfeb11fc41fdbcaaa",
+  "reviewedMaintenanceDeployment": "be0323e5-298c-4306-abf1-9190e129aff0",
+  "reviewedImageDigest": "sha256:5cc04f8a32cd5cb8def85e5384b4bb9caa09125327b332510cc77855e410f4dd",
+  "backupHashAndMembersVerified": true,
+  "protectedLocalCopyVerified": true,
+  "continuityPassed": false,
+  "sourceRuntimeLive": false,
+  "newStabilityStarted": false,
+  "repositoryPushesHeld": true,
+  "blockers": [
+    "Local isolated archive extraction exhausted available disk space; incomplete temporary extraction removed, complete protected backup retained.",
+    "Repository history rewrite in another session; waiting for founder confirmation before rebasing and resuming."
+  ],
+  "oldBackupsPreserved": true,
+  "unexpectedCLIRebuildAttemptRetained": true,
+  "publicWritesHeld": true,
+  "releaseAccepted": false
+}

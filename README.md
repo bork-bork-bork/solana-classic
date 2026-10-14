@@ -12,7 +12,7 @@ Solana Monkey Business. Okay Bears. BONK. WIF. Names that bring back a timeline,
 
 We respect the engineering, the builders and the communities that made Solana possible. Its speed and accessible transaction costs gave people room to experiment. Solana Classic builds on that open-source work.
 
-Our disagreement is about what deserves sustained attention. The Foundation's public-facing agenda includes [capital markets](https://solana.com/solutions/tokenization) and [AI agents](https://solana.com/solutions/ai). We believe the cultural community we belong to needs a home where art, NFTs and memes are the mission that sets the roadmap.
+Our disagreement is about what deserves sustained attention. The Foundation's public-facing agenda includes [capital markets](https://solana.com/solutions/tokenization). We believe the cultural community we belong to needs a home where art, NFTs and memes are the mission that sets the roadmap.
 
 On 27 July 2025, Solana co-founder Anatoly Yakovenko wrote:
 
