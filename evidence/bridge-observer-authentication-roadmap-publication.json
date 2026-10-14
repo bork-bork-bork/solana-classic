@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-14T16:38:24.501032+00:00",
+  "scope": "Anonymous roadmap verification after local signed-review-report codec publication; no real observer roster, recovery activation or canonical cutover",
+  "passed": true,
+  "sourceCommit": "432a5fb",
+  "deploymentId": "dpl_D1X3YuKtd84C8gnzvbtbMS2FHWp2",
+  "publicURL": "https://solanaclassic.net/roadmap",
+  "checkpointSHA256": "2425aba7f5f9a22e7f5ba249ab18fdc224315a03f6b43a9765a3d5ccde0a7b71",
+  "publicMilestone": {
+    "title": "Authenticated observer reports for private expiry review",
+    "state": "local-passed",
+    "detail": "12 new +7 structural regressions. Three distinct signatures in fixed5-key roster; canonical purpose/domain, original operation and code/accounting digest binding, quorum/forgery/replay/freshness checks. Combined review rechecks journal and rejects late payout/missing history; no journal change, retry/refund/reset/signing/broadcast. Synthetic local fixtures only; no production roster or independent operator/finality acceptance.",
+    "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/bridge-observer-report-authentication.json"
+  },
+  "observedAt": "2026-10-14T16:38:23.170Z",
+  "network": {
+    "state": "online",
+    "genesisMatches": true,
+    "slot": 303952,
+    "finalizedSlot": 303900,
+    "identityMatches": true,
+    "monitorState": "online",
+    "monitorAt": "2026-10-14T16:38:14.594Z",
+    "lastProgressAt": "2026-10-14T16:38:14.507Z"
+  },
+  "soak": {
+    "state": "running",
+    "runnerState": "starting",
+    "freezeMatches": true,
+    "progressFreezeMatches": true,
+    "startedAt": "2026-10-13T16:48:22.762Z",
+    "endsAt": "2026-10-14T16:48:22.762Z",
+    "reportAt": "2026-10-14T16:33:50.241Z",
+    "progressStale": false,
+    "completedJourneys": 286,
+    "totalJourneys": 288,
+    "observations": 2850,
+    "accepted": false,
+    "activationAt": "2026-10-13T16:47:36.929Z",
+    "issues": [],
+    "elapsedMs": 85800408
+  },
+  "productionReady": false,
+  "releaseAccepted": false,
+  "canonicalNetworkChanged": false
+}
