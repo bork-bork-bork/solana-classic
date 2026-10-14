@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-14T15:37:42.257981+00:00",
+  "scope": "Anonymous main-site roadmap verification after positive synthetic pending original-withdrawal recovery; no canonical cutover, expired-operation retry or mainnet activation",
+  "passed": true,
+  "sourceCommit": "ee8fd00",
+  "deploymentId": "dpl_DMy3bVo4NvTAhUUaneWz8YDq5sWm",
+  "publicURL": "https://solanaclassic.net/roadmap",
+  "checkpointSHA256": "e4593168ade510b10032d4d2a430210d208f0532575570796baa857f9b1c34e0",
+  "publicMilestone": {
+    "title": "V2 original withdrawal recovers after observed pending crash",
+    "state": "rehearsal-passed",
+    "detail": "7 actual checks +10 copy/crash guards. New nonce7, one broadcast; confirmed slot944 vs finalized913 before guarded SIGKILL. Original signature finalizes with exact10000-unit escrow debit/recipient credit and unchanged bootstrap floor/record. Finalized height912 before kill,943 after recovery, original expiry1060. All3copy starts stopped, source baseline unchanged. Separate nonce6 expiry stays unresolved; no retry or production acceptance.",
+    "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/bridge-v2-redemption-pending-crash.json"
+  },
+  "observedAt": "2026-10-14T15:37:40.460Z",
+  "network": {
+    "state": "online",
+    "genesisMatches": true,
+    "slot": 295159,
+    "finalizedSlot": 295061,
+    "identityMatches": true,
+    "monitorState": "online",
+    "monitorAt": "2026-10-14T15:37:12.608Z",
+    "lastProgressAt": "2026-10-14T15:37:12.519Z"
+  },
+  "soak": {
+    "state": "running",
+    "runnerState": "starting",
+    "freezeMatches": true,
+    "progressFreezeMatches": true,
+    "startedAt": "2026-10-13T16:48:22.762Z",
+    "endsAt": "2026-10-14T16:48:22.762Z",
+    "reportAt": "2026-10-14T15:33:50.222Z",
+    "progressStale": false,
+    "completedJourneys": 274,
+    "totalJourneys": 288,
+    "observations": 2730,
+    "accepted": false,
+    "activationAt": "2026-10-13T16:47:36.929Z",
+    "issues": [],
+    "elapsedMs": 82157698
+  },
+  "productionReady": false,
+  "releaseAccepted": false,
+  "canonicalNetworkChanged": false
+}
