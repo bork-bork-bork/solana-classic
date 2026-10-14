@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-14T18:24:37.906317+00:00",
+  "scope": "remote anonymous final-browser milestone publication; original validator unchanged and full release pending",
+  "passed": true,
+  "sourceCommit": "9722ba1",
+  "web": "https://solanaclassic.net/roadmap",
+  "roadmapDeployment": "dpl_DKpKMDjsD6WeA4eVxGYk6ijVdFsC",
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "candidate": {
+    "apiOrigin": "https://network-release-production.up.railway.app",
+    "frontendOrigin": "https://solana-classic-soc.vercel.app",
+    "frontendDeploymentId": "dpl_3aWWzKDohr4SrgijgrB8dWgHHS5r",
+    "frontendCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "apiCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "networkConfigSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+    "dependencyManifestSha256": "e6da27717e6a84ca7b29d707ff63591b2ff0cfc38892d3b4667f8615bdf7bbc0"
+  },
+  "statusFetchedAt": "2026-10-14T18:24:37.906Z",
+  "finalizedReceipts": 12,
+  "demoAssets": 4,
+  "originalSoakAccepted": true,
+  "runtimeMatches": true,
+  "frozenFilesUnchanged": true,
+  "releaseAccepted": false,
+  "cutoverAccepted": false,
+  "canonicalProcessChanged": false,
+  "renderedMilestone": true,
+  "browser": "Read-only Chromium1440; no page errors, whole release Pending final review",
+  "limitations": "Browser transaction proof covers full1440journeys and360Explorer/focus smoke, not whole mobile/accessibility acceptance; image-origin hardening subsequently unit-verified, no new live run."
+}
