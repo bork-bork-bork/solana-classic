@@ -5,5 +5,7 @@ export function publicCopy(value: string | undefined): string {
         .replace(/\bexperimental network\b/gi, 'devnet')
         .replace(/\bexperimental\b/gi, 'development')
         .replace(/\ban devnet\b/gi, 'a devnet')
-        .replace(/\bdevnet testnet\b/gi, 'devnet');
+        .replace(/\bdevnet testnet\b/gi, 'devnet')
+        .replace(/\bTestnet\b/g, 'Devnet')
+        .replace(/\btestnet\b/g, 'devnet');
 }

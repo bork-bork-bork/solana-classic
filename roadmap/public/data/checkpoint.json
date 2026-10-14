@@ -123,9 +123,9 @@
     "p95FinalizedMs": 15167
   },
   "whitepaper": {
-    "version": "0.13",
+    "version": "0.14",
     "pages": 20,
-    "sha256": "05ab937c2fb52eef718f6392890a0ae876e9ab4fda001931a997b70e6381e575",
+    "sha256": "e820600bb230342d9d43df74ceb611fde164330da95407b7fa2155636ace6f9b",
     "url": "https://solanaclassic.net/whitepaper.pdf",
     "scope": "Verified current public-domain PDF bytes; frozen candidate PDF unchanged"
   },
@@ -187,7 +187,7 @@
   },
   "development": {
     "reviewedAt": "2026-10-14T18:20:53.092114+00:00",
-    "scope": "Development checkpoint only; separate from the live testnet release",
+    "scope": "Development checkpoint only; separate from the live devnet release",
     "projects": [
       {
         "id": "mainnet",

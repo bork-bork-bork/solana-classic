@@ -4,7 +4,7 @@ import { GENESIS } from './display';
 export { API, GENESIS, EXPLORER, safeArtwork } from './display';
 export function verifyIdentity(network: { expectedGenesisHash?: string | null; hasMonetaryValue?: boolean; denomination?: string }, status: { state?: string; genesisMatches?: boolean }, actual: string) {
   validateExperimentalGenesis(GENESIS, actual);
-  if (network.expectedGenesisHash !== GENESIS || network.hasMonetaryValue !== false || network.denomination !== 'TEST' || status.state !== 'online' || status.genesisMatches !== true) throw new Error('Classic testnet identity is unavailable. Actions are paused.');
+  if (network.expectedGenesisHash !== GENESIS || network.hasMonetaryValue !== false || network.denomination !== 'TEST' || status.state !== 'online' || status.genesisMatches !== true) throw new Error('Classic devnet identity is unavailable. Actions are paused.');
 }
 export function parseAmount(value: string): number {
   if (!/^\d{1,7}(?:\.\d{1,9})?$/.test(value)) throw new Error('Enter a positive amount with at most 9 decimals.');

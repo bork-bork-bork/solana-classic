@@ -62,7 +62,7 @@ shutil.copy2(root / 'infra/custom-domain/SiteHeader.tsx', overlay / 'src/SiteHea
 for name in ['Builders.tsx', 'Collectors.tsx', 'Whitepaper.tsx', 'Developers.tsx']:
     shutil.copy2(root / 'infra/custom-domain' / name, overlay / 'src' / name)
 shutil.copy2(root / 'developers/network.json', overlay / 'src/developer-network.json')
-paper_edition = json.loads((root / 'docs/whitepaper/output/qa/verification-v013.json').read_text())
+paper_edition = json.loads((root / 'docs/whitepaper/output/qa/verification-v014.json').read_text())
 (overlay / 'src/whitepaper-edition.json').write_text(json.dumps({'version': paper_edition['version'], 'pages': paper_edition['pages']}))
 shutil.copy2(root / 'infra/custom-domain/About.tsx', overlay / 'src/About.tsx')
 shutil.copy2(root / 'infra/custom-domain/public-copy.ts', overlay / 'src/public-copy.ts')
@@ -79,8 +79,8 @@ playground=playground.replace("api('/api/gallery', { mint:", "api(state.document
 playground=playground.replace('onChange={setPreset}', 'onChange={id => { setPreset(id); setCustomImage(null); }}')
 playground=playground.replace('<button className="button primary mint-button"', '<ImageUpload value={customImage} disabled={busy || locked} onChange={setCustomImage} onBusyChange={setUploadBusy}/><button className="button primary mint-button"')
 playground=playground.replace('disabled={busy || !publicKey || !canMutate || !!completed}', 'disabled={busy || uploadBusy || !publicKey || !canMutate || balance === null || balance === 0 || !!completed}').replace('TEST','tSOC')
-playground=playground.replace('<ImageUpload value={customImage}', '<p className="mint-guidance" role="status">{!canMutate ? "Checking the testnet connection. If this persists, refresh the page." : !publicKey ? "1. Create your test wallet, then get 1 tSOC to mint." : balance === null || balance === 0 ? "2. Get 1 tSOC using the button in your test wallet." : "3. Choose a preset or upload artwork, then mint."}</p><ImageUpload value={customImage}')
-playground=playground.replace('The network is being prepared. Test actions become available once connected.', 'Checking the testnet connection. <button className="text-button" onClick={() => window.dispatchEvent(new Event("sc-network-retry"))}>Try connection again</button>')
+playground=playground.replace('<ImageUpload value={customImage}', '<p className="mint-guidance" role="status">{!canMutate ? "Checking the devnet connection. If this persists, refresh the page." : !publicKey ? "1. Create your test wallet, then get 1 tSOC to mint." : balance === null || balance === 0 ? "2. Get 1 tSOC using the button in your test wallet." : "3. Choose a preset or upload artwork, then mint."}</p><ImageUpload value={customImage}')
+playground=playground.replace('The network is being prepared. Test actions become available once connected.', 'Checking the devnet connection. <button className="text-button" onClick={() => window.dispatchEvent(new Event("sc-network-retry"))}>Try connection again</button>')
 (overlay / 'src/Playground.tsx').write_text(playground)
 network=(overlay / 'src/useNetwork.ts').read_text()
 network="import { publicCopy } from './public-copy';\n"+network
@@ -110,7 +110,7 @@ shutil.copy2(root / 'infra/custom-domain/Home.tsx', overlay / 'src/Home.tsx')
 pages="import Transactions from './Transactions';\nimport AddressDetails from './AddressDetails';\n"+pages
 pages=pages.replace('if (!signature && !address) return;', 'if (!signature) return;')
 pages=pages.replace('{address ? <Address value={address}/> : null}', '{address ? <AddressDetails address={address}/> : null}')
-pages=pages.replace('<h1>Follow the proof.</h1><p className="lead">Actual transactions and accounts on the configured experimental network.</p>', '{address ? <p className="explorer-breadcrumb"><a href="/explorer">Explorer</a> / Account</p> : <><h1>Explorer</h1><p className="lead">Finalized activity on Solana Classic Testnet.</p></>}')
+pages=pages.replace('<h1>Follow the proof.</h1><p className="lead">Actual transactions and accounts on the configured experimental network.</p>', '{address ? <p className="explorer-breadcrumb"><a href="/explorer">Explorer</a> / Account</p> : <><h1>Explorer</h1><p className="lead">Finalized activity on Solana Classic Devnet.</p></>}')
 if os.environ.get('SC_ENABLE_TRANSACTION_FEED') == '1':
     pages=pages.replace('{loading ? <p>Reading chain state…</p>', '{!signature && !address ? <Transactions/> : null}{loading ? <p>Reading chain state…</p>')
     pages=pages.replace("This explorer looks up accounts, transactions and app-known assets. It does not index every activity on the chain. An account's program owner is not an NFT holder.", "Transaction lists read finalized blocks across the retained chain history. An account's program owner is not an NFT holder.")
@@ -128,6 +128,8 @@ for source in (overlay / 'src').rglob('*'):
         copy = source.read_text().replace('Experimental devnet', 'Devnet').replace('experimental devnet', 'devnet')
         copy = copy.replace('experimental network', 'devnet').replace('Experimental network', 'Devnet')
         copy = copy.replace('an devnet', 'a devnet').replace('devnet testnet', 'devnet')
+        copy = re.sub(r'\bTestnet\b', 'Devnet', copy)
+        copy = re.sub(r'\btestnet\b', 'devnet', copy)
         copy = re.sub(r'\bexperimental\b', 'devnet', copy, flags=re.IGNORECASE)
         if re.search(r'\ban devnet\b|\bdevnet testnet\b|\bone operator\b|\b1 operator\b', copy, flags=re.IGNORECASE):
             raise SystemExit('Unclear public devnet wording: ' + str(source))
@@ -173,7 +175,7 @@ assert old_deadline in roadmap
 roadmap = roadmap.replace(old_deadline, '<section class="release-criteria"><h2>Before release</h2><p>The final candidate must pass an uninterrupted 24-hour stability test, browser regression and operator review. Unresolved checks stay visible here.</p></section>')
 roadmap = roadmap.replace('/roadmap/app.js', '/roadmap-app.js')
 (destination / 'public/roadmap.html').write_text(roadmap)
-paper_qa = json.loads((root / 'docs/whitepaper/output/qa/verification-v013.json').read_text())
+paper_qa = json.loads((root / 'docs/whitepaper/output/qa/verification-v014.json').read_text())
 assert paper_qa['pdfSHA256'] == hashlib.sha256((destination / 'public/whitepaper.pdf').read_bytes()).hexdigest()
 assert paper_qa['sourceSHA256'] == hashlib.sha256((root / 'docs/whitepaper/WHITEPAPER.md').read_bytes()).hexdigest()
 roadmap_app = (root / 'infra/custom-domain/roadmap-app.js').read_text()

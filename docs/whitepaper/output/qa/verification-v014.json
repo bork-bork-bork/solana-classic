@@ -1,0 +1,11 @@
+{
+  "version": "0.14",
+  "pages": 20,
+  "pdfSHA256": "e820600bb230342d9d43df74ceb611fde164330da95407b7fa2155636ace6f9b",
+  "sourceSHA256": "975a0a1744f5dc67a603c853f5b86b5cbd535733f957aab0664bfa2b0a6f90fe",
+  "textBoundsPassed": true,
+  "consistentDevnetWordingPassed": true,
+  "renderedAllPages": true,
+  "visualReview": "All 20 latest Poppler-rendered pages inspected in four contact sheets. No clipping, overlap or table layout defects observed.",
+  "publicReadiness": "Terminology only; monetary launch and network release gates remain separate"
+}

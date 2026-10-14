@@ -3,7 +3,7 @@
 ## Shared roots. A focused future for art, NFTs and memes.
 
 **Solana Classic / SOC**  
-**Public edition | Version 0.13 | 14 October 2026**
+**Public edition | Version 0.14 | 14 October 2026**
 
 **Bring back the fun. Build what comes next.**
 
@@ -134,7 +134,7 @@ SOC is intended to be the network token of Solana Classic. A planned one-to-one 
 | Redemption bridge | Planned and unimplemented; no deployed addresses | Intended 1 original SOC to 1 native SOC in display units, with separate fees |
 | SOC markets | Verified venues and pool addresses not published here | Trading infrastructure and liquidity remain separate from the bridge |
 
-The TEST experiment grants no conversion right, airdrop entitlement or allocation in mainnet SOC. Its founding testnet art is participation in a technical and cultural pilot. Test units are not sold, redeemable or represented as an investment. The validator's bootstrap balances are development configuration, not a proposed SOC supply. The planned mainnet bridge does not make TEST redeemable.
+The TEST experiment grants no conversion right, airdrop entitlement or allocation in mainnet SOC. Its founding devnet art is participation in a technical and cultural pilot. Test units are not sold, redeemable or represented as an investment. The validator's bootstrap balances are development configuration, not a proposed SOC supply. The planned mainnet bridge does not make TEST redeemable.
 
 The original SOC token requires actual venue creation and mint verification. Native SOC requires a mainnet genesis, protected reserve and monetary policy consistent with one-to-one redemption. No total supply, developer allocation, reserve quantity or production fee schedule is invented here. Original mint state and native balances are verified from their respective chains. The proposed model excludes independent native inflation; adding issuance would require an explicitly revised backing model before adoption. No original mint, mainnet genesis, bridge escrow, reserve or pool address is published at this checkpoint.
 
@@ -286,7 +286,7 @@ One-to-one applies to display units, not identical raw integer balances. If the 
 
 Fees are charged and quoted separately from the nominal one-to-one exchange. A round trip deducts the spent network and bridge fees from the user's balances; one-to-one does not make transfers free. Native transaction fees transferred to validators remain outstanding native claims; fee burning reduces outstanding native units and needs an explicit collateral-accounting policy. Neither action authorizes extra original-token withdrawal. **Independent native inflation is excluded from this model.** Introducing it would require a revised, explicit backing model and new review before adoption.
 
-One-to-one redemption is not a price peg guarantee or instant access to a market. It depends on available reserve capacity, escrow integrity, both networks, bridge controls and successful transaction settlement. The bridge is unavailable until implemented, reviewed and released. TEST, demo memes and founding testnet NFTs receive no bridge or conversion entitlement.
+One-to-one redemption is not a price peg guarantee or instant access to a market. It depends on available reserve capacity, escrow integrity, both networks, bridge controls and successful transaction settlement. The bridge is unavailable until implemented, reviewed and released. TEST, demo memes and founding devnet NFTs receive no bridge or conversion entitlement.
 
 ### Markets and later pools
 
