@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "scope": "Actual private Agave ledgers and synthetic co-signers; one new lock/claim, withheld client confirmation, real destination RPC outage and same-signature recovery",
+  "state": "passed",
+  "startedAt": "2026-10-14T09:27:05.070Z",
+  "genesi": [
+    "98Ddpz1EnmPr93Szo56cyKE74PAF6NWiX6if3M9hDxFo",
+    "HawwZ5mK5sF9T9wFEBZWydhHm9kPQF18vfBoP8QMgi7s"
+  ],
+  "canonicalNetworkChanged": false,
+  "productionReady": false,
+  "checks": [
+    "new synthetic origin lock finalized; native release remains pending",
+    "exact fully signed claim persisted in a private receipt-keyed journal",
+    "one claim broadcast; client journal deliberately remains awaiting confirmation",
+    "actual destination RPC outage retains original signature and refuses a second attempt",
+    "original signature, finalized receipt, exact bytes and 100000000-lamport economic movement reconciled",
+    "both bridge counters reconcile after recovery; no replacement claim or fresh signatures"
+  ],
+  "claimBroadcasts": 1,
+  "sourceSignature": "2fchZtQQEetb7hBfzjrBoxRKwppbZ1iDofVZyVrzUcXpciZpYqEimtWohZ6dUikn5Hhs8WECBohBKmnK64s9s2Y8",
+  "operation": {
+    "id": "8PkneG3X98aJ3eLqSbfGpGqpUSqiLxxdz7kAiNxyNEfB",
+    "signature": "225EvjZ8z6aPv1SWBTLiD4Kc218aggNXQPqfVuAY7Tkp2UNYpuB3XTXFVhWrnbLzMmiq61fhRy6frrPv38gKwSSr",
+    "eventHash": "4bbb85f85aa5719817cd91950193257da001e5e9a426487578634607e72b9bd2",
+    "transactionHash": "d1bc647b057cce277bcdf0a84ef1761fd25c9c00563b9d4dc86dc8daa8d8ce70",
+    "state": "FINALIZED",
+    "attempts": 1,
+    "productionReady": false
+  },
+  "operationStateBeforeBroadcast": "SUBMISSION_ATTEMPTED",
+  "claimSignature": "225EvjZ8z6aPv1SWBTLiD4Kc218aggNXQPqfVuAY7Tkp2UNYpuB3XTXFVhWrnbLzMmiq61fhRy6frrPv38gKwSSr",
+  "clientConfirmationWithheld": true,
+  "reconciliation": {
+    "originOutstandingUnits": "700000",
+    "nativeOutstandingOriginUnits": "700000",
+    "newClaimOriginUnits": "100000",
+    "newNativeUnits": "100000000"
+  },
+  "completedAt": "2026-10-14T09:27:39.146Z",
+  "coldArchive": {
+    "sha256": "856230df20700fa612657a77183822b0c71d8a11de8f4e04f6933c51bb7e17ee",
+    "bytes": 381204480,
+    "scope": "Retained stopped private ledgers before new synthetic lock; not a tested cold restore"
+  },
+  "faultHarnessObservedFinality": {
+    "slot": 634,
+    "clientJournalStillUnconfirmed": true
+  },
+  "processRecovery": {
+    "starts": [
+      {
+        "side": 0,
+        "genesisMatches": true,
+        "minimumFinalizedSlot": 0
+      },
+      {
+        "side": 1,
+        "genesisMatches": true,
+        "minimumFinalizedSlot": 0
+      },
+      {
+        "side": 1,
+        "genesisMatches": true,
+        "minimumFinalizedSlot": 634
+      }
+    ],
+    "stops": [
+      {
+        "side": 1,
+        "signal": "SIGINT",
+        "returnCode": -2,
+        "applicationGracefulFlushVerified": false
+      },
+      {
+        "side": 0,
+        "signal": "SIGINT",
+        "returnCode": -2,
+        "applicationGracefulFlushVerified": false
+      },
+      {
+        "side": 1,
+        "signal": "SIGINT",
+        "returnCode": -2,
+        "applicationGracefulFlushVerified": false
+      }
+    ],
+    "allStopped": true
+  },
+  "sourceBinarySHA256": "3d3140bf93c9bc967220ffd8989d8b0267b723915d32203132ecc36d2c63a49a",
+  "remainingWork": [
+    "Origin redemption journal",
+    "Unknown landing/expired transaction and pruning drill",
+    "Actual pre-finalized fork and hard-crash/cold-restore drills",
+    "Production code/authority pinning, independent verifiers/custody and security review",
+    "Backed bootstrap and full-validator consensus"
+  ],
+  "sourceHashes": {
+    "pending.py": "0341f6e3baa31e25de5470a862e46deb9a1a28957b5b484b3b88c14f687b60a0",
+    "recovery.py": "39b11723247807387e124fdc7b5120fa5b0c02ee08d29b3e011edd451b28272c",
+    "pending.mjs": "0a5ed4f5b2cd05fa039b24c0013b63ac0f67245ec45659cf9c1cfa96941d76ad",
+    "pending-claim.mjs": "d8379c1d48f19f8fa43a3e2e60faf78f899d4ff8afb91de0e089255395efd1e3",
+    "sdk.mjs": "4e54cb3f68a66caaca7cece0365fc038490fb84c4fd20f533f50ec69b59c329f"
+  },
+  "repositorySourceHashes": {
+    "engine/rehearsal/pending.py": "0341f6e3baa31e25de5470a862e46deb9a1a28957b5b484b3b88c14f687b60a0",
+    "engine/rehearsal/recovery.py": "39b11723247807387e124fdc7b5120fa5b0c02ee08d29b3e011edd451b28272c",
+    "bridge/rehearsal/pending.mjs": "0a5ed4f5b2cd05fa039b24c0013b63ac0f67245ec45659cf9c1cfa96941d76ad",
+    "bridge/pending-claim.mjs": "d8379c1d48f19f8fa43a3e2e60faf78f899d4ff8afb91de0e089255395efd1e3",
+    "bridge/sdk.mjs": "4e54cb3f68a66caaca7cece0365fc038490fb84c4fd20f533f50ec69b59c329f"
+  },
+  "journalUnitTests": 15,
+  "journalUnitTestSourceSHA256": "1264e75caa22f07fbe65e80c846402084e1175bdfb2bd7ef196fc58a53451d6c"
+}

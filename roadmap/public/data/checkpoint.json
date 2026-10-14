@@ -168,7 +168,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-14T08:54:01.957475+00:00",
+    "reviewedAt": "2026-10-14T09:31:14.449399+00:00",
     "scope": "Development checkpoint only; separate from the live testnet release",
     "projects": [
       {
@@ -204,7 +204,7 @@
         "title": "SOC redemption bridge",
         "state": "building",
         "description": "Original SOC escrow and a native Classic reserve, targeting exact 1:1 display-unit redemption in both directions.",
-        "currentScope": "Historical 13-check finalized round trip plus 7 actual recovery checks on two private Agave ledgers pass. Both RPC outages refuse observations; restarted ledgers retain finalized events, receipts, exact balances/counters and replay protection. Controlled SIGINT exits recorded; no new broadcasts. Pending-operation recovery, fork/SIGKILL/cold-restore drills, backed bootstrap and independent review remain.",
+        "currentScope": "13-check round trip, 7 real process/RPC recovery checks and 6 new pending-native-claim checks pass on private Agave ledgers. One new synthetic claim was journaled before broadcast and recovered after an actual destination RPC outage using its original signature/receipt and exact balance deltas. 15 journal unit checks pass. Both counters reconcile at 700000 origin units. Redemption journal, unknown landing/fork/cold-restore drills, backed bootstrap and independent review remain.",
         "source": "https://github.com/solana-classic/solana-classic/tree/main/bridge",
         "milestones": [
           {
@@ -226,6 +226,11 @@
             "title": "Actual private-ledger RPC outage and process recovery",
             "state": "rehearsal-passed",
             "detail": "7 checks, two private ledgers, preserved cold archive, four starts/stops. Finalized state and replay protection survive controlled SIGINT restarts. No fork or production acceptance."
+          },
+          {
+            "title": "Durable native-claim journal and pending settlement recovery",
+            "state": "rehearsal-passed",
+            "detail": "15 unit checks and 6 actual private-ledger checks. One claim broadcast; withheld client confirmation, real RPC outage/restart and original-signature economic reconciliation. Native side only; no production custody."
           },
           {
             "title": "Bootstrap reconciliation, custody and recovery",

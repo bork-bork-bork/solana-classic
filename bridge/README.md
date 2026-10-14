@@ -59,3 +59,14 @@ restart, and compiled-bridge replay rejection. No new transactions were
 broadcast; this is not a pending-settlement, fork or cold-restore result. See
 [recovery evidence](../evidence/bridge-ledger-recovery.json) and the
 [finality/recovery policy draft](FINALITY_RECOVERY.md).
+
+## Pending native release
+
+The [private pending-claim journal](PENDING_CLAIMS.md) now persists exact signed
+bytes before one submission handoff and reconciles the same finalized
+signature, receipt and native balance movement. Fifteen unit checks and six
+actual private-ledger checks pass, including a real destination RPC outage and
+restart with one claim broadcast. The fault harness waited for finality while
+the client stayed unconfirmed; this does not test unknown landing or a fork.
+Origin redemption, production signer custody and further crash/finality work
+remain open. See `evidence/bridge-pending-recovery.json`.

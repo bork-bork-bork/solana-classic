@@ -147,3 +147,21 @@ This extends client recovery evidence; pending-operation settlement, actual
 fork/reorg policy, hard-crash/cold-restore tests and independent finality remain
 open. `bridge/FINALITY_RECOVERY.md` makes those verifier responsibilities,
 same-receipt recovery states and emergency-policy decisions explicit as a draft.
+
+## Pending native-settlement checkpoint
+
+`bridge/pending-claim.mjs` implements private signed-byte persistence, a single
+submission handoff, identity/configuration admission and same-signature,
+receipt and exact economic reconciliation. Fifteen unit checks pass. The
+module does not sign, broadcast, obtain fresh blockhashes or access public
+chains; origin-redemption and production custody remain separate work.
+
+Six actual private-ledger checks passed with one new synthetic source lock and
+one native claim broadcast. Client confirmation was withheld through an actual
+destination RPC outage/restart; the journal then verified the original
+finalized signature/receipt/bytes and exact 100,000,000 native base-unit transfer.
+Both counters reconcile at 700,000 origin units. The independent fault harness
+waited for finality before interrupting RPC: this is a landed-pending-operation
+case, not an unknown-landing, expiration, fork or hard-crash result. All three
+private processes stopped, with archive/keys/raw journals retained privately.
+See `evidence/bridge-pending-recovery.json` and `bridge/PENDING_CLAIMS.md`.

@@ -48,8 +48,10 @@ The two-chain rehearsal's keys remain synthetic local co-signers.
 
 Private signer records must never be uploaded into the frontend or public
 evidence. Public evidence contains only addresses, hashes, contexts and receipts.
-The existing prototype integration harness is not a production relayer and
-does not implement this entire durable journal workflow.
+The existing prototype integration harness is not a production relayer.
+The private native-release journal now implements durable signed bytes, a
+single attempt handoff and same-receipt/economic reconciliation; origin-side
+redemption and the full production signer/custody workflow remain open.
 
 ## Failure handling
 
@@ -83,8 +85,9 @@ emergency authority and independent review remain production decisions.
 
 ## Still required before production
 
-- A durable pending-operation signer journal and same-receipt reconciliation.
-- Actual pre-finalized fork and pending-settlement recovery drills.
+- Durable signer custody and origin-redemption journals; native-release
+  pending recovery has a private six-check result, not production acceptance.
+- Actual pre-finalized fork and unknown-landing/expiry/pruning recovery drills.
 - Cold restore, SIGKILL/machine outage and full-validator recovery checks.
 - Independently operated verifiers/RPCs, code/authority pinning and monitoring.
 - Exact backed bootstrap, custody/emergency policy and independent review.
