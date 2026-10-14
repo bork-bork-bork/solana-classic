@@ -1,0 +1,154 @@
+{
+  "at": "2026-10-14T00:47:06.597134+00:00",
+  "scope": "Remote isolated corrected source build and bounded recovery tests; no main-network cutover or stability acceptance",
+  "deploymentId": "3ead35f6-98fd-48e8-8267-47144b893397",
+  "initialRetryRefused": {
+    "deploymentId": "d54e96b6-7fa9-4a80-90f7-852c4f482734",
+    "reason": "Prior attempt marker was retained; no automatic retry permitted"
+  },
+  "priorAttemptReviewedAndArchived": {
+    "runId": "0a556ba4-c001-499e-9814-4fbdebaae411",
+    "progressSha256": "de07542f29656f7da4b8613b6566d21f8760176d965425ff720d330fdc2cbb1d",
+    "logsPreserved": true
+  },
+  "progress": {
+    "schemaVersion": 1,
+    "runId": "40de48b7-6963-429b-ae3e-81a610d81b7d",
+    "startedAt": "2026-10-14T00:45:13.749732+00:00",
+    "updatedAt": "2026-10-14T00:47:03.996522+00:00",
+    "state": "completed",
+    "phase": "review",
+    "passed": true,
+    "completedAt": "2026-10-14T00:47:03.996513+00:00",
+    "upstreamCommit": "f516a8927c76c07f0ebc54ca7a4ce8b2046eee86",
+    "upstreamTree": "a4c75a1781d4ca56e7325a39d0614e1faa26030d",
+    "sourceRepositoryCommit": "39b9001cab84e637f2460f2387f2549f32b62ef9",
+    "sourceManifestSha256": "337512bc1df2f382ccfab957347281b1c153353429b77d2695d65aafd29ec081",
+    "workerSha256": "ac5937cba2a39336f847f2ce5443ed729146a07462c66074ff448c38d6e995ab",
+    "lastActivityAt": "2026-10-14T00:47:03.996038+00:00",
+    "cargoPackagesStarted": 0,
+    "steps": {
+      "source": {
+        "state": "passed",
+        "startedAt": "2026-10-14T00:45:13.751400+00:00",
+        "completedAt": "2026-10-14T00:45:13.880373+00:00",
+        "durationSeconds": 0.126
+      },
+      "toolchain": {
+        "state": "passed",
+        "startedAt": "2026-10-14T00:45:13.880714+00:00",
+        "completedAt": "2026-10-14T00:45:14.025171+00:00",
+        "durationSeconds": 0.144
+      },
+      "compile": {
+        "state": "passed",
+        "startedAt": "2026-10-14T00:45:14.025307+00:00",
+        "completedAt": "2026-10-14T00:45:22.340341+00:00",
+        "durationSeconds": 8.315
+      },
+      "upstream-tests": {
+        "state": "passed",
+        "startedAt": "2026-10-14T00:45:22.340570+00:00",
+        "completedAt": "2026-10-14T00:45:28.485005+00:00",
+        "durationSeconds": 6.144
+      },
+      "program": {
+        "state": "passed",
+        "startedAt": "2026-10-14T00:45:28.485622+00:00",
+        "completedAt": "2026-10-14T00:45:28.810238+00:00",
+        "durationSeconds": 0.324
+      },
+      "isolated-start": {
+        "state": "passed",
+        "startedAt": "2026-10-14T00:45:28.810405+00:00",
+        "completedAt": "2026-10-14T00:45:30.812790+00:00",
+        "durationSeconds": 2.002
+      },
+      "transactions": {
+        "state": "passed",
+        "startedAt": "2026-10-14T00:45:30.813031+00:00",
+        "completedAt": "2026-10-14T00:46:50.782734+00:00",
+        "durationSeconds": 79.97
+      },
+      "restart": {
+        "state": "passed",
+        "startedAt": "2026-10-14T00:46:50.783100+00:00",
+        "completedAt": "2026-10-14T00:46:57.303395+00:00",
+        "durationSeconds": 6.52
+      },
+      "cold-restore": {
+        "state": "passed",
+        "startedAt": "2026-10-14T00:46:57.303798+00:00",
+        "completedAt": "2026-10-14T00:47:03.996003+00:00",
+        "durationSeconds": 6.692
+      }
+    },
+    "toolchain": {
+      "rust": "rustc 1.86.0 (05f9846f8 2025-03-31)",
+      "cargo": "cargo 1.86.0 (adf9b6ad1 2025-02-28)",
+      "node": "v24.19.0",
+      "architecture": "x86_64",
+      "cargoJobs": 2,
+      "releaseLto": "thin",
+      "unitTestProfile": "standard test profile, debug assertions enabled; separate target directory"
+    },
+    "binaries": {
+      "agave-validator": {
+        "sha256": "34e468747f1a0d69399b61fd40edc32ce4690ec5a200b5684474aa60a97a6910",
+        "bytes": 74406832,
+        "version": "agave-validator 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+      },
+      "solana-test-validator": {
+        "sha256": "3d3140bf93c9bc967220ffd8989d8b0267b723915d32203132ecc36d2c63a49a",
+        "bytes": 73661760,
+        "version": "solana-test-validator 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+      },
+      "solana": {
+        "sha256": "6a880f1c79ec0e0d7b3ee972eaa9ad8d75b503616e1f0c29efa587137a129dcd",
+        "bytes": 28209480,
+        "version": "solana-cli 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+      },
+      "solana-keygen": {
+        "sha256": "2f00a742ab0d99cad929e7a82b2d80f7c519cab9038ec45844fdbe9c305dea65",
+        "bytes": 2804464,
+        "version": "solana-keygen 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+      }
+    },
+    "isolatedGenesis": "FrFZyuvUFW76dWTGpjQawREifn5XS49EPRmc7zGcEEE6",
+    "tokenProgramSha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+    "testSummaries": [
+      "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+      "test result: ok. 71 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.13s",
+      "test result: ok. 92 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.70s"
+    ],
+    "message": "Source build and bounded isolated tests passed. Production cutover and a new 24-hour run still require separate acceptance.",
+    "at": "2026-10-14T00:47:06.545364+00:00",
+    "processAlive": false,
+    "productionNetworkChanged": false,
+    "cutoverAccepted": false
+  },
+  "localBoundaryTestsPassed": 6,
+  "roadmapTestsPassed": 28,
+  "roadmapDeploymentId": "dpl_3VmsRibQKFCfB9PenxZqK6q1wAt4",
+  "productionNetworkChanged": false,
+  "cutoverAccepted": false,
+  "roadmapReadyForReviewVerifiedAt": "2026-10-14T00:47:24.708237+00:00",
+  "roadmapEngineState": "ready",
+  "soakAtVerification": {
+    "state": "running",
+    "runnerState": "starting",
+    "freezeMatches": true,
+    "progressFreezeMatches": true,
+    "startedAt": "2026-10-13T16:48:22.762Z",
+    "endsAt": "2026-10-14T16:48:22.762Z",
+    "reportAt": "2026-10-14T00:43:50.245Z",
+    "progressStale": false,
+    "completedJourneys": 96,
+    "totalJourneys": 288,
+    "observations": 950,
+    "accepted": false,
+    "activationAt": "2026-10-13T16:47:36.929Z",
+    "issues": [],
+    "elapsedMs": 28741926
+  }
+}

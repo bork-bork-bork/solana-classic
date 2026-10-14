@@ -125,21 +125,21 @@
   ],
   "soakStartedAt": "2026-10-13T16:48:22.762Z",
   "engineBuild": {
-    "runId": "0a556ba4-c001-499e-9814-4fbdebaae411",
-    "sourceManifestSha256": "9c643fd9fa625ef6c05616f745c3a036bb47fd5b6a744a500f7e54de620cbc2b",
-    "workerSha256": "72d2fa77793b8afe260a4710be7bd54a94f508523b1bbfc9d2bdb67131dee2b5",
-    "sourceRepositoryCommit": "d5b663f45281202c9457ccb6a15d073003123616",
+    "runId": "40de48b7-6963-429b-ae3e-81a610d81b7d",
+    "sourceManifestSha256": "337512bc1df2f382ccfab957347281b1c153353429b77d2695d65aafd29ec081",
+    "workerSha256": "ac5937cba2a39336f847f2ce5443ed729146a07462c66074ff448c38d6e995ab",
+    "sourceRepositoryCommit": "39b9001cab84e637f2460f2387f2549f32b62ef9",
     "upstreamCommit": "f516a8927c76c07f0ebc54ca7a4ce8b2046eee86",
     "upstreamTree": "a4c75a1781d4ca56e7325a39d0614e1faa26030d",
     "serviceId": "29189101-226c-483b-a424-b8cd140abd80",
     "progressUrl": "https://agave-source-build-production.up.railway.app/api/build",
-    "reviewedAt": "2026-10-14T00:19:00Z",
+    "reviewedAt": "2026-10-14T00:40:25.832963+00:00",
     "scope": "Parallel isolated source build and bounded tests; no current-network changes or cutover acceptance",
     "previousAttempt": {
-      "runId": "aeb95b66-a531-4e5e-bca4-35e3d94d3f92",
+      "runId": "0a556ba4-c001-499e-9814-4fbdebaae411",
       "state": "failed",
-      "reason": "All binaries,92SVM tests,isolatedtransactionsandrestart passed; cold backup encountered transient admin.rpc socket. Corrected copy excludes only that IPC socket and rebases validated internal snapshot links.",
-      "evidence": "evidence/engine-source-build-cold-restore-failed.json"
+      "reason": "Four binaries,163 upstream tests,isolated transactions and restart passed. Cold restore failed because relative snapshot targets do not match Agave absolute account paths. Fixed the copy harness to use absolute paths inside the restored ledger.",
+      "evidence": "evidence/engine-source-build-snapshot-path-failed.json"
     }
   },
   "frozenWhitepaper": {
