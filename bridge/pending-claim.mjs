@@ -6,6 +6,8 @@ import { createHash } from 'node:crypto';
 import { PublicKey, Transaction } from '@solana/web3.js';
 import { encodeEvent, decodeEvent, validateEvent, nativeClaimInstruction, originClaimInstruction, TOKEN_2022, exactNativeUnits, observeLocalEvent, PUBLIC_GENESIS } from './sdk.mjs';
 import { parseNativeTransactionRPC } from './lossless-native-rpc.mjs';
+import { observePinnedProgram } from './program-pins.mjs';
+import { claimPinPolicy, checkedClaimPinPolicy, checkClaimPinObservations } from './claim-pin-policy.mjs';
 const soaking='7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon';
 const states=new Set(['PREPARED','SUBMISSION_ATTEMPTED','PENDING','EXPIRED_UNRESOLVED','CONSUMED_REVIEW_REQUIRED','FAILED_REVIEW_REQUIRED','FINALIZED']);
 const hash=b=>createHash('sha256').update(b).digest('hex');
@@ -37,7 +39,7 @@ function instruction(record,event) {
   return event.direction===0?nativeClaimInstruction({event,expected:event,payer:record.payer,committee:record.committee}):originClaimInstruction({event,expected:event,payer:record.payer,committee:record.committee,mint:record.originMint,destinationToken:record.destinationToken});
 }
 function verified(record) {
-  if(record.schemaVersion!==1||!['isolated-native-claim','isolated-origin-redemption'].includes(record.scope)||!states.has(record.state))throw new Error('Invalid private claim record');
+  if(![1,2].includes(record.schemaVersion)||!['isolated-native-claim','isolated-origin-redemption'].includes(record.scope)||!states.has(record.state))throw new Error('Invalid private claim record');
   if(!Number.isSafeInteger(record.lastValidBlockHeight)||record.lastValidBlockHeight<1||!Number.isSafeInteger(record.minimumDestinationSlot)||record.minimumDestinationSlot<0||!Number.isSafeInteger(record.sourceContextSlot)||record.sourceContextSlot<1)throw new Error('Invalid finality/expiry checkpoint');
   if(record.attempts!==0&&record.attempts!==1)throw new Error('Invalid submission count');
   if((record.state==='PREPARED')!==(record.attempts===0))throw new Error('Submission state/count mismatch');
@@ -50,6 +52,19 @@ function verified(record) {
   if(record.expectedGenesis!==event.destinationChain||record.eventHash!==hash(encodeEvent(event)))throw new Error('Claim chain/message mismatch');
   if(record.payer===event.recipient||record.committee.includes(record.payer))throw new Error('Rehearsal payer must be separate from recipient/committee');
   exactNativeUnits(event.originAmount,record.originDecimals);
+  if(record.schemaVersion===1&&(record.programmePinPolicy!==undefined||record.programmePinAdmission!==undefined))throw new Error('Legacy records cannot declare unenforced programme pins');
+  if(record.schemaVersion===2){
+    const policy=checkedClaimPinPolicy(record.programmePinPolicy,event,record.originMint);
+    if(typeof record.programmePinHandoffAttempted!=='boolean'||!Number.isSafeInteger(record.preparedDestinationSlot)||record.preparedDestinationSlot<0||record.preparedDestinationSlot>record.minimumDestinationSlot)throw new Error('Invalid original pin-admission checkpoint');
+    if(!record.programmePinHandoffAttempted&&(record.state==='SUBMISSION_ATTEMPTED'||record.attemptedAt!==undefined))throw new Error('Signed handoff lacks mandatory pin admission');
+    if(!record.programmePinHandoffAttempted&&record.programmePinAdmission!==undefined)throw new Error('Unsubmitted pinned claim cannot have an attempt admission');
+    if(record.programmePinHandoffAttempted){
+      if(record.attempts!==1)throw new Error('Pinned handoff count differs');
+      const admission=record.programmePinAdmission;
+      if(!admission||admission.schemaVersion!==1||admission.scope!=='isolated-claim-pin-admission-v1'||admission.policySHA256!==policy.sha256||typeof admission.at!=='string'||!Number.isFinite(Date.parse(admission.at)))throw new Error('Pinned attempt admission is missing or changed');
+      checkClaimPinObservations(policy,event,{...record,minimumDestinationSlot:record.preparedDestinationSlot},admission.source,admission.destination);
+    }
+  }
   const ix=instruction(record,event);
   if(record.id!==ix.keys[3].pubkey.toBase58())throw new Error('Wrong receipt-derived operation ID');
   const raw=Buffer.from(record.transactionBase64,'base64');
@@ -119,7 +134,7 @@ function summary(record) {return {id:record.id,signature:record.signature,eventH
 // The existing exclusive lock coordinates with reconciliation; no save occurs.
 export function inspectPendingClaim(directory,id) {
   return locked(directory,id,async(record,{event,ix})=>({
-    ...summary(record),scope:record.scope,journalHash:hash(JSON.stringify(record)),
+    ...summary(record),schemaVersion:record.schemaVersion,scope:record.scope,journalHash:hash(JSON.stringify(record)),
     sourceChain:event.sourceChain,destinationChain:event.destinationChain,
     sourceProgram:event.sourceProgram,destinationProgram:event.destinationProgram,
     sourceEvent:event.sourceEvent,recipient:event.recipient,nonce:event.nonce.toString(),
@@ -130,41 +145,71 @@ export function inspectPendingClaim(directory,id) {
     minimumDestinationSlot:record.minimumDestinationSlot,
     lastValidBlockHeight:record.lastValidBlockHeight,
     instructionHash:hash(ix.data),inspectionOnly:true,
+    ...(record.schemaVersion===2?{programmePinsHash:record.programmePinPolicy.sha256}:{}),
   }));
 }
 
-export function preparePendingClaim({directory,sourceRpc,rpc:destinationRpc,event,expected,payer,committee,transaction,lastValidBlockHeight,originDecimals,sourceContextSlot,minimumDestinationSlot=0,originMint=null,destinationToken=null}) {
+function prepareClaim({directory,sourceRpc,rpc:destinationRpc,event,expected,payer,committee,transaction,lastValidBlockHeight,originDecimals,sourceContextSlot,minimumDestinationSlot=0,originMint=null,destinationToken=null},programmePinPolicy=null) {
   validateEvent(event,expected);
   const raw=Buffer.from(transaction),tx=Transaction.from(raw);
   const ix=event.direction===0?nativeClaimInstruction({event,expected,payer,committee}):originClaimInstruction({event,expected,payer,committee,mint:originMint,destinationToken});
   const record={schemaVersion:1,scope:event.direction===0?'isolated-native-claim':'isolated-origin-redemption',state:'PREPARED',attempts:0,id:ix.keys[3].pubkey.toBase58(),sourceRpc:endpoint(sourceRpc),rpc:endpoint(destinationRpc),expectedGenesis:event.destinationChain,payer:key(payer).toBase58(),committee:committee.map(k=>key(k).toBase58()),originDecimals,originMint:originMint?key(originMint).toBase58():null,destinationToken:destinationToken?key(destinationToken).toBase58():null,eventBase64:encodeEvent(event).toString('base64'),eventHash:hash(encodeEvent(event)),transactionBase64:raw.toString('base64'),transactionHash:hash(raw),signature:base58(tx.signature),lastValidBlockHeight,sourceContextSlot,minimumDestinationSlot,preparedAt:new Date().toISOString()};
+  if(programmePinPolicy){record.schemaVersion=2;record.programmePinPolicy=programmePinPolicy;record.preparedDestinationSlot=minimumDestinationSlot;record.programmePinHandoffAttempted=false;}
   verified(record);
   const root=privateDirectory(directory);persist(join(root,record.id+'.json'),record,true);
   return summary(record);
+}
+export function preparePendingClaim(args){return prepareClaim(args);}
+export function preparePinnedPendingClaim(args){
+  const policy=claimPinPolicy(args.programmePins,args.event,args.originMint?key(args.originMint).toBase58():null);
+  return prepareClaim({...args,originMint:policy.source.originMint},policy);
 }
 
 // Returns the existing signed bytes once only. The caller may submit exactly
 // those bytes to the pinned private RPC. A crash before submission remains
 // uncertain; this API never authorizes another attempt or signs replacements.
-export function takeSubmissionAttempt(directory,id,fetcher=fetch) {
+function takeAttempt(directory,id,fetcher,pinnedOnly) {
   return locked(directory,id,async(record,{event,raw,ix},save)=>{
     if(record.state!=='PREPARED')throw new Error('An attempt already exists; reconcile it, do not submit again');
+    if(pinnedOnly&&record.schemaVersion!==2)throw new Error('Pinned handoff requires a prepared version2 claim');
+    const policy=record.schemaVersion===2?checkedClaimPinPolicy(record.programmePinPolicy,event,record.originMint):null;
+    const observePins=async(sourceMinimum,destinationMinimum)=>{
+      // Sequential fixed private endpoints, while the receipt journal stays locked.
+      const source=await observePinnedProgram({rpc:record.sourceRpc,pins:policy.source,minimumContextSlot:sourceMinimum},fetcher);
+      const destination=await observePinnedProgram({rpc:record.rpc,pins:policy.destination,minimumContextSlot:destinationMinimum},fetcher);
+      checkClaimPinObservations(policy,event,record,source,destination);
+      return {source,destination};
+    };
+    const initialPins=policy?await observePins(record.sourceContextSlot,record.minimumDestinationSlot):null;
+    const destinationMinimum=Math.max(record.minimumDestinationSlot,initialPins?.destination.contextSlot??0);
     await admit(record,fetcher);
     const height=await rpc(record,'getBlockHeight',[{commitment:'finalized'}],fetcher);
     if(!Number.isSafeInteger(height)||height<0||height>record.lastValidBlockHeight)throw new Error('Signed transaction expiry is not admissible');
-    const receipt=await rpc(record,'getAccountInfo',[record.id,{encoding:'base64',commitment:'finalized',minContextSlot:record.minimumDestinationSlot}],fetcher);
-    if(!Number.isSafeInteger(receipt?.context?.slot)||receipt.context.slot<record.minimumDestinationSlot||receipt.value!==null)throw new Error('Receipt already exists or destination context is invalid; reconcile first');
-    const config=await rpc(record,'getAccountInfo',[ix.keys[1].pubkey.toBase58(),{encoding:'base64',commitment:'finalized',minContextSlot:record.minimumDestinationSlot}],fetcher);
+    const receipt=await rpc(record,'getAccountInfo',[record.id,{encoding:'base64',commitment:'finalized',minContextSlot:destinationMinimum}],fetcher);
+    if(!Number.isSafeInteger(receipt?.context?.slot)||receipt.context.slot<destinationMinimum||receipt.value!==null)throw new Error('Receipt already exists or destination context is invalid; reconcile first');
+    const config=await rpc(record,'getAccountInfo',[ix.keys[1].pubkey.toBase58(),{encoding:'base64',commitment:'finalized',minContextSlot:destinationMinimum}],fetcher);
     const c=config.value?.data?.[1]==='base64'?Buffer.from(config.value.data[0],'base64'):Buffer.alloc(0);
     if(!Number.isSafeInteger(config.context?.slot)||config.context.slot<record.minimumDestinationSlot||config.value?.owner!==event.destinationProgram||config.value.executable||c.length!==382||c.subarray(0,8).toString()!=='SCCFG001'||!c.subarray(8,40).equals(key(event.bridge).toBuffer())||!c.subarray(40,72).equals(key(event.destinationChain).toBuffer())||!c.subarray(72,104).equals(key(event.sourceChain).toBuffer())||!c.subarray(104,136).equals(key(event.sourceProgram).toBuffer())||c[328]!==record.originDecimals||c[329]!==9||c[330]!==1-event.direction||c[331]!==3||c.readBigUInt64LE(332)!==event.epoch||c[341]!==0||record.committee.some(member=>![0,1,2,3,4].some(i=>c.subarray(168+i*32,200+i*32).equals(key(member).toBuffer()))))throw new Error('Configuration/precision/quorum differs from signed claim');
-    if(event.direction===1)await admitOriginalAccounts(record,event,ix,c,fetcher);
-    const observation=await observeLocalEvent({rpc:record.sourceRpc,expectedGenesis:event.sourceChain,eventAddress:event.sourceEvent,expected:event,minimumContextSlot:record.sourceContextSlot},fetcher);
+    if(policy&&(config.context.slot<destinationMinimum||hash(c.subarray(0,358))!==policy.destination.policySHA256))throw new Error('Current claim configuration differs from pinned policy');
+    if(event.direction===1)await admitOriginalAccounts({...record,minimumDestinationSlot:destinationMinimum},event,ix,c,fetcher);
+    const observation=await observeLocalEvent({rpc:record.sourceRpc,expectedGenesis:event.sourceChain,eventAddress:event.sourceEvent,expected:event,minimumContextSlot:Math.max(record.sourceContextSlot,initialPins?.source.contextSlot??0)},fetcher);
     if(!encodeEvent(observation.event).equals(encodeEvent(event)))throw new Error('Source event bytes changed');
+    let finalPins;
+    if(policy){
+      finalPins=await observePins(Math.max(observation.contextSlot,initialPins.source.contextSlot),Math.max(config.context.slot,receipt.context.slot,initialPins.destination.contextSlot));
+      const lateHeight=await rpc(record,'getBlockHeight',[{commitment:'finalized'}],fetcher);
+      if(!Number.isSafeInteger(lateHeight)||lateHeight<height||lateHeight>record.lastValidBlockHeight)throw new Error('Signed transaction expired or height regressed during pin admission');
+      const lateReceipt=await rpc(record,'getAccountInfo',[record.id,{encoding:'base64',commitment:'finalized',minContextSlot:finalPins.destination.contextSlot}],fetcher);
+      if(!Number.isSafeInteger(lateReceipt?.context?.slot)||lateReceipt.context.slot<finalPins.destination.contextSlot||lateReceipt.value!==null)throw new Error('Receipt changed during pin admission; reconcile first');
+    }
     await admit(record,fetcher);
+    if(policy){record.programmePinAdmission={schemaVersion:1,scope:'isolated-claim-pin-admission-v1',policySHA256:policy.sha256,at:new Date().toISOString(),...finalPins};record.programmePinHandoffAttempted=true;}
     record.state='SUBMISSION_ATTEMPTED';record.attempts=1;record.attemptedAt=new Date().toISOString();save(record);
     return {rpc:record.rpc,rawTransaction:raw,signature:record.signature};
   });
 }
+export function takeSubmissionAttempt(directory,id,fetcher=fetch){return takeAttempt(directory,id,fetcher,false);}
+export function takePinnedSubmissionAttempt(directory,id,fetcher=fetch){return takeAttempt(directory,id,fetcher,true);}
 
 export function reconcilePendingClaim(directory,id,fetcher=fetch) {
   return locked(directory,id,async(record,{event,raw,tx,ix},save)=>{

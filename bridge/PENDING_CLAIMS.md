@@ -98,9 +98,63 @@ attempt count is a conservative no-resubmission marker, not a measurement of
 network broadcasts. The actual rehearsal separately records its one broadcast.
 
 Production still needs a durable signer/custody service,
-programme code/upgrade-authority pins, independent source-transaction/backing
+enforced production programme/upgrade policy, independent source-transaction/backing
 verification, crash-safe storage recovery, independent verifiers and review.
 See [the finality policy draft](FINALITY_RECOVERY.md).
+
+## Mandatory programme pins for new private claims
+
+`preparePinnedPendingClaim(args)` prepares a version2 journal. Supply
+`programmePins: {source, destination}` with each exact reviewed pin schema
+from `program-pins.mjs`. Both sides must bind the signed event's chains,
+programmes, bridge, direction and original mint. Canonical policy bytes are
+domain-separated and hashed before the first exclusive, fsynced write.
+This is a new private rehearsal API, not an approved production configuration.
+
+`takePinnedSubmissionAttempt(directory,id)` refuses legacy records. For
+version2 records, the older `takeSubmissionAttempt` entry also enforces pins;
+choosing that entry cannot skip the committed policy. Historical version1
+rehearsals remain readable through their original interface. They do not gain
+pin acceptance retrospectively, and cannot declare unenforced pin metadata.
+
+While holding the receipt lock, handoff checks both deployed programmes twice
+before source-event admission and twice afterward. Each observer verifies the
+derived loader-v3 ProgrammeData pointer, complete account hash, exact ELF and
+zero unused capacity, explicit upgrade authority or immutability, and static
+bridge configuration hash. Epoch, decimals, settlement pause and the full
+five-key committee must agree with the signed claim and both sides. Receipt,
+configuration, original-token account and source-event reads use nonregressing
+finalized checkpoints. Finalized block height and absent receipt are checked
+again before recording the single attempt and returning existing signed bytes.
+The journal saves only public observation metadata alongside its private signed
+bytes. This module still cannot sign, replace a transaction or broadcast.
+
+The original preparation checkpoint is retained separately from later recovery
+checkpoints. Advancing recovery does not invalidate the saved admission.
+An expiry observed before any handoff remains inspectable with no fabricated
+pin admission and cannot authorize a new attempt. Failed admission preserves
+the original journal bytes. Eighteen new synthetic filesystem/transaction/RPC
+tests cover both directions, late upgrades/policy changes, expiry, receipts,
+concurrency, input/record corruption and later reconciliation. With previous
+journal/parser/pin/review regressions, 82 checks pass locally. No new Agave
+handoff or real bridge transaction was executed for this integration.
+
+These checks bind the code observed at handoff time. They cannot prove the
+source event was originally executed by that code or stop an authorized
+upgrade after the last observation. A local writer with journal access or a
+signer with custody can bypass client controls; the policy hash is not a
+signature authenticating durable storage. Production needs reviewed immutable
+deployment or upgrade custody, signing enforcement, authenticated operators,
+independent history/backing verification and external security review. The
+combined pinned-journal path still needs its own private-ledger drill. Earlier
+standalone real programme-pin and crash results keep their historical hashes.
+
+```sh
+node --test bridge/pinned-pending.test.mjs bridge/program-pins.test.mjs \
+  bridge/pending-claim.test.mjs bridge/pending-redemption.test.mjs \
+  bridge/pending-large-native.test.mjs bridge/lossless-native-rpc.test.mjs \
+  bridge/observer-reports.test.mjs bridge/expired-review.test.mjs
+```
 
 ## Exact large-native RPC metadata
 

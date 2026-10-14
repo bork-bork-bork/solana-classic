@@ -35,17 +35,23 @@ function verifySnapshot(snapshot,pins,programData,config,minimum){
   for(const [offset,value] of [[8,pins.bridge],[40,pins.genesis],[72,pins.remoteGenesis],[104,pins.remoteProgram],[136,pins.originMint]])if(!policy.subarray(offset,offset+32).equals(key(value).toBuffer()))throw new Error('Bridge policy identity differs');
   const committee=Array.from({length:5},(_,i)=>new PublicKey(policy.subarray(168+i*32,200+i*32)).toBase58());
   if(new Set(committee).size!==5||committee.includes('11111111111111111111111111111111')||policy[328]>9||policy[329]!==9||policy[330]!==pins.side||policy[331]!==3||policy[340]>1||policy[341]>1||policy.readBigUInt64LE(332)===0n||policy.readBigUInt64LE(342)===0n||policy.readBigUInt64LE(350)<policy.readBigUInt64LE(342))throw new Error('Invalid bridge committee/precision/epoch/caps/pause policy');
-  return {contextSlot:snapshot.context.slot,program:pins.program,programData,config,elfSHA256:pins.elfSHA256,elfBytes:pins.elfBytes,programDataSHA256:pins.programDataSHA256,upgradeAuthority:pins.upgradeAuthority,policySHA256:pins.policySHA256,epoch:policy.readBigUInt64LE(332).toString(),newLocksPaused:policy[340]===1,settlementPaused:policy[341]===1,transferLimitUnits:policy.readBigUInt64LE(342).toString(),dailyLimitUnits:policy.readBigUInt64LE(350).toString(),outstandingUnits:policy.readBigUInt64LE(374).toString()};
+  return {contextSlot:snapshot.context.slot,program:pins.program,programData,config,elfSHA256:pins.elfSHA256,elfBytes:pins.elfBytes,programDataSHA256:pins.programDataSHA256,upgradeAuthority:pins.upgradeAuthority,policySHA256:pins.policySHA256,bridge:pins.bridge,remoteGenesis:pins.remoteGenesis,remoteProgram:pins.remoteProgram,originMint:pins.originMint,side:pins.side,originDecimals:policy[328],nativeDecimals:policy[329],committee,epoch:policy.readBigUInt64LE(332).toString(),newLocksPaused:policy[340]===1,settlementPaused:policy[341]===1,transferLimitUnits:policy.readBigUInt64LE(342).toString(),dailyLimitUnits:policy.readBigUInt64LE(350).toString(),outstandingUnits:policy.readBigUInt64LE(374).toString()};
 }
 
-export async function observePinnedProgram({rpc,pins,minimumContextSlot=0},fetcher=fetch){
-  const url=endpoint(rpc);slot(minimumContextSlot);
-  if(!pins||![0,1].includes(pins.side)||!Number.isSafeInteger(pins.elfBytes)||pins.elfBytes<4||pins.elfBytes>MAX_DATA-45)throw new Error('Reviewed private programme pins required');
-  pins=Object.freeze({...pins});
+export function normalizeProgramPins(value){
+  const fields=['genesis','remoteGenesis','program','remoteProgram','bridge','originMint','side','upgradeAuthority','elfSHA256','elfBytes','programDataSHA256','policySHA256'];
+  if(!value||typeof value!=='object'||Array.isArray(value)||Object.keys(value).length!==fields.length||Object.keys(value).some(k=>!fields.includes(k)))throw new Error('Exact reviewed programme-pin schema required');
+  const pins=Object.freeze(Object.fromEntries(fields.map(k=>[k,value[k]])));
+  if(![0,1].includes(pins.side)||!Number.isSafeInteger(pins.elfBytes)||pins.elfBytes<4||pins.elfBytes>MAX_DATA-45)throw new Error('Reviewed private programme pins required');
   for(const f of ['genesis','remoteGenesis','program','remoteProgram','bridge','originMint'])if(typeof pins[f]!=='string'||key(pins[f]).toBase58()!==pins[f])throw new Error('Canonical identity pins required');
   if(pins.genesis===pins.remoteGenesis||[pins.genesis,pins.remoteGenesis].some(g=>PUBLIC_GENESIS.has(g)||g===SOAKING))throw new Error('Public and soaking chains are forbidden');
   for(const f of ['elfSHA256','programDataSHA256','policySHA256'])digest(pins[f]);
   if(pins.upgradeAuthority!==null&&(typeof pins.upgradeAuthority!=='string'||key(pins.upgradeAuthority).toBase58()!==pins.upgradeAuthority))throw new Error('Explicit upgrade-authority pin required');
+  return pins;
+}
+
+export async function observePinnedProgram({rpc,pins,minimumContextSlot=0},fetcher=fetch){
+  const url=endpoint(rpc);slot(minimumContextSlot);pins=normalizeProgramPins(pins);
   const programData=PublicKey.findProgramAddressSync([key(pins.program).toBuffer()],key(LOADER))[0].toBase58(),config=PublicKey.findProgramAddressSync([Buffer.from('config'),key(pins.bridge).toBuffer()],key(pins.program))[0].toBase58();
   const genesis=await request(url,'getGenesisHash',[],fetcher);if(genesis!==pins.genesis)throw new Error('Pinned programme genesis mismatch');
   const observe=async minimum=>verifySnapshot(await request(url,'getMultipleAccounts',[[pins.program,programData,config],{encoding:'base64',commitment:'finalized',minContextSlot:minimum}],fetcher),pins,programData,config,minimum);

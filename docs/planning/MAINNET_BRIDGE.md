@@ -432,3 +432,24 @@ Key authentication does not establish operator identity, independence or the
 truth of asserted history/backing. A production roster, verifier processes,
 reviewed custody and signer integration remain open. All release/settlement
 and retry controls stay disabled. See `bridge/EXPIRED_RECOVERY.md`.
+
+
+## Pinned private-journal handoff integration
+
+New version2 private claim journals commit exact programme, code, complete
+ProgrammeData, upgrade authority and static-policy pins for both chains.
+Both handoff entry points enforce those committed pins. Two finalized reads
+per side before and after source observation, matching epoch/precision/full
+committee, settlement pause and final expiry/receipt checks gate returning
+the existing signed bytes exactly once. Historical version1 rehearsals keep
+their original semantics, with no retrospective pin acceptance.
+
+Eighteen new and64 existing local tests pass. Both directions survive later
+reconciliation checkpoints; late upgrades, expiry, new receipts and corruption
+reject. This is synthetic local integration, not a new combined Agave drill
+or a production signer/custody deployment. Snapshots do not prove historical
+execution or prevent upgrades after observation; locally writable journals
+are not authenticated by their policy digest. Production upgrade controls,
+independent history/backing/finality and security review remain required.
+See `bridge/PENDING_CLAIMS.md` and
+`evidence/bridge-pinned-journal-integration.json`.

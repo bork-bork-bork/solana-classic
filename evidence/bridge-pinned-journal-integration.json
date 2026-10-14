@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-14T18:49:46.680916+00:00",
+  "state": "local-passed",
+  "scope": "Local synthetic signed-transaction, private temporary filesystem and RPC fixtures only; one compatibility case uses actual loopback HTTP. No new Agave journal handoff, validator start, signing service, production endpoint or broadcast.",
+  "localChecks": {
+    "newPinnedJournalIntegration": 18,
+    "existingJournalAndLosslessMetadata": 33,
+    "existingProgrammePins": 12,
+    "existingAuthenticatedReports": 12,
+    "existingStructuralExpiryReview": 7,
+    "total": 82,
+    "passed": true
+  },
+  "sourceHashes": {
+    "bridge/pending-claim.mjs": "5a7ffcc1d0ce86ca7eddce9e0227f632e07f42f0f0d4a3d65b27cfc186ed4b26",
+    "bridge/program-pins.mjs": "1f72a2007be0d4ebd6b1a3080dc2ad93224177e49ae32e0513beb2e163256d42",
+    "bridge/claim-pin-policy.mjs": "9ee31bcd58218860fcb5660624531e22c7038d29b34f8bd22590d72c70bb8893",
+    "bridge/pinned-pending.test.mjs": "14d7c66d0a3faca0c3e780f42ee4384bc4217b5a459bf26209099680a165930d",
+    "bridge/test-fixtures/pending.mjs": "48c7d5b7f027bcd87d49c13d43af3e68254583c68c1564f36f32f3c2a61f8f11",
+    "bridge/sdk.mjs": "e603242692bedc2457ec9dd3cb144122ca1adb7341506d244ec864943bd8c988",
+    "bridge/lossless-native-rpc.mjs": "5ebed7db063afd9178925eab883a4955dd15ad878bbdad19878ab75225f3398b"
+  },
+  "checks": [
+    "Version2 preparation binds source/destination identities, side, mint, exact ELF/full ProgrammeData/upgrade-authority/static-policy pins to signed claim",
+    "Both handoff entries enforce committed pins for version2; pinned-only entry refuses legacy records; historical version1 remains compatible",
+    "Two finalized snapshots per side before and after fresh source-event observation, same epoch/precision/full5-key committee and unpaused settlement",
+    "Late code/authority/policy change, expiry or regressing height, new consumed receipt, wrong genesis, stale context and outage refuse handoff with identical prepared journal bytes",
+    "Native release and original-token redemption hand out exact original signed bytes once; exclusive lock prevents concurrent duplicate handoff",
+    "Later same-signature reconciliation advances checkpoint and remains inspectable; pre-handoff expiry has no fabricated admission and cannot enable retry",
+    "Input mutation and corrupt committed policy/admission reject; no sendTransaction or fresh blockhash requests"
+  ],
+  "productionReady": false,
+  "productionSignerEnforcement": false,
+  "realLedgerPinnedJournalIntegration": false,
+  "historicalJournalsUpgraded": false,
+  "independentOperatorsVerified": false,
+  "canRetry": false,
+  "canSign": false,
+  "canBroadcast": false,
+  "canonicalNetworkChanged": false,
+  "coreFreeze": {
+    "files": 41,
+    "allMatch": true
+  },
+  "coverageLimits": [
+    "Programme snapshots do not prove historical source execution under the same code or prevent authorized upgrade after the final read",
+    "Policy hash is a digest, not authentication against a local journal writer or signer custody compromise",
+    "Legacy schema1 keeps original unpinned rehearsal semantics and cannot gain retrospective acceptance",
+    "No new ledger copies, keys on remote worker, nonces or bridge transactions; all retained private branches preserved",
+    "Fresh private-ledger integration, production custody/upgrade controls, independent history/backing/finality and external security review remain open"
+  ]
+}
