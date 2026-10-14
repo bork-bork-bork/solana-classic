@@ -36,6 +36,22 @@ export function nativeClaimInstruction({event,expected,payer,committee}){
   const claim=PublicKey.findProgramAddressSync([Buffer.from('claim'),config.toBuffer(),key(event.sourceEvent).toBuffer()],program)[0];
   return new TransactionInstruction({programId:program,keys:[{pubkey:key(payer),isWritable:true,isSigner:true},{pubkey:config,isWritable:true,isSigner:false},{pubkey:vault,isWritable:true,isSigner:false},{pubkey:claim,isWritable:true,isSigner:false},{pubkey:key(event.recipient),isWritable:true,isSigner:false},{pubkey:key(zero),isWritable:false,isSigner:false},...committee.map(k=>({pubkey:key(k),isWritable:false,isSigner:true}))],data:Buffer.concat([Buffer.from([2]),encodeEvent(event)])});
 }
+export const TOKEN_2022='TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb';
+export function originalTokenAddress(mint,owner){
+  return PublicKey.findProgramAddressSync([key(owner).toBuffer(),key(TOKEN_2022).toBuffer(),key(mint).toBuffer()],key('ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL'))[0];
+}
+export function originClaimInstruction({event,expected,payer,committee,mint,destinationToken}){
+  validateEvent(event,expected);if(event.direction!==1)throw new Error('Original redemption requires a native return event');
+  if(!Array.isArray(committee)||committee.length!==3||new Set(committee.map(k=>key(k).toBase58())).size!==3)throw new Error('Exactly three distinct committee co-signers are required');
+  const recipientToken=originalTokenAddress(mint,event.recipient);
+  if(!key(destinationToken).equals(recipientToken))throw new Error('Original recipient must use the pinned Token-2022 associated account');
+  const program=key(event.destinationProgram),config=PublicKey.findProgramAddressSync([Buffer.from('config'),key(event.bridge).toBuffer()],program)[0];
+  const vault=PublicKey.findProgramAddressSync([Buffer.from('vault'),config.toBuffer()],program)[0];
+  const receipt=PublicKey.findProgramAddressSync([Buffer.from('claim'),config.toBuffer(),key(event.sourceEvent).toBuffer()],program)[0];
+  const escrow=PublicKey.findProgramAddressSync([Buffer.from('escrow'),config.toBuffer()],program)[0];
+  const writable=pubkey=>({pubkey:key(pubkey),isWritable:true,isSigner:false});
+  return new TransactionInstruction({programId:program,data:Buffer.concat([Buffer.from([2]),encodeEvent(event)]),keys:[{pubkey:key(payer),isWritable:true,isSigner:true},writable(config),writable(vault),writable(receipt),writable(event.recipient),{pubkey:key(zero),isWritable:false,isSigner:false},writable(escrow),writable(recipientToken),{pubkey:key(mint),isWritable:false,isSigner:false},{pubkey:key(TOKEN_2022),isWritable:false,isSigner:false},...committee.map(k=>({pubkey:key(k),isWritable:false,isSigner:true}))]});
+}
 function localEndpoint(rpc){const u=new URL(rpc);if(!['http:','https:'].includes(u.protocol)||!['127.0.0.1','[::1]'].includes(u.hostname)||u.username||u.password||u.search||u.hash)throw new Error('Observation only supports an explicit loopback rehearsal RPC');return u;}
 export async function observeLocalEvent({rpc,expectedGenesis,eventAddress,expected,minimumContextSlot=0},fetcher=fetch){
   const u=localEndpoint(rpc);if(!expectedGenesis||PUBLIC_GENESIS.has(expectedGenesis)||expectedGenesis==='7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon')throw new Error('Fresh isolated genesis is required');

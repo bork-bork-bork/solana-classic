@@ -68,5 +68,16 @@ signature, receipt and native balance movement. Fifteen unit checks and six
 actual private-ledger checks pass, including a real destination RPC outage and
 restart with one claim broadcast. The fault harness waited for finality while
 the client stayed unconfirmed; this does not test unknown landing or a fork.
-Origin redemption, production signer custody and further crash/finality work
-remain open. See `evidence/bridge-pending-recovery.json`.
+That checkpoint covered native release; production signer custody and further
+crash/finality work remain open. Original redemption is covered below. See `evidence/bridge-pending-recovery.json`.
+
+## Original-token pending redemption
+
+The shared journal now covers both directions. Twenty-three journal checks
+pass, and a separate six-check actual redemption drill recovered one original
+token transfer after origin RPC outage/restart. Mint/recipient authority and
+exact token debits/credits are checked; hidden native movement is rejected.
+Both counters and escrow reconcile at 600,000 synthetic origin units. The
+prototype accepts only plain immutable Token-2022 mints and a canonical ATA.
+Unknown landing, extended mint handling and production security remain open.
+See `evidence/bridge-redemption-recovery.json`.

@@ -50,8 +50,9 @@ Private signer records must never be uploaded into the frontend or public
 evidence. Public evidence contains only addresses, hashes, contexts and receipts.
 The existing prototype integration harness is not a production relayer.
 The private native-release journal now implements durable signed bytes, a
-single attempt handoff and same-receipt/economic reconciliation; origin-side
-redemption and the full production signer/custody workflow remain open.
+single attempt handoff and same-receipt/economic reconciliation. Original-token
+redemption now has the same journal path and a separate private six-check
+result; the full production signer/custody workflow remains open.
 
 ## Failure handling
 
@@ -85,8 +86,8 @@ emergency authority and independent review remain production decisions.
 
 ## Still required before production
 
-- Durable signer custody and origin-redemption journals; native-release
-  pending recovery has a private six-check result, not production acceptance.
+- Durable signer custody; both-direction pending recovery has separate private
+  six-check results, not production acceptance.
 - Actual pre-finalized fork and unknown-landing/expiry/pruning recovery drills.
 - Cold restore, SIGKILL/machine outage and full-validator recovery checks.
 - Independently operated verifiers/RPCs, code/authority pinning and monitoring.

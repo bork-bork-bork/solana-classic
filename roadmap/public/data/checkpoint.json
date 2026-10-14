@@ -168,7 +168,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-14T09:31:14.449399+00:00",
+    "reviewedAt": "2026-10-14T09:58:20.706426+00:00",
     "scope": "Development checkpoint only; separate from the live testnet release",
     "projects": [
       {
@@ -204,7 +204,7 @@
         "title": "SOC redemption bridge",
         "state": "building",
         "description": "Original SOC escrow and a native Classic reserve, targeting exact 1:1 display-unit redemption in both directions.",
-        "currentScope": "13-check round trip, 7 real process/RPC recovery checks and 6 new pending-native-claim checks pass on private Agave ledgers. One new synthetic claim was journaled before broadcast and recovered after an actual destination RPC outage using its original signature/receipt and exact balance deltas. 15 journal unit checks pass. Both counters reconcile at 700000 origin units. Redemption journal, unknown landing/fork/cold-restore drills, backed bootstrap and independent review remain.",
+        "currentScope": "Private bridge journals now cover both directions: 23 journal tests pass, plus separate 6-check native and 6-check original-token pending recovery drills. Each used one settlement broadcast, withheld client confirmation, actual destination RPC outage/restart and original-signature economic reconciliation. Current escrow/outstanding counters reconcile at 600000 origin units. Unknown landing/fork/cold restore, backed bootstrap, production custody and independent review remain.",
         "source": "https://github.com/solana-classic/solana-classic/tree/main/bridge",
         "milestones": [
           {
@@ -231,6 +231,11 @@
             "title": "Durable native-claim journal and pending settlement recovery",
             "state": "rehearsal-passed",
             "detail": "15 unit checks and 6 actual private-ledger checks. One claim broadcast; withheld client confirmation, real RPC outage/restart and original-signature economic reconciliation. Native side only; no production custody."
+          },
+          {
+            "title": "Original-token redemption journal and pending recovery",
+            "state": "rehearsal-passed",
+            "detail": "Shared 23 journal checks; 6 actual private-ledger checks. Immutable mint/recipient authority validation and exact token debits/credits after RPC restart. Plain Token-2022 mint/ATA prototype; no production custody."
           },
           {
             "title": "Bootstrap reconciliation, custody and recovery",

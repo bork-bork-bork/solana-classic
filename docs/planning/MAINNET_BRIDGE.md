@@ -165,3 +165,19 @@ waited for finality before interrupting RPC: this is a landed-pending-operation
 case, not an unknown-landing, expiration, fork or hard-crash result. All three
 private processes stopped, with archive/keys/raw journals retained privately.
 See `evidence/bridge-pending-recovery.json` and `bridge/PENDING_CLAIMS.md`.
+
+## Original-token pending redemption checkpoint
+
+The shared journal now covers both bridge directions with 23 unit checks and
+five SDK checks. Original redemption verifies configured mint/precision,
+immutable mint and safe recipient/escrow token authorities, the canonical
+recipient ATA and exact token debit/credit metadata; unrelated native movement
+is rejected. Extended mint metadata remains unsupported in this client.
+
+Six actual private-ledger checks passed after a new synthetic native return:
+one original redemption was journaled and broadcast, confirmation withheld
+through origin RPC outage/restart, then its original signature/receipt and
+100,000-unit token movement reconciled. Both counters and escrow now 600,000;
+original user 1,400,000 units. All three private processes stopped. The fault
+harness waited for finality; this is not unknown landing, a fork or production
+redemption. See `evidence/bridge-redemption-recovery.json`.

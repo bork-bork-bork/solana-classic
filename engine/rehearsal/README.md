@@ -78,3 +78,18 @@ Do not rerun either passed attempt or assume its earlier 600,000-unit baseline.
 Future drills need a new reviewed baseline/directory/nonce. Unknown landing,
 expiry/pruning, origin redemption, cold restore and actual fork policy remain
 open. None of these fixture balances allocate mainnet SOC.
+
+## Original-token pending redemption
+
+`redemption.py` and `bridge/rehearsal/redemption.mjs` retain a fresh cold archive
+in `/data/bridge-redemption-v1`, then stage a 100,000-unit native return (nonce 4)
+and one journaled original redemption. Six actual checks pass through an
+origin RPC outage/restart; signature/receipt/token debits/credits reconcile.
+All three processes stopped. The fault harness waited for finality; no fork
+or unknown-landing result. See `evidence/bridge-redemption-recovery.json`.
+
+Current retained private counters are 600,000 on both sides, escrow 600,000 and
+original user 1,400,000. **Nonces 3 and 4 are used and new accounts/receipts exist.**
+Equal totals do not restore the old baseline. Preserve all passed attempts,
+archives and journals; do not rerun/reset them. Future work needs a new reviewed
+baseline/directory/nonce. Shared two-direction journal tests total 23.

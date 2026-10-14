@@ -1,10 +1,10 @@
-// Private rehearsal native-claim journal. No key creation, signing, broadcasts,
+// Private rehearsal two-direction claim journal. No key creation, signing, broadcasts,
 // fresh transaction construction or production endpoints. Keep records private.
 import { constants, openSync, closeSync, fsyncSync, writeFileSync, readFileSync, renameSync, unlinkSync, lstatSync, realpathSync } from 'node:fs';
 import { resolve, join } from 'node:path';
 import { createHash } from 'node:crypto';
 import { PublicKey, Transaction } from '@solana/web3.js';
-import { encodeEvent, decodeEvent, validateEvent, nativeClaimInstruction, exactNativeUnits, observeLocalEvent, PUBLIC_GENESIS } from './sdk.mjs';
+import { encodeEvent, decodeEvent, validateEvent, nativeClaimInstruction, originClaimInstruction, TOKEN_2022, exactNativeUnits, observeLocalEvent, PUBLIC_GENESIS } from './sdk.mjs';
 const soaking='7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon';
 const states=new Set(['PREPARED','SUBMISSION_ATTEMPTED','PENDING','EXPIRED_UNRESOLVED','CONSUMED_REVIEW_REQUIRED','FAILED_REVIEW_REQUIRED','FINALIZED']);
 const hash=b=>createHash('sha256').update(b).digest('hex');
@@ -32,27 +32,31 @@ function persist(path,record,create=false) {
   if(!create)renameSync(temporary,path);
   const parent=openSync(resolve(path,'..'),constants.O_RDONLY);try{fsyncSync(parent);}finally{closeSync(parent);}
 }
+function instruction(record,event) {
+  return event.direction===0?nativeClaimInstruction({event,expected:event,payer:record.payer,committee:record.committee}):originClaimInstruction({event,expected:event,payer:record.payer,committee:record.committee,mint:record.originMint,destinationToken:record.destinationToken});
+}
 function verified(record) {
-  if(record.schemaVersion!==1||record.scope!=='isolated-native-claim'||!states.has(record.state))throw new Error('Invalid private claim record');
+  if(record.schemaVersion!==1||!['isolated-native-claim','isolated-origin-redemption'].includes(record.scope)||!states.has(record.state))throw new Error('Invalid private claim record');
   if(!Number.isSafeInteger(record.lastValidBlockHeight)||record.lastValidBlockHeight<1||!Number.isSafeInteger(record.minimumDestinationSlot)||record.minimumDestinationSlot<0||!Number.isSafeInteger(record.sourceContextSlot)||record.sourceContextSlot<1)throw new Error('Invalid finality/expiry checkpoint');
   if(record.attempts!==0&&record.attempts!==1)throw new Error('Invalid submission count');
   if((record.state==='PREPARED')!==(record.attempts===0))throw new Error('Submission state/count mismatch');
   endpoint(record.rpc);endpoint(record.sourceRpc);
   const event=decodeEvent(Buffer.from(record.eventBase64,'base64'));
   validateEvent(event,event);
+  if(record.scope!==(event.direction===0?'isolated-native-claim':'isolated-origin-redemption'))throw new Error('Claim direction/scope mismatch');
   if(BigInt(record.sourceContextSlot)<event.slot)throw new Error('Source checkpoint precedes the signed event');
   for(const g of [event.sourceChain,event.destinationChain])if(PUBLIC_GENESIS.has(g)||g===soaking)throw new Error('Public and soaking chains are forbidden');
   if(record.expectedGenesis!==event.destinationChain||record.eventHash!==hash(encodeEvent(event)))throw new Error('Claim chain/message mismatch');
   if(record.payer===event.recipient||record.committee.includes(record.payer))throw new Error('Rehearsal payer must be separate from recipient/committee');
   exactNativeUnits(event.originAmount,record.originDecimals);
-  const ix=nativeClaimInstruction({event,expected:event,payer:record.payer,committee:record.committee});
+  const ix=instruction(record,event);
   if(record.id!==ix.keys[3].pubkey.toBase58())throw new Error('Wrong receipt-derived operation ID');
   const raw=Buffer.from(record.transactionBase64,'base64');
   if(raw.length>1232||raw.toString('base64')!==record.transactionBase64||hash(raw)!==record.transactionHash)throw new Error('Signed transaction bytes changed');
   const tx=Transaction.from(raw);
   if(!tx.verifySignatures()||!tx.serialize().equals(raw)||!tx.feePayer?.equals(key(record.payer))||tx.instructions.length!==1||base58(tx.signature)!==record.signature)throw new Error('Signed transaction authority/signature mismatch');
   const actual=tx.instructions[0];
-  if(!actual.programId.equals(ix.programId)||!actual.data.equals(ix.data)||actual.keys.length!==ix.keys.length||actual.keys.some((m,i)=>!m.pubkey.equals(ix.keys[i].pubkey)||m.isSigner!==ix.keys[i].isSigner||m.isWritable!==ix.keys[i].isWritable))throw new Error('Signed transaction does not match the exact native claim');
+  if(!actual.programId.equals(ix.programId)||!actual.data.equals(ix.data)||actual.keys.length!==ix.keys.length||actual.keys.some((m,i)=>!m.pubkey.equals(ix.keys[i].pubkey)||m.isSigner!==ix.keys[i].isSigner||m.isWritable!==ix.keys[i].isWritable))throw new Error('Signed transaction does not match the exact claim');
   return {event,raw,tx,ix};
 }
 function locked(directory,id,action) {
@@ -77,13 +81,44 @@ async function rpc(record,method,params,fetcher,source=false) {
 async function admit(record,fetcher) {
   if(await rpc(record,'getGenesisHash',[],fetcher)!==record.expectedGenesis)throw new Error('Destination genesis mismatch');
 }
+async function admitOriginalAccounts(record,event,ix,config,fetcher) {
+  if(!config.subarray(136,168).equals(key(record.originMint).toBuffer()))throw new Error('Configured origin mint mismatch');
+  const result=await rpc(record,'getMultipleAccounts',[[record.originMint,ix.keys[6].pubkey.toBase58(),record.destinationToken],{encoding:'base64',commitment:'finalized',minContextSlot:record.minimumDestinationSlot}],fetcher);
+  if(!Number.isSafeInteger(result?.context?.slot)||result.context.slot<record.minimumDestinationSlot||result.value?.length!==3)throw new Error('Original account context is invalid');
+  const [mint,escrow,recipient]=result.value.map(a=>{
+    if(a?.owner!==TOKEN_2022||a.executable||a.data?.[1]!=='base64')throw new Error('Original account programme owner is invalid');
+    const b=Buffer.from(a.data[0],'base64');if(b.toString('base64')!==a.data[0])throw new Error('Invalid original account encoding');return b;
+  });
+  // Initial journal supports plain immutable mints and only the account's
+  // optional ImmutableOwner extension. Other metadata layouts need review.
+  if(mint.length!==82||mint.readUInt32LE(0)!==0||mint.readUInt32LE(46)!==0||mint[44]!==record.originDecimals||mint[45]!==1||mint.readBigUInt64LE(36)<event.originAmount)throw new Error('Original mint is mutable, unsupported or has wrong precision');
+  for(const [bytes,owner] of [[escrow,ix.keys[2].pubkey],[recipient,key(event.recipient)]]) {
+    const layout=bytes.length===165||(bytes.length===170&&bytes[165]===2&&bytes.readUInt16LE(166)===7&&bytes.readUInt16LE(168)===0);
+    if(!layout||!bytes.subarray(0,32).equals(key(record.originMint).toBuffer())||!bytes.subarray(32,64).equals(owner.toBuffer())||bytes[108]!==1||bytes.readUInt32LE(72)!==0||bytes.readUInt32LE(109)!==0||bytes.readUInt32LE(129)!==0)throw new Error('Original escrow/recipient account authority or layout mismatch');
+  }
+  if(escrow.readBigUInt64LE(64)<event.originAmount)throw new Error('Original escrow is insufficient');
+}
+function verifyOriginalMovement(record,event,tx,ix,meta) {
+  const keys=tx.compileMessage().accountKeys;
+  const escrow=keys.findIndex(k=>k.equals(ix.keys[6].pubkey)),recipient=keys.findIndex(k=>k.equals(ix.keys[7].pubkey));
+  const amount=(balances,index,owner)=>{
+    if(!Array.isArray(balances))throw new Error('Missing original token balance metadata');
+    const matches=balances.filter(v=>v.accountIndex===index);
+    if(matches.length!==1)throw new Error('Ambiguous original token balance');
+    const b=matches[0],value=b.uiTokenAmount?.amount;
+    if(b.mint!==record.originMint||b.owner!==owner.toBase58()||b.programId!==TOKEN_2022||b.uiTokenAmount?.decimals!==record.originDecimals||typeof value!=='string'||! /^(0|[1-9][0-9]*)$/.test(value)||BigInt(value)>0xffffffffffffffffn)throw new Error('Original token balance identity/precision mismatch');
+    return BigInt(value);
+  };
+  const change=(index,owner)=>amount(meta.postTokenBalances,index,owner)-amount(meta.preTokenBalances,index,owner);
+  if(change(escrow,ix.keys[2].pubkey)!==-event.originAmount||change(recipient,key(event.recipient))!==event.originAmount)throw new Error('Finalized original token movement differs from signed return');
+}
 function summary(record) {return {id:record.id,signature:record.signature,eventHash:record.eventHash,transactionHash:record.transactionHash,state:record.state,attempts:record.attempts,productionReady:false};}
 
-export function preparePendingClaim({directory,sourceRpc,rpc:destinationRpc,event,expected,payer,committee,transaction,lastValidBlockHeight,originDecimals,sourceContextSlot,minimumDestinationSlot=0}) {
+export function preparePendingClaim({directory,sourceRpc,rpc:destinationRpc,event,expected,payer,committee,transaction,lastValidBlockHeight,originDecimals,sourceContextSlot,minimumDestinationSlot=0,originMint=null,destinationToken=null}) {
   validateEvent(event,expected);
   const raw=Buffer.from(transaction),tx=Transaction.from(raw);
-  const ix=nativeClaimInstruction({event,expected,payer,committee});
-  const record={schemaVersion:1,scope:'isolated-native-claim',state:'PREPARED',attempts:0,id:ix.keys[3].pubkey.toBase58(),sourceRpc:endpoint(sourceRpc),rpc:endpoint(destinationRpc),expectedGenesis:event.destinationChain,payer:key(payer).toBase58(),committee:committee.map(k=>key(k).toBase58()),originDecimals,eventBase64:encodeEvent(event).toString('base64'),eventHash:hash(encodeEvent(event)),transactionBase64:raw.toString('base64'),transactionHash:hash(raw),signature:base58(tx.signature),lastValidBlockHeight,sourceContextSlot,minimumDestinationSlot,preparedAt:new Date().toISOString()};
+  const ix=event.direction===0?nativeClaimInstruction({event,expected,payer,committee}):originClaimInstruction({event,expected,payer,committee,mint:originMint,destinationToken});
+  const record={schemaVersion:1,scope:event.direction===0?'isolated-native-claim':'isolated-origin-redemption',state:'PREPARED',attempts:0,id:ix.keys[3].pubkey.toBase58(),sourceRpc:endpoint(sourceRpc),rpc:endpoint(destinationRpc),expectedGenesis:event.destinationChain,payer:key(payer).toBase58(),committee:committee.map(k=>key(k).toBase58()),originDecimals,originMint:originMint?key(originMint).toBase58():null,destinationToken:destinationToken?key(destinationToken).toBase58():null,eventBase64:encodeEvent(event).toString('base64'),eventHash:hash(encodeEvent(event)),transactionBase64:raw.toString('base64'),transactionHash:hash(raw),signature:base58(tx.signature),lastValidBlockHeight,sourceContextSlot,minimumDestinationSlot,preparedAt:new Date().toISOString()};
   verified(record);
   const root=privateDirectory(directory);persist(join(root,record.id+'.json'),record,true);
   return summary(record);
@@ -102,7 +137,8 @@ export function takeSubmissionAttempt(directory,id,fetcher=fetch) {
     if(!Number.isSafeInteger(receipt?.context?.slot)||receipt.context.slot<record.minimumDestinationSlot||receipt.value!==null)throw new Error('Receipt already exists or destination context is invalid; reconcile first');
     const config=await rpc(record,'getAccountInfo',[ix.keys[1].pubkey.toBase58(),{encoding:'base64',commitment:'finalized',minContextSlot:record.minimumDestinationSlot}],fetcher);
     const c=config.value?.data?.[1]==='base64'?Buffer.from(config.value.data[0],'base64'):Buffer.alloc(0);
-    if(!Number.isSafeInteger(config.context?.slot)||config.context.slot<record.minimumDestinationSlot||config.value?.owner!==event.destinationProgram||config.value.executable||c.length!==382||c.subarray(0,8).toString()!=='SCCFG001'||!c.subarray(8,40).equals(key(event.bridge).toBuffer())||!c.subarray(40,72).equals(key(event.destinationChain).toBuffer())||!c.subarray(72,104).equals(key(event.sourceChain).toBuffer())||!c.subarray(104,136).equals(key(event.sourceProgram).toBuffer())||c[328]!==record.originDecimals||c[329]!==9||c[330]!==1||c[331]!==3||c.readBigUInt64LE(332)!==event.epoch||c[341]!==0||record.committee.some(member=>![0,1,2,3,4].some(i=>c.subarray(168+i*32,200+i*32).equals(key(member).toBuffer()))))throw new Error('Native configuration/precision/quorum differs from signed claim');
+    if(!Number.isSafeInteger(config.context?.slot)||config.context.slot<record.minimumDestinationSlot||config.value?.owner!==event.destinationProgram||config.value.executable||c.length!==382||c.subarray(0,8).toString()!=='SCCFG001'||!c.subarray(8,40).equals(key(event.bridge).toBuffer())||!c.subarray(40,72).equals(key(event.destinationChain).toBuffer())||!c.subarray(72,104).equals(key(event.sourceChain).toBuffer())||!c.subarray(104,136).equals(key(event.sourceProgram).toBuffer())||c[328]!==record.originDecimals||c[329]!==9||c[330]!==1-event.direction||c[331]!==3||c.readBigUInt64LE(332)!==event.epoch||c[341]!==0||record.committee.some(member=>![0,1,2,3,4].some(i=>c.subarray(168+i*32,200+i*32).equals(key(member).toBuffer()))))throw new Error('Configuration/precision/quorum differs from signed claim');
+    if(event.direction===1)await admitOriginalAccounts(record,event,ix,c,fetcher);
     const observation=await observeLocalEvent({rpc:record.sourceRpc,expectedGenesis:event.sourceChain,eventAddress:event.sourceEvent,expected:event,minimumContextSlot:record.sourceContextSlot},fetcher);
     if(!encodeEvent(observation.event).equals(encodeEvent(event)))throw new Error('Source event bytes changed');
     await admit(record,fetcher);
@@ -129,7 +165,12 @@ export function reconcilePendingClaim(directory,id,fetcher=fetch) {
         const keys=tx.compileMessage().accountKeys;const recipient=keys.findIndex(k=>k.toBase58()===event.recipient),vault=keys.findIndex(k=>k.equals(ix.keys[2].pubkey));
         const delta=index=>{const a=landed.meta.preBalances?.[index],b=landed.meta.postBalances?.[index];if(!Number.isSafeInteger(a)||!Number.isSafeInteger(b)||a<0||b<0)throw new Error('Invalid economic balance metadata');return BigInt(b)-BigInt(a);};
         const amount=exactNativeUnits(event.originAmount,record.originDecimals);
-        if(delta(recipient)!==amount||delta(vault)!==-amount)throw new Error('Finalized native movement differs from signed event');
+        if(event.direction===0) {
+          if(delta(recipient)!==amount||delta(vault)!==-amount)throw new Error('Finalized native movement differs from signed event');
+        } else {
+          if(delta(recipient)!==0n||delta(vault)!==0n)throw new Error('Unexpected native movement during original redemption');
+          verifyOriginalMovement(record,event,tx,ix,landed.meta);
+        }
         record.finalizedSlot=landed.slot;next='FINALIZED';
       }
     } else if(receipt.value)next='CONSUMED_REVIEW_REQUIRED';

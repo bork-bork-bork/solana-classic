@@ -1,39 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtempSync, realpathSync, chmodSync, readFileSync, writeFileSync, statSync, rmSync } from 'node:fs';
-import { tmpdir } from 'node:os';
+import { chmodSync, writeFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
-import { Keypair, PublicKey, Transaction, SystemProgram } from '@solana/web3.js';
-import { encodeEvent, nativeClaimInstruction } from './sdk.mjs';
+import { PublicKey, SystemProgram } from '@solana/web3.js';
 import { preparePendingClaim, takeSubmissionAttempt, reconcilePendingClaim } from './pending-claim.mjs';
-function fixture(t) {
-  const directory=realpathSync(mkdtempSync(join(tmpdir(),'sc-bridge-journal-')));chmodSync(directory,0o700);t.after(()=>rmSync(directory,{recursive:true,force:true}));
-  const k=()=>Keypair.generate(), payer=k(), committee=[k(),k(),k()], sender=k(), recipient=k();
-  const e={bridge:k().publicKey.toBase58(),sourceChain:k().publicKey.toBase58(),destinationChain:k().publicKey.toBase58(),sourceProgram:k().publicKey.toBase58(),destinationProgram:k().publicKey.toBase58(),sender:sender.publicKey.toBase58(),recipient:recipient.publicKey.toBase58(),originAmount:1_000_000n,nonce:1n,slot:10n,epoch:1n,direction:0};
-  const cfg=PublicKey.findProgramAddressSync([Buffer.from('config'),new PublicKey(e.bridge).toBuffer()],new PublicKey(e.sourceProgram))[0];const nonce=Buffer.alloc(8);nonce.writeBigUInt64LE(e.nonce);e.sourceEvent=PublicKey.findProgramAddressSync([Buffer.from('event'),cfg.toBuffer(),sender.publicKey.toBuffer(),nonce],new PublicKey(e.sourceProgram))[0].toBase58();
-  const ix=nativeClaimInstruction({event:e,expected:e,payer:payer.publicKey,committee:committee.map(k=>k.publicKey)});
-  const tx=new Transaction({feePayer:payer.publicKey,recentBlockhash:k().publicKey.toBase58()}).add(ix);tx.sign(payer,...committee);
-  const args={directory,sourceRpc:'http://127.0.0.1:8899',rpc:'http://127.0.0.1:9900',event:e,expected:e,payer:payer.publicKey,committee:committee.map(k=>k.publicKey),transaction:tx.serialize(),lastValidBlockHeight:100,originDecimals:6,sourceContextSlot:20,minimumDestinationSlot:0};
-  const config=Buffer.alloc(382);config.write('SCCFG001');for(const [o,v] of [[8,e.bridge],[40,e.destinationChain],[72,e.sourceChain],[104,e.sourceProgram]])new PublicKey(v).toBuffer().copy(config,o);committee.forEach((k,i)=>k.publicKey.toBuffer().copy(config,168+i*32));config[328]=6;config[329]=9;config[330]=1;config[331]=3;config.writeBigUInt64LE(1n,332);
-  let mode='pending';const calls=[];
-  const fetcher=async(url,options)=>{
-    const q=JSON.parse(options.body);calls.push(q);
-    if(mode==='outage')throw new Error('unavailable');
-    const source=new URL(url).port==='8899';let result;
-    if(q.method==='getGenesisHash')result=mode==='wrongGenesis'?'wrong':source?e.sourceChain:e.destinationChain;
-    else if(q.method==='getBlockHeight')result=mode==='expired'?101:50;
-    else if(q.method==='getAccountInfo') {
-      const value=source?{owner:e.sourceProgram,executable:false,data:[encodeEvent(mode==='changedSource'?{...e,originAmount:e.originAmount+1n}:e).toString('base64'),'base64']}:q.params[0]===ix.keys[1].pubkey.toBase58()?{owner:e.destinationProgram,executable:false,data:[config.toString('base64'),'base64']}:['finalized','pruned','conflict','badBalance'].includes(mode)?{owner:e.destinationProgram,executable:false,data:[new PublicKey(mode==='conflict'?e.sender:e.sourceEvent).toBuffer().toString('base64'),'base64']}:null;
-      result={context:{slot:mode==='stale'?0:source?30:50},value};
-    } else if(q.method==='getSignatureStatuses')result={context:{slot:50},value:['finalized','pruned','badBalance'].includes(mode)?[{slot:45,err:null,confirmationStatus:'finalized'}]:[null]};
-    else if(q.method==='getTransaction') {
-      if(mode==='pruned')result=null;
-      else {const keys=tx.compileMessage().accountKeys,pre=keys.map(()=>100_000_000),post=[...pre];const recipientIndex=keys.findIndex(k=>k.toBase58()===e.recipient),vaultIndex=keys.findIndex(k=>k.equals(ix.keys[2].pubkey));pre[vaultIndex]=2_000_000_000;post[vaultIndex]=1_000_000_000;post[recipientIndex]+=mode==='badBalance'?999:1_000_000_000;result={slot:45,meta:{err:null,preBalances:pre,postBalances:post},transaction:[args.transaction.toString('base64'),'base64']};}
-    } else throw new Error('Unexpected mutation or method');
-    return {ok:true,text:async()=>JSON.stringify({jsonrpc:'2.0',id:1,result})};
-  };
-  return {directory,args,e,tx,ix,payer,committee,fetcher,calls,mode:v=>{mode=v;},record:id=>JSON.parse(readFileSync(join(directory,id+'.json')))};
-}
+import { fixture } from './test-fixtures/pending.mjs';
 test('signed bytes persist privately before the single submission attempt',async t=>{
   const f=fixture(t),r=preparePendingClaim(f.args);assert.equal(r.state,'PREPARED');assert.equal(statSync(join(f.directory,r.id+'.json')).mode&0o777,0o600);
   const attempt=await takeSubmissionAttempt(f.directory,r.id,f.fetcher);
