@@ -1,6 +1,6 @@
 # Solana Classic operator handover
 
-The founder operates this experimental TEST service. Automated tooling supplies implementation and test evidence; they do not provide unattended operations. Browser wallets are disposable and memory-only. There is no production SOC, mainnet bridge or conversion entitlement.
+The founder operates this devnet service. Automated tooling supplies implementation and test evidence; they do not provide unattended operations. Browser wallets are disposable and memory-only. There is no production SOC, mainnet bridge or conversion entitlement.
 
 ## Service inventory
 
@@ -57,3 +57,47 @@ The validator prunes older transaction history. At recovery reconfirmation, firs
 ## Source-build migration
 
 Read [the reviewed migration and rollback procedure](AGAVE_MIGRATION.md). The pinned source build, mixed-binary rollback rehearsal and volume-free runtime image checks are separate from canonical cutover acceptance. Keep the original stability run untouched until its actual final result passes.
+
+
+## Current public frontend and developer access
+
+The public site is https://solanaclassic.net. The existing .net frontend project
+is `prj_QqX4GVAOEbRthKGERaVqRA5Ks1qv` in team `trenchfun1`; current
+deployment is `dpl_FNyZW8958hhNTgQwSYpKEpDCqkXM`. Its separately built overlay
+must use `SC_ENABLE_TRANSACTION_FEED=1 python3 infra/custom-domain/build.py`,
+which verifies all41 original frozen core hashes before generating the ignored
+frontend directory. Keep the original frozen website/deployment above as its
+own stability candidate. Later executable .net changes do not inherit that soak.
+
+The integrated https://solanaclassic.net/roadmap reads the separate roadmap
+project `prj_i1YWeICVnNs5EH6MBsLSQzAvg5YW`. Updates to its public checkpoint
+record verified scope; a passed development milestone never activates the
+validator or a real bridge. Latest private bridge proof publication is recorded
+in `evidence/bridge-pinned-journal-agave-publication.json`. Always inspect the
+latest deployment evidence rather than assuming an old ID remains current.
+
+Branded https://rpc.solanaclassic.net and https://api.solanaclassic.net provide
+bounded HTTP transports to the same existing devnet gateway. These are not raw
+unrestricted validator RPC endpoints. Browser and Node developer starters,
+custom SBF deploy/resume/upgrade and actual execution evidence are in
+`developers/` and `evidence/developer-program-access.json`. WebSockets,
+unrestricted standard CLI RPC, expanded funding and production wallet custody
+remain unaccepted. Generated developer test keys and deployment journals stay
+private in ignored storage. Browser wallets disappear when their session closes.
+
+## Handover completion remains a separate check
+
+Agent access checks and previously confirmed alert delivery are recorded
+evidence. The founder still needs to verify access to the named Vercel team,
+Railway project/services/backups, DNS and monitoring, and acknowledge the
+restart/backup/recovery/rollback procedures before operator handover can pass.
+No password, private key or credential export is needed in source or chat.
+
+The original full-day test passed with retained exact terminal evidence. The
+source runtime is prepared for a maintenance review, but switching is not
+automatic. Approval of a concrete devnet maintenance window precedes stopping
+writers, a NEW consistent backup after all later developer/browser transactions,
+held-candidate continuity checks, opening writes and the new full-day test.
+Do not use the early cold archive as a current backup of later programme/asset
+state. Mainnet-capable hosting, independent operators, funded complete backing,
+production signing/upgrade custody and external review remain separate gates.

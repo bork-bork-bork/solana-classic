@@ -129,6 +129,17 @@
           "sha256": "c6035cb45e8045adfd4c446af6a6bce8e11265a719531088f402900822288b7c"
         }
       ]
+    },
+    "G7.02": {
+      "passed": true,
+      "scope": "remote",
+      "verifiedAt": "2026-10-14T19:51:55.420045+00:00",
+      "proofs": [
+        {
+          "path": "evidence/browser-mobile-original-review.json",
+          "sha256": "9d049f0fe9ce009e1df02d4b7516427ae02fccdbdbe28e17128c40df190b8ca1"
+        }
+      ]
     }
   }
 }

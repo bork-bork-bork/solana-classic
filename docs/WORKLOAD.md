@@ -10,4 +10,22 @@ The network service has 4 CPU/16,000,000,000-byte caps, one replica in SFO and a
 
 The first sequential-issuance experiment failed 98.5 percent within 15 seconds; its evidence is retained. Atomic issuance repaired that path. Local transport failures are preserved separately. No failed measurement is relabelled as successful.
 
-This is a bounded application workload, not a Solana-wide capacity or decentralisation benchmark. Full uninterrupted 24-hour browser stability remains in progress; its actual start was 13October2026 at16:48:22.762UTC/17:48:22.762London. This load result does not certify native SOC, production mainnet or a bridge.
+This is a bounded application workload, not a Solana-wide capacity or decentralisation benchmark. The original full-day browser stability run completed on 14 October 2026 at 16:48:23.028 UTC / 17:48:23.028 London. It started on 13 October at 16:48:22.762 UTC / 17:48:22.762 London and ran for 86,400.266 seconds. It completed 288 distinct NFT mint-and-transfer journeys and 2,880 observer checks, with no public faucet calls. The full original report, terminal/runtime identity and freeze were archived and re-reviewed in evidence/stability-original-terminal-review.json. This is recorded bounded workload evidence, not independent replay of every transaction from retained chain history. This load result does not certify native SOC, production mainnet or a bridge.
+
+
+## Evidence and later frontend scope
+
+The complete200-operation load was recalculated from retained receipts/times by
+`engine/migration/load_review.py`; see
+`evidence/load-original-evidence-review.json`. Its eight regression tests cover
+counts, unique signatures, timing, cadence, candidate identity and aggregate
+claims. Source and exact report hashes are recorded, without creating a new
+workload or importing historical acceptance.
+
+The original frozen website and canonical runtime passed that full-day run.
+Later .net wallet, upload and signing changes have separate browser evidence
+and do not inherit the original soak. Source-built runtime migration needs a
+fresh consistent backup, continuity checks and its own24-hour test. Full
+release and monetary mainnet/bridge activation remain unaccepted. Hosting caps
+above are configured limits, not measured utilization or independent hardware
+specifications. Full machine/publication release review remains pending.

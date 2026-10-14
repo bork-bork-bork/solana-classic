@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-14T19:43:31.489243+00:00",
+  "scope": "Preserved failed mobile driver attempts on frozen valueless devnet; not product,release or mobile acceptance",
+  "passed": false,
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "attempts": [
+    {
+      "path": "evidence/browser-final-frozen-mobile-20261014T192957807Z.json",
+      "assets": 2,
+      "finalizedReceipts": 5,
+      "stage": "nft transfer",
+      "failureCause": "Original driver did not retain exception detail; read-only later check found NFT still owned by sender, so completed transfer is not claimed."
+    },
+    {
+      "path": "evidence/browser-final-frozen-mobile-20261014T193828161Z.json",
+      "assets": 1,
+      "finalizedReceipts": 4,
+      "stage": "nft mint",
+      "failureType": "TypeError",
+      "failureMessage": "fetch failed",
+      "failureScope": "Independent driver fetch failed during the NFT mint stage; exact read was not retained. Four receipts and one asset were verified. Unrecorded NFT issuance is not excluded and no NFT success/failure is inferred."
+    }
+  ],
+  "files": {
+    "evidence/browser-final-frozen-mobile-20261014T192957807Z.json": "746a71c67f9bdaf80a389af0a9b5050f41ebb597dd86654b60d7c4701f6ee6a3",
+    "evidence/browser-final-frozen-mobile-20261014T193828161Z.json": "e8f19d3a43fdc236cf8827d621938afbd595c95745c8f35dec819b7edf8886cf",
+    "evidence/browser-mobile-first-executed-driver.mjs.txt": "6be3ad4198b2636e453228e2db6d594cb652cf3c05e55331e8899282bda07b5c",
+    "evidence/browser-mobile-second-executed-driver.mjs.txt": "d8f578dc58525dd17c89f48043b316d518a37bdc4dfb8b1b55863d48de99e0bf"
+  },
+  "canonicalProcessChanged": false,
+  "failedAttemptsPreserved": true,
+  "repair": "Bounded transport-only retries on independent driver reads; HTTP429/JSON/RPC/identity/metadata failures remain terminal. No browser transaction or faucet retry, reset or quota bypass."
+}

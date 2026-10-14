@@ -1,9 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { targetFor, checkRuntime, checkMint, checkArtwork, receipt } from './final-browser-regression.mjs';
+import { targetFor, viewportFor, retryableReadFailure, checkRuntime, checkMint, checkArtwork, receipt } from './final-browser-regression.mjs';
 const freeze=JSON.parse(readFileSync(new URL('../../evidence/candidate-freeze.json',import.meta.url)));
 const mint='GyEHcTHL2dA2DTgzRctA34E1JsXhp54UdvSmJehKLTYt';
+test('independent read retry cannot bless RPC,HTTP429,metadata or identity failures',()=>{assert(retryableReadFailure(new TypeError('fetch failed')));assert(retryableReadFailure({name:'TimeoutError'}));for(const e of [new Error('429'),new Error('Genesis changed'),new SyntaxError('JSON'),new TypeError('Wrong mint'),{name:'AbortError'},null])assert.equal(retryableReadFailure(e),false);});
+test('full journey profiles are fixed, mobile uses touch and narrow360px viewport',()=>{assert.deepEqual(viewportFor('mobile'),{width:360,height:844,isMobile:true,hasTouch:true});assert.equal(viewportFor('desktop').width,1440);for(const p of ['mainnet',360,'__proto__','constructor','',null])assert.throws(()=>viewportFor(p));});
 function fixture(){return {owner:'TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb',data:{parsed:{type:'mint',info:{supply:'1',decimals:0,mintAuthority:null,freezeAuthority:null,extensions:[{extension:'metadataPointer',state:{authority:null,metadataAddress:mint}},{extension:'tokenMetadata',state:{updateAuthority:null,mint,name:'QA',uri:'https://network-release-production.up.railway.app/assets/'+'a'.repeat(64)+'/metadata.json'}}]}}}};}
 test('fixed valueless targets only, no arbitrary endpoint or prototype lookup',()=>{assert.equal(targetFor('custom').web,'https://solanaclassic.net');assert.equal(targetFor('frozen').web,freeze.candidate.frontendOrigin);for(const name of ['https://api.mainnet-beta.solana.com','mainnet','__proto__','constructor',''])assert.throws(()=>targetFor(name));});
 test('every original runtime identity must match before any test action',()=>{assert.doesNotThrow(()=>checkRuntime(freeze.runtime));for(const key of ['genesis','sourceCommit','coreSha256','apiBootId','validatorBootId','deploymentId','tokenProgramSha256'])assert.throws(()=>checkRuntime({...freeze.runtime,[key]:'changed'}));});

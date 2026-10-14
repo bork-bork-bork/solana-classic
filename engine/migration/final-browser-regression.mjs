@@ -9,6 +9,10 @@ const TOKEN = 'TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb';
 const ROOT = fileURLToPath(new URL('../../', import.meta.url));
 const sha = data => createHash('sha256').update(data).digest('hex');
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+let readRetries = 0;
+export function retryableReadFailure(error) {
+  return error?.name === 'TypeError' && error?.message === 'fetch failed' || error?.name === 'TimeoutError';
+}
 const targets = {
   frozen: { web: 'https://solana-classic-soc.vercel.app', api: 'https://network-release-production.up.railway.app', denomination: 'TEST' },
   custom: { web: 'https://solanaclassic.net', api: 'https://solanaclassic.net/_network', denomination: 'tSOC' }
@@ -16,6 +20,11 @@ const targets = {
 export function targetFor(name) {
   if (!Object.hasOwn(targets, name)) throw Error('Unknown fixed devnet target');
   return targets[name];
+}
+export function viewportFor(profile) {
+  if (profile === 'desktop') return { width: 1440, height: 1000, isMobile: false, hasTouch: false };
+  if (profile === 'mobile') return { width: 360, height: 844, isMobile: true, hasTouch: true };
+  throw Error('Use only the fixed desktop or mobile browser profile');
 }
 export function checkRuntime(runtime) {
   for (const key of ['genesis', 'sourceCommit', 'coreSha256', 'apiBootId', 'validatorBootId', 'deploymentId', 'tokenProgramSha256']) {
@@ -50,7 +59,13 @@ export function checkArtwork(uri, metadataURI, uploaded) {
   return uri;
 }
 async function json(url, options = {}) {
-  const response = await fetch(url, { ...options, redirect: 'error', signal: AbortSignal.timeout(15000) });
+  // Only this driver's independent read requests retry transport failures.
+  // HTTP errors (including429), JSON/RPC errors and identity mismatches do not.
+  let response;
+  for (let attempt = 0; attempt < 3; attempt++) {
+    try { response = await fetch(url, { ...options, redirect: 'error', signal: AbortSignal.timeout(15000) }); break; }
+    catch (error) { if (attempt === 2 || !retryableReadFailure(error)) throw error; readRetries++; await delay(1000); }
+  }
   if (!response.ok) throw Error('Required public response unavailable');
   const raw = await response.text();
   if (Buffer.byteLength(raw) > 262144) throw Error('Public JSON response too large');
@@ -106,15 +121,16 @@ async function bundle(web) {
   }
   return hashes;
 }
-export async function run(name) {
-  const target = targetFor(name), at = new Date().toISOString();
-  const output = ROOT + 'evidence/browser-final-' + name + '-' + at.replace(/[^0-9TZ]/g, '') + '.json';
+export async function run(name, profile = 'desktop') {
+  const target = targetFor(name), viewport = viewportFor(profile), at = new Date().toISOString();
+  const output = ROOT + 'evidence/browser-final-' + name + '-' + profile + '-' + at.replace(/[^0-9TZ]/g, '') + '.json';
   const report = { schemaVersion: 1, at, scope: 'remote production-origin final clean-browser valueless regression; not an independent agent pilot, soak or full release acceptance', passed: false,
     web: target.web, api: target.api, genesis: freeze.genesis, candidate: freeze.candidate,
-    target: name, widths: [1440, 360], assets: [], receipts: [], issues: [], releaseAccepted: false, cutoverAccepted: false,
+    target: name, profile, fullJourneyViewport: viewport, widths: [1440, 360], layoutChecks: [], assets: [], receipts: [], issues: [], releaseAccepted: false, cutoverAccepted: false,
     canonicalProcessChanged: false, walletSecretsPersisted: null, faucetLogicalGrants: 0,
     browser: 'Chromium Playwright; Browser plugin not available', screenshotsCommitted: false };
   let browser, stage = 'admission';
+  readRetries = 0;
   try {
     if (Number(process.versions.node.split('.')[0]) !== 24) throw Error('Pinned Node24 required');
     report.runtimeBefore = await identity();
@@ -123,11 +139,19 @@ export async function run(name) {
     report.frontendBefore = await bundle(target.web);
     if (name === 'frozen') for (const [path, digest] of Object.entries(report.frontendBefore)) if (freeze.frontendFiles[path] !== digest) throw Error('Frozen frontend entry changed');
     browser = await chromium.launch({ headless: true });
-    const context = await browser.newContext({ viewport: { width: 1440, height: 1000 } });
+    const context = await browser.newContext({ viewport: { width: viewport.width, height: viewport.height }, isMobile: viewport.isMobile, hasTouch: viewport.hasTouch });
     const page = await context.newPage(), recipientPage = await context.newPage();
-    let pageErrors = 0, sensitivePayload = false, unexpectedDestination = false;
+    let pageErrors = 0, consoleErrors = 0, sensitivePayload = false, unexpectedDestination = false;
+    const rendered = async (p, label) => {
+      if (!(await p.title()).startsWith('Solana Classic') || !await p.locator('main').isVisible()) throw Error('Wrong or blank rendered page');
+      if (await p.locator('vite-error-overlay, nextjs-portal').count()) throw Error('Framework error overlay');
+      const box = await p.evaluate(() => ({ width: innerWidth, scrollWidth: document.documentElement.scrollWidth }));
+      if (box.scrollWidth > box.width) throw Error('Journey page overflows');
+      report.layoutChecks.push({ stage: label, ...box, pageIdentity: true, meaningfulMain: true, frameworkOverlay: false });
+    };
     context.on('page', p => p.on('pageerror', () => { pageErrors++; }));
-    for (const p of [page, recipientPage]) p.on('pageerror', () => { pageErrors++; });
+    context.on('page', p => p.on('console', m => { if (m.type() === 'error') consoleErrors++; }));
+    for (const p of [page, recipientPage]) { p.on('pageerror', () => { pageErrors++; }); p.on('console', m => { if (m.type() === 'error') consoleErrors++; }); }
     context.on('request', request => {
       const url = new URL(request.url());
       if (!url.pathname.includes('/api/')) return;
@@ -139,9 +163,13 @@ export async function run(name) {
     for (const p of [page, recipientPage]) {
       await p.goto(target.web + '/playground');
       await p.getByText('Network responding', { exact: true }).waitFor({ timeout: 30000 });
+      await rendered(p, 'playground-entry');
+      if (p === page) await p.screenshot({ path: '/tmp/soc-final-' + name + '-' + profile + '-entry.png', fullPage: false });
       await p.getByRole('button', { name: 'Create test wallet', exact: true }).click();
       await p.locator('.wallet-rail code.address').waitFor();
+      await rendered(p, 'clean-wallet');
     }
+    await page.screenshot({ path: '/tmp/soc-final-' + name + '-' + profile + '-wallet.png', fullPage: false });
     report.payer = await page.locator('.wallet-rail code.address').innerText();
     report.recipient = await recipientPage.locator('.wallet-rail code.address').innerText();
     if (report.payer === report.recipient) throw Error('Wallet identities reused');
@@ -158,6 +186,7 @@ export async function run(name) {
     const finalNative = (await rpc('getBalance', [report.recipient, { commitment: 'finalized' }])).value;
     if (initialNative !== 0 || finalNative !== 10000000) throw Error('Native transfer balance mismatch');
     report.receipts.push({ action: 'native-transfer', ...native });
+    await rendered(page, 'native-transfer');
     for (const kind of ['meme', 'nft']) {
       stage = kind + ' mint'; await identity();
       if (report.assets.length) await page.getByRole('button', { name: 'Start a new creation', exact: true }).click();
@@ -186,8 +215,11 @@ export async function run(name) {
       const asset = { kind, mint, metadataURI: metadata.uri, imageURI: document.image, imageSHA256: sha(artworkBytes), uploaded: name === 'custom' && kind === 'nft', ...issuance };
       report.assets.push(asset); report.receipts.push({ action: kind + '-issuance', ...issuance });
       stage = kind + ' transfer'; await identity();
+      stage = kind + ' transfer amount';
       await page.getByLabel('Amount', { exact: true }).fill('5');
+      stage = kind + ' transfer button';
       await page.getByRole('button', { name: kind === 'meme' ? 'Transfer meme tokens' : 'Transfer this NFT', exact: true }).click();
+      stage = kind + ' transfer receipt';
       const moved = await lastReceipt(page, 'Asset transferred');
       const tokens = await holdings(report.recipient);
       const matched = tokens.filter(item => item.account?.data?.parsed?.info?.mint === mint);
@@ -200,6 +232,8 @@ export async function run(name) {
         const gallery = await json(target.api + '/api/gallery/' + mint);
         if (gallery.currentOwner !== report.recipient) throw Error('Gallery current owner mismatch');
       }
+      await rendered(page, kind + '-mint-transfer');
+      await page.screenshot({ path: '/tmp/soc-final-' + name + '-' + profile + '-' + kind + '.png', fullPage: true });
     }
     stage = 'responsive discovery';
     const discovery = await context.newPage();
@@ -211,29 +245,34 @@ export async function run(name) {
       if (await discovery.evaluate(() => document.documentElement.scrollWidth > innerWidth)) throw Error('Explorer overflow');
       await discovery.keyboard.press('Tab');
       if (!await discovery.evaluate(() => document.activeElement?.tagName === 'A' || document.activeElement?.tagName === 'BUTTON' || document.activeElement?.tagName === 'INPUT')) throw Error('Keyboard focus unavailable');
-      await discovery.screenshot({ path: '/tmp/soc-final-' + name + '-' + width + '.png', fullPage: true });
+      await discovery.screenshot({ path: '/tmp/soc-final-' + name + '-' + profile + '-' + width + '.png', fullPage: true });
     }
     stage = 'secret persistence and continuity';
     for (const p of [page, recipientPage]) {
       if (!await p.evaluate(() => localStorage.length === 0 && sessionStorage.length === 0)) throw Error('Unexpected browser storage');
     }
-    if (pageErrors || sensitivePayload || unexpectedDestination) throw Error('Browser integrity check failed');
+    if (pageErrors || consoleErrors || sensitivePayload || unexpectedDestination) throw Error('Browser integrity check failed');
     report.runtimeAfter = await identity(); report.frontendAfter = await bundle(target.web);
     if (JSON.stringify(report.frontendBefore) !== JSON.stringify(report.frontendAfter)) throw Error('Frontend changed during regression');
     if (new Set(report.receipts.map(row => row.signature)).size !== report.receipts.length) throw Error('Duplicate logical receipts');
-    report.pageErrors = 0; report.finalizedReceipts = report.receipts.length;
+    report.pageErrors = 0; report.consoleErrors = 0; report.finalizedReceipts = report.receipts.length;
     report.browserStorageEmpty = true; report.walletSecretsPersisted = false; report.sensitivePayloadObserved = false;
     report.unexpectedAPIDestination = false; report.passed = true;
-  } catch {
+  } catch (error) {
     report.issues.push('Regression stopped during ' + stage + '; no release acceptance. Preserve partial receipts and investigate.');
+    // Diagnostic text is from this bounded public-page driver. Never inspect
+    // memory-wallet contents, request bodies, browser traces or key material.
+    report.failureStage = stage;
+    report.failureType = error?.name ?? 'Error';
+    report.failureMessage = String(error?.message ?? '').slice(0,500);
   } finally {
-    await browser?.close(); report.completedAt = new Date().toISOString();
+    await browser?.close(); report.completedAt = new Date().toISOString(); report.independentReadTransportRetries = readRetries;
     writeFileSync(output, JSON.stringify(report, null, 2) + '\n', { flag: 'wx' });
   }
   console.log(JSON.stringify({ passed: report.passed, target: name, evidence: output.slice(ROOT.length), assets: report.assets.length, finalizedReceipts: report.receipts.length, issues: report.issues }));
   return report;
 }
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  if (process.argv.length !== 6 || process.argv[2] !== '--target' || process.argv[4] !== '--ack' || process.argv[5] !== 'valueless-devnet') throw Error('Use --target frozen|custom --ack valueless-devnet; no other targets supported');
-  if (!(await run(process.argv[3])).passed) process.exitCode = 1;
+  if (![6,8].includes(process.argv.length) || process.argv[2] !== '--target' || process.argv[4] !== '--ack' || process.argv[5] !== 'valueless-devnet' || process.argv.length === 8 && process.argv[6] !== '--viewport') throw Error('Use --target frozen|custom --ack valueless-devnet [--viewport desktop|mobile]; no other targets supported');
+  if (!(await run(process.argv[3], process.argv[7] ?? 'desktop')).passed) process.exitCode = 1;
 }

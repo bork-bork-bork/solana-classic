@@ -1,5 +1,5 @@
 {
-  "at": "2026-10-14T18:17:26.274Z",
+  "at": "2026-10-14T19:51:56.068Z",
   "passed": false,
   "scope": "offline evidence review",
   "issues": [],
@@ -477,8 +477,8 @@
       "id": "G7.02",
       "gate": "G7",
       "label": "Mobile 360 px and desktop 1440 px views are usable; keyboard navigation, labels and focus states work.",
-      "passed": false,
-      "reason": "No passed, individually reviewed evidence."
+      "passed": true,
+      "reason": "Passed individual evidence review; checksums match."
     },
     {
       "id": "G7.03",
@@ -576,7 +576,7 @@
     {
       "id": "G7",
       "passed": false,
-      "passedChecks": 2,
+      "passedChecks": 3,
       "requiredChecks": 9
     }
   ],
@@ -584,7 +584,7 @@
   "clock": {
     "startedAt": "2026-10-13T03:00:54+00:00",
     "deadline": "2026-10-19T03:00:54+00:00",
-    "hoursRemaining": 104.72436833333333,
+    "hoursRemaining": 103.14942555555555,
     "full24HourSoakFits": true
   },
   "releaseStates": {

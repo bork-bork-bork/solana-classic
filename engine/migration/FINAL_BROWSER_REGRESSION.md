@@ -74,3 +74,45 @@ the eventual approved migration must capture a fresh consistent backup after
 them. Never use the old archive as the current migration baseline. The source
 runtime switch and its new full-day test still need the concrete maintenance
 decision and the reviewed migration sequence.
+
+
+## Full360px phone journeys
+
+Two later full360x844 Chromium touch-emulated journeys now pass. Original
+frozen report `evidence/browser-final-frozen-mobile-20261014T194330408Z.json`
+and current.net report `evidence/browser-final-custom-mobile-20261014T194714085Z.json`
+each verify one faucet grant, native transfer, meme/NFT mint and transfer, six
+distinct finalized receipts and exact balances/owners. Current.net also uses
+uploaded PNG artwork. All inspected journey layouts fit360px, with meaningful
+main content, matching page identity and no framework overlay/page/console
+errors. Entry, wallet, completed transfer and Explorer screenshots remain in
+`/tmp/soc-final-*-mobile-*.png`, outside source/deployments.
+
+The driver accepts a fixed `--viewport mobile` profile; defaultdesktop behavior
+remains available. Nine unit guards pass. Independent driver reads now allow
+up to three transport-only attempts; HTTP errors including429, JSON/RPC errors
+and identity/metadata mismatch remain terminal. Browser transaction submission
+and faucet behavior are unchanged. Both passing phone runs used zero read
+transport retries. No validator or frontend source was changed.
+
+Two earlier failed driver attempts are preserved in
+`evidence/browser-mobile-failed-attempts-review.json`, with their exact executed
+driver sources. One stopped at NFT transfer with five verified receipts; its
+exception detail was not retained and a later read found the NFT still owned
+by its sender. The second stopped during NFT mint with a driver fetch failure,
+four verified receipts and one recorded asset. Exact unrecorded outcomes are
+not inferred. Neither failure is relabelled as a pass or silently overwritten.
+
+`evidence/browser-mobile-original-review.json` combines the passing original
+phone journey with prior1440px desktop and independent agent keyboard/label/
+focus evidence. G7.02 is individually reviewed within that original candidate
+scope. Its existing horizontally scrolling navigation still partly clips the
+Token label initially; no body overflow or signed-flow failure occurred in
+the passing journey. The separate.net review is
+`evidence/browser-mobile-custom-review.json`. Physical devices, Safari/Firefox,
+exhaustive accessibility/privacy review and operator handover remain outside
+this verification. The full release remains unaccepted.
+
+To reproduce only when needed, add `--viewport mobile` to the bounded CLI
+commands above. All normal test transactions require the eventual migration
+backup to be captured after these later receipts.

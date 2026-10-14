@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-14T19:50:44.774963+00:00",
+  "scope": "remote production-origin frozen-candidate mobile360 and prior desktop1440 browser evidence review with existing independent agent keyboard/label/focus proofs; not WCAG or all-browser acceptance",
+  "passed": true,
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "web": "https://solana-classic-soc.vercel.app",
+  "api": "https://network-release-production.up.railway.app",
+  "candidate": {
+    "apiOrigin": "https://network-release-production.up.railway.app",
+    "frontendOrigin": "https://solana-classic-soc.vercel.app",
+    "frontendDeploymentId": "dpl_3aWWzKDohr4SrgijgrB8dWgHHS5r",
+    "frontendCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "apiCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "networkConfigSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+    "dependencyManifestSha256": "e6da27717e6a84ca7b29d707ff63591b2ff0cfc38892d3b4667f8615bdf7bbc0"
+  },
+  "frozenMobileFullJourney": {
+    "report": "evidence/browser-final-frozen-mobile-20261014T194330408Z.json",
+    "viewport": {
+      "width": 360,
+      "height": 844,
+      "isMobile": true,
+      "hasTouch": true
+    },
+    "assets": 2,
+    "finalizedReceipts": 6,
+    "logicalFaucetGrants": 1,
+    "layoutChecks": [
+      {
+        "stage": "playground-entry",
+        "width": 360,
+        "scrollWidth": 360,
+        "pageIdentity": true,
+        "meaningfulMain": true,
+        "frameworkOverlay": false
+      },
+      {
+        "stage": "clean-wallet",
+        "width": 360,
+        "scrollWidth": 360,
+        "pageIdentity": true,
+        "meaningfulMain": true,
+        "frameworkOverlay": false
+      },
+      {
+        "stage": "playground-entry",
+        "width": 360,
+        "scrollWidth": 360,
+        "pageIdentity": true,
+        "meaningfulMain": true,
+        "frameworkOverlay": false
+      },
+      {
+        "stage": "clean-wallet",
+        "width": 360,
+        "scrollWidth": 360,
+        "pageIdentity": true,
+        "meaningfulMain": true,
+        "frameworkOverlay": false
+      },
+      {
+        "stage": "native-transfer",
+        "width": 360,
+        "scrollWidth": 360,
+        "pageIdentity": true,
+        "meaningfulMain": true,
+        "frameworkOverlay": false
+      },
+      {
+        "stage": "meme-mint-transfer",
+        "width": 360,
+        "scrollWidth": 360,
+        "pageIdentity": true,
+        "meaningfulMain": true,
+        "frameworkOverlay": false
+      },
+      {
+        "stage": "nft-mint-transfer",
+        "width": 360,
+        "scrollWidth": 360,
+        "pageIdentity": true,
+        "meaningfulMain": true,
+        "frameworkOverlay": false
+      }
+    ],
+    "pageErrors": 0,
+    "consoleErrors": 0,
+    "readTransportRetries": 0
+  },
+  "priorDesktopFullJourney": {
+    "report": "evidence/browser-final-frozen-20261014T180654050Z.json",
+    "width": 1440,
+    "assets": 2,
+    "finalizedReceipts": 6
+  },
+  "keyboardLabelFocusEvidence": [
+    "pilot-agent-one:keyboard Enter explorer submission and1440/360gallery/receipt wrapping",
+    "pilot-agent-two:Name-to-Symbol Tab navigation with visible focus and measured360px forms",
+    "fresh phone:associated form labels used for signed actions; Explorer keyboard focus and no page overflow"
+  ],
+  "sourceAndProofHashes": {
+    "evidence/browser-final-frozen-mobile-20261014T194330408Z.json": "1ccfd3dc5e68d74a60d8faa41c7934a08eb48e05744233038be57da5d8a2b848",
+    "evidence/browser-final-frozen-20261014T180654050Z.json": "e4e2e8aa3bc36f41db4e0cecddfd96b90ef755ec75840d4950e278d0fe825c4d",
+    "evidence/pilot-agent-one.json": "ef409a3d174e5ead96d84789ebc7a385d349ad4c29fb310c5fbc33905239e2ef",
+    "evidence/pilot-agent-two.json": "8bf15684f9cbad8e85f9288ad002d094eb23ca09b08930fc805ab4e021a9b77c",
+    "engine/migration/final-browser-regression.mjs": "4af2b1fe035e0ef9eac44df774bd4c5b105d7dd43bc965064208e87e87d814be",
+    "engine/migration/final-browser-regression.test.mjs": "1b4ea23718b24e74aeff736a5883b5c3feea781a07494caaecc26ff9138e1832",
+    "evidence/browser-mobile-failed-attempts-review.json": "57aca50a4ec8e0e3f2cf20a644658d09863fefc8c951403a9db8bf8f62e7d4a0"
+  },
+  "frozenFilesUnchanged": true,
+  "canonicalProcessChanged": false,
+  "releaseAccepted": false,
+  "cutoverAccepted": false,
+  "failedAttemptsPreserved": true,
+  "limits": [
+    "Original frozen mobile navigation scrolls horizontally; Token label partly offscreen initially, no body overflow or signed-flow failure in passed journey",
+    "New root automated phone QA, not new independent agents or human usability research",
+    "Chromium360 touch emulation, not physical iPhone/Android,Safari,Firefox or exhaustive accessibility testing",
+    "Two failed driver attempts retained; second had independent fetch failure, exact unrecorded outcomes not inferred",
+    "The current.netfrontend has separate code and evidence; this individual review applies only to original frozen candidate",
+    "New transactions require a fresh migration backup after these receipts"
+  ]
+}

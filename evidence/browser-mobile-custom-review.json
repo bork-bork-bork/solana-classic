@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-14T19:51:55.420045+00:00",
+  "scope": "remote production-origin mobile360 regression on current.net overlay; separate from original frozen candidate and its soak",
+  "passed": true,
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "web": "https://solanaclassic.net",
+  "report": "evidence/browser-final-custom-mobile-20261014T194714085Z.json",
+  "reportSHA256": "f9480ab5a73a0e68a6d6c03ef84307e5fd07cf720391fb17568abebcd64b1f9b",
+  "fullJourneyViewport": {
+    "width": 360,
+    "height": 844,
+    "isMobile": true,
+    "hasTouch": true
+  },
+  "assets": 2,
+  "uploadedNFT": true,
+  "finalizedReceipts": 6,
+  "logicalFaucetGrants": 1,
+  "readTransportRetries": 0,
+  "layoutChecks": [
+    {
+      "stage": "playground-entry",
+      "width": 360,
+      "scrollWidth": 360,
+      "pageIdentity": true,
+      "meaningfulMain": true,
+      "frameworkOverlay": false
+    },
+    {
+      "stage": "clean-wallet",
+      "width": 360,
+      "scrollWidth": 360,
+      "pageIdentity": true,
+      "meaningfulMain": true,
+      "frameworkOverlay": false
+    },
+    {
+      "stage": "playground-entry",
+      "width": 360,
+      "scrollWidth": 360,
+      "pageIdentity": true,
+      "meaningfulMain": true,
+      "frameworkOverlay": false
+    },
+    {
+      "stage": "clean-wallet",
+      "width": 360,
+      "scrollWidth": 360,
+      "pageIdentity": true,
+      "meaningfulMain": true,
+      "frameworkOverlay": false
+    },
+    {
+      "stage": "native-transfer",
+      "width": 360,
+      "scrollWidth": 360,
+      "pageIdentity": true,
+      "meaningfulMain": true,
+      "frameworkOverlay": false
+    },
+    {
+      "stage": "meme-mint-transfer",
+      "width": 360,
+      "scrollWidth": 360,
+      "pageIdentity": true,
+      "meaningfulMain": true,
+      "frameworkOverlay": false
+    },
+    {
+      "stage": "nft-mint-transfer",
+      "width": 360,
+      "scrollWidth": 360,
+      "pageIdentity": true,
+      "meaningfulMain": true,
+      "frameworkOverlay": false
+    }
+  ],
+  "consoleErrors": 0,
+  "pageErrors": 0,
+  "frontendBefore": {
+    "/": "7e2b2240a21ba67fca30c84278fab1816386e7f1ef8c49379dff08810218f537",
+    "/assets/index-Bs4p-GL3.js": "563a7f72c02318c5339b33d4b638fd02bc5c2b0ec6dae75975bd45d5958da2e9",
+    "/assets/index-CdFVtgxU.css": "27106e4aa4513322edc78fea0e8b4089b84d096ee0b275541a50e74c7fe28c9e"
+  },
+  "frontendAfter": {
+    "/": "7e2b2240a21ba67fca30c84278fab1816386e7f1ef8c49379dff08810218f537",
+    "/assets/index-Bs4p-GL3.js": "563a7f72c02318c5339b33d4b638fd02bc5c2b0ec6dae75975bd45d5958da2e9",
+    "/assets/index-CdFVtgxU.css": "27106e4aa4513322edc78fea0e8b4089b84d096ee0b275541a50e74c7fe28c9e"
+  },
+  "runtimeUnchanged": true,
+  "coreFreezeMatches": true,
+  "driverSHA256": "4af2b1fe035e0ef9eac44df774bd4c5b105d7dd43bc965064208e87e87d814be",
+  "releaseAccepted": false,
+  "cutoverAccepted": false,
+  "limits": [
+    "Chromium touch emulation,not real mobile hardware or comprehensive accessibility audit",
+    "Original frozen-candidate individual requirement review is separate",
+    "No new frontend or validator deployment,only test-driver/read-only handling changed"
+  ]
+}
