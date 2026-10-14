@@ -161,3 +161,21 @@ ledgers, keys, checkpoints and logs remain on the worker. Preserve the passed
 This restores the synthetic prototype, whose budget is still not complete
 funded mainnet backing. Full-validator consensus, custody, independent operators
 and security review remain required.
+
+## V2 SIGKILL recovery
+
+Ten actual checks now pass after SIGKILL of each newly started private copied
+validator. The kill guard pins its exact binary, copied-ledger argument and
+isolated process group; both actual exits are -9 while processed slots exceed
+finalized slots. RPC outage returns no source observation. Both same-genesis
+restarts preserve all20 finalized bridge accounts, bootstrap floor/record,
+counters, balances and replay protection. Four replay simulations reject
+without state changes; zero broadcasts. All four process starts terminate and
+original cold inventory hashes remain unchanged. Ten copy/crash guards pass.
+
+This tests already-finalized state after a process crash. It does not test
+unknown landing, a pending-operation crash, a competing fork, kernel failure
+or physical power loss. The synthetic budget still lacks complete funded
+mainnet backing. See `evidence/bridge-hard-crash-v2.json`. Keys/checkpoints/logs
+stay private in the retained `/data/bridge-hard-crash-v2` attempt; future drills
+need a new reviewed root, never replay/reset this driver.

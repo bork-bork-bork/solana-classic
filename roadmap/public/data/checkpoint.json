@@ -168,7 +168,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-14T11:57:53.354075+00:00",
+    "reviewedAt": "2026-10-14T12:24:13.062241+00:00",
     "scope": "Development checkpoint only; separate from the live testnet release",
     "projects": [
       {
@@ -209,7 +209,7 @@
         "title": "SOC redemption bridge",
         "state": "building",
         "description": "Original SOC escrow and a native Classic reserve, targeting exact 1:1 display-unit redemption in both directions.",
-        "currentScope": "V2 bridge passes14 fresh private Agave execution checks and now8 actual cold archive/extraction/restore checks: all20 bridge accounts, bootstrap record/floor, balances, counters and replay receipts preserved. Four copied-ledger processes stopped; zero broadcasts; original ledgers unchanged. Nine copy/admission guards pass. Budget remains hypothetical; funded mainnet inventory/custody, hard crash/unknown landing/fork and independent review remain open.",
+        "currentScope": "V2 bridge:14 fresh-ledger execution checks,8 cold archive/restore checks and now10 actual SIGKILL recovery checks. Both private processes crash while slots advance, RPC observation refuses outages, all20 finalized bridge accounts/replays survive restart. Four starts fully stopped; zero broadcasts; original stopped copies unchanged. Hypothetical backing remains; unknown landing/fork/physical power loss, actual funded inventory/custody and independent review remain open.",
         "source": "https://github.com/solana-classic/solana-classic/tree/main/bridge",
         "milestones": [
           {
@@ -256,6 +256,11 @@
             "title": "V2 bridge cold archive extraction and restore",
             "state": "rehearsal-passed",
             "detail": "8 actual checks + 9 guards. Extracted private archive, rebased snapshot links, exact20-account continuity and four rejected replay simulations. Four copy processes stopped, originals unchanged, zero broadcasts. Controlled-stop cold restore; no power-loss/fork or funded-mainnet acceptance."
+          },
+          {
+            "title": "V2 bridge SIGKILL process and RPC recovery",
+            "state": "rehearsal-passed",
+            "detail": "10 actual checks + 10 copy/crash guards. Two verified private SIGKILL exits(-9), same-genesis restart, exact20-account state and rejected replays; zero broadcasts and originals unchanged. Known-finalized operations only; no pending landing, fork or physical power-loss proof."
           },
           {
             "title": "Bootstrap reconciliation, custody and recovery",

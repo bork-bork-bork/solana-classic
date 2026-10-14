@@ -1,0 +1,203 @@
+{
+  "schemaVersion": 1,
+  "scope": "Actual private V2 Agave SIGKILL process/RPC recovery of known-finalized bridge state on copied ledgers; no broadcasts, pending-operation or power-loss proof",
+  "startedAt": "2026-10-14T12:18:57.113Z",
+  "state": "passed",
+  "productionReady": false,
+  "canonicalNetworkChanged": false,
+  "genesi": [
+    "J8LsGtrVHe95w5Yxv3wR2Ux9uNWyDG3svK8LonczuuNh",
+    "EWjA6VWd5uw1XP9fZXBnxAd2doRFf6KQke2RUwj14QE2"
+  ],
+  "broadcasts": 0,
+  "checks": [
+    "Working copies match passed V2 fixture: 20 finalized accounts, bootstrap record/floor, both counters, token escrow and consumed receipts",
+    "Origin SIGKILL RPC outage refuses finalized observation; other ledger remains unchanged",
+    "Origin SIGKILL restart preserves finalized state and all 20 bridge accounts",
+    "Native SIGKILL RPC outage refuses finalized observation; other ledger remains unchanged",
+    "Both SIGKILL-restarted ledgers preserve all 20 finalized account bytes, owners, balances and programme authorities",
+    "Recovered observer accepts exact original events at or above retained same-genesis finalized checkpoints",
+    "Native/original settlement replay, altered bootstrap recipient and second bootstrap still reject after SIGKILL restarts",
+    "Four rejected simulations leave bridge state unchanged; zero broadcasts",
+    "Both intended private process groups exited by actual SIGKILL while processed slots exceeded finalized slots",
+    "Original stopped restored-ledger inventories unchanged; all four private starts stopped"
+  ],
+  "globalBacking": {
+    "completeInventoryVerified": false,
+    "actualGenesisBackingVerified": false,
+    "hypotheticalNativeBudgetUnits": "2000000000",
+    "observedNativeGlobalSupplyUnitsAtStart": "503000511071959133",
+    "budgetMatchesObservedGlobalSupply": false,
+    "note": "Synthetic 2-row accounting projection intentionally does not cover the complete test-validator supply. Cannot pass B3 or any monetary-release gate."
+  },
+  "accountCounts": [
+    11,
+    9
+  ],
+  "baselineSlots": [
+    784,
+    600
+  ],
+  "recoveredSlots": [
+    801,
+    643
+  ],
+  "replays": [
+    {
+      "side": 1,
+      "error": {
+        "InstructionError": [
+          0,
+          "AccountAlreadyInitialized"
+        ]
+      },
+      "scope": "Actual compiled bridge RPC simulation; never broadcast"
+    },
+    {
+      "side": 0,
+      "error": {
+        "InstructionError": [
+          0,
+          "AccountAlreadyInitialized"
+        ]
+      },
+      "scope": "Actual compiled bridge RPC simulation; never broadcast"
+    },
+    {
+      "side": 1,
+      "error": {
+        "InstructionError": [
+          0,
+          "AccountAlreadyInitialized"
+        ]
+      },
+      "scope": "Actual compiled bridge RPC simulation; never broadcast"
+    },
+    {
+      "side": 1,
+      "error": {
+        "InstructionError": [
+          0,
+          "InvalidArgument"
+        ]
+      },
+      "scope": "Actual compiled bridge RPC simulation; never broadcast"
+    }
+  ],
+  "completedAt": "2026-10-14T12:19:12.755Z",
+  "originalColdInventory": [
+    {
+      "sha256": "920d3ae289d2185368934d75e543f1447ded66be04ab7281eccc9e7dcd640c04",
+      "entries": 89,
+      "links": 2
+    },
+    {
+      "sha256": "bf8098efff9fb023f17e5c566ae41444190711ff2c39a7658fb05e0226995548",
+      "entries": 82,
+      "links": 2
+    }
+  ],
+  "originalLedgersUnchanged": true,
+  "processes": {
+    "starts": [
+      {
+        "side": 0,
+        "minimumFinalizedSlot": 0,
+        "genesisMatches": true,
+        "forbiddenOriginalLedgerPathsOpened": false
+      },
+      {
+        "side": 1,
+        "minimumFinalizedSlot": 0,
+        "genesisMatches": true,
+        "forbiddenOriginalLedgerPathsOpened": false
+      },
+      {
+        "side": 0,
+        "minimumFinalizedSlot": 784,
+        "genesisMatches": true,
+        "forbiddenOriginalLedgerPathsOpened": false
+      },
+      {
+        "side": 1,
+        "minimumFinalizedSlot": 600,
+        "genesisMatches": true,
+        "forbiddenOriginalLedgerPathsOpened": false
+      }
+    ],
+    "crashes": [
+      {
+        "side": 0,
+        "signal": "SIGKILL",
+        "returnCode": -9,
+        "processedSlotBeforeKill": 815,
+        "finalizedSlotBeforeKill": 784,
+        "bridgeOperationsAlreadyFinalized": true,
+        "pendingOperationTested": false,
+        "physicalPowerLossTested": false
+      },
+      {
+        "side": 1,
+        "signal": "SIGKILL",
+        "returnCode": -9,
+        "processedSlotBeforeKill": 674,
+        "finalizedSlotBeforeKill": 641,
+        "bridgeOperationsAlreadyFinalized": true,
+        "pendingOperationTested": false,
+        "physicalPowerLossTested": false
+      }
+    ],
+    "stops": [
+      {
+        "side": 0,
+        "signal": "SIGINT",
+        "returnCode": -2,
+        "applicationGracefulFlushVerified": false
+      },
+      {
+        "side": 1,
+        "signal": "SIGINT",
+        "returnCode": -2,
+        "applicationGracefulFlushVerified": false
+      }
+    ],
+    "allStopped": true
+  },
+  "sourceBinarySHA256": "3d3140bf93c9bc967220ffd8989d8b0267b723915d32203132ecc36d2c63a49a",
+  "bridgeSBF_SHA256": "556adf3132c6d102458c0c3b13e22457401bd748b6c3a37a422fb7a339a68e53",
+  "uploadedSourceHashes": {
+    "hard_crash.py": "d65efad658e9527d18098ac3549e8a8a0ea7d5b5eb763116db9a39049784d930",
+    "cold_copy.py": "42bef261f9f273a1f525b515eabfcda61b8d6a1cbb62fd637ebbdd0f23a95b6d",
+    "bootstrap_driver.py": "200a81128b1dc697b32365ac939d7eef27c6e8b4cf3d48aa51faed4a65164a5c",
+    "hard-crash.mjs": "a11069be8bc3e35df3e68c5cee3a8212fc5b36f8ffdae046b15fb5b6674b1980",
+    "sdk.mjs": "e603242692bedc2457ec9dd3cb144122ca1adb7341506d244ec864943bd8c988",
+    "bridge/sdk.mjs": "e603242692bedc2457ec9dd3cb144122ca1adb7341506d244ec864943bd8c988",
+    "bridge/bootstrap.mjs": "76303de82557f8ba2a88773ef55bbc5234a88164673f0afe2458f21e46c1d04e",
+    "mainnet/bootstrap.mjs": "83eb564446ad5be431f66d931fa61ca9e3d8fd15a5b7420ec87182011cce1beb",
+    "bridge.so": "556adf3132c6d102458c0c3b13e22457401bd748b6c3a37a422fb7a339a68e53"
+  },
+  "processOpenPathCheckScope": "At each startup readiness, /proc fd/maps sampled; not continuous host auditing.",
+  "remainingWork": [
+    "Unknown landing/pending-operation crash, competing fork/reorg and physical host power loss",
+    "Actual complete funded inventory/backing, custody and source finality",
+    "Capable full-validator host, independent operators/verifiers and security review"
+  ],
+  "sourceHashes": {
+    "engine/rehearsal/hard_crash.py": "d65efad658e9527d18098ac3549e8a8a0ea7d5b5eb763116db9a39049784d930",
+    "engine/rehearsal/cold_copy.py": "42bef261f9f273a1f525b515eabfcda61b8d6a1cbb62fd637ebbdd0f23a95b6d",
+    "engine/rehearsal/bootstrap.py": "200a81128b1dc697b32365ac939d7eef27c6e8b4cf3d48aa51faed4a65164a5c",
+    "bridge/rehearsal/hard-crash.mjs": "a11069be8bc3e35df3e68c5cee3a8212fc5b36f8ffdae046b15fb5b6674b1980",
+    "bridge/sdk.mjs": "e603242692bedc2457ec9dd3cb144122ca1adb7341506d244ec864943bd8c988",
+    "bridge/bootstrap.mjs": "76303de82557f8ba2a88773ef55bbc5234a88164673f0afe2458f21e46c1d04e",
+    "mainnet/bootstrap.mjs": "83eb564446ad5be431f66d931fa61ca9e3d8fd15a5b7420ec87182011cce1beb"
+  },
+  "localBoundaryTests": {
+    "passed": true,
+    "crashAdmissionAndKillTests": 4,
+    "coldCopyTests": 6,
+    "sourceHashes": {
+      "engine/rehearsal/hard_crash_test.py": "24b6855c67c94b39d16c4f1ba1e719b5ce24a491ce3ed6f1df875f4386b18bda",
+      "engine/rehearsal/cold_copy_test.py": "e6365a93a25d0779d1f72ba8aa90d03310ecd4fa095653bf4e4a9f214d491733"
+    }
+  }
+}
