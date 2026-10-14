@@ -1,6 +1,6 @@
-# Solana Classic
+[![Solana Classic — Bring back the fun.](.github/brand/readme-banner.png)](https://solanaclassic.net)
 
-**Bring back the fun.**
+# Solana Classic
 
 Solana Classic is an open-source blockchain project putting meme and NFT communities at the centre of its products and roadmap. We are bringing together developers, artists and communities who care about this category, so its future gets sustained attention and focused development.
 
@@ -67,7 +67,7 @@ A working experimental test network is live, operated by one project-controlled 
 
 In the [playground](https://solanaclassic.net/playground), you can create a temporary test wallet, receive test units, create a demo meme token or NFT, transfer it, and inspect ownership and transaction records in the gallery and explorer. The wallet stays in browser memory; reloading loses access to it.
 
-**TEST/tSOC balances and demo assets have no monetary value or right to conversion into SOC.** Production mainnet, the SOC token and the bridge are not live. Current build, test and release results—including failed or pending gates—are on the [live roadmap](https://solana-classic-soc.vercel.app/roadmap).
+**TEST/tSOC balances and demo assets have no monetary value or right to conversion into SOC.** Production mainnet, the SOC token and the bridge are not live. Current build, test and release results—including failed or pending gates—are on the [live roadmap](https://solanaclassic.net/roadmap).
 
 ## How SOC is intended to work
 
