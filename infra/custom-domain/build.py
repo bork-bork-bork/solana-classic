@@ -16,6 +16,7 @@ for name, expected in freeze['coreFiles'].items():
 env = dict(os.environ)
 env['VITE_API_BASE_URL'] = 'https://solanaclassic.net/_network'
 env['VITE_EXPECTED_GENESIS_HASH'] = freeze['genesis']
+subprocess.run(['python3', 'scripts/pnpm.py', 'exec', 'node', 'wallet/tools/link-dependencies.mjs'], cwd=root, env=env, check=True)
 overlay = root / '.tools/custom-domain-web'
 overlay.mkdir(exist_ok=True)
 shutil.copytree(root / 'apps/web/src', overlay / 'src', dirs_exist_ok=True)
@@ -28,6 +29,7 @@ assert vite_config.count('plugins: [react()]') == 1
 vite_config = vite_config.replace('plugins: [react()]', '''plugins: [react(), { name: 'devnet-copy', transform(code: string, id: string) {
   if (id.includes('/packages/chain/')) return code.replace('Experimental network identity is not verified.', 'Devnet identity is not verified.').replace('Issued and verified on the experimental network.', 'Issued and verified on the devnet.');
 } }]''')
+vite_config = vite_config.replace('build: { sourcemap: false }', "resolve: { dedupe: ['react', 'react-dom'], alias: [{ find: /^react-dom(\\/.*)?$/, replacement: '" + str(root / 'apps/web/node_modules/react-dom') + "' + '$1' }, { find: /^react(\\/.*)?$/, replacement: '" + str(root / 'apps/web/node_modules/react') + "' + '$1' }, { find: 'buffer', replacement: '" + str(root / 'apps/web/node_modules/buffer/index.js') + "' }] }, build: { sourcemap: false }")
 (overlay / 'vite.config.ts').write_text(vite_config)
 shutil.copy2(root / 'apps/web/package.json', overlay / 'package.json')
 if not (overlay / 'node_modules').exists():
@@ -41,7 +43,20 @@ shutil.copy2(root / 'infra/custom-domain/GitHubLink.tsx', overlay / 'src/GitHubL
 app = app.replace('<span className="brand-mark" aria-hidden="true"/>', '<span className="brand-logo" aria-hidden="true"/>').replace('TEST','tSOC')
 app = "import About from './About';\n" + app
 app = app.replace("path === '/' ? <Home/>", "path === '/about' ? <About/> : path === '/' ? <Home/>")
+app = "import Builders from './Builders';\nimport Collectors from './Collectors';\n" + app
+app = app.replace("import { useEffect, useState }", "import { lazy, Suspense, useEffect, useState }")
+app = app.replace("const routes =", "const ClassicWallet = lazy(() => import('./ClassicWallet'));\nconst walletGateway = { apiBase: '/_network' as const };\nconst routes =")
+app = app.replace("['/playground', 'Playground']", "['/wallet', 'Wallet'], ['/playground', 'Playground']")
+app = app.replace("const playground = path === '/playground';", "const playground = path === '/playground';\n  const [walletVisited, setWalletVisited] = useState(path === '/wallet');\n  useEffect(() => { if (path === '/wallet') setWalletVisited(true); }, [path]);")
+app = app.replace('<main id="main-content">', '<main id="main-content"><div hidden={path !== "/wallet"}>{walletVisited ? <Suspense fallback={<p role="status">Loading Classic Wallet…</p>}><ClassicWallet gateway={walletGateway}/></Suspense> : null}</div>')
+app = app.replace('!playground ? <section', '!playground && path !== "/wallet" ? <section')
+app = app.replace("['/about', 'About']", "['/builders', 'Build'], ['/collectors', 'Collectors'], ['/about', 'About']")
+app = app.replace('playground|gallery|explorer|network|token', 'playground|gallery|explorer|network|token|wallet|builders|collectors|about')
+app = app.replace("path === '/about' ? <About/>", "path === '/builders' ? <Builders/> : path.startsWith('/collectors') ? <Collectors path={path}/> : path === '/about' ? <About/>")
 (overlay / 'src/App.tsx').write_text(app)
+(overlay / 'src/ClassicWallet.tsx').write_text("export { default } from '../../../wallet/src/ClassicWallet';\n")
+for name in ['Builders.tsx', 'Collectors.tsx']:
+    shutil.copy2(root / 'infra/custom-domain' / name, overlay / 'src' / name)
 shutil.copy2(root / 'infra/custom-domain/About.tsx', overlay / 'src/About.tsx')
 shutil.copy2(root / 'infra/custom-domain/ImageUpload.tsx', overlay / 'src/ImageUpload.tsx')
 shutil.copy2(root / 'infra/custom-domain/Transactions.tsx', overlay / 'src/Transactions.tsx')
@@ -68,6 +83,7 @@ home_start = pages.index('export function Home()')
 home_end = pages.index('export function Gallery()', home_start)
 pages = pages[:home_start] + "export { default as Home } from './Home';\n" + pages[home_end:]
 pages = pages.replace('Address, Notice, PresetArt', 'Address, Notice')
+pages = pages.replace('<h1>Made here.</h1>', '<div className="gallery-top"><h1>Made here.</h1><a href="/collectors">View a wallet collection ↗</a></div>')
 shutil.copy2(root / 'infra/custom-domain/Home.tsx', overlay / 'src/Home.tsx')
 pages="import Transactions from './Transactions';\nimport AddressDetails from './AddressDetails';\n"+pages
 pages=pages.replace('if (!signature && !address) return;', 'if (!signature) return;')

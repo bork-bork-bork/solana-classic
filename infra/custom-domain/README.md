@@ -31,3 +31,21 @@ image service relays bounded pages from the private read-only block adapter;
 see [Explorer adapter](../explorer/README.md). Address details use finalized
 RPC account data and distinguish program ownership, token authority and holder
 wallets. No market valuation or undeclared creator identity is inferred.
+
+`/wallet` lazily loads Classic Wallet and retains it after its first visit, so the
+same in-memory session survives normal SPA navigation. Its mint studio, owned
+inventory, gallery and transfers use `/_network`. Reloading, closing the tab or
+leaving the SPA discards the key. The legacy Playground retains its own session;
+it is not silently migrated. See [Wallet integration](../../wallet/INTEGRATION.md).
+No persistent custody or mainnet wallet is claimed.
+
+`/builders` is a curated directory of this repository's tools and prototypes.
+`/collectors/:address` reads finalized Token-2022 accounts, verifies token
+authority and mint, and displays exact balances. It checks at most 100 token
+accounts and labels incomplete views. Gallery artwork does not establish
+ownership. Legacy SPL holdings and creator identity are not inferred.
+
+`/uploaded-assets/:hash/metadata.json` and `image.png` are fixed-origin read-only
+immutable media proxies with exact paths, bounds and PNG validation. The earlier
+preset asset proxy and network admission routes are unchanged. Public browser
+and receipt checks remain separate from the frozen stability candidate.

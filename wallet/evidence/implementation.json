@@ -1,7 +1,7 @@
 {
-  "schemaVersion": 1,
-  "createdAt": "2026-10-14T03:57:33.113Z",
-  "status": "isolated-testnet-client-prototype",
+  "schemaVersion": 2,
+  "createdAt": "2026-10-14T05:08:20.199Z",
+  "status": "W2 isolated unified-wallet client; local mocked production-bundle QA passed",
   "scope": "local-only; no live gateway, validator or soak changes",
   "productionWallet": false,
   "phantomFork": false,
@@ -10,12 +10,12 @@
     "command": "node apps/web/node_modules/vite/bin/vite.js build wallet --config wallet/vite.config.mts --configLoader runner",
     "assets": [
       {
-        "name": "index-1FbrLD9K.js",
-        "gzipBytes": 79479
+        "name": "index-baHhu7Ij.js",
+        "gzipBytes": 82105
       },
       {
-        "name": "session-BfRmkUE0.js",
-        "gzipBytes": 99399
+        "name": "session-DkVNb6bd.js",
+        "gzipBytes": 108875
       }
     ]
   },
@@ -25,10 +25,13 @@
   },
   "guardTests": {
     "passed": true,
-    "count": 9,
-    "command": "node --import tsx --test wallet/tests/guards.test.ts wallet/tests/session.test.ts"
+    "count": 14,
+    "command": "node --import tsx --test wallet/tests/guards.test.ts wallet/tests/session.test.ts wallet/tests/inventory.test.ts wallet/tests/gateway.test.ts wallet/tests/upload.test.ts"
   },
-  "browserEvidence": "wallet/evidence/local-qa.json",
+  "browserEvidence": [
+    "wallet/evidence/local-qa.json",
+    "wallet/evidence/w2-local-qa.json"
+  ],
   "mainnetOrBridgeSigning": false,
   "importsSeeds": false,
   "exportsSecrets": false,
@@ -37,51 +40,103 @@
   "files": [
     {
       "path": "wallet/.gitignore",
-      "sha256": "ed19d3c9c8a5e34d0179e0b1a9c2907d2e657738733e4a432a8cf81c76ce56f1"
+      "sha256": "58aea3d6b4b0f8799c1e00c3b023898516997f6369ee8e13d8d4b4215f70a62b"
     },
     {
       "path": "wallet/APP_PLAN.md",
-      "sha256": "9fd02371d4b45f04278d8df7474a8bd79e3edac58f2f85183ae2883c50e9a12b"
+      "sha256": "ff417ed6003bde10b4671c3093020532472f589bc80a416dd88036ae3853cfc8"
+    },
+    {
+      "path": "wallet/INTEGRATION.md",
+      "sha256": "da3a127f80c93af0a50eddc4747667808e2cbee99b29129e6f74bf566d738b38"
     },
     {
       "path": "wallet/README.md",
-      "sha256": "5720eff06d1d7a50dbbde8cee7e78811d4594b0c2aabe03b06ebd817831952cf"
+      "sha256": "df38a1a7ad66989f7e1e990b711ee1516a59859fcd37ce6e8cf506120ff4714a"
     },
     {
       "path": "wallet/index.html",
-      "sha256": "655388ed2a647d3d6d4cfc88bdb7dbe87f5ea37223fa353fd443acdb8485282a"
+      "sha256": "4046eef3281f19a419691693232482cc6f6dc3d506a509eb66af3441dfd8c8b2"
+    },
+    {
+      "path": "wallet/package.json",
+      "sha256": "95303bbbb6a940924eb37a43e3965b0c9242cb8536913d1b6e73e9e2175e45d7"
+    },
+    {
+      "path": "wallet/src/ArtworkUpload.tsx",
+      "sha256": "30090408b2985aa0679048273ec05e012b033ebbde7ed28681c4a023e391b441"
+    },
+    {
+      "path": "wallet/src/ClassicWallet.tsx",
+      "sha256": "9b751c6b2cfb81d0784a6dd849880b7aa149b4781ec188708889dfe43504aaaf"
+    },
+    {
+      "path": "wallet/src/creation.ts",
+      "sha256": "fa1787adda55911f762232c68cf46505af46c2469b7ae28c7e608c0b182d1412"
     },
     {
       "path": "wallet/src/display.ts",
       "sha256": "6a344186bf74bd3ecf73a326343f681f92eca33cd8a884982cbfcec1d4e85e85"
     },
     {
+      "path": "wallet/src/gateway.ts",
+      "sha256": "f06d2805505d1f7831f0744b5680c7cf71ae0c390f1dbba61aaecd4268ffbff9"
+    },
+    {
       "path": "wallet/src/guards.ts",
       "sha256": "32c3798894a42788252e390f6fc4592116c10baa230decae6f44280938a09cd2"
     },
     {
+      "path": "wallet/src/inventory.ts",
+      "sha256": "fff7dbaae9c3d67ae329c7a2c9813777e65135b2cda2782535d82b54428540f1"
+    },
+    {
       "path": "wallet/src/main.tsx",
-      "sha256": "97fc4759ab3cc6476ab17ac3876769fc38f7262a122ea86860e93dae46d980eb"
+      "sha256": "972a4c2510373ac4423c8f74e333b05766b08327d172386c784164986b6889c2"
     },
     {
       "path": "wallet/src/session.ts",
-      "sha256": "c2bcb8d593e2c113ed5e1dc3b7ff481d5104e9039c5682113654438756a1a957"
+      "sha256": "9d2d04fb0a9e7d3aa203589d0e5e9f282d1633a3887a94b0ccd1f93c50b156a9"
     },
     {
       "path": "wallet/src/styles.css",
-      "sha256": "efee90d42ce9ecfa2352cc4f6212cee0b54eb2c3cb801b9c0a56df346709f15a"
+      "sha256": "86cbdd55dd7b88a06172b1b8f8735dee5d78f4852928046bea2a1a97beb2bcd7"
+    },
+    {
+      "path": "wallet/src/upload.ts",
+      "sha256": "7725788035bc14b8d7e6c0ce8168044abe7b56a3f426526eda202a9050929e46"
     },
     {
       "path": "wallet/tests/browser-qa.mjs",
-      "sha256": "8e14dad171da43dae57c3728123f4a560c0ab618815cd7d9bcdd8a468f6923b5"
+      "sha256": "9a081306f8fd5a9d5f7bb3216b868881a90e0377c735ff73aa60deb66f4e7565"
+    },
+    {
+      "path": "wallet/tests/gateway.test.ts",
+      "sha256": "78805cd8339f73cd71d81a3ba72454fe9189e638b547d757e78ddaf912d19f0f"
     },
     {
       "path": "wallet/tests/guards.test.ts",
       "sha256": "122a20e9475806069868b1d3694c3ff8f17b0cd1bddd9f90141446b562a63e93"
     },
     {
+      "path": "wallet/tests/inventory.test.ts",
+      "sha256": "a9fa051a2f8226a7505fd2fa5d7e73f7c441a33d50da20060c44977ca1619b23"
+    },
+    {
       "path": "wallet/tests/session.test.ts",
-      "sha256": "1ad0f55aa7ca2ff366be225f289428417bd8e349d765080802ab335b700cf949"
+      "sha256": "a4d59816d53f7f81e8e768b9a07aaff9e17f7d2f2a04a6ae20ad3b8b2e0ab112"
+    },
+    {
+      "path": "wallet/tests/upload.test.ts",
+      "sha256": "ff6057adacfb2d770c1dbe733ddfb3d1360e2205492d5ce675c7ebe01d9eef9f"
+    },
+    {
+      "path": "wallet/tests/w2-browser-qa.mjs",
+      "sha256": "cc3bfbcef50318aa2e409312419738cef69e72e6d1b9c6ee751085cb49193c04"
+    },
+    {
+      "path": "wallet/tools/link-dependencies.mjs",
+      "sha256": "9e9b8cea5c7b555bce96869e32ea4bdc9f760b4c1a6b3b7d5b4e58954c7c977f"
     },
     {
       "path": "wallet/tsconfig.json",
@@ -102,5 +157,32 @@
     "internalMutationLock": true,
     "uncertainReceiptRetained": true,
     "confirmedReconciliationClearsStaleReview": true
-  }
+  },
+  "publicIntegration": "parent-owned; no live integration claimed by this packet",
+  "features": {
+    "oneMemorySession": true,
+    "nativeTransfers": true,
+    "atomicNftAndMemeCreation": true,
+    "pngAndJpgUploads": true,
+    "keyboardUploadButton": true,
+    "hiddenNativeFileInput": true,
+    "ownedToken2022Inventory": "raw finalized account owner/program/amount + immutable mint metadata checks",
+    "publicGalleryIsOwnershipProof": false,
+    "inventoryBounds": {
+      "scannedAccounts": 50,
+      "verifiedMintCandidates": 20
+    },
+    "sameOriginGateway": "/_network",
+    "canonicalMetadataUriPreserved": true,
+    "mediaAdapters": [
+      "/chain-assets",
+      "/uploaded-assets"
+    ],
+    "creationFeeAndRentCaps": true,
+    "sameReceiptCreationResume": true,
+    "keptMountedReactIntegration": "wallet/src/ClassicWallet.tsx",
+    "scopedCss": true,
+    "externalRoadmapOpensSeparately": true
+  },
+  "browserScenarios": 17
 }

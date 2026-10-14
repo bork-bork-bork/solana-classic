@@ -20,7 +20,7 @@ Primary sources checked:
 
 ## What the first wallet provides
 
-One account session, balance, receive address, test faucet, native test send with a review step, public creation gallery, and transaction receipts. The prototype pins the existing experimental genesis. It accepts neither mainnet identities nor imported third-party seeds. It has no persistent secrets, bridge or commercial-value balance.
+One account session, balance, receive address, test faucet, native test send with a review step, atomic NFT/meme creation with reviewed fees/rent, PNG/JPG artwork upload, public creation gallery, verified owned Token-2022 inventory, and transaction receipts. W2 shares the memory-only session across these tabs and provides a scoped React component for the site's kept-mounted route. The prototype pins the existing experimental genesis. It accepts neither mainnet identities nor imported third-party seeds. It has no persistent secrets, bridge or commercial-value balance.
 
 The product target is one wallet with clearly separated **Solana** and **Classic** network views, with original Solana SOC and native Classic SOC labeled independently. A 1:1 bridge does not make them the same account balance. Future support needs separate verified chain profiles and transaction approvals, not a silently interchangeable RPC URL. Reserve transparency and bridge status should be read-only until the bridge implementation has passed its release gates.
 
@@ -43,9 +43,9 @@ DEX/AMM liquidity, NFT trading escrow, launchpad economic rules, real-funds brid
 
 ## Wallet release order
 
-1. Current milestone: original source prototype; local build/typecheck; guard tests; desktop/mobile browser journey with fully mocked bounded API/RPC. This is evidence of client behavior, not a live-network wallet release.
+1. Current milestone: original W1/W2 source prototype; local build/typecheck; guard tests; desktop/mobile production-bundle journeys with fully mocked bounded API/RPC/media. Atomic wire issuance, same-session uploads, owned-account checks, metadata checks, fee/rent caps and uncertain-receipt resume are tested locally. This is client evidence, not a live-network wallet release or program execution proof.
 2. Approved-origin integration on the experimental testnet. Independent client review, real valueless journey, wrong-genesis and pending-submission reconciliation tests. Do not modify the frozen live gateway during its soak.
-3. Owned-asset inventory and unified creation/gallery session. The gallery itself is not proof of ownership.
+3. Integrate the implemented owned-asset inventory and unified creation/gallery session into the main site's kept-mounted wallet route. Preserve its PNG/JPG upload ability and verify real valueless ownership after deployment. The gallery itself is not proof of ownership.
 4. Extension/mobile decision: pin/review a GPL Backpack fork **or** package the original reviewed signer; encrypted key vault, recovery, CSP, origin permissions, phishing/transaction simulation and reproducible signed updates are mandatory design work before funds.
 5. Finalized native SOC mainnet profile and read-only bridge/reserve status.
 6. Real-value wallet and bridge approval only after protocol security review, operational readiness and a concrete mainnet release decision. This prototype's ephemeral account is not a production recovery plan.

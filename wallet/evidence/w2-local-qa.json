@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 2,
+  "scope": "local-same-origin-adapter-mocked-api-rpc",
+  "liveRequests": 0,
+  "liveTransactions": false,
+  "target": "http://127.0.0.1:4188/",
+  "createdAt": "2026-10-14T05:05:17.099Z",
+  "checks": [
+    {
+      "name": "desktop-preset-nft",
+      "viewport": {
+        "width": 1280,
+        "height": 1040
+      },
+      "kind": "nft",
+      "upload": false,
+      "roadmapPreservesSession": true,
+      "sameSessionAcrossViews": true,
+      "galleryNotOwnership": true,
+      "tokenAccountOwnerProgramAmountVerified": true,
+      "metadataMismatchHidden": true,
+      "atomicWireSupplyAndRevocation": true,
+      "explicitApproval": true,
+      "broadcasts": 1,
+      "sameOriginOnly": true,
+      "storageEmpty": true,
+      "noOverflow": true,
+      "screenshot": "/tmp/classic-wallet-w2-desktop-preset-nft.png"
+    },
+    {
+      "name": "mobile-upload-meme",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "kind": "meme",
+      "upload": true,
+      "keyboardUploadButton": true,
+      "nativeFileInputHidden": true,
+      "roadmapPreservesSession": true,
+      "sameSessionAcrossViews": true,
+      "galleryNotOwnership": true,
+      "tokenAccountOwnerProgramAmountVerified": true,
+      "metadataMismatchHidden": true,
+      "atomicWireSupplyAndRevocation": true,
+      "explicitApproval": true,
+      "broadcasts": 1,
+      "sameOriginOnly": true,
+      "storageEmpty": true,
+      "noOverflow": true,
+      "screenshot": "/tmp/classic-wallet-w2-mobile-upload-meme.png"
+    },
+    {
+      "name": "desktop-upload-jpg-nft",
+      "viewport": {
+        "width": 1280,
+        "height": 1040
+      },
+      "kind": "nft",
+      "upload": "jpg",
+      "keyboardUploadButton": true,
+      "nativeFileInputHidden": true,
+      "roadmapPreservesSession": true,
+      "sameSessionAcrossViews": true,
+      "galleryNotOwnership": true,
+      "tokenAccountOwnerProgramAmountVerified": true,
+      "metadataMismatchHidden": true,
+      "atomicWireSupplyAndRevocation": true,
+      "explicitApproval": true,
+      "broadcasts": 1,
+      "sameOriginOnly": true,
+      "storageEmpty": true,
+      "noOverflow": true,
+      "screenshot": "/tmp/classic-wallet-w2-desktop-upload-jpg-nft.png"
+    },
+    {
+      "name": "creation-fee-rise",
+      "passed": true,
+      "broadcasts": 0
+    },
+    {
+      "name": "creation-rent-rise",
+      "passed": true,
+      "broadcasts": 0
+    },
+    {
+      "name": "creation-metadata-mismatch",
+      "passed": true,
+      "broadcasts": 0
+    },
+    {
+      "name": "uncertain-creation-resume",
+      "passed": true,
+      "broadcasts": 1
+    }
+  ],
+  "passed": true
+}

@@ -11,6 +11,7 @@ test('session mutation lock blocks concurrent sends and session replacement', as
   const first = session.send(plan, () => {});
   await assert.rejects(session.send(plan, () => {}), /already running/);
   await assert.rejects(session.claim(), /already running/);
+  await assert.rejects(session.reconcileSend(), /already running/);
   assert.throws(() => session.forget(), /current action/);
   assert.throws(() => session.create(), /current action/);
   release(); await assert.rejects(first, /Mock network unavailable/);

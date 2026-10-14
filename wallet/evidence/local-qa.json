@@ -4,8 +4,8 @@
   "liveTransactions": false,
   "browser": "Chromium",
   "browserPlugin": "not available; regular Playwright",
-  "target": "http://127.0.0.1:5188/",
-  "createdAt": "2026-10-14T03:56:57.284Z",
+  "target": "http://127.0.0.1:4188/",
+  "createdAt": "2026-10-14T05:06:48.371Z",
   "checks": [
     {
       "name": "desktop",

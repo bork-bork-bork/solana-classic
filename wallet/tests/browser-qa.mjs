@@ -4,7 +4,7 @@ import { Keypair, VersionedTransaction } from '@solana/web3.js';
 import { writeFile } from 'node:fs/promises';
 const origin = 'https://network-release-production.up.railway.app';
 const genesis = '7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon';
-const target = 'http://127.0.0.1:5188/';
+const target = process.env.CLASSIC_WALLET_QA_URL ?? 'http://127.0.0.1:5188/';
 const recipient = Keypair.generate().publicKey.toBase58();
 const alphabet = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz';
 function encode(bytes) { let number = 0n; for (const byte of bytes) number = number * 256n + BigInt(byte); let out = ''; while (number > 0n) { out = alphabet[Number(number % 58n)] + out; number /= 58n; } for (const byte of bytes) { if (byte) break; out = '1' + out; } return out; }

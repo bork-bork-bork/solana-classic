@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "scope": "two fresh source-built Agave 3.0.14 ledgers, synthetic funds and local co-signers",
+  "startedAt": "2026-10-14T05:02:50.673Z",
+  "state": "passed",
+  "productionReady": false,
+  "canonicalNetworkChanged": false,
+  "genesi": [
+    "98Ddpz1EnmPr93Szo56cyKE74PAF6NWiX6if3M9hDxFo",
+    "HawwZ5mK5sF9T9wFEBZWydhHm9kPQF18vfBoP8QMgi7s"
+  ],
+  "signatures": [
+    {
+      "side": 0,
+      "signature": "3S8dYxTqBYUpXUALyXLDAPtK3PHFqv2JvnT6JWabdVtR5J5GSfruUedwu5EajN2NtYjPgoPqoRmsp3qyKMu64Hx4",
+      "state": "finalized"
+    },
+    {
+      "side": 1,
+      "signature": "3KWdEk9wKdrLD7ymYPADWz2beTME929Meg1xMVo75BSA3bwLt73kBUPKUduDxDW4kX4LQYPdfiu4kgtAPrXGYmmY",
+      "state": "finalized"
+    },
+    {
+      "side": 0,
+      "signature": "GGGQb7KQ96TH3VoBh3khoHvHrr99y3SRha8hJQB8fhHwc2JcuMpB9L81r9Bfb3afGfTAEu4uVdzUENMh3yeNb69",
+      "state": "finalized"
+    },
+    {
+      "side": 1,
+      "signature": "2HJzRUFwSuLXNqgQh1cHwUKbMgV9BnwdFDA4sLw2KKDnuyzMZ5taWgX7MiQQArfK2JZjNuECoFfWCkeqjf7uZTJ9",
+      "state": "finalized"
+    },
+    {
+      "side": 0,
+      "signature": "2Amwki1s8aBN1N72XJpNmRPE71h6j5kyhoXYekc6aFUd7fs3wUmx4QfjKxJk8eD5vZGYXBPLtsevog7UsvzXhoM6",
+      "state": "finalized"
+    },
+    {
+      "side": 1,
+      "signature": "XvBJpme9ypFiXPV4YADZQVWon9mAydxoZDitUDTc3iTPYrpMEMou5hV5bm7hAryM1nrPn8X8oZ4Mory1bT9oiXF",
+      "state": "finalized"
+    },
+    {
+      "side": 0,
+      "signature": "kkeB5UMBtyt1KeKqAS56VdHmnBK8nfkgVhJ9ZWZuAp22R1pnsGThJTDBFa5v1Ss2bDGSbJdxwSGaz245KKRoKcg",
+      "state": "finalized"
+    },
+    {
+      "side": 1,
+      "signature": "2gaKtTiZFm5UkNTcdxmjfpguZrU9278YYiwB5WaZ5wLxNzxGKqCbyLXrJEjoxgdxxNQEp1eL3g1HWnoM4S84muGX",
+      "state": "finalized"
+    },
+    {
+      "side": 1,
+      "signature": "3eJmFk2sAXHfdefMAegqvdLb2uyewbNUh9oRAhC37afRmkhERH5tjUe1ooKUzCBFPoJ8i7fXYoptz4swbURPpNjL",
+      "state": "finalized"
+    },
+    {
+      "side": 1,
+      "signature": "5v69PYg7zy5FDpqb4vWDz9zfB7e38j5aHdtA6vYWWDe9RKND8n1xP7XDAhCPpL5ydKsAGghwxayUowE2pAjnbAGw",
+      "state": "finalized"
+    },
+    {
+      "side": 0,
+      "signature": "24363Bj47tQ3y6Bg6pnoh45xqRiTXa8mwyXY5u4JVuKpJ8XtLJUJVvU77KfZhfE94c36H8b5ivmchU5Ljn8Q686B",
+      "state": "finalized"
+    }
+  ],
+  "checks": [
+    "two distinct fresh genesi; no public or soaking network",
+    "immutable synthetic Token-2022 mint created on isolated origin",
+    "initial pause rejects deposits",
+    "finalized lock observed from actual event PDA",
+    "empty reserve rejects release atomically",
+    "two signers cannot settle; committee outage retains locked escrow",
+    "wrong destination domain rejected",
+    "three actual transaction co-signers release exact 1:1 native units",
+    "duplicate native release rejected",
+    "finalized native return observed on second real ledger",
+    "original synthetic tokens redeemed",
+    "duplicate redemption and source nonce rejected",
+    "both bridge counters and actual escrow reconcile after partial round trip"
+  ],
+  "mint": "pcr6E1fw8PHM17sDe2wwk7ND1NXzzDcxfKp2raFX3GY",
+  "reconciliation": {
+    "originEscrowUnits": "600000",
+    "originUserUnits": "1400000",
+    "nativeOutstandingOriginUnits": "600000",
+    "originOutstandingUnits": "600000",
+    "originDecimals": 6,
+    "nativeDecimals": 9
+  },
+  "completedAt": "2026-10-14T05:06:03.759Z",
+  "sourceHashes": {
+    "bridge/rehearsal/two-chain.mjs": "c15609901fdcd55d211c0d3b999305295df56b4cda8a566d5aeb39284879be5d",
+    "bridge/sdk.mjs": "c3870534d89378919f48d6a918db7a65e7701980d67607ed1a7a564844793d1a",
+    "engine/rehearsal/two-chain.py": "e14161e1ec1bd2b3ebe4a412954c0e42ecb63af45ae61d0c16abe3d904a76697"
+  },
+  "programSHA256": "d9f3822ec9097f0a7ede222f20a68c3cba92b6fba46459af8ed0025652f2f9f7",
+  "remainingWork": [
+    "Independent verifier/custody operators",
+    "RPC outage, restart, fork policy and recovery drills",
+    "Backed genesis/bootstrap counters",
+    "Actual original mint/extension validation",
+    "Independent security review and explicit production release"
+  ],
+  "earlierStartupFailures": {
+    "retained": true,
+    "cause": "Unspecified gossip ports collided on the worker; explicit per-ledger gossip/dynamic ports fix the harness."
+  }
+}

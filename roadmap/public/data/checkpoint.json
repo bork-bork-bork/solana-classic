@@ -162,7 +162,7 @@
     "canonicalCutoverAccepted": false
   },
   "development": {
-    "reviewedAt": "2026-10-14T04:07:54.393680+00:00",
+    "reviewedAt": "2026-10-14T05:12:59.308884+00:00",
     "scope": "Development checkpoint only; separate from the live testnet release",
     "projects": [
       {
@@ -170,7 +170,7 @@
         "title": "Native SOC mainnet",
         "state": "building",
         "description": "A separate production-network implementation, beginning with exact genesis supply and backed validator bootstrap.",
-        "currentScope": "Genesis planning code and six local checks pass. No mainnet genesis or running validator set is claimed.",
+        "currentScope": "Pinned solana-genesis compiled. Exact synthetic genesis audit passes; three private validators are being rehearsed. No production mainnet or backing acceptance.",
         "source": "https://github.com/solana-classic/solana-classic/tree/main/mainnet",
         "milestones": [
           {
@@ -180,7 +180,8 @@
           },
           {
             "title": "Source-built genesis and private validator rehearsal",
-            "state": "pending"
+            "state": "running",
+            "detail": "Source-built genesis and account audit complete; validator consensus checks in progress."
           },
           {
             "title": "Backed bootstrap and full supply reconciliation",
@@ -197,7 +198,7 @@
         "title": "SOC redemption bridge",
         "state": "building",
         "description": "Original SOC escrow and a native Classic reserve, targeting exact 1:1 display-unit redemption in both directions.",
-        "currentScope": "Compiled SBF passes local escrow/release/return/redemption tests. Prototype uses a proposed 3-of-5 verifier committee; no live bridge or independent audit.",
+        "currentScope": "Thirteen checks passed on two fresh private Agave 3.0.14 ledgers, including finalized lock/release/return/redemption and exact counters. Synthetic funds and local co-signers; recovery and independent review remain.",
         "source": "https://github.com/solana-classic/solana-classic/tree/main/bridge",
         "milestones": [
           {
@@ -206,8 +207,9 @@
             "detail": "SBF build, seven Rust checks, three VM cases and five SDK/observer checks."
           },
           {
-            "title": "Two-chain finality and verifier workflow",
-            "state": "pending"
+            "title": "Two-chain finalized round trip and local co-signers",
+            "state": "rehearsal-passed",
+            "detail": "Two real private ledgers; 13 checks. RPC recovery/fork-policy drills remain."
           },
           {
             "title": "Bootstrap reconciliation, custody and recovery",
@@ -224,7 +226,7 @@
         "title": "Classic Wallet",
         "state": "building",
         "description": "One wallet application for balances, transfers, artwork, memes and chain receipts.",
-        "currentScope": "Original browser prototype with in-memory test sessions. Nine unit checks and ten mocked browser scenarios pass; no imported wallets, persistent custody or live integration.",
+        "currentScope": "Shared in-memory wallet, mint studio, uploads and verified owned assets pass 14 unit and 17 mocked browser checks. Public .net integration is being verified; persistent custody/mainnet remain future work.",
         "source": "https://github.com/solana-classic/solana-classic/tree/main/wallet",
         "milestones": [
           {
@@ -234,7 +236,8 @@
           },
           {
             "title": "Shared mint studio, gallery and verified owned assets",
-            "state": "pending"
+            "state": "local-passed",
+            "detail": "Same session, exact mint review, uploaded art, finalized owned-account validation and same-receipt recovery."
           },
           {
             "title": "Reviewed persistent custody and recovery",
@@ -245,8 +248,36 @@
             "state": "pending"
           }
         ]
+      },
+      {
+        "id": "apps",
+        "title": "Apps for the culture",
+        "state": "building",
+        "description": "A builder directory and public collector views around the existing mint studio, gallery and explorer.",
+        "currentScope": "Repository tools listed with honest release states. Collector views check finalized Token-2022 authority and mint; desktop/mobile and negative ownership tests pass locally. Public deployment is being verified.",
+        "source": "https://github.com/solana-classic/solana-classic/tree/main/infra/custom-domain",
+        "milestones": [
+          {
+            "title": "Builder directory with source links",
+            "state": "local-passed",
+            "detail": "Curated first-party tools, status filters and GitHub contribution links."
+          },
+          {
+            "title": "Public collector pages",
+            "state": "local-passed",
+            "detail": "Finalized holdings, NFT/token filters, exact balances and bounded coverage."
+          },
+          {
+            "title": "Public deployment and real devnet journeys",
+            "state": "running"
+          },
+          {
+            "title": "Community project submissions and discovery",
+            "state": "pending"
+          }
+        ]
       }
     ],
-    "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/mainnet-bridge-prototype.json"
+    "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/bridge-two-chain-rehearsal.json"
   }
 }

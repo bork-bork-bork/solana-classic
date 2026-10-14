@@ -6,7 +6,7 @@ export function renderDevelopment(development){
     const card=document.createElement('article');card.className='development-project';card.id='development-'+project.id;
     const heading=text('h3',project.title);heading.append(text('span',project.state==='building'?'In development':'Not started','development-state'));card.append(heading,text('p',project.description));
     const list=document.createElement('ul');list.className='development-milestones';
-    for(const milestone of project.milestones??[]){const item=document.createElement('li');item.append(text('strong',milestone.title),text('span',milestone.state==='local-passed'?'Local checks passed':'Pending'));item.dataset.state=milestone.state;if(milestone.detail)item.append(text('small',milestone.detail));list.append(item);}
+    for(const milestone of project.milestones??[]){const item=document.createElement('li');const state=({'local-passed':'Local checks passed','rehearsal-passed':'Private rehearsal passed','live-passed':'Devnet checks passed',running:'In progress'})[milestone.state]??'Pending';item.append(text('strong',milestone.title),text('span',state));item.dataset.state=milestone.state;if(milestone.detail)item.append(text('small',milestone.detail));list.append(item);}
     card.append(list,text('p',project.currentScope,'development-scope'));
     if(/^https:\/\/github\.com\/solana-classic\/solana-classic\//.test(project.source??'')){const source=text('a','View source');source.href=project.source;source.target='_blank';source.rel='noopener noreferrer';card.append(source);}
     cards.append(card);
