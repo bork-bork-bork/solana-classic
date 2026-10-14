@@ -302,3 +302,25 @@ cannot finalize or reset a submission attempt. No new real-ledger claim or
 reconciliation is claimed; previous private rehearsal evidence retains its
 historical source hashes. Include `lossless-native-rpc.mjs` in future private
 journal uploads. See `evidence/bridge-lossless-native-metadata.json`.
+
+
+## Real-ledger exact-metadata journal verification
+
+Ten checks now pass on fresh cold copies of the stopped V1 ledgers and copies
+of both retained finalized journals. The current client reconciles the original
+native claim and original-token redemption signatures, signed bytes, receipts
+and economic deltas. Actual fee-payer metadata around 499999997000000000 native
+base units stays exact. A one-unit altered native balance rejects in each
+direction; journal bytes stay unchanged and another handoff remains forbidden.
+Zero broadcasts, no new signed transactions, both copied validators stopped.
+Original stopped-ledger inventories and original journals remain unchanged.
+
+The first attempt returned no native transaction history and stopped admission;
+its copied processes were shut down. A separate fresh attempt returned both
+original transactions. This does not establish permanent pruning, exercise a
+real competing fork or test unknown landing. Existing local missing-history
+guards still apply. See `evidence/bridge-retained-journal-reconciliation.json`
+for actual source hashes, signatures and scope; 33 client and nine worker/copy
+checks also pass. Preserve both private attempt roots, never replay/reset them.
+Production custody/code pins, independent finality/backing and security review
+remain separate release gates.

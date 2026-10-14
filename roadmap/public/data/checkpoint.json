@@ -168,7 +168,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-14T12:34:16.271783+00:00",
+    "reviewedAt": "2026-10-14T13:02:54.027171+00:00",
     "scope": "Development checkpoint only; separate from the live testnet release",
     "projects": [
       {
@@ -209,7 +209,7 @@
         "title": "SOC redemption bridge",
         "state": "building",
         "description": "Original SOC escrow and a native Classic reserve, targeting exact 1:1 display-unit redemption in both directions.",
-        "currentScope": "V2 bridge:14 fresh-ledger execution checks,8 cold archive/restore checks and now10 actual SIGKILL recovery checks. Both private processes crash while slots advance, RPC observation refuses outages, all20 finalized bridge accounts/replays survive restart. Four starts fully stopped; zero broadcasts; original stopped copies unchanged. Hypothetical backing remains; unknown landing/fork/physical power loss, actual funded inventory/custody and independent review remain open. Native metadata now parses exact raw u64 digits into BigInt:33 local checks, including loopback HTTP, reject one-unit errors above Number precision. This client update has not yet run a new real-ledger reconciliation; historical journal proofs retain old hashes.",
+        "currentScope": "V2:14 fresh-ledger execution checks,8 cold restore checks and10 SIGKILL recovery checks. Exact-native client:33 local checks and now10 actual checks on new copies of retained V1 ledgers/journals. Both original signed transactions reconcile with raw native balances above Number precision; one-unit errors/retries reject. Zero broadcasts, both copied validators stopped, originals unchanged. First startup lacked history and stopped; separate fresh attempt verified both transactions. Unknown landing/fork, actual funded inventory/custody and independent review remain open.",
         "source": "https://github.com/solana-classic/solana-classic/tree/main/bridge",
         "milestones": [
           {
@@ -264,8 +264,8 @@
           },
           {
             "title": "Exact large-native balance metadata and journal reconciliation",
-            "state": "local-passed",
-            "detail": "33 checks:5 parser+5 large-value journal(including real loopback HTTP with synthetic replies)+23 both-direction regressions. Raw u64 digits, exact one-unit delta rejection and signed account-count checks. No new real-ledger settlement or production custody proof."
+            "state": "rehearsal-passed",
+            "detail": "33 local checks +10 actual private-ledger checks +9 worker/copy guards. Both original signatures/bytes/receipts reconcile with exact large native metadata; one-unit errors and repeat handoffs reject. Zero broadcasts; originals unchanged and copies stopped. Known-finalized V1 operations, not unknown landing/fork or production custody."
           },
           {
             "title": "Bootstrap reconciliation, custody and recovery",

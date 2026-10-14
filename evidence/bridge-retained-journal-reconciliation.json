@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 1,
+  "scope": "Read-only retained-history admission and exact-metadata reconciliation when available, copied finalized V1 journals and copied real Agave ledgers; synthetic assets",
+  "state": "passed",
+  "startedAt": "2026-10-14T13:00:43.250Z",
+  "canonicalNetworkChanged": false,
+  "productionReady": false,
+  "broadcasts": 0,
+  "newSignedTransactions": 0,
+  "checks": [
+    "Copied ledgers retain exact private identities, V1 compiled programme bytes and both 600000-unit counters",
+    "isolated-native-claim: real raw large-native balances, signed bytes and finalized source event verified",
+    "isolated-native-claim: original signature/receipt and exact economic deltas reconcile without replacement or retry",
+    "isolated-native-claim: one-unit bad metadata and repeat handoff reject, preserving the finalized journal",
+    "isolated-origin-redemption: real raw large-native balances, signed bytes and finalized source event verified",
+    "isolated-origin-redemption: original signature/receipt and exact economic deltas reconcile without replacement or retry",
+    "isolated-origin-redemption: one-unit bad metadata and repeat handoff reject, preserving the finalized journal",
+    "All selected finalized bridge accounts unchanged; read-only method allowlist exercised and zero broadcasts",
+    "Original stopped V1 ledgers and original journal bytes unchanged",
+    "Both newly started copied-ledger processes stopped; no source/live process restarted"
+  ],
+  "operations": [
+    {
+      "id": "8PkneG3X98aJ3eLqSbfGpGqpUSqiLxxdz7kAiNxyNEfB",
+      "signature": "225EvjZ8z6aPv1SWBTLiD4Kc218aggNXQPqfVuAY7Tkp2UNYpuB3XTXFVhWrnbLzMmiq61fhRy6frrPv38gKwSSr",
+      "eventHash": "4bbb85f85aa5719817cd91950193257da001e5e9a426487578634607e72b9bd2",
+      "transactionHash": "d1bc647b057cce277bcdf0a84ef1761fd25c9c00563b9d4dc86dc8daa8d8ce70",
+      "state": "FINALIZED",
+      "attempts": 1,
+      "productionReady": false,
+      "verification": "exact-metadata-reconciled",
+      "exactMetadataReconciled": true,
+      "finalizedSlot": 634,
+      "accountCount": 10,
+      "payerPreNativeUnits": "499999996516250520",
+      "payerPostNativeUnits": "499999996515116920",
+      "recipientDeltaNativeUnits": "100000000",
+      "signedBytesUnchanged": true
+    },
+    {
+      "id": "AzWotrjM8cPYGa1GzvbEpRaApJHDQ3aqC11Gch8Ju6TS",
+      "signature": "3sKWfe8PFRxpmfBu4pCwSEF4xs6odcp32cMmEAANwKzc9Pt3rQjJ2wmPhbbjB7ERsdYAhzeU4YpmAT4EapR2ZLgo",
+      "eventHash": "22bcda97334dff056c9a48231f05dbe1a2a8e8c15b86406cef20c61a1674de1f",
+      "transactionHash": "2e745b495570457bcdf64c48825afdfb508f52edbdbea5d30588f21206b16b33",
+      "state": "FINALIZED",
+      "attempts": 1,
+      "productionReady": false,
+      "verification": "exact-metadata-reconciled",
+      "exactMetadataReconciled": true,
+      "finalizedSlot": 889,
+      "accountCount": 14,
+      "payerPreNativeUnits": "499999997610645560",
+      "payerPostNativeUnits": "499999997609511960",
+      "recipientDeltaNativeUnits": "0",
+      "signedBytesUnchanged": true
+    }
+  ],
+  "genesi": [
+    "HawwZ5mK5sF9T9wFEBZWydhHm9kPQF18vfBoP8QMgi7s",
+    "98Ddpz1EnmPr93Szo56cyKE74PAF6NWiX6if3M9hDxFo"
+  ],
+  "accountCounts": [
+    7,
+    10
+  ],
+  "readOnlyRequests": 38,
+  "completedAt": "2026-10-14T13:00:43.497Z",
+  "originalColdInventory": [
+    {
+      "sha256": "d7cc01821b56b40cc5f04badfef702bcd63f8ed5191b3944b1d5b5480af9d10a",
+      "entries": 102,
+      "links": 2
+    },
+    {
+      "sha256": "d185d42dc7e52a46cd557632e6a2e2cb5993a063eea2666b993c4c7b050738cc",
+      "entries": 101,
+      "links": 2
+    }
+  ],
+  "originalJournalSHA256": [
+    "4859593265f0544744975a39c74dc37f0831f4cc4de654cc75d5b91bdc6ec232",
+    "c06a2218371ee27e2ded10f088dc47860584908eeafb27e4ce36eb57ed7248eb"
+  ],
+  "originalLedgersUnchanged": true,
+  "originalJournalsUnchanged": true,
+  "processes": {
+    "scope": "new copied finalized V1 journal lossless reconciliation",
+    "state": "passed",
+    "starts": [
+      {
+        "side": 0,
+        "genesisMatches": true,
+        "originalLedgerPathsOpened": false
+      },
+      {
+        "side": 1,
+        "genesisMatches": true,
+        "originalLedgerPathsOpened": false
+      }
+    ],
+    "stops": [
+      {
+        "side": 0,
+        "signal": "SIGINT",
+        "returnCode": -2,
+        "applicationGracefulFlushVerified": false
+      },
+      {
+        "side": 1,
+        "signal": "SIGINT",
+        "returnCode": -2,
+        "applicationGracefulFlushVerified": false
+      }
+    ],
+    "allStopped": true
+  },
+  "sourceBinarySHA256": "3d3140bf93c9bc967220ffd8989d8b0267b723915d32203132ecc36d2c63a49a",
+  "bridgeSBF_SHA256": "d9f3822ec9097f0a7ede222f20a68c3cba92b6fba46459af8ed0025652f2f9f7",
+  "uploadedSourceHashes": {
+    "lossless-reconcile.mjs": "35aeef3206503be2d3345dc89b0ec466644363ba993e60170d37f751dd47eed7",
+    "lossless_reconcile.py": "92af1b2a469814befff40630c626edd5c7cfb7cafab377b3f5482ec547b6a0af",
+    "recovery.py": "39b11723247807387e124fdc7b5120fa5b0c02ee08d29b3e011edd451b28272c",
+    "cold_copy.py": "42bef261f9f273a1f525b515eabfcda61b8d6a1cbb62fd637ebbdd0f23a95b6d",
+    "sdk.mjs": "e603242692bedc2457ec9dd3cb144122ca1adb7341506d244ec864943bd8c988",
+    "pending-claim.mjs": "bd3fae5723f6d56d2e40380f6d2ade960f3070298d44a22b31576de9eb92edd2",
+    "lossless-native-rpc.mjs": "5ebed7db063afd9178925eab883a4955dd15ad878bbdad19878ab75225f3398b"
+  },
+  "processOpenPathCheckScope": "Readiness /proc fd/maps samples only; not continuous auditing",
+  "remainingWork": [
+    "Fresh real large-native journal reconciliation for any operation with unavailable retained history",
+    "Unknown landing/pending crash and competing fork",
+    "Production code/authority pins, custody and independent verifiers/security review",
+    "Complete funded backing and capable full-validator hosting/operators"
+  ],
+  "priorAttempt": {
+    "root": "/data/bridge-lossless-reconcile-v1",
+    "state": "failed",
+    "reason": "Native original transaction history unavailable; exact-metadata admission stopped",
+    "allCopiedProcessesStopped": true,
+    "acceptedAsMetadataProof": false
+  },
+  "localChecks": {
+    "journalAndParser": 33,
+    "workerAdmission": 3,
+    "coldCopyBoundaries": 6,
+    "passed": true
+  },
+  "coreFreeze": {
+    "files": 41,
+    "allMatch": true
+  },
+  "firstAttemptInterpretation": "First copied-ledger startup returned no native transaction history; admission stopped. A separate new attempt returned both original transactions. No permanent pruning or missing-history branch acceptance is claimed by the passed run."
+}
