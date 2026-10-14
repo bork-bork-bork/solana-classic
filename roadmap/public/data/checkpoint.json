@@ -186,7 +186,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-14T18:20:53.092114+00:00",
+    "reviewedAt": "2026-10-14T21:15:02.334021+00:00",
     "scope": "Development checkpoint only; separate from the live devnet release",
     "projects": [
       {
@@ -461,6 +461,11 @@
             "state": "live-passed",
             "detail": "25 actual frozen-backend protocol checks,28requests,no valid grants/assets/usable submissions. Wrong RPC methods,upstreams,batches,query/body bounds and unknown origins reject. Three OPTIONS preflights leave persisted aggregates unchanged; validator/Token-2022 installed hashes match reviewed releases. Anonymous software manifests and home-to-network navigation pass on1440/360px for both sites.12 audit guards+61existing in-process regressions pass. G5.01,G5.05,G7.03 individually reviewed; no current429quota/forged-IP/consensus or resident-memory acceptance.",
             "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/gateway-current-individual-review.json"
+          },
+          {
+            "title": "Current chain identity, health and deployed token code",
+            "state": "live-passed",
+            "detail": "Read-only checks confirmed the independent devnet genesis, health, finalized progression and executable token programs. Deployed Token-2022 bytes match the official artifact. G1.01, G1.04 and G1.07 reviewed; overall release remains pending."
           },
           {
             "title": "Remaining individual release requirements",

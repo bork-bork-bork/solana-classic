@@ -1,5 +1,5 @@
 {
-  "at": "2026-10-14T20:01:35.322366+00:00",
+  "at": "2026-10-14T21:09:43.784743+00:00",
   "scope": "read-only migration admission review; not a cutover or release acceptance",
   "preparationReviewed": true,
   "canEnterMaintenance": true,

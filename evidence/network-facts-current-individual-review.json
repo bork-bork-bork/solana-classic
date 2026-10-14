@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-14T21:15:02.334021+00:00",
+  "scope": "remote current frozen-candidate network facts, finalized liveness and executable programme individual review; no mutations",
+  "passed": true,
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "api": "https://network-release-production.up.railway.app",
+  "web": "https://solana-classic-soc.vercel.app",
+  "candidate": {
+    "apiOrigin": "https://network-release-production.up.railway.app",
+    "frontendOrigin": "https://solana-classic-soc.vercel.app",
+    "frontendDeploymentId": "dpl_3aWWzKDohr4SrgijgrB8dWgHHS5r",
+    "frontendCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "apiCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "networkConfigSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+    "dependencyManifestSha256": "e6da27717e6a84ca7b29d707ff63591b2ff0cfc38892d3b4667f8615bdf7bbc0"
+  },
+  "supportedRequirements": [
+    "G1.01",
+    "G1.04",
+    "G1.07"
+  ],
+  "sourceAndProofHashes": {
+    "evidence/network-facts-current-20261014T211343595Z.json": "f755a9745f8dfcabac67908541a6f75f44f4bf6d58b48970178b3a3bf5384e98",
+    "engine/migration/network-facts-review.mjs": "fdc22d7eed0fdb5bec00139a08c5f36f22e94f127f21602e9f2f598260546470",
+    "engine/migration/network-facts-review.test.mjs": "1773603d105b2db00747fcde5ba1263fda13fc45d253b5cd29c1da43529c06f4",
+    "engine/migration/gateway-review.mjs": "8d54a97e83bfbeeef28000e642b534fd45465b06eb1e0e54708eeb2ca59b4701",
+    "docs/token-program-release.json": "102284543f657b73cae643ddd363260d9439006fe6afc98eec5b2d12ae552ef3",
+    "engine/migration/NETWORK_FACTS_REVIEW.md": "cfc92b7ad7e5a23737ccc2180014e4af81ac2604bced31060f68ebfb262d81b8"
+  },
+  "findings": {
+    "distinctPinnedGenesis": true,
+    "operatorCount": 1,
+    "hasMonetaryValue": false,
+    "resetPolicyRecorded": true,
+    "health": "ok",
+    "agaveVersion": "3.0.14",
+    "finalizedSlots": [
+      343799,
+      343807
+    ],
+    "deployedTokenElfSHA256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+    "bothProgrammesExecutable": true,
+    "tokenUpgradeAuthority": "11111111111111111111111111111111"
+  },
+  "regressionChecks": 8,
+  "canonicalProcessChanged": false,
+  "releaseAccepted": false,
+  "limits": [
+    "Project gateway observations, not independent validator consensus or history verification",
+    "Short finalized progression sample, not throughput or a new stability run",
+    "Associated-token hash observed, not separately compared to an upstream artifact",
+    "Token upgrade-authority option is present with the system address; programme immutability and custody are not asserted",
+    "G1.02/.03/.05/.06 and all other unreviewed gates remain pending"
+  ]
+}

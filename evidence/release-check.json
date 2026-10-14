@@ -1,5 +1,5 @@
 {
-  "at": "2026-10-14T20:32:43.200Z",
+  "at": "2026-10-14T21:15:03.021Z",
   "passed": false,
   "scope": "offline evidence review",
   "issues": [],
@@ -78,8 +78,8 @@
       "id": "G1.01",
       "gate": "G1",
       "label": "Configured genesis differs from the current Solana mainnet and devnet genesis hashes.",
-      "passed": false,
-      "reason": "No passed, individually reviewed evidence."
+      "passed": true,
+      "reason": "Passed individual evidence review; checksums match."
     },
     {
       "id": "G1.02",
@@ -99,8 +99,8 @@
       "id": "G1.04",
       "gate": "G1",
       "label": "Slot progression, health and executable program IDs are verified on the intended node.",
-      "passed": false,
-      "reason": "No passed, individually reviewed evidence."
+      "passed": true,
+      "reason": "Passed individual evidence review; checksums match."
     },
     {
       "id": "G1.05",
@@ -120,8 +120,8 @@
       "id": "G1.07",
       "gate": "G1",
       "label": "The public configuration records operator count 1 and an experimental reset policy.",
-      "passed": false,
-      "reason": "No passed, individually reviewed evidence."
+      "passed": true,
+      "reason": "Passed individual evidence review; checksums match."
     },
     {
       "id": "G2.01",
@@ -540,7 +540,7 @@
     {
       "id": "G1",
       "passed": false,
-      "passedChecks": 0,
+      "passedChecks": 3,
       "requiredChecks": 7
     },
     {
@@ -584,7 +584,7 @@
   "clock": {
     "startedAt": "2026-10-13T03:00:54+00:00",
     "deadline": "2026-10-19T03:00:54+00:00",
-    "hoursRemaining": 102.46966666666667,
+    "hoursRemaining": 101.76416083333334,
     "full24HourSoakFits": true
   },
   "releaseStates": {

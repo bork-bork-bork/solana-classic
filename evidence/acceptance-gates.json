@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "at": "2026-10-14T18:17:25.694031+00:00",
+  "at": "2026-10-14T21:15:02.334021+00:00",
   "scope": "remote-experimental",
   "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
   "checklistSha256": "e2fb4b2f53e9aa10f21ec5ffcf708cc2749b456a39703c9228a7fce7fc574f73",
@@ -171,6 +171,39 @@
         {
           "path": "evidence/public-network-individual-review.json",
           "sha256": "4213fd50943b8871b70d9e5e06cc07d89bb66756e06f88b40474f25d80d5d247"
+        }
+      ]
+    },
+    "G1.01": {
+      "passed": true,
+      "scope": "remote",
+      "verifiedAt": "2026-10-14T21:15:02.334021+00:00",
+      "proofs": [
+        {
+          "path": "evidence/network-facts-current-individual-review.json",
+          "sha256": "cb14d885946c1726350e3e27b248919b13396821ec9bfdeb06a021a326844b58"
+        }
+      ]
+    },
+    "G1.04": {
+      "passed": true,
+      "scope": "remote",
+      "verifiedAt": "2026-10-14T21:15:02.334021+00:00",
+      "proofs": [
+        {
+          "path": "evidence/network-facts-current-individual-review.json",
+          "sha256": "cb14d885946c1726350e3e27b248919b13396821ec9bfdeb06a021a326844b58"
+        }
+      ]
+    },
+    "G1.07": {
+      "passed": true,
+      "scope": "remote",
+      "verifiedAt": "2026-10-14T21:15:02.334021+00:00",
+      "proofs": [
+        {
+          "path": "evidence/network-facts-current-individual-review.json",
+          "sha256": "cb14d885946c1726350e3e27b248919b13396821ec9bfdeb06a021a326844b58"
         }
       ]
     }

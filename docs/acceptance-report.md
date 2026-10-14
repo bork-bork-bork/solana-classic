@@ -1,6 +1,6 @@
 # Acceptance report
 
-Generated 2026-10-14T20:32:43.200Z. Scope: offline review of recorded evidence; this command performs no chain or browser actions.
+Generated 2026-10-14T21:15:03.021Z. Scope: offline review of recorded evidence; this command performs no chain or browser actions.
 
 preview/experimental preparation; public release blocked. Local tests and a deployed preview do not certify G0–G7. The founder selected two independent agent browser pilots for this first release; these are agent evidence, not human usability testing.
 
@@ -9,7 +9,7 @@ T0: 2026-10-13T03:00:54+00:00. Fixed H144: 2026-10-19T03:00:54+00:00. A full 24-
 | Gate | Result | Passed requirements |
 | --- | --- | --- |
 | G0 | pending / failed | 0/10 |
-| G1 | pending / failed | 0/7 |
+| G1 | pending / failed | 3/7 |
 | G2 | pending / failed | 0/9 |
 | G3 | pending / failed | 0/9 |
 | G4 | pending / failed | 0/8 |
@@ -43,13 +43,10 @@ None.
 - G0.08: Operator, backup storage and two independent agent pilot assignments are arranged before late implementation stages. — No passed, individually reviewed evidence.
 - G0.09: Raw API, validator RPC, WebSocket and faucet services cannot be reached from an external machine; only the HTTPS gateway serves public requests. — No passed, individually reviewed evidence.
 - G0.10: Mainnet signing keys and browser private keys are absent from source, deployment configuration and logs. — No passed, individually reviewed evidence.
-- G1.01: Configured genesis differs from the current Solana mainnet and devnet genesis hashes. — No passed, individually reviewed evidence.
 - G1.02: Native TEST transfer has a successful transaction receipt and observed balance change. — No passed, individually reviewed evidence.
 - G1.03: Script-based meme-token and NFT issuance both succeed on the remote network by H12, with reachable immutable metadata and verified supply/authorities. — No passed, individually reviewed evidence.
-- G1.04: Slot progression, health and executable program IDs are verified on the intended node. — No passed, individually reviewed evidence.
 - G1.05: Minimal `/api/assets` returns safe immutable metadata from the permanent remote origin before remote NFT issuance. — No passed, individually reviewed evidence.
 - G1.06: Pointing the gateway at an unexpected genesis disables every mutation and reports the mismatch. — No passed, individually reviewed evidence.
-- G1.07: The public configuration records operator count 1 and an experimental reset policy. — No passed, individually reviewed evidence.
 - G2.01: Browser creates and signs with a memory-only test wallet; its secret never reaches requests, storage or logs. — No passed, individually reviewed evidence.
 - G2.02: Fungible demo supply is exactly 1,000,000 display units, decimals 6; transfer to another wallet works. — No passed, individually reviewed evidence.
 - G2.03: NFT supply is exactly 1, decimals 0; transfer to a second wallet changes the on-chain owner. — No passed, individually reviewed evidence.
