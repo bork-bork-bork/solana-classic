@@ -1,0 +1,76 @@
+{
+  "scope": "Reviewed public website/PDF/roadmap presentation package only; no validator, live bridge, keys, ledger, runtime data or additional API exposure",
+  "origin": "https://solanaclassic.net",
+  "changes": [
+    "Modern artwork button/dropzone with preview and validation",
+    "Five desktop/two mobile gallery columns",
+    "Devnet public wording and whitepaper0.10",
+    "Mainnet/bridge/wallet milestone cards"
+  ],
+  "uiQA": {
+    "passed": true,
+    "scope": "Local UI/browser with mocked network and dated roadmap fixture; no live transaction or monetary claim",
+    "checks": [
+      {
+        "width": 1440,
+        "upload": {
+          "keyboardChooser": true,
+          "filename": true,
+          "preview": true,
+          "formatAndSizeRejected": true,
+          "drop": true,
+          "overflow": false
+        }
+      },
+      {
+        "width": 1440,
+        "galleryColumns": 5,
+        "noOverflow": true
+      },
+      {
+        "width": 1440,
+        "developmentProjects": 3,
+        "scopeLabels": true,
+        "noOverflow": true
+      },
+      {
+        "width": 390,
+        "upload": {
+          "keyboardChooser": true,
+          "filename": true,
+          "preview": true,
+          "formatAndSizeRejected": true,
+          "drop": true,
+          "overflow": false
+        }
+      },
+      {
+        "width": 390,
+        "galleryColumns": 2,
+        "noOverflow": true
+      },
+      {
+        "width": 390,
+        "developmentProjects": 3,
+        "scopeLabels": true,
+        "noOverflow": true
+      }
+    ],
+    "pageErrors": []
+  },
+  "pdf": {
+    "version": "0.10",
+    "pages": 20,
+    "pdfSHA256": "e0825942956e3f3efb696839dce7e5e8c3d61e46f34d8eb84a0133e9ed4584b2",
+    "sourceSHA256": "cf28d6ed01cd4db3154acdf6b461bb1f091d60af78f93a63f56d2531dc269fe4",
+    "textBoundsPassed": true,
+    "removedHostingVendorsPassed": true,
+    "removedExperimentalWordingPassed": true,
+    "renderedAllPages": true,
+    "visualReview": "All 20 rendered pages reviewed, including cover, tables, transitions and references; no clipping or layout defects observed.",
+    "publicReadiness": "presentation only; monetary launch and network release gates remain separate"
+  },
+  "frozenCoreUnchanged": true,
+  "apiAdaptersAndRoutingUnchanged": true,
+  "fileCount": 47
+}

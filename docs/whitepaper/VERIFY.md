@@ -1,10 +1,10 @@
 # Whitepaper verification
 
-Public edition 0.9, 20 A4 pages. All pages rendered with Poppler and visually reviewed; the revised architecture page was also checked at full size. Text bounds passed.
+Public edition 0.10, 20 A4 pages. All pages rendered with Poppler and visually reviewed. Text bounds passed.
 
-Removed hosting-vendor names and infrastructure-provider URLs from the public paper. Architecture describes the web application, bounded gateway, private validator endpoint, process supervision and persistent storage. Operational provider details remain in the operator documentation. The single-operator experiment and future mainnet/bridge requirements remain explicit.
+Public wording uses Devnet; no occurrence of experimental, Vercel or Railway remains in extracted PDF text. One-operator, no-monetary-value and future mainnet/bridge conditions remain explicit.
 
-PDF SHA256: ddca5fc9d916fc7b030c97560c9da74f534ac637a01da6a73718d8390c519e60
-Source SHA256: 5c04e74e888c188273cb306ac11e7c64a649e815b1a69e343c05859db545d047
+PDF SHA256: e0825942956e3f3efb696839dce7e5e8c3d61e46f34d8eb84a0133e9ed4584b2
+Source SHA256: cf28d6ed01cd4db3154acdf6b461bb1f091d60af78f93a63f56d2531dc269fe4
 
-The custom-domain frontend packages this PDF. Frozen candidate files and its earlier PDF remain unchanged. This is a presentation update, not network-release, monetary-launch or bridge acceptance.
+The custom-domain edition is separate from the frozen stability candidate and its earlier PDF. No release or monetary-launch acceptance is implied.
