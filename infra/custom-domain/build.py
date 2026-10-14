@@ -41,7 +41,7 @@ assert app.count('</nav></header>') == 1 and app.count('</footer>') == 1
 app = app.replace('</nav></header>', '<GitHubLink/></nav></header>').replace('</footer>', '<GitHubLink/></footer>')
 shutil.copy2(root / 'infra/custom-domain/GitHubLink.tsx', overlay / 'src/GitHubLink.tsx')
 app = app.replace('<span className="brand-mark" aria-hidden="true"/>', '<span className="brand-logo" aria-hidden="true"/>').replace('TEST','tSOC')
-app = "import About from './About';\n" + app
+app = "import About from './About';\nimport Whitepaper from './Whitepaper';\n" + app
 app = app.replace("path === '/' ? <Home/>", "path === '/about' ? <About/> : path === '/' ? <Home/>")
 app = "import Builders from './Builders';\nimport Collectors from './Collectors';\n" + app
 app = app.replace("import { useEffect, useState }", "import { lazy, Suspense, useEffect, useState }")
@@ -50,13 +50,15 @@ app = app.replace("['/playground', 'Playground']", "['/wallet', 'Wallet'], ['/pl
 app = app.replace("const playground = path === '/playground';", "const playground = path === '/playground';\n  const [walletVisited, setWalletVisited] = useState(path === '/wallet');\n  useEffect(() => { if (path === '/wallet') setWalletVisited(true); }, [path]);")
 app = app.replace('<main id="main-content">', '<main id="main-content"><div hidden={path !== "/wallet"}>{walletVisited ? <Suspense fallback={<p role="status">Loading Classic Wallet…</p>}><ClassicWallet gateway={walletGateway}/></Suspense> : null}</div>')
 app = app.replace('!playground ? <section', '!playground && path !== "/wallet" ? <section')
-app = app.replace("['/about', 'About']", "['/builders', 'Build'], ['/collectors', 'Collectors'], ['/about', 'About']")
-app = app.replace('playground|gallery|explorer|network|token', 'playground|gallery|explorer|network|token|wallet|builders|collectors|about')
-app = app.replace("path === '/about' ? <About/>", "path === '/builders' ? <Builders/> : path.startsWith('/collectors') ? <Collectors path={path}/> : path === '/about' ? <About/>")
+app = app.replace("['/about', 'About']", "['/builders', 'Build'], ['/collectors', 'Collectors'], ['/about', 'About'], ['/whitepaper', 'Whitepaper']")
+app = app.replace('playground|gallery|explorer|network|token', 'playground|gallery|explorer|network|token|wallet|builders|collectors|about|whitepaper')
+app = app.replace("path === '/about' ? <About/>", "path === '/builders' ? <Builders/> : path.startsWith('/collectors') ? <Collectors path={path}/> : path === '/whitepaper' ? <Whitepaper/> : path === '/about' ? <About/>")
 (overlay / 'src/App.tsx').write_text(app)
 (overlay / 'src/ClassicWallet.tsx').write_text("export { default } from '../../../wallet/src/ClassicWallet';\n")
-for name in ['Builders.tsx', 'Collectors.tsx']:
+for name in ['Builders.tsx', 'Collectors.tsx', 'Whitepaper.tsx']:
     shutil.copy2(root / 'infra/custom-domain' / name, overlay / 'src' / name)
+paper_edition = json.loads((root / 'docs/whitepaper/output/qa/verification-v010.json').read_text())
+(overlay / 'src/whitepaper-edition.json').write_text(json.dumps({'version': paper_edition['version'], 'pages': paper_edition['pages']}))
 shutil.copy2(root / 'infra/custom-domain/About.tsx', overlay / 'src/About.tsx')
 shutil.copy2(root / 'infra/custom-domain/ImageUpload.tsx', overlay / 'src/ImageUpload.tsx')
 shutil.copy2(root / 'infra/custom-domain/Transactions.tsx', overlay / 'src/Transactions.tsx')
@@ -79,6 +81,7 @@ network=network.replace('void load(); const timer', "window.addEventListener('sc
 network=network.replace('active = false; clearInterval(timer);', "active = false; clearInterval(timer); window.removeEventListener('sc-network-retry', load);")
 (overlay / 'src/useNetwork.ts').write_text(network)
 pages=(overlay / 'src/Pages.tsx').read_text().replace('TEST','tSOC')
+pages=pages.replace('href="/whitepaper.pdf" download', 'href="/whitepaper"')
 home_start = pages.index('export function Home()')
 home_end = pages.index('export function Gallery()', home_start)
 pages = pages[:home_start] + "export { default as Home } from './Home';\n" + pages[home_end:]

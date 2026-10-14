@@ -24,5 +24,6 @@
     { "source": "/network", "destination": "/index.html" },
     { "source": "/token", "destination": "/index.html" }
     ,{ "source": "/about", "destination": "/index.html" }
+    ,{ "source": "/whitepaper", "destination": "/index.html" }
   ]
 }
