@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-14T12:01:36.025156+00:00",
+  "scope": "Anonymous main-site roadmap verification after separate roadmap publication; private copied-ledger recovery only, no canonical service or mainnet deployment",
+  "passed": true,
+  "sourceCommit": "fefdb68",
+  "deploymentId": "dpl_7ofa5DzMbffqNXT64aW52yXGnJk1",
+  "publicURL": "https://solanaclassic.net/roadmap",
+  "checkpointSHA256": "bc8eedfa66164f4a577e6a111c21713cba032110d00dd71751ef51ed19670198",
+  "publicMilestone": {
+    "title": "V2 bridge cold archive extraction and restore",
+    "state": "rehearsal-passed",
+    "detail": "8 actual checks + 9 guards. Extracted private archive, rebased snapshot links, exact20-account continuity and four rejected replay simulations. Four copy processes stopped, originals unchanged, zero broadcasts. Controlled-stop cold restore; no power-loss/fork or funded-mainnet acceptance."
+  },
+  "observedAt": "2026-10-14T12:01:35.864Z",
+  "network": {
+    "state": "online",
+    "genesisMatches": true,
+    "slot": 263854,
+    "finalizedSlot": 263749,
+    "identityMatches": true,
+    "monitorState": "online",
+    "monitorAt": "2026-10-14T12:01:06.452Z",
+    "lastProgressAt": "2026-10-14T12:01:06.383Z"
+  },
+  "soak": {
+    "state": "running",
+    "runnerState": "starting",
+    "freezeMatches": true,
+    "progressFreezeMatches": true,
+    "startedAt": "2026-10-13T16:48:22.762Z",
+    "endsAt": "2026-10-14T16:48:22.762Z",
+    "reportAt": "2026-10-14T11:58:50.219Z",
+    "progressStale": false,
+    "completedJourneys": 231,
+    "totalJourneys": 288,
+    "observations": 2300,
+    "accepted": false,
+    "activationAt": "2026-10-13T16:47:36.929Z",
+    "issues": [],
+    "elapsedMs": 69193102
+  },
+  "releaseAccepted": false,
+  "canonicalNetworkChanged": false
+}
