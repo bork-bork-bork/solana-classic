@@ -1,0 +1,20 @@
+{
+  "at": "2026-10-14",
+  "version": "0.7",
+  "pages": 21,
+  "sha256": "6851f8dd85221d38bbc6f4ddf01a33c8d8782b6009282620c566e79469257a7a",
+  "sourceSha256": "b245a219ab0c076ae84df85d0704e9cffe2befd4902b098674fec95c31714d67",
+  "contentChecks": {
+    "Solana Monkey Business": true,
+    "Okay Bears": true,
+    "BONK": true,
+    "WIF": true,
+    "Version 0.7": true,
+    "Two directions": true,
+    "1:1": true
+  },
+  "pageBoundsPassed": true,
+  "renderedPages": 21,
+  "visuallyReviewed": true,
+  "scope": "All21final pages rendered; cover and founding sections reviewed at render resolution, all4contact sheets inspected; shorter project-source footer avoids an orphan final page"
+}

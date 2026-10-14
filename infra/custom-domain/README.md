@@ -24,3 +24,10 @@ The adapter forwards image uploads and combined-gallery reads to the separate
 image-assets service. Ordinary preset issuance, RPC and faucet requests continue
 through the frozen gateway. tSOC is a frontend display name for the same valueless
 TEST network units. No wallet imports, real-money token or bridge is enabled.
+
+Enable the approved chain-wide feed during packaging with
+`SC_ENABLE_TRANSACTION_FEED=1 python3 infra/custom-domain/build.py`. The separate
+image service relays bounded pages from the private read-only block adapter;
+see [Explorer adapter](../explorer/README.md). Address details use finalized
+RPC account data and distinguish program ownership, token authority and holder
+wallets. No market valuation or undeclared creator identity is inferred.

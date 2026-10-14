@@ -1,0 +1,23 @@
+{
+  "at": "2026-10-14T00:27:02.900186+00:00",
+  "scope": "User-approved additional private read-only process and RPC read load alongside unchanged API and validator; no reboot or ledger writes",
+  "approvedByUser": true,
+  "approval": "Approve the read-only adapter now",
+  "runtimeIdentitiesUnchanged": true,
+  "frozenCoreFilesUnchanged": 41,
+  "sourceSha256": "ac525f655f1e0fd57593a77d8d4597c9f89b4c5ecd040ec5ac502ebe0ff6770f",
+  "service": "network-release",
+  "privatePort": 3002,
+  "publicRailwayIngressPort": 3000,
+  "publicVia": "separate image-assets service and custom-domain function",
+  "methods": [
+    "getGenesisHash",
+    "getSlot",
+    "getFirstAvailableBlock",
+    "getBlocks",
+    "getBlock",
+    "getSignaturesForAddress"
+  ],
+  "history": "Only retained blocks; pruned transactions unavailable",
+  "passed": true
+}

@@ -12,4 +12,6 @@ test('Keep ordinary gallery pagination while rejecting injected query parameters
   assert.equal(validateRequest({url:'/api/proxy?path=api/gallery&cursor=20',method:'GET',headers:{}}).path,'api/gallery?cursor=20');
   assert.equal(validateRequest({url:'/api/proxy?path=api/gallery&url=https://evil.example',method:'GET',headers:{}}).status,404);
   assert.equal(validateRequest(request('api/upload-assets','POST',{origin:'https://solanaclassic.net','content-type':'application/json'})).status,200);
+  assert.equal(validateRequest({url:'/api/proxy?path=api/address-transactions&address='+'1'.repeat(32),method:'GET',headers:{}}).status,200);
+  assert.equal(validateRequest({url:'/api/proxy?path=api/address-transactions&address=bad',method:'GET',headers:{}}).status,404);
 });

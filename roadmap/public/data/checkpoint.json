@@ -95,6 +95,12 @@
       "at": "2026-10-13T15:39:19.695407+00:00",
       "scope": "repository source review and bounded anonymous remote bundle / named provider upload inventory / deployment log sample; not comprehensive security audit or full release gate acceptance",
       "sha256": "979f0ac434678fa334dc4dfcabcf1763877f3d9a972ee5ea521dd09fc1fad21d"
+    },
+    "whitepaper": {
+      "passed": true,
+      "at": "2026-10-14T00:29:02.820354+00:00",
+      "scope": "Version0.7 PDF: all21pages rendered and visually reviewed; source/bounds and anonymous custom-domain served bytes verified; no economic launch acceptance",
+      "sha256": "75b3a2fdb6c3840546367c8984d54d54503283eb25ddcb54670b45bc378afd1b"
     }
   },
   "load": {
@@ -105,10 +111,11 @@
     "p95FinalizedMs": 15167
   },
   "whitepaper": {
-    "version": "0.6",
+    "version": "0.7",
     "pages": 21,
-    "sha256": "a012bab19803fed9e9a043faf8f5ed892ea3c56c8ed9495e9e023f19bbaeaeb0",
-    "url": "https://solana-classic-soc.vercel.app/whitepaper.pdf"
+    "sha256": "6851f8dd85221d38bbc6f4ddf01a33c8d8782b6009282620c566e79469257a7a",
+    "url": "https://solanaclassic.net/whitepaper.pdf",
+    "scope": "Separately reviewed custom-domain publication; frozen Vercel candidate retains0.6"
   },
   "releaseAccepted": false,
   "planned": [
@@ -118,21 +125,27 @@
   ],
   "soakStartedAt": "2026-10-13T16:48:22.762Z",
   "engineBuild": {
-    "runId": "aeb95b66-a531-4e5e-bca4-35e3d94d3f92",
-    "sourceManifestSha256": "d907bc5b493721227984b29f0c4b454a28173e0e4c958c2f8f68b9ee681f86ed",
-    "workerSha256": "48c2018ce8b64a2e2c50a7cafc1273957bb72ef0907990fd5316e8aa5f1d52b3",
-    "sourceRepositoryCommit": "1a056dc5b111aa11f2869cf701ea27d446991c83",
+    "runId": "0a556ba4-c001-499e-9814-4fbdebaae411",
+    "sourceManifestSha256": "9c643fd9fa625ef6c05616f745c3a036bb47fd5b6a744a500f7e54de620cbc2b",
+    "workerSha256": "72d2fa77793b8afe260a4710be7bd54a94f508523b1bbfc9d2bdb67131dee2b5",
+    "sourceRepositoryCommit": "d5b663f45281202c9457ccb6a15d073003123616",
     "upstreamCommit": "f516a8927c76c07f0ebc54ca7a4ce8b2046eee86",
     "upstreamTree": "a4c75a1781d4ca56e7325a39d0614e1faa26030d",
     "serviceId": "29189101-226c-483b-a424-b8cd140abd80",
     "progressUrl": "https://agave-source-build-production.up.railway.app/api/build",
-    "reviewedAt": "2026-10-13T23:32:00Z",
+    "reviewedAt": "2026-10-14T00:19:00Z",
     "scope": "Parallel isolated source build and bounded tests; no current-network changes or cutover acceptance",
     "previousAttempt": {
-      "runId": "28de6902-7ba1-435a-a9a5-a44050c1f316",
+      "runId": "aeb95b66-a531-4e5e-bca4-35e3d94d3f92",
       "state": "failed",
-      "reason": "Release-mode unit tests disabled expected debug assertions; rerun uses the standard test profile with assertions enabled.",
-      "evidence": "evidence/engine-source-build-failed-attempt.json"
+      "reason": "All binaries,92SVM tests,isolatedtransactionsandrestart passed; cold backup encountered transient admin.rpc socket. Corrected copy excludes only that IPC socket and rebases validated internal snapshot links.",
+      "evidence": "evidence/engine-source-build-cold-restore-failed.json"
     }
+  },
+  "frozenWhitepaper": {
+    "version": "0.6",
+    "pages": 21,
+    "sha256": "a012bab19803fed9e9a043faf8f5ed892ea3c56c8ed9495e9e023f19bbaeaeb0",
+    "url": "https://solana-classic-soc.vercel.app/whitepaper.pdf"
   }
 }

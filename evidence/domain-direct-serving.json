@@ -1,0 +1,48 @@
+{
+  "at": "2026-10-13T23:53:05.084612+00:00",
+  "scope": "Anonymous HTTPS direct custom-domain pages; separate frontend deployment; frozen runtime unchanged",
+  "passed": true,
+  "redirectToVercel": false,
+  "domain": "solanaclassic.net",
+  "projectId": "prj_QqX4GVAOEbRthKGERaVqRA5Ks1qv",
+  "deploymentId": "dpl_93tdsWBGj5AvrXHbZU5RVVPQxswp",
+  "paths": [
+    {
+      "path": "/",
+      "status": 200,
+      "url": "https://solanaclassic.net/",
+      "sha256": "2724ce929a70857d569629888eeb6d2270c91d5de47e1ac7e86c45e4e32f0835"
+    },
+    {
+      "path": "/about",
+      "status": 200,
+      "url": "https://solanaclassic.net/about",
+      "sha256": "2724ce929a70857d569629888eeb6d2270c91d5de47e1ac7e86c45e4e32f0835"
+    },
+    {
+      "path": "/playground",
+      "status": 200,
+      "url": "https://solanaclassic.net/playground",
+      "sha256": "2724ce929a70857d569629888eeb6d2270c91d5de47e1ac7e86c45e4e32f0835"
+    },
+    {
+      "path": "/roadmap",
+      "status": 200,
+      "url": "https://solanaclassic.net/roadmap",
+      "sha256": "8d8bd67583be9010305160f3ead566d92e199e6acdb611fa0dad3a95174b0bd3"
+    },
+    {
+      "path": "/favicon.svg",
+      "status": 200,
+      "url": "https://solanaclassic.net/favicon.svg",
+      "sha256": "5dc791bd87e6d2dada77a214ea382d5112b018c04825bca538436604a13037f2"
+    },
+    {
+      "path": "/whitepaper.pdf",
+      "status": 200,
+      "url": "https://solanaclassic.net/whitepaper.pdf",
+      "sha256": "a012bab19803fed9e9a043faf8f5ed892ea3c56c8ed9495e9e023f19bbaeaeb0"
+    }
+  ],
+  "runtimeUnchanged": true
+}

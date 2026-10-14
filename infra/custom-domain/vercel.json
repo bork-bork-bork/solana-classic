@@ -8,6 +8,7 @@
     { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
   ] }],
   "rewrites": [
+    { "source": "/chain-assets/:path*", "destination": "/api/asset-proxy?path=:path*" },
     { "source": "/_network/:path*", "destination": "/api/proxy?path=:path*" },
     { "source": "/roadmap", "destination": "/roadmap.html" },
     { "source": "/roadmap/:path*", "destination": "https://solana-classic-roadmap.vercel.app/:path*" },

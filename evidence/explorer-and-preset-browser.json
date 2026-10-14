@@ -1,0 +1,17 @@
+{
+  "at": "2026-10-14T00:29:27.436Z",
+  "scope": "Remote custom-domain chain-wide Explorer/address details and actual preset NFT issuance; separate from frozen-candidate acceptance",
+  "browser": "Playwright; Browser plugin not available",
+  "initialRows": 25,
+  "olderRows": 50,
+  "addressRows": 1,
+  "presetNftMinted": true,
+  "errors": [],
+  "overflow": false,
+  "passed": true,
+  "deploymentId": "dpl_8bf5uHuTCSo29mBnkR9Tfr6Eshbb",
+  "unitChecksPassed": 14,
+  "originalRuntimeUnchanged": true,
+  "readOnlyProcessApproved": true,
+  "historyScope": "retained finalized blocks; pruned history unavailable"
+}

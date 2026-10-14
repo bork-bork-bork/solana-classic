@@ -7,7 +7,7 @@ const routes = new Map([
   ['api/network', 'GET'], ['api/status', 'GET'], ['api/runtime', 'GET'],
   ['api/gallery', 'GET,POST'], ['api/rpc', 'POST'],
   ['api/faucet', 'POST'], ['api/assets', 'POST'],
-  ['api/upload-assets', 'POST'], ['api/upload-gallery', 'POST']
+  ['api/upload-assets', 'POST'], ['api/upload-gallery', 'POST'], ['api/transactions','GET'], ['api/address-transactions','GET']
 ]);
 export function validateRequest(request) {
   const url = new URL(request.url, site);
@@ -19,7 +19,10 @@ export function validateRequest(request) {
   const query = new URLSearchParams();
   for (const [key, value] of entries) {
     if (key === 'path') continue;
-    if (path !== 'api/gallery' || request.method !== 'GET' || !['cursor', 'limit'].includes(key) || !/^\d{1,7}$/.test(value) || query.has(key)) return { status: 404 };
+    const gallery=path==='api/gallery' && ['cursor','limit'].includes(key) && /^\d{1,7}$/.test(value);
+    const transactions=path==='api/transactions' && key==='cursor' && /^\d{1,10}:\d{1,4}$/.test(value);
+    const addressTransactions=path==='api/address-transactions' && ((key==='address'&&/^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(value))||(key==='before'&&/^[1-9A-HJ-NP-Za-km-z]{80,90}$/.test(value)));
+    if (request.method !== 'GET' || (!gallery&&!transactions&&!addressTransactions) || query.has(key)) return { status: 404 };
     query.set(key, value);
   }
   if (!allowed) return { status: 404 };
@@ -50,7 +53,7 @@ export default async function handler(request, response) {
   try {
     // Do not forward cookies, authorization, client-supplied routing or IP headers.
     // The existing gateway remains responsible for RPC validation and rate limits.
-    const custom = result.path.startsWith('api/upload-') || (request.method === 'GET' && result.path.startsWith('api/gallery'));
+    const custom = result.path.startsWith('api/upload-') || result.path.startsWith('api/transactions') || result.path.startsWith('api/address-transactions') || (request.method === 'GET' && result.path.startsWith('api/gallery'));
     const upstreamPath = result.path.replace('api/upload-assets', 'api/assets').replace('api/upload-gallery', 'api/gallery');
     const upstream = await fetch((custom ? imageService : gateway) + '/' + upstreamPath, {
       method: request.method, body, redirect: 'error',

@@ -1,35 +1,45 @@
 # Solana Classic Whitepaper
 
-## A focused SVM home for memes and NFTs
+## Shared roots. A focused future for art, NFTs and memes.
 
 **Solana Classic / SOC**  
-**Draft for founder review | Version 0.6 | 13 October 2026**
+**Draft for founder review | Version 0.7 | 14 October 2026**
 
-**Open to everyone. Built for memes and NFTs.**
+**Bring back the fun. Build what comes next.**
 
-Solana Classic is being built to put memes, NFTs and the people around them at the centre of a chain's identity. The goal is a home where artists can experiment, communities can form around things they care about, and buyers can participate with a clear view of who controls an asset and where money goes. Memes and digital art are ways people recognize one another and build a shared culture. They deserve product decisions made for them.
+Solana Classic is an open-source blockchain project bringing together developers, artists and communities who care deeply about digital art, NFTs and memes. Our goal is sustained development in this category: a place where builders understand the people they are building for, share what they learn and give promising ideas time to grow. The products should emerge from the people who show up and do the work.
 
-The founder believes that the early meme and NFT community was central to Solana's appeal, and sees a cultural rift between leadership priorities and that community. The concern goes beyond branding: when developers have more information, earn fees and control large positions while buyers carry poorly explained risks, participation can feel like extraction. We believe dispersed attention and weak standards left room for bad actors to extract value while providing little lasting work. That is the founding interpretation, not a proven causal account of Solana's history.
+We remember mint nights, new profile pictures and group chats that became communities. Solana Monkey Business, Okay Bears, BONK and WIF are part of the history that inspires us. Solana's engineering gave artists and meme makers room to experiment. We respect that work and build on its open-source foundations.
 
-The response is a focused ecosystem with understandable creation tools, visible developer holdings, clear unlock rules, inspectable fees and funding that can be traced back to creator activity. Buyers should be treated as participants in that ecosystem. The project will judge progress by completed creation journeys, returning participants, better disclosure and delivered creative work. A token price is not evidence that this mission is working.
+Solana pursues a broad future across finance, AI and many other categories. We want a development community whose attention stays on the culture we came for. Scams, concealed incentives and abandoned projects give that work urgency, but no single tool or launch standard is the mission. Our ambition is an open, focused home where creative work continues beyond the first burst of attention. A token price is not evidence that this ambition is working.
 
-The first deliverable is a six-day experimental playground: create a disposable test wallet, receive valueless TEST, issue a demo meme asset, mint a demo NFT and transfer it with visible chain receipts. The design uses an independently initialized Agave ledger and one founder-operated validator. Remote script and production-origin browser journeys and restart checks have passed; load and final operating gates remain pending. The larger product mechanisms and economic network are later phases. **The intended SOC lifecycle starts with a Pump.fun launch on Solana and later adds native Classic SOC redeemable one-to-one for the original token in display units.** The token and bridge have not launched, and redemption is unavailable until its own implementation and review pass.
+The first deliverable is an experimental playground on a fresh, independent Agave ledger with one project-operated validator. Participants can create a disposable wallet, receive valueless test units, issue demo meme assets and NFTs, transfer them and inspect chain receipts. **The intended SOC lifecycle starts with a Pump.fun launch on Solana and later adds native Classic SOC redeemable one-to-one for the original token in display units.** SOC, mainnet and the bridge have not launched. TEST, also displayed as tSOC, has no monetary value or right to conversion.
 
 ### Evidence checkpoint
 
-The implementation began on **13 October 2026 at 03:00:54 UTC**. A frontend preview is live at [solana-classic-soc.vercel.app](https://solana-classic-soc.vercel.app). Official **Agave v3.0.14 and the official Token-2022 v10.0.0 programme** are running on a fresh Railway candidate, with remote genesis `7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon`. The deployed Token-2022 bytes have been checked against the downloaded official artifact.
+The six-day implementation began on **13 October 2026 at 03:00:54 UTC**, with a fixed deadline of **19 October at 03:00:54 UTC**. The public site is [solanaclassic.net](https://solanaclassic.net), served directly by a separate frontend deployment. The original stability candidate remains at [solana-classic-soc.vercel.app](https://solana-classic-soc.vercel.app). Official **Agave v3.0.14 and Token-2022 v10.0.0** run on Railway with independent genesis `7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon`. Programme bytes were checked against the official artifact. No Solana ledger, balances or existing collections were inherited.
 
-The remote SDK smoke check **passed on 13 October 2026 at 05:29:17.715 UTC**, recording seven action receipts: two test fundings, a native TEST transfer, meme issuance and transfer, and NFT issuance and transfer. It checked native balances and the NFT's current holder. This is actual chain execution, with signatures recorded in `evidence/chain-smoke-remote.json`.
+Remote SDK and production-origin browser journeys, provider container/process restart, two founder-selected agent pilots and isolated recovery checks passed within their recorded scopes. The recovery evidence preserves known state; older transaction history was pruned, so historical finality and stored receipt replay are explicitly qualified. Agent pilots establish technical and interface evidence, not human usability or demand. Earlier failures remain in the evidence record.
 
-The production-origin Chromium journey passed at **05:51:13.818 UTC**, and the provider container/process restart check passed at **05:56:05.685 UTC**, preserving the genesis, balances, asset records and faucet request identifier. This was not a host reboot or restore. Two independent agent browser pilots passed at 06:02 to 06:03 UTC; the founder selected agent pilots, and no human usability research was performed. A cold archive was created at **06:31:55.567 UTC**, and a provider-native backup exists. Isolated cold restore verification passed at 07:42:11 UTC, preserving the same genesis, balances, mint data, ownership, immutable files, gallery and faucet receipt. The first 20-minute load run failed: 98.5 percent confirmed within 15 seconds and p95 logical confirmation was 10.269 seconds. Its sequential issuance path has been replaced by an atomic transaction; meme and NFT checks passed on the restored TEST node at about 3 seconds each. A new bounded-load run is pending. The final core candidate is not frozen, the 24 hour soak has not started, and account-email delivery still needs verification. A controlled monitor-service failure produced a native provider alert at 07:44:28 UTC; aggregation took about six minutes. Earlier probes were stopped and retained: the v4.3.0 attempt failed on mandatory `io_uring`, and the earlier `8w` candidate exposed a bundled Token-2022 compatibility defect. The new candidate uses the official programme fix; no published release-candidate ledger was reset. The Pump-origin SOC token, native mainnet, bridge and SOC market have not launched. No complete G0 through G7 gate is claimed at this checkpoint.
+The repaired 20-minute load run passed on **13 October at 16:26:24 UTC**: 200 actual operations across 20 SDK sessions, including 100 issuances and 100 transfers, with no failures. All confirmed within 15 seconds; p95 logical confirmation was **3.150 seconds** and p95 logical finalization **15.167 seconds**. This is a bounded workload, not chain-wide throughput. The candidate's 41 core files and API/validator process identities are frozen. Its uninterrupted browser soak started at **16:48:22.762 UTC**; the earliest possible 24-hour completion is **14 October at 16:48:22.762 UTC**. **The soak has not been accepted, and complete G0 through G7 release acceptance remains pending.**
 
-Descriptions below distinguish **selected design**, **release requirements** and **later proposals**. They are not claims that those features have already passed acceptance. This checkpoint must be revised from evidence before publication as a live-network whitepaper.
+The .net frontend and its separate persistent artwork service passed real NFT and meme issuance/gallery checks with PNG and JPEG uploads. Those checks do not extend the original candidate's soak to the new frontend or service. Source builds produced all four selected Agave binaries; 92 upstream SVM unit tests, isolated transactions and restart passed. A cold restore test failed while copying a transient admin RPC socket. The copy procedure has been corrected and passed five local worker tests; a new isolated run remains pending. No switch to source-built binaries has been accepted. A read-only explorer adapter is being enabled separately; its extra process and load require separate checks. Pruned blocks remain unavailable, and no complete historical index is claimed.
+
+Descriptions below distinguish **current experimental behavior**, **release requirements** and **contributor ideas**. A passing test covers its stated scope. The [live roadmap](https://solanaclassic.net/roadmap) and retained evidence track later changes; this dated draft does not certify a production economic network.
 
 ## 1 A focused home for memes and NFTs
 
-For the founder, Solana's appeal has always included the people around it: artists experimenting in public, communities forming around images and jokes, and small projects finding an audience without first becoming institutions. Solana's own December 2021 community update records NFT projects, fan communities and marketplaces alongside financial applications. That record supports the importance of culture in the ecosystem; it also shows that Solana was never exclusively an NFT network. [Solana Foundation community update](https://solana.com/news/december-2021-community-update) [1]
+For us, Solana's appeal has always included the people around it. [Solana Monkey Business](https://solanamonkey.business/) [19], [Okay Bears](https://www.okaybears.com/) [20], [BONK](https://www.bonkcoin.com/about) [21] and [dogwifhat (WIF)](https://dogwifcoin.org/) [22] bring back a timeline, a mint night, a profile picture or a joke a group chat suddenly understood. We remember discovering art, finding our people and staying in a community after the chart stopped being interesting. The projects named here inspire us; they are not affiliated with Solana Classic.
 
-Solana now explicitly presents tokenized capital markets and AI as areas of development. Its tokenization material covers equities, debt and institutional tools; its AI material covers agents, compute and related applications. These are facts about the breadth of its stated agenda. They do not establish that memes or NFTs have disappeared, or that any group has been displaced. [Solana tokenization](https://solana.com/solutions/tokenization) [2], [Solana AI](https://solana.com/solutions/ai) [3]
+Fast transactions and accessible fees gave that experimentation room to happen. Artists, collectors, meme makers and communities gave it a personality. We respect the engineers and builders who made that world possible. Solana's December 2021 community update records NFT projects and fan communities alongside financial applications: culture was important, and the network was always broader than one category. [Solana Foundation community update](https://solana.com/news/december-2021-community-update) [1]
+
+### Why focus matters
+
+Millions of tokens have been launched. A September 2026 study collected information on 15 million Pump.fun coins launched over two years and identified manipulation strategies, including obscured creator addresses, coordinated selling and wash trading. This supports the scale of launches and the presence of manipulation; it does not establish that every launch is abusive or that one institution caused those abuses. [Meme Coin Factories](https://arxiv.org/abs/2609.10246) [23]
+
+Our frustration is with scams, concealed incentives, extraction and work that disappears after launch. Too often, participation feels like competing for the next ticker instead of helping something grow. That is our experience and founding view. Solana also publishes guidance on scams and transaction safety, and builders continue to innovate across its ecosystem. Our concern is about sustained development priorities. [Staying Safe on Solana](https://solana.com/learn/staying-safe-on-solana) [24]
+
+Solana's public agenda includes tokenized capital markets and AI: equities, debt, institutional tools, agents and compute. We believe the cultural community we belong to deserves a development home whose attention stays on its own future. [Solana tokenization](https://solana.com/solutions/tokenization) [2], [Solana AI](https://solana.com/solutions/ai) [3]
 
 ### A public cultural disagreement
 
@@ -37,70 +47,67 @@ On 27 July 2025, Solana co-founder Anatoly Yakovenko posted the following during
 
 > "I’ve said this for years. Memecoins and NFTs are digital slop and have no intrinsic value."
 
-In the same post, Yakovenko compared them with mobile-game loot boxes and cited $150 billion in annual mobile-gaming spending. That number was part of his comparison, not an independently established market estimate in this whitepaper. The exchange included Pollak defending the fundamental value of content and creators. [Yakovenko's 27 July 2025 post](https://x.com/toly/status/1949548737208181137) [17]
+In the same post, Yakovenko compared them with mobile-game loot boxes. Pollak defended the value of content and creators. [Yakovenko's 27 July 2025 post](https://x.com/toly/status/1949548737208181137) [17]
 
-For the community Solana Classic belongs to, that language captures a cultural disagreement: are memes and NFTs disposable attention products, or a form of shared identity and creative participation worth building around? We see value in the people, work and relationships that can form around them. That belief does not mean every token or image deserves a price, and it does not excuse manipulation. It means creators and buyers deserve tools and standards that take their participation seriously.
+For us, that language makes a cultural disagreement visible. We see imagination, shared identity and people making things together. We want developers who see those possibilities too. That belief does not make every token valuable or excuse manipulation. It gives us a reason to take creative participation seriously.
 
-One exchange does not establish what every founder believes or what a majority of the community wants. It does explain a reason for this project's choice. We see a cultural rift between leadership priorities and the meme and NFT community we belong to. We believe dispersed attention and weak standards left room for extraction. We are building focus and accountability: declared holdings, clear unlock rules, inspectable fees and evidence that creative commitments are fulfilled.
+This is our view of a cultural gap, not a claim that every Solana founder or the Foundation opposes memes and NFTs. The exchange is one person's public view, not a poll of leadership or the community. It helps explain our choice to gather builders who care about this category and want to keep working on it.
 
-This is an argument about priorities within a general-purpose network, not a claim that Solana became general purpose in 2025. Its earlier ecosystem already included financial applications alongside NFTs. Solana Classic's response is to make memes and NFTs determine its own roadmap, first user journey and visible identity. The thesis does not require institutional finance or AI to be illegitimate; it requires consistent choices about who these products serve.
+### Shared roots. Two directions.
 
-For this project, a launch succeeds culturally when people can understand its terms, take part in its community and see useful work continue after the first burst of attention. Developers should show what they retain, how they obtained it, what they can change and how fees are used. Buyers should be able to inspect those facts before choosing to participate. That would not remove market risk, but it would make the relationship between builders and their community more legible.
+The same open-source engineering can support different priorities. Solana is a broad ecosystem pursuing many categories. Solana Classic brings together developers focused on art, NFTs, memes and the communities around them.
 
-The first release makes that purpose concrete through four original geometric artwork presets, simple asset creation, a gallery that verifies chain state and receipts that let participants inspect what happened. The project will learn whether people complete these journeys and choose to return. A successful transaction proves execution. Returning creators and their feedback would provide evidence for a cultural home. Neither proves that an independent production chain is necessary.
+| Shared engineering roots | Development direction |
+| --- | --- |
+| Solana / SVM | Solana: a broad ecosystem, including finance, AI and digital culture |
+| Solana / SVM | Solana Classic: sustained development around art, NFTs, memes and their communities |
+
+A developer exploring NFT experiences should have peers who understand artists and collectors. A builder exploring meme culture should have a community that takes the work seriously. When people stay with the same category, knowledge compounds, tools connect and ideas can develop beyond a single launch. Artists can reveal possibilities developers had not considered, and communities can help decide what is useful.
+
+That is the ambition: sustained, open development around a culture we care about. It describes the people and priorities we want to bring together. It leaves room for contributors to shape the products.
 
 ### Cultural focus and general purpose execution
 
-The focus applies to project-owned products, curation and development effort. It does not add a runtime rule that classifies and bans stock, agent or other transactions. Agave's SVM remains general purpose. A subjective transaction filter would create a separate engineering and governance problem and is outside this programme.
+The focus applies to project-owned products, curation and development effort. Agave's SVM remains general purpose; no runtime rule classifies and bans stock, agent or other transactions. Product focus is a roadmap choice, not an enforcement guarantee.
 
 The public gateway still enforces method, size and rate limits, and the app only exposes its supported playground actions. Those controls protect the service and keep the pilot bounded; they are not a claim that the runtime can determine an application's cultural meaning. The founder also controls the website, gallery registry and access infrastructure. A curated interface must not be described as a decentralized guarantee of inclusion. "Open to everyone" states the intended invitation, subject to disclosed service limits and availability.
 
-## 2 The future participants should be able to see
+## 2 A place for builders who get it
 
-### A creator journey with public terms
+### What the community can build
 
-Imagine a creator arriving with an original image and a community idea. A future creation flow helps them describe the work, choose the asset structure and publish a readable launch record. The record shows supply, declared developer and treasury wallets, what those wallets hold, how those holdings were acquired, any unlock schedule, retained powers and fee recipients. The creator can explain why a retained balance exists and how it will support the work. That explanation appears beside the on-chain facts rather than in a thread buyers may never find.
+Some developers care deeply about digital art. Others understand the humour, experimentation and social energy behind memes. Some want to build the places where those communities meet, create and grow. Solana Classic is an invitation to bring those interests together.
 
-The creator's page then connects the work to its holders and the activity it funds: new artwork, community events, tools or another disclosed creative project. Participants can inspect receipts for spending from public funding wallets and read reports for expenses that happen outside the chain. A creator's reputation can grow through fulfilled commitments and continued work, with evidence that survives a promotional cycle.
+Contributions could explore new ways to make and experience art, tools for collections, community spaces, games, discovery or experiments we cannot yet name. A useful idea should begin with a participant's need, become a working prototype and improve through feedback. The founding goal is to keep that process focused on this category, with enough continuity for work to outlast a launch.
 
-This is a proposed product direction. The six-day playground design is limited to four fixed geometric presets and valueless demo issuance. Custom artwork, public launch records, funding dashboards and community workflows require later implementation. Their value will be tested with creators before the project commits to a production market.
+The playground is a first place to experiment. Its frozen stability candidate supports four geometric presets, asset creation, transfers, a verified gallery and receipts. The separate .net frontend adds checked PNG/JPEG artwork uploads and its own persistent metadata service. These are valueless test experiences, not a production market or evidence that people need an independent chain.
 
-### A buyer journey with visible control
+### Contributor ideas, not prescribed solutions
 
-A buyer opens a future asset page and sees the art first, then a compact explanation of the launch. A distribution view shows concentrated holdings and groups addresses that the developer has publicly declared as controlled by the same party. A fee view identifies recipients and spending activity. An unlock view shows what can move today and what is restricted by a reviewed on-chain programme. If an unlock schedule is only a promise, the page labels it as such.
+The frustrations that brought us here also suggest ideas worth exploring. Contributors may propose readable launch records, declared developer-wallet groups, supply and fee views, clear unlock labels or ways to fund and follow creative work. These are ideas for discussion and testing. This whitepaper does not commit the ecosystem to disclosure dashboards, a creator-funding programme or any other prescribed answer.
 
-The buyer can follow the work, ask about a missing disclosure, inspect an allocation or join a published community activity. Proposed participation tools include feedback on creator projects and transparent processes for selecting funded work. These are community roles to design and test; buying SOC or an NFT does not automatically grant a legally binding vote, ownership interest or payout through this whitepaper.
+Any contributor pursuing those ideas must state their limits. A signed wallet declaration can show control of a declared address, but cannot prove that no other wallets exist. Observable concentration is not proof of common ownership. An unlock enforced by a reviewed programme differs from a person's promise. Public spending records do not establish that work was worthwhile or completed.
 
-The purpose is to give people a better basis for a decision and a reason to remain involved after a transaction. No interface can know every address a person controls. Disclosed wallet groups and concentration signals must therefore identify their coverage and uncertainty. A missing disclosure should remain visible rather than be replaced with an invented assurance that a launch is fair.
+A proposed funding initiative would need a funded budget, a disclosed decision process and evidence of delivery. Buying SOC or an NFT does not grant ownership, a payout or a legally binding vote through this document. Focus, opt-in standards and better interfaces cannot guarantee a scam-free ecosystem.
 
-### Mechanisms that could make the culture durable
+### Development direction and release conditions
 
-The proposed launch standard starts with a signed public declaration of developer-controlled wallets, retained quantities, acquisition method, fee policy and unlock terms. Where control can be demonstrated with a signature, the product can verify the declared relationship. It cannot prove the absence of undeclared wallets. Distribution views should show observable balances and named control groups while avoiding claims about unknown owners.
-
-An allocation dashboard should connect supply and holdings to the relevant mint or native ledger, with an update time and links to the underlying records. Unlock controls should distinguish restrictions enforced by a chosen, reviewed programme from schedules that depend on a person keeping a promise. The standard's admission policy can require those disclosures for project-owned discovery and launch surfaces. It does not make the underlying SVM refuse every transaction outside the standard.
-
-An auditable creator-funding programme would publish its funding source, decision process, recipient addresses, spending records and delivered outputs. Community feedback could inform which creative projects receive support under a disclosed process. Revenue and expenditure must remain separate from token price, and operating costs need a funded plan. The programme cannot spend fees that have not been earned or imply that holders are owed its income.
-
-Together, these mechanisms define "fairer" in operational terms: clearer holdings, known controls, understandable fees, visible commitments and evidence of delivery. They can make extraction harder to hide within the project's own surfaces. Focus alone cannot eliminate scams, hidden coordination or abusive projects. Opt-in standards cannot bind applications that choose not to participate, and the runtime remains general purpose. The project must earn trust through what its own products verify and disclose.
-
-### Delivery phases
-
-| Phase | Concrete product outcome | Evidence to seek |
+| Work | Outcome or decision | Evidence to seek |
 | --- | --- | --- |
-| Six-day TEST experiment | Disposable wallet, faucet, four presets, meme/NFT issuance, transfer, verified gallery and receipts | Real chain journeys, persistence and recovery, selected agent pilots and candidate soak |
-| Creator and buyer pilot | Prototype public launch records, declared wallet groups, allocation and fee views, and clear unlock labels | Can users explain supply/control; disclosures match their cited records; creators can complete and maintain them |
-| Community standards and funding | Adopted admission terms, reviewed controls where needed, published funding decisions and spending reports | Coverage of launch disclosures; verified restrictions; delivered work; unresolved gaps made visible |
+| Six-day TEST experiment | Disposable wallet, faucet, demo assets, transfers, verified gallery and receipts | Real chain journeys, persistence and recovery, agent pilots and the frozen candidate's full soak |
+| Focused development community | Builders, artists and collectors propose and test work in this category | Contributions maintained, useful prototypes, participant feedback and continuing creative work |
+| Contributor proposals | Adopt, revise or stop individual ideas after testing | Named owners, achievable scope, reviewed claims and evidence that the idea serves participants |
 | Native mainnet and redemption | Protected SOC reserve, one-to-one bridge, reviewed wallets and defined market infrastructure | Monetary conservation, security review, two-way settlement and funded operation |
 
-The later phases have no promised delivery date. The original Pump launch is a separate founder-controlled economic action within the SOC lifecycle; it cannot substitute for these product or security milestones. Each phase should be narrowed or changed if participant evidence shows that its proposed mechanism is not useful.
+Community proposals have no promised delivery date or fixed sequence. The intended economic network has separate technical and security conditions. The original Pump launch is a founder-controlled economic action; it cannot substitute for useful products, a sustainable community or bridge readiness.
 
 ### Founding community roles and outcomes
 
-Creators bring original work, test the tools and make their terms understandable. Buyers and collectors test whether those terms can be understood without private explanations, flag omissions and help choose useful community activity. Builders implement the disclosure, ownership and funding tools. Reviewers challenge records and controls. The founder operates the experiment and remains accountable for its availability, costs and releases.
+Developers bring ideas and skills, build prototypes and maintain useful work. Artists bring original work and help shape what the tools make possible. Collectors and meme communities try the experiences, explain what matters and challenge assumptions. Reviewers test claims and controls. The founder operates the experiment and remains accountable for its availability, costs and releases.
 
-The community should be able to track completed creator journeys and returning participants, the proportion of admitted launches with complete disclosures, known developer concentration, the proportion of unlock claims that are actually enforced, and funded creative work delivered. Reports must separate human participation from automated tests and distinguish a verified chain fact from a self-reported claim. These are measures to build and publish, not results already achieved.
+Progress should become visible through maintained contributions, completed creative journeys, useful work delivered and participants who choose to return. Reports must separate people from automated tests and verified chain facts from self-reported claims. These are outcomes to learn about, not results already achieved.
 
-The ambition is a cultural home people choose because creation is approachable, ownership is visible and commitments can be checked. The invitation is to help build and test that home, with a shared expectation that the work continues after the launch.
+Bring your ideas. Bring your skills. Help give art, NFTs and memes a future worth being part of. The invitation is open, and the expectation is continuing work.
 
 ## 3 What Classic means
 
@@ -114,17 +121,17 @@ The useful analogy is the ability to gather a community around a durable priorit
 | --- | --- | --- |
 | Bitcoin Cash | Scaling priorities and electronic cash | A historical Bitcoin chain split |
 | Ethereum Classic | Continuation without the DAO state intervention | A historical Ethereum chain split |
-| Solana Classic | A proposed ecosystem centred on memes and NFTs | A fresh independent experimental ledger |
+| Solana Classic | Focused development for art, NFTs, memes and their communities | A fresh independent experimental ledger |
 
 Solana Classic is an independent project. Its name and use of open-source technology do not imply endorsement, partnership or affiliation with the Solana Foundation, Solana Labs or Anza. It does not call itself the original Solana, allocate assets to SOL holders, or promise that existing Solana NFTs can be used on its network.
 
 ## 4 TEST and the intended SOC lifecycle
 
-SOC is intended to begin as a Solana token launched through Pump.fun and later be usable as the native currency of Solana Classic through a one-to-one redemption bridge. The original Solana token is the proposed bridge's canonical backing asset. Native Classic SOC is a distinct ledger representation backed under the proposed model. The current six-day implementation uses valueless TEST as its native development denomination. A working preview or test asset is not a launched SOC economic network.
+SOC is intended to begin as a Solana token launched through Pump.fun and later be usable as the native currency of Solana Classic through a one-to-one redemption bridge. The original Solana token is the proposed bridge's canonical backing asset. Native Classic SOC is a distinct ledger representation backed under the proposed model. The experiment uses valueless TEST as its protocol denomination. **tSOC is a frontend display name for those same TEST units**, with unchanged genesis and balances; it is not a new token or a claim on future SOC. A working playground is not a launched SOC economic network.
 
 | Scope | Current state | Meaning |
 | --- | --- | --- |
-| Experimental devnet | Remote script/browser journeys and restart check passed; complete release gates pending | One operator; native denomination TEST; no monetary value |
+| Experimental devnet | SDK/browser journeys, restart, recovery and bounded load passed; 24-hour soak and full release pending | One operator; TEST units also displayed as tSOC; no monetary value |
 | Playground meme assets and NFTs | Remote script/browser issuance and transfer proof passed; full release pending | Token-2022 demo assets on the experiment; no monetary value |
 | Original SOC on Solana | Pump.fun launch intended; token not created | Canonical original token for the proposed redemption model |
 | Solana Classic mainnet and native SOC | Planned and unimplemented; no mainnet genesis | Native currency released from a protected reserve against original SOC escrow |
@@ -141,11 +148,11 @@ The original SOC token requires actual venue creation and mint verification. Nat
 
 The initial runtime selection was upstream **Agave v4.3.0**, which Anza labels stable. Its official binaries were verified, but its Railway startup failed on unavailable mandatory `io_uring` support. There is no active, accepted v4.3.0 validator. An upstream release label does not establish compatibility with this hosting environment or production readiness for this project. [Agave v4.3.0 release](https://github.com/anza-xyz/agave/releases/tag/v4.3.0) [7]
 
-Official **Agave v3.0.14** is running as the compatibility candidate. Its account-storage directory-removal code can fall back to standard filesystem operations when `io_uring` is unsupported or remover initialization fails. The fresh candidate has passed startup, block progression, identity, health, SDK/browser journeys and the provider container/process restart check. Recovery, load and the wider release gates still require proof. No custom runtime patch or relaxation of kernel protections is part of this approach. [Agave v3.0.14 account-storage source](https://raw.githubusercontent.com/anza-xyz/agave/v3.0.14/accounts-db/src/utils.rs) [16]
+Official **Agave v3.0.14** is running as the compatibility candidate. Its account-storage directory-removal code can fall back to standard filesystem operations when `io_uring` is unsupported or remover initialization fails. The candidate has passed startup, block progression, identity, health, SDK/browser journeys, provider container/process restart, qualified recovery and bounded load. The full soak and remaining release attestations are pending. No custom runtime patch or relaxation of kernel protections is part of this approach. [Agave v3.0.14 account-storage source](https://raw.githubusercontent.com/anza-xyz/agave/v3.0.14/accounts-db/src/utils.rs) [16]
 
 The earlier Agave candidate's bundled Token-2022 programme failed variable metadata reallocation. The official Token-2022 v10.0.0 release fixes compatibility with `stricter_abi_and_runtime_constraints`. Its verified official artifact was loaded under the existing standard Token-2022 programme identity on the fresh candidate. This is an upstream programme update, not a bespoke token contract or a new asset standard. [Official Token-2022 v10.0.0 release](https://github.com/solana-program/token-2022/releases/tag/program@v10.0.0) [18]
 
-| Early remote fact | Recorded value |
+| Experimental network fact | Recorded value |
 | --- | --- |
 | API origin | [network-release-production.up.railway.app](https://network-release-production.up.railway.app) |
 | Remote genesis | `7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon` |
@@ -153,9 +160,11 @@ The earlier Agave candidate's bundled Token-2022 programme failed variable metad
 | Official archive SHA256 | `65614325423316a48f57f1ceeaa91ca78f4516e165e305b38c01873cf8c6b8b4` |
 | Token-2022 v10.0.0 commit | `3350a3ba856f5997c4ade91fd1e5c8b515e5df33` |
 | Token-2022 artifact SHA256 | `a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68` |
-| Proof scope | Identity, health, programme bytes, remote SDK/browser journeys, restart, agent pilots and isolated recovery; load/soak pending |
+| Proof scope | Identity, health, programme bytes, SDK/browser journeys, restart, agent pilots, qualified isolated recovery and bounded load; soak/release pending |
 
-The planned service uses `solana-test-validator` with persistent storage. Anza describes this tool as a full-featured single-node development cluster. The experiment will use a newly generated ledger and will not clone Solana accounts or programs from a public cluster. Required built-in and token programs must be checked on the actual deployed runtime before asset issuance is accepted. [Anza test validator documentation](https://docs.anza.xyz/cli/examples/test-validator) [8]
+The service uses `solana-test-validator` with persistent storage. Anza describes this tool as a full-featured single-node development cluster. The experiment has its own genesis and does not clone Solana accounts or programmes from a public cluster. Required built-in and token programmes are checked on the deployed runtime. This development tool and one operator do not establish production consensus security. [Anza test validator documentation](https://docs.anza.xyz/cli/examples/test-validator) [8]
+
+The full Agave v3.0.14 source is included in `engine/agave`, with its exact upstream commit, tree and Apache 2.0 provenance recorded. It currently has no project-specific engine changes. Source compilation and tests run on a separate worker and fresh isolated ledger. The live network continues to use verified official upstream binaries. A successful isolated build or test does not accept a current-ledger migration or replace a new stability run after an executable change.
 
 The genesis hash is the project's network identity. Local development and the remote public experiment must have separate records. The canonical remote hash is recorded only after the remote node exists, is compared against known public Solana networks and has passed the required proofs. A local hash cannot stand in for it.
 
@@ -165,16 +174,17 @@ The browser and gateway must both check the expected genesis before mutations. A
 
 | Component | Selected responsibility |
 | --- | --- |
-| Vercel static frontend | React and TypeScript interface; browser transaction construction and signing |
+| Vercel frontend | Frozen stability candidate plus a separately checked .net frontend; browser transaction construction and signing |
 | Linux API | Fastify gateway; admission controls; immutable asset generation; faucet and gallery |
 | SQLite | Durable faucet reservations, quotas, asset documents and gallery discovery records |
 | Linux storage | Persistent validator ledger, database, artwork and immutable metadata |
 | Agave validator | Actual SVM execution, account state and transaction receipts |
 | Railway ingress and container supervisor | HTTPS gateway, restricted service exposure and supervised processes |
+| Separate artwork service and volume | Validated image uploads, immutable files and verified uploaded-asset discovery; no validator or signing authority |
 
-The browser calls a fixed API origin. The API forwards allowed RPC methods to the validator's loopback endpoint. The Railway container exposes only API port 3000 through provider HTTPS ingress; raw RPC, WebSocket and native faucet ports are private. Its supervisor manages the API and validator together, and the persistent volume stores the ledger, SQLite and immutable files. The selected cap is four vCPUs and 16 decimal GB; accepted load and stability runs must establish its limits.
+The original browser candidate calls the fixed API origin. The .net frontend uses a bounded same-origin adapter to that gateway and the separate artwork service; it serves directly at the custom domain. The gateway forwards allowed RPC methods to the validator's loopback endpoint. Railway exposes only API port 3000 through HTTPS ingress; raw RPC, WebSocket and native faucet ports are private. Its supervisor manages the API and validator together, and the runtime volume stores the ledger, SQLite and preset assets. The selected cap is four vCPUs and 16 decimal GB. The measured load covers only its stated workload.
 
-The permanent API and metadata hostname must be established before remote immutable minting. Preview deployment URLs and localhost are unsuitable for those remote asset URIs. The production frontend may use the newly created Vercel project's stable production hostname. Frontend availability, API availability and ledger continuity are separate conditions and must be reported separately.
+Remote asset URIs use their recorded stable API or artwork-service hostname. Frontend availability, API availability, artwork availability and ledger continuity are separate conditions. The artwork service has its own volume and no access to the validator's volume or signing keys. Its deployment does not change the frozen candidate, and its own backup, restore and security acceptance remain separate work.
 
 ### The test wallet
 
@@ -192,6 +202,8 @@ The selected demo meme asset has six decimals and a fixed initial supply of 1,00
 
 The four presets are **Circle Face, Stepped Geometry, Grid Face and Orbit**. They are original, deterministic geometric SVG designs. Presets may recur across mints; a unique mint address does not make its image visually unique. Holding a token does not establish copyright ownership or confer rights beyond the disclosed test asset. The project promises support in its own app, not compatibility with outside marketplaces, wallet collections or indexers.
 
+The separate .net frontend also accepts still PNG or JPEG artwork, bounded to 1 MiB and 4,194,304 decoded pixels. The artwork service decodes and re-encodes accepted files to PNG, removes embedded metadata and fits them within 1024 by 1024 pixels without enlargement. It rejects SVG, other formats, malformed files and oversized inputs. Uploading an image alone does not create a mint or place it in the gallery.
+
 ### Issuance and immutable authorities
 
 The verified atomic issuance path creates the mint and inline metadata, creates the token account, mints the fixed supply and removes mint and metadata update authorities in one transaction. It funds rent for the complete metadata while initially allocating the fixed extension space. The pointer has no authority, and the freeze authority is absent.
@@ -204,7 +216,7 @@ The gallery accepts an asset only after finalized chain verification establishes
 
 ### Immutable files and their limits
 
-The API generates image and metadata files from validated text and a fixed preset. It does not accept uploaded SVG, arbitrary image URLs or caller-provided remote metadata. Files use content-hashed paths and a stable metadata origin. Repeated identical inputs are handled idempotently.
+The frozen API generates image and metadata files from validated text and a fixed preset. The separate artwork service handles the checked image-upload path. Both use content-hashed paths and fixed metadata origins; neither accepts caller-provided remote metadata or uploaded SVG. Repeated identical inputs are handled idempotently. Uploaded assets enter the combined gallery only after finalized chain verification.
 
 Revoking update authority and using content-hashed files makes the selected asset state verifiable under the recorded chain and software. It does not force the operator to keep a server online, prevent deletion of a file, or make the whole network immutable against an operator who replaces the ledger or software. Metadata integrity, file availability and the experiment's operational continuity must be assessed separately.
 
@@ -212,7 +224,7 @@ Revoking update authority and using content-hashed files makes the selected asse
 
 ### Selected public limits
 
-| Service | Initial limits to implement and test |
+| Service | Configured experimental limits |
 | --- | --- |
 | Faucet | 1 TEST per grant; 3 grants per wallet per day; 10 per IP per day; 1,000 TEST globally per day |
 | RPC | 32 KB request; 2 MB response; 10 second timeout; 32 concurrent upstream requests; 100 admitted requests per second globally |
@@ -220,8 +232,9 @@ Revoking update authority and using content-hashed files makes the selected asse
 | Generated assets | 4 KB request; 24 KB combined files per asset; 150 new assets per IP per hour; 1,000 globally per day |
 | Asset storage | 512 MB total generated-asset quota |
 | Gallery | At most 50 records per paginated response; bounded on-chain lookups |
+| Uploaded artwork service | 512 MiB storage; 200 new images per day; 30 per upstream IP per day; uploads processed serially |
 
-These are admission settings, not measured capacity or performance promises. Persistent accounting must survive API restarts. A faucet request reserves a grant atomically using a request identifier. An uncertain timeout is reconciled against its chain signature before another payment is attempted. Browser preflight requests must never reserve funds. Public RPC rejects arbitrary upstream destinations, batches, unknown methods and direct `requestAirdrop` calls.
+These are admission settings, not measured capacity or performance promises. The custom-domain adapter shares gateway IP quotas, which can limit several participants together. Persistent accounting must survive API restarts. A faucet request reserves a grant atomically using a request identifier. An uncertain timeout is reconciled against its chain signature before another payment is attempted. Browser preflight requests must never reserve funds. Public RPC rejects arbitrary upstream destinations, batches, unknown methods and direct `requestAirdrop` calls.
 
 The service permits the exact production frontend origin and explicitly listed previews. CORS is a browser access control, not authentication: clients outside a browser can omit the Origin header. Validation, quotas and rate limits therefore apply independently. IP limits can affect users behind a shared connection and can be evaded by distributed clients. The operator must publish degraded state and reduce admission when the actual host cannot safely meet the pilot workload.
 
@@ -231,9 +244,9 @@ The founder is the intended operator. One validator and one Linux host concentra
 
 The normal service command must not reset the ledger. Restarts must preserve the genesis, balances and issued assets. Any deliberate reset requires disclosure and a new network identity record. Nothing in this experiment guarantees perpetual availability or preservation of valueless assets.
 
-Before public release, the operator must have a working monitoring and recovery procedure. The selected monitoring cadence is 30 seconds, with alerts for repeated RPC failure, no slot progress for 60 seconds, memory use at 80 percent (12.8 GB of the 16 decimal GB cap) and persistent-volume use at 85 percent (42,500 MB of 50,000 MB). Identity failure stops the faucet and new mint admission. Provider-native memory and volume alerts with account-email notification are configured; actual delivery and the response arrangement still need verification. An agent chat is not continuous hosting or operations.
+Before public release, the operator must have a working monitoring and recovery procedure. The selected monitoring cadence is 30 seconds, with alerts for repeated RPC failure, no slot progress for 60 seconds, memory use at 80 percent (12.8 GB of the 16 decimal GB cap) and persistent-volume use at 85 percent (42,500 MB of 50,000 MB). Identity failure stops the faucet and new mint admission. Provider-native memory and volume alerts are configured. The founder attested receipt of actual failure, monitor and recovery emails on 13 October; final operator handover remains a release requirement. An agent chat is not continuous hosting or operations.
 
-The first recovery drill is due by H36. It must stop services, create a consistent backup, restore into an isolated directory and verify the same genesis, balances and known assets. The backup covers the ledger, SQLite, immutable artwork and configuration, with protected operator files handled without disclosure. The procedure is reconfirmed on the candidate before freeze. Frontend rollback is tested separately from restoring Linux state.
+The first recovery drill was required by H36 and passed within its recorded isolated scope. Its candidate reconfirmation preserved known genesis, balances, mint data, ownership, files and database rows, with the historical-transaction qualification described above. A recovery procedure must stop writers, create a consistent backup, restore separately and verify known state. The original backup covers the runtime ledger, SQLite, preset artwork and configuration; it does not certify the later upload service. Protected operator files stay undisclosed. Frontend rollback is tested separately from restoring Linux state.
 
 The principal security limits are concentrated operator control, wrong-network configuration, frontend compromise, dependency defects, faulty issuance finalization, inconsistent backup, metadata unavailability and service abuse. Passing the specified controls can make the pilot reviewable and recoverable. It cannot justify handling production economic value or claiming Solana-scale security.
 
@@ -313,6 +326,8 @@ These are entry conditions for their respective releases. A passing TEST soak do
 
 The programme started at T0 on 13 October 2026 at 03:00:54 UTC. Delayed access does not restart the clock. H108 is the first-release target, conditional on passing evidence. H144 is the final delivery deadline, not a reason to mark a failed gate successful.
 
+These are the original latest milestone targets. Work can pass earlier: the current candidate was frozen and its soak began on 13 October. Early progress does not waive any gate or move the fixed deadline.
+
 | Milestone | UTC | Europe London | Required outcome |
 | --- | --- | --- | --- |
 | H24 thin journey | 14 Oct 03:00:54 | 14 Oct 04:00:54 | Production frontend through API to remote chain, with persistence proof |
@@ -338,7 +353,7 @@ The programme started at T0 on 13 October 2026 at 03:00:54 UTC. Delayed access d
 
 The founder selected two independent agent browser pilots for this sprint rather than booking human testers. Their combined paths cover wallet creation, faucet, meme and NFT issuance, gallery, receipts and transfer; each report states its narrower scope and limitations. They provide technical and interface evidence, not human usability or demand research. Difficulties are recorded with the step, browser, outcome and repair evidence. G4 still requires consolidated review of that evidence before formal acceptance.
 
-The soak covers the validator, gateway, faucet, signing and issuance logic, storage and recovery configuration. A core change restarts the full 24 hour requirement. Static copy or artwork selection changes use targeted checks; changes to transaction logic, metadata origin or executable asset content do not receive that exception. A replacement soak is reserved so a serious defect can be repaired without deleting the stability requirement.
+The soak covers its recorded validator, gateway, frontend, faucet, signing and issuance logic, storage and recovery configuration. A core change restarts the full 24 hour requirement. Static copy or artwork selection changes use targeted checks; changes to transaction logic, metadata origin or executable asset content do not receive that exception. The later .net frontend and upload service were deployed separately without changing the frozen candidate; the original soak does not certify them. A replacement soak is reserved so a serious defect can be repaired without deleting the stability requirement.
 
 If controls fail, the permitted outcome is an invite-only alpha or a reproducible local package with deployment instructions. The evidence must say which. No remote host means no public network claim. A deadline with a failed gate means an incomplete release, even if the interface looks finished.
 
@@ -350,7 +365,7 @@ Every technical report must identify its scope as local or remote, UTC test wind
 | --- | --- |
 | Does the journey work | Attempts and finalized successes for each action; end-to-end completion rate; no success from submission alone |
 | Is the service stable | Slot progress and health samples; outages and duration; CPU, memory and disk during a stated workload |
-| How fast is the pilot | Submission-to-confirmation and submission-to-finalization times, sample count, median and p95 where sample size supports them |
+| How fast is the pilot | Logical-operation start to confirmation/finalization, including API asset preparation and finalized issuance verification where relevant; report retries, reconciliation, sample count, median and p95 |
 | Is state recoverable | Before/after genesis, balances, supply, authorities and ownership for named test assets after restart and restore |
 | Does focus matter to people | Later human task completion and feedback; opt-in return visits and repeat creation, reported separately from agent traffic |
 
@@ -360,17 +375,17 @@ Cultural evaluation also has limits. A wallet address is not a person; refreshin
 
 ## 10 Conditions for a later mainnet programme
 
-After release, operate the pilot and interview participants about continued use. A multi-validator experiment and supported-wallet evaluation need named operators, funding and separate tests. Weeks 3 to 4 and 5 to 8 are decision windows, not promised launch dates.
+After release, operate the pilot, invite contributions and learn from artists, developers and communities about continued use. Proposed products need their own owners, scope and evidence. A multi-validator experiment and supported-wallet evaluation need named operators, funding and separate tests. No later mainnet date is promised.
 
 Native Classic SOC requires evidence that independent infrastructure serves creators better than an existing-chain application, alongside independent validators, economic security analysis, reserve and fee design, wallet and infrastructure readiness, security review, recovery plans and funded operation. A market listing or single-validator soak does not meet these conditions.
 
 The redemption bridge and any later pools require their own specification, budget, security work and acceptance evidence. Their launch date is not set by the six-day experiment or the original token's creation. TEST and demo assets have no conversion entitlement to mainnet SOC. Any additional migration or asset support needs an explicit design before it is offered.
 
-The thesis is weakened if people cannot complete the creation journey, do not return, find the focus unhelpful, or cannot identify a benefit from independent infrastructure. Those outcomes should change the roadmap. The project's reason to continue is demonstrated creator value and sustainable operation, not the obligation to fulfill a chain narrative.
+The thesis is weakened if developers do not sustain useful work, participants find the focus unhelpful, or independent infrastructure adds no benefit. Those outcomes should change the roadmap. The reason to continue is a productive creative community and sustainable operation. Nostalgia can bring people together; continuing work must give them a reason to stay.
 
 ## 11 Founder decisions and release disclosures
 
-Next, accept bounded load, verify alert delivery and operator response, freeze the final core candidate and pass its uninterrupted 24 hour soak. Isolated recovery passed within its recorded scope. Browser and SDK journeys, provider container/process restart and two founder-selected agent pilots passed within their recorded scopes. Archive creation alone is not restore proof; the separate isolated verification supplies that evidence. Complete G0 through G7 acceptance remains pending.
+Next, complete and review the frozen candidate's uninterrupted 24-hour soak, final browser regression and remaining release attestations. Bounded load, qualified isolated recovery, SDK/browser journeys, provider container/process restart and agent pilots passed within their recorded scopes; the founder confirmed actual alert emails. Separate frontend/upload checks and isolated source-build tests retain their own scope and unresolved gates. Complete G0 through G7 acceptance remains pending.
 
 For the initial Pump launch, the founder must resolve final metadata, the release decision, current venue settings, authorized spending, developer-retained quantity and how it is obtained, custody and public-address disclosures, and creator-fee policy. The original token's actual supply and authorities are recorded after creation. No free developer allocation is assumed.
 
@@ -382,7 +397,7 @@ Every release must disclose genesis, software and hashes, operator count, reset 
 
 ## References
 
-Primary and first-party sources consulted on 13 October 2026. The Bitcoin Cash and Ethereum Classic materials express their communities' perspectives. They support the historical comparison, not a claim of technical equivalence or endorsement. The July 2025 post records Yakovenko's view and the public exchange, not a poll of Solana leadership or participants.
+Primary and first-party sources consulted on 13–14 October 2026. The Bitcoin Cash and Ethereum Classic materials express their communities' perspectives. They support the historical comparison, not a claim of technical equivalence or endorsement. The July 2025 post records Yakovenko's view and the public exchange, not a poll of Solana leadership or participants. Project websites support the named cultural examples; none is presented as endorsing Solana Classic.
 
 1. Solana Foundation. **Monthly community update December 2021**. Published 12 January 2022. https://solana.com/news/december-2021-community-update
 2. Solana. **Internet capital markets**. https://solana.com/solutions/tokenization
@@ -402,7 +417,13 @@ Primary and first-party sources consulted on 13 October 2026. The Bitcoin Cash a
 16. Anza. **Agave v3.0.14 account-storage source**, directory-operation fallback. https://raw.githubusercontent.com/anza-xyz/agave/v3.0.14/accounts-db/src/utils.rs
 17. Anatoly Yakovenko (toly). **Post on meme coins and NFTs**. Published 27 July 2025. https://x.com/toly/status/1949548737208181137
 18. Solana Program maintainers. **Token-2022 programme v10.0.0 release**. https://github.com/solana-program/token-2022/releases/tag/program@v10.0.0
+19. Solana Monkey Business. **Official project and collections**. https://solanamonkey.business/
+20. Okay Bears. **Official website**, now redirects to We Are Okay. https://www.okaybears.com/
+21. BONK. **About BONK**. https://www.bonkcoin.com/about
+22. dogwifhat. **Official WIF website**. https://dogwifcoin.org/
+23. Nicolas Szwajcok and co-authors. **Meme Coin Factories: Uncovering Large-Scale Manipulations on pump.fun**. Submitted 9 September 2026; arXiv:2609.10246. https://arxiv.org/abs/2609.10246
+24. Solana. **Staying Safe on Solana**. https://solana.com/learn/staying-safe-on-solana
 
 ### Project sources
 
-The experimental design and implementation records are maintained in `CONTRIBUTING.md`, `docs/planning/ACCEPTANCE_CHECKLIST.md`, `docs/CONTRACTS.md`, `docs/sprint-clock.json`, `docs/STATUS.md`, `docs/access-status.json`, `config/network.json`, `config/network.remote.json`, `config/launch.json`, `evidence/remote-bootstrap.json`, `evidence/chain-smoke-remote.json`, `evidence/browser-remote.json`, `evidence/restart-check.json`, `evidence/pilot-agent-one.json`, `evidence/pilot-agent-two.json`, `evidence/cold-backup-created.json` and `packages/config/src/index.ts`. The Pump-first origin and intended one-to-one native redemption follow the founder's current decision. This whitepaper does not replace acceptance records. A live-network release requires the completed evidence packet and a new dated checkpoint.
+The open-source [repository](https://github.com/solana-classic/solana-classic) contains the fixed clock, source pins, launch settings and dated test evidence. The [live roadmap](https://solanaclassic.net/roadmap) publishes current checks; the [About page](https://solanaclassic.net/about) records the founding narrative. Later founder decisions supersede older planning prose where their scope is explicit. This whitepaper does not replace release acceptance records.

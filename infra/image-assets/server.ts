@@ -61,6 +61,23 @@ export async function createImageApp(dataDir: string, origin: string, testConnec
     reply.code(status).send({error:{code:'IMAGE_SERVICE',message:status<500?known.message:'The image service could not complete this request.'}});
   });
   app.get('/health',async()=>({state:'online',genesis:GENESIS,scope:'Isolated persistent image and gallery service; no validator or signing keys'}));
+  async function blockPage(path:string){
+    const response=await fetch('http://network-release.railway.internal:3002/'+path,{redirect:'error',signal:AbortSignal.timeout(12000)});
+    if(!response.ok||!response.body)throw Object.assign(new Error('Transactions are temporarily unavailable.'),{statusCode:503});
+    const reader=response.body.getReader();const chunks:Uint8Array[]=[];let size=0;
+    while(true){const next=await reader.read();if(next.done)break;size+=next.value.length;if(size>65536){await reader.cancel();throw Error('Transaction page exceeds bound.');}chunks.push(next.value);}
+    const result=JSON.parse(Buffer.concat(chunks).toString());if(result.genesis!==GENESIS)throw Error('Transaction page genesis differs.');return result;
+  }
+  app.get<{Querystring:{cursor?:string}}>('/api/transactions',async request=>{
+    const cursor=request.query.cursor;
+    if(Object.keys(request.query).some(key=>key!=='cursor')||(cursor!==undefined&&!/^\d{1,10}:\d{1,4}$/.test(cursor)))throw Object.assign(new Error('Invalid transaction cursor.'),{statusCode:400});
+    return blockPage('transactions'+(cursor?'?cursor='+encodeURIComponent(cursor):''));
+  });
+  app.get<{Querystring:{address?:string,before?:string}}>('/api/address-transactions',async request=>{
+    const {address,before}=request.query;
+    if(Object.keys(request.query).some(key=>!['address','before'].includes(key))||!address||!/^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(address)||(before!==undefined&&!/^[1-9A-HJ-NP-Za-km-z]{80,90}$/.test(before)))throw Object.assign(new Error('Invalid address history request.'),{statusCode:400});
+    return blockPage('address-transactions?address='+address+(before?'&before='+before:''));
+  });
   app.post('/api/assets',async request=>{
     const input=assetInputSchema.extend({imageData:z.string().max(1_398_104)}).parse(request.body);
     await guard();

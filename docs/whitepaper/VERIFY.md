@@ -1,8 +1,10 @@
 # Whitepaper verification
 
-Version0.6,21A4pages. All pages rendered with Poppler and reviewed; critical text and page bounds passed. Changed technical and checkpoint pages were inspected at render size.
+Version0.7,21A4pages. All21pages were rendered with Poppler and reviewed in four contact sheets. The cover and founding sections were inspected at render resolution. Text-content and page-bound checks passed.
 
-The original Ultra-agent cultural/economic paper is preserved. This targeted root revision records the passed isolated restore, failed first load run, verified atomic issuance, and actual Railway ingress architecture. Alert-email receipt, a new bounded-load run, final freeze and24-hoursoak remain pending; no completeG0-G7 or economic launch is claimed.
+The paper now uses the green crystal logo and builder-first cultural mission: shared roots, two development directions, focused contributors and nostalgic community context. Technical conditions, original24-hourcandidate scope and separate custom-domain/upload/reader checks remain explicit. No mainnet, monetary launch, bridge or full historical index is claimed.
 
-PDFSHA256: a012bab19803fed9e9a043faf8f5ed892ea3c56c8ed9495e9e023f19bbaeaeb0
-SourceSHA256: c1be91893a63996f2358b2b774478422c53d546e4acce94b77d96a22a8e2261b
+PDFSHA256: 6851f8dd85221d38bbc6f4ddf01a33c8d8782b6009282620c566e79469257a7a
+SourceSHA256: b245a219ab0c076ae84df85d0704e9cffe2befd4902b098674fec95c31714d67
+
+This PDF is published only through the separate custom-domain frontend. The original frozen Vercel candidate retains its previous PDF bytes.

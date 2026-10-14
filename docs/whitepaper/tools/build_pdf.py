@@ -23,6 +23,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "WHITEPAPER.md"
 OUTPUT = ROOT / "output" / "pdf" / "Solana_Classic_Whitepaper.pdf"
 OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+LOGO = ROOT.parents[1] / 'infra/custom-domain/solana-classic-logo-cutout.png'
 
 FONT_ROOT = Path("/System/Library/Fonts/Supplemental")
 for name, filename in (
@@ -38,12 +39,12 @@ pdfmetrics.registerFontFamily(
 )
 pdfmetrics.registerFont(TTFont("SCMono", "/System/Library/Fonts/Menlo.ttc", subfontIndex=0))
 
-INK = colors.HexColor("#24271F")
-PURPLE = colors.HexColor("#6842ED")
-MUTED = colors.HexColor("#606457")
-PAPER = colors.HexColor("#F7F5EE")
-LIGHT_PURPLE = colors.HexColor("#ECE7FE")
-LINE = colors.HexColor("#D9D9CD")
+INK = colors.HexColor("#172820")
+PURPLE = colors.HexColor("#08764C")
+MUTED = colors.HexColor("#52655A")
+PAPER = colors.HexColor("#F4F7F6")
+LIGHT_PURPLE = colors.HexColor("#E4EEE9")
+LINE = colors.HexColor("#BDCBC3")
 PAGE_W, PAGE_H = A4
 MARGIN = 55
 CONTENT_W = PAGE_W - 2 * MARGIN
@@ -71,7 +72,7 @@ styles.add(ParagraphStyle(
 ))
 styles.add(ParagraphStyle(
     name="RefSC", fontName="SCArial", fontSize=8.8, leading=13,
-    textColor=MUTED, spaceAfter=8, wordWrap="CJK",
+    textColor=MUTED, spaceAfter=4, wordWrap="CJK",
 ))
 styles.add(ParagraphStyle(
     name="ContentsSC", fontName="SCArial", fontSize=10.5, leading=17,
@@ -89,7 +90,7 @@ def inline(text: str) -> str:
     text = html.escape(text.strip())
     text = re.sub(
         r"\[([^\]]+)\]\((https?://[^)]+)\)",
-        lambda m: f'<link href="{m.group(2)}" color="#6842ED">{m.group(1)}</link>',
+        lambda m: f'<link href="{m.group(2)}" color="#08764C">{m.group(1)}</link>',
         text,
     )
     text = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", text)
@@ -109,33 +110,26 @@ class Cover(Flowable):
         c.setFillColor(PURPLE)
         c.setFont("SCArialBold", 10)
         c.drawString(0, top - 22, "SOLANA CLASSIC / SOC")
+        c.drawImage(str(LOGO), CONTENT_W - 82, top - 94, width=82, height=82, mask='auto')
         c.setFillColor(INK)
         c.setFont("SCArialBold", 39)
         c.drawString(0, top - 94, "Solana Classic")
         c.drawString(0, top - 140, "Whitepaper")
         c.setFont("SCArial", 18)
-        c.drawString(0, top - 181, "A focused SVM home")
-        c.drawString(0, top - 206, "for memes and NFTs")
+        c.drawString(0, top - 181, "Shared roots. Two directions.")
+        c.drawString(0, top - 206, "A focused home for builders.")
 
-        # Original geometric artwork reflects the app's Circle Face preset.
-        cx, cy, radius = CONTENT_W - 103, top - 365, 86
-        c.setFillColor(PURPLE)
-        c.circle(cx, cy, radius, fill=1, stroke=0)
-        c.setFillColor(PAPER)
-        c.circle(cx - 29, cy + 10, 10, fill=1, stroke=0)
-        c.circle(cx + 29, cy + 10, 10, fill=1, stroke=0)
-        c.setStrokeColor(PAPER)
-        c.setLineWidth(7)
-        c.line(cx - 31, cy - 32, cx + 31, cy - 32)
+        c.drawImage(str(LOGO), CONTENT_W - 194, top - 453, width=194, height=194, mask='auto')
 
         c.setFillColor(INK)
         c.setFont("SCArialBold", 20)
-        c.drawString(0, top - 304, "Open to everyone.")
-        c.drawString(0, top - 333, "Built for memes")
-        c.drawString(0, top - 362, "and NFTs.")
+        c.drawString(0, top - 304, "Bring back the fun.")
+        c.drawString(0, top - 333, "Build what comes next.")
         p = Paragraph(
-            "Fresh independent genesis.<br/>One founder-operated validator.<br/>"
-            "Valueless TEST and demo assets.<br/>Planned Pump-origin SOC on Solana.<br/>Future native SOC with 1:1 redemption.<br/>Bridge and mainnet unimplemented.",
+            "Developers. Artists. Communities.<br/>"
+            "Focused on art, NFTs and memes.<br/><br/>"
+            "Independent experimental testnet.<br/>Valueless tSOC assets.<br/>"
+            "SOC, mainnet and 1:1 bridge remain future work.",
             styles["BodySC"],
         )
         _, ph = p.wrap(260, 160)
@@ -149,8 +143,8 @@ class Cover(Flowable):
         c.drawString(0, 78, "DRAFT FOR FOUNDER REVIEW")
         c.setFillColor(MUTED)
         c.setFont("SCArial", 9.5)
-        c.drawString(0, 58, "Version 0.6 | 13 October 2026")
-        c.drawString(0, 40, "Frontend preview live. Original SOC, mainnet and bridge not launched.")
+        c.drawString(0, 58, "Version 0.7 | 14 October 2026")
+        c.drawString(0, 40, "solanaclassic.net | Experimental testnet live. Mainnet and bridge not live.")
         c.drawString(0, 22, "Independent project. No Solana, Solana Labs or Anza affiliation implied.")
 
 
@@ -164,15 +158,16 @@ def decorate(canvas, doc):
         canvas.rect(0, PAGE_H - 42, PAGE_W, 42, fill=1, stroke=0)
         canvas.setFont("SCArialBold", 8.2)
         canvas.setFillColor(PURPLE)
-        canvas.drawString(MARGIN, PAGE_H - 26, "SOLANA CLASSIC / SOC")
+        canvas.drawImage(str(LOGO), MARGIN, PAGE_H - 35, width=22, height=22, mask='auto')
+        canvas.drawString(MARGIN + 29, PAGE_H - 26, "SOLANA CLASSIC / SOC")
         canvas.setFont("SCArial", 8.2)
         canvas.setFillColor(MUTED)
-        canvas.drawRightString(PAGE_W - MARGIN, PAGE_H - 26, "WHITEPAPER 0.6")
+        canvas.drawRightString(PAGE_W - MARGIN, PAGE_H - 26, "WHITEPAPER 0.7")
         canvas.setStrokeColor(LINE)
         canvas.setLineWidth(0.5)
         canvas.line(MARGIN, 43, PAGE_W - MARGIN, 43)
         canvas.setFont("SCArial", 7.8)
-        canvas.drawString(MARGIN, 29, "Draft for founder review | 13 October 2026")
+        canvas.drawString(MARGIN, 29, "Draft for founder review | 14 October 2026")
         canvas.drawRightString(PAGE_W - MARGIN, 29, str(doc.page - 1))
     canvas.restoreState()
 
@@ -293,11 +288,12 @@ def parse(text):
             i += 1
         body = " ".join(group)
         if references:
-            body = re.sub(
-                r"(https?://\S+)",
-                lambda m: f'<link href="{m.group(1)}" color="#6842ED">{m.group(1)}</link>',
-                inline(body),
-            )
+            parts = re.split(r'(<link\b[^>]*>.*?</link>)', inline(body))
+            body = ''.join(part if part.startswith('<link ') else re.sub(
+                r'(https?://[^\s<>]+)',
+                lambda m: f'<link href="{m.group(1)}" color="#08764C">{m.group(1)}</link>',
+                part,
+            ) for part in parts)
             result.append(Paragraph(body, styles["RefSC"]))
         else:
             paragraph = Paragraph(inline(body), styles["BodySC"])
@@ -309,7 +305,7 @@ def parse(text):
 
 
 def main():
-    raw = SOURCE.read_text(encoding="utf-8")
+    raw = SOURCE.read_text(encoding="utf-8").replace('\u2011', '-').replace('\u2013', '-').replace('\u2014', ' - ')
     assert "\u2011" not in raw and "\u2013" not in raw and "\u2014" not in raw
     headings = re.findall(r"^## (\d+ .+)$", raw, flags=re.MULTILINE)
     story = [Cover(), PageBreak(), Paragraph("Overview", styles["SectionSC"])]
