@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-14T14:39:53.523625+00:00",
+  "scope": "Anonymous main-site roadmap verification after private original-redemption crash/expiry guards; no completed redemption or canonical/mainnet deployment",
+  "passed": true,
+  "sourceCommit": "1cd6734",
+  "deploymentId": "dpl_Dxp7hkXYgxKo2DyufzYyvNyt8juA",
+  "publicURL": "https://solanaclassic.net/roadmap",
+  "checkpointSHA256": "06259df69e2559ee9610b869f939341713863ee81f254ffa2cc12fe051fcf34c",
+  "publicMilestone": {
+    "title": "V2 pending original-redemption crash and expiry guards",
+    "state": "rehearsal-passed",
+    "detail": "7 actual checks +10 copy/crash guards. One withdrawal broadcast; no status before origin SIGKILL(-9). After restart: EXPIRED_UNRESOLVED, no token payout or second attempt; native return remains in reserve. Passed expiry guard, not completed redemption. Event rent2958000 units separate from returned10000000. Manual recovery unimplemented."
+  },
+  "observedAt": "2026-10-14T14:39:53.427Z",
+  "network": {
+    "state": "online",
+    "genesisMatches": true,
+    "slot": 286798,
+    "finalizedSlot": 286737,
+    "identityMatches": true,
+    "monitorState": "online",
+    "monitorAt": "2026-10-14T14:39:40.808Z",
+    "lastProgressAt": "2026-10-14T14:39:40.739Z"
+  },
+  "soak": {
+    "state": "running",
+    "runnerState": "starting",
+    "freezeMatches": true,
+    "progressFreezeMatches": true,
+    "startedAt": "2026-10-13T16:48:22.762Z",
+    "endsAt": "2026-10-14T16:48:22.762Z",
+    "reportAt": "2026-10-14T14:38:50.189Z",
+    "progressStale": false,
+    "completedJourneys": 263,
+    "totalJourneys": 288,
+    "observations": 2620,
+    "accepted": false,
+    "activationAt": "2026-10-13T16:47:36.929Z",
+    "issues": [],
+    "elapsedMs": 78690665
+  },
+  "settlementAccepted": false,
+  "releaseAccepted": false,
+  "canonicalNetworkChanged": false
+}
