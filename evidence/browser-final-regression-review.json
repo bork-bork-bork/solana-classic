@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-14T18:17:25.694031+00:00",
+  "scope": "remote final production-origin browser regression review; two isolated fresh sessions, not independent human pilots or a new soak",
+  "passed": true,
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "candidate": {
+    "apiOrigin": "https://network-release-production.up.railway.app",
+    "frontendOrigin": "https://solana-classic-soc.vercel.app",
+    "frontendDeploymentId": "dpl_3aWWzKDohr4SrgijgrB8dWgHHS5r",
+    "frontendCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "apiCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "networkConfigSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+    "dependencyManifestSha256": "e6da27717e6a84ca7b29d707ff63591b2ff0cfc38892d3b4667f8615bdf7bbc0"
+  },
+  "web": "https://solana-classic-soc.vercel.app",
+  "api": "https://network-release-production.up.railway.app",
+  "driverExecuted": {
+    "path": "evidence/browser-final-executed-driver.mjs.txt",
+    "sha256": "338252d58a1e46cdf5c7723797a814dded46213f3357d7cff1485f0499312df5"
+  },
+  "currentDriverSHA256": "c28670d76cbc5a2800377a11392a197b22acabe6dccf16481052b5d8f02753b5",
+  "currentDriverChange": "Additional exact artwork-origin and credential-URI rejection; seven unit tests pass and all four observed asset URLs satisfy the new guard. No extra live mint run is claimed.",
+  "runs": [
+    {
+      "path": "evidence/browser-final-frozen-20261014T180654050Z.json",
+      "sha256": "e4e2e8aa3bc36f41db4e0cecddfd96b90ef755ec75840d4950e278d0fe825c4d",
+      "web": "https://solana-classic-soc.vercel.app",
+      "completedAt": "2026-10-14T18:09:18.070Z",
+      "finalizedReceipts": 6,
+      "assets": 2,
+      "viewportScope": {
+        "1440": "Full mint/transfer journey",
+        "360": "Explorer deep-link and keyboard-focus smoke"
+      }
+    },
+    {
+      "path": "evidence/browser-final-custom-20261014T181203133Z.json",
+      "sha256": "6d5ea693adda7005114a2ea8a012579d2b41b84449ac2ce5c8205c26800ba1cf",
+      "web": "https://solanaclassic.net",
+      "completedAt": "2026-10-14T18:14:30.021Z",
+      "finalizedReceipts": 6,
+      "assets": 2,
+      "viewportScope": {
+        "1440": "Full mint/transfer journey",
+        "360": "Explorer deep-link and keyboard-focus smoke"
+      }
+    }
+  ],
+  "totalFinalizedReceipts": 12,
+  "totalDemoAssets": 4,
+  "logicalFaucetGrants": 2,
+  "frozenFilesUnchanged": true,
+  "canonicalProcessChanged": false,
+  "releaseAccepted": false,
+  "cutoverAccepted": false,
+  "limitations": [
+    "Chromium only; root-operated automated browser QA, not human research or two new independent agents.",
+    "1440px full journeys;360px Explorer/keyboard smoke only, not full mobile accessibility acceptance.",
+    "Request check covers sensitive field names and unexpected API destinations, not a complete traffic/log privacy audit.",
+    "Current .net frontend/signing/uploads do not inherit the original frozen frontend stability result."
+  ]
+}

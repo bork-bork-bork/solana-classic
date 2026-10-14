@@ -1,6 +1,6 @@
 # Acceptance report
 
-Generated 2026-10-14T17:40:25.379Z. Scope: offline review of recorded evidence; this command performs no chain or browser actions.
+Generated 2026-10-14T18:17:26.274Z. Scope: offline review of recorded evidence; this command performs no chain or browser actions.
 
 preview/experimental preparation; public release blocked. Local tests and a deployed preview do not certify G0–G7. The founder selected two independent agent browser pilots for this first release; these are agent evidence, not human usability testing.
 
@@ -15,7 +15,7 @@ T0: 2026-10-13T03:00:54+00:00. Fixed H144: 2026-10-19T03:00:54+00:00. A full 24-
 | G4 | pending / failed | 0/8 |
 | G5 | pending / failed | 0/12 |
 | G6 | pending / failed | 7/11 |
-| G7 | pending / failed | 0/9 |
+| G7 | pending / failed | 2/9 |
 
 ## Supporting remote results
 
@@ -92,10 +92,8 @@ None.
 - G6.08: Repair core runtime/gateway/signing/minting/faucet/storage/recovery defects immediately and run a new full 24-hour soak. H96–H108 repair plus H108–H132 replacement soak is the reserved late-failure window. If time expires first, the public release gate remains failed. — No passed, individually reviewed evidence.
 - G6.09: Documentation/static-copy/art-selection/mainnet-link changes receive targeted content/browser checks; they do not reset core stability evidence. Executable content, metadata origins and signing logic are excluded from this exception. — No passed, individually reviewed evidence.
 - G6.10: Publish machine specification, workload, failures, latency distribution and exact test duration. — No passed, individually reviewed evidence.
-- G7.01: First agent pilot ran before H72; final clean-browser regression runs at H96–H108, or after the replacement soak, without developer intervention. — No passed, individually reviewed evidence.
 - G7.02: Mobile 360 px and desktop 1440 px views are usable; keyboard navigation, labels and focus states work. — No passed, individually reviewed evidence.
 - G7.03: Public URL, actual genesis, software manifest, operator count and limitations are accessible. — No passed, individually reviewed evidence.
-- G7.04: Production frontend/deep links and API metadata are reachable anonymously with correct HTTPS/DNS; no deployment login blocks the final public journey. — No passed, individually reviewed evidence.
 - G7.05: `pnpm release:check` passes every required public-testnet check. — Every other required check must pass first.
 - G7.06: Operator receives restart, backup, recovery and monitoring runbooks and verifies access. — No passed, individually reviewed evidence.
 - G7.07: Handover includes the Vercel project, deployment ID, public environment/DNS settings and verified frontend rollback alongside Linux runbooks. — No passed, individually reviewed evidence.

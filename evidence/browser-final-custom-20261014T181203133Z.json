@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-14T18:12:03.133Z",
+  "scope": "remote production-origin final clean-browser valueless regression; not an independent agent pilot, soak or full release acceptance",
+  "passed": true,
+  "web": "https://solanaclassic.net",
+  "api": "https://solanaclassic.net/_network",
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "candidate": {
+    "apiOrigin": "https://network-release-production.up.railway.app",
+    "frontendOrigin": "https://solana-classic-soc.vercel.app",
+    "frontendDeploymentId": "dpl_3aWWzKDohr4SrgijgrB8dWgHHS5r",
+    "frontendCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "apiCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "networkConfigSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+    "dependencyManifestSha256": "e6da27717e6a84ca7b29d707ff63591b2ff0cfc38892d3b4667f8615bdf7bbc0"
+  },
+  "target": "custom",
+  "widths": [
+    1440,
+    360
+  ],
+  "assets": [
+    {
+      "kind": "meme",
+      "mint": "4wQc8NFNKKRZMvHNxcEywQ8FiBXgvxbCwqwbAUSSvfPa",
+      "metadataURI": "https://network-release-production.up.railway.app/assets/d5cbc337f311f2fefab950bb3aa62002d2151f7fc9818dd4f0af994e7e5fc9b3/metadata.json",
+      "imageURI": "https://network-release-production.up.railway.app/assets/d5cbc337f311f2fefab950bb3aa62002d2151f7fc9818dd4f0af994e7e5fc9b3/image.svg",
+      "imageSHA256": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a",
+      "uploaded": false,
+      "signature": "3VHHqTS8xMHoJKQ1RQwoVbuxPFEuHmawtBq3gViwdgffBChYjgZNeriFydQUBdgyv4EZJ1ZXrSFMZdXmrCShq8AZ",
+      "finalizedSlot": 317681
+    },
+    {
+      "kind": "nft",
+      "mint": "FBz67CXdNXNy5CG7xcNzjkhpCRBvLLADqUBW7QXoDbrq",
+      "metadataURI": "https://image-assets-production.up.railway.app/assets/25bc2c563d622710a6c2342a7f9ec779ba86b892d94508114fb39b853d7cc05d/metadata.json",
+      "imageURI": "https://image-assets-production.up.railway.app/assets/25bc2c563d622710a6c2342a7f9ec779ba86b892d94508114fb39b853d7cc05d/image.png",
+      "imageSHA256": "3d61666034743c3a1705424e21d3c0de56e05ed63bf893d1e5a4fa57c176a3b2",
+      "uploaded": true,
+      "signature": "4e5pLzXyR2EebxGRMk8qwfXP1rZkugaJpqc4FwrUYFtf5n3BehxW3Eum1Jy7LNp2Sy2HrGmCpkm2LeDzwsWshnWh",
+      "finalizedSlot": 317779
+    }
+  ],
+  "receipts": [
+    {
+      "action": "faucet",
+      "signature": "5uWDw6CfXG7ZakHvunbyB9CAAEojuaV5HhKBT7cAfN1CJD2iP1dWFwfvLegHMs5CUxpWcidhN9swnGcY9Z4J8tNR",
+      "finalizedSlot": 317573
+    },
+    {
+      "action": "native-transfer",
+      "signature": "5z7uuhXTULiGmH6SWmqBL2J56hrHjAzPD24NTdSFpPyQPrd6L7Si1PhUAwBATSVP1AHDs4BBp45ZHsGRf78DrQVm",
+      "finalizedSlot": 317623
+    },
+    {
+      "action": "meme-issuance",
+      "signature": "3VHHqTS8xMHoJKQ1RQwoVbuxPFEuHmawtBq3gViwdgffBChYjgZNeriFydQUBdgyv4EZJ1ZXrSFMZdXmrCShq8AZ",
+      "finalizedSlot": 317681
+    },
+    {
+      "action": "meme-transfer",
+      "signature": "5y3uUfTuTzEiQfUDr9jq6LTrqTxwFsAMwWAugjuZGyut9MsNHbamAyRYH8ZsurEo8JwaCM2xb3UZj2F6yrG5AQVf",
+      "finalizedSlot": 317730
+    },
+    {
+      "action": "nft-issuance",
+      "signature": "4e5pLzXyR2EebxGRMk8qwfXP1rZkugaJpqc4FwrUYFtf5n3BehxW3Eum1Jy7LNp2Sy2HrGmCpkm2LeDzwsWshnWh",
+      "finalizedSlot": 317779
+    },
+    {
+      "action": "nft-transfer",
+      "signature": "3eRgS65NtBpceCfZEPonVDYcHrkJw2GXfgCGffKLCo4nRXpYbTqh26kfsQUWESs8hYzSdSsvomhWw3wUd5usMGYX",
+      "finalizedSlot": 317832
+    }
+  ],
+  "issues": [],
+  "releaseAccepted": false,
+  "cutoverAccepted": false,
+  "canonicalProcessChanged": false,
+  "walletSecretsPersisted": false,
+  "faucetLogicalGrants": 1,
+  "browser": "Chromium Playwright; Browser plugin not available",
+  "screenshotsCommitted": false,
+  "runtimeBefore": {
+    "configured": true,
+    "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+    "sourceCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "coreSha256": "30697f3e9b441b05a036d0704b42322d723b3998840ed43d88b18a0d7ef7d1dd",
+    "apiBootId": "e52b81b5-662e-425e-99bc-71f1edc838f1",
+    "apiStartedAt": "2026-10-13T15:54:07.867Z",
+    "validatorBootId": "6e5e1439-8c2b-4fc9-a49b-51b1ab61ff64",
+    "validatorStartedAt": "2026-10-13T15:53:34.139Z",
+    "deploymentId": "04c379cd-369c-4ff4-9d14-d29467d68a28",
+    "agaveVersion": "3.0.14",
+    "tokenProgramVersion": "10.0.0",
+    "tokenProgramSha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+    "observedAt": "2026-10-14T18:12:04.086Z"
+  },
+  "frontendBefore": {
+    "/": "7e2b2240a21ba67fca30c84278fab1816386e7f1ef8c49379dff08810218f537",
+    "/assets/index-Bs4p-GL3.js": "563a7f72c02318c5339b33d4b638fd02bc5c2b0ec6dae75975bd45d5958da2e9",
+    "/assets/index-CdFVtgxU.css": "27106e4aa4513322edc78fea0e8b4089b84d096ee0b275541a50e74c7fe28c9e"
+  },
+  "payer": "272rwRKpX6TfpDxdSprTrUtxgqf2YZyZE8KRST7rDpbE",
+  "recipient": "ASsEwMJb3qciUYsSedHEt7WBes3UY9yVybW2vgBdVjM2",
+  "runtimeAfter": {
+    "configured": true,
+    "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+    "sourceCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "coreSha256": "30697f3e9b441b05a036d0704b42322d723b3998840ed43d88b18a0d7ef7d1dd",
+    "apiBootId": "e52b81b5-662e-425e-99bc-71f1edc838f1",
+    "apiStartedAt": "2026-10-13T15:54:07.867Z",
+    "validatorBootId": "6e5e1439-8c2b-4fc9-a49b-51b1ab61ff64",
+    "validatorStartedAt": "2026-10-13T15:53:34.139Z",
+    "deploymentId": "04c379cd-369c-4ff4-9d14-d29467d68a28",
+    "agaveVersion": "3.0.14",
+    "tokenProgramVersion": "10.0.0",
+    "tokenProgramSha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+    "observedAt": "2026-10-14T18:14:27.357Z"
+  },
+  "frontendAfter": {
+    "/": "7e2b2240a21ba67fca30c84278fab1816386e7f1ef8c49379dff08810218f537",
+    "/assets/index-Bs4p-GL3.js": "563a7f72c02318c5339b33d4b638fd02bc5c2b0ec6dae75975bd45d5958da2e9",
+    "/assets/index-CdFVtgxU.css": "27106e4aa4513322edc78fea0e8b4089b84d096ee0b275541a50e74c7fe28c9e"
+  },
+  "pageErrors": 0,
+  "finalizedReceipts": 6,
+  "browserStorageEmpty": true,
+  "sensitivePayloadObserved": false,
+  "unexpectedAPIDestination": false,
+  "completedAt": "2026-10-14T18:14:30.021Z"
+}

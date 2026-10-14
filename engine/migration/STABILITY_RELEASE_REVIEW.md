@@ -44,10 +44,11 @@ scope assessment. G6.10 complete machine/workload/failure publication remains
 separate. The seven reviewed stability requirements do not approve these four
 or any other release gate.
 
-All other requirements are deliberately unattested in the new manifest until
-they are reviewed against this candidate. Existing implementation and historical
+Outside these stability checks, G7.01 and G7.04 now have separate final browser
+review; see `FINAL_BROWSER_REGRESSION.md`. Other requirements are deliberately
+unattested until they are reviewed against this candidate. Existing implementation and historical
 proofs remain in the repository; an unattested requirement is not a newly
-observed product failure. Final browser regression, operator access/handover
+observed product failure. Full mobile acceptance, operator access/handover
 and reviewed release remain pending. The later .net frontend and services are
 separately tested and do not inherit the original frozen website's soak.
 

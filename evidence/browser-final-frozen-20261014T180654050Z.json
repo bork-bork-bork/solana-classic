@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-14T18:06:54.050Z",
+  "scope": "remote production-origin final clean-browser valueless regression; not an independent agent pilot, soak or full release acceptance",
+  "passed": true,
+  "web": "https://solana-classic-soc.vercel.app",
+  "api": "https://network-release-production.up.railway.app",
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "candidate": {
+    "apiOrigin": "https://network-release-production.up.railway.app",
+    "frontendOrigin": "https://solana-classic-soc.vercel.app",
+    "frontendDeploymentId": "dpl_3aWWzKDohr4SrgijgrB8dWgHHS5r",
+    "frontendCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "apiCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "networkConfigSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+    "dependencyManifestSha256": "e6da27717e6a84ca7b29d707ff63591b2ff0cfc38892d3b4667f8615bdf7bbc0"
+  },
+  "target": "frozen",
+  "widths": [
+    1440,
+    360
+  ],
+  "assets": [
+    {
+      "kind": "meme",
+      "mint": "9KBeg23j3kKhs7TC3iF5iYLnTnuLigSpRMqy9JUoG5jt",
+      "metadataURI": "https://network-release-production.up.railway.app/assets/26f26462c57e6e6d46a0c9883422589513e8ecb7d34e8f82218a72daadb3ade5/metadata.json",
+      "imageURI": "https://network-release-production.up.railway.app/assets/26f26462c57e6e6d46a0c9883422589513e8ecb7d34e8f82218a72daadb3ade5/image.svg",
+      "imageSHA256": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a",
+      "uploaded": false,
+      "signature": "59bZk9CVcPW8JqsRtv9hLScbw7kBiwgj7hLYepeUev45ekCwjW6uoHhACMr4ABBPAWrkiqVdXgk373qJcmoHyirf",
+      "finalizedSlot": 316919
+    },
+    {
+      "kind": "nft",
+      "mint": "HqkwdUAjg6xSqGwoN89axm1NqLbRogN78PFmtg9amUVY",
+      "metadataURI": "https://network-release-production.up.railway.app/assets/77af63276c2e30e66f991dc3d591a771a180dd38dc295920a63784b66028471b/metadata.json",
+      "imageURI": "https://network-release-production.up.railway.app/assets/77af63276c2e30e66f991dc3d591a771a180dd38dc295920a63784b66028471b/image.svg",
+      "imageSHA256": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a",
+      "uploaded": false,
+      "signature": "5RXHPXxs6s6HGjscacE8gzc7Kk9YiroHxnzwatjDysRAu3qKPXDaUdG8GmPRXXWXmJJSGS6PvkfnfGKeL5jCWHbZ",
+      "finalizedSlot": 317024
+    }
+  ],
+  "receipts": [
+    {
+      "action": "faucet",
+      "signature": "663hnNkJpe7PF2Tjp9jD2ayLYJXhjifqq1PwUKnSHMmCjeQQKdUneRxwBFiSLoZ5MimfY68yiCJMA8Ycu7na5UNq",
+      "finalizedSlot": 316816
+    },
+    {
+      "action": "native-transfer",
+      "signature": "4wBstv7W9HyUGjLxw97rpjv73sDxPCaPiVkBh8s3xtKTYi1iWNWkQqdG4fLSbTbxifZtMXMY5D4qYkmBixN8SFZL",
+      "finalizedSlot": 316867
+    },
+    {
+      "action": "meme-issuance",
+      "signature": "59bZk9CVcPW8JqsRtv9hLScbw7kBiwgj7hLYepeUev45ekCwjW6uoHhACMr4ABBPAWrkiqVdXgk373qJcmoHyirf",
+      "finalizedSlot": 316919
+    },
+    {
+      "action": "meme-transfer",
+      "signature": "3qVmFNe3kexVwWd1Kq88cXtx5AydMezBGHGG7FTVTJWuFvdU5BESQWJRrq2ZBkzyohtYMfA36kKCbbth2dMFPHsd",
+      "finalizedSlot": 316973
+    },
+    {
+      "action": "nft-issuance",
+      "signature": "5RXHPXxs6s6HGjscacE8gzc7Kk9YiroHxnzwatjDysRAu3qKPXDaUdG8GmPRXXWXmJJSGS6PvkfnfGKeL5jCWHbZ",
+      "finalizedSlot": 317024
+    },
+    {
+      "action": "nft-transfer",
+      "signature": "3vKJRuasBeUYa1k7iXmBPKbevnjevz8SBXdDyciAfYEa9vYRxZr2NeLpN5FRR1ZQ5oH1XdoYi1awTms52HUXYUKH",
+      "finalizedSlot": 317073
+    }
+  ],
+  "issues": [],
+  "releaseAccepted": false,
+  "cutoverAccepted": false,
+  "canonicalProcessChanged": false,
+  "walletSecretsPersisted": false,
+  "faucetLogicalGrants": 1,
+  "browser": "Chromium Playwright; Browser plugin not available",
+  "screenshotsCommitted": false,
+  "runtimeBefore": {
+    "configured": true,
+    "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+    "sourceCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "coreSha256": "30697f3e9b441b05a036d0704b42322d723b3998840ed43d88b18a0d7ef7d1dd",
+    "apiBootId": "e52b81b5-662e-425e-99bc-71f1edc838f1",
+    "apiStartedAt": "2026-10-13T15:54:07.867Z",
+    "validatorBootId": "6e5e1439-8c2b-4fc9-a49b-51b1ab61ff64",
+    "validatorStartedAt": "2026-10-13T15:53:34.139Z",
+    "deploymentId": "04c379cd-369c-4ff4-9d14-d29467d68a28",
+    "agaveVersion": "3.0.14",
+    "tokenProgramVersion": "10.0.0",
+    "tokenProgramSha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+    "observedAt": "2026-10-14T18:06:55.001Z"
+  },
+  "frontendBefore": {
+    "/": "448312a1f5170de0767b742309fad4861cc0e0a80e15d0a39d839fd1f2de2454",
+    "/assets/index-Dpv-W791.js": "6c42fffa784f160ed324ac16585e557828aca12f2d53ee1a6ee9d2c0f840f1aa",
+    "/assets/index-DXgWf3wS.css": "854b48b0499bd0f863296e157914bfd43b334ae7e82c4dfc7883d129442feca0"
+  },
+  "payer": "GZGwy77kVM7RA9gxc2nBujUQNB1ywfTKDFDcnZxJxmZe",
+  "recipient": "C6ysnNo935Q8EsUu1hojxGQvAXxcECr8G5tsRvETkCuV",
+  "runtimeAfter": {
+    "configured": true,
+    "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+    "sourceCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "coreSha256": "30697f3e9b441b05a036d0704b42322d723b3998840ed43d88b18a0d7ef7d1dd",
+    "apiBootId": "e52b81b5-662e-425e-99bc-71f1edc838f1",
+    "apiStartedAt": "2026-10-13T15:54:07.867Z",
+    "validatorBootId": "6e5e1439-8c2b-4fc9-a49b-51b1ab61ff64",
+    "validatorStartedAt": "2026-10-13T15:53:34.139Z",
+    "deploymentId": "04c379cd-369c-4ff4-9d14-d29467d68a28",
+    "agaveVersion": "3.0.14",
+    "tokenProgramVersion": "10.0.0",
+    "tokenProgramSha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+    "observedAt": "2026-10-14T18:09:14.246Z"
+  },
+  "frontendAfter": {
+    "/": "448312a1f5170de0767b742309fad4861cc0e0a80e15d0a39d839fd1f2de2454",
+    "/assets/index-Dpv-W791.js": "6c42fffa784f160ed324ac16585e557828aca12f2d53ee1a6ee9d2c0f840f1aa",
+    "/assets/index-DXgWf3wS.css": "854b48b0499bd0f863296e157914bfd43b334ae7e82c4dfc7883d129442feca0"
+  },
+  "pageErrors": 0,
+  "finalizedReceipts": 6,
+  "browserStorageEmpty": true,
+  "sensitivePayloadObserved": false,
+  "unexpectedAPIDestination": false,
+  "completedAt": "2026-10-14T18:09:18.070Z"
+}

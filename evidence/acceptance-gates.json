@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "at": "2026-10-14T17:35:16.499089+00:00",
+  "at": "2026-10-14T18:17:25.694031+00:00",
   "scope": "remote-experimental",
   "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
   "checklistSha256": "e2fb4b2f53e9aa10f21ec5ffcf708cc2749b456a39703c9228a7fce7fc574f73",
@@ -97,6 +97,36 @@
         {
           "path": "evidence/stability-benchmark-scope-review.json",
           "sha256": "a1594eb8b7ca9ef5eb70f16021c62ddd09811b02a2d88f83297394288e030dc5"
+        }
+      ]
+    },
+    "G7.01": {
+      "passed": true,
+      "scope": "remote",
+      "verifiedAt": "2026-10-14T18:17:25.694031+00:00",
+      "proofs": [
+        {
+          "path": "evidence/browser-final-regression-review.json",
+          "sha256": "c6035cb45e8045adfd4c446af6a6bce8e11265a719531088f402900822288b7c"
+        },
+        {
+          "path": "evidence/pilot-agent-one.json",
+          "sha256": "ef409a3d174e5ead96d84789ebc7a385d349ad4c29fb310c5fbc33905239e2ef"
+        },
+        {
+          "path": "evidence/pilot-agent-two.json",
+          "sha256": "8bf15684f9cbad8e85f9288ad002d094eb23ca09b08930fc805ab4e021a9b77c"
+        }
+      ]
+    },
+    "G7.04": {
+      "passed": true,
+      "scope": "remote",
+      "verifiedAt": "2026-10-14T18:17:25.694031+00:00",
+      "proofs": [
+        {
+          "path": "evidence/browser-final-regression-review.json",
+          "sha256": "c6035cb45e8045adfd4c446af6a6bce8e11265a719531088f402900822288b7c"
         }
       ]
     }

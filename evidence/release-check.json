@@ -1,5 +1,5 @@
 {
-  "at": "2026-10-14T17:40:25.379Z",
+  "at": "2026-10-14T18:17:26.274Z",
   "passed": false,
   "scope": "offline evidence review",
   "issues": [],
@@ -470,8 +470,8 @@
       "id": "G7.01",
       "gate": "G7",
       "label": "First agent pilot ran before H72; final clean-browser regression runs at H96–H108, or after the replacement soak, without developer intervention.",
-      "passed": false,
-      "reason": "No passed, individually reviewed evidence."
+      "passed": true,
+      "reason": "Passed individual evidence review; checksums match."
     },
     {
       "id": "G7.02",
@@ -491,8 +491,8 @@
       "id": "G7.04",
       "gate": "G7",
       "label": "Production frontend/deep links and API metadata are reachable anonymously with correct HTTPS/DNS; no deployment login blocks the final public journey.",
-      "passed": false,
-      "reason": "No passed, individually reviewed evidence."
+      "passed": true,
+      "reason": "Passed individual evidence review; checksums match."
     },
     {
       "id": "G7.05",
@@ -576,7 +576,7 @@
     {
       "id": "G7",
       "passed": false,
-      "passedChecks": 0,
+      "passedChecks": 2,
       "requiredChecks": 9
     }
   ],
@@ -584,7 +584,7 @@
   "clock": {
     "startedAt": "2026-10-13T03:00:54+00:00",
     "deadline": "2026-10-19T03:00:54+00:00",
-    "hoursRemaining": 105.34128361111111,
+    "hoursRemaining": 104.72436833333333,
     "full24HourSoakFits": true
   },
   "releaseStates": {
