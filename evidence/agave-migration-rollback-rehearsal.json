@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "scope": "remote fresh isolated official-to-source migration and rollback rehearsal; no canonical ledger or app database copied",
+  "passed": true,
+  "startedAt": "2026-10-14T01:29:23.245739+00:00",
+  "runId": "eb12c90f-0f9b-4a46-92bb-e40004c5b895",
+  "sourceBuildRunId": "40de48b7-6963-429b-ae3e-81a610d81b7d",
+  "officialBinarySha256": "80f3bc0e3fa6a3090e69bafbfe00b249eaa655c5874ac83aebb6acdb157140ab",
+  "sourceBinarySha256": "3d3140bf93c9bc967220ffd8989d8b0267b723915d32203132ecc36d2c63a49a",
+  "productionNetworkChanged": false,
+  "steps": [
+    {
+      "name": "verified-both-executable-hashes",
+      "state": "passed",
+      "at": "2026-10-14T01:29:50.440745+00:00"
+    },
+    {
+      "name": "official-created-native-meme-nft-state",
+      "state": "passed",
+      "at": "2026-10-14T01:31:11.771626+00:00"
+    },
+    {
+      "name": "source-preserved-official-state",
+      "state": "passed",
+      "at": "2026-10-14T01:31:18.288411+00:00"
+    },
+    {
+      "name": "source-created-new-native-meme-nft-state",
+      "state": "passed",
+      "at": "2026-10-14T01:32:37.145207+00:00"
+    },
+    {
+      "name": "rollback-official-preserved-before-and-after-state",
+      "state": "passed",
+      "at": "2026-10-14T01:32:44.054720+00:00"
+    },
+    {
+      "name": "source-reentry-preserved-before-and-after-state",
+      "state": "passed",
+      "at": "2026-10-14T01:32:50.961531+00:00"
+    },
+    {
+      "name": "official-cold-restore-preserved-before-and-after-state",
+      "state": "passed",
+      "at": "2026-10-14T01:32:58.001046+00:00"
+    },
+    {
+      "name": "source-cold-restore-preserved-before-and-after-state",
+      "state": "passed",
+      "at": "2026-10-14T01:33:04.947773+00:00"
+    },
+    {
+      "name": "completed",
+      "state": "passed",
+      "at": "2026-10-14T01:33:05.062803+00:00"
+    }
+  ],
+  "isolatedGenesis": "CzBPSCNGq827zDNAPeotagPCennoHfjrAaHdUxEoPX1N",
+  "completedAt": "2026-10-14T01:33:05.062773+00:00"
+}

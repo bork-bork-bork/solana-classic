@@ -24,7 +24,7 @@ try {
       .footer{position:absolute;left:64px;right:64px;bottom:34px;border-top:1px solid #365a47;padding-top:18px;display:flex;justify-content:space-between;color:#b8d0c3;font-size:16px}
       img{position:absolute;right:52px;top:${name==='social-preview'?122:52}px;width:310px;height:310px;object-fit:contain}
       .social h1{font-size:88px;max-width:680px}.social .tagline{font-size:42px;margin-top:26px}.social main{padding-top:94px}
-      .avatar main{padding:0}.avatar img{inset:86px;width:340px;height:340px}
+      .avatar{background:#f4f7f6}.avatar main{padding:0}.avatar img{inset:86px;width:340px;height:340px}
     </style></head><body class="${avatar?'avatar':name==='social-preview'?'social':''}"><main>
     ${avatar?'':`<p class="label">OPEN SOURCE · BUILT TOGETHER</p><h1>Solana Classic</h1><p class="tagline">Bring back the fun.</p><p class="focus">Art. NFTs. Memes. Communities.</p><div class="footer"><span>Shared roots. Our own direction.</span><span>solanaclassic.net</span></div>`}
     <img src="${logo}" alt="Solana Classic green crystal mark"></main></body></html>`);

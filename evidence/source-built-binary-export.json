@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "scope": "authenticated export of four public source-built binaries only; no ledger or key material",
+  "passed": true,
+  "runId": "40de48b7-6963-429b-ae3e-81a610d81b7d",
+  "archiveBytes": 67933801,
+  "archiveSha256": "1dd3a398821f029f4f1aa53a63b53eda3123b907ef4025f6ab964e35c60d48b4",
+  "binaries": {
+    "agave-validator": {
+      "sha256": "34e468747f1a0d69399b61fd40edc32ce4690ec5a200b5684474aa60a97a6910",
+      "bytes": 74406832,
+      "version": "agave-validator 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+    },
+    "solana-test-validator": {
+      "sha256": "3d3140bf93c9bc967220ffd8989d8b0267b723915d32203132ecc36d2c63a49a",
+      "bytes": 73661760,
+      "version": "solana-test-validator 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+    },
+    "solana": {
+      "sha256": "6a880f1c79ec0e0d7b3ee972eaa9ad8d75b503616e1f0c29efa587137a129dcd",
+      "bytes": 28209480,
+      "version": "solana-cli 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+    },
+    "solana-keygen": {
+      "sha256": "2f00a742ab0d99cad929e7a82b2d80f7c519cab9038ec45844fdbe9c305dea65",
+      "bytes": 2804464,
+      "version": "solana-keygen 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+    }
+  },
+  "upstreamCommit": "f516a8927c76c07f0ebc54ca7a4ce8b2046eee86",
+  "upstreamTree": "a4c75a1781d4ca56e7325a39d0614e1faa26030d",
+  "sourceRepositoryCommit": "39b9001cab84e637f2460f2387f2549f32b62ef9",
+  "workerSha256": "ac5937cba2a39336f847f2ce5443ed729146a07462c66074ff448c38d6e995ab",
+  "sourceManifestSha256": "337512bc1df2f382ccfab957347281b1c153353429b77d2695d65aafd29ec081"
+}
