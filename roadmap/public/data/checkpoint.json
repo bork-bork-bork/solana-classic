@@ -168,7 +168,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-14T14:30:31.358096+00:00",
+    "reviewedAt": "2026-10-14T15:01:39.316344+00:00",
     "scope": "Development checkpoint only; separate from the live testnet release",
     "projects": [
       {
@@ -209,7 +209,7 @@
         "title": "SOC redemption bridge",
         "state": "building",
         "description": "Original SOC escrow and a native Classic reserve, targeting exact 1:1 display-unit redemption in both directions.",
-        "currentScope": "V2 bootstrap, cold restore and known-finalized crash proofs pass. Native pending claim recovered FINALIZED after pre-finality crash. New original-redemption case:7 actual expiry guards, one broadcast with confirmation unknown before SIGKILL; no token payout after restart, original journal retained as EXPIRED_UNRESOLVED. No retry/refund/counter reset; all copies stopped and originals unchanged. Event rent verified separately from native return. Manual recovery signer/quorum policy, successful pending-redemption recovery, competing fork, funded inventory/custody and independent review remain open.",
+        "currentScope": "V2 bootstrap, cold restore and known-finalized crash proofs pass. Native pending claim recovered FINALIZED after pre-finality crash. New original-redemption case:7 actual expiry guards, one broadcast with confirmation unknown before SIGKILL; no token payout after restart, original journal retained as EXPIRED_UNRESOLVED. No retry/refund/counter reset; all copies stopped and originals unchanged. Event rent verified separately from native return. Manual recovery signer/quorum policy, successful pending-redemption recovery, competing fork, funded inventory/custody and independent review remain open. Offline expiry-review preflight now passes7 new/33 regression checks; actual retained signed journal inspected unchanged without RPC/validator starts. Distinct observer reports are unsigned assertions; retries/refunds stay disabled and independent verification remains open.",
         "source": "https://github.com/solana-classic/solana-classic/tree/main/bridge",
         "milestones": [
           {
@@ -276,6 +276,12 @@
             "title": "V2 pending original-redemption crash and expiry guards",
             "state": "rehearsal-passed",
             "detail": "7 actual checks +10 copy/crash guards. One withdrawal broadcast; no status before origin SIGKILL(-9). After restart: EXPIRED_UNRESOLVED, no token payout or second attempt; native return remains in reserve. Passed expiry guard, not completed redemption. Event rent2958000 units separate from returned10000000. Manual recovery unimplemented."
+          },
+          {
+            "title": "Offline expired-redemption review packet",
+            "state": "local-passed",
+            "detail": "7 new +33 regression checks; signed original attempt and pending liability bound, changed/late/stale/duplicate assertions rejected. Actual retained private journal inspected unchanged, zero RPC/validator starts/broadcasts. No authenticated independent observations, recovery approval or enabled retry.",
+            "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/bridge-expired-review.json"
           },
           {
             "title": "Bootstrap reconciliation, custody and recovery",

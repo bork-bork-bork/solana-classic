@@ -1,0 +1,77 @@
+{
+  "scope": "Offline expiry-packet structural checks with synthetic unsigned reports, plus actual retained private signed-journal inspection. No current chain observation, operator authentication or recovery activation.",
+  "operation": {
+    "id": "QUp2p2FWa1D2oEGmABgDEQBEToUktg3cv8NR5ub8ypF",
+    "signature": "2uyTE7Yrnr8R36JCfSrEkKUkGCgCyA4n4VToFYdn3pYKmTh1sJSdCE7dTfvnKK4vvdijzKymf4BGaT5RX1igMD1i",
+    "eventHash": "ec71bd0f57ba17ed75a8cb49ae02e9d726d77cf8f3e0f9e040c101b9a27e1dc7",
+    "transactionHash": "2b626c41d79c2b4e1b912eeb11e44667423cc96df8394b90249a102f87118e50",
+    "state": "EXPIRED_UNRESOLVED",
+    "attempts": 1,
+    "productionReady": false,
+    "scope": "isolated-origin-redemption",
+    "journalHash": "9d814f38d67194f406675a9137d5f65cd686605a81a380751701840e17a387e2",
+    "sourceChain": "EWjA6VWd5uw1XP9fZXBnxAd2doRFf6KQke2RUwj14QE2",
+    "destinationChain": "J8LsGtrVHe95w5Yxv3wR2Ux9uNWyDG3svK8LonczuuNh",
+    "sourceProgram": "8uajXCr14fhbmCYW1EbLJtURtFBBrU4zXDgHu3gXBME2",
+    "destinationProgram": "AkhzSc1JHmF8ELCZkoeCWtcUv51J18AvbBRQNjFWK2g2",
+    "sourceEvent": "4ixxVdtCHchrR2mhy3So3YWSmUET4JHVtt814gqpcp9P",
+    "recipient": "HPmTCTGo2evkw7tyzHwfkgTEXC7Zi62yuKj7CL1jNFq5",
+    "nonce": "6",
+    "epoch": "1",
+    "originAmount": "10000",
+    "nativeAmount": "10000000",
+    "originDecimals": 6,
+    "originMint": "3gxnbecjqmYAytS2AjJTyLtPYNuz2H9GSc8Fs7m8NJBF",
+    "destinationToken": "oeTYCmF7J6AQ9MgvTuVZ42eAuS56GMHTV7vK7Xitae9",
+    "sourceContextSlot": 725,
+    "minimumDestinationSlot": 1065,
+    "lastValidBlockHeight": 1061,
+    "instructionHash": "c33b653c0d6a59bb0231738556ac81596c37ea544dba8abceb46d16d32b0b3c9",
+    "inspectionOnly": true
+  },
+  "journalUnchanged": true,
+  "journalRawSHA256": "9d814f38d67194f406675a9137d5f65cd686605a81a380751701840e17a387e2",
+  "sourcePublicResultSHA256": "260b2759129c29b68cf11700f29fea083ba2110901babf9996c38a5685d55e0a",
+  "broadcasts": 0,
+  "validatorStarts": 0,
+  "settlementAccepted": false,
+  "productionReady": false,
+  "uploadedSourceHashes": {
+    "sdk.mjs": "e603242692bedc2457ec9dd3cb144122ca1adb7341506d244ec864943bd8c988",
+    "pending-claim.mjs": "0da698bdbeb010547745d0a4655fcfa37bcf0df1a6fc7d7582aaf8f3f0341ccd",
+    "lossless-native-rpc.mjs": "5ebed7db063afd9178925eab883a4955dd15ad878bbdad19878ab75225f3398b",
+    "expired-review.mjs": "4714ce4581b9723bf139fbb31f32fb928b6477390bf84d870cc734a6ec906db2"
+  },
+  "schemaVersion": 1,
+  "at": "2026-10-14T15:01:39.316344+00:00",
+  "state": "passed",
+  "localChecks": {
+    "expiredReview": 7,
+    "journalAndParserRegressions": 33,
+    "roadmap": 28,
+    "passed": true
+  },
+  "coreFreeze": {
+    "files": 41,
+    "allMatch": true
+  },
+  "checks": [
+    "Actual expired journal signatures, receipt domain and exact instruction verify without changing journal bytes",
+    "Inspection exports no signed bytes, RPC URLs or keys; zero broadcasts and zero validator starts",
+    "Late receipt/status, missing history or wrong original-operation domain reject the absent-settlement packet",
+    "Duplicate/stale/future observer assertions and insufficient finalized checkpoints reject",
+    "Exact pending liability, counters/escrow and protected reserve floor must reconcile without rounding or resets",
+    "Structural packet cannot authorize a retry/refund/reset or accept settlement; independent verification remains required"
+  ],
+  "coverageLimits": [
+    "Observer reports are unsigned synthetic assertions; distinct keys do not prove independence",
+    "No current source economic movement or destination absence/history proof is obtained by offline packet checks",
+    "Actual expiry height still not separately observed/exported by the previous crash drill",
+    "No recovery signer/approval verifier or broadcast; old private EXPIRED_UNRESOLVED journal unchanged",
+    "Production code/custody pins, funded inventory, full-validator host/operators and external security review remain open"
+  ],
+  "canonicalNetworkChanged": false,
+  "canRetry": false,
+  "canRefund": false,
+  "canResetAttempt": false
+}

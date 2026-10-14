@@ -115,6 +115,24 @@ function verifyOriginalMovement(record,event,tx,ix,meta) {
 }
 function summary(record) {return {id:record.id,signature:record.signature,eventHash:record.eventHash,transactionHash:record.transactionHash,state:record.state,attempts:record.attempts,productionReady:false};}
 
+// Verified, read-only review input. Never return signed bytes, endpoints or keys.
+// The existing exclusive lock coordinates with reconciliation; no save occurs.
+export function inspectPendingClaim(directory,id) {
+  return locked(directory,id,async(record,{event,ix})=>({
+    ...summary(record),scope:record.scope,journalHash:hash(JSON.stringify(record)),
+    sourceChain:event.sourceChain,destinationChain:event.destinationChain,
+    sourceProgram:event.sourceProgram,destinationProgram:event.destinationProgram,
+    sourceEvent:event.sourceEvent,recipient:event.recipient,nonce:event.nonce.toString(),
+    epoch:event.epoch.toString(),originAmount:event.originAmount.toString(),
+    nativeAmount:exactNativeUnits(event.originAmount,record.originDecimals).toString(),
+    originDecimals:record.originDecimals,originMint:record.originMint,
+    destinationToken:record.destinationToken,sourceContextSlot:record.sourceContextSlot,
+    minimumDestinationSlot:record.minimumDestinationSlot,
+    lastValidBlockHeight:record.lastValidBlockHeight,
+    instructionHash:hash(ix.data),inspectionOnly:true,
+  }));
+}
+
 export function preparePendingClaim({directory,sourceRpc,rpc:destinationRpc,event,expected,payer,committee,transaction,lastValidBlockHeight,originDecimals,sourceContextSlot,minimumDestinationSlot=0,originMint=null,destinationToken=null}) {
   validateEvent(event,expected);
   const raw=Buffer.from(transaction),tx=Transaction.from(raw);

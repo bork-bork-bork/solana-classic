@@ -5,6 +5,52 @@ transaction. Preserve the existing journal and its single submission attempt.
 Expiry does not authorize a source refund, second deposit, new event nonce or
 reset. The current takeSubmissionAttempt continues to refuse a second attempt.
 
+## Offline packet preflight
+
+`expired-review.mjs` now implements `reviewExpiredRedemption({directory, id,
+reports, accounting, reviewedAt})`. It inspects and verifies the original
+private journal's signatures, canonical transaction, exact instruction and
+receipt domain using `inspectPendingClaim`. It does not save the journal,
+read an RPC, sign, hand out transaction bytes or broadcast. The temporary
+exclusive journal lock coordinates inspection with existing reconciliation.
+
+Supply two to five observer reports. Each must bind the inspected journal,
+event, original signature, transaction and instruction hashes, both network
+and programme identities, and source event. Distinct observer public keys and
+evidence hashes are required. Reports must be no older than five minutes at
+the supplied canonical review time, with source/destination finalized slots
+at or beyond the original checkpoints and destination height beyond expiry.
+A reported receipt or signature, unavailable history or changed domain stops
+this absent-settlement review; reconcile or investigate those cases instead.
+
+Accounting uses canonical u64 strings, retains the operation's full pending
+liability, reconciles escrow/origin counter against native counter plus that
+liability, and checks the reserve floor. This equation is restricted to the
+single pending-redemption fixture. Production needs a complete pending-event
+inventory and independently observed economic history; this tool does not
+infer them from supplied balances.
+
+These are **unsigned supplied reports**. Different keys do not establish
+independent operators; `evidenceHash` binds an asserted evidence reference,
+not its authenticated contents. Timestamps, finalized heights, absent receipt,
+history completeness, accounting, bytecode and custody are not independently
+verified by this offline preflight. All such release checks remain open.
+The returned packet explicitly keeps `canRetry`, `canRefund`,
+`canResetAttempt`, `settlementAccepted` and `productionReady` false even when
+structural checks pass. It strips arbitrary report fields and never exports
+signed bytes, endpoints or private keys. Retain packets privately; the packet
+hash is not an operator approval. A concurrently finalized journal must be
+re-inspected and reconciled; a prior snapshot grants no authority.
+
+Seven new synthetic tests cover original-byte binding, late settlement,
+domain changes, duplicate/stale observers, checkpoints, accounting precision,
+pending-liability preservation and refusal for native/finalized operations.
+Run with pinned Node24:
+
+```sh
+node --test bridge/expired-review.test.mjs
+```
+
 ## Observed private case
 
 The V2 native return of10000original base units finalized, adding10000000native
