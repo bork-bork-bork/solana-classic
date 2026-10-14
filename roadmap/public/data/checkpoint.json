@@ -162,15 +162,15 @@
     "canonicalCutoverAccepted": false
   },
   "development": {
-    "reviewedAt": "2026-10-14T05:12:59.308884+00:00",
+    "reviewedAt": "2026-10-14T05:32:42.560274+00:00",
     "scope": "Development checkpoint only; separate from the live testnet release",
     "projects": [
       {
         "id": "mainnet",
         "title": "Native SOC mainnet",
-        "state": "building",
+        "state": "blocked",
         "description": "A separate production-network implementation, beginning with exact genesis supply and backed validator bootstrap.",
-        "currentScope": "Pinned solana-genesis compiled. Exact synthetic genesis audit passes; three private validators are being rehearsed. No production mainnet or backing acceptance.",
+        "currentScope": "Pinned genesis build and all 249 genesis-account totals pass. Full validators cannot start on the current host: Agave requires 1,000,000 open files; host hard ceiling is 524,288. Validator-capable Linux hosting is required; no mainnet/consensus acceptance.",
         "source": "https://github.com/solana-classic/solana-classic/tree/main/mainnet",
         "milestones": [
           {
@@ -180,8 +180,8 @@
           },
           {
             "title": "Source-built genesis and private validator rehearsal",
-            "state": "running",
-            "detail": "Source-built genesis and account audit complete; validator consensus checks in progress."
+            "state": "blocked",
+            "detail": "Genesis source build/account audit pass; full-validator startup blocked by host open-file ceiling."
           },
           {
             "title": "Backed bootstrap and full supply reconciliation",
@@ -226,7 +226,7 @@
         "title": "Classic Wallet",
         "state": "building",
         "description": "One wallet application for balances, transfers, artwork, memes and chain receipts.",
-        "currentScope": "Shared in-memory wallet, mint studio, uploads and verified owned assets pass 14 unit and 17 mocked browser checks. Public .net integration is being verified; persistent custody/mainnet remain future work.",
+        "currentScope": "Public .net wallet verified with actual devnet faucet, preset NFT, uploaded-artwork NFT and two verified owned assets in one session. 14 unit and 17 mocked browser checks also pass. Disposable memory-only keys; persistent custody/mainnet remain future work.",
         "source": "https://github.com/solana-classic/solana-classic/tree/main/wallet",
         "milestones": [
           {
@@ -236,7 +236,7 @@
           },
           {
             "title": "Shared mint studio, gallery and verified owned assets",
-            "state": "local-passed",
+            "state": "live-passed",
             "detail": "Same session, exact mint review, uploaded art, finalized owned-account validation and same-receipt recovery."
           },
           {
@@ -254,22 +254,23 @@
         "title": "Apps for the culture",
         "state": "building",
         "description": "A builder directory and public collector views around the existing mint studio, gallery and explorer.",
-        "currentScope": "Repository tools listed with honest release states. Collector views check finalized Token-2022 authority and mint; desktop/mobile and negative ownership tests pass locally. Public deployment is being verified.",
+        "currentScope": "Builder directory and public collector routes deployed. Finalized holdings verified on the live devnet; thumbnails use a bounded 50-entry gallery preview. Desktop/mobile and ownership/identity negatives pass locally.",
         "source": "https://github.com/solana-classic/solana-classic/tree/main/infra/custom-domain",
         "milestones": [
           {
             "title": "Builder directory with source links",
-            "state": "local-passed",
+            "state": "live-passed",
             "detail": "Curated first-party tools, status filters and GitHub contribution links."
           },
           {
             "title": "Public collector pages",
-            "state": "local-passed",
+            "state": "live-passed",
             "detail": "Finalized holdings, NFT/token filters, exact balances and bounded coverage."
           },
           {
             "title": "Public deployment and real devnet journeys",
-            "state": "running"
+            "state": "live-passed",
+            "detail": "Actual devnet faucet and both preset/uploaded NFT mint-to-owned journeys verified."
           },
           {
             "title": "Community project submissions and discovery",

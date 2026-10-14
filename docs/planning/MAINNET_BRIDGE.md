@@ -98,3 +98,22 @@ mainnet conversion or allocation through this implementation.
 
 Keep provider-specific deployment details in operator documentation. Public
 status separates code, local proof, live integration and production readiness.
+
+## 14 October integration checkpoint
+
+The bridge completed a finalized synthetic round trip on two fresh, private,
+source-built Agave 3.0.14 ledgers, with 13 checks and matching escrow/counters.
+Invalid transactions were rejected in RPC simulation; successful settlements
+were broadcast and finalized. Three local keys co-signed, not independent
+verifier operators. RPC recovery, fork policy and backed bootstrap remain open.
+See `evidence/bridge-two-chain-rehearsal.json`.
+
+Pinned `solana-genesis` compiled and all 249 actual genesis accounts reconcile
+to the synthetic budget. Full-validator startup is blocked on the current host
+by its 524,288 open-file ceiling, below Agave's required 1,000,000. No consensus
+or runtime-supply acceptance is claimed. See `docs/planning/VALIDATOR_HOST_GATE.md`
+and `evidence/mainnet-validator-rehearsal.json`.
+
+The unified wallet passes 14 unit and 17 mocked browser scenarios; public
+custom-domain verification is recorded separately. Builder and collector pages
+are part of that same public frontend. These are devnet applications.

@@ -1,0 +1,1841 @@
+{
+  "schemaVersion": 1,
+  "scope": "Remote actual source-built solana-genesis and complete synthetic genesis audit; three full-validator startup attempts failed on the current host. No consensus, runtime supply, production backing or mainnet acceptance.",
+  "state": "blocked",
+  "startedAt": "2026-10-14T05:13:29Z",
+  "productionReady": false,
+  "canonicalNetworkChanged": false,
+  "independentOperatorsVerified": false,
+  "checks": [
+    "every actual genesis account reconciles to exact synthetic supply; inflation and selected rehearsal burns are zero"
+  ],
+  "binaries": {
+    "solana-genesis": {
+      "sha256": "ffbb10cf13737034ae3946e8ac6c106e72ded0886e041d0cbfb7a1fc4780b4c2",
+      "bytes": 21491704,
+      "version": "solana-genesis 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+    },
+    "agave-validator": {
+      "sha256": "34e468747f1a0d69399b61fd40edc32ce4690ec5a200b5684474aa60a97a6910",
+      "bytes": 74406832,
+      "version": "agave-validator 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+    },
+    "solana-keygen": {
+      "sha256": "2f00a742ab0d99cad929e7a82b2d80f7c519cab9038ec45844fdbe9c305dea65",
+      "bytes": 2804464,
+      "version": "solana-keygen 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+    }
+  },
+  "genesis": "9kiokvuYP6X6N8E4rST91gozHhzNE6GxLTgFov7erHHY",
+  "genesisAudit": {
+    "accountCount": 249,
+    "accounts": [
+      {
+        "address": "14R5PtJM4vXSLen7cRHrSKSsuqGveigW1L38yQSKzFkj",
+        "dataBytes": 200,
+        "executable": false,
+        "lamports": "100000000000",
+        "owner": "Stake11111111111111111111111111111111111111"
+      },
+      {
+        "address": "16FMCmgLzCNNz6eTwGanbyN2ZxvTBSLuQ6DZhgeMshg",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "21AWDosvp3pBamFW91KB35pNoaoZVTM7ess8nr2nt53B",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "25vqsfjk7Nv1prsQJmA4Xu1bN61s8LXCBGUPp8Rfy1UF",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "265hPS8k8xJ37ot82KEgjRunsUp5w4n4Q4VwwiN9i9ps",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "28s7i3htzhahXQKqmS2ExzbEoUypg9krwvtK2M9UWXh9",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "2B2SBNbUcr438LtGXNcJNBP2GBSxjx81F945SdSkUSfC",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "2Fr57nzzkLYXW695UdDxDeR5fhnZWSttZeZYemrnpGFV",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "2HmTkCj9tXuPE4ueHzdD7jPeMf9JGCoZh5AsyoATiWEe",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "2R72wpcQ7qV7aTJWUumdn8u5wmmTyXbK7qzEy7YSAgyY",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "2aQJYqER2aKyb3cZw22v4SL2xMX7vwXBRWfvS4pTrtED",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "2h63t332mGCCsWK2nqqqHhN4U9ayyqhLVFvczznHDoTZ",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "2jXx2yDmGysmBKfKYNgLj2DQyAQv6mMk2BPh4eSbyB4H",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "2oMRZEDWT2tqtYMofhmmfQ8SsjqUFzT6sYXppQDavxwz",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "2ry7ygxiYURULZCrypHhveanvP5tzZ4toRwVp89oCNSj",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "36PRUK2Dz6HWYdG9SpjeAsF5F3KxnFCakA2BZMbtMhSb",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "3BX6SBeEBibHaVQXywdkcgyUk6evfYZkHdztXiDtEpFS",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "3E3jV7v9VcdJL8iYZUMax9DiDno8j7EWUVbhm9RtShj2",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "3GucAwYFGY5TV1eY766m3M8aDiE1jMd4596G6R7Wt8Z7",
+        "dataBytes": 200,
+        "executable": false,
+        "lamports": "100000000000",
+        "owner": "Stake11111111111111111111111111111111111111"
+      },
+      {
+        "address": "3KZZ6Ks1885aGBQ45fwRcPXVBCtzUvxhUTkwKMR41Tca",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "3NKRSwpySNwD3TvP5pHnRmkAQRsdkXWRr1WaQh8p4PWX",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "3QSXEYqD6XAhSbCB2Gzct6Fdy4pgPiYs6jSQ7AAbKt9D",
+        "dataBytes": 0,
+        "executable": false,
+        "lamports": "10000000000",
+        "owner": "11111111111111111111111111111111"
+      },
+      {
+        "address": "3XgNukcZWf9o3HdA3fpJbm94XFc4qpvTXc8h1wxYwiPi",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "3aJdcZqxoLpSBxgeYGjPwaYS1zzcByxUDqJkbzWAH1Zb",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "3ccR6QpxGYsAbWyfevEtBNGfWV4xBffxRj2tD6A9i39F",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "3gtZPqvPpsbXZVCx6hceMfWxtsmrjMzmg8C7PLKSxS2d",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "3opE3EzAKnUftUDURkzMgwpNgimBAypW1mNDYH4x4Zg7",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "3u3Er5Vc2jVcwz4xr2GJeSAXT3fAj6ADHZ4BJMZiScFd",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "3uFHb9oKdGfgZGJK9EHaAXN4USvnQtAFC13Fh5gGFS5B",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "3uRVPBpyEJRo1emLCrq38eLRFGcu6uKSpUXqGvU8T7SZ",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "437r62HoAdUb63amq3D7ENnBLDhHT2xY8eFkLJYVKK4x",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "4ApgRX3ud6p7LNMJmsuaAcZY5HWctGPr5obAsjB3A54d",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "4Di3y24QFLt5QEUPZtbnjyfQKfm6ZMTfa6Dw1psfoMKU",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "4EJQtF2pkRyawwcTVfQutzq4Sa5hRhibF6QAK1QXhtEX",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "4RWNif6C2WCNiKVW7otP4G7dkmkHGyKQWRpuZ1pxKU5m",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "4UDcAfQ6EcA6bdcadkeHpkarkhZGJ7Bpq7wTAiRMjkoi",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "4d5AKtxoh93Dwm1vHXUU3iRATuMndx1c431KgT2td52r",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "4eohviozzEeivk1y9UbrnekbAFMDQyJz5JjA9Y6gyvky",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "4kpdyrcj5jS47CZb2oJGfVxjYbsMm2Kx97gFyZrxxwXz",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "4yuaYAj2jGMGTh1sSmi4G2eFscsDq8qjugJXZoBN6YEa",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "51VCKU5eV6mcTc9q9ArfWELU2CqDoi13hdAjr6fHMdtv",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "54KAoNiUERNoWWUhTWWwXgym94gzoXFVnHyQwPA18V9A",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "5GfRq46NB5pSZ88xtiV8ifLNo8jtccrU8C7hmQVC1WnA",
+        "dataBytes": 0,
+        "executable": false,
+        "lamports": "669690377440",
+        "owner": "11111111111111111111111111111111"
+      },
+      {
+        "address": "5GpmAKxaGsWWbPp4bNXFLJxZVvG92ctxf7jQnzTQjF3n",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "5JsG4NWH8Jbrqdd8uL6BNwnyZK3dQSoieRXG5vmofj9y",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "5KLGJSASDVxKPjLCDWNtnABLpZjsQSrYZ8HKwcEdAMC8",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "5Pecy6ie6XGm22pc9d4P9W5c31BugcFBuy6hsP2zkETv",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "5TuppMutoyzhUSfuYdhgzD47F92GL1g89KpCZQKqedxP",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "5ZCcFAzJ1zsFKe1KSZa9K92jhx7gkcKj97ci2DBo1vwj",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "5ekBxc8itEnPv4NzGJtr8BVVQLNMQuLMNQQj7pHoLNZ9",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "5oMCU3JPaFLr8Zr4ct7yFA7jdk6Mw1RmB8K4u9ZbS42z",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "5wAGiy15X1Jb2hkHnPDCM8oB9V42VNA9ftNVFK84dEgv",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "5x3825XS7M2A3Ekbn5VGGkvFoAg5qrRWkTrY4bARP1GL",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "6M4oQ6eXneVhtLoiAr4yRYQY43eVLjrKbiDZDJc892yk",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "6RvdSWHh8oh72Dp7wMTS2DBkf3fRPtChfNrAo3cZZoXJ",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "6TkHkRmP7JZy1fdM6fg5uXn76wChQBWGokHBJzrLB3mj",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "6Uf8S75PVh91MYgPQSHnjRAPQq6an5BDv9vomrCwDqLe",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "6YBS3oREMpm7YBttMotbdAPibFn7aVcX8pFuHeuLS5oA",
+        "dataBytes": 0,
+        "executable": false,
+        "lamports": "10000000000",
+        "owner": "11111111111111111111111111111111"
+      },
+      {
+        "address": "6YsBCejwK96GZCkJ6mkZ4b68oP63z2PLoQmWjC7ggTqZ",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "6iyggb5MTcsvdcugX7bEKbHV8c6jdLbpHwkncrgLMhfo",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "6oMCUgfY6BzZ6jwB681J6ju5Bh6CjVXbd7NeWYqiXBSu",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "6ppMXNYLhVd7GcsZ5uV11wQEW7spppiMVfqQv5SXhDpX",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "6tRxEYKuy2L5nnv5bgn7iT28MxUbYxp5h7F3Ncf1exrT",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "6uaHcKPGUy4J7emLBgUTeufhJdiwhngW6a1R9B7c2ob9",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "74CoWuBmt3rUVUrCb2JiSTvh6nXyBWUsK4SaMj3CtE3T",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "75m6ysz33AfLA5DDEzWM1obBrnPQRSsdVQ2nRmc8Vuu1",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "79HWsX9rpnnJBPcdNURVqygpMAfxdrAirzAGAVmf92im",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "7GUcYgq4tVtaqNCKT3dho9r4665Qp5TxCZ27Qgjx3829",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "7VVhpg5oAjAmnmz1zCcSHb2Z9ecZB2FQqpnEwReka9Zm",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "7Vced912WrRnfjaiKRiNBcbuFw7RrnLv3E3z95Y4GTNc",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "7WeS1vfPRgeeoXArLh7879YcB9mgE9ktjPDtajXeWfXn",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "7XRJcS5Ud5vxGB54JbK9N2vBZVwnwdBNeJW1ibRgD9gx",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "7axKe5BTYBDD87ftzWbk5DfzWMGyRvqmWTduuo22Yaqy",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "7bTK6Jis8Xpfrs8ZoUfiMDPazTcdPcTWheZFJTA5Z6X4",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "7g9EUwj4j7CS21Yx1wvgWLjSZeh5aPq8x9kpoPwXM8n8",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "7rcw5UtqgDTBBv2EcynNfYckgdAaH1MAsCjKgXMkN7Ri",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "7txXZZD6Um59YoLMF7XUNimbMjsqsWhc7g2EniiTrmp1",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "7uZBkJXJ1HkuP6R3MJfZs7mLwymBcDbKdqbF51ZWLier",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "812kqX67odAp5NFwM8D2N24cku7WTm9CHUTFUXaDkWPn",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "8199Q2gMD2kwgfopK5qqVWuDbegLgpuFUFHCcUJQDN8b",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "86HpNqzutEZwLcPxS6EHDcMNYWk6ikhteg9un7Y2PBKE",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "8C8MCtsab5SsfammbzvYz65HHauuUYdbY2DZ4sznH6h5",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "8FdwgyHFEjhAdjWfV2vfqk7wA1g9X3fQpKH7SBpEv3kC",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "8U4skmMVnF6k2kMvrWbQuRUT3qQSiTYpSjqmhmgfthZu",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "8We4E7DPwF2WfAN8tRTtWQNhi98B99Qpuj7JoZ3Aikgg",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "8Zs9W7D9MpSEtUWSQdGniZk2cNmV22y6FLJwCx53asme",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "8aXvSuopd1PUj7UhehfXJRg6619RHp8ZvwTyyJHdUYsj",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "8kEuAshXLsgkUEdcFVLqrjCGGHVWFW99ZZpxvAzzMtBp",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "8pgXCMNXC8qyEFypuwpXyRxLXZdpM4Qo72gJ6k87A6wL",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "8sKQrMQoUHtQSUP83SPG4ta2JDjSAiWs7t5aJ9uEd6To",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "98std1NSHqXi9WYvFShfVepRdCoq1qvsp8fsR2XZtG8g",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "9LZdXeKGeBV6hRLdxS1rHbHoEUsKqesCC2ZAPTPKJAbK",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "9gxu85LYRAcZL38We8MYJ4A9AwgBBPtVBAqebMcT1241",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "9k5ijzTbYPtjzu8wj2ErH9v45xecHzQ1x4PMYMMxFgdM",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "9kdtFSrXHQg3hKkbXkQ6trJ3Ja1xpJ22CTFSNAciEwmL",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "9onWzzvCzNC2jfhxxeqRgs5q7nFAAKpCUvkj6T6GJK9i",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "9ypxGLzkMxi89eDerRKXWDXe44UY2z4hBig4mDhNq5Dp",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "A16q37opZdQMCbe5qJ6xpBB9usykfv8jZaMkxvZQi4GJ",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "A8xyMHZovGXFkorFqEmVH2PKGLiBip5JD7jt4zsUWo4H",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "ALBk3EWdeAg2WAGf6GPDUf1nynyNqCdEVmgouG7rpuCj",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "AVZS3ZsN4gi6Rkx2QUibYuSJG3S6QHib7xCYhG6vGJxU",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "B7H2caeia4ZFcpE3QcgMqbiWiBtWrdBRBSJ1DY6Ktxbq",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "B9cdB55u4jQsDNsdTK525yE9dmSc5Ga7YBaBrDFvEhM9",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "BKCPBQQBZqggVnFso5nQ8rQ4RwwogYwjuUt9biBjxwNF",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "BL99GYhdjjcv6ys22C9wPgn2aTVERDbPHHo4NbS3hgp7",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "BTWmtJC8U5ZLMbBUUA1k6As62sYjPEjAiNAT55xYGdJU",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "BUS12ciZ5gCoFafUHWW8qaFMMtwFQGVxjsDheWLdqBE2",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "BUwGLeF3Lxyfv1J1wY8biFHBB2hrk2QhbNftQf3VV3cC",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "BcWknVcgvonN8sL4HE4XFuEVgfcee5MwxWPAgP6ZV89X",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "BiCU7M5w8ZCMykVSyhZ7Q3m2SWoR2qrEQ86ERcDX77ME",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "Bj2jmUsM2iRhfdLLDSTkhM5UQRQvQHm57HSmPibPtEyu",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "BkFDxiJQWZXGTZaJQxH7wVEHkAmwCgSEVkrvswFfRJPD",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "BrTR9hzw4WBGFP65AJMbpAo64DcA3U6jdPSga9fMV5cS",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "BsKLKAn1WM4HVhPRDsjosmqSg2J8Tq5xP2s2daDS6Ni4",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "BtVN7YjDzNE6Dk7kTT7YTDgMNUZTNgiSJgsdzAeTg2jF",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "BzBBveUDymEYoYzcMWNQCx3cd4jQs7puaVFHLtsbB6fm",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "C5fh68nJ7uyKAuYZg2x9sEQ5YrVf3dkW6oojNBSc3Jvo",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "C97eKZygrkU4JxJsZdjgbUY7iQR7rKTr4NyDWo2E5pRm",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "C9oAhLxDBm3ssWtJx1yBGzPY55r2rArHmN1pbQn6HogH",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "CBkDroRDqm8HwHe6ak9cguPjUomrASEkfmxEaZ5CNNxz",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "CCu4boMmfLuqcmfTLPHQiUo22ZdUsXjgzPAURYaWt1Bw",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "CE2et8pqgyQMP2mQRg3CgvX8nJBKUArMu3wfiQiQKY1y",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "CFK1hRCNy8JJuAAY8Pb2GjLFNdCThS2qwZNe3izzBMgn",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "CGB2jM8pwZkeeiXQ66kBMyBR6Np61mggL7XUsmLjVcrw",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "CJzY83ggJHqPGDq8VisV3U91jDJLuEaALZooBrXtnnLU",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "CLCoTADvV64PSrnR6QXty6Fwrt9Xc6EdxSJE4wLRePjq",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "Cdkc8PPTeTNUPoZEfCY5AyetUrEdkZtNPMgz58nqyaHD",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "CpkdQmspsaZZ8FVAouQTtTWZkc8eeQ7V3uj7dWz543rZ",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "CveezY6FDLVBToHDcvJRmtMouqzsmj4UXYh5ths5G5Uv",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "CxeBn9PVeeXbmjbNwLv6U4C6svNxnC4JX6mfkvgeMocM",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "D2aip4BBr8NPWtU9vLrwrBvbuaQ8w1zV38zFLxx4pfBV",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "D31EFnLgdiysi84Woo3of4JMu7VmasUS3Z7j9HYXCeLY",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "D4jsDcXaqdW8tDAWn8H4R25Cdns2YwLneujSL1zvjW6R",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "DECbJ4ArnGrZY8DNah1SodNzDq7kwM4J5pk16gruBJqZ",
+        "dataBytes": 3762,
+        "executable": false,
+        "lamports": "27074400",
+        "owner": "Vote111111111111111111111111111111111111111"
+      },
+      {
+        "address": "DQUf7doEYGNx6J73SGUwbf3qAuACPURW4gohgj6VxxYM",
+        "dataBytes": 0,
+        "executable": false,
+        "lamports": "10000000000",
+        "owner": "11111111111111111111111111111111"
+      },
+      {
+        "address": "DT4n6ABDqs6w4bnfwrXT9rsprcPf6cdDga1egctaPkLC",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "DTVTkmw3JSofd8CJVJte8PXEbxNQ2yZijvVr3pe2APPj",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "DdLwVYuvDz26JohmgSbA7mjpJFgX5zP2dkp8qsF2C33V",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "DeS7sR48ZcFTUmt5FFEVDr1v1bh73aAbZiZq3SYr8Eh8",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "DhsYfRjxfnh2g7HKJYSzT79r74Afa1wbHkAgHndrA1oy",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "DpJREPyuMZ5nDfU6H3WTqSqUFSXAfw8u7xqmWtEwJDcP",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "Ds87KVeqhbv7Jw8W6avsS1mqz3Mw5J3pRTpPoDQ2QdiJ",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "DwScAzPUjuv65TMbDnFY7AgwmotzWy3xpEJMXM3hZFaB",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "E3PHP7w8kB7np3CTQ1qQ2tW3KCtjRSXBQgW9vM2mWv2Y",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "E5JiFDQCwyC6QfT9REFyMpfK2mHcmv1GUDySU1Ue7TYv",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "E8MkiWZNNPGU6n55jkGzyj8ghUmjCHRmDFdYYFYHxWhQ",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "EBeznQDjcPG8491sFsKZYBi5S5jTVXMpAKNDJMQPS2kq",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "EBq48m8irRKuE7ZnMTLvLg2UuGSqhe8s8oMqnmja1fJw",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "EJJewYSddEEtSZHiqugnvhQHiWyZKjkFDQASd7oKSagn",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "EMX9Q7TVFAmQ9V1CggAkhMzhXSg8ECp7fHrWQX2G1chf",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "ENTRYnPAoT5Swwx73YDGzMp3XnNH1kxacyvLosRHza1i",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "EQUMpNFr7Nacb1sva56xn1aLfBxppEoSBH8RRVdkcD1x",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "EVW9B5xD9FFK7vw1SBARwMA4s5eRo5eKJdKpsBikzKBz",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "EWme9uFqfy1ikK1jhJs8fM5hxWnK336QJpbscNtizkTU",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "EYVpEP7uzH1CoXzbD6PubGhYmnxRXPeq3PPsm1ba3gpo",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "EaQpmC6GtRssaZ3PCUM5YksGqUdMLeZ46BQXYtHYakDS",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "EfhYd3SafzGT472tYQDUc4dPd2xdEfKs5fwkowUgVt4W",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "F6UVKh1ujTEFK3en2SyAL3cdVnqko1FVEXWhmdLRu6WP",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "FKAcEvNgSY79RpqsPNUV5gDyumopH4cEHqUxyfm8b8Ap",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "FKe75t4LXxGaQnVHdUKM6DSFifVVraGZ8LyNo7oPwy1Z",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "FKu1qYwLQSiehz644H6Si65U5ZQ2cp9GxsyFUfYcuADv",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "FL9RsQA6TVUoh5xJQ9d936RHSebA1NLQqe3Zv9sXZRpr",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "FNKCMBzYUdjhHyPdsKG2LSmdzH8TCHXn3ytj8RNBS4nG",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "FQnc7U4koHqWgRvFaBJjZnV8VPg6L6wWK33yJeDp4yvV",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "FToKNBYyiF4ky9s8WsmLBXHCht17Ek7RXaLZGHzzQhJ1",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "FXs1zh47QbNnhXcnB6YiAQoJ4sGB91tKF3UFHLcKT7PM",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "FaTa17gVKoqbh38HcfiQonPsAaQViyDCCSg71AubYZw8",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "FaTa4SpiaSNH44PGC4z8bnGVTkSRYaWvrBs3KTu8XQQq",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "Fab5oP3DmsLYCiQZXdjyqT3ukFFPrsmqhXU4WU1AWVVF",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "Ff8b1fBeB86q8cjq47ZhsQLgv5EkHu3G1C99zjUfAzrq",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "Ffswd3egL3tccB6Rv3XY6oqfdzn913vUcjCSnpvCKpfx",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "Ftok2jhqAqxUWEiCVRrfRs9DPppWP8cgTB7NQNKL88mS",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "Ftok4njE8b7tDffYkC5bAbCaQv5sL6jispYrprzatUwN",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "FuS3FPfJDKSNot99ECLXtp3rueq36hMNStJkPJwWodLh",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "G6ANXD6ptCSyNd9znZm7j4dEczAJCfx7Cy43oBx3rKHJ",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "G6vbf1UBok8MWb8m25ex86aoQHeKTzDKzuZADHkShqm6",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "G74BkWBzmsByZ1kxHy44H3wjwp5hp7JbrGRuDpco22tY",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "GDH5TVdbTPUpRnXaRyQqiKUa7uZAbZ28Q2N9bhbKoMLm",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "GE7fRxmW46K6EmCD9AMZSbnaJ2e3LfqCZzdHi9hmYAgi",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "GQALDaC48fEhZGWRj9iL5Q889emJKcj3aCvHF7VCbbF4",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "GTUMCZ8LTNxVfxdrw7ZsDFTxXb7TutYkzJnFwinpE6dg",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "GV49KKQdBNaiv2pgqhS2Dy3GWYJGXMTVYbYkdk91orRy",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "GaBtBJvmS4Arjj5W1NmFcyvPjsHN38UGYDq2MDwbs9Qu",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "Gea3ZkK2N4pHuVZVxWcnAtS6UEDdyumdYt4pFcKjA3ar",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "GmC19j9qLn2RFk5NduX6QXaDhVpGncVVBzyM8e9WMz2F",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "GmuBvtFb2aHfSfMXpuFeWZGHyDeCLPS79s48fmCWCfM5",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "GuqB8RS5jyvm8XnQ7Gb32Ffb2ybwAS4GFEzdiz3g55p3",
+        "dataBytes": 3762,
+        "executable": false,
+        "lamports": "27074400",
+        "owner": "Vote111111111111111111111111111111111111111"
+      },
+      {
+        "address": "GvDsGDkH5gyzwpDhxNixx8vtx1kwYHH13RiNAPw27zXb",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "GwtDQBghCTBgmX2cpEGNPxTEBUTQRaDMGTr5qychdGMj",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "H3kBSaKdeiUsyHmeHqjJYNc27jesXZ6zWj3zWkowQbkV",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "H7bMTkQAUmQQSGxBiuYmWJZkJYoZfjNZBMmeoSxZhNeE",
+        "dataBytes": 3762,
+        "executable": false,
+        "lamports": "27074400",
+        "owner": "Vote111111111111111111111111111111111111111"
+      },
+      {
+        "address": "HFpdDDNQjvcXnXKec697HDDsyk6tFoWS2o8fkxuhQZpL",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "HH3MUYReL2BvqqA3oEcAa7txju5GY6G4nxJ51zvsEjEZ",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "HTTgmruMYRZEntyL3EdCDdnS6e4D5wRq1FA7kQsb66qq",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "HTW2pSyErTj4BV6KBM9NZ9VBUJVxt7sacNWcf76wtzb3",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "HooKD5NC9QNxk25QuzCssB8ecrEzGt6eXEPBUxWp1LaR",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "Hr1nUA9b7NJ6eChS26o7Vi8gYYDDwWD3YeBfzJkTbU86",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "HxrEu1gXuH7iD3Puua1ohd5n4iUKJyFNtNxk9DVJkvgr",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "HyrbKftCdJ5CrUfEti6x26Cj7rZLNe32weugk7tLcWb8",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "J2QdYx8crLbTVK8nur1jeLsmc3krDbfjoxoea2V1Uy5Q",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "J4HFT8usBxpcF63y46t1upYobJgChmKyZPm5uTBRg25Z",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "JAN1trEUEtZjgXYzNBYHU9DYd7GnThhXfFP7SzPXkPsG",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "JDn5q3GBeqzvUa7z67BbmVHVdE3EbUAjvFep3weR3jxX",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "JE86WkYvTrzW8HgNmrHY7dFYpCmSptUpKupbo2AdQ9cG",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "LTHasHQX6661DaDD4S6A2TFi6QBuiwXKv66fB1obfHq",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "LTdLt9Ycbyoipz5fLysCi1NnDnASsZfmJLJXts5ZxZz",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "LTsNAP8h1voEVVToMNBNqoiNQex4aqfUrbFhRH3mSQ2",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "P1BCUMpAC7V2GRBRiJCNUgpMyWZhoqt3LKo712ePqsz",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "PERzQrt5gBD1XEe2c9XdFWqwgHY3mr7cYWbm5V772V8",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "PaymEPK2oqwT9TXAVfadjztH2H6KfLEB9Hhd5Q5frvP",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "RENtePQcDLrAbxAsP3k8dwVcnNYQ466hi2uKvALjnXx",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "RfEcA95xnhuwooVAhUUksEJLZBF7xKCLuqrJoqk4Zph",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "SAdVFw3RZvzbo6DvySbSdBnHN4gkzSTH9dSxesyKKPj",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "SVn36yVApPLYsa8koK3qUcy14zXDnqkNYWyUh1f4oK1",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "St8k9dVXP97xT6faW24YmRSYConLbhsMJA4TJTBLmMT",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "StakeConfig11111111111111111111111111111111",
+        "dataBytes": 10,
+        "executable": false,
+        "lamports": "960480",
+        "owner": "Config1111111111111111111111111111111111111"
+      },
+      {
+        "address": "SysvarEpochRewards1111111111111111111111111",
+        "dataBytes": 81,
+        "executable": false,
+        "lamports": "1454640",
+        "owner": "Sysvar1111111111111111111111111111111111111"
+      },
+      {
+        "address": "TestFeature11111111111111111111111111111111",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "TestFeature21111111111111111111111111111111",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "Vo5siZ442SaZBKPXNocthiXysNviW4UYPwRFggmbgAp",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "bn2puAyxUx6JUabAxYdKdJ5QHbNNmKw8dCGuGCyRrFN",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "chaie9S2zVfuxJKNRGkyTDokLwWxx6kD2ZLsqQHaDD8",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "decoMktMcnmiq6t3u7g5BfgcQu91nKZr6RvMYf9z1Jb",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "depVvnQ2UysGrhwdiwU42tCadZL8GcBb1i2GYhMopQv",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "dupPajaLy2SSn8ko42aZz4mHANDNrLe8Nw8VQgFecLa",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "eca6zf6JJRjQsYYPkBHF3N32MTzur4n2WL4QiiacPCL",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "ed9tNscbWLYBooxWA7FE2B5KHWs8A6sxfY8EzezEcoo",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "ffecLRhhakKSGhMuc6Fz2Lnfq4uT9q3iu9ZsNaPLxPc",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "htsptAwi2yRoZH83SKaUXykeZGtZHgxkS2QwW1pssR8",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "meRgp4ArRPhD3KtCY9c5yAf2med7mBLsjKTPeVUHqBL",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "mrkPjRg79B2oK2ZLgd7S3AfEJaX9B6gAF3H9aEykRUS",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "nWBqjr3gpETbiaVj3CBJ3HFC5TMdnJDGt21hnvSTvVZ",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "noRuG2kzACwgaY7TVmLRnUNPLKNVQE1fb7X55YWBehp",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "prpFrMtgNmzaNzkPJg9o753fVvbHKqNrNTm76foJ2wm",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "sProgVaNWkYdP2eTRAy1CPrgb3b9p8yXCASrPEqo6VJ",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "sTKz343FM8mqtyGvYWvbLpTThw3ixRM4Xk8QvZ985mw",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "srremy31J5Y25FrAApwVb9kZcfXbusYMMsvTK9aWv5q",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "tSynMCspg4xFiCj1v3TDb4c7crMR5tSBhLz4sF7rrNA",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "turbRpTzBzDU6PJmWvRTbcJXXGxUs19CvQamUrRD9bN",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "turbnbNRp22nwZCmgVVXFSshz7H7V23zMzQgA46YpmQ",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "tvcF6b1TRz353zKuhBjinZkKzjmihXmBAHJdjNYw1sQ",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "wLckV1a64ngtcKPRGU4S4grVTestXjmNjxBjaKZrAcn",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "wiPzN1qHdV9L5KDe7KRte8KvvpC67Co9SFfw1529mob",
+        "dataBytes": 200,
+        "executable": false,
+        "lamports": "100000000000",
+        "owner": "Stake11111111111111111111111111111111111111"
+      },
+      {
+        "address": "zk1snxsc6Fh3wsGNbbHAJNHiJoYgF29mMnTSusGx5EJ",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "zkNLP7EQALfC1TYeB3biDU7akDckj8iPkvh9y2Mt2K3",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "zkdoVwnSFnSLtGJG7irJPEYUpmb4i7sGMGcnN6T9rnC",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "zkesAyFB19sTkX8i9ReoKaMNDA4YNTPYJpZKPDt7FMW",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "zkhiy5oLowR7HY4zogXjCjeMXyruLqBwSWH21qcFtnv",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      },
+      {
+        "address": "zkiTNuzBKxrCLMKehzuQeKZyLtX2yvFcEKMML8nExU8",
+        "dataBytes": 9,
+        "executable": false,
+        "lamports": "953520",
+        "owner": "Feature111111111111111111111111111111111111"
+      }
+    ],
+    "clusterType": "development",
+    "epochSchedule": {
+      "firstNormalEpoch": 0,
+      "firstNormalSlot": 0,
+      "leaderScheduleSlotOffset": 128,
+      "slotsPerEpoch": 128,
+      "warmup": false
+    },
+    "feeRateGovernor": {
+      "burnPercent": 0,
+      "maxLamportsPerSignature": 100000,
+      "minLamportsPerSignature": 5000,
+      "targetLamportsPerSignature": 10000,
+      "targetSignaturesPerSlot": 20000
+    },
+    "genesis": "9kiokvuYP6X6N8E4rST91gozHhzNE6GxLTgFov7erHHY",
+    "inflation": {
+      "foundation": 0.0,
+      "foundationTerm": 0.0,
+      "initial": 0.0,
+      "taper": 0.0,
+      "terminal": 0.0,
+      "unused": 0.0
+    },
+    "pohConfig": {
+      "hashes_per_tick": null,
+      "target_tick_count": null,
+      "target_tick_duration": {
+        "nanos": 6250000,
+        "secs": 0
+      }
+    },
+    "rent": {
+      "burn_percent": 0,
+      "exemption_threshold": 2.0,
+      "lamports_per_byte_year": 3480
+    },
+    "totalLamports": "1000000000000"
+  },
+  "budget": {
+    "totalNativeUnits": "1000000000000",
+    "reserveNativeUnits": "669690377440",
+    "allOtherGenesisUnits": "330309622560",
+    "backing": "synthetic rehearsal only; no real original SOC or bootstrap bridge counters"
+  },
+  "failure": "Full Agave Blockstore requires RLIMIT_NOFILE 1,000,000; Railway build-worker hard limit is 524,288. Bootstrap validator exits UnableToSetOpenFileDescriptorLimit; dependent nodes cannot discover the entrypoint.",
+  "hostFileLimits": {
+    "soft": 524288,
+    "hard": 524288,
+    "required": 1000000
+  },
+  "rehearsalSourceCommit": "dcf2318",
+  "executedRunnerSHA256": "1b2903d1b2cf0a2b48328f14880c36c7fbea4f9418ebc98a3b40efab548fe81e",
+  "reviewedAt": "2026-10-14T05:19:51.830320+00:00",
+  "operatorKeysExported": false,
+  "hostPreflightRegression": {
+    "state": "blocked",
+    "exitCode": 78,
+    "newPrivateKeys": 0,
+    "soft": 524288,
+    "hard": 524288,
+    "required": 1000000,
+    "passed": true
+  }
+}

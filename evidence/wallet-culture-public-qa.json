@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-14T05:34:34.449782+00:00",
+  "scope": "Actual public solanaclassic.net devnet wallet browser journey; CUA; disposable synthetic test session",
+  "sourceCommit": "dcf2318",
+  "initialSiteDeployment": "dpl_2SxsJn3NT2xPU9CdvKo5jvXB3DC2",
+  "url": "https://solanaclassic.net/wallet",
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "monetaryValue": false,
+  "wallet": "9VL83ouiqJr4GLqpWc4gKpw1GJ3kPXHHiDKFJJfRE1V9",
+  "faucet": {
+    "confirmedDisplayBalance": "1 tSOC"
+  },
+  "nfts": [
+    {
+      "mint": "6avjdhJDUaYmhHX3g5AEvuZL86u11DNSh4LvtKkFV7wQ",
+      "name": "Classic Wallet QA",
+      "artwork": "preset",
+      "verifiedOwnedUnits": "1"
+    },
+    {
+      "mint": "uFFWvwZ8Up2yfGpgAF57vVnPRs4tjUEAbsmNyiLMTTt",
+      "name": "Classic Upload QA",
+      "artwork": "PNG public project logo",
+      "verifiedOwnedUnits": "1"
+    }
+  ],
+  "checks": [
+    "Verified live devnet identity",
+    "Disposable session and real faucet",
+    "Actual reviewed preset NFT mint finalized",
+    "Actual uploaded-image NFT mint finalized",
+    "Both immutable artworks loaded from bounded same-origin proxies",
+    "Two finalized owned assets verified in the same wallet",
+    "Same address retained across collector/site navigation",
+    "Public collector view found both holdings"
+  ],
+  "consoleErrors": [],
+  "privateKeysExported": false,
+  "productionWalletOrBridgeEnabled": false,
+  "collectorPreviewIssue": {
+    "found": "Gallery request used 100 entries above server limit 50",
+    "fixedInSource": true,
+    "localContractQA": true,
+    "publicCorrectionVerified": false
+  }
+}

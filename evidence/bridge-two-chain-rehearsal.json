@@ -107,5 +107,6 @@
   "earlierStartupFailures": {
     "retained": true,
     "cause": "Unspecified gossip ports collided on the worker; explicit per-ledger gossip/dynamic ports fix the harness."
-  }
+  },
+  "negativeTestsScope": "RPC simulateTransaction executes the actual compiled bridge on private Agave ledgers; successful transfers/claims were broadcast and finalized."
 }

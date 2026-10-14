@@ -4,7 +4,7 @@ All nodes use fresh local keys on one host: this tests implementation, not
 independent operators or production decentralization. No public RPC is exposed.
 """
 from pathlib import Path
-import hashlib, json, os, shutil, signal, subprocess, time, urllib.request
+import hashlib, json, os, resource, shutil, signal, subprocess, time, urllib.request
 
 ROOT=Path('/data/mainnet-rehearsal-v1')
 BIN=Path('/data/target/release')
@@ -33,6 +33,10 @@ def main():
     def passed(text): proof['checks'].append(text);save();print('PASS '+text,flush=True)
     save();nodes=[];processes=[]
     try:
+        soft,hard=resource.getrlimit(resource.RLIMIT_NOFILE)
+        proof['hostFileLimits']={'soft':soft,'hard':hard,'required':1_000_000}
+        if hard!=resource.RLIM_INFINITY and hard<1_000_000:
+            proof['state']='blocked';proof['failure']='Pinned full Agave requires 1,000,000 open files; this host hard limit is '+str(hard)+'. Use a validator-capable Linux host.';save();raise SystemExit(78)
         for binary in ['solana-genesis','agave-validator','solana-keygen']:
             path=BIN/binary;version=subprocess.check_output([str(path),'--version'],text=True).strip();assert '3.0.14' in version
             proof.setdefault('binaries',{})[binary]={'sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'bytes':path.stat().st_size,'version':version}
@@ -59,7 +63,7 @@ def main():
         for i,node in enumerate(nodes):
             ledger=ROOT/('node-'+str(i));ledger.mkdir();
             for name in ['genesis.bin','genesis.tar.bz2']: shutil.copy2(original/name,ledger/name)
-            cmd=[str(BIN/'agave-validator'),'--ledger',str(ledger),'--identity',node['identityFile'],'--vote-account',node['vote'],'--expected-genesis-hash',g['genesis'],'--bind-address','127.0.0.1','--gossip-port',str(node['gossip']),'--dynamic-port-range',str(26000+i*100)+'-'+str(26050+i*100),'--rpc-bind-address','127.0.0.1','--rpc-port',str(node['rpc']),'--private-rpc','--full-rpc-api','--rpc-threads','2','--rpc-blocking-threads','2','--no-port-check','--no-poh-speed-test','--no-os-network-limits-test','--allow-private-addr','--no-wait-for-vote-to-start-leader','--limit-ledger-size','50000000','--accounts-db-cache-limit-mb','128','--unified-scheduler-handler-threads','2','--log',str(ROOT/('node-'+str(i)+'-validator-private.log'))]
+            cmd=[str(BIN/'agave-validator'),'--ledger',str(ledger),'--identity',node['identityFile'],'--vote-account',node['vote'],'--expected-genesis-hash',g['genesis'],'--bind-address','127.0.0.1','--gossip-host','127.0.0.1','--gossip-port',str(node['gossip']),'--dynamic-port-range',str(26000+i*100)+'-'+str(26050+i*100),'--rpc-bind-address','127.0.0.1','--rpc-port',str(node['rpc']),'--private-rpc','--full-rpc-api','--rpc-threads','2','--rpc-blocking-threads','2','--no-port-check','--no-poh-speed-test','--no-os-network-limits-test','--allow-private-addr','--no-wait-for-vote-to-start-leader','--limit-ledger-size','50000000','--accounts-db-cache-limit-mb','128','--unified-scheduler-handler-threads','2','--log',str(ROOT/('node-'+str(i)+'-validator-private.log'))]
             if i:cmd+=['--entrypoint','127.0.0.1:'+str(nodes[0]['gossip'])]
             out=(ROOT/('node-'+str(i)+'-private.log')).open('ab');p=subprocess.Popen(cmd,stdout=out,stderr=subprocess.STDOUT,start_new_session=True);processes.append(p)
         until=time.monotonic()+240
