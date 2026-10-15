@@ -1,0 +1,221 @@
+{
+  "schemaVersion": 1,
+  "scope": "Actual incompatible native programme-code replacement on NEW private copied Agave ledgers; old-pin pending claim refusal, zero settlement broadcasts",
+  "state": "passed",
+  "startedAt": "2026-10-15T06:21:14.753Z",
+  "checks": [
+    "Both fresh copies match reviewed historical code, authority, policy and retained finalized checkpoints",
+    "Six one-shot private buffer setup transactions finalize the exact reviewed counter ELF without changing bridge accounts, obligations or reserve",
+    "One new source lock finalized; original signed native claim remains PREPARED with zero handoff attempts and exact pending liability",
+    "Actual Loader-v3 native code replacement finalizes with unchanged authority/capacity and different reviewed ELF; old code pins reject while source pins still match",
+    "Unexpired original claim refuses handoff after actual native code replacement; journal unchanged, attempts0, receipt absent and exact bridge economics unchanged",
+    "Both copy processes stopped; original ledgers, fixture and finalized journal hashes unchanged"
+  ],
+  "genesi": [
+    "J8LsGtrVHe95w5Yxv3wR2Ux9uNWyDG3svK8LonczuuNh",
+    "EWjA6VWd5uw1XP9fZXBnxAd2doRFf6KQke2RUwj14QE2"
+  ],
+  "sourceBroadcasts": 1,
+  "codeSetupBroadcasts": 6,
+  "codeUpgradeBroadcasts": 1,
+  "claimBroadcasts": 0,
+  "negativeHandoffs": 1,
+  "codeChanges": [
+    {
+      "schemaVersion": 1,
+      "state": "PRIVATE_CODE_REPLACEMENT_VERIFIED",
+      "program": "8uajXCr14fhbmCYW1EbLJtURtFBBrU4zXDgHu3gXBME2",
+      "genesis": "EWjA6VWd5uw1XP9fZXBnxAd2doRFf6KQke2RUwj14QE2",
+      "oldElfSHA256": "556adf3132c6d102458c0c3b13e22457401bd748b6c3a37a422fb7a339a68e53",
+      "newElfSHA256": "cbf999bb25f5ac09468603499ac499b742e7891b091cadd0d47ffb34e572eca3",
+      "newElfBytes": 3504,
+      "oldProgramDataSHA256": "5c47a1345a4c75bb827d509c744a3a6379e2d41db17979ca28ac4c9e480f6dd3",
+      "newProgramDataSHA256": "1e1a8b662305af54dcf679162ae271ac3ad9e21467af0f3095b5fde4a1175bed",
+      "oldDeploymentSlot": "75",
+      "newDeploymentSlot": "1041",
+      "contextSlot": 1041,
+      "upgradeAuthority": "DkFYo99FDvGtbQ3MD7T8d5iLohtMWJmy57YeZHjxDRZr",
+      "authorityUnchanged": true,
+      "capacityUnchanged": true,
+      "productionReady": false,
+      "replacementApprovedForSettlement": false,
+      "canSign": false,
+      "canBroadcast": false,
+      "side": 1,
+      "signature": "2Yg31wU4wSRG1DKxMrqb3CoKesba6vYE8NtEx7TEhgfLZVqYduBZ1RK5vcvLin1zYJTbGAFXr4Sg9BwntrWdxzrn",
+      "claimStillUnexpiredAtBlockHeight": 1037,
+      "claimLastValidBlockHeight": 1155,
+      "journalUnchanged": true,
+      "attempts": 0,
+      "receiptAbsent": true
+    }
+  ],
+  "globalBacking": {
+    "completeInventoryVerified": false,
+    "actualGenesisBackingVerified": false,
+    "hypotheticalNativeBudgetUnits": "2000000000",
+    "observedNativeGlobalSupplyUnitsAtStart": "503000511071959133",
+    "budgetMatchesObservedGlobalSupply": false,
+    "note": "Synthetic 2-row accounting projection intentionally does not cover the complete test-validator supply. Cannot pass B3 or any monetary-release gate."
+  },
+  "productionReady": false,
+  "canonicalNetworkChanged": false,
+  "independentOperatorsVerified": false,
+  "initial": {
+    "originOutstandingUnits": "1950000",
+    "nativeOutstandingUnits": "1950000",
+    "originEscrowUnits": "1950000",
+    "originUserUnits": "50000",
+    "reserveNativeUnits": "52000000",
+    "protectedFloorNativeUnits": "2000000",
+    "bootstrapRecordSHA256": "cba73a439ce5cbfaa48ce7317ed7b1465b83022993afbf27a0ea9b3e06054327"
+  },
+  "final": {
+    "originOutstandingUnits": "1960000",
+    "nativeOutstandingUnits": "1950000",
+    "originEscrowUnits": "1960000",
+    "originUserUnits": "40000",
+    "reserveNativeUnits": "52000000",
+    "protectedFloorNativeUnits": "2000000",
+    "bootstrapRecordSHA256": "cba73a439ce5cbfaa48ce7317ed7b1465b83022993afbf27a0ea9b3e06054327"
+  },
+  "pendingLiabilityUnits": "10000",
+  "operation": {
+    "id": "3S8Nx1wGShKXVPfUukphJ5RjfUBv4agjc8HxPTMcZyRM",
+    "signature": "5xuQngGtnNhAmq8Yh2BPaCiqxUt9nqHkpN15wd6FGgSio3ZsqpDDVsoaRzKn8heJbUvnKcYNhvBHLVXwPn9mp148",
+    "eventHash": "10750c80f4aa519538773c2c5fb9046a1042a712e922360d8f88ff3e944b6d67",
+    "transactionHash": "e98ae1dc9e680aab7f43972ea280b92a657ee4d44da8109ca68b535e3482d92f",
+    "state": "PREPARED",
+    "attempts": 0,
+    "productionReady": false,
+    "schemaVersion": 2,
+    "scope": "isolated-native-claim",
+    "journalHash": "171efbec7ed2fce3524e2965225ac23abace97559438b88b84699d359c5da692",
+    "sourceChain": "J8LsGtrVHe95w5Yxv3wR2Ux9uNWyDG3svK8LonczuuNh",
+    "destinationChain": "EWjA6VWd5uw1XP9fZXBnxAd2doRFf6KQke2RUwj14QE2",
+    "sourceProgram": "AkhzSc1JHmF8ELCZkoeCWtcUv51J18AvbBRQNjFWK2g2",
+    "destinationProgram": "8uajXCr14fhbmCYW1EbLJtURtFBBrU4zXDgHu3gXBME2",
+    "sourceEvent": "DWYAgu3HjYe3BmPCRV9xEwrhMpWFY5mq5UCWwpbn3o6V",
+    "recipient": "7B6UwQD7B2jtqecdsSpyN6iq9zM8d8eiAeJXCaWjWFiw",
+    "nonce": "11",
+    "epoch": "1",
+    "originAmount": "10000",
+    "nativeAmount": "10000000",
+    "originDecimals": 6,
+    "originMint": "3gxnbecjqmYAytS2AjJTyLtPYNuz2H9GSc8Fs7m8NJBF",
+    "destinationToken": null,
+    "sourceContextSlot": 1217,
+    "minimumDestinationSlot": 1009,
+    "lastValidBlockHeight": 1155,
+    "instructionHash": "c6ca1678ce1dfd7cd1e3076c7456a7ba4c9000658322ece6deffcc3d337515af",
+    "inspectionOnly": true,
+    "programmePinsHash": "102becc7ca50f97db4c988bee27685b07fc5255d5cb5ee6917f8b9766d11ab41"
+  },
+  "operationJournalSHA256": "171efbec7ed2fce3524e2965225ac23abace97559438b88b84699d359c5da692",
+  "completedAt": "2026-10-15T06:23:01.710Z",
+  "processes": {
+    "scope": "New private copies for code-replacement refusal",
+    "state": "passed",
+    "starts": [
+      {
+        "side": 0,
+        "genesisMatches": true,
+        "originalLedgerPathsOpened": false,
+        "retainedMinimumFinalizedSlot": 960,
+        "finalizedSlotAtReadiness": 964
+      },
+      {
+        "side": 1,
+        "genesisMatches": true,
+        "originalLedgerPathsOpened": false,
+        "retainedMinimumFinalizedSlot": 772,
+        "finalizedSlotAtReadiness": 776
+      }
+    ],
+    "stops": [
+      {
+        "side": 0,
+        "signal": "SIGINT",
+        "returnCode": -2,
+        "applicationGracefulFlushVerified": false
+      },
+      {
+        "side": 1,
+        "signal": "SIGINT",
+        "returnCode": -2,
+        "applicationGracefulFlushVerified": false
+      }
+    ],
+    "canonicalNetworkChanged": false,
+    "productionReady": false,
+    "originalColdInventory": [
+      {
+        "sha256": "f12227059352b49203c51d16733985173997c3db837c72262cfab44ba265da3e",
+        "entries": 100,
+        "links": 2
+      },
+      {
+        "sha256": "50b97592108f440ab00c9a56b10284b4ced565ff43763684ae5256e3e305d54c",
+        "entries": 103,
+        "links": 2
+      }
+    ],
+    "originalFixtureSHA256": "5f27a9d2ec9781b2e6825e666bdf86d3896e2bbe6cba55b7cbc1a59aabd97a67",
+    "originalJournalSHA256": "166cc2b415f605071cd5a0f64a2871a64e23f8cb51742ab12032d1220ad0dccc",
+    "allStopped": true
+  },
+  "sourceBinarySHA256": "3d3140bf93c9bc967220ffd8989d8b0267b723915d32203132ecc36d2c63a49a",
+  "uploadedSourceHashes": {
+    "code-replacement.mjs": "a82a85a140d0fa8d821481bb9fd9bcc502cc91492d24e49f54a059f02ca74c05",
+    "code_replacement.py": "457af3f1eef0bb06dc6d4130bd4d29513905002cd847dc5eac05dd52a4b771fb",
+    "upgrade-observation.mjs": "90a36513fa39374b3d6fdecfde93f2ec7ddca0e3903cba06fa75061de9bbe057",
+    "replacement.so": "cbf999bb25f5ac09468603499ac499b742e7891b091cadd0d47ffb34e572eca3",
+    "replacement-artifact-public.json": "43a87bc3fb61df1010705fd61bae5c010929a987f6d14c577ff98e6424e02025",
+    "program-pins.mjs": "1f72a2007be0d4ebd6b1a3080dc2ad93224177e49ae32e0513beb2e163256d42",
+    "claim-pin-policy.mjs": "9ee31bcd58218860fcb5660624531e22c7038d29b34f8bd22590d72c70bb8893",
+    "pending-claim.mjs": "5a7ffcc1d0ce86ca7eddce9e0227f632e07f42f0f0d4a3d65b27cfc186ed4b26",
+    "lossless-native-rpc.mjs": "5ebed7db063afd9178925eab883a4955dd15ad878bbdad19878ab75225f3398b",
+    "sdk.mjs": "e603242692bedc2457ec9dd3cb144122ca1adb7341506d244ec864943bd8c988",
+    "bootstrap_driver.py": "200a81128b1dc697b32365ac939d7eef27c6e8b4cf3d48aa51faed4a65164a5c",
+    "cold_copy.py": "42bef261f9f273a1f525b515eabfcda61b8d6a1cbb62fd637ebbdd0f23a95b6d",
+    "reviewed-pins-public.json": "508b789e263f67ef371cdc138a927b1dcf36e410e4d6dfb55d40f34e2e509086"
+  },
+  "originalLedgersUnchanged": true,
+  "originalFixtureUnchanged": true,
+  "originalJournalUnchanged": true,
+  "originalJournalSHA256": "166cc2b415f605071cd5a0f64a2871a64e23f8cb51742ab12032d1220ad0dccc",
+  "originalColdInventory": [
+    {
+      "sha256": "f12227059352b49203c51d16733985173997c3db837c72262cfab44ba265da3e",
+      "entries": 100,
+      "links": 2
+    },
+    {
+      "sha256": "50b97592108f440ab00c9a56b10284b4ced565ff43763684ae5256e3e305d54c",
+      "entries": 103,
+      "links": 2
+    }
+  ],
+  "processOpenPathCheckScope": "Readiness fd/maps samples; not continuous host auditing",
+  "localChecks": {
+    "replacementJournalAndProgrammeObserver": 36,
+    "workerGuards": 3,
+    "passed": true
+  },
+  "coreFreeze": {
+    "files": 45,
+    "allMatch": true
+  },
+  "bridgeSBF_SHA256": "556adf3132c6d102458c0c3b13e22457401bd748b6c3a37a422fb7a339a68e53",
+  "actualNativeCodeReplacementVerified": true,
+  "originalSideCodeReplacementVerified": false,
+  "replacementApprovedForSettlement": false,
+  "coverageLimits": [
+    "Actual incompatible native-side code replacement in private copies; no compatible migration, original-side code replacement, competing forks, crashes or production custody",
+    "Six private buffer setup transactions, one native upgrade, one new synthetic source lock; zero settlement handoffs or broadcasts",
+    "Signed original claim was still unexpired when code pins refused; journal/receipt/economics unchanged and pending liability retained, no refund or retry",
+    "Snapshot admission cannot prevent a later upgrade or prove historical code behavior; production custody and upgrade governance remain gates",
+    "Complete genesis backing remains hypothetical/unfunded; full validators, real mint/backing, independent operators and external review remain required",
+    "Both copied processes stopped; originals, existing journals, all previous attempts and unresolved nonce6 preserved; raw keys/signed bytes/logs remain private"
+  ]
+}

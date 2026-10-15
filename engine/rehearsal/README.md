@@ -354,3 +354,12 @@ genesis authority before bracketing origin asset observations with deployed-code
 admission. Five actual checks pass;40 read-only RPC calls, no simulations or
 broadcasts, one stopped copy and unchanged originals. See
 `evidence/bridge-origin-token-code-agave.json` and `bridge/TOKEN_CODE.md`.
+
+
+`code_replacement.py` and `bridge/rehearsal/code-replacement.mjs` test an
+actual incompatible native-side programme upgrade on new private ledger copies.
+The still-unexpired prepared claim refuses handoff through the existing code-pin
+guard. Six actual checks passed, zero settlement broadcasts, unchanged originals
+and both copies stopped. See `bridge/CODE_REPLACEMENT.md` and
+`evidence/bridge-code-replacement-agave.json`. This does not approve a new bridge
+version or a compatible state migration.

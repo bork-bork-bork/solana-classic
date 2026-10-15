@@ -529,3 +529,14 @@ checkpoints. Its wrapper brackets the origin mint/escrow observer with these
 checks. This closes the owner-address-only observation gap for callers using
 the wrapper; it does not change signer handoff or provide production custody,
 historical upgrade, consensus or funded-backing acceptance.
+
+
+## Actual native-side code-replacement refusal
+
+A new private rehearsal deliberately replaced the native bridge implementation
+with the reviewed public counter example through Loader-v3. Six actual checks
+passed: old code pins blocked a still-unexpired prepared claim with attempts0,
+no settlement broadcast or payout, unchanged journal/economics and stopped
+copies. Originals remain unchanged. This proves incompatible destination-code
+refusal, not compatible migration, origin-side upgrades or production custody.
+See `bridge/CODE_REPLACEMENT.md`.

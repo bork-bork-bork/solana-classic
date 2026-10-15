@@ -224,7 +224,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-15T05:51:12.137266+00:00",
+    "reviewedAt": "2026-10-15T06:25:11.786580+00:00",
     "scope": "Development checkpoint only; separate from the live devnet release",
     "projects": [
       {
@@ -265,7 +265,7 @@
         "title": "SOC redemption bridge",
         "state": "building",
         "description": "Original SOC escrow and a native Classic reserve, targeting exact 1:1 display-unit redemption in both directions.",
-        "currentScope": "The private bridge prototype completes finalized transfers in both directions, cold restore and process-crash recovery. Claim handoff requires reviewed code and policy pins; actual authority changes on either side block a prepared claim. Read-only checks verify the fixture mint/escrow and bracket them with selected token-programme code and authority pins. Separate native reserve and consumed bootstrap receipt checks reconcile its declared budget. One expired private withdrawal remains unresolved, with no retry or refund authorized. Complete funded genesis backing, native reserve reconciliation, token-extension support, independent operators and custody, actual code-upgrade/fork tests and external security review remain required before live redemption.",
+        "currentScope": "The private bridge prototype completes finalized transfers in both directions, cold restore and process-crash recovery. Claim handoff requires reviewed code and policy pins; Actual authority changes on either side and an incompatible native code replacement block a prepared claim before submission. Read-only checks verify the fixture mint/escrow and bracket them with selected token-programme code and authority pins. Separate native reserve and consumed bootstrap receipt checks reconcile its declared budget. One expired private withdrawal remains unresolved, with no retry or refund authorized. Complete funded genesis backing, native reserve reconciliation, token-extension support, independent operators and custody, origin-side code-upgrade/fork tests and external security review remain required before live redemption.",
         "source": "https://github.com/solana-classic/solana-classic/tree/main/bridge",
         "milestones": [
           {
@@ -386,6 +386,12 @@
             "state": "rehearsal-passed",
             "detail": "5 actual checks on one new private copied ledger; 40 read-only RPC calls. Selected Token-2022 v10 code, complete ProgramData and authority match before/after mint and escrow observations. Wrong code/authority pins reject. Zero simulations/broadcasts; copy stopped, originals unchanged. Wrapper adoption, extensions, funded backing and independent review remain open.",
             "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/bridge-origin-token-code-agave.json"
+          },
+          {
+            "title": "Actual native code replacement blocks an unexpired prepared claim",
+            "state": "rehearsal-passed",
+            "detail": "6 actual checks on two new private ledger copies. Six buffer setup transactions, one deliberate incompatible native code replacement and one new source lock. The original claim was still unexpired when old code pins rejected handoff; zero settlement broadcasts, attempts0 and unchanged journal/economics. Both copies stopped and originals unchanged. No compatible upgrade, origin-side replacement, fork or production acceptance.",
+            "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/bridge-code-replacement-agave.json"
           },
           {
             "title": "Bootstrap reconciliation, custody and recovery",
