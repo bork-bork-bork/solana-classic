@@ -224,7 +224,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-15T06:25:11.786580+00:00",
+    "reviewedAt": "2026-10-15T06:31:26.112054+00:00",
     "scope": "Development checkpoint only; separate from the live devnet release",
     "projects": [
       {
@@ -244,6 +244,12 @@
             "title": "Source-built genesis and private validator rehearsal",
             "state": "blocked",
             "detail": "Genesis source build/account audit pass; full-validator startup blocked by host open-file ceiling."
+          },
+          {
+            "title": "Validator-host admission and operator handoff",
+            "state": "blocked",
+            "detail": "Read-only host tool and operator handoff prepared; five local checks. Actual existing compiler host still fails the hard open-file requirement524288 vs1000000; three reviewed binaries match. No keys/ledgers created, no validator starts or limit changes. A capable Linux host is required for the next three-validator consensus rehearsal.",
+            "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/mainnet-host-readiness.json"
           },
           {
             "title": "Exact genesis backing, protected rent and precision audit",

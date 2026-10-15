@@ -24,10 +24,16 @@ consensus/restart/recovery evidence and an explicit release decision. The
 planner deliberately uses Agave's development cluster classification for an
 isolated rehearsal; this does not label that rehearsal as mainnet.
 
-Next implementation: compile `solana-genesis` from the pinned engine source,
-build a private multi-validator rehearsal, implement backed bootstrap accounting
-in the bridge, inspect exact genesis accounts, and test fees and supply through
-transactions, staking, restart, partition and recovery.
+The pinned `solana-genesis` build and complete249-account synthetic inventory
+already exist. Three full-validator execution remains blocked by the current
+host's hard file limit524288, below Agave's required1000000. The next network
+step is a capable Linux host and an actual consensus/recovery rehearsal.
+
+The new read-only `host-preflight.py` validates effective host resources and
+three exact reviewed runtime artifacts without generating keys, starting a
+process or changing limits. See [the operator handoff](VALIDATOR_HANDOFF.md).
+This profile is for a private rehearsal; production sizing, independent operators
+and funded genesis/reserve custody require their own acceptance.
 
 See [the implementation sequence](../docs/planning/MAINNET_BRIDGE.md). Existing
 testnet balances and NFTs have no mainnet conversion rights.
