@@ -1,0 +1,191 @@
+{
+  "at": "2026-10-15T01:08:46.581Z",
+  "scope": "remote bounded SDK workload; not completed",
+  "passed": false,
+  "api": "https://network-release-production.up.railway.app",
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "candidate": {
+    "apiOrigin": "https://network-release-production.up.railway.app",
+    "frontendOrigin": "https://solana-classic-soc.vercel.app",
+    "frontendDeploymentId": "dpl_3aWWzKDohr4SrgijgrB8dWgHHS5r",
+    "frontendCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "apiCommit": "119f25e225540be78b64b19bdb6cb300a1f47c10",
+    "networkConfigSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+    "dependencyManifestSha256": "e6da27717e6a84ca7b29d707ff63591b2ff0cfc38892d3b4667f8615bdf7bbc0"
+  },
+  "durationMs": 78818,
+  "completed": 11,
+  "metrics": {
+    "successfulWithin15Seconds": 0.055,
+    "p95LogicalConfirmedMs": null,
+    "missingConfirmations": 189
+  },
+  "results": [
+    {
+      "index": 0,
+      "kind": "issuance",
+      "startedAt": "2026-10-15T01:07:27.765Z",
+      "confirmedMs": 4475,
+      "finalizedMs": 16666,
+      "galleryVerifiedMs": 16880,
+      "signatures": [
+        "4vYD7q7tuEJmjFkLQzKFHkymM6uog2pRz2ctTVfghgALbPC2NJiFGSmkGDWLksFg66R31sVBnr9wEC6mv5989avt"
+      ],
+      "confirmedSignatures": [
+        "4vYD7q7tuEJmjFkLQzKFHkymM6uog2pRz2ctTVfghgALbPC2NJiFGSmkGDWLksFg66R31sVBnr9wEC6mv5989avt"
+      ],
+      "passed": true
+    },
+    {
+      "index": 1,
+      "kind": "transfer",
+      "startedAt": "2026-10-15T01:07:33.764Z",
+      "confirmedMs": 985,
+      "finalizedMs": 17145,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "5FEV4EH5yZ6sQNwY3QCXLEX9RasdmwAh9gkP6qXiDbq8a5Vum8tqPRhcLAD4npvoddGZtnipEZVh9jdv445GdCAZ"
+      ],
+      "confirmedSignatures": [
+        "5FEV4EH5yZ6sQNwY3QCXLEX9RasdmwAh9gkP6qXiDbq8a5Vum8tqPRhcLAD4npvoddGZtnipEZVh9jdv445GdCAZ"
+      ],
+      "passed": true
+    },
+    {
+      "index": 2,
+      "kind": "issuance",
+      "startedAt": "2026-10-15T01:07:39.764Z",
+      "confirmedMs": 4493,
+      "finalizedMs": 16709,
+      "galleryVerifiedMs": 16910,
+      "signatures": [
+        "4wCfXfvxA7qrZrPGrf3aiHwbdvrCvd3U9iWbVWw5KfbrCWvvjXPWKU8pjMi1N2kQ6iGf7wpPje6kkUqXzfueqQa9"
+      ],
+      "confirmedSignatures": [
+        "4wCfXfvxA7qrZrPGrf3aiHwbdvrCvd3U9iWbVWw5KfbrCWvvjXPWKU8pjMi1N2kQ6iGf7wpPje6kkUqXzfueqQa9"
+      ],
+      "passed": true
+    },
+    {
+      "index": 3,
+      "kind": "transfer",
+      "startedAt": "2026-10-15T01:07:45.764Z",
+      "confirmedMs": 1266,
+      "finalizedMs": 15997,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "32zbQiF9gmDWaqpUyghfNwj5EfUw6VKocTDDT67fojYEJcKapwN7RWyp9Gw6rKbkbbBfyZZS8tB6Hb9ohCFXzUqL"
+      ],
+      "confirmedSignatures": [
+        "32zbQiF9gmDWaqpUyghfNwj5EfUw6VKocTDDT67fojYEJcKapwN7RWyp9Gw6rKbkbbBfyZZS8tB6Hb9ohCFXzUqL"
+      ],
+      "passed": true
+    },
+    {
+      "index": 4,
+      "kind": "issuance",
+      "startedAt": "2026-10-15T01:07:51.763Z",
+      "confirmedMs": 1473,
+      "finalizedMs": 16677,
+      "galleryVerifiedMs": 16910,
+      "signatures": [
+        "zwfDUmyBqGVVvSq6aKRaq9qwVJMeWRvTndxt22RECd48UkMK2Ngor11SL4H7kMTx79PMpBoVGwpVJD5spLwkTCp"
+      ],
+      "confirmedSignatures": [
+        "zwfDUmyBqGVVvSq6aKRaq9qwVJMeWRvTndxt22RECd48UkMK2Ngor11SL4H7kMTx79PMpBoVGwpVJD5spLwkTCp"
+      ],
+      "passed": true
+    },
+    {
+      "index": 5,
+      "kind": "transfer",
+      "startedAt": "2026-10-15T01:07:57.768Z",
+      "confirmedMs": 971,
+      "finalizedMs": 15976,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "3UibQUdJCKYUYotpnXsesqzn1cVKC4r74DkXBCmf2tJ71KpQucU96puPv7XRJMZHKZ3hAPATS3BfCGmS6V89aUax"
+      ],
+      "confirmedSignatures": [
+        "3UibQUdJCKYUYotpnXsesqzn1cVKC4r74DkXBCmf2tJ71KpQucU96puPv7XRJMZHKZ3hAPATS3BfCGmS6V89aUax"
+      ],
+      "passed": true
+    },
+    {
+      "index": 6,
+      "kind": "issuance",
+      "startedAt": "2026-10-15T01:08:03.764Z",
+      "confirmedMs": 4535,
+      "finalizedMs": 17116,
+      "galleryVerifiedMs": 18310,
+      "signatures": [
+        "4Pr8jQfHXiUVanKjb9o3dnEV32XzrCA7ShcQQCKCAZ8sPcRa7qewEDeUEzC4bxzzed65vaorjHvFux1taWjaifn5"
+      ],
+      "confirmedSignatures": [
+        "4Pr8jQfHXiUVanKjb9o3dnEV32XzrCA7ShcQQCKCAZ8sPcRa7qewEDeUEzC4bxzzed65vaorjHvFux1taWjaifn5"
+      ],
+      "passed": true
+    },
+    {
+      "index": 7,
+      "kind": "transfer",
+      "startedAt": "2026-10-15T01:08:09.765Z",
+      "confirmedMs": 3941,
+      "finalizedMs": 15933,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "2k9R9PitD2dU9Z1jGNyMEfvaVHQP9j6nCyJMZ9EQDbdxJVpgx4h2ojA2vdn6VzP59QuF6MtPr1k3RGLQfb87yzqk"
+      ],
+      "confirmedSignatures": [
+        "2k9R9PitD2dU9Z1jGNyMEfvaVHQP9j6nCyJMZ9EQDbdxJVpgx4h2ojA2vdn6VzP59QuF6MtPr1k3RGLQfb87yzqk"
+      ],
+      "passed": true
+    },
+    {
+      "index": 8,
+      "kind": "issuance",
+      "startedAt": "2026-10-15T01:08:15.764Z",
+      "confirmedMs": 5528,
+      "finalizedMs": 17197,
+      "galleryVerifiedMs": 17387,
+      "signatures": [
+        "4J4pkBdJEmXqF89qkZaH5QoCrXZXzJWjt94jGcocTMzYJYNkhCGK5QupvTS29Z5UPUsCutDfuk5GR2PbW58amtmN"
+      ],
+      "confirmedSignatures": [
+        "4J4pkBdJEmXqF89qkZaH5QoCrXZXzJWjt94jGcocTMzYJYNkhCGK5QupvTS29Z5UPUsCutDfuk5GR2PbW58amtmN"
+      ],
+      "passed": true
+    },
+    {
+      "index": 9,
+      "kind": "transfer",
+      "startedAt": "2026-10-15T01:08:21.764Z",
+      "confirmedMs": 1613,
+      "finalizedMs": 16626,
+      "galleryVerifiedMs": null,
+      "signatures": [
+        "w1Gg4RnVS3acLabJkBfvTxwiGfcBqriKe5ytePt4hkhKaiiqZRzRUCnuiGc8FizezpdmQgraJkTLhEmdFcg39Sb"
+      ],
+      "confirmedSignatures": [
+        "w1Gg4RnVS3acLabJkBfvTxwiGfcBqriKe5ytePt4hkhKaiiqZRzRUCnuiGc8FizezpdmQgraJkTLhEmdFcg39Sb"
+      ],
+      "passed": true
+    },
+    {
+      "index": 10,
+      "kind": "issuance",
+      "startedAt": "2026-10-15T01:08:27.767Z",
+      "confirmedMs": 4749,
+      "finalizedMs": 18632,
+      "galleryVerifiedMs": 18814,
+      "signatures": [
+        "3DqxDaxkEECsqKNwtEyNa4vfVAxmGvFKd8NYZPUARfuG3aQXsKx4qx5hikpHJPa2Q4L8zaXY1rBi5518nDpN2KAS"
+      ],
+      "confirmedSignatures": [
+        "3DqxDaxkEECsqKNwtEyNa4vfVAxmGvFKd8NYZPUARfuG3aQXsKx4qx5hikpHJPa2Q4L8zaXY1rBi5518nDpN2KAS"
+      ],
+      "passed": true
+    }
+  ],
+  "error": "failed to get balance of account 6wk9Eo5xAzjj9a2B9D5QxggnckbpBx8zhQeGXqxrG29n: TypeError: fetch failed"
+}
