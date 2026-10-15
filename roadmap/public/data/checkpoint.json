@@ -223,7 +223,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-15T12:11:18.403816+00:00",
+    "reviewedAt": "2026-10-15T14:49:58.506014+00:00",
     "scope": "Development checkpoint only; separate from the live devnet release",
     "projects": [
       {
