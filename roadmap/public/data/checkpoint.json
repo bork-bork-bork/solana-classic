@@ -224,7 +224,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-15T07:22:50.248766+00:00",
+    "reviewedAt": "2026-10-15T07:57:02.098783+00:00",
     "scope": "Development checkpoint only; separate from the live devnet release",
     "projects": [
       {
@@ -232,7 +232,7 @@
         "title": "Native SOC mainnet",
         "state": "blocked",
         "description": "A separate production-network implementation, beginning with exact genesis supply and backed validator bootstrap.",
-        "currentScope": "Genesis compiler and complete synthetic account audits pass. A private three-validator launcher is prepared with normal host/network/PoH checks and exact genesis, bank and shred pins. Current host admission fails: hard file limit524288 vs required1000000. Fresh hashing genesis, slot-zero bank/shred review and actual full-validator consensus/recovery remain pending. Complete funded genesis/reserve custody, independent operators and production acceptance remain separate gates.",
+        "currentScope": "The source-built genesis compiler, complete synthetic inventory auditor, ledger inspection tool and guarded preparation/three-validator launcher are ready for private execution. Current host admission fails: hard file limit 524,288 vs required 1,000,000. Fresh hashing genesis, actual slot-zero replay and full-validator consensus/recovery still await suitable hosting. Funded genesis/reserve custody, independent operators and production review remain separate gates.",
         "source": "https://github.com/solana-classic/solana-classic/tree/main/mainnet",
         "milestones": [
           {
@@ -260,8 +260,14 @@
           {
             "title": "Genesis startup archive admission",
             "state": "rehearsal-passed",
-            "detail": "Actual bounded extraction reproduced the retained synthetic genesis and all8 initial blockstore files, with original hashes preserved and zero validator starts. Ten archive checks reject mismatched genesis, unsafe paths/links, duplicates and oversized streams. This is archive preparation, not block replay or consensus. Pinned ledger inspection tooling is building for the next bank-hash review.",
+            "detail": "Actual bounded extraction reproduced the retained synthetic genesis and all 8 initial blockstore files, with original hashes preserved and zero validator starts. Ten archive checks reject mismatched genesis, unsafe paths/links, duplicates and oversized streams. This is archive preparation, not block replay or consensus. The pinned ledger inspection tool is now built; real slot-zero replay remains pending.",
             "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/mainnet-genesis-archive.json"
+          },
+          {
+            "title": "Fresh hashing genesis and startup-hash preparation",
+            "state": "local-passed",
+            "detail": "Pinned ledger inspection tool built from all 2,215 reviewed source files; existing runtime binaries unchanged. New guarded preparation command has 13 local checks and requires exact synthetic supply plus matching bank/shred values from two fresh replays. Actual current host refuses before keys or ledgers in both modes. Fresh genesis and real replay await capable hosting.",
+            "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/mainnet-genesis-preparation.json"
           },
           {
             "title": "Exact genesis backing, protected rent and precision audit",

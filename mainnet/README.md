@@ -64,3 +64,14 @@ initial slot-zero block data; actual private extraction preserved all eight
 retained blockstore files and original hashes. Actual host admission remains blocked; no full validators started.
 A fresh hashing genesis and reviewed bank/shred pins are still inputs, not
 completed work. Read [the execution contract](CONSENSUS_REHEARSAL.md).
+
+## Fresh hashing genesis preparation
+
+The pinned ledger inspection tool is built. `prepare-consensus.py` supplies a
+read-only default and explicit private preparation after full host admission.
+It generates a new synthetic genesis, reconciles every allocation and requires
+matching startup hashes from two fresh slot-zero replays before writing the
+launcher's manifest. Thirteen preparation checks pass; the actual current host
+refuses both modes before creating keys or ledgers. No new bank hash, genesis
+or consensus pass is claimed. See [the procedure](GENESIS_PREPARATION.md) and
+[scoped evidence](../evidence/mainnet-genesis-preparation.json).

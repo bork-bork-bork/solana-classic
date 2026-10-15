@@ -136,6 +136,15 @@ selected archive explicitly into each new ledger. It never copies a runtime
 ledger or snapshot from another network.
 
 This validates archive identity and safe materialization, not block replay,
-a reviewed slot-zero bank hash, PoH speed or consensus. A separate pinned
-`agave-ledger-tool` build is being prepared for that review. Its build alone
-cannot satisfy host admission or accept a new genesis.
+a reviewed slot-zero bank hash, PoH speed or consensus. The separate pinned `agave-ledger-tool` build is complete and recorded in
+`ledger-tool-artifact.json`. Its version and relevant CLI flags were verified
+without opening a ledger. Its build alone cannot satisfy host admission or
+accept a new genesis.
+
+`prepare-consensus.py` now prepares the required fresh synthetic bundle after
+host admission. It defaults to read-only admission; actual private preparation
+requires an explicit acknowledgment. It generates disposable keys, compiles
+hashing genesis with an exact synthetic budget, replays slot0 on two fresh
+copies with normal verification, and requires matching bank/shred outputs.
+The current host refuses before private preparation. Read
+[the preparation procedure](GENESIS_PREPARATION.md).

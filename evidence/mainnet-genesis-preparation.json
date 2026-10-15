@@ -1,0 +1,213 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-15T07:57:02.098783+00:00",
+  "state": "prepared-host-blocked",
+  "scope": "Private synthetic genesis preparation source, successful pinned ledger-tool build and actual blocked-host admission; no fresh genesis or bank replay accepted",
+  "localChecks": {
+    "preparation": 13,
+    "launcher": 14,
+    "archive": 10,
+    "host": 5,
+    "total": 42,
+    "passed": true,
+    "syntheticDriverScope": "Offline tool responses exercise budget, real bounded archive materialization, two replay-result admissions and final manifest; no real genesis compilation or bank replay in this local driver"
+  },
+  "toolBuild": {
+    "at": "2026-10-15T07:47:38.438432+00:00",
+    "state": "built",
+    "artifact": {
+      "name": "agave-ledger-tool",
+      "sha256": "afffc5e00326aa522a5130384098c1df8023f020582c5681a618c72ce1899bb8",
+      "bytes": 57109696,
+      "version": "agave-ledger-tool 3.0.14 (src:f516a892; feat:3604001754, client:Agave)",
+      "sourceRevision": "f516a8927c76c07f0ebc54ca7a4ce8b2046eee86",
+      "sourceTree": "a4c75a1781d4ca56e7325a39d0614e1faa26030d",
+      "verifiedSourceFiles": 2215
+    },
+    "priorRuntimeArtifactsUnchanged": true,
+    "validatorsStarted": 0,
+    "privateKeysRead": false,
+    "ledgerOpened": false,
+    "hostChecksWeakened": false
+  },
+  "actualAdmission": {
+    "at": "2026-10-15T07:55:09.480270+00:00",
+    "state": "host-blocked-before-private-preparation",
+    "sourceHashes": {
+      "prepare-consensus.py": "38a683558c50cd52efedc50cf151ace005d80772d55e2fe3bd1fafa653dbd1ec",
+      "consensus.py": "bd867a15e0d027aca4e19fbf8c4c9a9addde613399d96daf94006593b32727b2",
+      "host-preflight.py": "32332412e01d3ad0d77908de5691e80fa4fb205f02e31183211fc28789bbab5e",
+      "genesis_archive.py": "f09d71c5bc6e0e09924602daa89148ae1a55727ce3de7a45e6380a3efddeb079",
+      "consensus-audit-artifact.json": "8d5d7fbb1c5e295f55a542438197c1331ef8991797a93cdff367f0dc03dcd718",
+      "ledger-tool-artifact.json": "78ab91a005349e21ac965ab8ee7ab6bb350a7a76813b8effaded2ff76f3fed7d"
+    },
+    "commandsRecognizedByBuiltTool": true,
+    "admissions": [
+      {
+        "explicitPreparationRequested": false,
+        "exitCode": 78,
+        "result": {
+          "state": "blocked",
+          "host": {
+            "schemaVersion": 1,
+            "scope": "Read-only host admission for private three-validator rehearsal; not production sizing or startup/consensus proof",
+            "state": "blocked",
+            "blockingReasons": [
+              "HARD_OPEN_FILE_LIMIT_BELOW_1000000",
+              "REHEARSAL_MEMORY_BELOW_16_GIB"
+            ],
+            "requirements": {
+              "hardOpenFiles": 1000000,
+              "memoryBytes": 17179869184,
+              "availableStorageBytes": 17179869184,
+              "effectiveCpuCount": 4
+            },
+            "facts": {
+              "system": "Linux",
+              "architecture": "x86_64",
+              "fileLimitSoft": 524288,
+              "fileLimitHard": 524288,
+              "fileLimitHardUnlimited": false,
+              "effectiveMemoryBytes": 16000000000,
+              "effectiveCpuCount": 4.0,
+              "containerLimitsObserved": true,
+              "availableStorageBytes": 30327377920,
+              "binaries": {
+                "agave-validator": {
+                  "sha256": "34e468747f1a0d69399b61fd40edc32ce4690ec5a200b5684474aa60a97a6910",
+                  "bytes": 74406832,
+                  "executable": true,
+                  "matchesReviewedArtifact": true
+                },
+                "solana-genesis": {
+                  "sha256": "ffbb10cf13737034ae3946e8ac6c106e72ded0886e041d0cbfb7a1fc4780b4c2",
+                  "bytes": 21491704,
+                  "executable": true,
+                  "matchesReviewedArtifact": true
+                },
+                "solana-keygen": {
+                  "sha256": "2f00a742ab0d99cad929e7a82b2d80f7c519cab9038ec45844fdbe9c305dea65",
+                  "bytes": 2804464,
+                  "executable": true,
+                  "matchesReviewedArtifact": true
+                }
+              }
+            },
+            "canPrepareFreshPrivateRehearsal": false,
+            "canStartValidators": false,
+            "productionReady": false,
+            "mainnetActivationAuthorized": false,
+            "changedLimits": false,
+            "createdKeys": false,
+            "createdLedger": false,
+            "networkRequests": 0
+          },
+          "createdKeys": false,
+          "createdLedger": false,
+          "validatorsStarted": 0,
+          "productionReady": false
+        }
+      },
+      {
+        "explicitPreparationRequested": true,
+        "exitCode": 78,
+        "result": {
+          "state": "blocked",
+          "host": {
+            "schemaVersion": 1,
+            "scope": "Read-only host admission for private three-validator rehearsal; not production sizing or startup/consensus proof",
+            "state": "blocked",
+            "blockingReasons": [
+              "HARD_OPEN_FILE_LIMIT_BELOW_1000000",
+              "REHEARSAL_MEMORY_BELOW_16_GIB"
+            ],
+            "requirements": {
+              "hardOpenFiles": 1000000,
+              "memoryBytes": 17179869184,
+              "availableStorageBytes": 17179869184,
+              "effectiveCpuCount": 4
+            },
+            "facts": {
+              "system": "Linux",
+              "architecture": "x86_64",
+              "fileLimitSoft": 524288,
+              "fileLimitHard": 524288,
+              "fileLimitHardUnlimited": false,
+              "effectiveMemoryBytes": 16000000000,
+              "effectiveCpuCount": 4.0,
+              "containerLimitsObserved": true,
+              "availableStorageBytes": 30327377920,
+              "binaries": {
+                "agave-validator": {
+                  "sha256": "34e468747f1a0d69399b61fd40edc32ce4690ec5a200b5684474aa60a97a6910",
+                  "bytes": 74406832,
+                  "executable": true,
+                  "matchesReviewedArtifact": true
+                },
+                "solana-genesis": {
+                  "sha256": "ffbb10cf13737034ae3946e8ac6c106e72ded0886e041d0cbfb7a1fc4780b4c2",
+                  "bytes": 21491704,
+                  "executable": true,
+                  "matchesReviewedArtifact": true
+                },
+                "solana-keygen": {
+                  "sha256": "2f00a742ab0d99cad929e7a82b2d80f7c519cab9038ec45844fdbe9c305dea65",
+                  "bytes": 2804464,
+                  "executable": true,
+                  "matchesReviewedArtifact": true
+                }
+              }
+            },
+            "canPrepareFreshPrivateRehearsal": false,
+            "canStartValidators": false,
+            "productionReady": false,
+            "mainnetActivationAuthorized": false,
+            "changedLimits": false,
+            "createdKeys": false,
+            "createdLedger": false,
+            "networkRequests": 0
+          },
+          "createdKeys": false,
+          "createdLedger": false,
+          "validatorsStarted": 0,
+          "productionReady": false
+        }
+      }
+    ],
+    "privateGenesisNamespaceCreated": false,
+    "validatorsBefore": 0,
+    "validatorsAfter": 0,
+    "existingRuntimeArtifactsUnchanged": true,
+    "canonicalNetworkChanged": false,
+    "newHashingGenesisPrepared": false,
+    "bankHashPrepared": false,
+    "productionReady": false
+  },
+  "sourceHashes": {
+    "mainnet/prepare-consensus.py": "38a683558c50cd52efedc50cf151ace005d80772d55e2fe3bd1fafa653dbd1ec",
+    "mainnet/prepare_consensus_test.py": "5bf6a6201641613d0847beb145b7e816c31dc4b00d15926a2538f24450321fcc",
+    "mainnet/ledger-tool-artifact.json": "78ab91a005349e21ac965ab8ee7ab6bb350a7a76813b8effaded2ff76f3fed7d"
+  },
+  "earlierCLIAssertion": {
+    "state": "failed-retained",
+    "cause": "Test expected halt-at-slot on shred-version; pinned CLI does not expose it and internally defaults to slot0",
+    "corrected": true,
+    "privateGenesisNamespaceCreated": false,
+    "validatorStarts": 0
+  },
+  "freshHashingGenesisPrepared": false,
+  "slotZeroBankHashPrepared": false,
+  "fullValidatorConsensusVerified": false,
+  "actualFundedBackingVerified": false,
+  "independentOperatorsVerified": false,
+  "productionReady": false,
+  "mainnetActivationAuthorized": false,
+  "coverageLimits": [
+    "Both default and explicit preparation exit78 before keys or ledgers on the current blocked host",
+    "A suitable host must execute real hashing genesis compilation and two verified slot-zero replays before their generated manifest is usable",
+    "Two fresh ledger replays on one host are repeatability evidence, not independent operator or consensus evidence",
+    "Normal host, ledger PoH and transaction verification remain enabled; no ignored host limits, ledger override or skipped verification flags",
+    "No canonical network, original frontend, stability runner, frozen candidate or fixed sprint deadline changed",
+    "Production genesis backing, reserve custody, validator consensus/recovery and independent security review remain separate gates"
+  ]
+}

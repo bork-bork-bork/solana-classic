@@ -1,0 +1,9 @@
+{
+  "name": "agave-ledger-tool",
+  "sha256": "afffc5e00326aa522a5130384098c1df8023f020582c5681a618c72ce1899bb8",
+  "bytes": 57109696,
+  "version": "agave-ledger-tool 3.0.14 (src:f516a892; feat:3604001754, client:Agave)",
+  "sourceRevision": "f516a8927c76c07f0ebc54ca7a4ce8b2046eee86",
+  "sourceTree": "a4c75a1781d4ca56e7325a39d0614e1faa26030d",
+  "verifiedSourceFiles": 2215
+}
