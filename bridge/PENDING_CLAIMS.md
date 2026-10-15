@@ -361,3 +361,50 @@ dependency and record its exact hash. Never patch a retained attempt to update i
 ```sh
 node --test bridge/reviewed-pending.test.mjs bridge/pinned-pending.test.mjs
 ```
+
+
+## Fresh metadata settlement and restart harness
+
+`rehearsal/metadata-journal.mjs` with
+`../engine/rehearsal/metadata_journal.py` prepares two fresh private, loopback-only
+source-built ledgers. It creates one immutable synthetic metadata mint, selects
+complete genesis code pins, and runs one version3 lock/native-release/return/
+original-redemption round trip. Wrong selected mint digest and token-code pins
+must refuse handoff in both directions while retaining journal/economic state.
+
+Each signed setup/source transaction is retained privately before its sole
+submission attempt; claim bytes are handed out through the existing journal.
+The harness reconciles finalized signatures before stopping each destination
+in turn. With that RPC unavailable, reconciliation must fail without changing
+the saved record or allowing retry. Same-ledger restart must verify the original
+signature, receipt, review admission and exact economic deltas again. This is
+known-finalized restart recovery, not a pre-finality crash or fork test.
+
+The driver reserves the attempt before generating disposable keys. Each client
+phase has an exclusive durable marker; existing results and phases cannot be
+replayed. Both processes must stop. Four local guards verify worker identity,
+new-ledger/restart command separation, finalized readiness and retained-attempt
+refusal. Execution results are recorded separately; source/guards alone do not
+establish actual settlement, recovery or production readiness.
+
+
+Ten actual checks now pass on two fresh source-built Agave3.0.14 private ledgers.
+The immutable metadata mint and setup finalize, followed by one source lock,
+one version3 native release, one native return and one version3 original-token
+redemption. Four wrong reviewed-mint/token-code handoffs refuse against actual
+accounts without changing prepared journals or bridge economics.
+
+Each finalized journal survives an actual destination RPC outage unchanged;
+same-genesis restart then reconciles its original signature, receipt, exact
+movements and retained review admission. Another handoff remains forbidden.
+Tracked escrow, both counters, original token balance, native reserve and floor
+return to their initial values. User event rent and payer fees are separate
+from those bridge-accounting checks. All four process starts stop with SIGINT;
+application-level graceful flushing is not claimed. Four worker guards pass
+locally and on Linux. See [aggregate evidence](../evidence/bridge-metadata-journal-agave.json).
+
+This known-finalized restart result does not verify a metadata claim interrupted
+before finality, a competing fork, physical host loss, independent operators,
+complete genesis backing or production custody/security. No previous private
+ledger or journal was opened, reset or replayed. Private keys, signatures,
+policies, balances and raw ledgers stay out of this public evidence.

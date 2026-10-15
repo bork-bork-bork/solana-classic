@@ -11,7 +11,8 @@ observer. A different complete mint digest cannot inherit valid code admission.
 This policy/observer module cannot grant a signed-byte handoff, sign, submit,
 write a journal, retry, refund or authorize settlement. The separate explicit
 version3 adapter in `pending-claim.mjs` now consumes it in a private prototype,
-verified locally only. Existing plain-mint defaults remain.
+now verified locally and in a separate fresh private two-chain/restart
+rehearsal. Existing plain-mint defaults remain.
 All signing, retry, broadcast and production flags stay false.
 
 ## Selecting and retaining a policy
@@ -80,7 +81,10 @@ selected two-chain programme pins. Every handoff API enforces its reviewed
 mint and code observations; old records cannot acquire admission by adding
 policy fields.16 new local checks cover both directions and refusal/recovery
 paths. The145-check combined suite includes legacy journal, exact-u64,
-code-pin and expiry-review regressions. Actual two-chain metadata settlement
-and recovery, custody and independent security review remain outstanding.
+code-pin and expiry-review regressions. A later actual private rehearsal passes10 checks for both
+metadata settlement directions and known-finalized restart recovery.
+Pre-finality faults/forks, custody, independent verification and security
+review remain outstanding. See
+[the separate actual result](../evidence/bridge-metadata-journal-agave.json).
 See [the version3 journal](PENDING_CLAIMS.md) and
 [local evidence](../evidence/bridge-reviewed-journal-local.json).

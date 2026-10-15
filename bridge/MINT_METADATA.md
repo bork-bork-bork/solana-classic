@@ -8,8 +8,9 @@ The private read-only origin observer can explicitly select
 `mintPolicy: "immutable-self-metadata-v1"`. Its default remains `plain`, which
 rejects extended mints. Versions1/2 of the claim journal retain plain-mint
 original-redemption admission. Explicit version3 now binds this narrow reviewed
-metadata policy in a private prototype, with local tests only. No metadata
-settlement has been verified on Agave or enabled on mainnet/the public website. Successful inspection
+metadata policy in a private prototype. A fresh two-chain Agave rehearsal now
+verifies both metadata settlement directions and known-finalized restart
+recovery. No bridge is enabled on mainnet or the public website. Successful inspection
 does not establish origin backing, reserve custody, independent finality or
 production readiness.
 
@@ -65,9 +66,8 @@ are in [the inspection record](../evidence/bridge-metadata-inspection.json).
 This is one selected RPC observation, not independent consensus verification.
 
 Before live settlement admission: review the explicit version3 claim/redemption
-admission, exercise both directions with actual
-valueless metadata tokens, retain negative controls and obtain independent
-security review. The earlier plain-mint ledger result does not verify this
+admission, extend the actual valueless metadata-token checks to pre-finality
+faults/forks, retain negative controls and obtain independent security review. The earlier plain-mint ledger result does not verify this
 metadata option. Issue2remains open for that wider work.
 
 ## Fresh private Agave origin
@@ -96,4 +96,7 @@ selected mint bytes and original supply to complete code pins. Eight new local
 checks and five actual read-only private-copy checks pass. This stricter
 observation is separate from the new version3 private journal integration. Its
 16 new local checks and145 combined regressions do not establish actual
-metadata settlement or production admission. See [journal scope](PENDING_CLAIMS.md).
+metadata settlement or production admission by themselves. A later, separate
+10-check actual two-chain/restart rehearsal is recorded in
+[the metadata journal proof](../evidence/bridge-metadata-journal-agave.json).
+See [journal scope](PENDING_CLAIMS.md).
