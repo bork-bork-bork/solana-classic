@@ -79,6 +79,18 @@ SOC is intended to be the network token of Solana Classic. A reserve-backed brid
 
 The aim is one economic supply: moving to native SOC requires backing from original tokens held in reserve. The official mint, team involvement, holdings and fee recipients will be published with any official token announcement. Mainnet, reserve protection and bridge security still need implementation, published terms and review. Redemption is unavailable today. The [whitepaper](docs/whitepaper/WHITEPAPER.md) explains the proposed model.
 
+### Team wallet and supply disclosure
+
+The team's wallet on Solana is published in advance:
+
+```
+7TGgKppPDB3B8riBz763UKw971LnzhgQUShVAPUFY4HU
+```
+
+When the original SOC token is launched on Solana, 70% of the supply will be held by this wallet and locked on-chain. The remaining 30% will be available to trade on Solana. The locked 70% stays locked until the Solana Classic mainnet is live; the team will then bridge those tokens to mainnet through the reserve bridge, where they fund the full tokenomics of the coin. The full tokenomics breakdown will be published with the mainnet launch.
+
+The lock contract, its unlock conditions and how the tokens were acquired will be published with the token announcement, together with the official mint. No other address is a team wallet. Until that announcement the wallet holds nothing related to SOC, and nothing sent to it creates any entitlement.
+
 ## What is in this repository
 
 The **full blockchain engine source is here**, alongside the website and backend. A normal clone includes [engine/agave](engine/agave); no separate engine checkout is required. Agave is the software used to run Solana-style validators and execute applications. Our imported v3.0.14 source currently has no project-specific engine changes.

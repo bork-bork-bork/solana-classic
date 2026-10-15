@@ -254,6 +254,8 @@ Original **SOC** on Solana is the proposed canonical backing asset for native Cl
 
 Team holdings must be explained by their actual acquisition method and funding. Any purchased or otherwise acquired team balance, its source, custody, restrictions and public addresses require disclosure. Creation does not establish an arbitrary free developer allocation. A token announcement does not itself activate mainnet or redemption.
 
+**Team wallet and supply disclosure.** The team wallet on Solana is `7TGgKppPDB3B8riBz763UKw971LnzhgQUShVAPUFY4HU`. At the launch of the original SOC token, 70% of the supply will be held by this wallet and locked on-chain until the Solana Classic mainnet is live; the remaining 30% will be available to trade on Solana. Once mainnet is live, the team will bridge the locked 70% to mainnet through the reserve bridge, where it funds the coin's full tokenomics, and the full tokenomics breakdown will be published with the mainnet launch. The lock contract, its unlock conditions and the acquisition method will be published with the official mint at the token announcement. No other address is a team wallet, the wallet holds nothing related to SOC before that announcement, and transfers to it create no entitlement.
+
 If the team receives creator or trading fees, publish who receives them, how the rights were obtained and how the proceeds are used with the official announcement. Fee revenue is not guaranteed and cannot be the sole validator operating budget. Published token terms must cover both team allocations and fee rights.
 
 ### Native Classic SOC
