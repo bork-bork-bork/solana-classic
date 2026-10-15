@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Explicit fresh private three-validator rehearsal; never a mainnet launcher."""
 from pathlib import Path
-import argparse,hashlib,importlib.util,json,os,re,signal,socket,stat,subprocess,time,urllib.request
+import argparse,hashlib,importlib.util,json,os,re,signal,socket,stat,subprocess,time,urllib.error,urllib.request
 _archive_spec=importlib.util.spec_from_file_location('genesis_archive',Path(__file__).with_name('genesis_archive.py'));genesis_archive=importlib.util.module_from_spec(_archive_spec);_archive_spec.loader.exec_module(genesis_archive)
 _spec=importlib.util.spec_from_file_location('host_preflight',Path(__file__).with_name('host-preflight.py'));host=importlib.util.module_from_spec(_spec);_spec.loader.exec_module(host)
 BASE=Path('/data/mainnet-consensus-v2')
@@ -110,14 +110,27 @@ def check_bundle(bundle,binaries):
   if actual!=n['identity']:raise ValueError('REHEARSAL_IDENTITY_KEY_DIFFERS')
  return m,summary
 
+class PrivateRpcNoRedirect(urllib.request.HTTPRedirectHandler):
+ def redirect_request(self,req,fp,code,msg,headers,newurl):
+  fp.close()
+  raise ValueError('PRIVATE_RPC_REDIRECT_FORBIDDEN')
+
 def rpc(port,method,params=None):
- if port not in [ports(i)['rpc'] for i in range(3)]:raise ValueError('FIXED_PRIVATE_RPC_REQUIRED')
+ if type(port) is not int or port not in [ports(i)['rpc'] for i in range(3)]:raise ValueError('FIXED_PRIVATE_RPC_REQUIRED')
  if method not in ['getGenesisHash','getIdentity','getVersion','getSlot','getSupply','getInflationGovernor','getVoteAccounts','getBlock']:raise ValueError('READ_ONLY_PRIVATE_RPC_REQUIRED')
  req=urllib.request.Request('http://127.0.0.1:'+str(port),data=json.dumps({'jsonrpc':'2.0','id':1,'method':method,'params':params or []}).encode(),headers={'Content-Type':'application/json'})
- with urllib.request.urlopen(req,timeout=3) as r:raw=r.read(2*1024**2+1)
+ # Do not inherit a process-global opener, proxy, authentication or redirect.
+ opener=urllib.request.build_opener(urllib.request.ProxyHandler({}),PrivateRpcNoRedirect())
+ try:
+  with opener.open(req,timeout=3) as r:
+   if r.status!=200:raise ValueError('PRIVATE_RPC_HTTP_STATUS_INVALID')
+   raw=r.read(2*1024**2+1)
+ except urllib.error.HTTPError as error:
+  error.close()
+  raise ValueError('PRIVATE_RPC_HTTP_STATUS_INVALID') from None
  if len(raw)>2*1024**2:raise ValueError('PRIVATE_RPC_EXCEEDS_BOUND')
  w=json.loads(raw)
- if w.get('jsonrpc')!='2.0' or w.get('id')!=1 or 'error' in w or 'result' not in w:raise ValueError('PRIVATE_RPC_REJECTED')
+ if not isinstance(w,dict) or w.get('jsonrpc')!='2.0' or type(w.get('id')) is not int or w.get('id')!=1 or 'error' in w or 'result' not in w:raise ValueError('PRIVATE_RPC_REJECTED')
  return w['result']
 
 def selected_votes(m,current):

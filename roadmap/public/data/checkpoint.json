@@ -223,7 +223,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-15T17:31:19.740480+00:00",
+    "reviewedAt": "2026-10-15T17:47:37.835453+00:00",
     "scope": "Development checkpoint only; separate from the live devnet release",
     "projects": [
       {
@@ -270,9 +270,9 @@
             "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/mainnet-offline-process-linux.json"
           },
           {
-            "title": "Validator voting and finalized-history continuity",
+            "title": "Validator voting, finality and RPC boundaries",
             "state": "local-passed",
-            "detail": "Proposed in PR #6, not yet merged. Eight new synthetic regressions; all60 offline mainnet package checks pass locally. Every selected vote and root must advance in all nine node views, stake must stay unchanged, and all three nodes must preserve the earlier finalized block with matching identities. Stale voting, missing history and replaced blocks refuse; synthetic owned processes stop on failure. No actual full validators, genesis or chain requests. Suitable hosting and genuine consensus/recovery remain required.",
+            "detail": "Proposed in PR #6, not yet merged. All68 offline mainnet package checks pass locally. Votes and roots must advance in all nine node views, stake stays fixed and earlier finalized blocks remain unchanged. Eight local HTTP test groups verify direct reads on the three selected ports, refusing redirects, proxy substitution, malformed responses and oversized bodies. These use synthetic HTTP fixtures and mocked validator processes. No actual full validators, genesis or chain requests. Suitable hosting and genuine consensus/recovery remain required.",
             "evidence": "https://github.com/solana-classic/solana-classic/pull/6"
           },
           {

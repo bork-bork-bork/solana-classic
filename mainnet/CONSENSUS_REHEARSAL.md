@@ -131,6 +131,25 @@ and scope. The prepared launcher still requires the suitable host and actual
 private execution described below. See
 [the scoped local verification](../evidence/mainnet-consensus-progress-local.json).
 
+## Direct private RPC boundary
+
+The observer creates a fresh direct HTTP opener for each read. It ignores
+process proxy settings and any globally installed opener, rejects every HTTP
+redirect, and accepts only the three fixed loopback RPC ports and eight listed
+read methods. No caller URL, external endpoint or mutation method is accepted.
+Non-200 responses and invalid JSON-RPC envelopes refuse admission. Rejected
+HTTP responses are closed; the existing 2 MiB body bound and socket timeout
+remain enforced.
+
+Two actual local HTTP fixtures reproduced the previous redirect and environment
+proxy escapes before the fix. Eight new transport tests now cover direct POST
+reads on all three ports, every redirect status, proxy/global-opener isolation,
+HTTP/RPC envelope rejection, exact response-size boundaries and method/port
+admission. All68 offline package checks pass locally with resource warnings
+treated as errors. These are local synthetic HTTP servers, not Agave nodes,
+actual chain requests, host admission or consensus evidence. See
+[the scoped transport verification](../evidence/mainnet-rpc-boundary-local.json).
+
 ## Acceptance still required
 
 Fourteen local launcher checks, ten archive checks and five host admission

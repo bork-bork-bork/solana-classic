@@ -15,4 +15,4 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - name: Offline host, genesis, process and consensus-observer checks
-        run: python3 -m unittest discover -s mainnet -p '*_test.py'
+        run: python3 -W error::ResourceWarning -m unittest discover -s mainnet -p '*_test.py'
