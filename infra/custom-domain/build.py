@@ -42,6 +42,7 @@ assert app.count('</nav></header>') == 1 and app.count('</footer>') == 1
 app = app.replace('</nav></header>', '<GitHubLink/></nav></header>').replace('</footer>', '<GitHubLink/></footer>')
 shutil.copy2(root / 'infra/custom-domain/GitHubLink.tsx', overlay / 'src/GitHubLink.tsx')
 app = app.replace('Experimental devnet · 1 operator', 'Devnet is live · Run by the Solana Classic team')
+app = app.replace('SOC: launch and mainnet planned', 'SOC on Solana · Mainnet planned')
 app = app.replace('<span className="brand-mark" aria-hidden="true"/>', '<span className="brand-logo" aria-hidden="true"/>').replace('TEST','tSOC')
 app = "import About from './About';\nimport Whitepaper from './Whitepaper';\n" + app
 app = app.replace("path === '/' ? <Home/>", "path === '/about' ? <About/> : path === '/' ? <Home/>")
