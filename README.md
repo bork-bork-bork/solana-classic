@@ -110,6 +110,10 @@ The live test network uses verified official upstream binaries. Building and tes
 | [roadmap](roadmap) | Live progress page |
 | [docs](docs) and [evidence](evidence) | Whitepaper, operating instructions and dated test results |
 
+## Socials and updates
+
+There are no official social media accounts for the chain as of now. Any X, Telegram, Discord or other account presenting itself as Solana Classic is not ours. We are building a separate forum on [solanaclassic.net](https://solanaclassic.net) where contributors will share updates. Until it opens, the only official sources are this repository and the [live roadmap](https://solanaclassic.net/roadmap).
+
 ## Help build it
 
 Try the playground, tell us what is confusing, challenge the whitepaper's assumptions, or contribute code. Artists and collectors can help define what a useful cultural home should actually do. Builders and reviewers can help make its claims checkable.
