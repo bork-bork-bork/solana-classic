@@ -84,3 +84,26 @@ See [the scoped local result](../evidence/bridge-selected-pending-inventory-loca
 `backingVerified` stay false. Retry, refund, reset, signing, broadcast,
 settlement and production permission also stay false. Existing unresolved
 attempts remain preserved and require their separately reviewed recovery path.
+
+## Retained-record compatibility runner
+
+`rehearsal/selected-inventory.mjs` exports `checkRetainedInventory` for a
+private, explicitly configured worker. Stage its dependency closure beside it
+and supply separate owner-only source and output directories. Infrastructure
+identifiers, private directory configuration and the launcher remain private.
+The output attempt is reserved exclusively and cannot be reused.
+
+The runner copies two actual version3 journals from one completed metadata
+rehearsal: a locally finalized native claim and an expired unresolved original
+redemption. It checks their exact bytes against retained hashes, reviews both
+directions together using historical declared counters, verifies deterministic
+selection ordering and rejects omission, erased liability, duplicates, changed
+hashes and another epoch. Originals and copies must remain byte-identical.
+
+This performs no RPC reads, validator starts, signing, handoffs or transactions.
+A passed result establishes offline compatibility of the selected retained
+records only. The runner does not independently prove the finalized label,
+common ledger history, complete source events, current balances, custody or
+funded backing. No retry, refund, settlement or production permission is granted.
+Keep full output private; publish only explicitly selected aggregate counts,
+limitations and public source hashes.

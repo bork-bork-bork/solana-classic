@@ -7,6 +7,8 @@ on:
       - 'bridge/pending-claim*'
       - 'bridge/pending-inventory*'
       - 'bridge/PENDING_INVENTORY.md'
+      - 'bridge/rehearsal/selected-inventory.mjs'
+      - 'evidence/bridge-selected-pending-inventory-retained.json'
       - 'evidence/bridge-selected-pending-inventory-local.json'
       - 'bridge/pinned-pending*'
       - 'bridge/reviewed-pending*'
@@ -75,6 +77,8 @@ jobs:
           node-version: '24.19.0'
       - run: npm install --global pnpm@10.34.7
       - run: pnpm install --frozen-lockfile --ignore-scripts
+      - name: Retained offline runner syntax
+        run: node --check bridge/rehearsal/selected-inventory.mjs
       - name: Offline metadata and existing admission regressions
         run: node --test bridge/pending-inventory.test.mjs bridge/reviewed-pending.test.mjs bridge/pinned-pending.test.mjs bridge/reviewed-origin-mint.test.mjs bridge/mint-metadata.test.mjs bridge/origin-assets.test.mjs bridge/origin-token-code.test.mjs bridge/pending-claim.test.mjs bridge/pending-redemption.test.mjs bridge/pending-large-native.test.mjs bridge/lossless-native-rpc.test.mjs bridge/observer-reports.test.mjs bridge/expired-review.test.mjs bridge/program-pins.test.mjs bridge/upgrade-observation.test.mjs
       - name: Private rehearsal admission guards
