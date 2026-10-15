@@ -354,7 +354,7 @@ This remains a private prototype. The policy digest is integrity binding, not
 authentication. Trusted durable storage, approved custody/signers, independent
 history/finality/backing verification and external security review remain
 required. Actual two-chain metadata settlement and known-finalized restart
-recovery are recorded separately below; further fault testing remains pending.
+recovery are recorded separately below; further expiry/fork testing remains pending.
 Earlier read-only and plain-mint proofs retain their original scope and hashes.
 Future private uploads must include every transitive metadata/policy observer
 dependency and record its exact hash. Never patch a retained attempt to update it.
@@ -454,8 +454,59 @@ cold-copy guards also pass. See
 [the aggregate result](../evidence/bridge-metadata-pending-crash-agave.json).
 
 This attempt exercised successful native-claim recovery after a process kill
-before observed finality. Its expiry branch was not exercised. Pending original
-metadata redemption, actual competing forks, physical host loss, independent
+before observed finality. Its expiry branch was not exercised. The separate original-metadata redemption
+fault below now covers that direction. Actual competing forks, physical host loss, independent
 verification, complete funded backing and production custody/security remain
 open. Private addresses, signatures, policies, balances, keys and ledgers remain
 excluded from the public result. Never replay or reset this retained attempt.
+
+
+## Metadata original-redemption pending-fault harness
+
+`rehearsal/metadata-redemption-crash.mjs` with
+`../engine/rehearsal/metadata_redemption_crash.py` prepares new cold copies of
+the completed metadata native-claim recovery fixture. The original complete
+ledgers, review inputs and finalized native-claim journal must stay unchanged.
+An unused native-return nonce funds one new original-token withdrawal. The
+version3 journal retains the previous complete mint/code review; it cannot
+inherit a new policy from the endpoint during submission.
+
+The harness submits once without waiting for withdrawal finality. Its fault
+controller requires the exact copied origin process and refuses an already
+finalized operation before SIGKILL. RPC outage must preserve the attempted
+journal and block another handoff. Same-genesis recovery must either reconcile
+the original signature and exact token movement or retain an expired unresolved
+withdrawal with no token payout, native refund, replacement or attempt reset.
+Native return backing, escrow obligations and the protected floor must remain
+accounted for. Source-event rent is checked separately from returned value.
+
+Five local guards verify the completed baseline, worker/process selection,
+checkpoint/startup controls and retained-attempt refusal. Actual execution is
+recorded separately. These guards alone do not establish pending redemption,
+a competing fork, physical host failure or production custody/security.
+
+
+Seven actual checks now pass for metadata original redemption on new private
+copies of the completed native-claim fault fixture. One native return finalizes
+with its event rent checked separately, then one version3 withdrawal is submitted
+without waiting for destination confirmation. The copied origin is killed with
+SIGKILL (exit-9) before observed withdrawal finality. During the RPC outage,
+the attempted journal stays unchanged and another handoff refuses.
+
+After same-genesis restart, the original signature, receipt and exact token
+escrow debit/recipient credit reconcile as `FINALIZED`. Recipient native balance
+stays unchanged. Original signed bytes and programme/mint review admissions are
+retained. Both counters and escrow return to zero, the original token balance
+is restored and returned native value stays in the reserve above its protected
+floor. All three copied process starts stop; complete original ledger inventories,
+review inputs and the previous finalized native journal remain unchanged. Five
+new guards pass locally and on Linux. See
+[the aggregate redemption result](../evidence/bridge-metadata-redemption-crash-agave.json).
+
+Both metadata settlement directions now have separate successful private
+process-kill recovery cases before observed finality. This redemption attempt's
+expiry branch was not exercised. Deliberate expiry/pruning, actual competing
+forks, physical host loss, independent verification, complete funded genesis
+backing and production custody/security remain open. No private fixture identity,
+signature, policy, balance, key or raw ledger is included in the public record.
+Never replay or reset either retained fault attempt.

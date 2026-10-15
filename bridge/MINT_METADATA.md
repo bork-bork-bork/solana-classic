@@ -66,7 +66,7 @@ are in [the inspection record](../evidence/bridge-metadata-inspection.json).
 This is one selected RPC observation, not independent consensus verification.
 
 Before live settlement admission: review the explicit version3 claim/redemption
-admission, complete pending original-redemption and competing-fork checks,
+admission, complete expiry-branch and competing-fork checks,
 retain negative controls and obtain independent security review. The earlier plain-mint ledger result does not verify this
 metadata option. Issue2remains open for that wider work.
 
@@ -105,5 +105,9 @@ See [journal scope](PENDING_CLAIMS.md).
 A separate7-check actual metadata native-claim fault now verifies one original
 signature/payout after destination SIGKILL before observed finality, with review
 admissions retained and retry blocked. The original fixture stays unchanged.
-This does not cover pending original redemption or a competing fork. See
+That proof covers native release only. A separate original-redemption fault
+now passes7 actual checks with the original signature and exact token payout
+recovered after copied-origin process kill. Neither case verifies a competing
+fork or an expiry branch. See
+[the redemption result](../evidence/bridge-metadata-redemption-crash-agave.json) and
 [the scoped fault result](../evidence/bridge-metadata-pending-crash-agave.json).

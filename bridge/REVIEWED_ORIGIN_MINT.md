@@ -83,7 +83,7 @@ policy fields.16 new local checks cover both directions and refusal/recovery
 paths. The145-check combined suite includes legacy journal, exact-u64,
 code-pin and expiry-review regressions. A later actual private rehearsal passes10 checks for both
 metadata settlement directions and known-finalized restart recovery.
-Pending original-redemption faults, competing forks, custody, independent
+Further metadata expiry/fork tests, custody, independent
 verification and security
 review remain outstanding. See
 [the separate actual result](../evidence/bridge-metadata-journal-agave.json).
@@ -96,3 +96,10 @@ before observed finality by destination process kill. The original signature
 and exact payout finalize after restart; bytes/admissions remain unchanged and
 retry refuses. See [the separate fault proof](../evidence/bridge-metadata-pending-crash-agave.json).
 This does not expand the read-only observer proofs into production acceptance.
+
+
+A separate7-check actual original-redemption fault now recovers the same signed
+withdrawal and exact token movement after copied-origin process kill before
+observed finality. Both review admissions stay intact and retry refuses.
+[The scoped result](../evidence/bridge-metadata-redemption-crash-agave.json) keeps
+expiry, competing forks and production acceptance unverified.
