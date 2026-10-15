@@ -224,7 +224,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-15T07:05:11.992220+00:00",
+    "reviewedAt": "2026-10-15T07:22:50.248766+00:00",
     "scope": "Development checkpoint only; separate from the live devnet release",
     "projects": [
       {
@@ -254,8 +254,14 @@
           {
             "title": "Private full-validator rehearsal package",
             "state": "local-passed",
-            "detail": "14 launcher +5 host checks. Normal host/network/PoH checks, exact genesis/bank/shred pins, stake-supermajority startup and distinct private ports. New read-only auditor matches the retained249-account genesis. Actual host admission refuses before keys, ledgers or processes. Full execution awaits suitable hosting, a fresh hashing genesis and verified slot-zero bank/shred values.",
+            "detail": "14 launcher +10 archive +5 host checks. Normal host/network/PoH checks and exact startup pins. The selected genesis and its initial slot-zero blockstore are now validated and materialized into each fresh ledger. Actual full execution still awaits suitable hosting, a fresh hashing genesis and verified bank/shred values.",
             "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/mainnet-consensus-package-preparation.json"
+          },
+          {
+            "title": "Genesis startup archive admission",
+            "state": "rehearsal-passed",
+            "detail": "Actual bounded extraction reproduced the retained synthetic genesis and all8 initial blockstore files, with original hashes preserved and zero validator starts. Ten archive checks reject mismatched genesis, unsafe paths/links, duplicates and oversized streams. This is archive preparation, not block replay or consensus. Pinned ledger inspection tooling is building for the next bank-hash review.",
+            "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/mainnet-genesis-archive.json"
           },
           {
             "title": "Exact genesis backing, protected rent and precision audit",

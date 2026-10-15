@@ -56,8 +56,11 @@ Read [the exact model and remaining implementation](BOOTSTRAP.md).
 
 `consensus.py` now supplies a check-only default and an explicit private-run
 path with normal host/network/PoH checks, pinned genesis/bank/shred values and
-a slot-zero stake-supermajority barrier.14 launcher and5 host checks pass; the
+a slot-zero stake-supermajority barrier.14 launcher,10 archive and5 host
+checks pass; the
 separate V2 genesis auditor is compiled and matches the retained249-account
-inventory. Actual host admission remains blocked; no full validators started.
+inventory. The archive reader also materializes the selected genesis and
+initial slot-zero block data; actual private extraction preserved all eight
+retained blockstore files and original hashes. Actual host admission remains blocked; no full validators started.
 A fresh hashing genesis and reviewed bank/shred pins are still inputs, not
 completed work. Read [the execution contract](CONSENSUS_REHEARSAL.md).

@@ -61,7 +61,7 @@ class ConsensusPacket(unittest.TestCase):
    r=m.run(Path('/not-read'),Path('/not-read'),'new-private-001',True);self.assertEqual(r['state'],'blocked');self.assertFalse(r['createdLedger']);check.assert_not_called();popen.assert_not_called()
  def test_retained_run_directory_refuses_without_bundle_read_or_start(self):
   with tempfile.TemporaryDirectory() as tmp:
-   base=Path(tmp);(base/'runs'/'retained-001').mkdir(parents=True)
+   base=Path(tmp).resolve();(base/'runs'/'retained-001').mkdir(parents=True)
    with patch.object(m,'BASE',base),patch.object(m.host,'probe',return_value={}),patch.object(m.host,'assess',return_value={'canPrepareFreshPrivateRehearsal':True}),patch.object(m,'check_bundle') as check:
     with self.assertRaisesRegex(ValueError,'RETAINED'):m.run(base,base,'retained-001',True)
     check.assert_not_called()
@@ -90,9 +90,15 @@ class ConsensusPacket(unittest.TestCase):
  def test_partial_start_failure_stops_only_owned_process_and_retains_failed_attempt(self):
   f,_=fixture()
   with tempfile.TemporaryDirectory() as tmp:
-   base=Path(tmp);bundle=base/'bundles'/'fixture';(bundle/'genesis').mkdir(parents=True);binaries=base/'binaries';binaries.mkdir();(binaries/'agave-validator').write_bytes(b'x')
-   for name in ['genesis.bin','genesis.tar.bz2']:(bundle/'genesis'/name).write_bytes(b'g')
-   digest=hashlib.sha256(b'g').hexdigest();f['genesisBinSHA256']=f['genesisArchiveSHA256']=digest
+   base=Path(tmp).resolve();bundle=base/'bundles'/'fixture';(bundle/'genesis').mkdir(parents=True);binaries=base/'binaries';binaries.mkdir();(binaries/'agave-validator').write_bytes(b'x')
+   (bundle/'genesis'/'genesis.bin').write_bytes(b'g')
+   import bz2,io,tarfile
+   buffer=io.BytesIO()
+   with tarfile.open(fileobj=buffer,mode='w:') as archive:
+    for name,data in [('genesis.bin',b'g'),('rocksdb/CURRENT',b'MANIFEST-000001')]:
+     item=tarfile.TarInfo(name);item.size=len(data);archive.addfile(item,io.BytesIO(data))
+   archive_bytes=bz2.compress(buffer.getvalue());(bundle/'genesis'/'genesis.tar.bz2').write_bytes(archive_bytes)
+   digest=hashlib.sha256(b'g').hexdigest();f['genesisBinSHA256']=digest;f['genesisArchiveSHA256']=hashlib.sha256(archive_bytes).hexdigest()
    child=Mock(pid=123456,returncode=None);child.poll.side_effect=lambda:child.returncode
    def wait(timeout):child.returncode=-2;return -2
    child.wait.side_effect=wait

@@ -2,6 +2,7 @@
 """Explicit fresh private three-validator rehearsal; never a mainnet launcher."""
 from pathlib import Path
 import argparse,hashlib,importlib.util,json,os,re,signal,socket,stat,subprocess,time,urllib.request
+_archive_spec=importlib.util.spec_from_file_location('genesis_archive',Path(__file__).with_name('genesis_archive.py'));genesis_archive=importlib.util.module_from_spec(_archive_spec);_archive_spec.loader.exec_module(genesis_archive)
 _spec=importlib.util.spec_from_file_location('host_preflight',Path(__file__).with_name('host-preflight.py'));host=importlib.util.module_from_spec(_spec);_spec.loader.exec_module(host)
 BASE=Path('/data/mainnet-consensus-v2')
 FORBIDDEN={'7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon','5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d','EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG','4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY'}
@@ -97,6 +98,8 @@ def check_bundle(bundle,binaries):
  raw=subprocess.check_output([str(auditor),str(g)],timeout=20,stderr=subprocess.DEVNULL)
  if len(raw)>4*1024**2:raise ValueError('GENESIS_AUDIT_EXCEEDS_BOUND')
  a=json.loads(raw);summary=validate_audit(m,a)
+ archive=genesis_archive.inspect_archive(g/'genesis.tar.bz2',m['genesisArchiveSHA256'],m['genesisBinSHA256'])
+ summary['initialBlockstoreFiles']=archive['initialBlockstoreFiles'];summary['archiveGenesisMatches']=True
  # Key files are never logged or exported. Pinned keygen checks their public keys.
  keys=bundle/'keys'
  if keys.is_symlink() or not keys.is_dir():raise ValueError('PRIVATE_KEY_DIRECTORY_REQUIRED')
@@ -175,12 +178,9 @@ def run(bundle,binaries,run_id,execute=False):
  signal.signal(signal.SIGTERM,stop_requested)
  try:
   for i in range(3):
-   ledger=root/('node-'+str(i));ledger.mkdir(mode=0o700)
-   for name,pin in [('genesis.bin',m['genesisBinSHA256']),('genesis.tar.bz2',m['genesisArchiveSHA256'])]:
-    source=regular(bundle/'genesis'/name)
-    if host.sha(source)!=pin:raise ValueError('GENESIS_CHANGED_BEFORE_COPY')
-    with (ledger/name).open('xb') as out:out.write(source.read_bytes())
-    if host.sha(ledger/name)!=pin:raise ValueError('COPIED_GENESIS_DIFFERS')
+   ledger=root/('node-'+str(i))
+   materialized=genesis_archive.materialize(regular(bundle/'genesis'/'genesis.tar.bz2'),ledger,m['genesisArchiveSHA256'],m['genesisBinSHA256'])
+   proof.setdefault('initialLedgers',[]).append({'node':i,**materialized});save()
    log=(root/('node-'+str(i)+'-private.log')).open('xb');handles.append(log)
    pin,size=host.PINS['agave-validator']
    if host.sha(binaries/'agave-validator')!=pin or (binaries/'agave-validator').stat().st_size!=size:raise ValueError('VALIDATOR_BINARY_CHANGED_BEFORE_START')

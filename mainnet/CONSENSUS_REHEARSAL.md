@@ -79,8 +79,12 @@ python3 mainnet/consensus.py \
 A new owner-only directory is created under `runs/<new-attempt-id>`. Existing
 attempts are refused, never reset or overwritten. The launcher refuses a
 canonical service, other active validators, changed genesis bytes and occupied
-ports before starting. It copies only the two pinned genesis files into three
-fresh ledgers and rechecks the executable before each start.
+ports before starting. Before any key is opened, the pinned archive must contain the exact selected
+`genesis.bin` and initial `rocksdb` block data. A bounded reader rejects extra
+paths, links, special files, duplicates, file/directory collisions, mismatched
+genesis bytes and oversized or concatenated compressed streams. Each fresh
+ledger receives those verified initial blocks with owner-only permissions.
+The executable is rechecked before each start.
 
 ## What is checked
 
@@ -104,7 +108,11 @@ keys, genesis/accounts and private logs remain in the selected host package;
 
 ## Acceptance still required
 
-Fourteen local launcher checks and five host admission checks pass. The
+Fourteen local launcher checks, ten archive checks and five host admission
+checks pass. Actual bounded extraction of the retained synthetic archive
+reproduced its genesis and eight initial blockstore files without changing
+the originals or starting validators. See
+[the archive verification](../evidence/mainnet-genesis-archive.json). The
 separate auditor reproduced the actual retained249-account inventory without
 changing it. An actual check-only invocation refused the existing host before
 opening the nonexistent bundle, creating the run namespace or starting nodes.
@@ -115,3 +123,19 @@ remain required. After actual consensus: execution journeys, quorum-loss and
 recovery/cold-restore tests, independent hosts/operators, actual funded genesis
 and reserve custody, economics, bridge recovery and external security review.
 Three processes on one host cannot establish operator independence.
+
+## Why the initial blocks matter
+
+Pinned Agave `create_new_ledger` writes the genesis configuration and fills
+slot0 with ticks linked to that configuration, then puts both `genesis.bin`
+and the initial RocksDB in `genesis.tar.bz2`. Its `open_genesis_config` returns
+immediately when a standalone `genesis.bin` already loads; it only unpacks the
+archive after that load fails. Merely copying both files does not materialize
+the initial blockstore. The launcher therefore validates and unpacks the
+selected archive explicitly into each new ledger. It never copies a runtime
+ledger or snapshot from another network.
+
+This validates archive identity and safe materialization, not block replay,
+a reviewed slot-zero bank hash, PoH speed or consensus. A separate pinned
+`agave-ledger-tool` build is being prepared for that review. Its build alone
+cannot satisfy host admission or accept a new genesis.

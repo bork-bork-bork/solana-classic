@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-15T07:22:50.248766+00:00",
+  "state": "private-extraction-passed",
+  "scope": "Private rehearsal genesis archive admission and materialization; no validator startup, block replay or mainnet acceptance",
+  "localChecks": {
+    "archive": 10,
+    "launcher": 14,
+    "host": 5,
+    "passed": true
+  },
+  "sourceHashes": {
+    "mainnet/genesis_archive.py": "f09d71c5bc6e0e09924602daa89148ae1a55727ce3de7a45e6380a3efddeb079",
+    "mainnet/genesis_archive_test.py": "37f4434b6c2115fcc173c5d893071e8413f2599b22f115e57ca5d62122c07710",
+    "mainnet/consensus.py": "bd867a15e0d027aca4e19fbf8c4c9a9addde613399d96daf94006593b32727b2",
+    "mainnet/consensus_test.py": "36d4f25d4bde8157c81f087b1c698e71a295876a9b1b26265dbf8ed70d51d2a5"
+  },
+  "actualExtraction": {
+    "at": "2026-10-15T07:20:21.755967+00:00",
+    "sourceSHA256": "f09d71c5bc6e0e09924602daa89148ae1a55727ce3de7a45e6380a3efddeb079",
+    "state": "passed",
+    "scope": "Actual bounded inspection and extraction of retained private synthetic Agave genesis archive; no consensus or fresh hashing genesis",
+    "originalGenesisFilesUnchanged": true,
+    "canonicalNetworkChanged": false,
+    "validatorsStarted": 0,
+    "privateKeysRead": false,
+    "initialBlockstoreFiles": 8,
+    "archiveRegularFiles": 9,
+    "archivePayloadBytes": 468412,
+    "materialized": {
+      "genesisBinSHA256": "8210bd969a5b5bb4e19eece962f68fbb3eabd002e4939eef25c8b7fc7fe91ef7",
+      "initialBlockstoreFiles": 8,
+      "regularFiles": 9,
+      "archiveSHA256": "d22093629d0811b555a6d87276e90aede7f9a94adfe83a5d4635920087643e5a",
+      "freshLedger": true
+    },
+    "fullValidatorConsensusVerified": false,
+    "productionReady": false
+  },
+  "earlierAttemptRetained": true,
+  "frozenContext": {
+    "coreFiles": 45,
+    "allMatch": true
+  },
+  "ledgerInspectionTool": {
+    "state": "building",
+    "sourceRevision": "f516a8927c76c07f0ebc54ca7a4ce8b2046eee86",
+    "verifiedSourceFiles": 2215,
+    "boundedBuildSeconds": 1200,
+    "artifactAccepted": false
+  },
+  "newHashingGenesisPrepared": false,
+  "slotZeroBankHashPrepared": false,
+  "fullValidatorConsensusVerified": false,
+  "actualFundedBackingVerified": false,
+  "independentOperatorsVerified": false,
+  "productionReady": false,
+  "mainnetActivationAuthorized": false,
+  "coverageLimits": [
+    "Archive content matches the selected private synthetic artifact; RocksDB replay and slot-zero bank hash remain unverified",
+    "Retained genesis uses non-hashing sleep PoH and cannot be used by the new consensus launcher",
+    "Existing host still fails the normal full-validator open-file requirement; no check was bypassed",
+    "No canonical runtime, original frontend, ongoing stability test or fixed deadline changed",
+    "Raw private genesis, ledger data and keys remain outside source and deployments"
+  ]
+}
