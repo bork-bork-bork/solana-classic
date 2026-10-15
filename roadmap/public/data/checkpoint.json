@@ -224,7 +224,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-15T01:48:56.071134+00:00",
+    "reviewedAt": "2026-10-15T04:06:49.260719+00:00",
     "scope": "Development checkpoint only; separate from the live devnet release",
     "projects": [
       {
@@ -519,8 +519,8 @@
         "id": "release-review",
         "title": "Devnet release evidence",
         "state": "building",
-        "description": "Individual review of the build that passed its original 24-hour stability test.",
-        "currentScope": "Our source-built Agave runs devnet. Both original-frontend browser pilots, the fresh200-operation load,36 gateway negative controls, current monitoring review and reversible frontend rollback pass. The isolated cold-backup restore is the remaining admission check before starting the new24-hour stability run.",
+        "description": "Candidate-specific validation of the source-built devnet and its fresh 24-hour stability test.",
+        "currentScope": "All eight current-candidate admission checks passed, including isolated cold-backup recovery. A fresh uninterrupted 24-hour stability test started on 15 October at 03:59 UTC, with earliest completion on 16 October at 03:59 UTC. Live progress appears above. Final regression and release review remain pending; the original stability result remains historical.",
         "source": "https://github.com/solana-classic/solana-classic/blob/main/engine/migration/STABILITY_RELEASE_REVIEW.md",
         "milestones": [
           {
@@ -563,24 +563,25 @@
           {
             "title": "Source-built Agave migration",
             "state": "live-passed",
-            "detail": "Source-built Agave is live on the existing devnet. All 2163 accounts, program code, tokens/NFTs, application records and 1992 immutable files survived. Post-migration browser checks and fresh stability prerequisites are underway. The new 24-hour run has not started."
+            "detail": "Source-built Agave is live on the existing devnet. All 2163 accounts, program code, tokens/NFTs, application records and 1992 immutable files survived. Current-candidate admission checks passed and a fresh stability test is running."
           },
           {
             "title": "New source-build stability run",
-            "state": "pending",
-            "detail": "Fresh candidate-bound checks are being completed before a new full 24-hour run. The original result remains historical."
+            "state": "running",
+            "detail": "A fresh full 24-hour run started on 15 October at 03:59 UTC, with earliest completion on 16 October at 03:59 UTC. Follow live progress above. Completion and release acceptance remain pending; the original result remains historical.",
+            "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/agave-source-stability-started.json"
           },
           {
             "title": "Source-built devnet original mobile verification",
             "state": "live-passed",
-            "detail": "Six finalized receipts, native/meme/NFT transfers and ownership independently checked. All45 frozen core files and five frontend assets match. The24-hour run remains pending.",
+            "detail": "Six finalized receipts, native/meme/NFT transfers and ownership independently checked. All 45 frozen core files and five frontend assets match. These checks admitted the fresh stability run; they do not replace it.",
             "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/agave-source-original-mobile-review.json"
           },
           {
-            "title": "Source-build isolated recovery tools",
-            "state": "local-passed",
-            "detail": "14 local guard checks pass. No remote restore or copied-validator boot yet; full HTTP recovery remains pending.",
-            "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/agave-source-recovery-preparation.json"
+            "title": "Source-build isolated cold-backup recovery",
+            "state": "live-passed",
+            "detail": "Remote isolated restore passed: complete comparison of 2163 accounts, reconciled vote fees, 617 gallery records and 1992 immutable file hashes. HTTPS checks verified 1234 gallery files, 452 NFT owners and the original finalized faucet receipt without a second grant. Earlier failed attempts remain retained.",
+            "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/agave-source-recovery-completed.json"
           },
           {
             "title": "Fresh source-built Agave load",
