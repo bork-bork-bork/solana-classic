@@ -353,8 +353,9 @@ See [the scoped local result](../evidence/bridge-reviewed-journal-local.json).
 This remains a private prototype. The policy digest is integrity binding, not
 authentication. Trusted durable storage, approved custody/signers, independent
 history/finality/backing verification and external security review remain
-required. Actual two-chain metadata settlement and recovery are still pending;
-earlier read-only and plain-mint proofs retain their original scope and hashes.
+required. Actual two-chain metadata settlement and known-finalized restart
+recovery are recorded separately below; further fault testing remains pending.
+Earlier read-only and plain-mint proofs retain their original scope and hashes.
 Future private uploads must include every transitive metadata/policy observer
 dependency and record its exact hash. Never patch a retained attempt to update it.
 

@@ -432,7 +432,7 @@
           {
             "title": "Reviewed metadata claim journal in both directions",
             "state": "local-passed",
-            "detail": "Proposed in PR #6, not yet merged. Explicit version3 binds reviewed mint bytes, supply and complete code pins before returning existing signed bytes once. 16 new local checks;145 combined JavaScript regressions and seven worker guards pass. Changed metadata/code, depleted escrow, expiry, receipt and tampering refuse handoff. Local synthetic responses only. Actual two-chain metadata settlement/recovery and independent security review remain pending.",
+            "detail": "Proposed in PR #6, not yet merged. Explicit version3 binds reviewed mint bytes, supply and complete code pins before returning existing signed bytes once. 16 new local checks; 145 combined JavaScript regressions and seven worker guards pass. Changed metadata/code, depleted escrow, expiry, receipt and tampering refuse handoff. Local synthetic responses only; actual-chain results are recorded in the next milestone. Pre-finality faults/forks, production custody/backing and independent security review remain pending.",
             "evidence": "https://github.com/solana-classic/solana-classic/blob/bridge/metadata-mint-review/evidence/bridge-reviewed-journal-local.json"
           },
           {

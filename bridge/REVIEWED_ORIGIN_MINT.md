@@ -10,7 +10,7 @@ observer. A different complete mint digest cannot inherit valid code admission.
 
 This policy/observer module cannot grant a signed-byte handoff, sign, submit,
 write a journal, retry, refund or authorize settlement. The separate explicit
-version3 adapter in `pending-claim.mjs` now consumes it in a private prototype,
+version3 adapter in `pending-claim.mjs` consumes it in a private prototype,
 now verified locally and in a separate fresh private two-chain/restart
 rehearsal. Existing plain-mint defaults remain.
 All signing, retry, broadcast and production flags stay false.
