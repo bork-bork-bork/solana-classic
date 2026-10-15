@@ -538,3 +538,29 @@ pruned history, competing forks or a recovery/refund procedure. The unresolved
 source liability must remain retained for review. Earlier process-fault results
 keep their original scope. Production backing, custody and independent security
 verification are still required.
+
+
+## Unsubmitted original redemption at actual expiry
+
+A separate original-token redemption now passes8 actual checks on fresh cold
+copies of the completed metadata native-claim fixture. An unused native-return
+event finalizes with value and event rent checked separately. A signed version3
+original withdrawal stays PREPARED without handoff or submission until actual
+origin finalized block height exceeds its original signed expiry.
+
+All three handoff APIs reject with unchanged prepared bytes. Reconciliation
+retains EXPIRED_UNRESOLVED, original signed bytes/expiry and conservative
+attempts1 without inventing review admissions; all three APIs then refuse again.
+No withdrawal signature, transaction or receipt lands. Original tokens remain
+in escrow with the original obligation, returned native backing remains in the
+reserve, and the recipient's token/native balances do not increase. No retry,
+replacement, token payout or native refund is authorized. Both copied validators
+stop; complete original ledgers and finalized private records remain unchanged.
+Five new guards pass locally and on Linux. Source and aggregate scope are in
+[the original-redemption expiry result](../evidence/bridge-metadata-redemption-expiry-agave.json).
+
+Both deliberately unsubmitted metadata settlement directions now have separate
+actual-height expiry cases. These are refusal tests, not successful redemption
+or unknown-landing recovery. Submitted-but-uncertain expiry, pruned history,
+competing forks, manual recovery, funded backing, custody and independent
+security review remain open. All unresolved private obligations stay retained.

@@ -114,3 +114,14 @@ five guards pass locally and on Linux. This does not establish unknown-landing,
 redemption-expiry, pruning or competing-fork recovery. See
 [the aggregate expiry result](../evidence/bridge-metadata-unsubmitted-expiry-agave.json)
 and [journal scope](PENDING_CLAIMS.md).
+
+
+Original redemption now has a separate8-check actual-height unsubmitted-expiry
+case. One native return finalizes; all three withdrawal handoff APIs refuse after
+the original signed expiry and again after EXPIRED_UNRESOLVED reconciliation.
+Zero withdrawal handoffs/broadcasts, no token payout or native refund; original
+escrow obligation and returned backing remain. Both copies stop, originals stay
+unchanged, five guards pass locally and on Linux. This complements native-claim
+unsubmitted expiry and does not verify submitted-but-uncertain recovery, pruning,
+forks or production backing/custody/security. See
+[the separate redemption expiry result](../evidence/bridge-metadata-redemption-expiry-agave.json).
