@@ -1,0 +1,54 @@
+# Read-only original mint and escrow observation
+
+`origin-assets.mjs` exports `observeOriginAssets`. It accepts an explicit private
+loopback RPC, reviewed origin-side programme pins, independently selected mint
+supply and precision, and a retained minimum finalized slot. It never accepts
+keys, signs, submits, simulates, writes a journal or retries a transfer. Public
+Solana networks and the live Classic devnet are rejected before any RPC read.
+
+The observer checks the programme code, complete ProgramData, upgrade authority
+and static bridge policy before and after two asset snapshots. Each snapshot
+reads the derived bridge config, pinned mint, derived escrow and V2 vault in one
+finalized RPC context. Contexts cannot regress. Asset bytes must stay identical
+between snapshots, and recorded obligations must still agree with the final
+code observation. Movement or an unavailable read requires a new observation;
+there is no cached successful fallback.
+
+The first version accepts an unextended 82-byte Token-2022 mint and an
+unextended 165-byte escrow. It verifies mint initialization, exact expected
+supply/precision and absent mint/freeze authorities. Escrow must hold that mint,
+be controlled by the derived vault PDA, be initialized and unfrozen, and have
+no delegate, native-wrapper or close authority. Its V2 authority account must
+be owned by the pinned bridge programme. Balances and counters are decoded as
+u64 integers and returned as exact decimal strings.
+
+```text
+recorded origin obligations <= actual escrow tokens <= original mint supply
+unallocated escrow surplus = actual escrow tokens - recorded origin obligations
+```
+
+A direct token donation to escrow is reported as surplus. It does not increase
+bridge obligations or authorize another native release. This module does not
+compare the native-chain counter or prove a complete pending-event inventory.
+
+This is a deliberately narrow observation boundary. The on-chain prototype
+permits selected metadata and immutable-owner extensions, while this observer
+rejects all extensions until their layouts and authority behavior are reviewed.
+It checks the Token-2022 owner address; it does not independently pin that token
+programme's deployed code. It trusts the selected RPC's finalized view and
+cannot prove independent consensus, historical economic movement, full genesis
+backing, permanent custody, or a safe recovery. All signing, retry, broadcast
+and production-ready flags remain false.
+
+Run the local adversarial checks with pinned Node24:
+
+```sh
+node --test bridge/origin-assets.test.mjs bridge/program-pins.test.mjs
+```
+
+The separate `rehearsal/origin-assets.mjs` runner exercises actual reads on a
+new stopped-ledger copy. It requires reviewed historical pins, rejects wrong
+expected supply/precision, rereads unchanged asset bytes and permits only
+`getGenesisHash` and `getMultipleAccounts`. Worker evidence must record its
+single copied validator stopped and both original ledger inventories plus the
+original fixture/journal unchanged. Local tests alone do not prove execution.

@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "scope": "Actual first private read-only origin observer attempt; missing historical review fields stopped admission before asset RPC",
+  "state": "failed",
+  "failure": "The selected historical programme-observer record lacks origin-side identity fields required by the new asset observer. No fallback or substituted pins were accepted.",
+  "assetRPCReads": 0,
+  "broadcasts": 0,
+  "simulations": 0,
+  "sourceHashes": {
+    "observe-origin-assets.mjs": "8650b2334bcd5ccedf962549adfd30b329e163f3418e441c1e5d8cfc8fdc3cb4",
+    "origin_assets.py": "c4b4d87c78e75046fcdf5547ac10c19d29562f4735f37b07aa5a48c492a59404",
+    "origin-assets.mjs": "5044793fa9af145af67df5f98a110153e45cf9b7e92f42f5dbd7b3e58ed6ced6",
+    "program-pins.mjs": "1f72a2007be0d4ebd6b1a3080dc2ad93224177e49ae32e0513beb2e163256d42",
+    "sdk.mjs": "e603242692bedc2457ec9dd3cb144122ca1adb7341506d244ec864943bd8c988",
+    "bootstrap_driver.py": "200a81128b1dc697b32365ac939d7eef27c6e8b4cf3d48aa51faed4a65164a5c",
+    "cold_copy.py": "42bef261f9f273a1f525b515eabfcda61b8d6a1cbb62fd637ebbdd0f23a95b6d",
+    "reviewed-pins-public.json": "508b789e263f67ef371cdc138a927b1dcf36e410e4d6dfb55d40f34e2e509086"
+  },
+  "copiedProcessesStopped": true,
+  "originalLedgersUnchanged": true,
+  "originalFixtureUnchanged": true,
+  "originalJournalUnchanged": true,
+  "canonicalNetworkChanged": false,
+  "productionReady": false
+}
