@@ -122,3 +122,12 @@ Unreadable live process evidence refuses admission; this is not an atomic host
 lock or independent-host proof. Ten new regression groups include an actual
 Linux kernel-name fixture using an ordinary Python child, with no Agave starts.
 See [the process admission contract](CONSENSUS_REHEARSAL.md#visible-process-admission).
+
+The launcher also prepares an optional `--restart-node` stage for a fresh private
+run. It requires an observed owned stop, connection-refused endpoint, unchanged
+bundle/binary/original ledger and complete vote/finality continuity after the
+replacement. Sixteen new synthetic checks include full launcher ownership and
+cleanup. Local results are108 passed and one Linux-only skip out of109 checks.
+Actual warm restart still awaits an admitted host; no cold restore, quorum
+availability, fork or production claim is made. See
+[the optional restart procedure](CONSENSUS_REHEARSAL.md#optional-owned-warm-restart).

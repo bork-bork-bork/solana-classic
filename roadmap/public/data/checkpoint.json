@@ -223,7 +223,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-15T20:56:14.917376+00:00",
+    "reviewedAt": "2026-10-15T21:24:56.645710+00:00",
     "scope": "Development checkpoint only; separate from the live devnet release",
     "projects": [
       {
@@ -292,6 +292,12 @@
             "title": "Existing-validator process admission",
             "state": "local-passed",
             "detail": "Proposed in PR #6, not yet merged. Preparation previously missed Linux-truncated test-validator process names. Both preparation and launch now share a read-only census of names, executable arguments and kernel links; incomplete live evidence refuses. Ten new regression groups pass, including an actual Linux kernel-name fixture using an ordinary Python child. All 93 offline mainnet package checks pass on Linux; 92 pass locally with the Linux-only case skipped. No Agave starts, real keys, genesis, chain changes or host-limit changes. This is visible admission only, not an atomic host lock or consensus proof. Suitable hosting remains required.",
+            "evidence": "https://github.com/solana-classic/solana-classic/pull/6"
+          },
+          {
+            "title": "Owned full-validator warm restart preparation",
+            "state": "local-passed",
+            "detail": "Proposed in PR #6, not yet merged. Sixteen new synthetic checks prepare an optional one-node warm restart after initial three-validator consensus. It requires an observed owned stop, connection-refused RPC, selected surviving identities, unchanged bundle/runtime/original ledger and complete vote/finality continuity after a replacement registered for cleanup. Local suite: 108 passed, one Linux-only skip out of 109. No real Agave, keys, genesis or chain requests. Actual execution remains blocked by hosting; cold restore, forks, quorum-outage policy, independent operators and production release remain separate gates.",
             "evidence": "https://github.com/solana-classic/solana-classic/pull/6"
           }
         ]

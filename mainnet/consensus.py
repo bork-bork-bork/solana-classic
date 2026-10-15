@@ -251,15 +251,18 @@ def stop_owned_process(p):
 
 _process_admission_spec=importlib.util.spec_from_file_location('process_admission',Path(__file__).with_name('process_admission.py'));process_admission=importlib.util.module_from_spec(_process_admission_spec);_process_admission_spec.loader.exec_module(process_admission)
 
-def run(bundle,binaries,run_id,execute=False):
+_restart_spec=importlib.util.spec_from_file_location('validator_restart',Path(__file__).with_name('validator_restart.py'));validator_restart=importlib.util.module_from_spec(_restart_spec);_restart_spec.loader.exec_module(validator_restart)
+
+def run(bundle,binaries,run_id,execute=False,restart_node=None):
  preflight=host.assess(host.probe(binaries,BASE.parent))
  if not preflight['canPrepareFreshPrivateRehearsal']:return {'state':'blocked','host':preflight,'validatorsStarted':0,'createdLedger':False,'productionReady':False}
  if not re.fullmatch('[a-z0-9][a-z0-9-]{7,63}',run_id):raise ValueError('NEW_PRIVATE_ATTEMPT_ID_REQUIRED')
+ if restart_node is not None and (type(restart_node) is not int or restart_node not in range(3)):raise ValueError('EXPLICIT_RESTART_NODE_REQUIRED')
  root=BASE/'runs'/run_id
  if BASE.is_symlink() or root.parent.is_symlink() or root.resolve().parent!=root.parent.resolve():raise ValueError('PRIVATE_RUN_PATH_DIFFERS')
  if root.exists() or root.is_symlink():raise ValueError('RETAINED_ATTEMPT_MUST_NOT_BE_REUSED')
  m,audit=check_bundle(bundle,binaries)
- if not execute:return {'state':'packet-checked','host':preflight,'audit':audit,'validatorsStarted':0,'createdLedger':False,'bankHashLocallyVerified':False,'bankHashEnforcedByRuntime':True,'productionReady':False}
+ if not execute:return {'state':'packet-checked','host':preflight,'audit':audit,'validatorsStarted':0,'createdLedger':False,'bankHashLocallyVerified':False,'bankHashEnforcedByRuntime':True,'warmRestartRequested':restart_node is not None,'warmRestartVerified':False,'productionReady':False}
  # No canonical container, existing ledgers, public ingress or external RPC.
  if os.environ.get('RAILWAY_SERVICE_ID')=='d0a1de40-bd9c-47eb-a7fc-477f1c55b2d6':raise ValueError('CANONICAL_SERVICE_FORBIDDEN')
  process_admission.no_active_validator()
@@ -267,7 +270,7 @@ def run(bundle,binaries,run_id,execute=False):
   for kind in [socket.SOCK_STREAM,socket.SOCK_DGRAM]:
    with socket.socket(socket.AF_INET,kind) as sock:sock.bind(('127.0.0.1',port))
  os.umask(0o077);root.parent.mkdir(mode=0o700,exist_ok=True);root.mkdir(mode=0o700)
- proof={'schemaVersion':1,'state':'running','scope':'Fresh private three full validators on one host; synthetic supply, no independent operators or production acceptance','genesis':m['genesis'],'audit':audit,'validatorsStarted':0,'stops':[],'createdKeys':False,'canonicalNetworkChanged':False,'productionReady':False,'hostAndPohChecksSkipped':False,'actualFundedOriginalBackingVerified':False}
+ proof={'schemaVersion':1,'state':'running','scope':'Fresh private three full validators on one host; synthetic supply, no independent operators or production acceptance','genesis':m['genesis'],'audit':audit,'validatorsStarted':0,'stops':[],'createdKeys':False,'canonicalNetworkChanged':False,'productionReady':False,'hostAndPohChecksSkipped':False,'actualFundedOriginalBackingVerified':False,'warmRestartRequested':restart_node is not None,'warmRestartVerified':False}
  def save():(root/'public-result.json').write_text(json.dumps(proof,indent=2))
  processes=[];handles=[];save()
  previous_term=signal.getsignal(signal.SIGTERM)
@@ -293,6 +296,21 @@ def run(bundle,binaries,run_id,execute=False):
   last=runtime_observation(m);proof['lastObservation']=last;save()
   proof['progressReview']=verify_progress(m,first,last)
   if any(p.poll() is not None for p in processes):raise ValueError('PRIVATE_VALIDATOR_EXITED')
+  if restart_node is not None:
+   proof['restartRequestedNode']=restart_node;save()
+   def start_again(i):
+    # Re-admit the exact bundle and runtime before starting on the SAME ledger.
+    selected,_=check_bundle(bundle,binaries)
+    if selected!=m:raise ValueError('RESTART_BUNDLE_CHANGED')
+    pin,size=host.PINS['agave-validator'];binary=binaries/'agave-validator'
+    if host.sha(regular(binary))!=pin or binary.stat().st_size!=size:raise ValueError('VALIDATOR_BINARY_CHANGED_BEFORE_RESTART')
+    ledger=root/('node-'+str(i))
+    if ledger.is_symlink() or not ledger.is_dir() or host.sha(regular(ledger/'genesis.bin'))!=m['genesisBinSHA256']:raise ValueError('ORIGINAL_RESTART_LEDGER_REQUIRED')
+    log=(root/('node-'+str(i)+'-restart-private.log')).open('xb');handles.append(log)
+    child=subprocess.Popen(command(binary,root,bundle,m,i),stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
+    processes[i]=child;proof['validatorsStarted']+=1;save();return child
+   proof['warmRestartReview']=validator_restart.restart_node(node=restart_node,manifest=m,processes=processes,baseline=last,stop_owned=stop_owned_process,start_owned=start_again,rpc=rpc,ports=ports,observe=runtime_observation,verify_progress=verify_progress)
+   proof['warmRestartVerified']=True;save()
   proof['state']='passed'
  except BaseException as e:
   proof['state']='failed';proof['failureType']=type(e).__name__;proof['failureCode']=str(e) if type(e) is ValueError and re.fullmatch('[A-Z_]+',str(e)) else 'PRIVATE_REHEARSAL_FAILED'
@@ -309,9 +327,9 @@ def run(bundle,binaries,run_id,execute=False):
  return proof
 
 def main():
- p=argparse.ArgumentParser(description=__doc__);p.add_argument('--bundle',type=Path,required=True);p.add_argument('--binary-directory',type=Path,required=True);p.add_argument('--run-id',required=True);p.add_argument('--run',action='store_true');p.add_argument('--ack');a=p.parse_args()
+ p=argparse.ArgumentParser(description=__doc__);p.add_argument('--bundle',type=Path,required=True);p.add_argument('--binary-directory',type=Path,required=True);p.add_argument('--run-id',required=True);p.add_argument('--run',action='store_true');p.add_argument('--restart-node',type=int,choices=range(3));p.add_argument('--ack');a=p.parse_args()
  if a.run and a.ack!='fresh-private-three-validators':p.error('Explicit fresh-private-three-validators acknowledgment required')
- try:r=run(a.bundle,a.binary_directory,a.run_id,a.run)
+ try:r=run(a.bundle,a.binary_directory,a.run_id,a.run,a.restart_node)
  except Exception as e:r={'state':'blocked','failureType':type(e).__name__,'failureCode':str(e) if type(e) is ValueError and re.fullmatch('[A-Z_]+',str(e)) else 'PRIVATE_PACKET_CHECK_FAILED','validatorsStarted':0,'productionReady':False}
  print(json.dumps(r,indent=2));return 0 if r['state'] in ['passed','packet-checked'] else 78
 if __name__=='__main__':raise SystemExit(main())
