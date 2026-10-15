@@ -34,6 +34,10 @@ on:
       - 'engine/rehearsal/metadata_unsubmitted_expiry*'
       - 'bridge/rehearsal/metadata-redemption-expiry.mjs'
       - 'engine/rehearsal/metadata_redemption_expiry*'
+      - 'bridge/rehearsal/metadata-origin-code.mjs'
+      - 'engine/rehearsal/metadata_origin_code*'
+      - 'bridge/upgrade-observation*'
+      - 'evidence/bridge-metadata-origin-code-agave.json'
       - 'evidence/bridge-metadata-redemption-expiry-agave.json'
       - 'evidence/bridge-metadata-unsubmitted-expiry-agave.json'
       - 'engine/rehearsal/cold_copy_test.py'
@@ -58,7 +62,7 @@ jobs:
       - run: npm install --global pnpm@10.34.7
       - run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Offline metadata and existing admission regressions
-        run: node --test bridge/reviewed-pending.test.mjs bridge/pinned-pending.test.mjs bridge/reviewed-origin-mint.test.mjs bridge/mint-metadata.test.mjs bridge/origin-assets.test.mjs bridge/origin-token-code.test.mjs bridge/pending-claim.test.mjs bridge/pending-redemption.test.mjs bridge/pending-large-native.test.mjs bridge/lossless-native-rpc.test.mjs bridge/observer-reports.test.mjs bridge/expired-review.test.mjs bridge/program-pins.test.mjs
+        run: node --test bridge/reviewed-pending.test.mjs bridge/pinned-pending.test.mjs bridge/reviewed-origin-mint.test.mjs bridge/mint-metadata.test.mjs bridge/origin-assets.test.mjs bridge/origin-token-code.test.mjs bridge/pending-claim.test.mjs bridge/pending-redemption.test.mjs bridge/pending-large-native.test.mjs bridge/lossless-native-rpc.test.mjs bridge/observer-reports.test.mjs bridge/expired-review.test.mjs bridge/program-pins.test.mjs bridge/upgrade-observation.test.mjs
       - name: Private rehearsal admission guards
         run: python3 engine/rehearsal/metadata_origin_test.py
       - name: Read-only review copy guards
@@ -75,3 +79,5 @@ jobs:
         run: python3 engine/rehearsal/metadata_unsubmitted_expiry_test.py
       - name: Metadata actual-height original-redemption expiry guards
         run: python3 engine/rehearsal/metadata_redemption_expiry_test.py
+      - name: Metadata origin-code replacement guards
+        run: python3 engine/rehearsal/metadata_origin_code_test.py

@@ -223,7 +223,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-15T15:15:44.004028+00:00",
+    "reviewedAt": "2026-10-15T15:46:26.406293+00:00",
     "scope": "Development checkpoint only; separate from the live devnet release",
     "projects": [
       {
@@ -289,7 +289,7 @@
         "title": "SOC redemption bridge",
         "state": "building",
         "description": "Original SOC escrow and a native Classic reserve, targeting exact 1:1 display-unit redemption in both directions.",
-        "currentScope": "The private bridge prototype completes finalized transfers in both directions, cold restore and process-crash recovery. Claim handoff requires reviewed code and policy pins; Actual authority changes on either side and an incompatible native code replacement block a prepared claim before submission. Read-only checks verify the fixture mint/escrow and bracket them with selected token-programme code and authority pins. Separate native reserve and consumed bootstrap receipt checks reconcile its declared budget. One expired private withdrawal remains unresolved, with no retry or refund authorized. Complete funded genesis backing, native reserve reconciliation, remaining metadata unknown-landing/expiry recovery and competing-fork testing, independent operators and custody, origin-side code-upgrade/fork tests and external security review remain required before live redemption.",
+        "currentScope": "The private bridge prototype completes finalized transfers in both directions, cold restore and process-crash recovery. Claim handoff requires reviewed code and policy pins; Actual authority changes on either side and separately scoped incompatible native and metadata-origin code replacements block prepared claims before submission. Read-only checks verify the fixture mint/escrow and bracket them with selected token-programme code and authority pins. Separate native reserve and consumed bootstrap receipt checks reconcile its declared budget. One expired private withdrawal remains unresolved, with no retry or refund authorized. Complete funded genesis backing, native reserve reconciliation, remaining metadata unknown-landing/expiry recovery and competing-fork testing, independent operators and custody, compatible upgrade/rollback and fork tests and external security review remain required before live redemption.",
         "source": "https://github.com/solana-classic/solana-classic/tree/main/bridge",
         "milestones": [
           {
@@ -463,6 +463,12 @@
             "title": "Unsubmitted metadata redemption expires without payout or refund",
             "state": "rehearsal-passed",
             "detail": "Proposed in PR #6, not yet merged. Eight actual checks on fresh private ledger copies. One unused native return finalizes with event rent separate from value; a signed version3 original-token withdrawal remains unsubmitted until actual origin finalized block height passes its original expiry. All three handoff APIs refuse unchanged PREPARED bytes, then refuse again after EXPIRED_UNRESOLVED reconciliation. Zero withdrawal handoffs/broadcasts, no landed signature/receipt, token payout, retry, replacement or native refund. Original escrow obligation, returned backing and reserve floor retained. Recipient token/native balances unchanged. Both copies stopped; originals unchanged. Five guards pass locally and on Linux. This complements deliberately unsubmitted native expiry; submitted-but-uncertain recovery, pruning, forks, funded backing/custody and independent security remain open.",
+            "evidence": "https://github.com/solana-classic/solana-classic/pull/6"
+          },
+          {
+            "title": "Changed origin bridge code blocks an unexpired metadata claim",
+            "state": "rehearsal-passed",
+            "detail": "Proposed in PR #6, not yet merged. Eight actual checks on new private copies. Six buffer setup transactions stage a deliberately incompatible reviewed ELF; one unused metadata-token lock finalizes and a version3 native claim is prepared, then one actual origin Loader-v3 code replacement finalizes with authority, capacity and rent unchanged. All three handoff APIs refuse old code pins while the claim is unexpired. Zero claim handoffs/broadcasts, unchanged prepared bytes/review, attempts0 and no destination signature/receipt or payout. Destination code pins and exact mint/escrow/recipient/configuration/reserve snapshots remain unchanged. Both copies stopped; originals unchanged. Five guards pass locally and on Linux; six code-comparison checks pass locally. Incompatible private refusal only; compatible migration, post-snapshot upgrade risk, forks, funded backing/custody and independent security remain open.",
             "evidence": "https://github.com/solana-classic/solana-classic/pull/6"
           },
           {

@@ -564,3 +564,32 @@ actual-height expiry cases. These are refusal tests, not successful redemption
 or unknown-landing recovery. Submitted-but-uncertain expiry, pruned history,
 competing forks, manual recovery, funded backing, custody and independent
 security review remain open. All unresolved private obligations stay retained.
+
+
+## Actual metadata-origin code replacement
+
+A separate8-check private-copy rehearsal now replaces the origin bridge's code
+after preparing an unused metadata native claim. Six one-shot buffer setup
+transactions stage a reviewed small counter ELF for an intentionally incompatible
+replacement. One new source lock finalizes under the original bridge code, then
+its version3 claim retains the selected metadata and two-chain code review.
+One actual Loader-v3 origin upgrade finalizes; the same authority, ProgramData
+capacity and rent remain, while the deployed ELF and complete code data change.
+Native destination code pins still match.
+
+All three handoff APIs reject the old origin code pins while the signed claim
+is still unexpired. Prepared bytes and selected review stay unchanged, attempts
+remain0, no handoff or claim is broadcast, and no destination signature,
+transaction or receipt lands. Complete mint, escrow, token-recipient, both
+configuration and native-reserve snapshots stay unchanged after the upgrade.
+The source obligation remains without payout, refund or retry. Both new copies
+stop; complete original ledgers and private finalized records stay unchanged.
+Five guards pass locally and on Linux; six upgrade-observation checks pass
+locally. See [the aggregate origin-code result](../evidence/bridge-metadata-origin-code-agave.json).
+
+This is rejection of one deliberately incompatible origin replacement in a
+private metadata fixture, not an approved bridge migration. It does not prevent
+an authority from upgrading code or eliminate a change after a signing snapshot.
+Compatible upgrades, rollback governance, forks, funded backing, custody and
+independent security review remain production gates. The replacement is never
+approved for settlement and the retained prepared claim must not be retried.

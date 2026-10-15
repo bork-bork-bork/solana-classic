@@ -133,3 +133,14 @@ unchanged, five guards pass locally and on Linux. This complements native-claim
 unsubmitted expiry and does not verify submitted-but-uncertain recovery, pruning,
 forks or production backing/custody/security. See
 [the separate redemption expiry result](../evidence/bridge-metadata-redemption-expiry-agave.json).
+
+
+A separate actual origin-code replacement now passes8 private checks. A version3
+metadata native claim is prepared before an incompatible Loader-v3 origin
+upgrade. All three handoff APIs reject changed code while the claim is unexpired,
+with unchanged signed review/bytes, attempts0 and no payout. Destination code
+pins and exact mint/escrow/recipient/configuration/reserve snapshots remain
+unchanged. Both copies stop, originals stay unchanged, five guards pass locally
+and on Linux, and six code-comparison regressions pass locally. This refusal
+does not approve a compatible migration or prevent later authority action.
+See [the origin-code result](../evidence/bridge-metadata-origin-code-agave.json).
