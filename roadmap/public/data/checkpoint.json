@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "reviewedAt": "2026-10-15T02:01:39.559260+00:00",
+  "reviewedAt": "2026-10-15T02:32:45.640360+00:00",
   "t0": "2026-10-13T03:00:54Z",
   "deadline": "2026-10-19T03:00:54Z",
   "target": "2026-10-17T15:00:54Z",
@@ -70,51 +70,50 @@
   "proofs": {
     "load": {
       "passed": true,
-      "at": "2026-10-13T16:26:24.383Z",
+      "at": "2026-10-15T02:08:03.828Z",
       "scope": "remote bounded 20 SDK client sessions, not chainwide throughput or browser soak",
-      "sha256": "fc83483f50e6a87c36ef1801d45e82f10b9bd1d0ecf66e83cb73f1a32b02b29c"
+      "sha256": "9d22fbf4b9890be4051dbfac955b27fd2878d88b50b75c49592bb5ad9a4a34fd"
     },
     "backup-check": {
-      "passed": true,
-      "at": "2026-10-13T16:01:06.171Z",
-      "scope": "remote actual final-code state reconfirmation of the prior isolated cold-backup restore; bounded transaction history limitation; no new cold archive extraction",
-      "sha256": "a3aff6b9ef61bb12e892a0bc2b7988f274a82eb41748f3400176c8325d1c1529"
+      "passed": false,
+      "at": "2026-10-15T02:32:45.640196+00:00",
+      "scope": "Current source-built devnet isolated cold-backup restore is in preparation. The previous runtime restore remains historical and does not admit this stability run."
     },
     "restart-check": {
       "passed": true,
-      "at": "2026-10-13T15:55:51.917Z",
-      "scope": "remote actual repaired-build provider process restart with hosted before/after persistence verification; not hardware host reboot or cold restore",
-      "sha256": "c21a2f42d0e4fb638168505a459a4475bedbc99a6152ebcb69fa6fa078c353ee"
+      "at": "2026-10-15T00:57:23.289Z",
+      "scope": "remote provider container/process restart; not host reboot or backup restore",
+      "sha256": "3a2db0639a11b1054156c74d21089fad2397278708f4f35d48bc2de44741c60a"
     },
     "pilot-agent-one": {
       "passed": true,
-      "at": "2026-10-13T16:08:42.357274+00:00",
-      "scope": "remote independent agent browser pilot of final repaired production candidate; not human usability testing or full release acceptance",
-      "sha256": "ef409a3d174e5ead96d84789ebc7a385d349ad4c29fb310c5fbc33905239e2ef"
+      "at": "2026-10-15T01:04:46.033494+00:00",
+      "scope": "remote independent automated browser validation of source-built Agave devnet on frozen production frontend; not human research, soak acceptance or full release acceptance",
+      "sha256": "2daa03592f04962080c0c2805264376a312225d04950111aeeb15d8c77749e76"
     },
     "pilot-agent-two": {
       "passed": true,
-      "at": "2026-10-13T16:15:49.454688+00:00",
-      "scope": "remote independent agent browser pilot two on repaired frozen TEST candidate; actual UI-generated memory-only wallets, NFT issuance/transfer/current ownership, Explorer receipt/deep-link, mobile360 and keyboard checks; not human usability research or soak acceptance",
-      "sha256": "8bf15684f9cbad8e85f9288ad002d094eb23ca09b08930fc805ab4e021a9b77c"
+      "at": "2026-10-15T01:30:40.959727+00:00",
+      "scope": "remote independently executed original frontend mobile browser pilot on reviewed source-built devnet; actual valueless creation, transfer, ownership, receipt and responsive checks; not human research, soak or release acceptance",
+      "sha256": "a95b4e73f1eb0f1c8230113984cdb9518829045325f9f67e3e4d09af7b5a8006"
     },
     "monitoring-config": {
       "passed": true,
-      "at": "2026-10-13T16:35:34.934352+00:00",
-      "scope": "remote current independent health probe and unchanged provider monitoring configuration review, with preserved actual native lifecycle and direct operator email receipt",
-      "sha256": "44a609a9998efd9f542ac5c02f44b2b352209ab0926e4d52e1f357c51779a308"
+      "at": "2026-10-15T02:24:13.374648+00:00",
+      "scope": "remote current-candidate independent health progression and saved provider alert configuration review",
+      "sha256": "b547b69d56f99f04cc81ddd4922bdc3641a5687001e8c477047df1bb23419cbf"
     },
     "frontend-rollback": {
       "passed": true,
-      "at": "2026-10-13T15:35:39.554567+00:00",
-      "scope": "actual reversible remote production frontend alias rollback and restoration with anonymous hosted QA HTML/JavaScript/CSS/PDF hashes; API and validator runtime identity unchanged; no soak claim",
-      "sha256": "f874526592419adfdaca439f706146225001f865cb8e626a4ec33ca9ff76fa86"
+      "at": "2026-10-15T02:27:07.264273+00:00",
+      "scope": "remote actual reversible current-candidate production frontend alias rollback and restoration",
+      "sha256": "31b5ec394480997c0826b51e21df3610dc28a4ce64b68adfe175f28a88b9af9b"
     },
     "remote-negative-controls": {
       "passed": true,
-      "at": "2026-10-13T15:48:27.642Z",
-      "scope": "remote current frozen production gateway bounded protocol/schema reconfirmation with repository audit of unchanged historical controls; asset-quota execution remains historical",
-      "sha256": "6433ad949fa4fed475f9d00615e9c6d6acc20009e34106aa0652d5209ace1f50"
+      "at": "2026-10-15T02:15:28.768Z",
+      "scope": "remote actual bounded production gateway negative controls; not a wrong-genesis outage or global-capacity drill",
+      "sha256": "968809f06a9333683d0a04ce11b55d7ffac9492f62dbc9a4b2b83041375f9da6"
     },
     "remote-fault-reconfirmation": {
       "passed": true,
@@ -157,8 +156,8 @@
     "operations": 200,
     "sessions": 20,
     "confirmedWithin15Seconds": 200,
-    "p95ConfirmedMs": 3150,
-    "p95FinalizedMs": 15167
+    "p95ConfirmedMs": 3313,
+    "p95FinalizedMs": 15350
   },
   "whitepaper": {
     "version": "0.15",
