@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-15T08:26:46.585759+00:00",
+  "state": "terminal-auditor-prepared",
+  "scope": "Source-built devnet final-audit preparation; local synthetic terminal regressions and actual read-only in-progress refusal, not a completed stability result",
+  "localChecks": {
+    "sourceTerminal": 17,
+    "existingTerminalAndLoad": 16,
+    "total": 33,
+    "passed": true
+  },
+  "actualInProgressRefusal": {
+    "at": "2026-10-15T08:25:09.282864+00:00",
+    "state": "in-progress-terminal-refusal-verified",
+    "scope": "Actual read-only public source snapshots and eight selected prerequisite byte checks; missing full terminal report is explicitly represented by an empty placeholder",
+    "guardPassed": true,
+    "stabilityAccepted": false,
+    "exitCode": 78,
+    "failureCode": "SOURCE_RUN_NOT_COMPLETED",
+    "actualRunState": "running",
+    "startedAt": "2026-10-15T03:59:33.330Z",
+    "completedJourneys": 54,
+    "freezeMatches": true,
+    "genesisMatches": true,
+    "identityMatches": true,
+    "selectedPrerequisiteDigestsMatched": 8,
+    "frozenSourceFilesVerified": 45,
+    "requests": 5,
+    "canonicalNetworkChanged": false,
+    "testStarted": false,
+    "sourceHashes": {
+      "engine/migration/source_terminal_review.py": "e417a76d2c8397608080fbdfe0bfd2b6f68bee5f0d025049fe299d885e186944",
+      "engine/migration/terminal_review.py": "5baa1eaafbf4c91afc922c79107957c0bbb84edeffea8715efe8bef4d09b3afd",
+      "engine/migration/load_review.py": "1a9dc744aea2f60b38fbd666194af240481443d4a8523c4619a6c5bc9a8abdf6"
+    },
+    "revalidatedAt": "2026-10-15T08:27:47.314237+00:00",
+    "revalidationRequests": 0,
+    "revalidationScope": "Final CLI rechecked the retained incomplete snapshot; no new network reads or terminal report generated"
+  },
+  "sourceHashes": {
+    "engine/migration/source_terminal_review.py": "e417a76d2c8397608080fbdfe0bfd2b6f68bee5f0d025049fe299d885e186944",
+    "engine/migration/source_terminal_review_test.py": "249fbf0004b4555cb5d4fb4f4bae7ff5aae6618fe386de954be5227402e38d50",
+    "engine/migration/terminal_review.py": "5baa1eaafbf4c91afc922c79107957c0bbb84edeffea8715efe8bef4d09b3afd"
+  },
+  "stabilityAccepted": false,
+  "releaseAccepted": false,
+  "mainnetAccepted": false,
+  "bridgeAccepted": false,
+  "canonicalNetworkChanged": false,
+  "testStarted": false,
+  "coverageLimits": [
+    "No completed source-run terminal report exists yet; an empty placeholder represents its absence in the actual refusal test",
+    "Successful terminal fixtures are synthetic local regressions, not remote24hour proof",
+    "The pinned public progress reader intentionally exposes a bounded summary; full288-journey report must be collected separately through existing authorized read-only access",
+    "The auditor verifies retained records, complete exact-run identity and prerequisites; it does not independently replay pruned transactions",
+    "Full release still requires genuine completion, final regression, remaining individual reviews and operator decision"
+  ]
+}

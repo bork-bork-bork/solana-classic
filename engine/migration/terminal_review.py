@@ -38,7 +38,7 @@ def integer(value, minimum=0):
     return type(value) is int and minimum <= value <= 2**53 - 1
 
 
-def review(bundle, freeze, freeze_sha):
+def review(bundle, freeze, freeze_sha, *, expected_start=START):
     result, status, runtime, qa, progress, monitor = (bundle[name] for name in FILES)
     expected = freeze['runtime']
     candidate = freeze['candidate']
@@ -57,9 +57,9 @@ def review(bundle, freeze, freeze_sha):
             qa.get('issues') == [], 'Runner has no clean terminal result')
     require(qa.get('freezeSha256') == freeze_sha == progress.get('freezeSha256') ==
             status['checkpoint']['freezeSha256'], 'Original freeze changed')
-    require(result.get('passed') is True and result.get('startedAt') == START and
+    require(result.get('passed') is True and result.get('startedAt') == expected_start and
             integer(result.get('durationMs'), DURATION), 'Run incomplete or duration invalid')
-    start, finish = milliseconds(START), milliseconds(result['at'])
+    start, finish = milliseconds(expected_start), milliseconds(result['at'])
     require(finish - start == result['durationMs'] and finish <= observed_at,
             'Terminal time does not establish the measured full duration')
     require(result.get('completedJourneys') == 288 and
@@ -115,7 +115,7 @@ def review(bundle, freeze, freeze_sha):
         'schemaVersion': 1, 'at': dt.datetime.now(dt.timezone.utc).isoformat(),
         'scope': 'remote original frozen browser soak evidence review; recorded receipts, not independent transaction replay or full release acceptance',
         'passed': True, 'genesis': freeze['genesis'], 'candidate': candidate,
-        'runtime': expected, 'freezeSha256': freeze_sha, 'startedAt': START,
+        'runtime': expected, 'freezeSha256': freeze_sha, 'startedAt': expected_start,
         'completedAt': result['at'], 'observedAt': status['fetchedAt'],
         'durationMs': result['durationMs'], 'completedJourneys': 288,
         'observations': result['observations'], 'faucetCalls': 0,

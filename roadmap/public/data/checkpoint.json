@@ -224,7 +224,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-15T07:57:02.098783+00:00",
+    "reviewedAt": "2026-10-15T08:26:46.585759+00:00",
     "scope": "Development checkpoint only; separate from the live devnet release",
     "projects": [
       {
@@ -660,6 +660,12 @@
             "state": "live-passed",
             "detail": "Actual original-frontend alias rollback and restore, with all HTML,JavaScript,CSS/PDF hashes verified from the hosted observer at each stage. Exact frozen deployment restored; API and validator identities unchanged. Earlier failed observer attempt retained.",
             "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/agave-source-frontend-rollback.json"
+          },
+          {
+            "title": "Source-run final stability audit preparation",
+            "state": "local-passed",
+            "detail": "17 new terminal checks plus 16 existing terminal/load regressions. Binds the exact run, engine, eight prerequisite hashes, complete 288-journey report, valid unique receipts and independent health. Actual ongoing run correctly refused as incomplete at 54/288; no test restart or acceptance. Real full-day terminal review remains pending.",
+            "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/source-terminal-auditor-preparation.json"
           }
         ]
       }
