@@ -107,3 +107,16 @@ common ledger history, complete source events, current balances, custody or
 funded backing. No retry, refund, settlement or production permission is granted.
 Keep full output private; publish only explicitly selected aggregate counts,
 limitations and public source hashes.
+
+
+## Separate returned-account model
+
+[Source-event and receipt accounting](EVENT_INVENTORY.md) now supplies a second
+pure verifier. It derives both pending directions from supplied programme-owned
+event/receipt accounts and compares the derived amounts with both configurations,
+a separately supplied escrow and the returned native vault. It does not use
+journal finalization labels. Eleven synthetic groups cover omission against
+unchanged counters, orphan receipts, exact arithmetic and policy boundaries.
+This is not a fresh RPC collector or complete-history proof; coordinated
+omission with changed supplied counters remains an explicit limitation. It
+cannot change the permissions or conclusions of selected-journal review.

@@ -223,7 +223,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-15T23:06:46.502728+00:00",
+    "reviewedAt": "2026-10-15T23:24:51.775854+00:00",
     "scope": "Development checkpoint only; separate from the live devnet release",
     "projects": [
       {
@@ -510,7 +510,7 @@
           {
             "title": "Bootstrap reconciliation, custody and recovery",
             "state": "pending",
-            "detail": "Proposed in PR #6, not yet merged. Thirteen synthetic selected-journal checks and all 167 related bridge regressions pass. Seven additional offline compatibility checks now pass against two actual retained version3 metadata journals from one completed rehearsal: a locally finalized claim and an expired unresolved redemption. Historical declared accounting retains the unresolved obligation; omission, erased liability, duplicates, changed hashes and another epoch refuse. Original records stay byte-identical; zero RPC reads, validator starts or transactions. This does not prove complete source events, common history, fresh balances, funded backing or recovery permission. Complete genesis/reserve reconciliation, custody and independent verification remain pending.",
+            "detail": "Proposed in PR #6, not yet merged. A new offline verifier derives both pending directions from supplied source-event accounts and opposite consumed receipts, then compares bridge counters, supplied escrow and the returned native vault. Eleven new synthetic groups cover omitted events against unchanged counters, orphan receipts, policy/PDA/epoch errors, exact amounts, reserve coverage and deterministic ordering; all 180 related bridge regressions pass locally. This complements 13 selected-journal checks and seven retained-record compatibility checks. It does not fetch an RPC or establish completeness: coordinated omission with altered supplied counters remains an explicit tested limitation. Existing journals and expired obligations stay unchanged. Fresh pinned collection, independent history/economic movement, funded genesis/bootstrap/reserve reconciliation, custody and security remain pending.",
             "evidence": "https://github.com/solana-classic/solana-classic/pull/6"
           },
           {
