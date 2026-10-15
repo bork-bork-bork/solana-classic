@@ -178,15 +178,17 @@ def rpc(port,method,params=None):
 
 def selected_votes(m,current):
  expected={node['vote']:node['identity'] for node in m['validators']}
- if not isinstance(current,list) or len(current)!=3 or any(not isinstance(row,dict) for row in current):raise ValueError('EXACT_THREE_ROOTED_VOTE_ACCOUNTS_REQUIRED')
- indexed={}
+ if not isinstance(current,list) or len(current)>3 or any(not isinstance(row,dict) for row in current):raise ValueError('EXACT_THREE_ROOTED_VOTE_ACCOUNTS_REQUIRED')
+ indexed={};not_ready=len(current)<3
  for row in current:
   vote=row.get('votePubkey')
-  if vote not in expected or vote in indexed or row.get('nodePubkey')!=expected[vote]:raise ValueError('EXACT_THREE_ROOTED_VOTE_ACCOUNTS_REQUIRED')
+  if vote not in expected or vote in indexed or row.get('nodePubkey')!=expected[vote]:raise ValueError('SELECTED_VOTE_ACCOUNT_IDENTITY_DIFFERS')
   for field in ['lastVote','rootSlot','activatedStake']:
-   if type(row.get(field)) is not int or not 0<row[field]<1<<64:raise ValueError('ACTIVE_ROOTED_VOTES_REQUIRED')
-  if row['rootSlot']>row['lastVote']:raise ValueError('ACTIVE_ROOTED_VOTES_REQUIRED')
+   if type(row.get(field)) is not int or not 0<=row[field]<1<<64:raise ValueError('ACTIVE_ROOTED_VOTES_REQUIRED')
+  if row['activatedStake']==0 or row['rootSlot']>row['lastVote']:raise ValueError('ACTIVE_ROOTED_VOTES_REQUIRED')
+  if row['lastVote']==0 or row['rootSlot']==0:not_ready=True
   indexed[vote]={field:row[field] for field in ['votePubkey','nodePubkey','lastVote','rootSlot','activatedStake']}
+ if not_ready:raise ValueError('CONSENSUS_NOT_READY')
  return [indexed[node['vote']] for node in m['validators']]
 
 def runtime_observation(m):
@@ -197,8 +199,11 @@ def runtime_observation(m):
   if rpc(p,'getIdentity').get('identity')!=m['validators'][i]['identity'] or rpc(p,'getVersion').get('solana-core')!='3.0.14':raise ValueError('RUNNING_IDENTITY_OR_VERSION_DIFFERS')
   s=rpc(p,'getSlot',[{'commitment':'finalized'}]);supply=rpc(p,'getSupply',[{'commitment':'finalized'}])['value']['total'];inflation=rpc(p,'getInflationGovernor')
   current=rpc(p,'getVoteAccounts',[{'commitment':'finalized'}])['current']
-  if type(s) is not int or s<40 or type(supply) is not int or supply!=int(m['totalNativeUnits']) or inflation.get('initial')!=0 or inflation.get('terminal')!=0:raise ValueError('CONSENSUS_SUPPLY_OR_VOTES_NOT_READY')
-  observations.append({'nodeIdentity':m['validators'][i]['identity'],'votes':selected_votes(m,current)});slots.append(s)
+  if type(s) is not int or not 0<=s<1<<64:raise ValueError('CONSENSUS_SLOT_INVALID')
+  if type(supply) is not int or supply!=int(m['totalNativeUnits']) or not isinstance(inflation,dict) or any(type(inflation.get(k)) not in [int,float] or inflation[k]!=0 for k in ['initial','terminal']):raise ValueError('CONSENSUS_SUPPLY_OR_INFLATION_DIFFERS')
+  selected=selected_votes(m,current)
+  if s<40:raise ValueError('CONSENSUS_NOT_READY')
+  observations.append({'nodeIdentity':m['validators'][i]['identity'],'votes':selected});slots.append(s)
  shared=min(slots);hashes=[rpc(ports(i)['rpc'],'getBlock',[shared,{'commitment':'finalized','transactionDetails':'none','rewards':False}])['blockhash'] for i in range(3)]
  for h in hashes:address(h)
  if len(set(hashes))!=1:raise ValueError('FINALIZED_BLOCK_DIFFERS')
@@ -289,7 +294,9 @@ def run(bundle,binaries,run_id,execute=False,restart_node=None):
   while time.monotonic()<until:
    if any(p.poll() is not None for p in processes):raise ValueError('PRIVATE_VALIDATOR_EXITED')
    try:first=runtime_observation(m);break
-   except (OSError,ValueError,KeyError,TypeError):time.sleep(3)
+   except (OSError,ValueError,KeyError,TypeError) as error:
+    if not validator_restart.retryable_observation(error):raise
+    time.sleep(3)
   else:raise ValueError('BOUNDED_CONSENSUS_NOT_OBSERVED')
   proof['firstObservation']=first;save();time.sleep(20)
   if any(p.poll() is not None for p in processes):raise ValueError('PRIVATE_VALIDATOR_EXITED')

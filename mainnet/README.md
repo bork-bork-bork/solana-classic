@@ -131,3 +131,10 @@ cleanup. Local results are108 passed and one Linux-only skip out of109 checks.
 Actual warm restart still awaits an admitted host; no cold restore, quorum
 availability, fork or production claim is made. See
 [the optional restart procedure](CONSENSUS_REHEARSAL.md#optional-owned-warm-restart).
+
+Startup and warm-restart retries now distinguish temporary readiness from
+integrity failures. Wrong network/identity, changed supply/stake or finalized
+history, malformed data and unknown errors abort instead of retrying into a
+later pass. Six additional regression groups bring local validation to114
+passed and one Linux-only skip out of115 checks. See
+[the observation policy](CONSENSUS_REHEARSAL.md#readiness-retries-and-integrity-failures).

@@ -3,7 +3,17 @@
 Callbacks retain process ownership and selected artifacts. No keys, ledger
 copies, reset, transaction signing or activation are implemented here.
 """
-import time
+import time,urllib.error
+
+RETRYABLE_READINESS={'CONSENSUS_NOT_READY','FINALITY_DID_NOT_ADVANCE','EVERY_VALIDATOR_VOTE_AND_ROOT_MUST_ADVANCE','PRIVATE_RPC_NETWORK_DEADLINE'}
+
+def retryable_observation(error):
+ # Never retry identity, supply, policy, history, malformed data or an unknown
+ # failure into an eventual pass. A failed transport read is not an observation.
+ if type(error) is ValueError:return str(error) in RETRYABLE_READINESS
+ if isinstance(error,urllib.error.HTTPError):return False
+ if isinstance(error,urllib.error.URLError):return isinstance(error.reason,(ConnectionError,TimeoutError))
+ return isinstance(error,(ConnectionError,TimeoutError))
 
 def restart_node(*,node,manifest,processes,baseline,stop_owned,start_owned,rpc,ports,observe,verify_progress,timeout=180,clock=time.monotonic,sleep=time.sleep):
  if type(node) is not int or node not in range(3) or type(timeout) is not int or not 1<=timeout<=180:raise ValueError('BOUNDED_OWNED_RESTART_REQUIRED')
@@ -36,7 +46,8 @@ def restart_node(*,node,manifest,processes,baseline,stop_owned,start_owned,rpc,p
   try:
    recovered=observe(manifest)
    review=verify_progress(manifest,baseline,recovered)
-  except (OSError,ValueError,KeyError,TypeError):
+  except (OSError,ValueError,KeyError,TypeError) as error:
+   if not retryable_observation(error):raise
    if clock()>=deadline:raise ValueError('BOUNDED_RESTART_PROGRESS_NOT_OBSERVED') from None
    sleep(min(3,max(0,deadline-clock())));continue
   if clock()>=deadline:raise ValueError('BOUNDED_RESTART_PROGRESS_NOT_OBSERVED')

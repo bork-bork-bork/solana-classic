@@ -65,11 +65,11 @@ class Restart(unittest.TestCase):
    with self.subTest(mode=mode),self.assertRaisesRegex(ValueError,'CHILD_OWNERSHIP'):m.restart_node(**a)
    a['observe'].assert_not_called()
  def test_stalled_progress_times_out_with_replacement_still_owned_for_outer_cleanup(self):
-  a,_,started,now=self.context();a['verify_progress'].side_effect=ValueError('VOTES_STALLED')
+  a,_,started,now=self.context();a['verify_progress'].side_effect=ValueError('EVERY_VALIDATOR_VOTE_AND_ROOT_MUST_ADVANCE')
   with self.assertRaisesRegex(ValueError,'BOUNDED_RESTART'):m.restart_node(**a)
   self.assertEqual(len(started),1);self.assertIs(a['processes'][1],started[0][1]);self.assertGreaterEqual(now[0],6)
  def test_transient_observation_failures_can_recover_within_budget(self):
-  a,_,_,now=self.context();a['observe'].side_effect=[OSError(),{'recovered':'later'}];r=m.restart_node(**a);self.assertEqual(r['state'],'passed');self.assertEqual(now[0],3)
+  a,_,_,now=self.context();a['observe'].side_effect=[ConnectionRefusedError(),{'recovered':'later'}];r=m.restart_node(**a);self.assertEqual(r['state'],'passed');self.assertEqual(now[0],3)
  def test_surviving_child_exit_blocks_restart_or_later_acceptance(self):
   for phase in ['stop','observe']:
    a,_,_,_=self.context()
@@ -119,7 +119,7 @@ class LauncherRestart(unittest.TestCase):
     raise AssertionError('Unexpected fixture request')
    def check(bundle,directory):return ({**manifest,'totalNativeUnits':'901'} if fault=='bundle' and len(spawned)==3 else manifest, {})
    pins={'agave-validator':(hashlib.sha256(b'x').hexdigest(),1)}
-   with patch.object(c,'BASE',base),patch.object(c.host,'probe',return_value={}),patch.object(c.host,'assess',return_value={'canPrepareFreshPrivateRehearsal':True}),patch.object(c,'check_bundle',side_effect=check),patch.object(c.process_admission,'no_active_validator'),patch.object(c.genesis_archive,'materialize',side_effect=materialize) as materialized,patch.object(c.host,'PINS',pins),patch.object(c.socket,'socket'),patch.object(c.subprocess,'Popen',side_effect=spawn),patch.object(c,'runtime_observation',side_effect=observations),patch.object(c,'rpc',side_effect=rpc),patch.object(c.time,'sleep'),patch.object(c.os,'killpg'):
+   with patch.object(c,'BASE',base),patch.object(c.host,'probe',return_value={}),patch.object(c.host,'assess',return_value={'canPrepareFreshPrivateRehearsal':True}),patch.object(c,'check_bundle',side_effect=check),patch.object(c.process_admission,'no_active_validator'),patch.object(c.genesis_archive,'materialize',side_effect=materialize) as materialized,patch.object(c.host,'PINS',pins),patch.object(c.socket,'socket'),patch.object(c.subprocess,'Popen',side_effect=spawn),patch.object(c,'runtime_observation',side_effect=([ValueError('RUNNING_GENESIS_DIFFERS'),*observations] if fault=='startup-integrity' else [ValueError('CONSENSUS_NOT_READY'),*observations] if fault=='startup-readiness' else [*observations[:2],ValueError('EARLIER_FINALIZED_BLOCK_CHANGED'),observations[2]] if fault=='restart-integrity' else observations)),patch.object(c,'rpc',side_effect=rpc),patch.object(c.time,'sleep'),patch.object(c.os,'killpg'):
     result=c.run(bundle,binaries,'restart-fixture-001',True,restart_node=0)
    self.assertTrue(all(p.returncode is not None for p in spawned));self.assertTrue(result['allStopped']);self.assertEqual(materialized.call_count,3)
    self.assertTrue((base/'runs/restart-fixture-001/public-result.json').is_file())

@@ -223,7 +223,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-15T21:24:56.645710+00:00",
+    "reviewedAt": "2026-10-15T21:54:06.000914+00:00",
     "scope": "Development checkpoint only; separate from the live devnet release",
     "projects": [
       {
@@ -297,7 +297,7 @@
           {
             "title": "Owned full-validator warm restart preparation",
             "state": "local-passed",
-            "detail": "Proposed in PR #6, not yet merged. Sixteen new synthetic checks prepare an optional one-node warm restart after initial three-validator consensus. It requires an observed owned stop, connection-refused RPC, selected surviving identities, unchanged bundle/runtime/original ledger and complete vote/finality continuity after a replacement registered for cleanup. Local suite: 108 passed, one Linux-only skip out of 109. No real Agave, keys, genesis or chain requests. Actual execution remains blocked by hosting; cold restore, forks, quorum-outage policy, independent operators and production release remain separate gates.",
+            "detail": "Proposed in PR #6, not yet merged. Sixteen synthetic restart checks plus six new observation-admission groups prepare an optional owned one-node restart on its original ledger after initial three-validator consensus. Startup and restart retry explicit readiness/failed connections; wrong genesis/identity, changed supply/stake/history and malformed or unknown observations abort instead of disappearing behind a later healthy reply. Full launcher fixtures verify original command/ledger reuse, selected pins and cleanup. Local suite: 114 passed, one Linux-only skip out of 115. No real Agave, keys, genesis or chain requests. Actual hosting, consensus/recovery, cold restore, forks, quorum policy, independent operators and release remain separate gates.",
             "evidence": "https://github.com/solana-classic/solana-classic/pull/6"
           }
         ]
