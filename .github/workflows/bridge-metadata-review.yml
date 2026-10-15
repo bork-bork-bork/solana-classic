@@ -1,0 +1,23 @@
+name: Bridge metadata review
+on:
+  pull_request:
+    paths:
+      - 'bridge/mint-metadata*'
+      - 'bridge/MINT_METADATA.md'
+      - '.github/workflows/bridge-metadata-review.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  offline-admission:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24.19.0'
+      - run: npm install --global pnpm@10.34.7
+      - run: pnpm install --frozen-lockfile --ignore-scripts
+      - name: Offline metadata and existing admission regressions
+        run: node --test bridge/mint-metadata.test.mjs bridge/origin-assets.test.mjs bridge/pending-claim.test.mjs bridge/pending-redemption.test.mjs
