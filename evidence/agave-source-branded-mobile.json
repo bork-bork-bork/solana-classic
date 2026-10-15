@@ -1,0 +1,298 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-15T01:03:59.389Z",
+  "scope": "remote independent agent-run branded frontend mobile pilot on exact source-built devnet runtime; supplemental branded frontend proof, not original frontend prerequisite, human research, soak or release acceptance",
+  "passed": true,
+  "api": "https://solanaclassic.net/_network",
+  "web": "https://solanaclassic.net",
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "candidate": {
+    "apiOrigin": "https://network-release-production.up.railway.app",
+    "frontendOrigin": "https://solana-classic-soc.vercel.app",
+    "frontendDeploymentId": "dpl_3aWWzKDohr4SrgijgrB8dWgHHS5r",
+    "frontendCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "apiCommit": "119f25e225540be78b64b19bdb6cb300a1f47c10",
+    "networkConfigSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+    "dependencyManifestSha256": "e6da27717e6a84ca7b29d707ff63591b2ff0cfc38892d3b4667f8615bdf7bbc0"
+  },
+  "runtimeBefore": {
+    "configured": true,
+    "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+    "engineBuild": {
+      "schemaVersion": 1,
+      "scope": "authenticated export of four public source-built binaries only; no ledger or key material",
+      "passed": true,
+      "runId": "40de48b7-6963-429b-ae3e-81a610d81b7d",
+      "archiveBytes": 67933801,
+      "archiveSha256": "1dd3a398821f029f4f1aa53a63b53eda3123b907ef4025f6ab964e35c60d48b4",
+      "binaries": {
+        "agave-validator": {
+          "sha256": "34e468747f1a0d69399b61fd40edc32ce4690ec5a200b5684474aa60a97a6910",
+          "bytes": 74406832,
+          "version": "agave-validator 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+        },
+        "solana-test-validator": {
+          "sha256": "3d3140bf93c9bc967220ffd8989d8b0267b723915d32203132ecc36d2c63a49a",
+          "bytes": 73661760,
+          "version": "solana-test-validator 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+        },
+        "solana": {
+          "sha256": "6a880f1c79ec0e0d7b3ee972eaa9ad8d75b503616e1f0c29efa587137a129dcd",
+          "bytes": 28209480,
+          "version": "solana-cli 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+        },
+        "solana-keygen": {
+          "sha256": "2f00a742ab0d99cad929e7a82b2d80f7c519cab9038ec45844fdbe9c305dea65",
+          "bytes": 2804464,
+          "version": "solana-keygen 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+        }
+      },
+      "upstreamCommit": "f516a8927c76c07f0ebc54ca7a4ce8b2046eee86",
+      "upstreamTree": "a4c75a1781d4ca56e7325a39d0614e1faa26030d",
+      "sourceRepositoryCommit": "39b9001cab84e637f2460f2387f2549f32b62ef9",
+      "workerSha256": "ac5937cba2a39336f847f2ce5443ed729146a07462c66074ff448c38d6e995ab",
+      "sourceManifestSha256": "337512bc1df2f382ccfab957347281b1c153353429b77d2695d65aafd29ec081",
+      "migrationId": "ae834e71-fb59-4beb-b26b-4485be3a386f",
+      "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+      "preparedAt": "2026-10-14T01:53:01.100713+00:00"
+    },
+    "sourceCommit": "119f25e225540be78b64b19bdb6cb300a1f47c10",
+    "coreSha256": "533950731d4ed6d94b59e71517613be002b6ec416b0ebb3a20a592fe5ec6f22f",
+    "apiBootId": "e6ec5d41-8238-48a0-b739-a81f9fea6adf",
+    "apiStartedAt": "2026-10-15T00:55:25.337Z",
+    "validatorBootId": "2c6a0f79-c6c3-43a4-aa5c-e542efb704d9",
+    "validatorStartedAt": "2026-10-15T00:55:03.665Z",
+    "deploymentId": "22e5870a-afb8-4027-89b5-ccb8a39391c2",
+    "agaveVersion": "3.0.14",
+    "tokenProgramVersion": "10.0.0",
+    "tokenProgramSha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+    "observedAt": "2026-10-15T01:02:09.464Z"
+  },
+  "runtimeAfter": {
+    "configured": true,
+    "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+    "engineBuild": {
+      "schemaVersion": 1,
+      "scope": "authenticated export of four public source-built binaries only; no ledger or key material",
+      "passed": true,
+      "runId": "40de48b7-6963-429b-ae3e-81a610d81b7d",
+      "archiveBytes": 67933801,
+      "archiveSha256": "1dd3a398821f029f4f1aa53a63b53eda3123b907ef4025f6ab964e35c60d48b4",
+      "binaries": {
+        "agave-validator": {
+          "sha256": "34e468747f1a0d69399b61fd40edc32ce4690ec5a200b5684474aa60a97a6910",
+          "bytes": 74406832,
+          "version": "agave-validator 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+        },
+        "solana-test-validator": {
+          "sha256": "3d3140bf93c9bc967220ffd8989d8b0267b723915d32203132ecc36d2c63a49a",
+          "bytes": 73661760,
+          "version": "solana-test-validator 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+        },
+        "solana": {
+          "sha256": "6a880f1c79ec0e0d7b3ee972eaa9ad8d75b503616e1f0c29efa587137a129dcd",
+          "bytes": 28209480,
+          "version": "solana-cli 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+        },
+        "solana-keygen": {
+          "sha256": "2f00a742ab0d99cad929e7a82b2d80f7c519cab9038ec45844fdbe9c305dea65",
+          "bytes": 2804464,
+          "version": "solana-keygen 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+        }
+      },
+      "upstreamCommit": "f516a8927c76c07f0ebc54ca7a4ce8b2046eee86",
+      "upstreamTree": "a4c75a1781d4ca56e7325a39d0614e1faa26030d",
+      "sourceRepositoryCommit": "39b9001cab84e637f2460f2387f2549f32b62ef9",
+      "workerSha256": "ac5937cba2a39336f847f2ce5443ed729146a07462c66074ff448c38d6e995ab",
+      "sourceManifestSha256": "337512bc1df2f382ccfab957347281b1c153353429b77d2695d65aafd29ec081",
+      "migrationId": "ae834e71-fb59-4beb-b26b-4485be3a386f",
+      "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+      "preparedAt": "2026-10-14T01:53:01.100713+00:00"
+    },
+    "sourceCommit": "119f25e225540be78b64b19bdb6cb300a1f47c10",
+    "coreSha256": "533950731d4ed6d94b59e71517613be002b6ec416b0ebb3a20a592fe5ec6f22f",
+    "apiBootId": "e6ec5d41-8238-48a0-b739-a81f9fea6adf",
+    "apiStartedAt": "2026-10-15T00:55:25.337Z",
+    "validatorBootId": "2c6a0f79-c6c3-43a4-aa5c-e542efb704d9",
+    "validatorStartedAt": "2026-10-15T00:55:03.665Z",
+    "deploymentId": "22e5870a-afb8-4027-89b5-ccb8a39391c2",
+    "agaveVersion": "3.0.14",
+    "tokenProgramVersion": "10.0.0",
+    "tokenProgramSha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+    "observedAt": "2026-10-15T01:03:58.554Z"
+  },
+  "freezeEvidence": {
+    "path": "evidence/candidate-freeze.json",
+    "sha256": "55b668e56a946ec94f0195b03530aba23593bd71d7fd52493d5403b21882757f"
+  },
+  "actualProof": {
+    "path": "evidence/browser-final-custom-mobile-20261015T010209126Z.json",
+    "sha256": "e235a48b9a3e8d7d728e21caad99b9b830fc76e0a2115df7a00cac991b33bc3a"
+  },
+  "driverEvidence": {
+    "path": "engine/migration/final-browser-regression.mjs",
+    "sha256": "0cd27bc0b2c58d56da75b082ca7c68a47f2a6149b378054ada7e644e526e28b5"
+  },
+  "failedAttempts": [
+    {
+      "path": "evidence/browser-final-custom-mobile-20261015T010134860Z.json",
+      "sha256": "46163dc5ed0aca550311cc9e56fa5279f1937343a5368020047768659f3c5bfa",
+      "result": "stopped before browser launch because existing Chromium cache environment was unset; no mutation"
+    }
+  ],
+  "environment": {
+    "browser": "Pinned Playwright Chromium",
+    "browserPlugin": "absent; Browser plugin not available",
+    "journeyViewport": {
+      "width": 360,
+      "height": 844,
+      "isMobile": true,
+      "hasTouch": true
+    },
+    "explorerWidths": [
+      1440,
+      360
+    ]
+  },
+  "checks": {
+    "pageIdentity": true,
+    "meaningfulMain": true,
+    "frameworkOverlay": false,
+    "consoleErrors": 0,
+    "pageErrors": 0,
+    "documentOverflow": false,
+    "keyboardFocusableControl": true,
+    "logicalFaucetGrants": 1,
+    "finalizedReceipts": 6,
+    "independentReadRetries": 0,
+    "browserStorageEmpty": true,
+    "walletSecretsPersisted": false
+  },
+  "verifiedBehavior": {
+    "nativeRecipientLamports": 10000000,
+    "memeRecipientUnits": "5000000",
+    "memeDecimals": 6,
+    "nftRecipientUnits": "1",
+    "nftDecimals": 0,
+    "nftCurrentOwnerMatchesRecipient": true,
+    "mintFreezeAndMetadataAuthoritiesRemoved": true,
+    "actualPNGUploadAndImmutableImageFetched": true,
+    "tokenAccountProgramOwner": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+    "exactReceipts": [
+      {
+        "action": "faucet",
+        "signature": "3cHdXs4hzwvJkd6afo2H3YAyopwPm62G4c9wnrFBRXrsw9yUvga2ZxSyudva455ZcWmqC915wCcY5LoTMbKJF7Yp",
+        "finalizedSlot": 352330
+      },
+      {
+        "action": "native-transfer",
+        "signature": "3Y3S1PEHCCw5GtPapt4yPzftRwwig3fMNcSzMNzvxvB1iwcN1GR2aZf3J7NaX1vDfWvyJ9FdMKDorsDWZGK6VVQo",
+        "finalizedSlot": 352370
+      },
+      {
+        "action": "meme-issuance",
+        "signature": "5ZfoVqPWpfnCqCUZhHxomZRwdmxbf3eEUmLf6FK8amaYMxcmKHrM3miDZzHb3GPo3WX13XYtjJNNzMJ9pwJR8V9H",
+        "finalizedSlot": 352411
+      },
+      {
+        "action": "meme-transfer",
+        "signature": "SzN34QcRCUUrGScVf9Gr5jd6S2tYCeMxofBGLsHNECJFeUzHUUKF8JUE6GZvcYnwfKoy7VQdsp6ciUqfpmyQYKz",
+        "finalizedSlot": 352454
+      },
+      {
+        "action": "nft-issuance",
+        "signature": "knG9eQBA276dAdsM7xQvYMDz5CybK5M4v5pbXp6dWnvyAx7K93UDyK3ECx43g8cQfmXviYnHm9sAYDLodiE7EbW",
+        "finalizedSlot": 352498
+      },
+      {
+        "action": "nft-transfer",
+        "signature": "57wtVsGkVji3cbH277DJupFnL41nnsZWCzof9KqNp6NMHJ9MVqmuDXTPC6KoBwKYu1b6RA8698cFxcxqKfXzhBGq",
+        "finalizedSlot": 352541
+      }
+    ],
+    "exactAssets": [
+      {
+        "kind": "meme",
+        "mint": "J9ds9T6xf3rbnwYxiNy63qdGDhPrAs6Eb6kZuaCUcCVd",
+        "metadataURI": "https://network-release-production.up.railway.app/assets/b886bdec62110a13ea664a73570d3941b2fb73361028b8fde20321b30292828e/metadata.json",
+        "imageURI": "https://network-release-production.up.railway.app/assets/b886bdec62110a13ea664a73570d3941b2fb73361028b8fde20321b30292828e/image.svg",
+        "imageSHA256": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a",
+        "uploaded": false,
+        "signature": "5ZfoVqPWpfnCqCUZhHxomZRwdmxbf3eEUmLf6FK8amaYMxcmKHrM3miDZzHb3GPo3WX13XYtjJNNzMJ9pwJR8V9H",
+        "finalizedSlot": 352411
+      },
+      {
+        "kind": "nft",
+        "mint": "6Qewz9FWzVYXMcFBb2PCR1hojG3sGTvZM6eKXiuZ8x3w",
+        "metadataURI": "https://image-assets-production.up.railway.app/assets/84a23372d0bc2b67aa99b75941095eed8d41158cc3c9a2e0295b988ff402a39b/metadata.json",
+        "imageURI": "https://image-assets-production.up.railway.app/assets/84a23372d0bc2b67aa99b75941095eed8d41158cc3c9a2e0295b988ff402a39b/image.png",
+        "imageSHA256": "3d61666034743c3a1705424e21d3c0de56e05ed63bf893d1e5a4fa57c176a3b2",
+        "uploaded": true,
+        "signature": "knG9eQBA276dAdsM7xQvYMDz5CybK5M4v5pbXp6dWnvyAx7K93UDyK3ECx43g8cQfmXviYnHm9sAYDLodiE7EbW",
+        "finalizedSlot": 352498
+      }
+    ]
+  },
+  "frontendFiles": {
+    "/": "4b9cbc23d63ddf76740b5a5d844f01900b584422e2c27020e7708bcd6b13dd27",
+    "/assets/index-CeSiU4L5.js": "26ada03000c6d492632153f3ecf6a6d571c8c6cbea4f4012b4a84d66ff5d0aa5",
+    "/assets/index-CdFVtgxU.css": "27106e4aa4513322edc78fea0e8b4089b84d096ee0b275541a50e74c7fe28c9e"
+  },
+  "screenshots": [
+    {
+      "name": "soc-final-custom-mobile-entry.png",
+      "sha256": "bed6e1ac68b53e4c338e32681a1088897df2c9305632e649a61eb708949e30f4",
+      "location": "private temporary screenshots, outside source",
+      "visuallyReviewed": true
+    },
+    {
+      "name": "soc-final-custom-mobile-wallet.png",
+      "sha256": "9c456b383ec958d75a861068c0bdfdf1f2953075bc01c1eec215c71dec1a8edc",
+      "location": "private temporary screenshots, outside source",
+      "visuallyReviewed": true
+    },
+    {
+      "name": "soc-final-custom-mobile-meme.png",
+      "sha256": "64bea3d339d4285064e43e99c624bf46868adbeec1e5d5df9dc4b3f4940e7f8a",
+      "location": "private temporary screenshots, outside source",
+      "visuallyReviewed": false
+    },
+    {
+      "name": "soc-final-custom-mobile-nft.png",
+      "sha256": "2534db053135fab16740605c9a08a3a4038d67b2fd8798946fabec89b828402f",
+      "location": "private temporary screenshots, outside source",
+      "visuallyReviewed": true
+    },
+    {
+      "name": "soc-final-custom-mobile-360.png",
+      "sha256": "b65c5bef44c02b0f679d09a4492ea2033b2a625fedcd89cb1c5e328d8e3f601b",
+      "location": "private temporary screenshots, outside source",
+      "visuallyReviewed": true
+    },
+    {
+      "name": "soc-final-custom-mobile-1440.png",
+      "sha256": "763345b56b43669bed1c6d1ae49278daf9a022f2de2a9bdb9320be5ef5b8d079",
+      "location": "private temporary screenshots, outside source",
+      "visuallyReviewed": false
+    }
+  ],
+  "findings": [
+    {
+      "severity": "minor",
+      "observation": "Circle Face preset and disabled mint control use purple/lavender within the otherwise green branded palette; current controls and layout are usable."
+    }
+  ],
+  "prerequisiteAccepted": false,
+  "prerequisiteGap": "Original frozen frontend mobile journey was not started, following the founder stop instruction. Hosted QA prerequisite schema requires actual original frontend/api URLs. This branded proof cannot be relabeled as that acceptance.",
+  "releaseAccepted": false,
+  "soakAccepted": false,
+  "canonicalProcessChanged": false,
+  "keysImported": false,
+  "keysExported": false,
+  "tracesOrRequestPayloadsRecorded": false,
+  "remainingRisks": [
+    "Physical mobile devices and Safari/Firefox untested",
+    "Branded frontend entry hashes differ from original frontend freeze",
+    "No original frontend pilot-agent-two prerequisite has been accepted for the new runtime"
+  ]
+}

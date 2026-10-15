@@ -1,0 +1,41 @@
+{
+  "at": "2026-10-15T01:07:45.123596+00:00",
+  "scope": "Public branded roadmap checkpoint after source-runtime restart; no new soak acceptance",
+  "passed": true,
+  "url": "https://solanaclassic.net/roadmap",
+  "deploymentId": "dpl_Ch2iZcd7a2vFMVgCrxcUpcWqJKsQ",
+  "network": {
+    "state": "online",
+    "genesisMatches": true,
+    "slot": 353120,
+    "finalizedSlot": 353045,
+    "identityMatches": true,
+    "monitorState": "online",
+    "monitorAt": "2026-10-15T01:07:26.617Z",
+    "lastProgressAt": "2026-10-15T01:07:26.531Z"
+  },
+  "soak": {
+    "state": "waiting",
+    "runnerState": "ready-awaiting-activation",
+    "preparingNewRun": true,
+    "previousRunMatched": true,
+    "freezeMatches": null,
+    "progressFreezeMatches": null,
+    "startedAt": null,
+    "endsAt": null,
+    "reportAt": null,
+    "progressStale": false,
+    "completedJourneys": null,
+    "totalJourneys": 288,
+    "observations": null,
+    "accepted": false,
+    "activationAt": null,
+    "issues": [
+      "Source-built Agave is live. Post-migration checks and fresh stability prerequisites are being verified; the new 24-hour run has not started."
+    ],
+    "elapsedMs": null
+  },
+  "freezeSHA256": "55b668e56a946ec94f0195b03530aba23593bd71d7fd52493d5403b21882757f",
+  "apiBootId": "e6ec5d41-8238-48a0-b739-a81f9fea6adf",
+  "validatorBootId": "2c6a0f79-c6c3-43a4-aa5c-e542efb704d9"
+}

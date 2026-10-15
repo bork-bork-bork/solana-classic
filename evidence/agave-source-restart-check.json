@@ -1,0 +1,1202 @@
+{
+  "at": "2026-10-15T00:57:23.289Z",
+  "scope": "remote provider container/process restart; not host reboot or backup restore",
+  "passed": true,
+  "api": "https://network-release-production.up.railway.app",
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "provider": {
+    "project": "356bcb0b-49c4-4bd3-bf10-bff7db8f33fe",
+    "service": "d0a1de40-bd9c-47eb-a7fc-477f1c55b2d6",
+    "environment": "3367b373-2332-4702-8cce-c12b8f03949e"
+  },
+  "restartResult": "{\"id\":\"22e5870a-afb8-4027-89b5-ccb8a39391c2\"}",
+  "durationMs": 139867,
+  "wallet": "A9G4WS164bSCS7Bsthe3paBno6XfFM5T12RADFxzGcT3",
+  "requestId": "b030fdca-feec-40c0-8cc1-902eb77d828d",
+  "signature": "H6B19XMS2jQGkTCyz65mcPyEPTo4pRR9PRqkiRP4k9xUCt3vSbK73wDHd9UXSZ4KFhCDz793kUJekKhd3JDNThg",
+  "baseline": {
+    "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+    "balances": {
+      "A9G4WS164bSCS7Bsthe3paBno6XfFM5T12RADFxzGcT3": 1000000000
+    },
+    "assets": [
+      {
+        "mint": "AkbDjsRCprWYVASPxiEqB6yYxF9b1GxBststhVXkcyK8",
+        "accountHash": "26dc2d1ecf0f942e75bd8d90851131bf0c24b774a00c68889eea4084d1900581",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/af53a8cb302f00cbfcd053d7beb7fad4452ae95ca5a9c67e418a4d1d46b156bf/metadata.json": "ba6bfa55d747aeefe63ef277d5a95ecde7072b5b309ec5fc3d3dd9fc690434a3",
+          "https://network-release-production.up.railway.app/assets/af53a8cb302f00cbfcd053d7beb7fad4452ae95ca5a9c67e418a4d1d46b156bf/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": null,
+        "verifiedAt": "2026-10-15T00:49:33.753Z"
+      },
+      {
+        "mint": "J3wN9KthyTaX7erMDo43BWpHbNzc4wab2EUgoJxHH6LE",
+        "accountHash": "3d22f23e5e6f24dfdb0fce695a4bb08d54fc4fd0d9ad90b2617a8242b1a856f4",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/f3c19b36614e8c62f92df0e35aca84a3ab921b09db42b83d39dc783d27341473/metadata.json": "da74f20f7e0ad655d8524d4b0f823c3af4fb695fd600177e374ff6680da895fa",
+          "https://network-release-production.up.railway.app/assets/f3c19b36614e8c62f92df0e35aca84a3ab921b09db42b83d39dc783d27341473/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": null,
+        "verifiedAt": "2026-10-14T19:48:31.423Z"
+      },
+      {
+        "mint": "5EqPiT3Qi5tcuULD2ykVqe4vevdY8nT8vGi9ZUiXk8D8",
+        "accountHash": "f074de69fb7410ccc40f04e601bf2eceddf67407fce38aef6dcece6ebe204156",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/a51e24c59e86adcd4d256cb7aa14d270deb0c4153f47f390a7a722dee3c7fcf9/metadata.json": "161d72d6b197fd8c1411cb63fcf75299425f78dd5c4a3907cdb6479c904e40f7",
+          "https://network-release-production.up.railway.app/assets/a51e24c59e86adcd4d256cb7aa14d270deb0c4153f47f390a7a722dee3c7fcf9/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "4dsMyC22fzPUbuTfaQqBH7zbLWtsW8p9vx3htj1kemPd",
+        "verifiedAt": "2026-10-14T19:45:27.856Z"
+      },
+      {
+        "mint": "DXX8LuoW5zL2gxnNPSAzvZ7SGBB1EWnV6o3FJmJa8PQD",
+        "accountHash": "37e6d39c92daca28249dab35d49c73a6603d5750fe45ad1a482258ab183c3482",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/e4a992904da6f1801e1390d0b7f37c54232948376b3eca250a62249660d20cfa/metadata.json": "4d1d8f41d9a8cd719faa08a148221acc6ca9dbc2e664d74eaea4b80fd2b65485",
+          "https://network-release-production.up.railway.app/assets/e4a992904da6f1801e1390d0b7f37c54232948376b3eca250a62249660d20cfa/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": null,
+        "verifiedAt": "2026-10-14T19:44:45.810Z"
+      },
+      {
+        "mint": "B8JFJR7tK3p29xmyzMei83E1FXvf7PkbHCpvYzkEJfE4",
+        "accountHash": "3bcefb87cf6b6f2ff9d1567afd665124b40904f9da114e37e128dd566de4f56d",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/1c352504397e69ecf6856e97b34944c026d345d6f17e397953b00c840dc2ce90/metadata.json": "f1e709dd514f3be9a9395c2f6e239dfd41ff6621c3cde24da179d55699b6e484",
+          "https://network-release-production.up.railway.app/assets/1c352504397e69ecf6856e97b34944c026d345d6f17e397953b00c840dc2ce90/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": null,
+        "verifiedAt": "2026-10-14T19:39:44.383Z"
+      },
+      {
+        "mint": "71Z9GNN6psrXMssh577t5b1M9dJBzDVraSDuNYPEqc4k",
+        "accountHash": "330c1adb6ded7f6d5915386b195283765bf0a2b646d23377dc23858d2bcb168f",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/69f47527ff14ee83a6993fad78e8e5a6100250e9918a15f7bb47106c569572f8/metadata.json": "3b4efbe64aa698f7ea0c7f16181203e4b8475aee2ba894e2a84d2a7872272d6b",
+          "https://network-release-production.up.railway.app/assets/69f47527ff14ee83a6993fad78e8e5a6100250e9918a15f7bb47106c569572f8/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "GykEazGrKVGzLiQV1TF2enJNnsq6Rb5Xj8Prb5o3AMyn",
+        "verifiedAt": "2026-10-14T19:31:56.614Z"
+      },
+      {
+        "mint": "589HDgvZgB6Ajg2KKGH3Vr9aoyZDeczyMHTZJsdM2Jm2",
+        "accountHash": "1a4a274d67a3a6e57734c7ea0bccddec95eb7d46f5596fdb77b54067a6d0fbe3",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/7fe79f2fd0f90fd5302b17b2b7e21386120d8c4ee1830c07433c0888f09eb43f/metadata.json": "e624386b5afc1020e3894afb6adecc9771afef0f45c8db8838affc48c83afcba",
+          "https://network-release-production.up.railway.app/assets/7fe79f2fd0f90fd5302b17b2b7e21386120d8c4ee1830c07433c0888f09eb43f/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": null,
+        "verifiedAt": "2026-10-14T19:31:09.947Z"
+      },
+      {
+        "mint": "4wQc8NFNKKRZMvHNxcEywQ8FiBXgvxbCwqwbAUSSvfPa",
+        "accountHash": "8b8914d3d92de33be3b8427f69ae730f649e27b7791e5c916907b70d910071db",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/d5cbc337f311f2fefab950bb3aa62002d2151f7fc9818dd4f0af994e7e5fc9b3/metadata.json": "c0bd04ac36e14832de5be290adc6fb2ea39876542656e78c0d2011f9f649cab5",
+          "https://network-release-production.up.railway.app/assets/d5cbc337f311f2fefab950bb3aa62002d2151f7fc9818dd4f0af994e7e5fc9b3/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": null,
+        "verifiedAt": "2026-10-14T18:13:20.869Z"
+      },
+      {
+        "mint": "HqkwdUAjg6xSqGwoN89axm1NqLbRogN78PFmtg9amUVY",
+        "accountHash": "77dc75d26f1b29de6c7209cfa3ae35ae099d794d9bbc70caef81f2b54dafd709",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/77af63276c2e30e66f991dc3d591a771a180dd38dc295920a63784b66028471b/metadata.json": "4621f9ec38b250214efc3b86a2c769ff5767afab5c33e46202b3c0d84ce132c8",
+          "https://network-release-production.up.railway.app/assets/77af63276c2e30e66f991dc3d591a771a180dd38dc295920a63784b66028471b/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "C6ysnNo935Q8EsUu1hojxGQvAXxcECr8G5tsRvETkCuV",
+        "verifiedAt": "2026-10-14T18:08:48.765Z"
+      },
+      {
+        "mint": "9KBeg23j3kKhs7TC3iF5iYLnTnuLigSpRMqy9JUoG5jt",
+        "accountHash": "7eb0666492a871e0b5b32d303ef89a72cb0c65fd59b29740977e92ac877d2d04",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/26f26462c57e6e6d46a0c9883422589513e8ecb7d34e8f82218a72daadb3ade5/metadata.json": "9dd193fa20393483b3080896acb0dd0d63b68de44b5a30be579bb1dfdb617722",
+          "https://network-release-production.up.railway.app/assets/26f26462c57e6e6d46a0c9883422589513e8ecb7d34e8f82218a72daadb3ade5/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": null,
+        "verifiedAt": "2026-10-14T18:08:05.561Z"
+      },
+      {
+        "mint": "BkUZpPtxmELTKzVR8zssbtkHBYpEo6y1G4mokBUhRsxs",
+        "accountHash": "fb20eb1bddded3c43d6f311145ed71f26609be0b8e31a79b5459d59ef9c506f9",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/0c9b73dc5d4155a9af78489ee13030d6d040d5d4b0b0f4d84982f2768d40a000/metadata.json": "2bf500bb7f4dfe3c9077154533463243efc15c596e739dfa55e3fe05ebe880bb",
+          "https://network-release-production.up.railway.app/assets/0c9b73dc5d4155a9af78489ee13030d6d040d5d4b0b0f4d84982f2768d40a000/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "DS46Nqnvb56qrcwSXRDdM9jZ5ZxrDpy7DoBGYmjopu7K",
+        "verifiedAt": "2026-10-14T16:43:36.502Z"
+      },
+      {
+        "mint": "8xGYMmx4gn8vA3Xp8U6bPVfgzgFPVsh8sV4E5q8ct8tK",
+        "accountHash": "a1f4a95c35b2be63b63bbef6d19a5bdc76bf63903d9ae199cdef216e57581f71",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/47943049f7020dd84ce40ce093d077bc540cd4dcdc1e2790721dfe1d5c344cb0/metadata.json": "b2f9626e7ebc5f57e9d46bb237d5ff1403307cb08890f8160bf2f100a75b7fed",
+          "https://network-release-production.up.railway.app/assets/47943049f7020dd84ce40ce093d077bc540cd4dcdc1e2790721dfe1d5c344cb0/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "4oZwg7qpGTQvq4bh6cTV8qe4Z8FM2huADRnMdNGZY3C9",
+        "verifiedAt": "2026-10-14T16:38:36.485Z"
+      },
+      {
+        "mint": "EFyqjHamdgZKxQLUqHZfnDRjTtyfbKy5RvWGbTgops4e",
+        "accountHash": "6977774cc3f81268b356308131debd09fd00225bf0de46b007649f81e9db8881",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/dbb0e59ab89dcc890ec150ef6c7721dd25439f77953365045074b8c6da3a90c5/metadata.json": "8052783aea23f79944e88990ca165d725c1b7c69e28567a8ec9a9dbadb2b69eb",
+          "https://network-release-production.up.railway.app/assets/dbb0e59ab89dcc890ec150ef6c7721dd25439f77953365045074b8c6da3a90c5/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "Bx2sq4na5pwJPjje489PKwyxJCD7wCVATLJmrq5ErNFC",
+        "verifiedAt": "2026-10-14T16:33:36.467Z"
+      },
+      {
+        "mint": "6VqSrGvbsf9Q7bz45w2K7sTqCNGyWafQpmsXFi3hQ5tg",
+        "accountHash": "4da4b18bce12cd5fc56e118c31b09b30352bd917ff3bf673fa61bce897067968",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/dbedb479f7787a781c79225fcf877eb99cffe15038b6445f31c8e08ff140953b/metadata.json": "0e05ef8c556c3a12230bfaffb1d72b08b533c63b5f0a5ddc742615b026a92557",
+          "https://network-release-production.up.railway.app/assets/dbedb479f7787a781c79225fcf877eb99cffe15038b6445f31c8e08ff140953b/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "3Xao9GG9hYhuGuWmyGszxaiRkuW7fXYKZ5Gm6Bi73r9W",
+        "verifiedAt": "2026-10-14T16:28:36.432Z"
+      },
+      {
+        "mint": "5eeVojd5hkiSMowqAJZ4qHQZ1Jthqurwy7eDyz4x8cqu",
+        "accountHash": "3a4d5af618ae597b2ca74ff9c45e43f404a40d08f28d7a538607269f98d94dc3",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/b9b891c4e9a8695d68df0079aa3b99d790b85a03142a9222968a21079e5d807a/metadata.json": "840b53cdcc1e49cc4804424ddfe8a2c51c92098a4f8195fe56d5545626c81ccd",
+          "https://network-release-production.up.railway.app/assets/b9b891c4e9a8695d68df0079aa3b99d790b85a03142a9222968a21079e5d807a/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "DAaBDEQJGfK7v6ufz6y6cEvKCCHyXzJdaBwefU3erNQ2",
+        "verifiedAt": "2026-10-14T16:23:36.521Z"
+      },
+      {
+        "mint": "59dHbc4oT9m8tG33efjYcayTUNBsVcwJ4f8KvEWFK6jw",
+        "accountHash": "6f66a6e3b327ade2acd04a44f4b40a2cc719207c058071cabe0a6b7b6951f580",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/36a12cb12a28e445bc57924504f9227cbdb85bad0a82db14b7e52c93cb8b2a88/metadata.json": "dbb9a524fe36f4c27956ed4b38bee37c9a4294a681e90d265478c4a3ba28fb7b",
+          "https://network-release-production.up.railway.app/assets/36a12cb12a28e445bc57924504f9227cbdb85bad0a82db14b7e52c93cb8b2a88/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "4XkWkKyAxpjYXGQoamUx2LEdhhske8ZSpQroxauyVgKD",
+        "verifiedAt": "2026-10-14T16:18:36.539Z"
+      },
+      {
+        "mint": "AMKwAwCpYUhheBRRxVLqPQXCyBxGi6JvMuJ92nmSCev5",
+        "accountHash": "fd63bb1a1f6413c5aa1d11b846ffd1d3ce1b9900abacf0da8ff23ef8d2be32ea",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/750c600d3ce4355bd97765086924ba036272852e30099007e97e8b834de13875/metadata.json": "bf444baf76e119b26848579d6ae20a34bcca723eb744be429b50c6351c79cd0e",
+          "https://network-release-production.up.railway.app/assets/750c600d3ce4355bd97765086924ba036272852e30099007e97e8b834de13875/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "GegVGCgZDc3dvbuNPc7JAUGRCeSFnXS3H9UpxXxsfKBZ",
+        "verifiedAt": "2026-10-14T16:13:36.494Z"
+      },
+      {
+        "mint": "3y1Dw2L25MHyWdTyY4LdibanT4KCm4XN9UKBLWHdux2q",
+        "accountHash": "3958da24cce7d43baa404a3df1cb63bad1912e276b9c5f75ec28d21fc968df3f",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/52b1ebacabe4540db59774a679b179c7b7305ffc47960945f7dd3a617ab6363f/metadata.json": "a065a1a9fe4ff5d129c7006c729d81d7287b26c6082b2e38825e4aa4eefd4399",
+          "https://network-release-production.up.railway.app/assets/52b1ebacabe4540db59774a679b179c7b7305ffc47960945f7dd3a617ab6363f/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "GUe1JR7vcZtQRQHpxFXkpywAJkqPeH3DESf28sNGML95",
+        "verifiedAt": "2026-10-14T16:08:36.434Z"
+      },
+      {
+        "mint": "7e1AJNGJ6KRfir1gDfPM5qr43k56abdsSPfVE8K56se6",
+        "accountHash": "b0bb2d7869904b74a2cc4398274296dc22e874aab5df4c06310341a77b976280",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/52c873b819c0be7eb266d236696e665fcdbad50acfe7a57a50a00ebc93eb105b/metadata.json": "f58d93e55e52950ecb4b857aa35f298df66a1ec02b705ae4d6368aa4120bfcba",
+          "https://network-release-production.up.railway.app/assets/52c873b819c0be7eb266d236696e665fcdbad50acfe7a57a50a00ebc93eb105b/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "GT9ySVD3bCWdwwKhxNcPqaVJjdwrpheSPMQxfN6Us6Uw",
+        "verifiedAt": "2026-10-14T16:03:36.480Z"
+      },
+      {
+        "mint": "8PX7bdfoUuNNowZhknXGe7ei4Zq2RhZ14BMDnfr1zirv",
+        "accountHash": "82d479c6093bfe66850e27525b234fc0c1f0f91ef2d2b51fa893f2b8186faf1e",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/eb27613221e86082a676aacf50c98527ecf8c6f088b82f52d636be5058527b02/metadata.json": "75867c0a84a67dd1d1a2cfde26a3c59591891763e76193b6551d8cf1ae4a8394",
+          "https://network-release-production.up.railway.app/assets/eb27613221e86082a676aacf50c98527ecf8c6f088b82f52d636be5058527b02/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "9dDjJAovJzw979y2f4ZPcE5oK3stXBLmpmRwc44ZLGxe",
+        "verifiedAt": "2026-10-14T15:58:36.435Z"
+      },
+      {
+        "mint": "ABbvHCuJbgKCgRCY5BSrMcwnmqnrsomZwyxvShqWGfmt",
+        "accountHash": "cf35edd9a61ac06d6f6c5a692239ed72bd9f161282384b051d7dcb6d1d054de4",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/f79199b40d06ad60463068e57fdc21fc16dae7b5334807965b93bb3223c734ae/metadata.json": "81564a54689a39297bd3885995b85ac912f47601b3ebe9955b7ac45923a943af",
+          "https://network-release-production.up.railway.app/assets/f79199b40d06ad60463068e57fdc21fc16dae7b5334807965b93bb3223c734ae/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "3e6d6QwndjFVSYuFzBtJGLoT6WL47oBgtE89s1omyzRr",
+        "verifiedAt": "2026-10-14T15:53:36.516Z"
+      },
+      {
+        "mint": "9MeF4GXmVgDo6dUgS5DYPcSBK2UBmdQLZqxCkWwnKrPt",
+        "accountHash": "35f2f9c80271f2b170ee15caec8e97e8afc7623c4f2d42f9362c88fe38d20172",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/14ecb4135db2d6468343e372ddacf7c4922cad66a190c9390356000604e6ccd3/metadata.json": "8f0454f9a22454acd574b55e5008acc2a659ce603f317e5367e51d211aedf16e",
+          "https://network-release-production.up.railway.app/assets/14ecb4135db2d6468343e372ddacf7c4922cad66a190c9390356000604e6ccd3/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "FE5oQ1ZKsfcpHMvfEJeiGSwXrSRe2qYdr1K9ZKBjgdK4",
+        "verifiedAt": "2026-10-14T15:48:36.438Z"
+      },
+      {
+        "mint": "6ZtfDuHqHS7X8vjKTigaALSBLKZY6ggy2T1K7GZ2KTiN",
+        "accountHash": "d7a3731b53abcf9e7725af3c7482cc6d52e2c9008ca2dde88d177bbfa5a3bd59",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/4ba4ad0c2a08cbbfad8a1bb6d5ab6a3ace44a42a5b8787005ab0bc74faf531c2/metadata.json": "c901bdd3fbac1fd0ced119a6111bc4e82d501b79873f686e4f124a29af8345f0",
+          "https://network-release-production.up.railway.app/assets/4ba4ad0c2a08cbbfad8a1bb6d5ab6a3ace44a42a5b8787005ab0bc74faf531c2/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "C1feeieBhhzi86oewWtBvZmjp2EW3aonzjzXFb3Aevqe",
+        "verifiedAt": "2026-10-14T15:43:36.468Z"
+      },
+      {
+        "mint": "2ZQbfFeREwribud59XFW8fxQ8f8YH8frZPgj7qgQAhWR",
+        "accountHash": "1a9358698de36de6074cdd86346b61de1dd223615993609621b325e7c94133c0",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/1306229eed0afd44d177df3917ecde16f64b47a7ccbd271c13df1bff5248414b/metadata.json": "494aa79dc74a3bae3acf5309f68fd4cf4cbd08cc2b5cbb73ff936a2fae8cb8c6",
+          "https://network-release-production.up.railway.app/assets/1306229eed0afd44d177df3917ecde16f64b47a7ccbd271c13df1bff5248414b/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "EcTPduowgUcfNsLBq8S3myCfrzfFz4tW719Usd35teo2",
+        "verifiedAt": "2026-10-14T15:38:36.471Z"
+      },
+      {
+        "mint": "5TeLdASg4uFxVFcLXHPsZWaFiECaGSA9UJ1kuRzZhtb5",
+        "accountHash": "0f535854985c3808df26dafa0ebd875dac850e87466d1248346782b10a0f542c",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/776b650fd4a59d22f1c9ad714734bf74c79927b5e2846eade71ef26d7c189cd3/metadata.json": "a1028923d4d122586b20b45abe680acaaff58141d817ab799a97a22ecddc1c1c",
+          "https://network-release-production.up.railway.app/assets/776b650fd4a59d22f1c9ad714734bf74c79927b5e2846eade71ef26d7c189cd3/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "DCNxKtgbzUXrVeLJoTkWPBWonwT4JF53ZovZeVrtkah",
+        "verifiedAt": "2026-10-14T15:33:36.450Z"
+      },
+      {
+        "mint": "8KgxSM4oj5PrKPLu8t26S1TCVBM9zA7rDzekqgNv1KCQ",
+        "accountHash": "8e14eac5d679eababfd3d8d6202b3af95c0cc2f2af44de4b7542182c16c7e69b",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/b003518505d0cab8fd29df60741cbbae0cc1c6aca270365de2f397105e7131bf/metadata.json": "97e563ec35116c0ff8fd103be997fb066636f75d20f1b7f3a3ec85022073de17",
+          "https://network-release-production.up.railway.app/assets/b003518505d0cab8fd29df60741cbbae0cc1c6aca270365de2f397105e7131bf/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "FZyTCV3rFPc4ydzh9sV128KTpfWSd1p8KeCKRdMCkJv1",
+        "verifiedAt": "2026-10-14T15:28:36.446Z"
+      },
+      {
+        "mint": "9gpzoDPnT7BAjC9XYZUFMPP8ANRMfPVtc46jcJnFBbko",
+        "accountHash": "91aa1d65259221302331e1bf9c0f2bf14ce5b142db40f7139a0549a3f398b3ee",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/650319ed67c7afa6dbed077c7e4053ca7f589e7ac8b9a04ddaf1c0574f796af1/metadata.json": "1a566157786cf8af11cfe22230822e748bda0466c17d55b8b7dd840865bbe6e4",
+          "https://network-release-production.up.railway.app/assets/650319ed67c7afa6dbed077c7e4053ca7f589e7ac8b9a04ddaf1c0574f796af1/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "6EghFwU5Yojwb2ZWDoYxxHmj6c4EH8W64A35cA7Fofvr",
+        "verifiedAt": "2026-10-14T15:23:36.550Z"
+      },
+      {
+        "mint": "9uE58SESzYMw9BByFdUivupkY4UPKRJvxon1rkCcMn7Y",
+        "accountHash": "d5531cb9bfdcc4e7dd35175a4f0c1a80dded8a1e741dfd6af8bb279089b98420",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/e8a87798bffc02e2082030a125036e4dd2101cd176e6f2a2f6779975b409359d/metadata.json": "882d46fbed312c158f4f98f4d1c69a75f4b4dba686d76124e615f1719f94eafb",
+          "https://network-release-production.up.railway.app/assets/e8a87798bffc02e2082030a125036e4dd2101cd176e6f2a2f6779975b409359d/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "GsvVMvqT7ig8kapkoDNx19ADZre3Hts2Hh3qFmgLatFu",
+        "verifiedAt": "2026-10-14T15:18:36.485Z"
+      },
+      {
+        "mint": "5hzJ5hhf7Yk4u3sqBZNpeqSXxX2ZK9sJeEh9iMJL2zWU",
+        "accountHash": "d58553783208bc1d428c1f5efd836ed9906b3eda09271b2a3cea2b440439d8e3",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/cc7854f55bdaa4e52062471977b895c23cefa8da85b1aaf0a76f6a6a23281067/metadata.json": "87a9f0e4ae12670ee420cae42c8af4d5fab720e3c2a0c1fdf6b3c12bccb69234",
+          "https://network-release-production.up.railway.app/assets/cc7854f55bdaa4e52062471977b895c23cefa8da85b1aaf0a76f6a6a23281067/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "F21Cg1Znr2AR16ZD6HcSNN1EwdSNsf3xzypTQaZf5zeU",
+        "verifiedAt": "2026-10-14T15:13:36.426Z"
+      },
+      {
+        "mint": "79SJtu4pYX3oSLF9vhLWn6qVhf1MwAPeZ8VikDaSuMFH",
+        "accountHash": "5fb21837033dbbec5e2b9fc0c91bdcbdaf4d6407b2db14b7ba86d7469c76a13a",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/7b5f665a2475bb630e51845c049ad369e2be32b316b391ea785c5b7f235235ac/metadata.json": "0efd856f5262d95cd8056e3e5c88d18f6477b0d2bb48993e27d6b31277331a38",
+          "https://network-release-production.up.railway.app/assets/7b5f665a2475bb630e51845c049ad369e2be32b316b391ea785c5b7f235235ac/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "6NftaMcJr22EWoe9RgHsWGLZhb9tBAjQhpbUPadz47uG",
+        "verifiedAt": "2026-10-14T15:08:36.474Z"
+      },
+      {
+        "mint": "4VHSRm2Lw4eHFhu2DR4YivdH6ufgUwduB1JyDMd47jpm",
+        "accountHash": "40f11b5e2dc03029da39462f325b3ab4871e9ffef55a9b573d4757741e48fbe2",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/80622386b38a5437b1c6190a2aeb91d42d29a0602f2f44b3c5340cd94c2c78e2/metadata.json": "e25840739155cdd7bf700a4574df9fa38a6fb188654b26529393a823eccb39db",
+          "https://network-release-production.up.railway.app/assets/80622386b38a5437b1c6190a2aeb91d42d29a0602f2f44b3c5340cd94c2c78e2/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "8hv8d41PzfKvGX7tHhmfQxu8fQ5DyBcCZ5TrVMXWpyrv",
+        "verifiedAt": "2026-10-14T15:03:36.493Z"
+      },
+      {
+        "mint": "9rqR9kxXeAMc4QdBe4Euoho6HFnj5QmLUmGgygWnFW7z",
+        "accountHash": "181fc3eea5b2c5b86953aa8ef8d0f09c96dc39c6f8519e360ff8c4d2d5a48ee7",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/5e2538ebaa022af8121b94f662208bd01310edfe1dd814cc9b582b43f4dbd0bc/metadata.json": "938e8926b9b01181aac762fea627b2fb159e4841cf464fe8f01be3f7070cda1f",
+          "https://network-release-production.up.railway.app/assets/5e2538ebaa022af8121b94f662208bd01310edfe1dd814cc9b582b43f4dbd0bc/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "JADUxcigzq18RomJi1BWu5heBM24Zgi8hriZ5HtnqNs3",
+        "verifiedAt": "2026-10-14T14:58:36.484Z"
+      },
+      {
+        "mint": "6ymKZarb6XNTiLxvmS1ABdYFtnLa4RN4jGYck7WGoKBZ",
+        "accountHash": "9a41f825358be14bd589a30a9c5177cb2cc4603eb0bac6389bf85e1b4e9f0c01",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/10a669dcd68b47a1cb3eb6a5f2fc34e06fbb483471a952d9dc13267bbc0983cc/metadata.json": "73323658edb70d451e1bc303090a81370a076f021c5e652c147ceeb4ededffba",
+          "https://network-release-production.up.railway.app/assets/10a669dcd68b47a1cb3eb6a5f2fc34e06fbb483471a952d9dc13267bbc0983cc/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "9cwqDqYZeQragsEfTh6CWeMGgcWyNKFuEufAQW7Eukur",
+        "verifiedAt": "2026-10-14T14:53:36.401Z"
+      },
+      {
+        "mint": "8VhZ6xiYCx8DE73vekAiaGsnsuTZ751MZuxB9qETpypA",
+        "accountHash": "031be8ba01a36768b6b0adc8245831f5b79dd3f721a1e08b07ed67532c9319db",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/e2cc3671e73c74f225ea6ef112df212c0ff9e805d1bc2f1cfaca419c55c99593/metadata.json": "70c5318bc7f3224d86fe23397c983ca4144cc8c297235614b8c9e7b4ea73a8ee",
+          "https://network-release-production.up.railway.app/assets/e2cc3671e73c74f225ea6ef112df212c0ff9e805d1bc2f1cfaca419c55c99593/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "J8kKPGx5oDPkVhRe2JwwA5Wr4BujK6zHd2mrUaDz6gD9",
+        "verifiedAt": "2026-10-14T14:48:36.420Z"
+      },
+      {
+        "mint": "DddHas6QDDEGqyjcTzeLZfu3QjepX7Y9QffBFM15Nagr",
+        "accountHash": "9360b87e12509179f5047c85582341c549e08d78cc1bb6d733435ca96c41d833",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/eb13fbefaa9cfec4fbe79bf35c3c73f49b73e719c557467d922fc74316682f67/metadata.json": "3e2d4218743f5fd2c4cb3115a3e102cc586b0ff2c399743d5f634993c5b8bf04",
+          "https://network-release-production.up.railway.app/assets/eb13fbefaa9cfec4fbe79bf35c3c73f49b73e719c557467d922fc74316682f67/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "DW7KwHKVWwjwLmtqQVBVYBsaiLf5QkXdyLnz8dDj6Am5",
+        "verifiedAt": "2026-10-14T14:43:36.434Z"
+      },
+      {
+        "mint": "Buo6fFr8RSPKJASp6MQWuYPvWMJGAcnELXpoV5oLt4XJ",
+        "accountHash": "b13488014a024dc77aeac33ddba6416ca50fc20958b455c74ec11cb0dcbfb221",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/3ca50e3487bca3b8c1f919fd277d92a20fbc920be798a91932ae96b214ca14cf/metadata.json": "395dd5a9634bac5423d633fccbbadaf6a787efe1aa3105ab3022aae1f906e8da",
+          "https://network-release-production.up.railway.app/assets/3ca50e3487bca3b8c1f919fd277d92a20fbc920be798a91932ae96b214ca14cf/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "Aftv7TxBk3d2aCQbYBb8onwpnEysomXZ6YeU4oBZb3c1",
+        "verifiedAt": "2026-10-14T14:38:36.437Z"
+      },
+      {
+        "mint": "7EPXTLpNkR8B6KBm1kQqKuuarRS7RhS2K8FT5B3NUqd4",
+        "accountHash": "61d4288f9375cb98f0bc13313101d7ec2653d38d0f11cd230c37525ee9d7580c",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/866a42c3c5d1a7b6fb43242ebefabf355e1b3ca479420c21ac5bfbfe23600888/metadata.json": "c80d4576701151df10735763e9ed6e8774a1344f6f266b75e682db74578267cb",
+          "https://network-release-production.up.railway.app/assets/866a42c3c5d1a7b6fb43242ebefabf355e1b3ca479420c21ac5bfbfe23600888/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "GgUpDALQY5A1R8x6QNWwiwgTLhRwmYBm5544Ni4TNcwZ",
+        "verifiedAt": "2026-10-14T14:33:38.518Z"
+      },
+      {
+        "mint": "4Udxmujzj5eg6oFXEtPxLx5Tf7ApgwLruotVsqdorw5i",
+        "accountHash": "217baacdcc4e5655dd8a1c0458814f877144e6ca41927ec015965e62258aa1af",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/b7ef2e3b6f09abdfc068e93d0b60739802cb61f4d521ede3864fcf63b8565bf3/metadata.json": "c007093a7c95fc7d876c9a864531a5fc087f7d452f16d3d4e6107d0146bab716",
+          "https://network-release-production.up.railway.app/assets/b7ef2e3b6f09abdfc068e93d0b60739802cb61f4d521ede3864fcf63b8565bf3/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "7xiXmAccmVYeKySJDTxGn1sd5huJNgXaQRJkKymrx2Mx",
+        "verifiedAt": "2026-10-14T14:28:36.433Z"
+      },
+      {
+        "mint": "7Uu4TeTfaAZdmN52HWq4ehg7gwNyQCyrqiboYumAmkJf",
+        "accountHash": "630be013e6b4065eb45d7ba1d73a1cc686947904a53d4ed65499f042e349a2e4",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/5ab327a7ba97a1a3c45620ad896cb7a0ef267015fdec8f876df69a97a09304e3/metadata.json": "b94a022067af8e29bc9b60e56dd10c1c64695f1aae30a2eb0e30b6389cd398c7",
+          "https://network-release-production.up.railway.app/assets/5ab327a7ba97a1a3c45620ad896cb7a0ef267015fdec8f876df69a97a09304e3/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "De9Rv9SH2x9QW4k59hsqFg8sDyZeB2gDrvNYVP6TjwuG",
+        "verifiedAt": "2026-10-14T14:23:36.452Z"
+      },
+      {
+        "mint": "5mAcQH6cxL1e5KPWXuFtFvDMCmiQEXRxu1YpajwcS5Jt",
+        "accountHash": "cd26d5227470873aa2b26fc9f9bc80baff53b418cc5787e74a979783b7f76456",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/9e8cc8e3d46a4a0e39971c712ad30b51528eb37fc1535b231de97bebdd49f68e/metadata.json": "94382692cfb7e7a0d41a9e460486999ea53a41979c9bdb550d33015d802318a4",
+          "https://network-release-production.up.railway.app/assets/9e8cc8e3d46a4a0e39971c712ad30b51528eb37fc1535b231de97bebdd49f68e/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "BLcUTRo5WBWgCuSnhJLe1sQmBC3sZufd7NguGfLMvANH",
+        "verifiedAt": "2026-10-14T14:18:36.659Z"
+      },
+      {
+        "mint": "H499AH2NSuyoJudp3mFVa3kzK3HiUgxcb4EuPwRCfHwR",
+        "accountHash": "0c81e8a736fb687ed41c5a5f9a7faf6c8e6e2b18bec6014a78a79308b6ad8663",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/03c7b0608f3bb8aeb5bc56dd7d4864e24fce161d707a21e4a1aa6a82e6a737e7/metadata.json": "e217d1a371f6c0351e30f9a4955e8e3661ac00eb3aef685b8bc198f41fd8f79d",
+          "https://network-release-production.up.railway.app/assets/03c7b0608f3bb8aeb5bc56dd7d4864e24fce161d707a21e4a1aa6a82e6a737e7/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "7qZwgkgBdYq2h7Jnz1Q5Kerfu1NwRfJLNSKSpUKA4UDJ",
+        "verifiedAt": "2026-10-14T14:13:36.472Z"
+      },
+      {
+        "mint": "7m8G1VMsAxQGRYhhfdo3GWWRyopwTTHs3XEu4JviJHBx",
+        "accountHash": "30c36cf047073085675cdae31239d87e93b8ec9cba62baee69133667d4cab639",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/4f18246d926ebfd7d4dad98c79fd314e53f382aa594ad411a91ecfe5be23e8df/metadata.json": "92386f3c0ac638e48b853a7d13ff3ec7970e086cda7ca0177ed504d84206332e",
+          "https://network-release-production.up.railway.app/assets/4f18246d926ebfd7d4dad98c79fd314e53f382aa594ad411a91ecfe5be23e8df/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "FYTR6URFERk3ziymFGzCp2wh6dzdDeBdbTpseTkv7WUr",
+        "verifiedAt": "2026-10-14T14:08:36.425Z"
+      },
+      {
+        "mint": "Ese2tS3RKtcJNYPHSyfN2CgF2NXJzndCD5dZ3f3MZn8r",
+        "accountHash": "9affc3273aa063fea9072e413e3d843c2c329050f754ef93b86fda6a0a4fee77",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/e50aeff17b266e38d371c6eb888cc5700b700f086d73226b3ee019cfc121b705/metadata.json": "2cff243e5acd4a558394bed06a6f19b12ae77d62fa1cef89b3bdf27914ca175e",
+          "https://network-release-production.up.railway.app/assets/e50aeff17b266e38d371c6eb888cc5700b700f086d73226b3ee019cfc121b705/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "8vQ7tXdf4kwTZmfKqzL9QQAQL82XiFA3ZJ5hnQZQCdZe",
+        "verifiedAt": "2026-10-14T14:03:36.532Z"
+      },
+      {
+        "mint": "21pKB3SbGCYq3pwbLBuEAANTJ8iuqZuqmSkhU9EhoWao",
+        "accountHash": "139e640b6dddba2d199a6355b68cefcdc3729e6191aa9809ef6ef15dc1b2692d",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/010285f878da5ddc18767808e6f91b4998cc194eda56929e2e79c1aca74db5e3/metadata.json": "a4a7059ff77063831c6a4664b4bf070c00709ab1cbe60788cba5a8b4ff9f7885",
+          "https://network-release-production.up.railway.app/assets/010285f878da5ddc18767808e6f91b4998cc194eda56929e2e79c1aca74db5e3/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "GWgKM22YL1LmZTfjxQtBkLS4AeX21NF6fwrQLcvDSoAN",
+        "verifiedAt": "2026-10-14T13:58:36.385Z"
+      },
+      {
+        "mint": "98LdXKSMDmzsnUPc3UqxjdMcKJjX4pGPUSXm3c7fCMtS",
+        "accountHash": "83eb5c4766ffd75153288cfcf1f476ac81a6f41cb1fe202dc9ac0bdab50ba23e",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/0ac1bc0e7aa70e9da91e46538b5a1a5f34d1f3de212a9043d377733795cd8421/metadata.json": "adaabfe0b02fe5923fe512b3d3c9e9da14febc33c5f0bba66048b96db8f55519",
+          "https://network-release-production.up.railway.app/assets/0ac1bc0e7aa70e9da91e46538b5a1a5f34d1f3de212a9043d377733795cd8421/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "G2uAnznHkyjPZuu4TgfVSz8ECtzFYeKoqP7ojk4Po4aQ",
+        "verifiedAt": "2026-10-14T13:53:36.484Z"
+      },
+      {
+        "mint": "66qTURuQU8LAFWwRE1rUECn1CoWAxGxyPoRHkFiPUuZH",
+        "accountHash": "b8321ca47459a55872842df5acf4e46efd0a6619a81d24c37202eba3ac954cec",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/b401dd41c3669761f67028f7bee00b38ca05a6e9b71f561bf11526deda534b2a/metadata.json": "b8da3ac4766e8e17ef7e23f6c64f7f19f8917f1b407eef7e4e4167338ef86128",
+          "https://network-release-production.up.railway.app/assets/b401dd41c3669761f67028f7bee00b38ca05a6e9b71f561bf11526deda534b2a/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "DFwyPdjXvAoSeJzJZ6uN76CMnS6gFdmKMAjKJ2QSjPUi",
+        "verifiedAt": "2026-10-14T13:48:36.447Z"
+      },
+      {
+        "mint": "BbiZtb2gQF2yqoDfmD3Vt3EWLkEmNamVk7PaHGQ5MW85",
+        "accountHash": "88678ac2c2d3308805195483d6c0e7bff98a902b432a9ae9951be4ccb369e4a4",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/147078f2f79fecf625808d118a468e32baf873f1ece5089465bd2e29182bbd17/metadata.json": "687a0c980f8e9e978ba160ed3a3858e8227726364b7e68efbcf2ae3363a347ad",
+          "https://network-release-production.up.railway.app/assets/147078f2f79fecf625808d118a468e32baf873f1ece5089465bd2e29182bbd17/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "66VLEPAKNcp15v1r3JYZeTfBrrGXcbtoVE9CUsCogKNG",
+        "verifiedAt": "2026-10-14T13:43:36.663Z"
+      },
+      {
+        "mint": "AAa1BdjTjEwzxdqTHqnSKRNE3bjAToc1rGN1vkAcEu9P",
+        "accountHash": "3a6104737143b9ed5d6c382c34b4540e2069ff81917f56a670d4777c675acf0c",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/724459490606b65bac52acb699cd39985ed7febdf9f4acb8d4a6e996f4aea0f6/metadata.json": "5c8cf3609f75c76895b55eb5e1a3709f1c9c0d863c23f67245c1639fc494d40f",
+          "https://network-release-production.up.railway.app/assets/724459490606b65bac52acb699cd39985ed7febdf9f4acb8d4a6e996f4aea0f6/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "G6jebCSucjUa9gF5vqEVT1aqern6ANeD8q7BFWvXt8oH",
+        "verifiedAt": "2026-10-14T13:38:36.463Z"
+      },
+      {
+        "mint": "A5bYqFFDGJwkzsfyGLC6neFaRY39vEQQkJremsKtWpdq",
+        "accountHash": "55e4b3c32f9fae6a515960fd9d6213268a9a84fa0c849ad9280b086ef71fdc9d",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/8b48b6929daf37bc636a4b9bc8b1c6fe541c3291d2a91cd6ac988ea30188e868/metadata.json": "2d599f0c51043d87718672d5b9d08a9e35a742dca62c56c9135be322fe9822e0",
+          "https://network-release-production.up.railway.app/assets/8b48b6929daf37bc636a4b9bc8b1c6fe541c3291d2a91cd6ac988ea30188e868/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "FX1xyJbG3DSQ9kX9mpcDggjNL2Ffg7T9faP58mGZ5i2t",
+        "verifiedAt": "2026-10-14T13:33:36.420Z"
+      },
+      {
+        "mint": "FG8w6EKKyqjvQCEv2B7buxVVE7b5Z3UAtP82mRt2FshB",
+        "accountHash": "1ceeeebe41435aaba2bea97c052586f354e0f02d3fdeff910dbd2b26e5621f45",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/edb021c0b72d0cd9bd22d7949695c42b6575e91d8994b3ab78571ae50734290b/metadata.json": "505b12d56d566a4e412af72db89164de29168bd28c23b349f33af7f3a581241a",
+          "https://network-release-production.up.railway.app/assets/edb021c0b72d0cd9bd22d7949695c42b6575e91d8994b3ab78571ae50734290b/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "C4hV5oiW4NBbkz6zVaSehfE1ekytocS94g2MRtXoBed8",
+        "verifiedAt": "2026-10-14T13:28:36.494Z"
+      }
+    ]
+  },
+  "after": {
+    "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+    "balances": {
+      "A9G4WS164bSCS7Bsthe3paBno6XfFM5T12RADFxzGcT3": 1000000000
+    },
+    "assets": [
+      {
+        "mint": "AkbDjsRCprWYVASPxiEqB6yYxF9b1GxBststhVXkcyK8",
+        "accountHash": "26dc2d1ecf0f942e75bd8d90851131bf0c24b774a00c68889eea4084d1900581",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/af53a8cb302f00cbfcd053d7beb7fad4452ae95ca5a9c67e418a4d1d46b156bf/metadata.json": "ba6bfa55d747aeefe63ef277d5a95ecde7072b5b309ec5fc3d3dd9fc690434a3",
+          "https://network-release-production.up.railway.app/assets/af53a8cb302f00cbfcd053d7beb7fad4452ae95ca5a9c67e418a4d1d46b156bf/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": null,
+        "verifiedAt": "2026-10-15T00:49:33.753Z"
+      },
+      {
+        "mint": "J3wN9KthyTaX7erMDo43BWpHbNzc4wab2EUgoJxHH6LE",
+        "accountHash": "3d22f23e5e6f24dfdb0fce695a4bb08d54fc4fd0d9ad90b2617a8242b1a856f4",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/f3c19b36614e8c62f92df0e35aca84a3ab921b09db42b83d39dc783d27341473/metadata.json": "da74f20f7e0ad655d8524d4b0f823c3af4fb695fd600177e374ff6680da895fa",
+          "https://network-release-production.up.railway.app/assets/f3c19b36614e8c62f92df0e35aca84a3ab921b09db42b83d39dc783d27341473/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": null,
+        "verifiedAt": "2026-10-14T19:48:31.423Z"
+      },
+      {
+        "mint": "5EqPiT3Qi5tcuULD2ykVqe4vevdY8nT8vGi9ZUiXk8D8",
+        "accountHash": "f074de69fb7410ccc40f04e601bf2eceddf67407fce38aef6dcece6ebe204156",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/a51e24c59e86adcd4d256cb7aa14d270deb0c4153f47f390a7a722dee3c7fcf9/metadata.json": "161d72d6b197fd8c1411cb63fcf75299425f78dd5c4a3907cdb6479c904e40f7",
+          "https://network-release-production.up.railway.app/assets/a51e24c59e86adcd4d256cb7aa14d270deb0c4153f47f390a7a722dee3c7fcf9/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "4dsMyC22fzPUbuTfaQqBH7zbLWtsW8p9vx3htj1kemPd",
+        "verifiedAt": "2026-10-14T19:45:27.856Z"
+      },
+      {
+        "mint": "DXX8LuoW5zL2gxnNPSAzvZ7SGBB1EWnV6o3FJmJa8PQD",
+        "accountHash": "37e6d39c92daca28249dab35d49c73a6603d5750fe45ad1a482258ab183c3482",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/e4a992904da6f1801e1390d0b7f37c54232948376b3eca250a62249660d20cfa/metadata.json": "4d1d8f41d9a8cd719faa08a148221acc6ca9dbc2e664d74eaea4b80fd2b65485",
+          "https://network-release-production.up.railway.app/assets/e4a992904da6f1801e1390d0b7f37c54232948376b3eca250a62249660d20cfa/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": null,
+        "verifiedAt": "2026-10-14T19:44:45.810Z"
+      },
+      {
+        "mint": "B8JFJR7tK3p29xmyzMei83E1FXvf7PkbHCpvYzkEJfE4",
+        "accountHash": "3bcefb87cf6b6f2ff9d1567afd665124b40904f9da114e37e128dd566de4f56d",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/1c352504397e69ecf6856e97b34944c026d345d6f17e397953b00c840dc2ce90/metadata.json": "f1e709dd514f3be9a9395c2f6e239dfd41ff6621c3cde24da179d55699b6e484",
+          "https://network-release-production.up.railway.app/assets/1c352504397e69ecf6856e97b34944c026d345d6f17e397953b00c840dc2ce90/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": null,
+        "verifiedAt": "2026-10-14T19:39:44.383Z"
+      },
+      {
+        "mint": "71Z9GNN6psrXMssh577t5b1M9dJBzDVraSDuNYPEqc4k",
+        "accountHash": "330c1adb6ded7f6d5915386b195283765bf0a2b646d23377dc23858d2bcb168f",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/69f47527ff14ee83a6993fad78e8e5a6100250e9918a15f7bb47106c569572f8/metadata.json": "3b4efbe64aa698f7ea0c7f16181203e4b8475aee2ba894e2a84d2a7872272d6b",
+          "https://network-release-production.up.railway.app/assets/69f47527ff14ee83a6993fad78e8e5a6100250e9918a15f7bb47106c569572f8/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "GykEazGrKVGzLiQV1TF2enJNnsq6Rb5Xj8Prb5o3AMyn",
+        "verifiedAt": "2026-10-14T19:31:56.614Z"
+      },
+      {
+        "mint": "589HDgvZgB6Ajg2KKGH3Vr9aoyZDeczyMHTZJsdM2Jm2",
+        "accountHash": "1a4a274d67a3a6e57734c7ea0bccddec95eb7d46f5596fdb77b54067a6d0fbe3",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/7fe79f2fd0f90fd5302b17b2b7e21386120d8c4ee1830c07433c0888f09eb43f/metadata.json": "e624386b5afc1020e3894afb6adecc9771afef0f45c8db8838affc48c83afcba",
+          "https://network-release-production.up.railway.app/assets/7fe79f2fd0f90fd5302b17b2b7e21386120d8c4ee1830c07433c0888f09eb43f/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": null,
+        "verifiedAt": "2026-10-14T19:31:09.947Z"
+      },
+      {
+        "mint": "4wQc8NFNKKRZMvHNxcEywQ8FiBXgvxbCwqwbAUSSvfPa",
+        "accountHash": "8b8914d3d92de33be3b8427f69ae730f649e27b7791e5c916907b70d910071db",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/d5cbc337f311f2fefab950bb3aa62002d2151f7fc9818dd4f0af994e7e5fc9b3/metadata.json": "c0bd04ac36e14832de5be290adc6fb2ea39876542656e78c0d2011f9f649cab5",
+          "https://network-release-production.up.railway.app/assets/d5cbc337f311f2fefab950bb3aa62002d2151f7fc9818dd4f0af994e7e5fc9b3/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": null,
+        "verifiedAt": "2026-10-14T18:13:20.869Z"
+      },
+      {
+        "mint": "HqkwdUAjg6xSqGwoN89axm1NqLbRogN78PFmtg9amUVY",
+        "accountHash": "77dc75d26f1b29de6c7209cfa3ae35ae099d794d9bbc70caef81f2b54dafd709",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/77af63276c2e30e66f991dc3d591a771a180dd38dc295920a63784b66028471b/metadata.json": "4621f9ec38b250214efc3b86a2c769ff5767afab5c33e46202b3c0d84ce132c8",
+          "https://network-release-production.up.railway.app/assets/77af63276c2e30e66f991dc3d591a771a180dd38dc295920a63784b66028471b/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "C6ysnNo935Q8EsUu1hojxGQvAXxcECr8G5tsRvETkCuV",
+        "verifiedAt": "2026-10-14T18:08:48.765Z"
+      },
+      {
+        "mint": "9KBeg23j3kKhs7TC3iF5iYLnTnuLigSpRMqy9JUoG5jt",
+        "accountHash": "7eb0666492a871e0b5b32d303ef89a72cb0c65fd59b29740977e92ac877d2d04",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/26f26462c57e6e6d46a0c9883422589513e8ecb7d34e8f82218a72daadb3ade5/metadata.json": "9dd193fa20393483b3080896acb0dd0d63b68de44b5a30be579bb1dfdb617722",
+          "https://network-release-production.up.railway.app/assets/26f26462c57e6e6d46a0c9883422589513e8ecb7d34e8f82218a72daadb3ade5/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": null,
+        "verifiedAt": "2026-10-14T18:08:05.561Z"
+      },
+      {
+        "mint": "BkUZpPtxmELTKzVR8zssbtkHBYpEo6y1G4mokBUhRsxs",
+        "accountHash": "fb20eb1bddded3c43d6f311145ed71f26609be0b8e31a79b5459d59ef9c506f9",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/0c9b73dc5d4155a9af78489ee13030d6d040d5d4b0b0f4d84982f2768d40a000/metadata.json": "2bf500bb7f4dfe3c9077154533463243efc15c596e739dfa55e3fe05ebe880bb",
+          "https://network-release-production.up.railway.app/assets/0c9b73dc5d4155a9af78489ee13030d6d040d5d4b0b0f4d84982f2768d40a000/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "DS46Nqnvb56qrcwSXRDdM9jZ5ZxrDpy7DoBGYmjopu7K",
+        "verifiedAt": "2026-10-14T16:43:36.502Z"
+      },
+      {
+        "mint": "8xGYMmx4gn8vA3Xp8U6bPVfgzgFPVsh8sV4E5q8ct8tK",
+        "accountHash": "a1f4a95c35b2be63b63bbef6d19a5bdc76bf63903d9ae199cdef216e57581f71",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/47943049f7020dd84ce40ce093d077bc540cd4dcdc1e2790721dfe1d5c344cb0/metadata.json": "b2f9626e7ebc5f57e9d46bb237d5ff1403307cb08890f8160bf2f100a75b7fed",
+          "https://network-release-production.up.railway.app/assets/47943049f7020dd84ce40ce093d077bc540cd4dcdc1e2790721dfe1d5c344cb0/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "4oZwg7qpGTQvq4bh6cTV8qe4Z8FM2huADRnMdNGZY3C9",
+        "verifiedAt": "2026-10-14T16:38:36.485Z"
+      },
+      {
+        "mint": "EFyqjHamdgZKxQLUqHZfnDRjTtyfbKy5RvWGbTgops4e",
+        "accountHash": "6977774cc3f81268b356308131debd09fd00225bf0de46b007649f81e9db8881",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/dbb0e59ab89dcc890ec150ef6c7721dd25439f77953365045074b8c6da3a90c5/metadata.json": "8052783aea23f79944e88990ca165d725c1b7c69e28567a8ec9a9dbadb2b69eb",
+          "https://network-release-production.up.railway.app/assets/dbb0e59ab89dcc890ec150ef6c7721dd25439f77953365045074b8c6da3a90c5/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "Bx2sq4na5pwJPjje489PKwyxJCD7wCVATLJmrq5ErNFC",
+        "verifiedAt": "2026-10-14T16:33:36.467Z"
+      },
+      {
+        "mint": "6VqSrGvbsf9Q7bz45w2K7sTqCNGyWafQpmsXFi3hQ5tg",
+        "accountHash": "4da4b18bce12cd5fc56e118c31b09b30352bd917ff3bf673fa61bce897067968",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/dbedb479f7787a781c79225fcf877eb99cffe15038b6445f31c8e08ff140953b/metadata.json": "0e05ef8c556c3a12230bfaffb1d72b08b533c63b5f0a5ddc742615b026a92557",
+          "https://network-release-production.up.railway.app/assets/dbedb479f7787a781c79225fcf877eb99cffe15038b6445f31c8e08ff140953b/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "3Xao9GG9hYhuGuWmyGszxaiRkuW7fXYKZ5Gm6Bi73r9W",
+        "verifiedAt": "2026-10-14T16:28:36.432Z"
+      },
+      {
+        "mint": "5eeVojd5hkiSMowqAJZ4qHQZ1Jthqurwy7eDyz4x8cqu",
+        "accountHash": "3a4d5af618ae597b2ca74ff9c45e43f404a40d08f28d7a538607269f98d94dc3",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/b9b891c4e9a8695d68df0079aa3b99d790b85a03142a9222968a21079e5d807a/metadata.json": "840b53cdcc1e49cc4804424ddfe8a2c51c92098a4f8195fe56d5545626c81ccd",
+          "https://network-release-production.up.railway.app/assets/b9b891c4e9a8695d68df0079aa3b99d790b85a03142a9222968a21079e5d807a/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "DAaBDEQJGfK7v6ufz6y6cEvKCCHyXzJdaBwefU3erNQ2",
+        "verifiedAt": "2026-10-14T16:23:36.521Z"
+      },
+      {
+        "mint": "59dHbc4oT9m8tG33efjYcayTUNBsVcwJ4f8KvEWFK6jw",
+        "accountHash": "6f66a6e3b327ade2acd04a44f4b40a2cc719207c058071cabe0a6b7b6951f580",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/36a12cb12a28e445bc57924504f9227cbdb85bad0a82db14b7e52c93cb8b2a88/metadata.json": "dbb9a524fe36f4c27956ed4b38bee37c9a4294a681e90d265478c4a3ba28fb7b",
+          "https://network-release-production.up.railway.app/assets/36a12cb12a28e445bc57924504f9227cbdb85bad0a82db14b7e52c93cb8b2a88/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "4XkWkKyAxpjYXGQoamUx2LEdhhske8ZSpQroxauyVgKD",
+        "verifiedAt": "2026-10-14T16:18:36.539Z"
+      },
+      {
+        "mint": "AMKwAwCpYUhheBRRxVLqPQXCyBxGi6JvMuJ92nmSCev5",
+        "accountHash": "fd63bb1a1f6413c5aa1d11b846ffd1d3ce1b9900abacf0da8ff23ef8d2be32ea",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/750c600d3ce4355bd97765086924ba036272852e30099007e97e8b834de13875/metadata.json": "bf444baf76e119b26848579d6ae20a34bcca723eb744be429b50c6351c79cd0e",
+          "https://network-release-production.up.railway.app/assets/750c600d3ce4355bd97765086924ba036272852e30099007e97e8b834de13875/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "GegVGCgZDc3dvbuNPc7JAUGRCeSFnXS3H9UpxXxsfKBZ",
+        "verifiedAt": "2026-10-14T16:13:36.494Z"
+      },
+      {
+        "mint": "3y1Dw2L25MHyWdTyY4LdibanT4KCm4XN9UKBLWHdux2q",
+        "accountHash": "3958da24cce7d43baa404a3df1cb63bad1912e276b9c5f75ec28d21fc968df3f",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/52b1ebacabe4540db59774a679b179c7b7305ffc47960945f7dd3a617ab6363f/metadata.json": "a065a1a9fe4ff5d129c7006c729d81d7287b26c6082b2e38825e4aa4eefd4399",
+          "https://network-release-production.up.railway.app/assets/52b1ebacabe4540db59774a679b179c7b7305ffc47960945f7dd3a617ab6363f/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "GUe1JR7vcZtQRQHpxFXkpywAJkqPeH3DESf28sNGML95",
+        "verifiedAt": "2026-10-14T16:08:36.434Z"
+      },
+      {
+        "mint": "7e1AJNGJ6KRfir1gDfPM5qr43k56abdsSPfVE8K56se6",
+        "accountHash": "b0bb2d7869904b74a2cc4398274296dc22e874aab5df4c06310341a77b976280",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/52c873b819c0be7eb266d236696e665fcdbad50acfe7a57a50a00ebc93eb105b/metadata.json": "f58d93e55e52950ecb4b857aa35f298df66a1ec02b705ae4d6368aa4120bfcba",
+          "https://network-release-production.up.railway.app/assets/52c873b819c0be7eb266d236696e665fcdbad50acfe7a57a50a00ebc93eb105b/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "GT9ySVD3bCWdwwKhxNcPqaVJjdwrpheSPMQxfN6Us6Uw",
+        "verifiedAt": "2026-10-14T16:03:36.480Z"
+      },
+      {
+        "mint": "8PX7bdfoUuNNowZhknXGe7ei4Zq2RhZ14BMDnfr1zirv",
+        "accountHash": "82d479c6093bfe66850e27525b234fc0c1f0f91ef2d2b51fa893f2b8186faf1e",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/eb27613221e86082a676aacf50c98527ecf8c6f088b82f52d636be5058527b02/metadata.json": "75867c0a84a67dd1d1a2cfde26a3c59591891763e76193b6551d8cf1ae4a8394",
+          "https://network-release-production.up.railway.app/assets/eb27613221e86082a676aacf50c98527ecf8c6f088b82f52d636be5058527b02/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "9dDjJAovJzw979y2f4ZPcE5oK3stXBLmpmRwc44ZLGxe",
+        "verifiedAt": "2026-10-14T15:58:36.435Z"
+      },
+      {
+        "mint": "ABbvHCuJbgKCgRCY5BSrMcwnmqnrsomZwyxvShqWGfmt",
+        "accountHash": "cf35edd9a61ac06d6f6c5a692239ed72bd9f161282384b051d7dcb6d1d054de4",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/f79199b40d06ad60463068e57fdc21fc16dae7b5334807965b93bb3223c734ae/metadata.json": "81564a54689a39297bd3885995b85ac912f47601b3ebe9955b7ac45923a943af",
+          "https://network-release-production.up.railway.app/assets/f79199b40d06ad60463068e57fdc21fc16dae7b5334807965b93bb3223c734ae/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "3e6d6QwndjFVSYuFzBtJGLoT6WL47oBgtE89s1omyzRr",
+        "verifiedAt": "2026-10-14T15:53:36.516Z"
+      },
+      {
+        "mint": "9MeF4GXmVgDo6dUgS5DYPcSBK2UBmdQLZqxCkWwnKrPt",
+        "accountHash": "35f2f9c80271f2b170ee15caec8e97e8afc7623c4f2d42f9362c88fe38d20172",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/14ecb4135db2d6468343e372ddacf7c4922cad66a190c9390356000604e6ccd3/metadata.json": "8f0454f9a22454acd574b55e5008acc2a659ce603f317e5367e51d211aedf16e",
+          "https://network-release-production.up.railway.app/assets/14ecb4135db2d6468343e372ddacf7c4922cad66a190c9390356000604e6ccd3/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "FE5oQ1ZKsfcpHMvfEJeiGSwXrSRe2qYdr1K9ZKBjgdK4",
+        "verifiedAt": "2026-10-14T15:48:36.438Z"
+      },
+      {
+        "mint": "6ZtfDuHqHS7X8vjKTigaALSBLKZY6ggy2T1K7GZ2KTiN",
+        "accountHash": "d7a3731b53abcf9e7725af3c7482cc6d52e2c9008ca2dde88d177bbfa5a3bd59",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/4ba4ad0c2a08cbbfad8a1bb6d5ab6a3ace44a42a5b8787005ab0bc74faf531c2/metadata.json": "c901bdd3fbac1fd0ced119a6111bc4e82d501b79873f686e4f124a29af8345f0",
+          "https://network-release-production.up.railway.app/assets/4ba4ad0c2a08cbbfad8a1bb6d5ab6a3ace44a42a5b8787005ab0bc74faf531c2/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "C1feeieBhhzi86oewWtBvZmjp2EW3aonzjzXFb3Aevqe",
+        "verifiedAt": "2026-10-14T15:43:36.468Z"
+      },
+      {
+        "mint": "2ZQbfFeREwribud59XFW8fxQ8f8YH8frZPgj7qgQAhWR",
+        "accountHash": "1a9358698de36de6074cdd86346b61de1dd223615993609621b325e7c94133c0",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/1306229eed0afd44d177df3917ecde16f64b47a7ccbd271c13df1bff5248414b/metadata.json": "494aa79dc74a3bae3acf5309f68fd4cf4cbd08cc2b5cbb73ff936a2fae8cb8c6",
+          "https://network-release-production.up.railway.app/assets/1306229eed0afd44d177df3917ecde16f64b47a7ccbd271c13df1bff5248414b/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "EcTPduowgUcfNsLBq8S3myCfrzfFz4tW719Usd35teo2",
+        "verifiedAt": "2026-10-14T15:38:36.471Z"
+      },
+      {
+        "mint": "5TeLdASg4uFxVFcLXHPsZWaFiECaGSA9UJ1kuRzZhtb5",
+        "accountHash": "0f535854985c3808df26dafa0ebd875dac850e87466d1248346782b10a0f542c",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/776b650fd4a59d22f1c9ad714734bf74c79927b5e2846eade71ef26d7c189cd3/metadata.json": "a1028923d4d122586b20b45abe680acaaff58141d817ab799a97a22ecddc1c1c",
+          "https://network-release-production.up.railway.app/assets/776b650fd4a59d22f1c9ad714734bf74c79927b5e2846eade71ef26d7c189cd3/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "DCNxKtgbzUXrVeLJoTkWPBWonwT4JF53ZovZeVrtkah",
+        "verifiedAt": "2026-10-14T15:33:36.450Z"
+      },
+      {
+        "mint": "8KgxSM4oj5PrKPLu8t26S1TCVBM9zA7rDzekqgNv1KCQ",
+        "accountHash": "8e14eac5d679eababfd3d8d6202b3af95c0cc2f2af44de4b7542182c16c7e69b",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/b003518505d0cab8fd29df60741cbbae0cc1c6aca270365de2f397105e7131bf/metadata.json": "97e563ec35116c0ff8fd103be997fb066636f75d20f1b7f3a3ec85022073de17",
+          "https://network-release-production.up.railway.app/assets/b003518505d0cab8fd29df60741cbbae0cc1c6aca270365de2f397105e7131bf/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "FZyTCV3rFPc4ydzh9sV128KTpfWSd1p8KeCKRdMCkJv1",
+        "verifiedAt": "2026-10-14T15:28:36.446Z"
+      },
+      {
+        "mint": "9gpzoDPnT7BAjC9XYZUFMPP8ANRMfPVtc46jcJnFBbko",
+        "accountHash": "91aa1d65259221302331e1bf9c0f2bf14ce5b142db40f7139a0549a3f398b3ee",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/650319ed67c7afa6dbed077c7e4053ca7f589e7ac8b9a04ddaf1c0574f796af1/metadata.json": "1a566157786cf8af11cfe22230822e748bda0466c17d55b8b7dd840865bbe6e4",
+          "https://network-release-production.up.railway.app/assets/650319ed67c7afa6dbed077c7e4053ca7f589e7ac8b9a04ddaf1c0574f796af1/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "6EghFwU5Yojwb2ZWDoYxxHmj6c4EH8W64A35cA7Fofvr",
+        "verifiedAt": "2026-10-14T15:23:36.550Z"
+      },
+      {
+        "mint": "9uE58SESzYMw9BByFdUivupkY4UPKRJvxon1rkCcMn7Y",
+        "accountHash": "d5531cb9bfdcc4e7dd35175a4f0c1a80dded8a1e741dfd6af8bb279089b98420",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/e8a87798bffc02e2082030a125036e4dd2101cd176e6f2a2f6779975b409359d/metadata.json": "882d46fbed312c158f4f98f4d1c69a75f4b4dba686d76124e615f1719f94eafb",
+          "https://network-release-production.up.railway.app/assets/e8a87798bffc02e2082030a125036e4dd2101cd176e6f2a2f6779975b409359d/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "GsvVMvqT7ig8kapkoDNx19ADZre3Hts2Hh3qFmgLatFu",
+        "verifiedAt": "2026-10-14T15:18:36.485Z"
+      },
+      {
+        "mint": "5hzJ5hhf7Yk4u3sqBZNpeqSXxX2ZK9sJeEh9iMJL2zWU",
+        "accountHash": "d58553783208bc1d428c1f5efd836ed9906b3eda09271b2a3cea2b440439d8e3",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/cc7854f55bdaa4e52062471977b895c23cefa8da85b1aaf0a76f6a6a23281067/metadata.json": "87a9f0e4ae12670ee420cae42c8af4d5fab720e3c2a0c1fdf6b3c12bccb69234",
+          "https://network-release-production.up.railway.app/assets/cc7854f55bdaa4e52062471977b895c23cefa8da85b1aaf0a76f6a6a23281067/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "F21Cg1Znr2AR16ZD6HcSNN1EwdSNsf3xzypTQaZf5zeU",
+        "verifiedAt": "2026-10-14T15:13:36.426Z"
+      },
+      {
+        "mint": "79SJtu4pYX3oSLF9vhLWn6qVhf1MwAPeZ8VikDaSuMFH",
+        "accountHash": "5fb21837033dbbec5e2b9fc0c91bdcbdaf4d6407b2db14b7ba86d7469c76a13a",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/7b5f665a2475bb630e51845c049ad369e2be32b316b391ea785c5b7f235235ac/metadata.json": "0efd856f5262d95cd8056e3e5c88d18f6477b0d2bb48993e27d6b31277331a38",
+          "https://network-release-production.up.railway.app/assets/7b5f665a2475bb630e51845c049ad369e2be32b316b391ea785c5b7f235235ac/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "6NftaMcJr22EWoe9RgHsWGLZhb9tBAjQhpbUPadz47uG",
+        "verifiedAt": "2026-10-14T15:08:36.474Z"
+      },
+      {
+        "mint": "4VHSRm2Lw4eHFhu2DR4YivdH6ufgUwduB1JyDMd47jpm",
+        "accountHash": "40f11b5e2dc03029da39462f325b3ab4871e9ffef55a9b573d4757741e48fbe2",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/80622386b38a5437b1c6190a2aeb91d42d29a0602f2f44b3c5340cd94c2c78e2/metadata.json": "e25840739155cdd7bf700a4574df9fa38a6fb188654b26529393a823eccb39db",
+          "https://network-release-production.up.railway.app/assets/80622386b38a5437b1c6190a2aeb91d42d29a0602f2f44b3c5340cd94c2c78e2/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "8hv8d41PzfKvGX7tHhmfQxu8fQ5DyBcCZ5TrVMXWpyrv",
+        "verifiedAt": "2026-10-14T15:03:36.493Z"
+      },
+      {
+        "mint": "9rqR9kxXeAMc4QdBe4Euoho6HFnj5QmLUmGgygWnFW7z",
+        "accountHash": "181fc3eea5b2c5b86953aa8ef8d0f09c96dc39c6f8519e360ff8c4d2d5a48ee7",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/5e2538ebaa022af8121b94f662208bd01310edfe1dd814cc9b582b43f4dbd0bc/metadata.json": "938e8926b9b01181aac762fea627b2fb159e4841cf464fe8f01be3f7070cda1f",
+          "https://network-release-production.up.railway.app/assets/5e2538ebaa022af8121b94f662208bd01310edfe1dd814cc9b582b43f4dbd0bc/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "JADUxcigzq18RomJi1BWu5heBM24Zgi8hriZ5HtnqNs3",
+        "verifiedAt": "2026-10-14T14:58:36.484Z"
+      },
+      {
+        "mint": "6ymKZarb6XNTiLxvmS1ABdYFtnLa4RN4jGYck7WGoKBZ",
+        "accountHash": "9a41f825358be14bd589a30a9c5177cb2cc4603eb0bac6389bf85e1b4e9f0c01",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/10a669dcd68b47a1cb3eb6a5f2fc34e06fbb483471a952d9dc13267bbc0983cc/metadata.json": "73323658edb70d451e1bc303090a81370a076f021c5e652c147ceeb4ededffba",
+          "https://network-release-production.up.railway.app/assets/10a669dcd68b47a1cb3eb6a5f2fc34e06fbb483471a952d9dc13267bbc0983cc/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "9cwqDqYZeQragsEfTh6CWeMGgcWyNKFuEufAQW7Eukur",
+        "verifiedAt": "2026-10-14T14:53:36.401Z"
+      },
+      {
+        "mint": "8VhZ6xiYCx8DE73vekAiaGsnsuTZ751MZuxB9qETpypA",
+        "accountHash": "031be8ba01a36768b6b0adc8245831f5b79dd3f721a1e08b07ed67532c9319db",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/e2cc3671e73c74f225ea6ef112df212c0ff9e805d1bc2f1cfaca419c55c99593/metadata.json": "70c5318bc7f3224d86fe23397c983ca4144cc8c297235614b8c9e7b4ea73a8ee",
+          "https://network-release-production.up.railway.app/assets/e2cc3671e73c74f225ea6ef112df212c0ff9e805d1bc2f1cfaca419c55c99593/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "J8kKPGx5oDPkVhRe2JwwA5Wr4BujK6zHd2mrUaDz6gD9",
+        "verifiedAt": "2026-10-14T14:48:36.420Z"
+      },
+      {
+        "mint": "DddHas6QDDEGqyjcTzeLZfu3QjepX7Y9QffBFM15Nagr",
+        "accountHash": "9360b87e12509179f5047c85582341c549e08d78cc1bb6d733435ca96c41d833",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/eb13fbefaa9cfec4fbe79bf35c3c73f49b73e719c557467d922fc74316682f67/metadata.json": "3e2d4218743f5fd2c4cb3115a3e102cc586b0ff2c399743d5f634993c5b8bf04",
+          "https://network-release-production.up.railway.app/assets/eb13fbefaa9cfec4fbe79bf35c3c73f49b73e719c557467d922fc74316682f67/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "DW7KwHKVWwjwLmtqQVBVYBsaiLf5QkXdyLnz8dDj6Am5",
+        "verifiedAt": "2026-10-14T14:43:36.434Z"
+      },
+      {
+        "mint": "Buo6fFr8RSPKJASp6MQWuYPvWMJGAcnELXpoV5oLt4XJ",
+        "accountHash": "b13488014a024dc77aeac33ddba6416ca50fc20958b455c74ec11cb0dcbfb221",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/3ca50e3487bca3b8c1f919fd277d92a20fbc920be798a91932ae96b214ca14cf/metadata.json": "395dd5a9634bac5423d633fccbbadaf6a787efe1aa3105ab3022aae1f906e8da",
+          "https://network-release-production.up.railway.app/assets/3ca50e3487bca3b8c1f919fd277d92a20fbc920be798a91932ae96b214ca14cf/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "Aftv7TxBk3d2aCQbYBb8onwpnEysomXZ6YeU4oBZb3c1",
+        "verifiedAt": "2026-10-14T14:38:36.437Z"
+      },
+      {
+        "mint": "7EPXTLpNkR8B6KBm1kQqKuuarRS7RhS2K8FT5B3NUqd4",
+        "accountHash": "61d4288f9375cb98f0bc13313101d7ec2653d38d0f11cd230c37525ee9d7580c",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/866a42c3c5d1a7b6fb43242ebefabf355e1b3ca479420c21ac5bfbfe23600888/metadata.json": "c80d4576701151df10735763e9ed6e8774a1344f6f266b75e682db74578267cb",
+          "https://network-release-production.up.railway.app/assets/866a42c3c5d1a7b6fb43242ebefabf355e1b3ca479420c21ac5bfbfe23600888/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "GgUpDALQY5A1R8x6QNWwiwgTLhRwmYBm5544Ni4TNcwZ",
+        "verifiedAt": "2026-10-14T14:33:38.518Z"
+      },
+      {
+        "mint": "4Udxmujzj5eg6oFXEtPxLx5Tf7ApgwLruotVsqdorw5i",
+        "accountHash": "217baacdcc4e5655dd8a1c0458814f877144e6ca41927ec015965e62258aa1af",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/b7ef2e3b6f09abdfc068e93d0b60739802cb61f4d521ede3864fcf63b8565bf3/metadata.json": "c007093a7c95fc7d876c9a864531a5fc087f7d452f16d3d4e6107d0146bab716",
+          "https://network-release-production.up.railway.app/assets/b7ef2e3b6f09abdfc068e93d0b60739802cb61f4d521ede3864fcf63b8565bf3/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "7xiXmAccmVYeKySJDTxGn1sd5huJNgXaQRJkKymrx2Mx",
+        "verifiedAt": "2026-10-14T14:28:36.433Z"
+      },
+      {
+        "mint": "7Uu4TeTfaAZdmN52HWq4ehg7gwNyQCyrqiboYumAmkJf",
+        "accountHash": "630be013e6b4065eb45d7ba1d73a1cc686947904a53d4ed65499f042e349a2e4",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/5ab327a7ba97a1a3c45620ad896cb7a0ef267015fdec8f876df69a97a09304e3/metadata.json": "b94a022067af8e29bc9b60e56dd10c1c64695f1aae30a2eb0e30b6389cd398c7",
+          "https://network-release-production.up.railway.app/assets/5ab327a7ba97a1a3c45620ad896cb7a0ef267015fdec8f876df69a97a09304e3/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "De9Rv9SH2x9QW4k59hsqFg8sDyZeB2gDrvNYVP6TjwuG",
+        "verifiedAt": "2026-10-14T14:23:36.452Z"
+      },
+      {
+        "mint": "5mAcQH6cxL1e5KPWXuFtFvDMCmiQEXRxu1YpajwcS5Jt",
+        "accountHash": "cd26d5227470873aa2b26fc9f9bc80baff53b418cc5787e74a979783b7f76456",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/9e8cc8e3d46a4a0e39971c712ad30b51528eb37fc1535b231de97bebdd49f68e/metadata.json": "94382692cfb7e7a0d41a9e460486999ea53a41979c9bdb550d33015d802318a4",
+          "https://network-release-production.up.railway.app/assets/9e8cc8e3d46a4a0e39971c712ad30b51528eb37fc1535b231de97bebdd49f68e/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "BLcUTRo5WBWgCuSnhJLe1sQmBC3sZufd7NguGfLMvANH",
+        "verifiedAt": "2026-10-14T14:18:36.659Z"
+      },
+      {
+        "mint": "H499AH2NSuyoJudp3mFVa3kzK3HiUgxcb4EuPwRCfHwR",
+        "accountHash": "0c81e8a736fb687ed41c5a5f9a7faf6c8e6e2b18bec6014a78a79308b6ad8663",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/03c7b0608f3bb8aeb5bc56dd7d4864e24fce161d707a21e4a1aa6a82e6a737e7/metadata.json": "e217d1a371f6c0351e30f9a4955e8e3661ac00eb3aef685b8bc198f41fd8f79d",
+          "https://network-release-production.up.railway.app/assets/03c7b0608f3bb8aeb5bc56dd7d4864e24fce161d707a21e4a1aa6a82e6a737e7/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "7qZwgkgBdYq2h7Jnz1Q5Kerfu1NwRfJLNSKSpUKA4UDJ",
+        "verifiedAt": "2026-10-14T14:13:36.472Z"
+      },
+      {
+        "mint": "7m8G1VMsAxQGRYhhfdo3GWWRyopwTTHs3XEu4JviJHBx",
+        "accountHash": "30c36cf047073085675cdae31239d87e93b8ec9cba62baee69133667d4cab639",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/4f18246d926ebfd7d4dad98c79fd314e53f382aa594ad411a91ecfe5be23e8df/metadata.json": "92386f3c0ac638e48b853a7d13ff3ec7970e086cda7ca0177ed504d84206332e",
+          "https://network-release-production.up.railway.app/assets/4f18246d926ebfd7d4dad98c79fd314e53f382aa594ad411a91ecfe5be23e8df/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "FYTR6URFERk3ziymFGzCp2wh6dzdDeBdbTpseTkv7WUr",
+        "verifiedAt": "2026-10-14T14:08:36.425Z"
+      },
+      {
+        "mint": "Ese2tS3RKtcJNYPHSyfN2CgF2NXJzndCD5dZ3f3MZn8r",
+        "accountHash": "9affc3273aa063fea9072e413e3d843c2c329050f754ef93b86fda6a0a4fee77",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/e50aeff17b266e38d371c6eb888cc5700b700f086d73226b3ee019cfc121b705/metadata.json": "2cff243e5acd4a558394bed06a6f19b12ae77d62fa1cef89b3bdf27914ca175e",
+          "https://network-release-production.up.railway.app/assets/e50aeff17b266e38d371c6eb888cc5700b700f086d73226b3ee019cfc121b705/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "8vQ7tXdf4kwTZmfKqzL9QQAQL82XiFA3ZJ5hnQZQCdZe",
+        "verifiedAt": "2026-10-14T14:03:36.532Z"
+      },
+      {
+        "mint": "21pKB3SbGCYq3pwbLBuEAANTJ8iuqZuqmSkhU9EhoWao",
+        "accountHash": "139e640b6dddba2d199a6355b68cefcdc3729e6191aa9809ef6ef15dc1b2692d",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/010285f878da5ddc18767808e6f91b4998cc194eda56929e2e79c1aca74db5e3/metadata.json": "a4a7059ff77063831c6a4664b4bf070c00709ab1cbe60788cba5a8b4ff9f7885",
+          "https://network-release-production.up.railway.app/assets/010285f878da5ddc18767808e6f91b4998cc194eda56929e2e79c1aca74db5e3/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "GWgKM22YL1LmZTfjxQtBkLS4AeX21NF6fwrQLcvDSoAN",
+        "verifiedAt": "2026-10-14T13:58:36.385Z"
+      },
+      {
+        "mint": "98LdXKSMDmzsnUPc3UqxjdMcKJjX4pGPUSXm3c7fCMtS",
+        "accountHash": "83eb5c4766ffd75153288cfcf1f476ac81a6f41cb1fe202dc9ac0bdab50ba23e",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/0ac1bc0e7aa70e9da91e46538b5a1a5f34d1f3de212a9043d377733795cd8421/metadata.json": "adaabfe0b02fe5923fe512b3d3c9e9da14febc33c5f0bba66048b96db8f55519",
+          "https://network-release-production.up.railway.app/assets/0ac1bc0e7aa70e9da91e46538b5a1a5f34d1f3de212a9043d377733795cd8421/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "G2uAnznHkyjPZuu4TgfVSz8ECtzFYeKoqP7ojk4Po4aQ",
+        "verifiedAt": "2026-10-14T13:53:36.484Z"
+      },
+      {
+        "mint": "66qTURuQU8LAFWwRE1rUECn1CoWAxGxyPoRHkFiPUuZH",
+        "accountHash": "b8321ca47459a55872842df5acf4e46efd0a6619a81d24c37202eba3ac954cec",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/b401dd41c3669761f67028f7bee00b38ca05a6e9b71f561bf11526deda534b2a/metadata.json": "b8da3ac4766e8e17ef7e23f6c64f7f19f8917f1b407eef7e4e4167338ef86128",
+          "https://network-release-production.up.railway.app/assets/b401dd41c3669761f67028f7bee00b38ca05a6e9b71f561bf11526deda534b2a/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "DFwyPdjXvAoSeJzJZ6uN76CMnS6gFdmKMAjKJ2QSjPUi",
+        "verifiedAt": "2026-10-14T13:48:36.447Z"
+      },
+      {
+        "mint": "BbiZtb2gQF2yqoDfmD3Vt3EWLkEmNamVk7PaHGQ5MW85",
+        "accountHash": "88678ac2c2d3308805195483d6c0e7bff98a902b432a9ae9951be4ccb369e4a4",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/147078f2f79fecf625808d118a468e32baf873f1ece5089465bd2e29182bbd17/metadata.json": "687a0c980f8e9e978ba160ed3a3858e8227726364b7e68efbcf2ae3363a347ad",
+          "https://network-release-production.up.railway.app/assets/147078f2f79fecf625808d118a468e32baf873f1ece5089465bd2e29182bbd17/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "66VLEPAKNcp15v1r3JYZeTfBrrGXcbtoVE9CUsCogKNG",
+        "verifiedAt": "2026-10-14T13:43:36.663Z"
+      },
+      {
+        "mint": "AAa1BdjTjEwzxdqTHqnSKRNE3bjAToc1rGN1vkAcEu9P",
+        "accountHash": "3a6104737143b9ed5d6c382c34b4540e2069ff81917f56a670d4777c675acf0c",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/724459490606b65bac52acb699cd39985ed7febdf9f4acb8d4a6e996f4aea0f6/metadata.json": "5c8cf3609f75c76895b55eb5e1a3709f1c9c0d863c23f67245c1639fc494d40f",
+          "https://network-release-production.up.railway.app/assets/724459490606b65bac52acb699cd39985ed7febdf9f4acb8d4a6e996f4aea0f6/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "G6jebCSucjUa9gF5vqEVT1aqern6ANeD8q7BFWvXt8oH",
+        "verifiedAt": "2026-10-14T13:38:36.463Z"
+      },
+      {
+        "mint": "A5bYqFFDGJwkzsfyGLC6neFaRY39vEQQkJremsKtWpdq",
+        "accountHash": "55e4b3c32f9fae6a515960fd9d6213268a9a84fa0c849ad9280b086ef71fdc9d",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/8b48b6929daf37bc636a4b9bc8b1c6fe541c3291d2a91cd6ac988ea30188e868/metadata.json": "2d599f0c51043d87718672d5b9d08a9e35a742dca62c56c9135be322fe9822e0",
+          "https://network-release-production.up.railway.app/assets/8b48b6929daf37bc636a4b9bc8b1c6fe541c3291d2a91cd6ac988ea30188e868/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "FX1xyJbG3DSQ9kX9mpcDggjNL2Ffg7T9faP58mGZ5i2t",
+        "verifiedAt": "2026-10-14T13:33:36.420Z"
+      },
+      {
+        "mint": "FG8w6EKKyqjvQCEv2B7buxVVE7b5Z3UAtP82mRt2FshB",
+        "accountHash": "1ceeeebe41435aaba2bea97c052586f354e0f02d3fdeff910dbd2b26e5621f45",
+        "hashes": {
+          "https://network-release-production.up.railway.app/assets/edb021c0b72d0cd9bd22d7949695c42b6575e91d8994b3ab78571ae50734290b/metadata.json": "505b12d56d566a4e412af72db89164de29168bd28c23b349f33af7f3a581241a",
+          "https://network-release-production.up.railway.app/assets/edb021c0b72d0cd9bd22d7949695c42b6575e91d8994b3ab78571ae50734290b/image.svg": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+        },
+        "owner": "C4hV5oiW4NBbkz6zVaSehfE1ekytocS94g2MRtXoBed8",
+        "verifiedAt": "2026-10-14T13:28:36.494Z"
+      }
+    ]
+  },
+  "candidate": {
+    "apiOrigin": "https://network-release-production.up.railway.app",
+    "frontendOrigin": "https://solana-classic-soc.vercel.app",
+    "frontendDeploymentId": "dpl_3aWWzKDohr4SrgijgrB8dWgHHS5r",
+    "frontendCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "apiCommit": "119f25e225540be78b64b19bdb6cb300a1f47c10",
+    "networkConfigSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+    "dependencyManifestSha256": "e6da27717e6a84ca7b29d707ff63591b2ff0cfc38892d3b4667f8615bdf7bbc0"
+  },
+  "candidateRuntime": {
+    "configured": true,
+    "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+    "engineBuild": {
+      "schemaVersion": 1,
+      "scope": "authenticated export of four public source-built binaries only; no ledger or key material",
+      "passed": true,
+      "runId": "40de48b7-6963-429b-ae3e-81a610d81b7d",
+      "archiveBytes": 67933801,
+      "archiveSha256": "1dd3a398821f029f4f1aa53a63b53eda3123b907ef4025f6ab964e35c60d48b4",
+      "binaries": {
+        "agave-validator": {
+          "sha256": "34e468747f1a0d69399b61fd40edc32ce4690ec5a200b5684474aa60a97a6910",
+          "bytes": 74406832,
+          "version": "agave-validator 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+        },
+        "solana-test-validator": {
+          "sha256": "3d3140bf93c9bc967220ffd8989d8b0267b723915d32203132ecc36d2c63a49a",
+          "bytes": 73661760,
+          "version": "solana-test-validator 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+        },
+        "solana": {
+          "sha256": "6a880f1c79ec0e0d7b3ee972eaa9ad8d75b503616e1f0c29efa587137a129dcd",
+          "bytes": 28209480,
+          "version": "solana-cli 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+        },
+        "solana-keygen": {
+          "sha256": "2f00a742ab0d99cad929e7a82b2d80f7c519cab9038ec45844fdbe9c305dea65",
+          "bytes": 2804464,
+          "version": "solana-keygen 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+        }
+      },
+      "upstreamCommit": "f516a8927c76c07f0ebc54ca7a4ce8b2046eee86",
+      "upstreamTree": "a4c75a1781d4ca56e7325a39d0614e1faa26030d",
+      "sourceRepositoryCommit": "39b9001cab84e637f2460f2387f2549f32b62ef9",
+      "workerSha256": "ac5937cba2a39336f847f2ce5443ed729146a07462c66074ff448c38d6e995ab",
+      "sourceManifestSha256": "337512bc1df2f382ccfab957347281b1c153353429b77d2695d65aafd29ec081",
+      "migrationId": "ae834e71-fb59-4beb-b26b-4485be3a386f",
+      "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+      "preparedAt": "2026-10-14T01:53:01.100713+00:00"
+    },
+    "sourceCommit": "119f25e225540be78b64b19bdb6cb300a1f47c10",
+    "coreSha256": "533950731d4ed6d94b59e71517613be002b6ec416b0ebb3a20a592fe5ec6f22f",
+    "apiBootId": "e6ec5d41-8238-48a0-b739-a81f9fea6adf",
+    "apiStartedAt": "2026-10-15T00:55:25.337Z",
+    "validatorBootId": "2c6a0f79-c6c3-43a4-aa5c-e542efb704d9",
+    "validatorStartedAt": "2026-10-15T00:55:03.665Z",
+    "deploymentId": "22e5870a-afb8-4027-89b5-ccb8a39391c2",
+    "agaveVersion": "3.0.14",
+    "tokenProgramVersion": "10.0.0",
+    "tokenProgramSha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+    "observedAt": "2026-10-15T00:58:56.084Z"
+  },
+  "runtimeBefore": {
+    "configured": true,
+    "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+    "engineBuild": {
+      "schemaVersion": 1,
+      "scope": "authenticated export of four public source-built binaries only; no ledger or key material",
+      "passed": true,
+      "runId": "40de48b7-6963-429b-ae3e-81a610d81b7d",
+      "archiveBytes": 67933801,
+      "archiveSha256": "1dd3a398821f029f4f1aa53a63b53eda3123b907ef4025f6ab964e35c60d48b4",
+      "binaries": {
+        "agave-validator": {
+          "sha256": "34e468747f1a0d69399b61fd40edc32ce4690ec5a200b5684474aa60a97a6910",
+          "bytes": 74406832,
+          "version": "agave-validator 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+        },
+        "solana-test-validator": {
+          "sha256": "3d3140bf93c9bc967220ffd8989d8b0267b723915d32203132ecc36d2c63a49a",
+          "bytes": 73661760,
+          "version": "solana-test-validator 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+        },
+        "solana": {
+          "sha256": "6a880f1c79ec0e0d7b3ee972eaa9ad8d75b503616e1f0c29efa587137a129dcd",
+          "bytes": 28209480,
+          "version": "solana-cli 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+        },
+        "solana-keygen": {
+          "sha256": "2f00a742ab0d99cad929e7a82b2d80f7c519cab9038ec45844fdbe9c305dea65",
+          "bytes": 2804464,
+          "version": "solana-keygen 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+        }
+      },
+      "upstreamCommit": "f516a8927c76c07f0ebc54ca7a4ce8b2046eee86",
+      "upstreamTree": "a4c75a1781d4ca56e7325a39d0614e1faa26030d",
+      "sourceRepositoryCommit": "39b9001cab84e637f2460f2387f2549f32b62ef9",
+      "workerSha256": "ac5937cba2a39336f847f2ce5443ed729146a07462c66074ff448c38d6e995ab",
+      "sourceManifestSha256": "337512bc1df2f382ccfab957347281b1c153353429b77d2695d65aafd29ec081",
+      "migrationId": "ae834e71-fb59-4beb-b26b-4485be3a386f",
+      "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+      "preparedAt": "2026-10-14T01:53:01.100713+00:00"
+    },
+    "sourceCommit": "119f25e225540be78b64b19bdb6cb300a1f47c10",
+    "coreSha256": "533950731d4ed6d94b59e71517613be002b6ec416b0ebb3a20a592fe5ec6f22f",
+    "apiBootId": "2fcf7499-9bbd-4752-8d9c-063e66d7d9ae",
+    "apiStartedAt": "2026-10-15T00:35:20.941Z",
+    "validatorBootId": "815eceb9-4046-463d-9af7-050bfcb79f0e",
+    "validatorStartedAt": "2026-10-15T00:34:44.258Z",
+    "deploymentId": "22e5870a-afb8-4027-89b5-ccb8a39391c2",
+    "agaveVersion": "3.0.14",
+    "tokenProgramVersion": "10.0.0",
+    "tokenProgramSha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+    "observedAt": "2026-10-15T00:35:58.886Z"
+  },
+  "runtimeAfter": {
+    "configured": true,
+    "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+    "engineBuild": {
+      "schemaVersion": 1,
+      "scope": "authenticated export of four public source-built binaries only; no ledger or key material",
+      "passed": true,
+      "runId": "40de48b7-6963-429b-ae3e-81a610d81b7d",
+      "archiveBytes": 67933801,
+      "archiveSha256": "1dd3a398821f029f4f1aa53a63b53eda3123b907ef4025f6ab964e35c60d48b4",
+      "binaries": {
+        "agave-validator": {
+          "sha256": "34e468747f1a0d69399b61fd40edc32ce4690ec5a200b5684474aa60a97a6910",
+          "bytes": 74406832,
+          "version": "agave-validator 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+        },
+        "solana-test-validator": {
+          "sha256": "3d3140bf93c9bc967220ffd8989d8b0267b723915d32203132ecc36d2c63a49a",
+          "bytes": 73661760,
+          "version": "solana-test-validator 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+        },
+        "solana": {
+          "sha256": "6a880f1c79ec0e0d7b3ee972eaa9ad8d75b503616e1f0c29efa587137a129dcd",
+          "bytes": 28209480,
+          "version": "solana-cli 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+        },
+        "solana-keygen": {
+          "sha256": "2f00a742ab0d99cad929e7a82b2d80f7c519cab9038ec45844fdbe9c305dea65",
+          "bytes": 2804464,
+          "version": "solana-keygen 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+        }
+      },
+      "upstreamCommit": "f516a8927c76c07f0ebc54ca7a4ce8b2046eee86",
+      "upstreamTree": "a4c75a1781d4ca56e7325a39d0614e1faa26030d",
+      "sourceRepositoryCommit": "39b9001cab84e637f2460f2387f2549f32b62ef9",
+      "workerSha256": "ac5937cba2a39336f847f2ce5443ed729146a07462c66074ff448c38d6e995ab",
+      "sourceManifestSha256": "337512bc1df2f382ccfab957347281b1c153353429b77d2695d65aafd29ec081",
+      "migrationId": "ae834e71-fb59-4beb-b26b-4485be3a386f",
+      "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+      "preparedAt": "2026-10-14T01:53:01.100713+00:00"
+    },
+    "sourceCommit": "119f25e225540be78b64b19bdb6cb300a1f47c10",
+    "coreSha256": "533950731d4ed6d94b59e71517613be002b6ec416b0ebb3a20a592fe5ec6f22f",
+    "apiBootId": "e6ec5d41-8238-48a0-b739-a81f9fea6adf",
+    "apiStartedAt": "2026-10-15T00:55:25.337Z",
+    "validatorBootId": "2c6a0f79-c6c3-43a4-aa5c-e542efb704d9",
+    "validatorStartedAt": "2026-10-15T00:55:03.665Z",
+    "deploymentId": "22e5870a-afb8-4027-89b5-ccb8a39391c2",
+    "agaveVersion": "3.0.14",
+    "tokenProgramVersion": "10.0.0",
+    "tokenProgramSha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+    "observedAt": "2026-10-15T00:58:56.084Z"
+  },
+  "sourceRuntimeImageDigest": "sha256:f48877aec5c7e2ec010470f148368810034dece2f8ffd05d2f882928df649264"
+}

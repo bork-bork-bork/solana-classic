@@ -1,7 +1,9 @@
 # Source-built Agave: migration and rollback
 
-This is a prepared testnet operation. No current writer, ledger, genesis, API,
-QA runner or frozen frontend was changed during preparation. The source runtime
+The canonical devnet migrated to this source-built runtime on15October2026.
+Complete bank, database and artwork continuity passed before writes opened.
+See `evidence/agave-canonical-continuity.json`. The new stability run remains
+pending its own fresh prerequisites; original acceptance is historical. The source runtime
 is the same reviewed Agave v3.0.14 commit, compiled in this repository. It still
 uses `solana-test-validator`; this does not create a multi-validator mainnet.
 

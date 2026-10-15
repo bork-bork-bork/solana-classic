@@ -1,10 +1,10 @@
-[![Solana Classic — Bring back the fun.](https://raw.githubusercontent.com/solana-classic/solana-classic/5b949c2/.github/brand/readme-banner.png)](https://solanaclassic.net)
+[![Solana Classic · Bring back the fun.](https://raw.githubusercontent.com/solana-classic/solana-classic/5b949c2/.github/brand/readme-banner.png)](https://solanaclassic.net)
 
 Solana Classic is an open-source blockchain putting meme and NFT communities at the centre of its products and roadmap. We are bringing together developers, artists and communities who care about this category, so its future gets sustained attention and focused development.
 
 **Our goal: build an open development community focused on how far art, NFTs and memes can go.**
 
-[Website](https://solanaclassic.net) · [Our story](https://solanaclassic.net/about) · [Try the testnet](https://solanaclassic.net/playground) · [Live roadmap](https://solanaclassic.net/roadmap) · [Whitepaper](https://solanaclassic.net/whitepaper) · [Build on Classic](https://solanaclassic.net/developers)
+[Website](https://solanaclassic.net) · [Our story](https://solanaclassic.net/about) · [Try devnet](https://solanaclassic.net/playground) · [Live roadmap](https://solanaclassic.net/roadmap) · [Whitepaper](https://solanaclassic.net/whitepaper) · [Build on Classic](https://solanaclassic.net/developers)
 
 ## Why we are building this
 
@@ -24,16 +24,15 @@ He also compared them with mobile-game loot boxes. For us, that exchange made a 
 
 That belief does not make every token valuable. It gives us a reason to build better tools and expect more from the people launching projects. **Our own products and ecosystem priorities will focus on art, NFTs, memes and their communities.** The [whitepaper](docs/whitepaper/WHITEPAPER.md#1-a-focused-home-for-memes-and-nfts) develops that founding argument.
 
-## The frustrations we want to address
+## Why a dedicated blockchain
 
-We are building for people who are tired of:
+Memes and NFTs brought people together through shared humour, art and belonging. Their future deserves development that goes beyond launching another token.
 
-- **Being treated as exit liquidity.** Buyers take the risk while a launch can pay its creator through trading fees and sales of retained tokens. People want to understand those incentives before participating.
-- **Hidden control.** It can be hard to tell which wallets belong to the team, how concentrated the supply is, what can be changed, or when retained tokens can be sold.
-- **Promises disappearing after launch.** A new ticker attracts attention, then the promised work stops and the community is left waiting.
-- **Culture being reduced to the next chart.** Artists need tools and an audience. Collectors and meme communities need places to participate when trading slows down.
+Solana Classic brings developers, artists and communities together around this category. An independent network gives that work its own development direction, infrastructure and priorities, with room to evolve as its communities identify what they need.
 
-Creator funding can support worthwhile work. For example, [Pump's fee documentation](https://pump.fun/docs/fees) explains how trades fund creators, the platform and liquidity providers. The question we want to make easier to answer is: **who gets paid, what do they control, and what are they delivering for the community?**
+We want to support an ecosystem where incentives are easier to understand, creators have reasons to keep building, and participation continues beyond trading. Progress will come through open development, useful applications and standards developed with the people using them.
+
+A blockchain cannot guarantee honest teams or successful projects. Our commitment is sustained focus and work that people can inspect. Many technical tools can already be built on Solana; Classic's purpose is an independent development direction dedicated to this category, rather than a claim that every improvement requires a new chain.
 
 ## What Bitcoin Cash and Ethereum Classic teach us
 
@@ -55,7 +54,7 @@ A developer exploring NFT experiences should have peers who understand artists a
 
 This is an invitation to help shape that future. The products should emerge from the developers, artists and communities who show up and build. Our playground is a first place to experiment, and this repository is an open place to contribute.
 
-The frustrations above give that work a reason. They do not prescribe one answer or promise a scam-free chain. Proposed disclosure and funding ideas in the whitepaper are contributions to that discussion; they are not delivered features. The underlying SVM can still run other applications, while our ecosystem priorities stay focused on this category.
+That focus gives the work a direction. They do not prescribe one answer or promise a scam-free chain. Proposed disclosure and funding ideas in the whitepaper are contributions to that discussion; they are not delivered features. The underlying SVM can still run other applications, while our ecosystem priorities stay focused on this category.
 
 **Bring back the fun. Build what comes next.**
 
@@ -65,7 +64,7 @@ Devnet is live. The Solana Classic team currently runs its single validator - th
 
 In the [playground](https://solanaclassic.net/playground), you can create a temporary test wallet, receive test units, create a demo meme token or NFT, transfer it, and inspect ownership and transaction records in the gallery and explorer. The wallet stays in browser memory; reloading loses access to it.
 
-**TEST/tSOC balances and demo assets have no monetary value or right to conversion into SOC.** Production mainnet, the SOC token and the bridge are not live. Current build, test and release results—including failed or pending gates—are on the [live roadmap](https://solanaclassic.net/roadmap).
+**TEST/tSOC balances and demo assets have no monetary value or right to conversion into SOC.** Production mainnet, the SOC token and the bridge are not live. Current build, test and release results, including failed or pending gates, are on the [live roadmap](https://solanaclassic.net/roadmap).
 
 ## Build an application
 

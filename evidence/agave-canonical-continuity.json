@@ -1,0 +1,384 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-15T00:43:11.600614+00:00",
+  "scope": "Actual canonical devnet source-runtime continuity; not mainnet or monetary bridge acceptance",
+  "passed": true,
+  "migrationId": "ae834e71-fb59-4beb-b26b-4485be3a386f",
+  "deploymentId": "22e5870a-afb8-4027-89b5-ccb8a39391c2",
+  "imageDigest": "sha256:f48877aec5c7e2ec010470f148368810034dece2f8ffd05d2f882928df649264",
+  "imageReview": {
+    "sameAsProbeDigest": false,
+    "review": "Unchanged reviewed 54-file package rebuilt to a different OCI image. All 37 runtime source files, four executable digests/startup versions and actual canonical execution/state pass. Container byte reproducibility is not claimed.",
+    "probeImageDigest": "sha256:19595c406b6effe8bc5a3fdb618822755f46866e4e6ebfb1c6371513e51d2e32",
+    "preparedFileCount": 54,
+    "runtimeFileCount": 37,
+    "binaries": {
+      "agave-validator": {
+        "sha256": "34e468747f1a0d69399b61fd40edc32ce4690ec5a200b5684474aa60a97a6910",
+        "bytes": 74406832
+      },
+      "solana-test-validator": {
+        "sha256": "3d3140bf93c9bc967220ffd8989d8b0267b723915d32203132ecc36d2c63a49a",
+        "bytes": 73661760
+      },
+      "solana": {
+        "sha256": "6a880f1c79ec0e0d7b3ee972eaa9ad8d75b503616e1f0c29efa587137a129dcd",
+        "bytes": 28209480
+      },
+      "solana-keygen": {
+        "sha256": "2f00a742ab0d99cad929e7a82b2d80f7c519cab9038ec45844fdbe9c305dea65",
+        "bytes": 2804464
+      }
+    }
+  },
+  "runtime": {
+    "configured": true,
+    "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+    "engineBuild": {
+      "schemaVersion": 1,
+      "scope": "authenticated export of four public source-built binaries only; no ledger or key material",
+      "passed": true,
+      "runId": "40de48b7-6963-429b-ae3e-81a610d81b7d",
+      "archiveBytes": 67933801,
+      "archiveSha256": "1dd3a398821f029f4f1aa53a63b53eda3123b907ef4025f6ab964e35c60d48b4",
+      "binaries": {
+        "agave-validator": {
+          "sha256": "34e468747f1a0d69399b61fd40edc32ce4690ec5a200b5684474aa60a97a6910",
+          "bytes": 74406832,
+          "version": "agave-validator 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+        },
+        "solana-test-validator": {
+          "sha256": "3d3140bf93c9bc967220ffd8989d8b0267b723915d32203132ecc36d2c63a49a",
+          "bytes": 73661760,
+          "version": "solana-test-validator 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+        },
+        "solana": {
+          "sha256": "6a880f1c79ec0e0d7b3ee972eaa9ad8d75b503616e1f0c29efa587137a129dcd",
+          "bytes": 28209480,
+          "version": "solana-cli 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+        },
+        "solana-keygen": {
+          "sha256": "2f00a742ab0d99cad929e7a82b2d80f7c519cab9038ec45844fdbe9c305dea65",
+          "bytes": 2804464,
+          "version": "solana-keygen 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+        }
+      },
+      "upstreamCommit": "f516a8927c76c07f0ebc54ca7a4ce8b2046eee86",
+      "upstreamTree": "a4c75a1781d4ca56e7325a39d0614e1faa26030d",
+      "sourceRepositoryCommit": "39b9001cab84e637f2460f2387f2549f32b62ef9",
+      "workerSha256": "ac5937cba2a39336f847f2ce5443ed729146a07462c66074ff448c38d6e995ab",
+      "sourceManifestSha256": "337512bc1df2f382ccfab957347281b1c153353429b77d2695d65aafd29ec081",
+      "migrationId": "ae834e71-fb59-4beb-b26b-4485be3a386f",
+      "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+      "preparedAt": "2026-10-14T01:53:01.100713+00:00"
+    },
+    "sourceCommit": "119f25e225540be78b64b19bdb6cb300a1f47c10",
+    "coreSha256": "533950731d4ed6d94b59e71517613be002b6ec416b0ebb3a20a592fe5ec6f22f",
+    "apiBootId": "2fcf7499-9bbd-4752-8d9c-063e66d7d9ae",
+    "apiStartedAt": "2026-10-15T00:35:20.941Z",
+    "validatorBootId": "815eceb9-4046-463d-9af7-050bfcb79f0e",
+    "validatorStartedAt": "2026-10-15T00:34:44.258Z",
+    "deploymentId": "22e5870a-afb8-4027-89b5-ccb8a39391c2",
+    "agaveVersion": "3.0.14",
+    "tokenProgramVersion": "10.0.0",
+    "tokenProgramSha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+    "observedAt": "2026-10-15T00:35:58.886Z"
+  },
+  "backup": {
+    "rawBytes": 3621519360,
+    "rawSHA256": "1d5a873e8b378555ad825d909c6ce6dd3338b928268664a5e8abee2446912a81",
+    "compressedBytes": 1055669530,
+    "compressedSHA256": "319c0e0e83941e5d59884df658b9f710645f61ee30f5a62bfeb11fc41fdbcaaa"
+  },
+  "completeAccountComparison": {
+    "passed": true,
+    "accountCount": 2163,
+    "beforeSHA256": "e7661e7e8f731fc3e1133f95f2137677a007378f028877af921b47c3de860891",
+    "afterSHA256": "234d6b266e8b62dace4850f6f656454e586c60da4866e3fcfeb2cfb28a502f5f",
+    "protocolChanges": [
+      {
+        "address": "B3apqZYKyJvn9cZ5rbGF74sKAjxfsWKcf6K5SgPYFHB7",
+        "fields": [
+          "lamports"
+        ]
+      },
+      {
+        "address": "C4fiSRaCLBH5juefcwm3chHurxmeZVqynFaemDxTU4Fm",
+        "fields": [
+          "dataSHA256"
+        ]
+      },
+      {
+        "address": "SysvarC1ock11111111111111111111111111111111",
+        "fields": [
+          "dataSHA256"
+        ]
+      },
+      {
+        "address": "SysvarRecentB1ockHashes11111111111111111111",
+        "fields": [
+          "dataSHA256"
+        ]
+      },
+      {
+        "address": "SysvarS1otHashes111111111111111111111111111",
+        "fields": [
+          "dataSHA256"
+        ]
+      },
+      {
+        "address": "SysvarS1otHistory11111111111111111111111111",
+        "fields": [
+          "dataSHA256"
+        ]
+      }
+    ],
+    "userAndProgrammeAccountsUnchanged": true,
+    "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+    "canEnableWrites": false,
+    "at": "2026-10-15T00:39:07.941628+00:00",
+    "baselineBankSlot": 348492,
+    "sourceFinalizedSnapshotSlot": 348504,
+    "sourceSnapshotSHA256": "ca8f95bdeef048599bc8c63e0a605eaa5de55709d1c9668095e1039e9f29c9f5",
+    "applicationMatches": true,
+    "feeMovementProof": {
+      "passed": true,
+      "identity": "B3apqZYKyJvn9cZ5rbGF74sKAjxfsWKcf6K5SgPYFHB7",
+      "voteAccount": "Vote111111111111111111111111111111111111111",
+      "fromExclusiveSlot": 348492,
+      "throughSlot": 348504,
+      "transactions": 11,
+      "totalFees": 110000,
+      "feeRewards": 55000,
+      "netLamportDelta": "-55000",
+      "allInstructionsAreVotes": true
+    },
+    "scope": "Actual complete official backup bank compared with held source runtime finalized full snapshot; five named protocol data accounts and exactly reconciled validator vote fees may advance"
+  },
+  "application": {
+    "tables": {
+      "assets": {
+        "columns": [
+          "hash",
+          "genesis",
+          "mint",
+          "document",
+          "bytes"
+        ],
+        "rows": 996,
+        "sha256": "c19796c1e913c3ad3a5b6d706840ea5e244a8813e05b4c4800fbb92eb0259f2b"
+      },
+      "counters": {
+        "columns": [
+          "key",
+          "count"
+        ],
+        "rows": 120,
+        "sha256": "f505a3ab1d8bd32ad87929ef379705ca8754477d0f0b83d5cf4b5d549b91a042"
+      },
+      "faucet": {
+        "columns": [
+          "request_id",
+          "wallet",
+          "ip",
+          "day",
+          "state",
+          "signature",
+          "message"
+        ],
+        "rows": 45,
+        "sha256": "72b236fb802cb2ce9e93aeb599c697277a88e5288ba3973e70b8738226e98f49"
+      },
+      "gallery": {
+        "columns": [
+          "genesis",
+          "mint",
+          "asset_hash",
+          "signature",
+          "verified_at"
+        ],
+        "rows": 617,
+        "sha256": "ecdc6bbb2229095469e2a848a6deba0557daad7cec06b563aadd1ca5eca2abf2"
+      }
+    },
+    "immutableFiles": 1992,
+    "fileBytes": 908275,
+    "allHashesMatch": true
+  },
+  "publicReadAndHoldChecks": {
+    "at": "2026-10-15T00:40:14.597309+00:00",
+    "passed": true,
+    "checks": [
+      {
+        "path": "/api/runtime",
+        "status": 200,
+        "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+        "entries": 0,
+        "code": null
+      },
+      {
+        "path": "/api/status",
+        "status": 503,
+        "genesis": null,
+        "entries": 0,
+        "code": "MIGRATION_READ_ONLY"
+      },
+      {
+        "path": "/_network/api/transactions",
+        "status": 200,
+        "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+        "entries": 25,
+        "code": null
+      },
+      {
+        "path": "/_network/api/address-transactions?address=9dSrvRmeBF77L2dbRzbMsYMKUiWAKp8b5CVEzwbpdgLr",
+        "status": 200,
+        "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+        "entries": 0,
+        "code": null
+      },
+      {
+        "path": "/_network/api/gallery?limit=2",
+        "status": 200,
+        "genesis": null,
+        "entries": 2,
+        "code": null
+      },
+      {
+        "path": "/api/faucet",
+        "writeHeld": true,
+        "status": 503
+      },
+      {
+        "path": "/api/assets",
+        "writeHeld": true,
+        "status": 503
+      },
+      {
+        "path": "/api/gallery",
+        "writeHeld": true,
+        "status": 503
+      },
+      {
+        "path": "/api/rpc",
+        "writeHeld": true,
+        "status": 503
+      }
+    ]
+  },
+  "assetDeliveryChecks": {
+    "at": "2026-10-15T00:41:45.905907+00:00",
+    "passed": true,
+    "assets": [
+      {
+        "file": "assets/009f131173ab85b9b2e977e481a945cd2d403d69ae18e532c989b9199ddf583d/metadata.json",
+        "bytes": 604,
+        "sha256": "c0c96e67d8923e94bbc659649bbefa8610e92ee9cb8acec9f8a8ccce07016c6f"
+      },
+      {
+        "file": "assets/009f131173ab85b9b2e977e481a945cd2d403d69ae18e532c989b9199ddf583d/image.svg",
+        "bytes": 319,
+        "sha256": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+      },
+      {
+        "file": "assets/00ee444b44810f1908e947939dbc0e58802e03e70475f421ef7cb3b113f639f8/metadata.json",
+        "bytes": 608,
+        "sha256": "6c210cd8d150a503e7d3c0ea11c8d042ace5ce88a6e0bd1d0261adb235c1466b"
+      },
+      {
+        "file": "assets/00ee444b44810f1908e947939dbc0e58802e03e70475f421ef7cb3b113f639f8/image.svg",
+        "bytes": 319,
+        "sha256": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+      },
+      {
+        "file": "assets/010285f878da5ddc18767808e6f91b4998cc194eda56929e2e79c1aca74db5e3/metadata.json",
+        "bytes": 609,
+        "sha256": "a4a7059ff77063831c6a4664b4bf070c00709ab1cbe60788cba5a8b4ff9f7885"
+      },
+      {
+        "file": "assets/010285f878da5ddc18767808e6f91b4998cc194eda56929e2e79c1aca74db5e3/image.svg",
+        "bytes": 319,
+        "sha256": "1d1246c86c4dc5a546e99f121bb7835990ff9f8bd22f23576c20a83be5c9ab5a"
+      }
+    ],
+    "finalizedSlot": 349398,
+    "transportReadRetries": []
+  },
+  "validatorProcesses": 1,
+  "volumeId": "080bf785-50e7-4dda-893b-4d613aa5e9a8",
+  "writesOpened": true,
+  "newSoakStarted": false,
+  "mainnetActivated": false,
+  "realValueBridgeActivated": false,
+  "writeRelease": {
+    "writesOpened": true,
+    "deploymentId": "22e5870a-afb8-4027-89b5-ccb8a39391c2",
+    "proofSha256": "a1442c9d35f4f85d7af891ca47b54781958871e81f54b11d14a68e06a8abd244",
+    "release": {
+      "action": "enable-source-testnet-writes",
+      "migrationId": "ae834e71-fb59-4beb-b26b-4485be3a386f",
+      "runId": "40de48b7-6963-429b-ae3e-81a610d81b7d",
+      "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+      "proofSha256": "a1442c9d35f4f85d7af891ca47b54781958871e81f54b11d14a68e06a8abd244",
+      "approvedAt": "2026-10-15T00:43:14.285526+00:00"
+    }
+  },
+  "currentRuntime": {
+    "configured": true,
+    "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+    "engineBuild": {
+      "schemaVersion": 1,
+      "scope": "authenticated export of four public source-built binaries only; no ledger or key material",
+      "passed": true,
+      "runId": "40de48b7-6963-429b-ae3e-81a610d81b7d",
+      "archiveBytes": 67933801,
+      "archiveSha256": "1dd3a398821f029f4f1aa53a63b53eda3123b907ef4025f6ab964e35c60d48b4",
+      "binaries": {
+        "agave-validator": {
+          "sha256": "34e468747f1a0d69399b61fd40edc32ce4690ec5a200b5684474aa60a97a6910",
+          "bytes": 74406832,
+          "version": "agave-validator 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+        },
+        "solana-test-validator": {
+          "sha256": "3d3140bf93c9bc967220ffd8989d8b0267b723915d32203132ecc36d2c63a49a",
+          "bytes": 73661760,
+          "version": "solana-test-validator 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+        },
+        "solana": {
+          "sha256": "6a880f1c79ec0e0d7b3ee972eaa9ad8d75b503616e1f0c29efa587137a129dcd",
+          "bytes": 28209480,
+          "version": "solana-cli 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+        },
+        "solana-keygen": {
+          "sha256": "2f00a742ab0d99cad929e7a82b2d80f7c519cab9038ec45844fdbe9c305dea65",
+          "bytes": 2804464,
+          "version": "solana-keygen 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+        }
+      },
+      "upstreamCommit": "f516a8927c76c07f0ebc54ca7a4ce8b2046eee86",
+      "upstreamTree": "a4c75a1781d4ca56e7325a39d0614e1faa26030d",
+      "sourceRepositoryCommit": "39b9001cab84e637f2460f2387f2549f32b62ef9",
+      "workerSha256": "ac5937cba2a39336f847f2ce5443ed729146a07462c66074ff448c38d6e995ab",
+      "sourceManifestSha256": "337512bc1df2f382ccfab957347281b1c153353429b77d2695d65aafd29ec081",
+      "migrationId": "ae834e71-fb59-4beb-b26b-4485be3a386f",
+      "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+      "preparedAt": "2026-10-14T01:53:01.100713+00:00"
+    },
+    "sourceCommit": "119f25e225540be78b64b19bdb6cb300a1f47c10",
+    "coreSha256": "533950731d4ed6d94b59e71517613be002b6ec416b0ebb3a20a592fe5ec6f22f",
+    "apiBootId": "e6ec5d41-8238-48a0-b739-a81f9fea6adf",
+    "apiStartedAt": "2026-10-15T00:55:25.337Z",
+    "validatorBootId": "2c6a0f79-c6c3-43a4-aa5c-e542efb704d9",
+    "validatorStartedAt": "2026-10-15T00:55:03.665Z",
+    "deploymentId": "22e5870a-afb8-4027-89b5-ccb8a39391c2",
+    "agaveVersion": "3.0.14",
+    "tokenProgramVersion": "10.0.0",
+    "tokenProgramSha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+    "observedAt": "2026-10-15T00:58:56.084Z"
+  },
+  "restartProof": {
+    "path": "evidence/agave-source-restart-check.json",
+    "sha256": "3a2db0639a11b1054156c74d21089fad2397278708f4f35d48bc2de44741c60a",
+    "passed": true
+  }
+}

@@ -1,0 +1,2 @@
+#!/bin/sh
+exec python3 scripts/git-privacy.py message "$1"

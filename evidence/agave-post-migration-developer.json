@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-15T00:47:42.535Z",
+  "scope": "Read-only finalized developer-account continuity; not a consistent backup, restore or migration acceptance",
+  "passed": true,
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "rpc": "https://rpc.solanaclassic.net",
+  "contextSlot": 350258,
+  "comparedToBaseline": true,
+  "accounts": [
+    {
+      "address": "4wBqYCqaKL9MA8GLS3oGHgkFM4yX2TDeW41xKezDiLab",
+      "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+      "executable": true,
+      "lamports": 1141440,
+      "bytes": 36,
+      "dataSHA256": "5b8ea1862f35b3fc8cb910ca598173453d050a146f53537669e6d7fe926823e0"
+    },
+    {
+      "address": "DXSuufMpVUH22mo1URhxtS5UKVGGsgxYgUagV5bz4jNQ",
+      "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+      "executable": false,
+      "lamports": 49979760,
+      "bytes": 7053,
+      "dataSHA256": "fae2d80a83e894b0baf6ae900fe71a8588f64e53d18edfbaba8d527b8546d3f2"
+    },
+    {
+      "address": "4iAaLTmxBTTwT8hakxkAcnBRDhEjKR6fswzm9tTQiou7",
+      "owner": "4wBqYCqaKL9MA8GLS3oGHgkFM4yX2TDeW41xKezDiLab",
+      "executable": false,
+      "lamports": 1169280,
+      "bytes": 40,
+      "dataSHA256": "131cd96b6708b9a06e0b2597db0a2293d13b71095d837e9da441d5c0d2226246",
+      "counter": "1"
+    },
+    {
+      "address": "9Qrh33uJs3EJcdJ9uD8bys23XGbozpnTvLAJSdoRHwfZ",
+      "owner": "4wBqYCqaKL9MA8GLS3oGHgkFM4yX2TDeW41xKezDiLab",
+      "executable": false,
+      "lamports": 1169280,
+      "bytes": 40,
+      "dataSHA256": "0b19c0cfce6bb2e4516af0598f1442c4f91be84b11ddbf2385cddcc49a12be5a",
+      "counter": "1"
+    }
+  ],
+  "productionNetworkChanged": false,
+  "canSwitchNow": false
+}

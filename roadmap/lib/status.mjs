@@ -30,9 +30,19 @@ export function summarizeEngineBuild(expected, probe, now = Date.now()) {
 
 export function summarize(checkpoint, probes, now = Date.now()) {
   const unwrap = key => probes[key]?.ok ? object(probes[key].data) : null;
-  const runtime = unwrap('runtime'), network = unwrap('network'), monitor = unwrap('monitor'), qa = unwrap('qa'), feed = unwrap('progress');
+  const runtime = unwrap('runtime'), network = unwrap('network'), monitor = unwrap('monitor');
+  let qa = unwrap('qa'), feed = unwrap('progress');
   const expected = checkpoint.runtime;
   const identityMatches = runtime ? identityKeys.every(key => typeof runtime[key] === 'string' && runtime[key] === expected[key]) : null;
+  // A deliberately reviewed migration needs a new run. Recognize only the
+  // exact completed previous attempt while the new attempt has not started.
+  // Never turn an old pass into acceptance or hide a current-runtime mismatch.
+  const previous = object(checkpoint.stabilityTransition?.previousRun);
+  const oldResult = object(feed?.result);
+  const previousRunMatches = previous && hash(previous.freezeSha256) && qa?.state === 'completed' && qa.soakAccepted === true && qa.freezeSha256 === previous.freezeSha256 && feed?.freezeSha256 === previous.freezeSha256 && oldResult?.passed === true && oldResult.genesis === previous.genesis && object(oldResult.candidate) && Object.entries(previous.candidate ?? {}).length > 0 && Object.entries(previous.candidate).every(([key,value]) => oldResult.candidate[key] === value) && date(oldResult.startedAt) === date(previous.startedAt) && date(oldResult.startedAt) !== null && date(oldResult.at) !== null && Date.parse(oldResult.at) <= now + 10_000 && Date.parse(oldResult.at) - Date.parse(oldResult.startedAt) >= SOAK_DURATION_MS && Number.isSafeInteger(oldResult.durationMs) && oldResult.durationMs >= SOAK_DURATION_MS && oldResult.completedJourneys === 288;
+  const preparingNewRun = identityMatches === true && checkpoint.migrationPreparation?.canonicalCutoverAccepted === true && checkpoint.migrationMaintenance?.state === 'source-live-validation' && checkpoint.stabilityTransition?.state === 'preparing' && !date(checkpoint.soakStartedAt) && previousRunMatches === true;
+  if (preparingNewRun) { qa = { state: 'ready-awaiting-activation', soakStarted: false, issues: ['Source-built Agave is live. Post-migration checks and fresh stability prerequisites are being verified; the new 24-hour run has not started.'] }; feed = null; }
+
   const freezeMatches = typeof qa?.freezeSha256 === 'string' ? qa.freezeSha256 === checkpoint.freezeSha256 : null;
   const progressFreezeMatches = typeof feed?.freezeSha256 === 'string' ? feed.freezeSha256 === checkpoint.freezeSha256 : null;
   const candidateMatches = item => !!object(item) && item.genesis === expected.genesis && !!object(item.candidate) && Object.entries(checkpoint.candidate).every(([key, value]) => item.candidate[key] === value);
@@ -63,7 +73,7 @@ export function summarize(checkpoint, probes, now = Date.now()) {
     schemaVersion: 1, fetchedAt: new Date(now).toISOString(), checkpoint,
     sources: Object.fromEntries(Object.entries(probes).map(([key, value]) => [key, { ok: value.ok === true && !!object(value.data), error: value.ok === true && object(value.data) ? null : 'Public status source unavailable', fetchedAt: date(value.fetchedAt) }])),
     network: { state: ['online', 'degraded'].includes(network?.state) ? network.state : 'unknown', genesisMatches: network?.genesisMatches === true, slot: count(network?.slot), finalizedSlot: monitorFresh ? count(monitor?.current?.finalizedSlot) : null, identityMatches, monitorState: monitorFresh ? monitor.current?.healthy === true && monitor.overdue !== true ? 'online' : 'degraded' : 'stale', monitorAt, lastProgressAt: date(monitor?.current?.lastProgressAt) },
-    soak: { state: soakState, runnerState: typeof qa?.state === 'string' ? qa.state : 'unknown', freezeMatches, progressFreezeMatches, startedAt, endsAt, reportAt, progressStale, completedJourneys, totalJourneys: 288, observations: count(report?.observations), accepted: !!accepted, activationAt: date(qa?.soakStarted ? qa.at : null), issues: Array.isArray(qa?.issues) ? qa.issues.filter(x => typeof x === 'string').slice(0, 12).map(x => x.slice(0, 200)) : [], elapsedMs: startedAt ? Math.max(0, now - Date.parse(startedAt)) : null },
+    soak: { state: soakState, runnerState: typeof qa?.state === 'string' ? qa.state : 'unknown', preparingNewRun, previousRunMatched: preparingNewRun, freezeMatches, progressFreezeMatches, startedAt, endsAt, reportAt, progressStale, completedJourneys, totalJourneys: 288, observations: count(report?.observations), accepted: !!accepted, activationAt: date(qa?.soakStarted ? qa.at : null), issues: Array.isArray(qa?.issues) ? qa.issues.filter(x => typeof x === 'string').slice(0, 12).map(x => x.slice(0, 200)) : [], elapsedMs: startedAt ? Math.max(0, now - Date.parse(startedAt)) : null },
     engineBuild: summarizeEngineBuild(checkpoint.engineBuild, probes.engineBuild, now),
     // Release approval remains an explicit reviewed checkpoint; the soak alone
     // does not confer release, production token, bridge, or mainnet acceptance.
