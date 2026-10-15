@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-15T03:55:40.968577+00:00",
+  "scope": "actual desktop normal-zoom density review",
+  "passed": true,
+  "site": "https://solanaclassic.net/playground",
+  "deploymentId": "dpl_CJYutLk3HHdH8JcuU54CqPhh8tXy",
+  "viewport": [
+    1280,
+    720
+  ],
+  "cssZoom": "1",
+  "headlineWithoutDockPx": 71.68,
+  "headlineWithDockPx": 53.76,
+  "dockWidthPx": 320,
+  "horizontalOverflow": false,
+  "changes": [
+    "Smaller desktop headings, spacing, forms and buttons",
+    "Headings scale with available site width beside the dock",
+    "Phone media styles retained"
+  ],
+  "sourceSha256": "655e3203539cc3bba7bde93ff27e1c89bc74112e92ef3ce3beedf6e46c57fb0e"
+}
