@@ -2,7 +2,7 @@
 """First-party commit/push privacy checks. Hooks can be bypassed; review still matters."""
 import hashlib,json,os,re,subprocess,sys
 TEAM='Solana Classic Labs'
-ANCHOR='7c4d0c89e63e52c61cc9af6bc10f32765f4570e3'
+ANCHOR='5350bccc0ee5c7784cabc92a2b232ab2ac49934b'
 DENIED=set(['49f9ff608bcf6755bda53f53353acde2a86e33414b9d6b889bfb35e75f2e7272', '2d49908cf2b1d0ace81d4a843013f71defa2f1caaa8493f436fd95d0f4c3b812', '0917d1c7194bba1a99e39f945f234712e1709a71d90a1bee35298ecfdd3dfae0', 'fa0ead27b3c29122746873b741ab94b2792e11433ca2bd12e3b021d34f47ad98', '2ec716e4dc4329cdd25b5714267892d55d4c035f82418b32226be31278cbef79', 'e1797dc1e30ad7954859380cb8cc30e58572efb8739c604c01b46535eba4abdd', 'cf50252908e527ebc5cacf537c3a4495a0c0ce5e1f0ec383b18290642cc8afaa'])
 def git(*args):
  return subprocess.check_output(['git',*args],stderr=subprocess.DEVNULL)
