@@ -33,3 +33,37 @@ test('integer notation and native overflow are rejected',()=>{
 test('current experimental genesis cannot become the mainnet ledger',()=>{
   const c=input();c.expectedGenesis='7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon';assert.throws(()=>planGenesis(c),/must not be reused/);
 });
+test('budget output no longer exposes runnable validator arguments or bypass flags',()=>{
+  const p=planGenesis(input());assert.equal(p.schemaVersion,2);assert.equal('validatorArgumentDrafts' in p,false);
+  assert.equal(p.execution.enabled,false);assert.equal(p.execution.commandGenerationEnabled,false);
+  assert.equal(p.execution.preparationEntryPoint,'mainnet/prepare-consensus.py');assert.equal(p.execution.rehearsalEntryPoint,'mainnet/consensus.py');
+  assert.equal(p.execution.productionActivationEnabled,false);assert.equal(p.execution.independentOperatorsVerified,false);
+  assert.equal(JSON.stringify(p).includes('--no-port-check'),false);assert.equal(p.expectedGenesis,null);
+});
+test('known Solana mainnet, devnet and testnet genesi are not fresh rehearsal inputs',()=>{
+  for(const genesis of ['5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d','EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG','4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY']){
+    const c=input();c.expectedGenesis=genesis;assert.throws(()=>planGenesis(c),/must not be reused/);
+  }
+});
+test('zero programme identity is invalid for every planner key role',()=>{
+  for(const role of ['originMint','reserveAddress','identity','vote','stake']){
+    const c=input();if(['originMint','reserveAddress'].includes(role))c[role]='11111111111111111111111111111111';else c.validators[0][role]='11111111111111111111111111111111';
+    assert.throws(()=>planGenesis(c),/canonical nonzero/);
+  }
+});
+test('mint and native reserve cannot silently share one address',()=>{
+  const c=input();c.reserveAddress=c.originMint;assert.throws(()=>planGenesis(c),/must be distinct/);
+});
+test('whitespace does not make duplicate declared operators independent',()=>{
+  const c=input();c.validators[1].operator=' '+c.validators[0].operator+' ';assert.throws(()=>planGenesis(c),/Distinct declared validator labels/);
+  const d=input();d.validators[0].operator=' '+d.validators[0].operator+' ';const p=planGenesis(d);assert.equal(p.validators[0].operator,d.validators[0].operator.trim());assert.equal(p.execution.independentOperatorsVerified,false);
+});
+test('provided genesis must be a canonical identifier and never enables execution',()=>{
+  for(const value of [null,'','bad','11111111111111111111111111111111',42]){const c=input();c.expectedGenesis=value;assert.throws(()=>planGenesis(c),/canonical nonzero/);}
+  const c=input();c.expectedGenesis=key(200);const p=planGenesis(c);assert.equal(p.expectedGenesis,c.expectedGenesis);assert.equal(p.deploymentEnabled,false);assert.equal(p.execution.enabled,false);
+});
+test('planner scope matches the guarded three-validator rehearsal package',()=>{
+  for(const count of [0,1,2,4]){
+    const c=input();c.validators=Array.from({length:count},(_,i)=>({...c.validators[i%3]}));assert.throws(()=>planGenesis(c),/Exactly three/);
+  }
+});

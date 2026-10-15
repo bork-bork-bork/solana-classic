@@ -23,6 +23,6 @@ console.log(JSON.stringify({schemaVersion:1,at:new Date().toISOString(),scope:'O
   accountingPassed:true,productionReady:false,activationEnabled:false,canonicalNetworkChanged:false,
   sourceGenesisEvidenceSHA256:createHash('sha256').update(bytes).digest('hex'),
   sourceHashes:Object.fromEntries(paths.map(p=>[p,createHash('sha256').update(readFileSync(new URL('../'+p,import.meta.url))).digest('hex')])),
-  checks:{bootstrapTests:13,plannerTests:7,actualGenesisAccounts:genesisAudit.accountCount,initialZeroCounterMismatchDetected:!zeroCounterProjection.gates.declaredCountersMatch},
+  checks:{localTestCommandsExecuted:false,actualGenesisAccounts:genesisAudit.accountCount,initialZeroCounterMismatchDetected:!zeroCounterProjection.gates.declaredCountersMatch},
   zeroCounterProjection,expectedCounterProjection,
   remaining:['Actual finalized original backing and custody evidence','On-chain bootstrap counters and one-time consumption of backing events','Protected-reserve enforcement and independent review','Full-validator hosting, consensus/recovery and independent operators']},null,2));

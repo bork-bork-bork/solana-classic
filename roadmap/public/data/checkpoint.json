@@ -238,7 +238,8 @@
           {
             "title": "Genesis budget and validator planner",
             "state": "local-passed",
-            "detail": "Seven checks: exact units, declared backing/protected reserve, inflation, identities and ports; no deployment."
+            "detail": "14 local checks plus offline CLI verification. Exact budgets remain; obsolete launch-command drafts are retired. The planner refuses existing/public-chain genesi, zero identities and duplicate trimmed operator labels. Guarded preparation and full-validator tools are the execution path. No chain changes or deployment.",
+            "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/mainnet-planner-retirement.json"
           },
           {
             "title": "Source-built genesis and private validator rehearsal",
@@ -272,7 +273,7 @@
           {
             "title": "Exact genesis backing, protected rent and precision audit",
             "state": "local-passed",
-            "detail": "14 auditor + 7 planner checks; retained 249-account inventory and V2 rent regression. Historical eight-byte evidence preserved. Declared synthetic backing does not prove escrow or actual counter initialization."
+            "detail": "14 auditor +14 planner checks; retained 249-account inventory and V2 rent regression. Historical eight-byte evidence preserved. The fixture generator reports projections without claiming it executed tests. Declared synthetic backing does not prove escrow or actual counter initialization."
           },
           {
             "title": "Backed bootstrap and full supply reconciliation",

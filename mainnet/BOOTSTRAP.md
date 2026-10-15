@@ -54,9 +54,10 @@ node mainnet/bootstrap-fixture.mjs
 node mainnet/bootstrap.mjs <public-rehearsal-accounting-input.json>
 ```
 
-Fourteen bootstrap and seven planner checks pass. The fixture tool uses the
-retained source-build inventory; it does not rerun genesis compilation or
-consensus. See `evidence/mainnet-bootstrap-accounting.json` for source hashes
+Fourteen bootstrap and fourteen planner checks pass. The historical evidence
+records its original test counts; it remains unchanged. The fixture generator
+does not execute tests or claim test counts. It uses the retained source-build
+inventory without rerunning genesis compilation or consensus. See `evidence/mainnet-bootstrap-accounting.json` for source hashes
 and both counter projections. Large unit totals remain exact integer strings.
 
 ## Counter and replay gate still open

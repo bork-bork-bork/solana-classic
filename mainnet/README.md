@@ -3,7 +3,10 @@
 This directory starts the mainnet work with a read-only genesis planner. It
 validates exact native-unit budgets, prelocked original-SOC backing, distinct
 declared validator identities, stake/balance allocations and RPC ports. It emits
-draft arguments and release blockers. It cannot deploy a network or create keys.
+budget data and release blockers. It cannot generate launch commands, deploy a
+network or create keys. Input remains schemaVersion1; output is schemaVersion2.
+The removed validatorArgumentDrafts field must not be used by consumers.
+Execution requires the separately guarded preparation and rehearsal tools below.
 
 Run `node --test mainnet/plan.test.mjs` with the pinned project Node runtime.
 Run `node mainnet/plan.mjs <public-rehearsal-input.json>` to inspect a supplied
@@ -17,12 +20,12 @@ declared envelope, not proof of the actual genesis output: generated genesis
 must be reconciled account by account. No faucet or upstream distribution may
 silently add spendable supply. Operator labels are not proof of independence.
 
-The current network is a single-node experiment. A future native SOC network
+The current devnet is run by one validator operated by the team. A future native SOC network
 requires real `agave-validator` nodes, a fresh genesis, independently operated
 validators, networking, reviewed economic settings, supply reconciliation,
 consensus/restart/recovery evidence and an explicit release decision. The
-planner deliberately uses Agave's development cluster classification for an
-isolated rehearsal; this does not label that rehearsal as mainnet.
+planner labels its budget as an isolated development rehearsal; that label
+does not authorize execution or classify the live devnet as mainnet.
 
 The pinned `solana-genesis` build and complete249-account synthetic inventory
 already exist. Three full-validator execution remains blocked by the current
@@ -36,13 +39,16 @@ This profile is for a private rehearsal; production sizing, independent operator
 and funded genesis/reserve custody require their own acceptance.
 
 See [the implementation sequence](../docs/planning/MAINNET_BRIDGE.md). Existing
-testnet balances and NFTs have no mainnet conversion rights.
+devnet balances and NFTs have no mainnet conversion rights.
 
 ## Backed bootstrap auditor
 
 `bootstrap.mjs` now reconciles a complete genesis inventory with exact declared
 original supply/backing, protected reserve rent, precision slack and initial
-bridge counters. Thirteen targeted checks and seven planner checks pass.
+bridge counters. Fourteen accounting checks and fourteen planner checks pass.
+The planner rejects the existing devnet and known public Solana genesi, zero
+account identities and duplicate labels after trimming. Declared labels do not
+prove independent operators. See [the scoped verification](../evidence/mainnet-planner-retirement.json).
 The retained 249-account genesis projection is in
 `evidence/mainnet-bootstrap-accounting.json`.
 

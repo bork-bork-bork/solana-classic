@@ -1,0 +1,63 @@
+{
+  "at": "2026-10-15T08:51:56.824465+00:00",
+  "scope": "Local unit checks and actual offline CLI verification of the data-only rehearsal planner; no host admission, consensus or production acceptance",
+  "plannerOutputSchemaVersion": 2,
+  "commandGenerationEnabled": false,
+  "exactBudgetReconciled": true,
+  "knownChainCliRefusals": [
+    {
+      "exitCode": 1,
+      "refused": true
+    },
+    {
+      "exitCode": 1,
+      "refused": true
+    },
+    {
+      "exitCode": 1,
+      "refused": true
+    },
+    {
+      "exitCode": 1,
+      "refused": true
+    }
+  ],
+  "fixtureInventoryAccounts": 249,
+  "fixtureClaimsTestsExecuted": false,
+  "historicalEvidenceSHA256": "e9f482ee6d57f7327fee46fef23cc5e4babf6222445643e68c753d46ad1da5df",
+  "historicalEvidencePreserved": true,
+  "chainRequests": 0,
+  "keysCreated": 0,
+  "validatorsStarted": 0,
+  "canonicalNetworkChanged": false,
+  "productionActivationEnabled": false,
+  "schemaVersion": 1,
+  "localTests": {
+    "planner": 14,
+    "bootstrap": 14,
+    "passed": 28,
+    "failed": 0
+  },
+  "inputSchemaVersion": 1,
+  "removedOutputFields": [
+    "validatorArgumentDrafts"
+  ],
+  "preparationEntryPoint": "mainnet/prepare-consensus.py",
+  "rehearsalEntryPoint": "mainnet/consensus.py",
+  "independentOperatorsVerified": false,
+  "fullValidatorConsensusAccepted": false,
+  "mainnetReady": false,
+  "sourceHashes": {
+    "mainnet/plan.mjs": "db873691716674e96743807e9f2bd9ca0181d4018d374d05dfe6927c28efdbb8",
+    "mainnet/plan.test.mjs": "afb841263b409e8a6b807628e467dbc7a9b1ce98c6b21e1cbcf4d9dc23dc37f1",
+    "mainnet/bootstrap-fixture.mjs": "7cd051173dc8c9914efd034721af0bbb67abfd1fd1d505c17334a8033980e4d2",
+    "mainnet/bootstrap.mjs": "83eb564446ad5be431f66d931fa61ca9e3d8fd15a5b7420ec87182011cce1beb",
+    "mainnet/bootstrap.test.mjs": "e295e3d1bdad1364af2d1e2bd767d4c1247e4c60fe89cab4f171d9f8aa1ba3be"
+  },
+  "remaining": [
+    "Capable host for the private three-validator rehearsal",
+    "Fresh hashing genesis, matching slot-zero bank/shred values and actual consensus/recovery",
+    "Funded original backing and protected reserve custody",
+    "Independent operators and production review"
+  ]
+}
