@@ -95,9 +95,13 @@ The attempt, partial keys, ledgers and private diagnostic files remain retained.
 The default admission path still starts no process. Ten local lifecycle checks
 use disposable Python processes, including actual timeouts, overflow and
 inherited-pipe descendants. They do not execute the compiled genesis or ledger
-tools. Linux-host verification is pending after provider DNS lookup failures
-prevented either SSH attempt from reaching the private compiler service.
-See [the scoped process evidence](../evidence/mainnet-offline-process.json).
+tools. The current package also passed all52checks on the private Linux compiler
+host. The helper executed checksum-verified keygen, genesis and ledger-tool
+help commands, with all six selected artifacts unchanged and zero validators
+before/after. Earlier provider DNS dispatch failures remain retained. This
+verifies process control, not genesis compilation, replay or host admission.
+See [the initial local evidence](../evidence/mainnet-offline-process.json) and
+[the completed Linux verification](../evidence/mainnet-offline-process-linux.json).
 
 ## Evidence and limits
 

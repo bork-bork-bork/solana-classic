@@ -79,7 +79,8 @@ It generates a new synthetic genesis, reconciles every allocation and requires
 matching startup hashes from two fresh slot-zero replays before writing the
 launcher's manifest. Thirteen preparation and ten local process-lifecycle checks pass. Offline tools
 have bounded live output and owned-group cleanup on cancellation or timeout;
-Linux-host execution of the new helper remains pending. The actual current host
+The complete52-check package and three checksum-verified tool help commands
+also passed on Linux, with all selected artifacts unchanged and no validators. The actual current host
 refuses both modes before creating keys or ledgers. No new bank hash, genesis
 or consensus pass is claimed. See [the procedure](GENESIS_PREPARATION.md) and
 [scoped evidence](../evidence/mainnet-genesis-preparation.json).
