@@ -346,3 +346,11 @@ Preserve the attempt and every prior branch. No source lock, settlement,
 recovery retry or monetary activation occurred. The budget remains hypothetical
 and does not cover complete validator supply. See
 `evidence/bridge-native-reserve-agave.json` for exact source hashes and limits.
+
+
+The new `origin_token_code.py` / `bridge/rehearsal/origin-token-code.mjs`
+read-only copy checks additionally select the Token-2022 release artifact and
+genesis authority before bracketing origin asset observations with deployed-code
+admission. Five actual checks pass;40 read-only RPC calls, no simulations or
+broadcasts, one stopped copy and unchanged originals. See
+`evidence/bridge-origin-token-code-agave.json` and `bridge/TOKEN_CODE.md`.

@@ -37,8 +37,11 @@ compare the native-chain counter or prove a complete pending-event inventory.
 This is a deliberately narrow observation boundary. The on-chain prototype
 permits selected metadata and immutable-owner extensions, while this observer
 rejects all extensions until their layouts and authority behavior are reviewed.
-It checks the Token-2022 owner address; it does not independently pin that token
-programme's deployed code. It trusts the selected RPC's finalized view and
+The original module checks only the Token-2022 owner address. The separate
+[`observeTokenPinnedOriginAssets` wrapper](TOKEN_CODE.md) additionally requires
+selected token ELF, complete ProgramData and authority pins before and after
+these asset observations. Existing callers do not gain that guarantee unless
+they use the wrapper. It trusts the selected RPC's finalized view and
 cannot prove independent consensus, historical economic movement, full genesis
 backing, permanent custody, or a safe recovery. All signing, retry, broadcast
 and production-ready flags remain false.

@@ -519,3 +519,13 @@ receipt inputs reject. See `evidence/bridge-native-reserve-agave.json` and
 does not establish complete genesis contents or funded backing. The original
 escrow and native reserve observations are separate, not an atomic cross-chain
 or independently authenticated production proof. Monetary gates remain closed.
+
+
+## Token implementation admission preparation
+
+The separate read-only `bridge/origin-token-code.mjs` guard checks selected
+Token-2022 code, complete ProgramData and authority at finalized private-chain
+checkpoints. Its wrapper brackets the origin mint/escrow observer with these
+checks. This closes the owner-address-only observation gap for callers using
+the wrapper; it does not change signer handoff or provide production custody,
+historical upgrade, consensus or funded-backing acceptance.

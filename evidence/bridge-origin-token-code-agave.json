@@ -1,0 +1,174 @@
+{
+  "schemaVersion": 1,
+  "state": "passed",
+  "scope": "Actual read-only selected Token-2022 artifact/authority and immutable origin mint/escrow observation on one NEW private Agave copy",
+  "startedAt": "2026-10-15T05:49:48.555Z",
+  "checks": [
+    "Selected public Token-2022 v10 ELF, complete slot-zero ProgramData and authority match before and after actual immutable mint/escrow observations",
+    "Wrong selected complete token programme-data hash rejects against actual deployed state",
+    "Wrong selected token upgrade authority rejects despite matching code and programme-data hash",
+    "Fresh composed observation after rejected selections retains exact origin assets and token code; read-only RPC methods only",
+    "Single copied process stopped; both original ledgers, fixture and finalized journal hashes unchanged"
+  ],
+  "broadcasts": 0,
+  "simulations": 0,
+  "productionReady": false,
+  "canonicalNetworkChanged": false,
+  "globalBacking": {
+    "completeInventoryVerified": false,
+    "actualGenesisBackingVerified": false,
+    "hypotheticalNativeBudgetUnits": "2000000000",
+    "observedNativeGlobalSupplyUnitsAtStart": "503000511071959133",
+    "budgetMatchesObservedGlobalSupply": false,
+    "note": "Synthetic 2-row accounting projection intentionally does not cover the complete test-validator supply. Cannot pass B3 or any monetary-release gate."
+  },
+  "reviewedPinEvidenceSHA256": "de43cbcdb9b8ae465d787a8e7bae30337f7d8555dd2a294f6d819927fff0008e",
+  "tokenArtifactReviewSHA256": "102284543f657b73cae643ddd363260d9439006fe6afc98eec5b2d12ae552ef3",
+  "observation": {
+    "schemaVersion": 1,
+    "state": "PINNED_ORIGIN_ASSET_SNAPSHOT",
+    "scope": "Private origin mint/escrow snapshots bracketed by selected Token-2022 and bridge code; not complete backing or historical upgrade proof",
+    "genesis": "J8LsGtrVHe95w5Yxv3wR2Ux9uNWyDG3svK8LonczuuNh",
+    "program": "AkhzSc1JHmF8ELCZkoeCWtcUv51J18AvbBRQNjFWK2g2",
+    "mint": "3gxnbecjqmYAytS2AjJTyLtPYNuz2H9GSc8Fs7m8NJBF",
+    "escrow": "AcFimLUFNU1drQB8NubMuBdtkssTyfci7HcdECHneYw2",
+    "vault": "2HBFvySRPncWedJjmF93i8hW7qq4RapfYHSpFNqpwUHY",
+    "originDecimals": 6,
+    "mintSupplyUnits": "2000000",
+    "originEscrowUnits": "1950000",
+    "originOutstandingUnits": "1950000",
+    "unallocatedEscrowSurplusUnits": "0",
+    "assetDataSHA256": "b565913ea5dca41bb034b3c60dfb84bf812e2724e0a49b48ce1179670f929f2c",
+    "firstContextSlot": 1020,
+    "contextSlot": 1020,
+    "finalCodeContextSlot": 1020,
+    "assetSnapshots": 2,
+    "codeObservations": 4,
+    "mintAuthoritiesRevoked": true,
+    "escrowCoversRecordedObligations": true,
+    "programmePinsVerified": true,
+    "tokenExtensionsSupported": false,
+    "completeGenesisBackingVerified": false,
+    "pendingInventoryVerified": false,
+    "historyCompletenessVerified": false,
+    "operatorIndependenceVerified": false,
+    "canRetry": false,
+    "canSign": false,
+    "canBroadcast": false,
+    "productionReady": false,
+    "tokenCodeVerified": true,
+    "tokenCodeBoundaries": 2,
+    "tokenCode": {
+      "schemaVersion": 1,
+      "state": "PINNED_PRIVATE_TOKEN_CODE",
+      "genesis": "J8LsGtrVHe95w5Yxv3wR2Ux9uNWyDG3svK8LonczuuNh",
+      "program": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+      "programData": "DoU57AYuPFu2QU514RktNPG22QhApEjnKxnBcu4BHDTY",
+      "loader": "BPFLoaderUpgradeab1e11111111111111111111111",
+      "elfBytes": 506896,
+      "elfSHA256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+      "programDataSHA256": "f51a2301212f2077f3848bee810cabb67612e467a62688d7b597c23b0aca4be0",
+      "upgradeAuthority": "11111111111111111111111111111111",
+      "firstContextSlot": 1020,
+      "contextSlot": 1020,
+      "snapshots": 2,
+      "tokenCodeVerified": true,
+      "independentVerification": false,
+      "canSign": false,
+      "canBroadcast": false,
+      "productionReady": false
+    },
+    "finalTokenContextSlot": 1020
+  },
+  "rpcReads": 40,
+  "rpcMethodCounts": {
+    "getGenesisHash": 18,
+    "getMultipleAccounts": 22
+  },
+  "completedAt": "2026-10-15T05:49:48.724Z",
+  "processes": {
+    "scope": "One new private copy for Token-2022 code and original asset observation",
+    "state": "passed",
+    "starts": [
+      {
+        "side": 0,
+        "genesisMatches": true,
+        "originalLedgerPathsOpened": false,
+        "retainedMinimumFinalizedSlot": 1019,
+        "finalizedSlotAtReadiness": 1020
+      }
+    ],
+    "stops": [
+      {
+        "side": 0,
+        "signal": "SIGINT",
+        "returnCode": -2,
+        "applicationGracefulFlushVerified": false
+      }
+    ],
+    "canonicalNetworkChanged": false,
+    "productionReady": false,
+    "originalColdInventory": [
+      {
+        "sha256": "f12227059352b49203c51d16733985173997c3db837c72262cfab44ba265da3e",
+        "entries": 100,
+        "links": 2
+      },
+      {
+        "sha256": "50b97592108f440ab00c9a56b10284b4ced565ff43763684ae5256e3e305d54c",
+        "entries": 103,
+        "links": 2
+      }
+    ],
+    "originalFixtureSHA256": "5f27a9d2ec9781b2e6825e666bdf86d3896e2bbe6cba55b7cbc1a59aabd97a67",
+    "originalJournalSHA256": "166cc2b415f605071cd5a0f64a2871a64e23f8cb51742ab12032d1220ad0dccc",
+    "allStopped": true
+  },
+  "sourceBinarySHA256": "3d3140bf93c9bc967220ffd8989d8b0267b723915d32203132ecc36d2c63a49a",
+  "uploadedSourceHashes": {
+    "observe-origin-token-code.mjs": "e4cd90a154f6ee489a30cda8009cebb9303cdb32f399b85ee8be92c9e6876e36",
+    "origin_token_code.py": "33351f64d25e846ee51c07fc07ef79e76845d7a30da62d298cd4865127bb77e4",
+    "origin-token-code.mjs": "52b1a0479a52e888ba7dfbe85818b82c780c392929bcffb85ff4500338a50738",
+    "origin-assets.mjs": "5044793fa9af145af67df5f98a110153e45cf9b7e92f42f5dbd7b3e58ed6ced6",
+    "origin-asset-pins.mjs": "f973dd61316ff99f515b3cca0046dc7ebbdcb577ae1de80e9cae87edfd372826",
+    "program-pins.mjs": "1f72a2007be0d4ebd6b1a3080dc2ad93224177e49ae32e0513beb2e163256d42",
+    "sdk.mjs": "e603242692bedc2457ec9dd3cb144122ca1adb7341506d244ec864943bd8c988",
+    "bootstrap_driver.py": "200a81128b1dc697b32365ac939d7eef27c6e8b4cf3d48aa51faed4a65164a5c",
+    "cold_copy.py": "42bef261f9f273a1f525b515eabfcda61b8d6a1cbb62fd637ebbdd0f23a95b6d",
+    "reviewed-pins-public.json": "de43cbcdb9b8ae465d787a8e7bae30337f7d8555dd2a294f6d819927fff0008e",
+    "token-release-public.json": "102284543f657b73cae643ddd363260d9439006fe6afc98eec5b2d12ae552ef3"
+  },
+  "originalLedgersUnchanged": true,
+  "originalFixtureUnchanged": true,
+  "originalJournalUnchanged": true,
+  "originalJournalSHA256": "166cc2b415f605071cd5a0f64a2871a64e23f8cb51742ab12032d1220ad0dccc",
+  "originalColdInventory": [
+    {
+      "sha256": "f12227059352b49203c51d16733985173997c3db837c72262cfab44ba265da3e",
+      "entries": 100,
+      "links": 2
+    },
+    {
+      "sha256": "50b97592108f440ab00c9a56b10284b4ced565ff43763684ae5256e3e305d54c",
+      "entries": 103,
+      "links": 2
+    }
+  ],
+  "processOpenPathCheckScope": "Readiness fd/maps samples; not continuous host auditing",
+  "localChecks": {
+    "tokenCodeOriginAssetsAndBridgePins": 32,
+    "workerGuards": 3,
+    "passed": true
+  },
+  "coreFreeze": {
+    "files": 45,
+    "allMatch": true
+  },
+  "coverageLimits": [
+    "Selected genesis Token-2022 release code, ProgramData and authority bracket private origin asset checks; original observer and signer handoffs are not automatically upgraded",
+    "Snapshots trust one private RPC and do not establish historical upgrade behavior, independent consensus or atomic cross-chain observation",
+    "No complete funded genesis, pending-event inventory, extension support, future-upgrade prevention or production custody/security acceptance",
+    "Zero signing, simulations, broadcasts, grants or journal changes; original ledgers/fixture/journal unchanged and copied process stopped",
+    "No mainnet, native SOC, real-value bridge, retry, refund or release acceptance"
+  ]
+}
