@@ -1,13 +1,15 @@
-# Offline immutable metadata-mint inspection
+# Immutable metadata-mint inspection and private observation
 
 `inspectImmutableMint` is a pure byte inspector. It makes no RPC request,
 accepts no key, reads no journal and cannot sign, submit or authorize a bridge
 operation. It is preparation for [metadata admission review](https://github.com/solana-classic/solana-classic/issues/2).
 
-The existing origin observer and claim journal are unchanged. They still reject
-extended mints. This module is not wired into settlement, mainnet or the public
-website. Successful inspection does not establish origin backing, reserve
-custody, independent finality or production readiness.
+The private read-only origin observer can explicitly select
+`mintPolicy: "immutable-self-metadata-v1"`. Its default remains `plain`, which
+rejects extended mints. The claim journal still rejects extended mints. Nothing
+is wired into settlement, mainnet or the public website. Successful inspection
+does not establish origin backing, reserve custody, independent finality or
+production readiness.
 
 ## Selected layout
 
@@ -37,20 +39,30 @@ guarantees. Do not treat metadata labels as proof of token identity or authorshi
 ## Verification
 
 ```sh
-node --test bridge/mint-metadata.test.mjs bridge/origin-assets.test.mjs bridge/pending-claim.test.mjs bridge/pending-redemption.test.mjs
+node --test bridge/mint-metadata.test.mjs bridge/origin-assets.test.mjs bridge/origin-token-code.test.mjs bridge/pending-claim.test.mjs bridge/pending-redemption.test.mjs
 ```
 
-12new checks use the existing pinned SPL Token0.4.15 and Token Metadata0.1.6
-SDKs as independent serialization/decoding oracles. Existing observer and both
-direction journal regressions also pass, for46checks total. The workflow runs
-these checks without production secrets or any chain endpoint.
+12 decoder checks use the existing pinned SPL Token0.4.15 and Token Metadata0.1.6
+SDKs as serialization/decoding oracles. Seven new observer checks exercise
+explicit selection, unchanged defaults, authority/layout refusals, changing
+metadata, chain restrictions and token-code bracketing. Related observer and
+both-direction journal regressions pass, for62checks total. Observer fixtures
+use synthetic RPC responses, not a running ledger. The workflow requires no
+production secrets or chain endpoint.
+
+The observer retains exact selected supply/precision, a fixed165-byte escrow,
+complete bridge and optional token-code pins, nonregressing finalized contexts
+and identical asset bytes between reads. Metadata bytes are included in that
+comparison. Other mint extensions and all escrow extensions remain refused.
+See [the scoped local result](../evidence/bridge-metadata-observer-local.json).
 
 An actual415-byte public SOC mint snapshot requested with finalized commitment
 also passes offline inspection. Its exact slot/data hash and read-only scope
 are in [the inspection record](../evidence/bridge-metadata-inspection.json).
 This is one selected RPC observation, not independent consensus verification.
 
-Before connecting this decoder to bridge admission: review the policy, update
-observer and redemption contracts consistently, exercise actual valueless
+Before settlement admission: review this explicit observation policy, update
+claim/redemption admission consistently, exercise actual valueless
 metadata-bearing mint/escrow layouts, retain negative controls and obtain
-independent security review. Issue2remains open for that wider work.
+independent security review. The earlier plain-mint ledger result does not
+verify this metadata option. Issue2remains open for that wider work.
