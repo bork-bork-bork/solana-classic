@@ -224,7 +224,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-15T04:17:42.639447+00:00",
+    "reviewedAt": "2026-10-15T04:52:50.177421+00:00",
     "scope": "Development checkpoint only; separate from the live devnet release",
     "projects": [
       {
@@ -265,7 +265,7 @@
         "title": "SOC redemption bridge",
         "state": "building",
         "description": "Original SOC escrow and a native Classic reserve, targeting exact 1:1 display-unit redemption in both directions.",
-        "currentScope": "V2 bootstrap, cold restore and crash proofs pass. Both native release and original-token withdrawal now recover their original signed transaction after an observed pre-finality process crash. New nonce7 withdrawal:7 actual checks, one broadcast, confirmed slot944 vs finalized913 before SIGKILL; exact10000-unit token payout finalized after restart, escrow/counters1950000. Separate nonce6 expiry remains unresolved; no retry/refund/reset. Offline review passes structural guards but reports are unauthenticated assertions. Competing forks, complete funded backing, signer/custody/code controls, independent operators and review remain open. Separate read-only programme observer now passes12 local checks and5 actual private-copy checks: explicit artifact/full-account/upgrade-authority/static-policy pins, two finalized snapshots and rejected wrong pins. Zero broadcasts/simulations; originals unchanged. New version2 private journals now require the reviewed programme/policy pins before signed-byte handoff;18 integration checks and82 combined local regressions pass. Legacy rehearsals remain unpinned; the fresh real-ledger combined drill now passes separately; production signing custody and independent verifiers remain open. Local report codec now verifies3 distinct Ed25519 signatures in a fixed5-key isolated review roster;12 new +7 structural checks pass. Original-operation, programme/accounting digests and dated reports are bound; late settlement and changed journals reject. Key authentication is implemented, but real operator identity/independence, truthful history/backing and recovery authorization remain open. New pinned-journal integration now passes8 actual checks on fresh copied Agave ledgers: two source and two settlement broadcasts, both directions FINALIZED, six wrong expected pin handoffs rejected and original baseline/journal unchanged. Earlier v1 checkpoint-RPC refusal was retained with zero transactions; fresh v2 waited for retained finalized roots. Copies stopped. Known-finalized functional proof, not a new crash/fork, real upgrade or production custody result. New actual authority-change drill passes7 checks: rotations on both copied programmes block a prepared pinned claim, with unchanged journal/economics, retained10000-unit pending liability and zero settlement broadcasts. Both copies stopped. Programme code did not change; production upgrades/custody remain open.",
+        "currentScope": "The private bridge prototype completes finalized transfers in both directions, cold restore and process-crash recovery. Claim handoff requires reviewed code and policy pins; actual authority changes on either side block a prepared claim. A new read-only observer verifies the original fixture mint, escrow custody and recorded obligations. One expired private withdrawal remains unresolved, with no retry or refund authorized. Complete funded genesis backing, native reserve reconciliation, token-extension support, independent operators and custody, actual code-upgrade/fork tests and external security review remain required before live redemption.",
         "source": "https://github.com/solana-classic/solana-classic/tree/main/bridge",
         "milestones": [
           {
@@ -368,6 +368,12 @@
             "state": "rehearsal-passed",
             "detail": "7 actual checks on new private copied Agave ledgers. Checked authority rotations on both programmes reject the original pinned claim handoff; journal, receipt absence and bridge economics unchanged. One synthetic source lock, two authority transactions, zero settlement broadcasts. Both copies stopped; original baseline/journal unchanged. Pending10000-unit obligation retained. Code upgrades and production custody remain open.",
             "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/bridge-authority-change-agave.json"
+          },
+          {
+            "title": "Original token supply and escrow observer",
+            "state": "rehearsal-passed",
+            "detail": "5 actual checks on one fresh private copied Agave ledger. Immutable plain Token-2022 mint, exact supply/precision, escrow custody and recorded obligations verified; wrong supply/precision reject. 30 read-only RPC calls, zero simulations/broadcasts. Copied process stopped and originals unchanged. First incomplete-review refusal retained. Complete native backing, extensions and independent verification remain open.",
+            "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/bridge-origin-assets-agave.json"
           },
           {
             "title": "Bootstrap reconciliation, custody and recovery",

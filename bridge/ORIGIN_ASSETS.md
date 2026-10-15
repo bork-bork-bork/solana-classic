@@ -7,7 +7,10 @@ keys, signs, submits, simulates, writes a journal or retries a transfer. Public
 Solana networks and the live Classic devnet are rejected before any RPC read.
 
 The observer checks the programme code, complete ProgramData, upgrade authority
-and static bridge policy before and after two asset snapshots. Each snapshot
+and static bridge policy before and after two asset snapshots. `origin-asset-pins.mjs` selects complete
+previously reviewed source and remote identities from the stopped pinned-journal
+rehearsal, retaining its finalized checkpoint. Earlier partial observation
+records are rejected; identities are never filled in from a fresh RPC. Each snapshot
 reads the derived bridge config, pinned mint, derived escrow and V2 vault in one
 finalized RPC context. Contexts cannot regress. Asset bytes must stay identical
 between snapshots, and recorded obligations must still agree with the final
@@ -52,3 +55,19 @@ expected supply/precision, rereads unchanged asset bytes and permits only
 `getGenesisHash` and `getMultipleAccounts`. Worker evidence must record its
 single copied validator stopped and both original ledger inventories plus the
 original fixture/journal unchanged. Local tests alone do not prove execution.
+
+
+Five actual checks now pass on a fresh private copy, using30 read-only RPC calls
+and zero simulations or broadcasts. The synthetic mint supply is2000000origin
+units; escrow and recorded obligations are1950000, with zero unallocated
+surplus. Wrong selected supply and precision reject; a fresh observation retains
+exact asset hashes. The copied validator stopped and both original ledger,
+fixture and finalized journal hashes match. See
+[the completed result](../evidence/bridge-origin-assets-agave.json).
+
+The first attempt selected an older partial programme-observation record and
+refused admission before asset reads. It stopped its copied validator without
+transactions. That failure and its original sources remain retained; the fresh
+attempt selects the complete previously reviewed pinned-journal record without
+lowering its checkpoint. See
+[the retained failure](../evidence/bridge-origin-assets-first-attempt.json).

@@ -3,7 +3,7 @@ from pathlib import Path
 import json,os,shutil,socket,subprocess,time
 import bootstrap_driver as driver
 from cold_copy import inventory,copy_cold_ledger,sha
-ROOT=Path('/data/bridge-origin-assets-v1')
+ROOT=Path('/data/bridge-origin-assets-v2')
 SOURCE=Path('/data/bridge-v2-redemption-pending-v1')
 def validate(m,r):
     assert m['scope']=='isolated-synthetic-bootstrap-v2' and m['ports']==driver.PORTS
@@ -26,9 +26,9 @@ def main():
     m=json.loads((SOURCE/'private-input.json').read_text());r=json.loads((SOURCE/'public-result.json').read_text());validate(m,r)
     assert sha(driver.BIN)==driver.BIN_SHA and sha(ROOT/'bridge.so')==driver.ELF_SHA
     sources=json.loads((ROOT/'public-source-hashes.json').read_text());assert all(sha(ROOT/n)==h for n,h in sources.items())
-    pins=json.loads((ROOT/'reviewed-pins-public.json').read_text());assert pins['state']=='passed' and pins['processes']['allStopped'] and pins['broadcasts']==0
-    assert [o['genesis'] for o in pins['observations']]==m['genesi']
-    minimum=[o['contextSlot'] for o in pins['observations']];assert all(isinstance(s,int) and not isinstance(s,bool) and s>=0 for s in minimum)
+    pins=json.loads((ROOT/'reviewed-pins-public.json').read_text());assert pins['state']=='passed' and pins['processes']['allStopped'] and pins['realLedgerPinnedJournalIntegration'] is True
+    assert [pins['pinAdmissions'][0][side]['genesis'] for side in ['source','destination']]==m['genesi']
+    minimum=[pins['pinAdmissions'][0][side]['contextSlot'] for side in ['source','destination']];assert all(isinstance(s,int) and not isinstance(s,bool) and s>=0 for s in minimum)
     for proc in Path('/proc').glob('[0-9]*'):
         try:first=(proc/'cmdline').read_bytes().split(b'\0')[0]
         except OSError:continue

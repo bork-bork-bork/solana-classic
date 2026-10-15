@@ -309,3 +309,22 @@ worker guards and30 related observer/journal regressions pass. Preserve this
 new attempt and its prepared journal; never rerun, refund or reset it. Programme
 code stayed identical, so this is not actual code-upgrade acceptance. See
 `evidence/bridge-authority-change-agave.json` for source hashes and scope.
+
+
+## Original mint and escrow observer
+
+`origin_assets.py` now runs five actual checks on one new private origin-ledger
+copy using complete historical programme pins and their retained finalized
+checkpoint. It verifies the immutable plain Token-2022 mint and exact source
+escrow/obligations, rejects wrong independently selected supply/precision and
+rereads unchanged asset hashes. Thirty read-only RPC calls, zero simulations
+or broadcasts. The one copied validator stops and both original ledger,
+fixture and finalized journal hashes match. Twenty-seven related local checks
+and three worker guards pass.
+
+The first attempt refused an incomplete older review record before asset RPC
+reads. Preserve both attempts and all source records; neither runner may be
+replayed/reset. This is a private fixture observation, not complete native
+backing, token-extension, Token-2022 executable, history, consensus or production
+custody acceptance. See `evidence/bridge-origin-assets-agave.json` and the retained
+`evidence/bridge-origin-assets-first-attempt.json`.

@@ -484,3 +484,20 @@ hashes match. See `evidence/bridge-authority-change-agave.json`.
 This is an actual authority-change guard, not a code-upgrade, fork, crash,
 independent custody or production signer result. It does not resolve the
 separate expired nonce6 operation or change the running devnet candidate.
+
+
+## Original mint and escrow snapshot observer
+
+`bridge/origin-assets.mjs` now verifies the immutable unextended Token-2022 mint,
+independently selected exact supply/precision, escrow vault authority and
+recorded original-token obligations. Programme pins bracket two stable finalized
+asset snapshots. Twenty-seven local checks and three worker guards pass.
+Five actual private-copy checks pass with30 read-only RPC calls, zero simulations
+or broadcasts, unchanged original ledgers/journal and a stopped copied process.
+See `evidence/bridge-origin-assets-agave.json` and `bridge/ORIGIN_ASSETS.md`.
+
+An earlier partial historical pin record refused admission before asset reads;
+its failure remains retained. This observer does not support token extensions,
+independently pin Token-2022 bytecode, verify native reserve/global genesis or
+complete pending-event history, appoint independent operators, or authorize
+signing/recovery. Those release requirements remain open.
