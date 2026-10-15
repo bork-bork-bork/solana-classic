@@ -515,7 +515,7 @@
         "title": "Devnet release evidence",
         "state": "building",
         "description": "Individual review of the build that passed its original 24-hour stability test.",
-        "currentScope": "Our source-built Agave runs the current devnet. Both original-frontend browser pilots pass. A fresh hosted20-client load attempt is running with unchanged source. Isolated recovery tools pass14 local guard tests, but actual restore, current monitoring/rollback/negative-control proofs and the new24-hour stability run remain pending.",
+        "currentScope": "Our source-built Agave runs devnet. Both original-frontend browser pilots, the fresh200-operation load,36 gateway negative controls, current monitoring review and reversible frontend rollback pass. The isolated cold-backup restore is the remaining admission check before starting the new24-hour stability run.",
         "source": "https://github.com/solana-classic/solana-classic/blob/main/engine/migration/STABILITY_RELEASE_REVIEW.md",
         "milestones": [
           {
@@ -576,6 +576,30 @@
             "state": "local-passed",
             "detail": "14 local guard checks pass. No remote restore or copied-validator boot yet; full HTTP recovery remains pending.",
             "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/agave-source-recovery-preparation.json"
+          },
+          {
+            "title": "Fresh source-built Agave load",
+            "state": "live-passed",
+            "detail": "20 sessions,100 meme/NFT issuances and100 transfers over20minutes. All200 operations pass, confirmed p95 3313ms, zero missing confirmations,40 integrity observations. Exact frozen runtime remained unchanged. This is a bounded devnet test, not chain-wide throughput.",
+            "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/agave-source-load-completed.json"
+          },
+          {
+            "title": "Current source-runtime gateway negative controls",
+            "state": "live-passed",
+            "detail": "All36 bounded checks pass against the exact current runtime, including actual per-client metadata quota denial.189 requests,150 valueless immutable metadata documents, no faucet grant or signed transaction. Prior reports retained.",
+            "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/agave-source-negative-controls.json"
+          },
+          {
+            "title": "Current source-runtime monitoring review",
+            "state": "live-passed",
+            "detail": "Independent30-second health polling and advancing finalized slots verified. Saved network-health,12.8GB memory and35GB disk monitors rechecked. Earlier operator-confirmed email delivery remains historical; no new alert delivery claimed.",
+            "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/agave-source-monitoring-review.json"
+          },
+          {
+            "title": "Current source-runtime frontend rollback",
+            "state": "live-passed",
+            "detail": "Actual original-frontend alias rollback and restore, with all HTML,JavaScript,CSS/PDF hashes verified from the hosted observer at each stage. Exact frozen deployment restored; API and validator identities unchanged. Earlier failed observer attempt retained.",
+            "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/agave-source-frontend-rollback.json"
           }
         ]
       }

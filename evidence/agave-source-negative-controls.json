@@ -1,0 +1,675 @@
+{
+  "at": "2026-10-15T02:15:28.768Z",
+  "scope": "remote actual bounded production gateway negative controls; not a wrong-genesis outage or global-capacity drill",
+  "passed": true,
+  "api": "https://network-release-production.up.railway.app",
+  "web": "https://solana-classic-soc.vercel.app",
+  "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+  "candidate": {
+    "apiOrigin": "https://network-release-production.up.railway.app",
+    "frontendOrigin": "https://solana-classic-soc.vercel.app",
+    "frontendDeploymentId": "dpl_3aWWzKDohr4SrgijgrB8dWgHHS5r",
+    "frontendCommit": "35f0eaf1dede45452c9cdf9e6403669e966c427d",
+    "apiCommit": "119f25e225540be78b64b19bdb6cb300a1f47c10",
+    "networkConfigSha256": "0eea489e8cf0753b2b0cf0b91b6949566044e50c20bd4d02eea814490f64fe0e",
+    "dependencyManifestSha256": "e6da27717e6a84ca7b29d707ff63591b2ff0cfc38892d3b4667f8615bdf7bbc0"
+  },
+  "frozenCandidateBound": true,
+  "runtime": {
+    "configured": true,
+    "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+    "engineBuild": {
+      "schemaVersion": 1,
+      "scope": "authenticated export of four public source-built binaries only; no ledger or key material",
+      "passed": true,
+      "runId": "40de48b7-6963-429b-ae3e-81a610d81b7d",
+      "archiveBytes": 67933801,
+      "archiveSha256": "1dd3a398821f029f4f1aa53a63b53eda3123b907ef4025f6ab964e35c60d48b4",
+      "binaries": {
+        "agave-validator": {
+          "sha256": "34e468747f1a0d69399b61fd40edc32ce4690ec5a200b5684474aa60a97a6910",
+          "bytes": 74406832,
+          "version": "agave-validator 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+        },
+        "solana-test-validator": {
+          "sha256": "3d3140bf93c9bc967220ffd8989d8b0267b723915d32203132ecc36d2c63a49a",
+          "bytes": 73661760,
+          "version": "solana-test-validator 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+        },
+        "solana": {
+          "sha256": "6a880f1c79ec0e0d7b3ee972eaa9ad8d75b503616e1f0c29efa587137a129dcd",
+          "bytes": 28209480,
+          "version": "solana-cli 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+        },
+        "solana-keygen": {
+          "sha256": "2f00a742ab0d99cad929e7a82b2d80f7c519cab9038ec45844fdbe9c305dea65",
+          "bytes": 2804464,
+          "version": "solana-keygen 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+        }
+      },
+      "upstreamCommit": "f516a8927c76c07f0ebc54ca7a4ce8b2046eee86",
+      "upstreamTree": "a4c75a1781d4ca56e7325a39d0614e1faa26030d",
+      "sourceRepositoryCommit": "39b9001cab84e637f2460f2387f2549f32b62ef9",
+      "workerSha256": "ac5937cba2a39336f847f2ce5443ed729146a07462c66074ff448c38d6e995ab",
+      "sourceManifestSha256": "337512bc1df2f382ccfab957347281b1c153353429b77d2695d65aafd29ec081",
+      "migrationId": "ae834e71-fb59-4beb-b26b-4485be3a386f",
+      "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+      "preparedAt": "2026-10-14T01:53:01.100713+00:00"
+    },
+    "sourceCommit": "119f25e225540be78b64b19bdb6cb300a1f47c10",
+    "coreSha256": "533950731d4ed6d94b59e71517613be002b6ec416b0ebb3a20a592fe5ec6f22f",
+    "apiBootId": "e6ec5d41-8238-48a0-b739-a81f9fea6adf",
+    "apiStartedAt": "2026-10-15T00:55:25.337Z",
+    "validatorBootId": "2c6a0f79-c6c3-43a4-aa5c-e542efb704d9",
+    "validatorStartedAt": "2026-10-15T00:55:03.665Z",
+    "deploymentId": "22e5870a-afb8-4027-89b5-ccb8a39391c2",
+    "agaveVersion": "3.0.14",
+    "tokenProgramVersion": "10.0.0",
+    "tokenProgramSha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+    "observedAt": "2026-10-15T02:14:47.362Z"
+  },
+  "requests": 189,
+  "quotaRequests": 151,
+  "createdAssetMints": [
+    "GTc2feSBBUdYnoncKb9JL1VZV7CsvfMGUge6xzMRBvRY",
+    "BhdLSyJBuAKB894Swhs8kwa89SFEN2b5x9254EKhTLMg",
+    "7A4h1Nf67mwFY7umf4QyVX5pYiKQnW434Yzfmf1f7bae",
+    "LLY3UVdF29esqxqTPzFmcfxbafYSbv3GfiPyp1jGmxd",
+    "8g83BFej3h4GYVxD9k9oBQikuUQwcYLJbgvqrnonKYY4",
+    "4B5kn5qU4JXxeKF3jNNUACfoHZyJ3fskhF2Whhoy3M4Q",
+    "DYs64hrdR4FsBrZRrXf7fs3ScjFpvqNvFRvraWWQGsgC",
+    "GdNLyruDpVLBLbB8hYdxRwCpNBqrMrrcYoAPXdZXXXfL",
+    "CRB2DVpyQXnfaHCuA9VdrEiut44QrqK2qDyC6cANFydc",
+    "3ZouWtDQDKm6vLKGv3a9CuS3raY2HXdPXppEdsvSy71E",
+    "85BS8itJWhkge1UnqXCSACzSrZjfAuiPsQw2nvbdzLM3",
+    "5YAwBYDjWTxCzrDtN5KXSnYiCoQ8GVLi4aKqxLxpb4fZ",
+    "GJXXSfHn6PDz7St9bDiBUMhDvRGodxcwaaWHjRTbECa3",
+    "CjdpQCjuek5w9vDZrebu4yavMzM9wuBHfSbQ3g2xd5QH",
+    "QxAMiE1AQKeoKcLYD8WBPTs72Tj4hnPsaF4NU5AifSN",
+    "GV8GrcLqUqR3nV6KgbB7YAi4HaiVgrnFdzH6fVhDYy47",
+    "5f4P4ZGVceXWH5VqmKg3WwL4Wza798sW9wW9VuG6pqGS",
+    "2L8poTkER9umQDzioo27ku8G1rB931qkzumFd8kPy9pc",
+    "8LkF3PAe6EWwQvtuE1zygbTxtJhHZPEMYCdG41dW7Wh1",
+    "nkiUnvpjMSrg4EtpxN33CQ9fL1Fr9HCeSK5h8CrvkCD",
+    "53Y2qE5NUdsfC9KL92PUhT55DLpuvTyykr2VRNGxruNH",
+    "d8RbnN5hRvvoBBnrWYWBukbDiZ8VUN3586NfUSwsmdH",
+    "CUYzvRZvQAk3Cn76BbweEo8HDcgmwPDVqHZaYaTUx84e",
+    "GwhMtjZr3KmaerCCd2bAesFpdgzekkcBUCAuhXf15xwP",
+    "EetwbtvhEUzNb4zi3hzH4ir9CQcvbQLeVCJGsVqWeiRM",
+    "4nrzHDEEa57BE3XLUkGPNVtgtcoh8b57L8pKmBMNB8G8",
+    "BJPqYR23VwjWEFpsxULwowrwji6EeFR6H9LHeFNnNuCC",
+    "H86AnnvS8dsFbzzX2j6QN7LvCJA3qehA3DG47z3S4hq",
+    "Bk7za1xZk4uFXosr3rFF3gKE2E8A7bYvV8eiYcGNFand",
+    "CrPVY8Qc5x46rikt5sWGvrW1BKusy9P6cf8fpUTiALoq",
+    "EBuD6qPSdYqwfR6QMgGtknfAwcsA77hcjwHkTNSibfjE",
+    "FQfBsoEJ477bnnhEvG5mgL3qY7x1JJKa4Y3B8VgeqfMw",
+    "MiU4kv5E2tZgLLgU6AeDTQcAJrA8MHCRP6e2kVoCQSp",
+    "CKhkbJGHxi4zWj3GjwU4EsXzuqo7cjXzKgqSL1PWNj8V",
+    "Cz2Yp2PZcuzdafEEgVjyyqr8bEVLGGaurT5x74TjqVGW",
+    "DrU1jZrDCBfZv6i6XRuRbMxRsX1unDS8SBQbby2JnjHN",
+    "8NBFoizWUXRX1C5LBTxiR1F9vNGUE3uKr1DKVap6UbcA",
+    "2LMofaENZoMKcG24jQq4zXcCz5z2KsP3eU8pRVc4UkwW",
+    "HPaHf5zvM6bU8d1cLKoCCVs8Rq6DF2RiqM6WM9tvmZuC",
+    "2gmYtmzA85aJBpJZmHNS5sPkPGS4hvMX5L1bugfD6hqA",
+    "CvbSdgK76tkjh86AS5jRk8MT5fRu12k6SiBkpfbvKY2z",
+    "Cfrt45f6NsBq5TCdD94qCUcDaLdyyWgW5aB8EGLoWX6b",
+    "A6ZRZDjgiZEyu5Y5VpaAVQxcAWJ7kT92ofojFhTfG3Sm",
+    "EjJSG4d56VnNpN16MxKsDtVT6isMvCtQY6dohF1cU4DS",
+    "6VK3SDPvAmSkaGHATFKR1XkUZgJupDBRpQD6vigtTMjr",
+    "GGXbeYxf5rqPwCQADFQ5XAwkm7cWbN3gkD2jTsJZTBoX",
+    "EHTwpxuPkxZ9Hp2FEYFUwrfXF51NrCSPE975aWCJC9vm",
+    "FT1ttnn7uPkMHxcUfzD3xCma4BxGUpj4HRVDnqC8bLiy",
+    "8MvyhWgsCjXNrxwztTVRcqV8KBJaLxfzALBPCius1LVp",
+    "CTbZqaijShfyjiyJajm4Y8o2D6YAjGQxs4BTkxTFbYD8",
+    "CWDjDfAKacGV3XcmsXpTWNpJhvSCaTr6XuhmBN7gmvx3",
+    "4Q8mmdPbuFZjVDQrokKEs6XXYXfRNdnraDW34XQSdmRv",
+    "98Un2oWbmi4k41c64YzwFQeJrAXmQ79HqM5btMjEupv3",
+    "3moixvuqFyRrgyWxPHcregxAy9Xuyj73QYbrSxoSvbPV",
+    "AK9PcEV3Cpa3GKLkkGAAKf6EEnB21hZ6omf6JZ4SFqPr",
+    "Fm3zQSt8xvzWZPmXinrrwFcSa57KwJdyqk5hNowLd8KG",
+    "3EUfiGEuoqq9BeNavkQhzPdcpot1Satj5XVKp3F7g1Mw",
+    "3fNVJpGqLHa2YvPkT2LJ3yBGTNYRZeVLjnUAQbJs46KJ",
+    "7mvRy3uBwzLhrZkGpePTPiJMX2D5CjexQ9quvCx5S7mQ",
+    "6VPax6KGtxMHwzouPBPzrw6fPSs4HyP7qaYPsYmvMfEq",
+    "6TLQnf2UBDCyFKS2CnX93epM9d49GBoHVHMo8ojdUvkU",
+    "G9X1YgDCc3aPJDXHa6MPsLRdbgFheKcUPkh2vwpJzp5N",
+    "9o3DiekWsPpZ1v1yLiEjkJuGAkB5Uvzg2EFbmaSmvmnV",
+    "9RMnhf2fgTEUsQJPe1gDLjrWiPsYWms69xVVZfWiKLYE",
+    "DRLTp6AXS4wZ4uSvhEwJ9eUWQJ7g9t7tLFLsRwvnckqV",
+    "AF6rDBiC2bPsVospv6avnSKLYkA3Fh3WJYXjNXsQC8vX",
+    "6dnYUfiATmEzWNH2F6ZNd9yDPNZXJmA5xCUbGTCDBZHD",
+    "HYGRJZXnLknWpCRFBXNv3d3g2Wivgg9E4HpCcMVTU5Td",
+    "4ho6A9947CbygustyHA92LX8UXHZYBz6NBJ8v3sLXuhX",
+    "2oHom8aYgVHyCC8QxBr5apchkY7b8YnDbEVvJuLSojNm",
+    "BMTuUBvfNWmbZYSmMjKDHiBRp9XHyxdtxaBFF7C1Rs8Y",
+    "7m9ChPmdaYr7kpFSPZqZsHjZrwfXwX4VPkH1AJthiJ9q",
+    "GUfXU3GvMoxhRhSVR7eLFq5d7s19rCbWQJAV1p2KK7LC",
+    "AWRxss7Nj4m57U8D9u3J72yoBT17Eo8TEjfuHNbubq8Y",
+    "8cDsri6gLtHXc12faztijezgD1z3G1xdnpQai5t8BYy3",
+    "5PfsSTMvudfUMktDPdg8Rr9pvLxBSSKP1GHGZzJZJSGj",
+    "DD1xti1Fof6Tozjr3ncQ1XUBC4HPDUMQYt12Pff8qeZg",
+    "F3xma8Jh6JKVMBuS5JKikyvsGNTVTh6rFFhtdg4EQ36C",
+    "9EwvdeT3F9bwvPmodt9jmWWVCf8SHkcjHiwjnQDXWVm9",
+    "FG9JRGMRd9etdUurkrpF9gjs8ULAUpGRmaKmaYvbpN2V",
+    "4w1BdhGRrkp3wb5KWKboxS74LKpLFCrXRMwBmqadCk7g",
+    "HS9mNjw2SV9ijWARRT5voswExoCTpU1YCBm2RKXY9NQE",
+    "Bt6q6VU1wZG5BfrMTmCwCujx3LamLHJuXMETXc2APZ7L",
+    "3Bd666UrBFnC8ndFFVuK2qMQJEdAP38x9KwTURH7xhx9",
+    "6X7TaSwXhhFEbiAxe3pAzUnb9fwfEBL1CZEPnRFh7Q8s",
+    "2WzEb3MWt6iN46K8eGsHbaPq5YZFvcnwRYqdEWpUPP8h",
+    "7w98TvUE4FrVox1ocnvzQCccfPV6wBJCJvT5t6h7HDGG",
+    "e2iKJMnJdXGUZksWcAkcks6h3BmKbiA5vCfNJyWNuYp",
+    "F6GNmDw1BB9TGUPz193XPUENSPjrBeZoJ6z48kmsvtsU",
+    "DHEATiGKPHv98zDgZ6Qs7xNXF6eiM9cqtwURf3EXbb4G",
+    "7MpqgE6JmPxUqqYvpo3zsL1Mqpn24MRnGFDSAMV4CS5q",
+    "3wj1eDh8tZPskGPCDeg7GvJbg8ZKKgC2oGHTFb6zbTwY",
+    "6mPZCb867hMPNqcCx4V6P2jxjLrcAHhQWtSu5m3fQEbG",
+    "CLxFXZHgsCmxnkyV961qR9gsMGEjGYkszLnrXsGrsMhi",
+    "APpPsZzM1yeockHsvjoTGQ8Vq4uYYZDqdTDuGg5wNDCF",
+    "7TF7gFrAEdZcbdttpNXycF3LKja6aQaFz9mpWSszfpyT",
+    "6BTUfZgoXabjuyFgULW6nrNfK6SKW3nJXVpjD67888zW",
+    "ASUaNugGrVH2jNNnjcmjhsxSrdayFqsBDQscu2WQhDNP",
+    "4z5RjJjEr3ZqmgZnKg4HX6fxNV5hyU5QoqeeydaF6ahX",
+    "FTLztUH75h1UHYat51mGBWRfM13fTvtw9Mnjcfn8QVFU",
+    "9f1MdLRL6ZCovajfE3oQwygpvvesxjCFRD8UGJvNCuR8",
+    "4NpcWk1JvZZus6gp8b5nxXMRRkULRVp55LzzbUS1Jc1f",
+    "7dPNA8K71JWPKNCAYx3W7jMLFzWq1tvZDHcZcMoHVSTh",
+    "8xo3JL3ENafuWRYQAD8sr8hjebfVw48VZDAybDcKrG6z",
+    "H49MrQH3X2ZeTVRU74pDNV8QPbA9riK62aFKY9PN6ait",
+    "AfXWBDbn4SKzMcxPD7sKdQLi74Gy6QEVAYXmLa2s8qEi",
+    "88CTXr2mxzXx8dnkTzb7uTWK7KtJ2yNjg52C14gmKmZt",
+    "Dk6BwysEDxqYkcSihQDgu6Zm6aHcrioLJRkvYT6YoTVc",
+    "5oN7KkJtDAGnoP9XZaiaKCTvdTtMVo7rSP9tnuxbSs7c",
+    "CMwj6ctngWbAAHQJJyfjZ6kVqjpyQboWeGo7rTq1ygLm",
+    "5UVZApBLNgEgQrJnK8U2sYsJmMMxf4gLz65ekGa5sHGW",
+    "Hw8FYAwXyhn97QkEDy3auBtKVfmtsMgjS7XGq81mo25e",
+    "5uRmGwjbsdpLmWBC9oypxFWU1C8U5NNptc5TgMdWyqWx",
+    "5MUZ7mg1YCeVnjznPsUTBjY6LYy2jP1AvW78zu97pmBT",
+    "7yBW7rPjkckA8G2iLhXwvs84hyHXQR5NfPiDhBgJevuS",
+    "3WGkijaPdQXKmGxth9ZvxfkkNeLt8xm6HY9hVEdWyxrU",
+    "32UDsZtsgx4NbowJB7GTVFFGNTGmFdoZtw2GQj6nRzFe",
+    "23uNUMXKQ2HMKHQssaGrMzADdjsshqMcQ91GysgiwgrG",
+    "2rc1EksAQC18nunLisN1CF5a8qDCcLr4BW6d6Ts1oesD",
+    "2KUxzMTaHJHugg44N14tquLfBuy6y7UWxvmgttrcX5ii",
+    "7HLUB2tuQoy6fDHWVeXGRcZEdu6MuTAaYWZSJs5abbSC",
+    "85bKHuXKyxSY7DZqrZwvrAEbk2fK3nbvwPjsxWuvKWVZ",
+    "3JWbVBU8SND2QBFbJRXfhfFLBgj6wPfBtZmZhmvfPPmY",
+    "6ZZRhLJaZLytkhwsJyK3P2N1jXfB1nrk6gDAQKubGKk3",
+    "B9kQ24HhfyUM4xp3sMLp3SBdzsdBsrrk1jBtzdZ7nWY6",
+    "BwAYSNVpw9gGhjqHoYD46jrrgVHCj3D7uVvVm6FGFkDo",
+    "ChmiWrb4hCY2M8Mcde71Wv3NgUmDNwVCTCH2sgpNggtU",
+    "2SwWcHUx1hpSUJ38CWynatWqZvLYyWq7dm7VwfaqvBmn",
+    "49hZzMjDB3XnLxnxq2vkgkZyXGNgQVNKvGsFMXYLxUbF",
+    "HzcUAftnFQdAfWyrxnVDo5mSZQ6WwiWQHXHDaLXbn1EA",
+    "69XGNAQ6NPukuRuyVy24ZE2XL2W1cD2RwkjXQwrjboJd",
+    "FGBoKuVR1ZpdN4yWWxnYH38wvkhFPiD1D8AEbNykDY5i",
+    "5Nx1DWt8bsMkFU3MNFDLRwE8fXxp3pUDKbRb3Wxs6SxK",
+    "BU4JoRA7q9TeJzdxf8FJ4TFKv62LRj3coDPfnWZWF6gi",
+    "8mpNSoSbgnqfUSQ4cBmqHEfhMmd1gPFuxQ4R4nSRH6mE",
+    "8VvphVAnWzHWa7P3Vbq9LSGoM48XaQFacvhbfTPCNWDj",
+    "B41mab89ygWCq1aqDhSUv8qgGjoejsML9p2Y3Bwm1oDH",
+    "FvFD4ri2a7nfHoxamTbtYQ2bYx8o3dBmzSnkswKg2KSF",
+    "DcvFQf42CXWCR2n8srUnAo2g3dcXAbkVaLMqdaLrF14P",
+    "68rAvHqf8mbyUDWutTM6b5yDwuCRJKH42J7jBUWg9AmT",
+    "HTxhrfzEZetiMf2nZGHREygAyDX4Acy32eiGsZBtvfeB",
+    "32Z88N88jZ21KPTorHSY9h6PSsAW4qguwZgGzkTBscbG",
+    "E4z4Vw8iLBVKDxkFp92yuttkTHHYWio8huGf1HSASYMv",
+    "DP96RDqLM75rqpebwMBq6F3ZmDBLAuojs94TDeLJL2kP",
+    "CVJGVCdFWThgZ5HW4yYNqbrDfVCrcC8STKh9q1ddbtSA",
+    "EPDgNSr34dMqCFi5J1LkBcqeFQanF3kyB4z2eNWFntbw",
+    "C4qWXHDncDkWif7kHZpDC5mYTCjCCUpY2MGv5fJMx73p",
+    "6v22u7nDFWQcsfBDmaD9eCYaxTutQQWcjyfyc6rmGbER",
+    "FmsgDJhSCjmgXX8ksoPepVJrqpYu63x8oSwZt5r3vrb8",
+    "SSiFpBFz3rJ5t83PYxoYFKD1BWmxKnWbpTgWLAyKqAL"
+  ],
+  "faucetGrantsRequested": 0,
+  "submittedSignedTransactions": 0,
+  "unchangedAdmissionLimits": true,
+  "checks": [
+    {
+      "name": "readonly RPC without Origin binds canonical TEST genesis",
+      "passed": true,
+      "observations": {
+        "status": 200,
+        "actualGenesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon"
+      }
+    },
+    {
+      "name": "CLI no-Origin network reads remain available",
+      "passed": true,
+      "observations": {
+        "status": 200,
+        "allowOrigin": null
+      }
+    },
+    {
+      "name": "unapproved Origin denied: https://unapproved.example.test",
+      "passed": true,
+      "observations": {
+        "status": 403,
+        "code": "ORIGIN_REJECTED",
+        "headers": {
+          "cache-control": "no-store"
+        }
+      }
+    },
+    {
+      "name": "unapproved Origin denied: null",
+      "passed": true,
+      "observations": {
+        "status": 403,
+        "code": "ORIGIN_REJECTED",
+        "headers": {
+          "cache-control": "no-store"
+        }
+      }
+    },
+    {
+      "name": "approved browser SDK preflight",
+      "passed": true,
+      "observations": {
+        "status": 204,
+        "headers": {
+          "access-control-allow-origin": "https://solana-classic-soc.vercel.app",
+          "access-control-allow-headers": "Content-Type, solana-client",
+          "access-control-allow-methods": "GET, POST, OPTIONS",
+          "cache-control": "no-store"
+        }
+      }
+    },
+    {
+      "name": "unsafe preflight method and headers are excluded",
+      "passed": true,
+      "observations": {
+        "status": 204,
+        "headers": {
+          "access-control-allow-origin": "https://solana-classic-soc.vercel.app",
+          "access-control-allow-headers": "Content-Type, solana-client",
+          "access-control-allow-methods": "GET, POST, OPTIONS",
+          "cache-control": "no-store"
+        }
+      },
+      "limitation": "The browser enforces the returned allowlist; HTTP preflight itself can return 204."
+    },
+    {
+      "name": "unknown browser preflight denied",
+      "passed": true,
+      "observations": {
+        "status": 403,
+        "code": null,
+        "headers": {
+          "cache-control": "no-store"
+        }
+      },
+      "limitation": "Denied OPTIONS responses may have no JSON error body; HTTP status and absent CORS allowance enforce rejection."
+    },
+    {
+      "name": "forbidden RPC rejected without Origin: requestAirdrop",
+      "passed": true,
+      "observations": {
+        "status": 400,
+        "code": "INVALID_INPUT"
+      }
+    },
+    {
+      "name": "forbidden RPC rejected without Origin: validatorExit",
+      "passed": true,
+      "observations": {
+        "status": 400,
+        "code": "INVALID_INPUT"
+      }
+    },
+    {
+      "name": "forbidden RPC rejected without Origin: setLogFilter",
+      "passed": true,
+      "observations": {
+        "status": 400,
+        "code": "INVALID_INPUT"
+      }
+    },
+    {
+      "name": "forbidden RPC rejected without Origin: getProgramAccounts",
+      "passed": true,
+      "observations": {
+        "status": 400,
+        "code": "INVALID_INPUT"
+      }
+    },
+    {
+      "name": "batch RPC rejected",
+      "passed": true,
+      "observations": {
+        "status": 400,
+        "code": "INVALID_INPUT"
+      }
+    },
+    {
+      "name": "caller-selected upstream URL rejected",
+      "passed": true,
+      "observations": {
+        "status": 400,
+        "code": "INVALID_INPUT"
+      }
+    },
+    {
+      "name": "caller-selected upstream property rejected",
+      "passed": true,
+      "observations": {
+        "status": 400,
+        "code": "INVALID_INPUT"
+      }
+    },
+    {
+      "name": "malformed JSON-RPC version rejected",
+      "passed": true,
+      "observations": {
+        "status": 400,
+        "code": "INVALID_INPUT"
+      }
+    },
+    {
+      "name": "overlong RPC identifier rejected",
+      "passed": true,
+      "observations": {
+        "status": 400,
+        "code": "INVALID_INPUT"
+      }
+    },
+    {
+      "name": "getMultipleAccounts malformed/oversize bound",
+      "passed": true,
+      "observations": {
+        "status": 400,
+        "code": "QUERY_BOUND"
+      }
+    },
+    {
+      "name": "getSignatureStatuses malformed/oversize bound",
+      "passed": true,
+      "observations": {
+        "status": 400,
+        "code": "QUERY_BOUND"
+      }
+    },
+    {
+      "name": "getMinimumBalanceForRentExemption malformed/oversize bound",
+      "passed": true,
+      "observations": {
+        "status": 400,
+        "code": "QUERY_BOUND"
+      }
+    },
+    {
+      "name": "simulateTransaction malformed/oversize bound",
+      "passed": true,
+      "observations": {
+        "status": 400,
+        "code": "INVALID_TRANSACTION"
+      }
+    },
+    {
+      "name": "sendTransaction malformed/oversize bound",
+      "passed": true,
+      "observations": {
+        "status": 413,
+        "code": "TRANSACTION_SIZE"
+      }
+    },
+    {
+      "name": "/api/rpc body bound",
+      "passed": true,
+      "observations": {
+        "status": 413,
+        "sentPaddingBytes": 32769,
+        "configuredLimit": 32768
+      }
+    },
+    {
+      "name": "/api/assets body bound",
+      "passed": true,
+      "observations": {
+        "status": 413,
+        "sentPaddingBytes": 4097,
+        "configuredLimit": 4096
+      }
+    },
+    {
+      "name": "invalid asset public key rejected",
+      "passed": true,
+      "observations": {
+        "status": 400,
+        "code": "INVALID_INPUT"
+      }
+    },
+    {
+      "name": "invalid faucet key rejected without grant",
+      "passed": true,
+      "observations": {
+        "status": 400,
+        "code": "INVALID_INPUT"
+      },
+      "limitation": "No valid faucet request was sent."
+    },
+    {
+      "name": "unapproved browser faucet rejected",
+      "passed": true,
+      "observations": {
+        "status": 403,
+        "code": "ORIGIN_REJECTED"
+      }
+    },
+    {
+      "name": "existing immutable asset registration is idempotent",
+      "passed": true,
+      "observations": {
+        "statuses": [
+          200,
+          200
+        ],
+        "mint": "GgdY5cj71GAW2VXKFd52hb2wsbfynr8y9LGo2oASyKt1",
+        "contentHash": "c2690b9eb93860aa5a5f64190301e77f33422a2011275cab1c24ec0c3dc99a5e",
+        "documentSha256": "9e646222c6a70163e91492d5224e8a4365752817c4c1562c6ee5d76e77aa01f4"
+      }
+    },
+    {
+      "name": "immutable artwork has bounded browser protections",
+      "passed": true,
+      "observations": {
+        "status": 200,
+        "headers": {
+          "cache-control": "public, max-age=31536000, immutable",
+          "content-security-policy": "default-src 'none'; style-src 'none'; sandbox",
+          "x-content-type-options": "nosniff"
+        },
+        "imageSha256": "c7dada5e9eb4d26567f1ba612a8c4a460b532191e51a7e6542c2650bdf5daf0b"
+      }
+    },
+    {
+      "name": "unknown finalized issuance receipt cannot enter gallery",
+      "passed": true,
+      "observations": {
+        "status": 409,
+        "code": "NOT_FINALIZED"
+      }
+    },
+    {
+      "name": "gallery rejects mismatched mint/asset identity",
+      "passed": true,
+      "observations": {
+        "status": 400,
+        "code": "ASSET_MISMATCH"
+      }
+    },
+    {
+      "name": "forged gallery attempts preserve existing issuance proof",
+      "passed": true,
+      "observations": {
+        "status": 200,
+        "mint": "GgdY5cj71GAW2VXKFd52hb2wsbfynr8y9LGo2oASyKt1",
+        "issuanceSignature": "V4QpEai71559r55v5V7Zi5A1deH2SVPsynv6MksapKCsszRCkZVnN6QsPRdzS5Qm8yuojnRSX7mj9ek6We7jKWU"
+      }
+    },
+    {
+      "name": "bounded asset admission returns 429 under unchanged limits",
+      "passed": true,
+      "observations": {
+        "configuredAssetsPerIpHour": 150,
+        "quotaHour": 497786,
+        "requests": 151,
+        "assetsCreated": 150,
+        "status": 429,
+        "code": "LIMIT_REACHED"
+      },
+      "limitation": "The public error does not reveal whether the IP or daily global asset bucket denied admission."
+    },
+    {
+      "name": "spoofed forwarded headers do not escape observed quota: 198.51.100.10",
+      "passed": true,
+      "observations": {
+        "status": 429,
+        "code": "LIMIT_REACHED"
+      },
+      "limitation": "Remote observation verifies denial continuity; client-IP counter identity is not exposed by the gateway."
+    },
+    {
+      "name": "spoofed forwarded headers do not escape observed quota: 203.0.113.5, 198.51.100.99",
+      "passed": true,
+      "observations": {
+        "status": 429,
+        "code": "LIMIT_REACHED"
+      },
+      "limitation": "Remote observation verifies denial continuity; client-IP counter identity is not exposed by the gateway."
+    },
+    {
+      "name": "runtime identity unchanged during remote negative controls",
+      "passed": true,
+      "observations": {
+        "before": {
+          "configured": true,
+          "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+          "engineBuild": {
+            "schemaVersion": 1,
+            "scope": "authenticated export of four public source-built binaries only; no ledger or key material",
+            "passed": true,
+            "runId": "40de48b7-6963-429b-ae3e-81a610d81b7d",
+            "archiveBytes": 67933801,
+            "archiveSha256": "1dd3a398821f029f4f1aa53a63b53eda3123b907ef4025f6ab964e35c60d48b4",
+            "binaries": {
+              "agave-validator": {
+                "sha256": "34e468747f1a0d69399b61fd40edc32ce4690ec5a200b5684474aa60a97a6910",
+                "bytes": 74406832,
+                "version": "agave-validator 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+              },
+              "solana-test-validator": {
+                "sha256": "3d3140bf93c9bc967220ffd8989d8b0267b723915d32203132ecc36d2c63a49a",
+                "bytes": 73661760,
+                "version": "solana-test-validator 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+              },
+              "solana": {
+                "sha256": "6a880f1c79ec0e0d7b3ee972eaa9ad8d75b503616e1f0c29efa587137a129dcd",
+                "bytes": 28209480,
+                "version": "solana-cli 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+              },
+              "solana-keygen": {
+                "sha256": "2f00a742ab0d99cad929e7a82b2d80f7c519cab9038ec45844fdbe9c305dea65",
+                "bytes": 2804464,
+                "version": "solana-keygen 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+              }
+            },
+            "upstreamCommit": "f516a8927c76c07f0ebc54ca7a4ce8b2046eee86",
+            "upstreamTree": "a4c75a1781d4ca56e7325a39d0614e1faa26030d",
+            "sourceRepositoryCommit": "39b9001cab84e637f2460f2387f2549f32b62ef9",
+            "workerSha256": "ac5937cba2a39336f847f2ce5443ed729146a07462c66074ff448c38d6e995ab",
+            "sourceManifestSha256": "337512bc1df2f382ccfab957347281b1c153353429b77d2695d65aafd29ec081",
+            "migrationId": "ae834e71-fb59-4beb-b26b-4485be3a386f",
+            "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+            "preparedAt": "2026-10-14T01:53:01.100713+00:00"
+          },
+          "sourceCommit": "119f25e225540be78b64b19bdb6cb300a1f47c10",
+          "coreSha256": "533950731d4ed6d94b59e71517613be002b6ec416b0ebb3a20a592fe5ec6f22f",
+          "apiBootId": "e6ec5d41-8238-48a0-b739-a81f9fea6adf",
+          "apiStartedAt": "2026-10-15T00:55:25.337Z",
+          "validatorBootId": "2c6a0f79-c6c3-43a4-aa5c-e542efb704d9",
+          "validatorStartedAt": "2026-10-15T00:55:03.665Z",
+          "deploymentId": "22e5870a-afb8-4027-89b5-ccb8a39391c2",
+          "agaveVersion": "3.0.14",
+          "tokenProgramVersion": "10.0.0",
+          "tokenProgramSha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+          "observedAt": "2026-10-15T02:14:47.362Z"
+        },
+        "after": {
+          "configured": true,
+          "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+          "engineBuild": {
+            "schemaVersion": 1,
+            "scope": "authenticated export of four public source-built binaries only; no ledger or key material",
+            "passed": true,
+            "runId": "40de48b7-6963-429b-ae3e-81a610d81b7d",
+            "archiveBytes": 67933801,
+            "archiveSha256": "1dd3a398821f029f4f1aa53a63b53eda3123b907ef4025f6ab964e35c60d48b4",
+            "binaries": {
+              "agave-validator": {
+                "sha256": "34e468747f1a0d69399b61fd40edc32ce4690ec5a200b5684474aa60a97a6910",
+                "bytes": 74406832,
+                "version": "agave-validator 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+              },
+              "solana-test-validator": {
+                "sha256": "3d3140bf93c9bc967220ffd8989d8b0267b723915d32203132ecc36d2c63a49a",
+                "bytes": 73661760,
+                "version": "solana-test-validator 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+              },
+              "solana": {
+                "sha256": "6a880f1c79ec0e0d7b3ee972eaa9ad8d75b503616e1f0c29efa587137a129dcd",
+                "bytes": 28209480,
+                "version": "solana-cli 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+              },
+              "solana-keygen": {
+                "sha256": "2f00a742ab0d99cad929e7a82b2d80f7c519cab9038ec45844fdbe9c305dea65",
+                "bytes": 2804464,
+                "version": "solana-keygen 3.0.14 (src:f516a892; feat:3604001754, client:Agave)"
+              }
+            },
+            "upstreamCommit": "f516a8927c76c07f0ebc54ca7a4ce8b2046eee86",
+            "upstreamTree": "a4c75a1781d4ca56e7325a39d0614e1faa26030d",
+            "sourceRepositoryCommit": "39b9001cab84e637f2460f2387f2549f32b62ef9",
+            "workerSha256": "ac5937cba2a39336f847f2ce5443ed729146a07462c66074ff448c38d6e995ab",
+            "sourceManifestSha256": "337512bc1df2f382ccfab957347281b1c153353429b77d2695d65aafd29ec081",
+            "migrationId": "ae834e71-fb59-4beb-b26b-4485be3a386f",
+            "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
+            "preparedAt": "2026-10-14T01:53:01.100713+00:00"
+          },
+          "sourceCommit": "119f25e225540be78b64b19bdb6cb300a1f47c10",
+          "coreSha256": "533950731d4ed6d94b59e71517613be002b6ec416b0ebb3a20a592fe5ec6f22f",
+          "apiBootId": "e6ec5d41-8238-48a0-b739-a81f9fea6adf",
+          "apiStartedAt": "2026-10-15T00:55:25.337Z",
+          "validatorBootId": "2c6a0f79-c6c3-43a4-aa5c-e542efb704d9",
+          "validatorStartedAt": "2026-10-15T00:55:03.665Z",
+          "deploymentId": "22e5870a-afb8-4027-89b5-ccb8a39391c2",
+          "agaveVersion": "3.0.14",
+          "tokenProgramVersion": "10.0.0",
+          "tokenProgramSha256": "a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68",
+          "observedAt": "2026-10-15T02:15:28.421Z"
+        }
+      }
+    },
+    {
+      "name": "remote remains online after bounded controls",
+      "passed": true,
+      "observations": {
+        "status": 200,
+        "network": {
+          "state": "online",
+          "slot": 362910,
+          "genesisMatches": true,
+          "lastProgressAt": "2026-10-15T02:15:28.636Z",
+          "message": "Experimental devnet is responding."
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "Wrong/public-genesis mutation denial, stopped-upstream behavior, upstream response-size/concurrency saturation and daily faucet/global/read quota exhaustion were not exercised against the live master.",
+    "These requests do not certify unrelated acceptance items. A missing complete frozen candidate prevents G6 binding.",
+    "Asset quota probes create immutable TEST metadata only and can exhaust this client admission window; no counter was reset."
+  ]
+}
