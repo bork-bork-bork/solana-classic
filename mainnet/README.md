@@ -98,6 +98,6 @@ and [scoped evidence](../evidence/mainnet-consensus-progress-local.json).
 
 The rehearsal observer also keeps reads on its three fixed local nodes: no
 redirects, environment proxies or global opener substitution. Eight actual
-loopback HTTP fixture tests bring the offline package to68 local checks.
+loopback HTTP fixture tests bring the offline package to 68 local checks.
 [Transport verification](../evidence/mainnet-rpc-boundary-local.json) remains
 separate from actual Agave consensus and host admission.

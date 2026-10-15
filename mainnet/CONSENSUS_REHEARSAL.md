@@ -145,7 +145,7 @@ Two actual local HTTP fixtures reproduced the previous redirect and environment
 proxy escapes before the fix. Eight new transport tests now cover direct POST
 reads on all three ports, every redirect status, proxy/global-opener isolation,
 HTTP/RPC envelope rejection, exact response-size boundaries and method/port
-admission. All68 offline package checks pass locally with resource warnings
+admission. All 68 offline package checks pass locally with resource warnings
 treated as errors. These are local synthetic HTTP servers, not Agave nodes,
 actual chain requests, host admission or consensus evidence. See
 [the scoped transport verification](../evidence/mainnet-rpc-boundary-local.json).

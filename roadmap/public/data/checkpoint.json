@@ -272,7 +272,7 @@
           {
             "title": "Validator voting, finality and RPC boundaries",
             "state": "local-passed",
-            "detail": "Proposed in PR #6, not yet merged. All68 offline mainnet package checks pass locally. Votes and roots must advance in all nine node views, stake stays fixed and earlier finalized blocks remain unchanged. Eight local HTTP test groups verify direct reads on the three selected ports, refusing redirects, proxy substitution, malformed responses and oversized bodies. These use synthetic HTTP fixtures and mocked validator processes. No actual full validators, genesis or chain requests. Suitable hosting and genuine consensus/recovery remain required.",
+            "detail": "Proposed in PR #6, not yet merged. All 68 offline mainnet package checks pass locally. Votes and roots must advance in all nine node views, stake stays fixed and earlier finalized blocks remain unchanged. Eight local HTTP test groups verify direct reads on the three selected ports, refusing redirects, proxy substitution, malformed responses and oversized bodies. These use synthetic HTTP fixtures and mocked validator processes. No actual full validators, genesis or chain requests. Suitable hosting and genuine consensus/recovery remain required.",
             "evidence": "https://github.com/solana-classic/solana-classic/pull/6"
           },
           {
