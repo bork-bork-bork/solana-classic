@@ -223,7 +223,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-15T08:26:46.585759+00:00",
+    "reviewedAt": "2026-10-15T11:30:28.580935+00:00",
     "scope": "Development checkpoint only; separate from the live devnet release",
     "projects": [
       {
@@ -416,6 +416,12 @@
             "state": "rehearsal-passed",
             "detail": "6 actual checks on two new private ledger copies. Six buffer setup transactions, one deliberate incompatible native code replacement and one new source lock. The original claim was still unexpired when old code pins rejected handoff; zero settlement broadcasts, attempts0 and unchanged journal/economics. Both copies stopped and originals unchanged. No compatible upgrade, origin-side replacement, fork or production acceptance.",
             "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/bridge-code-replacement-agave.json"
+          },
+          {
+            "title": "Immutable metadata mint and escrow admission",
+            "state": "rehearsal-passed",
+            "detail": "Proposed in PR #6, not yet merged. Seven actual checks on a fresh private Agave origin plus four local worker guards and 62 offline checks. Four valueless fixture transactions; immutable metadata mint, bridge escrow and one source lock finalized. Complete code pins and exact escrow/counter verified; default policy and wrong inputs reject. 65 observer reads, zero settlement broadcasts, private validator stopped. Metadata settlement and independent security review remain pending.",
+            "evidence": "https://github.com/solana-classic/solana-classic/pull/6"
           },
           {
             "title": "Bootstrap reconciliation, custody and recovery",

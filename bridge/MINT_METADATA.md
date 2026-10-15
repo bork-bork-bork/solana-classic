@@ -62,7 +62,28 @@ are in [the inspection record](../evidence/bridge-metadata-inspection.json).
 This is one selected RPC observation, not independent consensus verification.
 
 Before settlement admission: review this explicit observation policy, update
-claim/redemption admission consistently, exercise actual valueless
-metadata-bearing mint/escrow layouts, retain negative controls and obtain
-independent security review. The earlier plain-mint ledger result does not
-verify this metadata option. Issue2remains open for that wider work.
+claim/redemption admission consistently, exercise both directions with actual
+valueless metadata tokens, retain negative controls and obtain independent
+security review. The earlier plain-mint ledger result does not verify this
+metadata option. Issue2remains open for that wider work.
+
+## Fresh private Agave origin
+
+Seven actual checks now pass on one fresh source-built Agave3.0.14 ledger.
+Four valueless fixture transactions create an immutable metadata mint, initialize
+its bridge escrow, enable source locks and finalize one source lock. Settlement
+stays paused. The observer verifies the actual metadata layout, exact supply,
+escrow/counter equality and full bridge/Token-2022 code pins. The default plain
+policy, wrong supply/precision and wrong complete token-code pin reject.
+
+The observer makes65 read-only RPC requests. A fresh observation retains exact
+asset bytes after the negative checks. The private validator stops with SIGINT;
+no existing ledger is copied or opened and no settlement is broadcast. Four
+local admission guards cover worker identity, isolated startup, public-chain
+refusal and retaining an already-reserved attempt. Source hashes and exact
+scope are in [the private-origin result](../evidence/bridge-metadata-origin-agave.json).
+
+This is one synthetic origin and a read-only observer result. It does not
+verify metadata settlement, a two-chain round trip, recovery, full-validator
+consensus, funded backing or independent custody/security review. The private
+fixture and its source obligation remain retained; never replay or reset it.

@@ -45,8 +45,9 @@ This is a deliberately narrow observation boundary. The on-chain prototype
 permits selected metadata and immutable-owner extensions; the observer refuses
 all extensions except the explicitly selected immutable mint metadata pair.
 The claim journal continues to reject extended mints. The new option has local
-synthetic-response coverage; actual metadata-bearing private ledger verification
-and independent review remain pending.
+synthetic-response coverage and a separate fresh private Agave origin result
+linked in MINT_METADATA.md. Settlement admission and independent review remain
+pending.
 The original module checks only the Token-2022 owner address. The separate
 [`observeTokenPinnedOriginAssets` wrapper](TOKEN_CODE.md) additionally requires
 selected token ELF, complete ProgramData and authority pins before and after
