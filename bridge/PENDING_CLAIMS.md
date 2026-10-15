@@ -276,3 +276,41 @@ checkpoints; no checkpoint was lowered. Preserve both attempt roots. This
 known-finalized functional round trip does not test an actual code upgrade,
 new crash/fork, physical power loss or production custody. Complete funded
 backing, independent operators/verifiers and security review remain open.
+
+
+## Isolated authority-change admission rehearsal
+
+`rehearsal/authority-change.mjs` and
+`../engine/rehearsal/authority_change.py` prepare a separate, fresh copy of the
+stopped V2 synthetic ledgers. They preserve the original ledgers and journals.
+The runner admits the retained finalized checkpoints and exact historical
+programme pins before creating one new source lock with unused nonce10.
+
+A version2 native-claim journal is prepared before either authority changes.
+The native programme authority is then changed with Loader-v3's checked
+instruction, signed by both old and new fixture authorities. The same process
+is repeated for the source programme. Each change must finalize and alter only
+the authority bytes in ProgramData: the executable and its remaining bytes
+must stay identical. The old reviewed pins must refuse observation and claim
+handoff, while the prepared journal, receipt absence, escrow, counters, reserve
+and bootstrap record remain unchanged. No settlement is broadcast. The pending
+source-lock liability remains recorded rather than being refunded or erased.
+
+This runner does not rotate production authorities, upgrade programme code,
+retry a retained event, or approve new pins after a change. Fixture authority
+keys stay on the private worker. Both copied validators must stop and original
+cold inventories, fixture and finalized journal hashes must still match before
+exporting a passed result. Execution results are recorded separately; source
+and local guards alone do not establish an actual authority-change result.
+
+
+Seven actual private-ledger checks now pass. Both checked authority rotations
+finalized, and each blocked the original prepared claim without changing its
+journal or bridge economics. There was one new synthetic source lock, two
+authority-change broadcasts and zero settlement broadcasts. Both copied
+validators stopped; original ledger, fixture and finalized journal hashes
+match. The10000-origin-unit pending liability is retained. See
+[the actual result](../evidence/bridge-authority-change-agave.json).
+This adds actual authority-change coverage to the earlier wrong-expected-pin
+tests. Programme-code upgrades, competing forks, independent operators,
+production custody and complete funded backing remain separate requirements.

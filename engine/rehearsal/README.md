@@ -291,3 +291,21 @@ the earlier SIGKILL, fork, physical power-loss or economic-backing acceptance.
 Independent custody/upgrade/signing controls and funded complete genesis
 backing remain required. Preserve every attempt root after completion, stop
 all copied processes and verify original ledger/input/journal hashes.
+
+
+## Actual programme authority changes
+
+`authority_change.py` and `bridge/rehearsal/authority-change.mjs` now pass seven
+actual checks using fresh cold copies of the stopped positive nonce7 baseline.
+Unused source nonce10 creates one synthetic lock, then a version2 claim remains
+prepared while checked authority rotations finalize on both copied programmes.
+Both rotations must change only authority bytes; the old pinned observer and
+journal handoff reject, with no signed claim bytes released and no settlement
+broadcast. Pending liability remains10000original units. The source lock and
+two authority transactions are private-fixture mutations, not mainnet actions.
+
+Both copy processes stop and original ledger/input/journal hashes match. Three
+worker guards and30 related observer/journal regressions pass. Preserve this
+new attempt and its prepared journal; never rerun, refund or reset it. Programme
+code stayed identical, so this is not actual code-upgrade acceptance. See
+`evidence/bridge-authority-change-agave.json` for source hashes and scope.

@@ -1,0 +1,215 @@
+{
+  "schemaVersion": 1,
+  "scope": "Actual checked upgrade-authority changes on NEW private copied Agave ledgers; pending native-claim handoff refusal, no programme-code upgrade or settlement broadcast",
+  "state": "passed",
+  "startedAt": "2026-10-15T04:15:36.654Z",
+  "checks": [
+    "Both fresh copies match reviewed historical code, authority, policy and retained finalized checkpoints",
+    "One new source lock finalized; original signed native claim remains PREPARED with zero handoff attempts and exact pending liability",
+    "Side1 checked authority rotation finalized; exact byte comparison proves unchanged ELF and changed authority; old reviewed pin rejects",
+    "Side1 actual authority change prevents original claim handoff with unchanged journal, absent receipt and unchanged bridge economics",
+    "Side0 checked authority rotation finalized; exact byte comparison proves unchanged ELF and changed authority; old reviewed pin rejects",
+    "Side0 actual authority change prevents original claim handoff with unchanged journal, absent receipt and unchanged bridge economics",
+    "Both copy processes stopped; original ledgers, fixture and finalized journal hashes unchanged"
+  ],
+  "genesi": [
+    "J8LsGtrVHe95w5Yxv3wR2Ux9uNWyDG3svK8LonczuuNh",
+    "EWjA6VWd5uw1XP9fZXBnxAd2doRFf6KQke2RUwj14QE2"
+  ],
+  "sourceBroadcasts": 1,
+  "authorityBroadcasts": 2,
+  "claimBroadcasts": 0,
+  "negativeHandoffs": 2,
+  "authorityChanges": [
+    {
+      "side": 1,
+      "signature": "4xXfjETz6KWaos5hXvtJMgupk5K7bzary22muer2qUWBhAjwGc12k5sZVE8rgrRc4nRsFJ9xGRgCLTnaWMrBYFx8",
+      "finalizedContextSlot": 843,
+      "oldAuthority": "DkFYo99FDvGtbQ3MD7T8d5iLohtMWJmy57YeZHjxDRZr",
+      "newAuthority": "HKuFXmsaqH1kxm228UvpNLeqSqcbAFxG69g2TY8dooyK",
+      "oldProgramDataSHA256": "5c47a1345a4c75bb827d509c744a3a6379e2d41db17979ca28ac4c9e480f6dd3",
+      "newProgramDataSHA256": "72cde498ca578ac5df4581fc47feafeb77497a269afe129a23e062559352fe23",
+      "elfUnchanged": true,
+      "journalUnchanged": true,
+      "attempts": 0,
+      "receiptAbsent": true
+    },
+    {
+      "side": 0,
+      "signature": "4oCiKSX7oSGDcdp4f1mWuyXC8W8YQEWF3YcVN5MCbPqJ5A4YWJ61NAH5ofp1gSu3MvZJgw68P46TcxU6LDhBZz9P",
+      "finalizedContextSlot": 1083,
+      "oldAuthority": "DkFYo99FDvGtbQ3MD7T8d5iLohtMWJmy57YeZHjxDRZr",
+      "newAuthority": "HKuFXmsaqH1kxm228UvpNLeqSqcbAFxG69g2TY8dooyK",
+      "oldProgramDataSHA256": "fed65001c89dcf9fda8edcdeda0f564fdb5cbbef4df5e64bc6e487b0c0f9bfab",
+      "newProgramDataSHA256": "de6e187586be1f3eaf177cc02826f17bae2608a8a414e6fab0b4188cb5533923",
+      "elfUnchanged": true,
+      "journalUnchanged": true,
+      "attempts": 0,
+      "receiptAbsent": true
+    }
+  ],
+  "globalBacking": {
+    "completeInventoryVerified": false,
+    "actualGenesisBackingVerified": false,
+    "hypotheticalNativeBudgetUnits": "2000000000",
+    "observedNativeGlobalSupplyUnitsAtStart": "503000511071959133",
+    "budgetMatchesObservedGlobalSupply": false,
+    "note": "Synthetic 2-row accounting projection intentionally does not cover the complete test-validator supply. Cannot pass B3 or any monetary-release gate."
+  },
+  "productionReady": false,
+  "canonicalNetworkChanged": false,
+  "independentOperatorsVerified": false,
+  "initial": {
+    "originOutstandingUnits": "1950000",
+    "nativeOutstandingUnits": "1950000",
+    "originEscrowUnits": "1950000",
+    "originUserUnits": "50000",
+    "reserveNativeUnits": "52000000",
+    "protectedFloorNativeUnits": "2000000",
+    "bootstrapRecordSHA256": "cba73a439ce5cbfaa48ce7317ed7b1465b83022993afbf27a0ea9b3e06054327"
+  },
+  "final": {
+    "originOutstandingUnits": "1960000",
+    "nativeOutstandingUnits": "1950000",
+    "originEscrowUnits": "1960000",
+    "originUserUnits": "40000",
+    "reserveNativeUnits": "52000000",
+    "protectedFloorNativeUnits": "2000000",
+    "bootstrapRecordSHA256": "cba73a439ce5cbfaa48ce7317ed7b1465b83022993afbf27a0ea9b3e06054327"
+  },
+  "pendingLiabilityUnits": "10000",
+  "operation": {
+    "id": "BubCNfZJQJ8cTyCzQDi3QttbvU4miq2xjnz15c2TtDnY",
+    "signature": "2y5Mo3m8g3ZdZiD3E6uzKUpkzTukqmpxW2ZSjm9sb34jurdcZpCxsKoSfXYqU7TTtzZvq3Gz4c3jhuB3JfpvJz8W",
+    "eventHash": "20ed9e4bf1e3005045fc1e006537e9c8481c741a3a90266ec7ea9b99f5b9864f",
+    "transactionHash": "811f015c4bd5cba34ca0eaf370a65daebcd5db36ede98f6321f0bf3bb643325d",
+    "state": "PREPARED",
+    "attempts": 0,
+    "productionReady": false,
+    "schemaVersion": 2,
+    "scope": "isolated-native-claim",
+    "journalHash": "6684d13fdea023dc3a3ce60c800ffb79653c49d3238ba97a6588acccae41ffa7",
+    "sourceChain": "J8LsGtrVHe95w5Yxv3wR2Ux9uNWyDG3svK8LonczuuNh",
+    "destinationChain": "EWjA6VWd5uw1XP9fZXBnxAd2doRFf6KQke2RUwj14QE2",
+    "sourceProgram": "AkhzSc1JHmF8ELCZkoeCWtcUv51J18AvbBRQNjFWK2g2",
+    "destinationProgram": "8uajXCr14fhbmCYW1EbLJtURtFBBrU4zXDgHu3gXBME2",
+    "sourceEvent": "FX7UoN3PBR7vdfsotoUSLV2Yi1SaD5fL8dvuB67v7Z9o",
+    "recipient": "7B6UwQD7B2jtqecdsSpyN6iq9zM8d8eiAeJXCaWjWFiw",
+    "nonce": "10",
+    "epoch": "1",
+    "originAmount": "10000",
+    "nativeAmount": "10000000",
+    "originDecimals": 6,
+    "originMint": "3gxnbecjqmYAytS2AjJTyLtPYNuz2H9GSc8Fs7m8NJBF",
+    "destinationToken": null,
+    "sourceContextSlot": 1019,
+    "minimumDestinationSlot": 810,
+    "lastValidBlockHeight": 956,
+    "instructionHash": "9539545e45b0cce5de98cb0b2fba8a07ecb9fb59062474e6500722ed00d75254",
+    "inspectionOnly": true,
+    "programmePinsHash": "102becc7ca50f97db4c988bee27685b07fc5255d5cb5ee6917f8b9766d11ab41"
+  },
+  "operationJournalSHA256": "6684d13fdea023dc3a3ce60c800ffb79653c49d3238ba97a6588acccae41ffa7",
+  "completedAt": "2026-10-15T04:16:15.458Z",
+  "processes": {
+    "scope": "New private copies for authority-change refusal",
+    "state": "passed",
+    "starts": [
+      {
+        "side": 0,
+        "genesisMatches": true,
+        "originalLedgerPathsOpened": false,
+        "retainedMinimumFinalizedSlot": 960,
+        "finalizedSlotAtReadiness": 964
+      },
+      {
+        "side": 1,
+        "genesisMatches": true,
+        "originalLedgerPathsOpened": false,
+        "retainedMinimumFinalizedSlot": 772,
+        "finalizedSlotAtReadiness": 776
+      }
+    ],
+    "stops": [
+      {
+        "side": 0,
+        "signal": "SIGINT",
+        "returnCode": -2,
+        "applicationGracefulFlushVerified": false
+      },
+      {
+        "side": 1,
+        "signal": "SIGINT",
+        "returnCode": -2,
+        "applicationGracefulFlushVerified": false
+      }
+    ],
+    "canonicalNetworkChanged": false,
+    "productionReady": false,
+    "originalColdInventory": [
+      {
+        "sha256": "f12227059352b49203c51d16733985173997c3db837c72262cfab44ba265da3e",
+        "entries": 100,
+        "links": 2
+      },
+      {
+        "sha256": "50b97592108f440ab00c9a56b10284b4ced565ff43763684ae5256e3e305d54c",
+        "entries": 103,
+        "links": 2
+      }
+    ],
+    "originalFixtureSHA256": "5f27a9d2ec9781b2e6825e666bdf86d3896e2bbe6cba55b7cbc1a59aabd97a67",
+    "originalJournalSHA256": "166cc2b415f605071cd5a0f64a2871a64e23f8cb51742ab12032d1220ad0dccc",
+    "allStopped": true
+  },
+  "sourceBinarySHA256": "3d3140bf93c9bc967220ffd8989d8b0267b723915d32203132ecc36d2c63a49a",
+  "uploadedSourceHashes": {
+    "authority-change.mjs": "36b7cba9ab67825c75a778420a92892863a6f1b785f2ad835a608e24bdfbac23",
+    "authority_change.py": "e043f5b2b9e8f5d3805995feb63737836e702157544e2bbd09273568f356fa53",
+    "program-pins.mjs": "1f72a2007be0d4ebd6b1a3080dc2ad93224177e49ae32e0513beb2e163256d42",
+    "claim-pin-policy.mjs": "9ee31bcd58218860fcb5660624531e22c7038d29b34f8bd22590d72c70bb8893",
+    "pending-claim.mjs": "5a7ffcc1d0ce86ca7eddce9e0227f632e07f42f0f0d4a3d65b27cfc186ed4b26",
+    "lossless-native-rpc.mjs": "5ebed7db063afd9178925eab883a4955dd15ad878bbdad19878ab75225f3398b",
+    "sdk.mjs": "e603242692bedc2457ec9dd3cb144122ca1adb7341506d244ec864943bd8c988",
+    "bootstrap_driver.py": "200a81128b1dc697b32365ac939d7eef27c6e8b4cf3d48aa51faed4a65164a5c",
+    "cold_copy.py": "42bef261f9f273a1f525b515eabfcda61b8d6a1cbb62fd637ebbdd0f23a95b6d",
+    "reviewed-pins-public.json": "508b789e263f67ef371cdc138a927b1dcf36e410e4d6dfb55d40f34e2e509086"
+  },
+  "originalLedgersUnchanged": true,
+  "originalFixtureUnchanged": true,
+  "originalJournalUnchanged": true,
+  "originalJournalSHA256": "166cc2b415f605071cd5a0f64a2871a64e23f8cb51742ab12032d1220ad0dccc",
+  "originalColdInventory": [
+    {
+      "sha256": "f12227059352b49203c51d16733985173997c3db837c72262cfab44ba265da3e",
+      "entries": 100,
+      "links": 2
+    },
+    {
+      "sha256": "50b97592108f440ab00c9a56b10284b4ced565ff43763684ae5256e3e305d54c",
+      "entries": 103,
+      "links": 2
+    }
+  ],
+  "processOpenPathCheckScope": "Readiness fd/maps samples; not continuous host auditing",
+  "localChecks": {
+    "pinnedJournalAndProgrammeObserver": 30,
+    "workerGuards": 3,
+    "passed": true
+  },
+  "coreFreeze": {
+    "files": 45,
+    "allMatch": true
+  },
+  "bridgeSBF_SHA256": "556adf3132c6d102458c0c3b13e22457401bd748b6c3a37a422fb7a339a68e53",
+  "actualAuthorityChangeVerified": true,
+  "programmeCodeUpgradeVerified": false,
+  "coverageLimits": [
+    "Actual checked authority rotations on private copied chains, not programme-code upgrades, competing forks, crashes or production custody",
+    "One new synthetic source lock remains pending with zero claim handoffs/broadcasts; no refund, retry or counter reset",
+    "Pinned observations cannot prove historical execution or prevent an upgrade after a later observation",
+    "Local fixture authorities on one worker do not establish independent operators or signing custody",
+    "Complete genesis backing remains hypothetical/unfunded; full validators, real mint/backing, custody and external security review remain gates",
+    "Original ledgers, existing journals, earlier attempts and expired nonce6 remain preserved; raw keys/signed bytes/logs stay private"
+  ]
+}

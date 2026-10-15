@@ -468,3 +468,19 @@ six copy guards pass. See `evidence/bridge-pinned-journal-agave.json`.
 This is functional known-finalized integration, not a new crash/fork, actual
 upgrade, production custody or funded-mainnet proof. All previous private
 branches, including expired nonce6, remain preserved and separate.
+
+
+## Actual authority changes before claim handoff
+
+Seven checks pass on new private copied Agave ledgers. After preparing a pinned
+native claim, checked Loader-v3 authority changes finalize on the destination
+and source programmes. Each changed account fails the original reviewed pin,
+and the claim cannot leave its prepared journal. Exact byte comparison confirms
+only the authority changed; programme code did not. Zero claim handoffs or
+settlement broadcasts occurred, and the10000-unit pending source obligation
+remains intact. Both copied validators stopped; original baseline and journal
+hashes match. See `evidence/bridge-authority-change-agave.json`.
+
+This is an actual authority-change guard, not a code-upgrade, fork, crash,
+independent custody or production signer result. It does not resolve the
+separate expired nonce6 operation or change the running devnet candidate.
