@@ -6,6 +6,18 @@ ANCHOR='5350bccc0ee5c7784cabc92a2b232ab2ac49934b'
 DENIED=set(['49f9ff608bcf6755bda53f53353acde2a86e33414b9d6b889bfb35e75f2e7272', '2d49908cf2b1d0ace81d4a843013f71defa2f1caaa8493f436fd95d0f4c3b812', '0917d1c7194bba1a99e39f945f234712e1709a71d90a1bee35298ecfdd3dfae0', 'fa0ead27b3c29122746873b741ab94b2792e11433ca2bd12e3b021d34f47ad98', '2ec716e4dc4329cdd25b5714267892d55d4c035f82418b32226be31278cbef79', 'e1797dc1e30ad7954859380cb8cc30e58572efb8739c604c01b46535eba4abdd', 'cf50252908e527ebc5cacf537c3a4495a0c0ce5e1f0ec383b18290642cc8afaa'])
 def git(*args):
  return subprocess.check_output(['git',*args],stderr=subprocess.DEVNULL)
+_TERMS=None
+def local_terms():
+ """Extra denied words kept only on the maintainer's machine in .tools/privacy-terms.txt (never committed)."""
+ global _TERMS
+ if _TERMS is None:
+  _TERMS=[]
+  try:
+   root=git('rev-parse','--show-toplevel').decode().strip()
+   with open(os.path.join(root,'.tools','privacy-terms.txt'),encoding='utf-8') as f:
+    _TERMS=[l.strip() for l in f if l.strip() and not l.startswith('#')]
+  except (OSError,subprocess.CalledProcessError):pass
+ return _TERMS
 def scan(data):
  if b'\0' in data:return
  text=data.decode('utf-8','replace')
@@ -14,6 +26,8 @@ def scan(data):
  if re.search(r'(?i)'+ 'Mac'+'Book'+r'[^\s]*\.'+'local'+r'|BEGIN (?:[A-Z ]+)?PRIVATE KEY',text):raise ValueError('Machine identity or private key')
  for token in re.findall(r'[A-Za-z0-9]+(?:[-_.][A-Za-z0-9]+)*',text):
   if hashlib.sha256(token.casefold().encode()).hexdigest() in DENIED:raise ValueError('Protected personal identifier')
+ for term in local_terms():
+  if re.search(r'(?i)(?<![A-Za-z0-9])'+re.escape(term)+r'(?![A-Za-z0-9])',text):raise ValueError('Protected term from the local deny list')
  if re.search(r'(?i)secretKey\s*[:=]\s*\[[0-9,\s]{100,}\]',text):raise ValueError('Literal private-key array')
  try:v=json.loads(text)
  except (ValueError,TypeError):return
