@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "reviewedAt": "2026-10-15T02:32:45.640360+00:00",
+  "reviewedAt": "2026-10-15T04:00:55.044275+00:00",
   "t0": "2026-10-13T03:00:54Z",
   "deadline": "2026-10-19T03:00:54Z",
   "target": "2026-10-17T15:00:54Z",
@@ -75,9 +75,10 @@
       "sha256": "9d22fbf4b9890be4051dbfac955b27fd2878d88b50b75c49592bb5ad9a4a34fd"
     },
     "backup-check": {
-      "passed": false,
-      "at": "2026-10-15T02:32:45.640196+00:00",
-      "scope": "Current source-built devnet isolated cold-backup restore is in preparation. The previous runtime restore remains historical and does not admit this stability run."
+      "passed": true,
+      "at": "2026-10-15T03:56:53.579788+00:00",
+      "scope": "remote exact-current-candidate isolated cold-backup restore; complete bank, all application hashes, HTTPS asset verification and original finalized receipt replay",
+      "sha256": "be5633983d7c597c408a3e687f468b5a654a7e825b1f4421a696077e48734561"
     },
     "restart-check": {
       "passed": true,
@@ -172,7 +173,7 @@
     "Native mainnet",
     "1:1 bridge"
   ],
-  "soakStartedAt": null,
+  "soakStartedAt": "2026-10-15T03:59:33.330Z",
   "engineBuild": {
     "runId": "40de48b7-6963-429b-ae3e-81a610d81b7d",
     "sourceManifestSha256": "337512bc1df2f382ccfab957347281b1c153353429b77d2695d65aafd29ec081",
@@ -613,7 +614,7 @@
   "migrationMaintenance": {
     "authorizedAt": "2026-10-14T21:40:39.917980+00:00",
     "state": "source-live-validation",
-    "detail": "Source-built Agave is live. Complete migration continuity and a controlled source-runtime restart passed. Post-restart load, browser pilots and fresh stability prerequisites are being verified; the new 24-hour run has not started.",
+    "detail": "Source-built Agave is live. All eight current-candidate prerequisites passed. A fresh full24h stability test is running; its actual first mint, transfer and ownership journey passed. Completion and release acceptance remain pending.",
     "deploymentId": "22e5870a-afb8-4027-89b5-ccb8a39391c2",
     "imageDigest": "sha256:f48877aec5c7e2ec010470f148368810034dece2f8ffd05d2f882928df649264",
     "writesOpened": true,
@@ -621,7 +622,7 @@
     "reviewedAt": "2026-10-15T00:43:11.600614+00:00"
   },
   "stabilityTransition": {
-    "state": "preparing",
+    "state": "running",
     "previousRun": {
       "freezeSha256": "de996a8ca58a9d12cf2b264ab86d4e6eab6a3230a779d250402918b288309b82",
       "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
