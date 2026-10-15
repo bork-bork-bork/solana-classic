@@ -103,3 +103,14 @@ withdrawal and exact token movement after copied-origin process kill before
 observed finality. Both review admissions stay intact and retry refuses.
 [The scoped result](../evidence/bridge-metadata-redemption-crash-agave.json) keeps
 expiry, competing forks and production acceptance unverified.
+
+
+A separate actual-height test now passes8 checks for a deliberately unsubmitted
+version3 metadata native claim. Original signed expiry passes at real finalized
+block height; all three handoff APIs refuse before and after reconciliation to
+`EXPIRED_UNRESOLVED`. Zero claim handoffs or broadcasts; source liability remains
+without payout or refund. Both fresh copies stop, originals stay unchanged and
+five guards pass locally and on Linux. This does not establish unknown-landing,
+redemption-expiry, pruning or competing-fork recovery. See
+[the aggregate expiry result](../evidence/bridge-metadata-unsubmitted-expiry-agave.json)
+and [journal scope](PENDING_CLAIMS.md).

@@ -510,3 +510,31 @@ forks, physical host loss, independent verification, complete funded genesis
 backing and production custody/security remain open. No private fixture identity,
 signature, policy, balance, key or raw ledger is included in the public record.
 Never replay or reset either retained fault attempt.
+
+
+## Actual-height expiry without submission
+
+`rehearsal/metadata-unsubmitted-expiry.mjs` and
+`../engine/rehearsal/metadata_unsubmitted_expiry.py` use new cold copies of the
+completed metadata original-redemption fixture. An unused source lock finalizes,
+then a fully signed version3 native claim is prepared without a handoff or
+submission. The harness waits for actual destination finalized block height to
+exceed the original signed transaction's last-valid height. It does not change
+expiry, advance a clock, warp the ledger or fetch a replacement blockhash.
+
+Eight actual checks pass. The prepared journal stays byte-identical until
+reconciliation; all three handoff APIs refuse it after expiry. Reconciliation
+retains `EXPIRED_UNRESOLVED` with conservative attempts1, unchanged signed bytes
+and original expiry. No programme or mint handoff admission is fabricated.
+All three APIs refuse again. No claim signature, transaction or receipt lands;
+source escrow and its obligation remain, with no recipient payout, retry,
+replacement or refund. Both copied validators stop; complete original ledgers
+and finalized private records stay unchanged. Five admission guards pass locally
+and on Linux. See [the aggregate expiry result](../evidence/bridge-metadata-unsubmitted-expiry-agave.json).
+
+This is deliberately unsubmitted native-claim expiry, with zero claim handoffs
+or broadcasts. It does not verify unknown landing, original-redemption expiry,
+pruned history, competing forks or a recovery/refund procedure. The unresolved
+source liability must remain retained for review. Earlier process-fault results
+keep their original scope. Production backing, custody and independent security
+verification are still required.

@@ -30,6 +30,9 @@ on:
       - 'engine/rehearsal/metadata_pending_crash*'
       - 'bridge/rehearsal/metadata-redemption-crash.mjs'
       - 'engine/rehearsal/metadata_redemption_crash*'
+      - 'bridge/rehearsal/metadata-unsubmitted-expiry.mjs'
+      - 'engine/rehearsal/metadata_unsubmitted_expiry*'
+      - 'evidence/bridge-metadata-unsubmitted-expiry-agave.json'
       - 'engine/rehearsal/cold_copy_test.py'
       - 'engine/rehearsal/metadata_origin*'
       - 'engine/rehearsal/bootstrap.py'
@@ -65,3 +68,5 @@ jobs:
         run: python3 engine/rehearsal/cold_copy_test.py
       - name: Metadata original-redemption pending-fault guards
         run: python3 engine/rehearsal/metadata_redemption_crash_test.py
+      - name: Metadata actual-height unsubmitted-expiry guards
+        run: python3 engine/rehearsal/metadata_unsubmitted_expiry_test.py
