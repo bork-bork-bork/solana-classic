@@ -86,6 +86,13 @@ genesis bytes and oversized or concatenated compressed streams. Each fresh
 ledger receives those verified initial blocks with owner-only permissions.
 The executable is rechecked before each start.
 
+Bundle inspection uses bounded stdout, a 64 KiB private stderr ceiling and
+owned process-group cleanup on timeout, failure or cancellation. The genesis
+auditor has a 20-second budget and 4 MiB stdout ceiling; each identity lookup
+has 10 seconds and 128 bytes. Executable hashes and sizes are checked immediately
+before each invocation. Check-only inspection discards private stderr in memory
+and creates no log files. These limits do not replace host or bundle admission.
+
 ## What is checked
 
 Agave's normal network, PoH speed and host checks stay enabled. There is no

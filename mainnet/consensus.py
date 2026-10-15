@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Explicit fresh private three-validator rehearsal; never a mainnet launcher."""
 from pathlib import Path
-import argparse,hashlib,http.client,importlib.util,json,os,re,signal,socket,stat,subprocess,time,urllib.error,urllib.request
+import argparse,hashlib,http.client,importlib.util,io,json,os,re,signal,socket,stat,subprocess,time,urllib.error,urllib.request
 _archive_spec=importlib.util.spec_from_file_location('genesis_archive',Path(__file__).with_name('genesis_archive.py'));genesis_archive=importlib.util.module_from_spec(_archive_spec);_archive_spec.loader.exec_module(genesis_archive)
 _spec=importlib.util.spec_from_file_location('host_preflight',Path(__file__).with_name('host-preflight.py'));host=importlib.util.module_from_spec(_spec);_spec.loader.exec_module(host)
+_process_spec=importlib.util.spec_from_file_location('offline_process',Path(__file__).with_name('offline_process.py'));offline_process=importlib.util.module_from_spec(_process_spec);_process_spec.loader.exec_module(offline_process)
 BASE=Path('/data/mainnet-consensus-v2')
 FORBIDDEN={'7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon','5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d','EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG','4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY'}
 SOURCE='f516a8927c76c07f0ebc54ca7a4ce8b2046eee86'
@@ -84,6 +85,13 @@ def regular(p):
  if p.is_symlink() or not p.is_file():raise ValueError('REGULAR_PRIVATE_BUNDLE_FILE_REQUIRED')
  return p
 
+def inspect_tool(binary,args,pin,size,timeout,stdout_limit):
+ # Recheck the selected bytes immediately before each read-only invocation.
+ if host.sha(regular(binary))!=pin or binary.stat().st_size!=size:raise ValueError('REVIEWED_INSPECTION_TOOL_REQUIRED')
+ # Check-only admission must not create logs. Discard bounded private stderr.
+ with io.BytesIO() as errors:
+  return offline_process.run_tool([str(binary),*map(str,args)],errors,timeout=timeout,stdout_limit=stdout_limit,stderr_limit=65536)
+
 def check_bundle(bundle,binaries):
  bundle=bundle.resolve(strict=True)
  if not bundle.is_relative_to(BASE/'bundles') or any(p.is_symlink() for p in [bundle,*bundle.parents] if p!=p.parent):raise ValueError('EXPLICIT_PRIVATE_BUNDLE_REQUIRED')
@@ -94,9 +102,7 @@ def check_bundle(bundle,binaries):
   if host.sha(regular(g/name))!=pin:raise ValueError('SELECTED_GENESIS_BYTES_DIFFER')
  artifact=json.loads(Path(__file__).with_name('consensus-audit-artifact.json').read_text())
  auditor=binaries/'classic-genesis-audit-v2'
- if host.sha(regular(auditor))!=artifact['sha256'] or auditor.stat().st_size!=artifact['bytes']:raise ValueError('REVIEWED_AUDITOR_REQUIRED')
- raw=subprocess.check_output([str(auditor),str(g)],timeout=20,stderr=subprocess.DEVNULL)
- if len(raw)>4*1024**2:raise ValueError('GENESIS_AUDIT_EXCEEDS_BOUND')
+ raw=inspect_tool(auditor,[g],artifact['sha256'],artifact['bytes'],20,4*1024**2)
  a=json.loads(raw);summary=validate_audit(m,a)
  archive=genesis_archive.inspect_archive(g/'genesis.tar.bz2',m['genesisArchiveSHA256'],m['genesisBinSHA256'])
  summary['initialBlockstoreFiles']=archive['initialBlockstoreFiles'];summary['archiveGenesisMatches']=True
@@ -106,7 +112,8 @@ def check_bundle(bundle,binaries):
  for i,n in enumerate(m['validators']):
   file=regular(bundle/'keys'/('node-'+str(i)+'-identity.json'))
   if file.stat().st_uid!=os.getuid() or stat.S_IMODE(file.stat().st_mode)&0o077:raise ValueError('OWNER_ONLY_PRIVATE_REHEARSAL_KEY_REQUIRED')
-  actual=subprocess.check_output([str(binaries/'solana-keygen'),'pubkey',str(file)],timeout=10,stderr=subprocess.DEVNULL).decode().strip()
+  pin,size=host.PINS['solana-keygen']
+  actual=inspect_tool(binaries/'solana-keygen',['pubkey',file],pin,size,10,128).decode().strip()
   if actual!=n['identity']:raise ValueError('REHEARSAL_IDENTITY_KEY_DIFFERS')
  return m,summary
 
