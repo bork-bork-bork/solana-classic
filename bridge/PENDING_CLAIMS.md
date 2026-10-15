@@ -35,10 +35,11 @@ address that authority and the integrity of durable storage.
 The prototype restricts the rent/fee payer to an address separate from the
 recipient and committee, uses exactly three distinct configured co-signers,
 and accepts one claim instruction with no extra transfers. Original redemption
-also requires a canonical Token-2022 recipient ATA, a plain 82-byte immutable
-mint, and token accounts that are plain or carry only ImmutableOwner. Shared
-payer accounting, versioned messages, extended mint metadata and extra
-instructions are not supported by this journal yet.
+also requires a canonical Token-2022 recipient ATA and token accounts that are
+plain or carry only ImmutableOwner. Versions1/2 admit only plain82-byte immutable
+mints for original redemption. Explicit version3 adds the narrow reviewed
+metadata policy described below. Shared payer accounting, versioned messages
+and extra instructions remain unsupported.
 
 ## Durable state and uncertainty
 
@@ -314,3 +315,49 @@ match. The10000-origin-unit pending liability is retained. See
 This adds actual authority-change coverage to the earlier wrong-expected-pin
 tests. Programme-code upgrades, competing forks, independent operators,
 production custody and complete funded backing remain separate requirements.
+
+
+## Version3 reviewed metadata claim records
+
+`prepareReviewedPendingClaim(args)` requires both `programmePins` and a separately
+selected `reviewedMintPolicy`. It binds exact mint bytes, original supply and
+precision, complete origin bridge policy/code and Token-2022 code/authority
+pins to the signed event before exclusively writing a version3 record. The
+older preparation APIs refuse this new option rather than silently ignoring it.
+No old record is upgraded or retrospectively granted metadata admission.
+
+`takeReviewedSubmissionAttempt(directory,id)` requires version3. All three
+handoff entry points enforce its retained review. Before returning the existing
+signed bytes once, the journal observes the original mint/escrow/counters twice,
+with complete code checks and nonregressing finalized contexts on the correct
+chain. Selected mint bytes and supply must match, escrow must cover outstanding
+obligations, and obligations must cover the claim. Original-redemption recipient
+and authority checks remain in force. Final programme observations bracket the
+mint checks, followed by late expiry, receipt and genesis checks.
+
+A compact admission record is persisted with the single-attempt marker. Missing
+or altered policy/admission data refuses inspection. Expiry, outage, missing
+history and receipts cannot authorize another attempt. An exact finalized
+transaction found without this reviewed handoff is retained as
+`CONSUMED_REVIEW_REQUIRED`, rather than finalized as reviewed settlement.
+
+16 new synthetic filesystem/transaction/RPC checks cover both directions,
+changed metadata/token code, depleted escrow, old-entry bypass attempts,
+policy mutation, record tampering, recipient controls, concurrency and recovery
+states. Together with existing journal, code-pin, expiry-review and exact-balance
+regressions,145 JavaScript checks pass. Seven existing worker guards also pass.
+The socket-based regression uses an actual loopback HTTP server with synthetic
+responses. These checks do not execute a new Agave metadata settlement or crash.
+See [the scoped local result](../evidence/bridge-reviewed-journal-local.json).
+
+This remains a private prototype. The policy digest is integrity binding, not
+authentication. Trusted durable storage, approved custody/signers, independent
+history/finality/backing verification and external security review remain
+required. Actual two-chain metadata settlement and recovery are still pending;
+earlier read-only and plain-mint proofs retain their original scope and hashes.
+Future private uploads must include every transitive metadata/policy observer
+dependency and record its exact hash. Never patch a retained attempt to update it.
+
+```sh
+node --test bridge/reviewed-pending.test.mjs bridge/pinned-pending.test.mjs
+```

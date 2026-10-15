@@ -6,8 +6,10 @@ operation. It is preparation for [metadata admission review](https://github.com/
 
 The private read-only origin observer can explicitly select
 `mintPolicy: "immutable-self-metadata-v1"`. Its default remains `plain`, which
-rejects extended mints. The claim journal still rejects extended mints. Nothing
-is wired into settlement, mainnet or the public website. Successful inspection
+rejects extended mints. Versions1/2 of the claim journal retain plain-mint
+original-redemption admission. Explicit version3 now binds this narrow reviewed
+metadata policy in a private prototype, with local tests only. No metadata
+settlement has been verified on Agave or enabled on mainnet/the public website. Successful inspection
 does not establish origin backing, reserve custody, independent finality or
 production readiness.
 
@@ -62,8 +64,8 @@ also passes offline inspection. Its exact slot/data hash and read-only scope
 are in [the inspection record](../evidence/bridge-metadata-inspection.json).
 This is one selected RPC observation, not independent consensus verification.
 
-Before settlement admission: review this explicit observation policy, update
-claim/redemption admission consistently, exercise both directions with actual
+Before live settlement admission: review the explicit version3 claim/redemption
+admission, exercise both directions with actual
 valueless metadata tokens, retain negative controls and obtain independent
 security review. The earlier plain-mint ledger result does not verify this
 metadata option. Issue2remains open for that wider work.
@@ -92,4 +94,6 @@ fixture and its source obligation remain retained; never replay or reset it.
 The separate [reviewed origin policy](REVIEWED_ORIGIN_MINT.md) now binds exact
 selected mint bytes and original supply to complete code pins. Eight new local
 checks and five actual read-only private-copy checks pass. This stricter
-observation is preparation for future journal admission, which remains disabled.
+observation is separate from the new version3 private journal integration. Its
+16 new local checks and145 combined regressions do not establish actual
+metadata settlement or production admission. See [journal scope](PENDING_CLAIMS.md).

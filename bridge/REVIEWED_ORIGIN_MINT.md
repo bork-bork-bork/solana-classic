@@ -8,9 +8,10 @@ before its first asynchronous read and requires the immutable self-metadata
 layout. It then uses the existing two-snapshot, bridge/token-code-bracketed
 observer. A different complete mint digest cannot inherit valid code admission.
 
-This is preparation for future claim-journal integration. It does not change
-`pending-claim.mjs`, grant a signed-byte handoff, sign, submit, write a journal,
-retry, refund or authorize settlement. Existing plain-mint defaults remain.
+This policy/observer module cannot grant a signed-byte handoff, sign, submit,
+write a journal, retry, refund or authorize settlement. The separate explicit
+version3 adapter in `pending-claim.mjs` now consumes it in a private prototype,
+verified locally only. Existing plain-mint defaults remain.
 All signing, retry, broadcast and production flags stay false.
 
 ## Selecting and retaining a policy
@@ -26,12 +27,13 @@ All signing, retry, broadcast and production flags stay false.
    code-chain mismatches reject. Mint bytes must match exactly.
 4. Treat any change as requiring a fresh explicit review. A legitimate token burn
    changes supply and mint bytes too; this strict snapshot cannot silently
-   accept it. No new journal semantics or automatic policy refresh is provided.
+   accept it. No automatic policy refresh is provided.
 
 The digest is an integrity binding, not a signature, an independent review or
 an authenticated production configuration. A caller can construct a different
 self-consistent policy. Production storage, custody, approved signers and the
-binding of a policy to an immutable claim record remain separate requirements.
+authenticated enforcement of the retained claim policy remain separate
+production requirements.
 An RPC's finalized snapshot does not establish independent consensus or
 complete funded backing.
 
@@ -52,7 +54,7 @@ origin. It selects its policy before startup, waits for the retained finalized
 checkpoint, permits only read-only RPC requests, stops its copied process and
 verifies the original ledger, input and transaction records stayed unchanged.
 Its execution is a separate proof from the earlier metadata creation/lock
-rehearsal. Neither proof enables metadata settlement or production redemption.
+rehearsal. Neither proof verifies version3 metadata settlement or production redemption.
 
 ## Actual private-copy verification
 
@@ -69,3 +71,16 @@ fixture input, result and four transaction records remain unchanged. This is
 read-only verification, not a new token creation, source lock, settlement,
 crash/fork or full-validator consensus test. See
 [the scoped result](../evidence/bridge-reviewed-metadata-origin-agave.json).
+
+
+## Private journal integration boundary
+
+Version3 claim preparation retains this exact policy alongside independently
+selected two-chain programme pins. Every handoff API enforces its reviewed
+mint and code observations; old records cannot acquire admission by adding
+policy fields.16 new local checks cover both directions and refusal/recovery
+paths. The145-check combined suite includes legacy journal, exact-u64,
+code-pin and expiry-review regressions. Actual two-chain metadata settlement
+and recovery, custody and independent security review remain outstanding.
+See [the version3 journal](PENDING_CLAIMS.md) and
+[local evidence](../evidence/bridge-reviewed-journal-local.json).
