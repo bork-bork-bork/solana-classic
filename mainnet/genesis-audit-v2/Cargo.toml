@@ -1,0 +1,15 @@
+[package]
+name = "classic-genesis-audit-v2"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[workspace]
+
+[dependencies]
+solana-genesis-config = { version = "=3.0.0", features = ["serde"] }
+serde_json = "=1.0.142"
+
+[profile.release]
+lto = "thin"
+debug = 0

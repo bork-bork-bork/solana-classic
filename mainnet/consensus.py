@@ -1,0 +1,218 @@
+#!/usr/bin/env python3
+"""Explicit fresh private three-validator rehearsal; never a mainnet launcher."""
+from pathlib import Path
+import argparse,hashlib,importlib.util,json,os,re,signal,socket,stat,subprocess,time,urllib.request
+_spec=importlib.util.spec_from_file_location('host_preflight',Path(__file__).with_name('host-preflight.py'));host=importlib.util.module_from_spec(_spec);_spec.loader.exec_module(host)
+BASE=Path('/data/mainnet-consensus-v2')
+FORBIDDEN={'7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon','5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d','EtWTRABZaYq6iMfeYKouRu166VU2xqa1wcaWoxPkrZBG','4uhcVJyU9pJkvQyS88uRDiswHXSCkY3zQawwpjk2NsNY'}
+SOURCE='f516a8927c76c07f0ebc54ca7a4ce8b2046eee86'
+ALPHABET='123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
+
+def digest(v):
+ if not isinstance(v,str) or not re.fullmatch('[0-9a-f]{64}',v):raise ValueError('SHA256_PIN_REQUIRED')
+ return v
+
+def address(v):
+ if not isinstance(v,str) or not 32<=len(v)<=44 or any(c not in ALPHABET for c in v):raise ValueError('CANONICAL_PUBLIC_KEY_REQUIRED')
+ n=0
+ for c in v:n=n*58+ALPHABET.index(c)
+ b=(b'\0'*(len(v)-len(v.lstrip('1'))))+(n.to_bytes((n.bit_length()+7)//8,'big') if n else b'')
+ if len(b)!=32:raise ValueError('CANONICAL_PUBLIC_KEY_REQUIRED')
+ return v
+
+def validate_manifest(m):
+ fields={'schemaVersion','scope','runtimeSource','genesis','bankHash','shredVersion','genesisBinSHA256','genesisArchiveSHA256','inventorySHA256','totalNativeUnits','validators'}
+ if not isinstance(m,dict) or set(m)!=fields or type(m['schemaVersion']) is not int or m['schemaVersion']!=1 or m['scope']!='fresh-private-consensus-rehearsal' or m['runtimeSource']!=SOURCE:raise ValueError('EXACT_PRIVATE_MANIFEST_REQUIRED')
+ for k in ['genesis','bankHash']:address(m[k])
+ if m['genesis'] in FORBIDDEN or m['genesis']==m['bankHash']:raise ValueError('PRIVATE_GENESIS_AND_BANK_REQUIRED')
+ if type(m['shredVersion']) is not int or not 1<=m['shredVersion']<=65535:raise ValueError('REVIEWED_SHRED_VERSION_REQUIRED')
+ for k in ['genesisBinSHA256','genesisArchiveSHA256','inventorySHA256']:digest(m[k])
+ total=m['totalNativeUnits']
+ if not isinstance(total,str) or not re.fullmatch('[1-9][0-9]{0,19}',total) or int(total)>(1<<64)-1:raise ValueError('EXACT_SYNTHETIC_SUPPLY_REQUIRED')
+ if not isinstance(m['validators'],list) or len(m['validators'])!=3:raise ValueError('THREE_FRESH_VALIDATORS_REQUIRED')
+ seen=set()
+ for node in m['validators']:
+  if not isinstance(node,dict) or set(node)!={'identity','vote','stake'}:raise ValueError('EXACT_VALIDATOR_KEYS_REQUIRED')
+  for value in node.values():
+   address(value)
+   if value in seen or value=='11111111111111111111111111111111':raise ValueError('DISTINCT_NONZERO_VALIDATOR_KEYS_REQUIRED')
+   seen.add(value)
+ return json.loads(json.dumps(m))
+
+def inventory_hash(accounts):return hashlib.sha256(json.dumps(accounts,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+
+def validate_audit(m,a):
+ validate_manifest(m)
+ if a.get('genesis')!=m['genesis'] or a.get('clusterType')!='development' or a.get('totalLamports')!=m['totalNativeUnits']:raise ValueError('GENESIS_AUDIT_IDENTITY_OR_TOTAL_DIFFERS')
+ accounts=a.get('accounts')
+ if not isinstance(accounts,list) or len(accounts)!=a.get('accountCount') or not accounts or inventory_hash(accounts)!=m['inventorySHA256']:raise ValueError('COMPLETE_SELECTED_INVENTORY_REQUIRED')
+ seen=set();total=0;by={}
+ for row in accounts:
+  k=address(row['address'])
+  if k in seen or not isinstance(row['lamports'],str) or not re.fullmatch('(0|[1-9][0-9]{0,19})',row['lamports']) or int(row['lamports'])>(1<<64)-1:raise ValueError('DUPLICATE_OR_INEXACT_GENESIS_ACCOUNT')
+  address(row['owner']);seen.add(k);total+=int(row['lamports']);by[k]=row
+ if total!=int(m['totalNativeUnits']):raise ValueError('FULL_INVENTORY_SUM_DIFFERS')
+ if a.get('inflation',{}).get('initial')!=0 or a.get('inflation',{}).get('terminal')!=0 or a.get('feeRateGovernor',{}).get('burnPercent')!=0 or a.get('rent',{}).get('burn_percent')!=0:raise ValueError('SYNTHETIC_INFLATION_OR_BURN_POLICY_DIFFERS')
+ hashes=a.get('pohConfig',{}).get('hashes_per_tick')
+ if type(hashes) is not int or hashes<=0:raise ValueError('NORMAL_POH_CHECK_REQUIRES_HASHING_GENESIS')
+ for n in m['validators']:
+  for field,owner in [('identity','11111111111111111111111111111111'),('vote','Vote111111111111111111111111111111111111111'),('stake','Stake11111111111111111111111111111111111111')]:
+   row=by.get(n[field]);
+   if not row or row['owner']!=owner or int(row['lamports'])<=0 or row['executable'] is not False:raise ValueError('BACKED_REHEARSAL_VALIDATOR_ACCOUNT_REQUIRED')
+ return {'genesis':m['genesis'],'accountCount':len(accounts),'totalNativeUnits':str(total),'inventorySHA256':inventory_hash(accounts),'hashesPerTick':hashes,'actualFundedOriginalBackingVerified':False}
+
+def ports(i):
+ if type(i) is not int or i not in range(3):raise ValueError('FIXED_PRIVATE_NODE_REQUIRED')
+ return {'rpc':31000+200*i,'gossip':31100+200*i,'dynamicStart':32000+200*i,'dynamicEnd':32050+200*i}
+
+def all_ports():
+ selected=[]
+ for i in range(3):
+  p=ports(i);selected += [p['rpc'],p['rpc']+1,p['gossip'],*range(p['dynamicStart'],p['dynamicEnd']+1)]
+ if len(selected)!=len(set(selected)):raise ValueError('PRIVATE_PORT_COLLISION')
+ return selected
+
+def command(binary,root,bundle,m,i):
+ m=validate_manifest(m);p=ports(i)
+ args=[str(binary),'--ledger',str(root/('node-'+str(i))),'--identity',str(bundle/'keys'/('node-'+str(i)+'-identity.json')),'--vote-account',m['validators'][i]['vote'],'--expected-genesis-hash',m['genesis'],'--expected-bank-hash',m['bankHash'],'--expected-shred-version',str(m['shredVersion']),'--wait-for-supermajority','0','--bind-address','127.0.0.1','--gossip-host','127.0.0.1','--gossip-port',str(p['gossip']),'--dynamic-port-range',str(p['dynamicStart'])+'-'+str(p['dynamicEnd']),'--rpc-bind-address','127.0.0.1','--rpc-port',str(p['rpc']),'--private-rpc','--full-rpc-api','--rpc-threads','2','--rpc-blocking-threads','2','--allow-private-addr','--no-genesis-fetch','--no-snapshot-fetch','--limit-ledger-size','50000000','--accounts-db-cache-limit-mb','128','--unified-scheduler-handler-threads','2','--log',str(root/('node-'+str(i)+'-validator-private.log'))]
+ for n in m['validators']:args += ['--known-validator',n['identity']]
+ if i:args+=['--entrypoint','127.0.0.1:'+str(ports(0)['gossip'])]
+ return args
+
+def regular(p):
+ if p.is_symlink() or not p.is_file():raise ValueError('REGULAR_PRIVATE_BUNDLE_FILE_REQUIRED')
+ return p
+
+def check_bundle(bundle,binaries):
+ bundle=bundle.resolve(strict=True)
+ if not bundle.is_relative_to(BASE/'bundles') or any(p.is_symlink() for p in [bundle,*bundle.parents] if p!=p.parent):raise ValueError('EXPLICIT_PRIVATE_BUNDLE_REQUIRED')
+ m=validate_manifest(json.loads(regular(bundle/'manifest.json').read_text()))
+ g=bundle/'genesis'
+ if g.is_symlink() or not g.is_dir() or {p.name for p in g.iterdir()}!={'genesis.bin','genesis.tar.bz2'}:raise ValueError('FRESH_GENESIS_ONLY_NO_RUNTIME_LEDGER')
+ for name,pin in [('genesis.bin',m['genesisBinSHA256']),('genesis.tar.bz2',m['genesisArchiveSHA256'])]:
+  if host.sha(regular(g/name))!=pin:raise ValueError('SELECTED_GENESIS_BYTES_DIFFER')
+ artifact=json.loads(Path(__file__).with_name('consensus-audit-artifact.json').read_text())
+ auditor=binaries/'classic-genesis-audit-v2'
+ if host.sha(regular(auditor))!=artifact['sha256'] or auditor.stat().st_size!=artifact['bytes']:raise ValueError('REVIEWED_AUDITOR_REQUIRED')
+ raw=subprocess.check_output([str(auditor),str(g)],timeout=20,stderr=subprocess.DEVNULL)
+ if len(raw)>4*1024**2:raise ValueError('GENESIS_AUDIT_EXCEEDS_BOUND')
+ a=json.loads(raw);summary=validate_audit(m,a)
+ # Key files are never logged or exported. Pinned keygen checks their public keys.
+ keys=bundle/'keys'
+ if keys.is_symlink() or not keys.is_dir():raise ValueError('PRIVATE_KEY_DIRECTORY_REQUIRED')
+ for i,n in enumerate(m['validators']):
+  file=regular(bundle/'keys'/('node-'+str(i)+'-identity.json'))
+  if file.stat().st_uid!=os.getuid() or stat.S_IMODE(file.stat().st_mode)&0o077:raise ValueError('OWNER_ONLY_PRIVATE_REHEARSAL_KEY_REQUIRED')
+  actual=subprocess.check_output([str(binaries/'solana-keygen'),'pubkey',str(file)],timeout=10,stderr=subprocess.DEVNULL).decode().strip()
+  if actual!=n['identity']:raise ValueError('REHEARSAL_IDENTITY_KEY_DIFFERS')
+ return m,summary
+
+def rpc(port,method,params=None):
+ if port not in [ports(i)['rpc'] for i in range(3)]:raise ValueError('FIXED_PRIVATE_RPC_REQUIRED')
+ if method not in ['getGenesisHash','getIdentity','getVersion','getSlot','getSupply','getInflationGovernor','getVoteAccounts','getBlock']:raise ValueError('READ_ONLY_PRIVATE_RPC_REQUIRED')
+ req=urllib.request.Request('http://127.0.0.1:'+str(port),data=json.dumps({'jsonrpc':'2.0','id':1,'method':method,'params':params or []}).encode(),headers={'Content-Type':'application/json'})
+ with urllib.request.urlopen(req,timeout=3) as r:raw=r.read(2*1024**2+1)
+ if len(raw)>2*1024**2:raise ValueError('PRIVATE_RPC_EXCEEDS_BOUND')
+ w=json.loads(raw)
+ if w.get('jsonrpc')!='2.0' or w.get('id')!=1 or 'error' in w or 'result' not in w:raise ValueError('PRIVATE_RPC_REJECTED')
+ return w['result']
+
+def runtime_observation(m):
+ slots=[];votes={n['vote'] for n in m['validators']}
+ for i in range(3):
+  p=ports(i)['rpc']
+  if rpc(p,'getGenesisHash')!=m['genesis']:raise ValueError('RUNNING_GENESIS_DIFFERS')
+  if rpc(p,'getIdentity').get('identity')!=m['validators'][i]['identity'] or rpc(p,'getVersion').get('solana-core')!='3.0.14':raise ValueError('RUNNING_IDENTITY_OR_VERSION_DIFFERS')
+  s=rpc(p,'getSlot',[{'commitment':'finalized'}]);supply=rpc(p,'getSupply',[{'commitment':'finalized'}])['value']['total'];inflation=rpc(p,'getInflationGovernor');current=rpc(p,'getVoteAccounts')['current']
+  if type(s) is not int or s<40 or type(supply) is not int or supply!=int(m['totalNativeUnits']) or inflation.get('initial')!=0 or inflation.get('terminal')!=0 or not votes.issubset({v['votePubkey'] for v in current}):raise ValueError('CONSENSUS_SUPPLY_OR_VOTES_NOT_READY')
+  indexed={v['votePubkey']:v for v in current}
+  for node in m['validators']:
+   v=indexed[node['vote']]
+   if v.get('nodePubkey')!=node['identity'] or type(v.get('lastVote')) is not int or v['lastVote']<=0 or type(v.get('rootSlot')) is not int or v['rootSlot']<=0 or type(v.get('activatedStake')) is not int or v['activatedStake']<=0:raise ValueError('ACTIVE_ROOTED_VOTES_REQUIRED')
+  slots.append(s)
+ shared=min(slots);hashes=[rpc(ports(i)['rpc'],'getBlock',[shared,{'commitment':'finalized','transactionDetails':'none','rewards':False}])['blockhash'] for i in range(3)]
+ for h in hashes:address(h)
+ if len(set(hashes))!=1:raise ValueError('FINALIZED_BLOCK_DIFFERS')
+ return {'finalizedSlots':slots,'sharedFinalizedSlot':shared,'sharedFinalizedBlockhash':hashes[0],'voteAccounts':sorted(votes),'totalNativeUnits':m['totalNativeUnits']}
+
+def stop_owned_process(p):
+ forced=False
+ if p.poll() is None:
+  try:os.killpg(p.pid,signal.SIGINT)
+  except ProcessLookupError:pass
+  try:p.wait(timeout=45)
+  except subprocess.TimeoutExpired:
+   forced=True
+   try:os.killpg(p.pid,signal.SIGKILL)
+   except ProcessLookupError:pass
+   p.wait(timeout=10)
+ return {'returnCode':p.returncode,'forced':forced}
+
+def run(bundle,binaries,run_id,execute=False):
+ preflight=host.assess(host.probe(binaries,BASE.parent))
+ if not preflight['canPrepareFreshPrivateRehearsal']:return {'state':'blocked','host':preflight,'validatorsStarted':0,'createdLedger':False,'productionReady':False}
+ if not re.fullmatch('[a-z0-9][a-z0-9-]{7,63}',run_id):raise ValueError('NEW_PRIVATE_ATTEMPT_ID_REQUIRED')
+ root=BASE/'runs'/run_id
+ if BASE.is_symlink() or root.parent.is_symlink() or root.resolve().parent!=root.parent.resolve():raise ValueError('PRIVATE_RUN_PATH_DIFFERS')
+ if root.exists() or root.is_symlink():raise ValueError('RETAINED_ATTEMPT_MUST_NOT_BE_REUSED')
+ m,audit=check_bundle(bundle,binaries)
+ if not execute:return {'state':'packet-checked','host':preflight,'audit':audit,'validatorsStarted':0,'createdLedger':False,'bankHashLocallyVerified':False,'bankHashEnforcedByRuntime':True,'productionReady':False}
+ # No canonical container, existing ledgers, public ingress or external RPC.
+ if os.environ.get('RAILWAY_SERVICE_ID')=='d0a1de40-bd9c-47eb-a7fc-477f1c55b2d6':raise ValueError('CANONICAL_SERVICE_FORBIDDEN')
+ for proc in Path('/proc').glob('[0-9]*'):
+  try:cmd=(proc/'cmdline').read_bytes().split(b'\0')
+  except OSError:continue
+  if cmd and Path(os.fsdecode(cmd[0])).name in ['agave-validator','solana-test-validator']:raise ValueError('OTHER_VALIDATOR_ALREADY_ACTIVE')
+ for port in all_ports():
+  for kind in [socket.SOCK_STREAM,socket.SOCK_DGRAM]:
+   with socket.socket(socket.AF_INET,kind) as sock:sock.bind(('127.0.0.1',port))
+ os.umask(0o077);root.parent.mkdir(mode=0o700,exist_ok=True);root.mkdir(mode=0o700)
+ proof={'schemaVersion':1,'state':'running','scope':'Fresh private three full validators on one host; synthetic supply, no independent operators or production acceptance','genesis':m['genesis'],'audit':audit,'validatorsStarted':0,'stops':[],'createdKeys':False,'canonicalNetworkChanged':False,'productionReady':False,'hostAndPohChecksSkipped':False,'actualFundedOriginalBackingVerified':False}
+ def save():(root/'public-result.json').write_text(json.dumps(proof,indent=2))
+ processes=[];handles=[];save()
+ previous_term=signal.getsignal(signal.SIGTERM)
+ def stop_requested(signum,frame):raise KeyboardInterrupt()
+ signal.signal(signal.SIGTERM,stop_requested)
+ try:
+  for i in range(3):
+   ledger=root/('node-'+str(i));ledger.mkdir(mode=0o700)
+   for name,pin in [('genesis.bin',m['genesisBinSHA256']),('genesis.tar.bz2',m['genesisArchiveSHA256'])]:
+    source=regular(bundle/'genesis'/name)
+    if host.sha(source)!=pin:raise ValueError('GENESIS_CHANGED_BEFORE_COPY')
+    with (ledger/name).open('xb') as out:out.write(source.read_bytes())
+    if host.sha(ledger/name)!=pin:raise ValueError('COPIED_GENESIS_DIFFERS')
+   log=(root/('node-'+str(i)+'-private.log')).open('xb');handles.append(log)
+   pin,size=host.PINS['agave-validator']
+   if host.sha(binaries/'agave-validator')!=pin or (binaries/'agave-validator').stat().st_size!=size:raise ValueError('VALIDATOR_BINARY_CHANGED_BEFORE_START')
+   processes.append(subprocess.Popen(command(binaries/'agave-validator',root,bundle,m,i),stdout=log,stderr=subprocess.STDOUT,start_new_session=True));proof['validatorsStarted']+=1;save()
+  until=time.monotonic()+360
+  while time.monotonic()<until:
+   if any(p.poll() is not None for p in processes):raise ValueError('PRIVATE_VALIDATOR_EXITED')
+   try:first=runtime_observation(m);break
+   except (OSError,ValueError,KeyError,TypeError):time.sleep(3)
+  else:raise ValueError('BOUNDED_CONSENSUS_NOT_OBSERVED')
+  proof['firstObservation']=first;save();time.sleep(20)
+  last=runtime_observation(m)
+  if any(b<=a for a,b in zip(first['finalizedSlots'],last['finalizedSlots'])):raise ValueError('FINALITY_DID_NOT_ADVANCE')
+  proof['lastObservation']=last;proof['state']='passed'
+ except BaseException as e:
+  proof['state']='failed';proof['failureType']=type(e).__name__;proof['failureCode']=str(e) if type(e) is ValueError and re.fullmatch('[A-Z_]+',str(e)) else 'PRIVATE_REHEARSAL_FAILED'
+ finally:
+  signal.signal(signal.SIGTERM,previous_term)
+  for i,p in enumerate(processes):
+   try:
+    stopped=stop_owned_process(p);proof['stops'].append({'node':i,**stopped})
+    if stopped['forced'] or stopped['returnCode'] not in [0,-signal.SIGINT]:proof['state']='failed'
+   except Exception:
+    proof['state']='failed';proof['stops'].append({'node':i,'cleanupFailed':True})
+  for h in handles:h.close()
+  proof['allStopped']=all(p.poll() is not None for p in processes);save()
+ return proof
+
+def main():
+ p=argparse.ArgumentParser(description=__doc__);p.add_argument('--bundle',type=Path,required=True);p.add_argument('--binary-directory',type=Path,required=True);p.add_argument('--run-id',required=True);p.add_argument('--run',action='store_true');p.add_argument('--ack');a=p.parse_args()
+ if a.run and a.ack!='fresh-private-three-validators':p.error('Explicit fresh-private-three-validators acknowledgment required')
+ try:r=run(a.bundle,a.binary_directory,a.run_id,a.run)
+ except Exception as e:r={'state':'blocked','failureType':type(e).__name__,'failureCode':str(e) if type(e) is ValueError and re.fullmatch('[A-Z_]+',str(e)) else 'PRIVATE_PACKET_CHECK_FAILED','validatorsStarted':0,'productionReady':False}
+ print(json.dumps(r,indent=2));return 0 if r['state'] in ['passed','packet-checked'] else 78
+if __name__=='__main__':raise SystemExit(main())

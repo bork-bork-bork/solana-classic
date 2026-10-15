@@ -224,7 +224,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-15T06:31:26.112054+00:00",
+    "reviewedAt": "2026-10-15T07:05:11.992220+00:00",
     "scope": "Development checkpoint only; separate from the live devnet release",
     "projects": [
       {
@@ -232,7 +232,7 @@
         "title": "Native SOC mainnet",
         "state": "blocked",
         "description": "A separate production-network implementation, beginning with exact genesis supply and backed validator bootstrap.",
-        "currentScope": "Pinned genesis/account audit pass; offline auditor now covers V2 16-byte vault rent (14 auditor + 7 planner checks). New one-time bridge bootstrap passes 10 Rust units, 9 compiled-SBF scenarios and 5 unsigned-client checks. Backing/inventory are synthetic; actual funded genesis-to-vault custody and Agave integration remain open. Full-validator startup blocked by host file ceiling 524288 vs required 1000000; no consensus/mainnet acceptance.",
+        "currentScope": "Genesis compiler and complete synthetic account audits pass. A private three-validator launcher is prepared with normal host/network/PoH checks and exact genesis, bank and shred pins. Current host admission fails: hard file limit524288 vs required1000000. Fresh hashing genesis, slot-zero bank/shred review and actual full-validator consensus/recovery remain pending. Complete funded genesis/reserve custody, independent operators and production acceptance remain separate gates.",
         "source": "https://github.com/solana-classic/solana-classic/tree/main/mainnet",
         "milestones": [
           {
@@ -250,6 +250,12 @@
             "state": "blocked",
             "detail": "Read-only host tool and operator handoff prepared; five local checks. Actual existing compiler host still fails the hard open-file requirement524288 vs1000000; three reviewed binaries match. No keys/ledgers created, no validator starts or limit changes. A capable Linux host is required for the next three-validator consensus rehearsal.",
             "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/mainnet-host-readiness.json"
+          },
+          {
+            "title": "Private full-validator rehearsal package",
+            "state": "local-passed",
+            "detail": "14 launcher +5 host checks. Normal host/network/PoH checks, exact genesis/bank/shred pins, stake-supermajority startup and distinct private ports. New read-only auditor matches the retained249-account genesis. Actual host admission refuses before keys, ledgers or processes. Full execution awaits suitable hosting, a fresh hashing genesis and verified slot-zero bank/shred values.",
+            "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/mainnet-consensus-package-preparation.json"
           },
           {
             "title": "Exact genesis backing, protected rent and precision audit",

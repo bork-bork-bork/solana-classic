@@ -50,3 +50,14 @@ This is offline accounting with hypothetical original backing, not an on-chain
 bootstrap or funded escrow proof. Zero initial counters are flagged; custody,
 consumed backing events and actual counter application remain failed gates.
 Read [the exact model and remaining implementation](BOOTSTRAP.md).
+
+
+## Full-validator rehearsal package
+
+`consensus.py` now supplies a check-only default and an explicit private-run
+path with normal host/network/PoH checks, pinned genesis/bank/shred values and
+a slot-zero stake-supermajority barrier.14 launcher and5 host checks pass; the
+separate V2 genesis auditor is compiled and matches the retained249-account
+inventory. Actual host admission remains blocked; no full validators started.
+A fresh hashing genesis and reviewed bank/shred pins are still inputs, not
+completed work. Read [the execution contract](CONSENSUS_REHEARSAL.md).

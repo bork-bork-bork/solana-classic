@@ -50,7 +50,9 @@ addresses, machine identity, login details or local filesystem paths.
 4. Run actual `agave-validator` processes with their normal host/network checks.
    The historical runner contains private probe flags that skip checks. It is
    evidence of an earlier failed attempt, not a production launch command.
-   Review a new runnable packet before execution; never reuse it blindly.
+   The new `consensus.py` package keeps those checks enabled and requires a
+   separately reviewed hashing genesis and slot-zero bank/shred pins. See
+   [its input and execution contract](CONSENSUS_REHEARSAL.md).
 5. Confirm all three vote accounts participate, the same genesis and finalized
    progression agree across nodes, runtime supply matches the audited inventory,
    and native/token/program execution works. Record real results, not elapsed time.

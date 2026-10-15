@@ -1,0 +1,11 @@
+{
+  "name": "classic-genesis-audit-v2",
+  "sha256": "d00af79ad8357b1d4b3187813b7918f9fe3dd6ed3e794a159535e41bc8590768",
+  "bytes": 677472,
+  "rustVersion": "rustc 1.86.0 (05f9846f8 2025-03-31)",
+  "sourceHashes": {
+    "Cargo.toml": "cf284803ff4965e18c1a707693b7f686c1bcda3483c483bc30aa78586d79a1e6",
+    "Cargo.lock": "5341f29de182315be09d8e996eaf33ca6ce4accc002293e5a5e63af28edb7ad1",
+    "src/main.rs": "cecf21530e57e5d595ebd1c496e67b88471a2c726c000ab6addc624fe50ea774"
+  }
+}
