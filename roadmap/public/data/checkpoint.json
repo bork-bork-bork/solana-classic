@@ -267,8 +267,8 @@
           {
             "title": "Fresh hashing genesis and startup-hash preparation",
             "state": "local-passed",
-            "detail": "Pinned ledger inspection tool built from all 2,215 reviewed source files; existing runtime binaries unchanged. New guarded preparation command has 13 local checks and requires exact synthetic supply plus matching bank/shred values from two fresh replays. Actual current host refuses before keys or ledgers in both modes. Fresh genesis and real replay await capable hosting.",
-            "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/mainnet-genesis-preparation.json"
+            "detail": "Pinned ledger inspection tool built; existing runtime binaries unchanged. 13 preparation +10 local process-lifecycle checks pass. Offline tools now bound both output streams and stop their owned process groups on interruption or timeout. Linux helper verification could not reach the provider because DNS lookup failed. Actual current host still refuses before keys or ledgers. Fresh genesis and real replay await capable hosting.",
+            "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/mainnet-offline-process.json"
           },
           {
             "title": "Exact genesis backing, protected rent and precision audit",

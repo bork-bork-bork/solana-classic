@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-15T09:23:23.590295+00:00",
+  "scope": "Local mainnet package and actual disposable Python process-lifecycle checks on the development host; not compiled-tool, Linux-host, genesis, validator or consensus acceptance",
+  "localChecks": {
+    "passed": 52,
+    "failed": 0,
+    "processLifecycle": 10,
+    "preparation": 13,
+    "launcher": 14,
+    "archive": 10,
+    "host": 5
+  },
+  "roadmapChecks": {
+    "passed": 30,
+    "failed": 0
+  },
+  "limits": {
+    "stdoutBytes": 4194304,
+    "privateStderrBytes": 8388608,
+    "defaultTimeoutSeconds": 180,
+    "cleanupWaitSeconds": 10
+  },
+  "actualProcessChecks": [
+    "Success separates stdout from private stderr",
+    "Concurrent stream draining avoids pipe deadlock",
+    "Exact stdout limit accepted",
+    "Both overflow paths kill and reap real child processes",
+    "Timeout kills and reaps real child",
+    "Injected cancellation kills real child and propagates interruption",
+    "Nonzero exit is redacted with retained private diagnostic",
+    "Inherited-pipe descendant is stopped after parent exits",
+    "Invalid or unbounded limits refuse before subprocess creation",
+    "Private stderr never writes an overflow chunk"
+  ],
+  "remoteLinuxChecksExecuted": false,
+  "remoteAttemptBlocker": {
+    "sshDispatchAttempts": 2,
+    "category": "PROVIDER_DNS_LOOKUP_FAILED",
+    "reachedRemoteHost": false
+  },
+  "sourceHashes": {
+    "mainnet/offline_process.py": "bc7013b43537bf272b08e37122035f9e647f18496a01121424dd322dd1d06c7f",
+    "mainnet/offline_process_test.py": "94c9f3d91c9a59a67e7814254d8c07b3e047b5477bf2ed7e4171974baf7ef6fe",
+    "mainnet/prepare-consensus.py": "b6fd9c30cb534433a0a0e4fb482e209ed466dea000e578389fdf48e044f3070b",
+    "mainnet/prepare_consensus_test.py": "3f347d1ac326d06f86e84e2822555d250760159d64b6fba40d87aa4a4d27ceb1",
+    "mainnet/GENESIS_PREPARATION.md": "d1902b7992ef7750c0b9d191d79fecab3c20509fd9cc0f9e21557dc12ec675f3",
+    "mainnet/README.md": "91f888348ffbb0d64e41792e5631603a61a81a3ec036063edc86eb9e07557006"
+  },
+  "canonicalNetworkChanged": false,
+  "chainRequests": 0,
+  "validatorsStarted": 0,
+  "genesisCreated": false,
+  "hostLimitsChanged": false,
+  "mainnetActivated": false,
+  "productionReady": false,
+  "historicalPreparationEvidenceChanged": false,
+  "remaining": [
+    "Execute the updated helper checks on the private Linux host when provider DNS is available",
+    "Capable host for fresh hashing genesis and three full validators",
+    "Actual funded backing, reserve custody, independent operators and production review"
+  ]
+}

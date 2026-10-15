@@ -10,7 +10,7 @@ def key(n):
 
 class Preparation(unittest.TestCase):
  def test_current_host_refuses_before_tools_keys_processes_or_writes(self):
-  with patch.object(m.c.host,'probe',return_value={}),patch.object(m.c.host,'assess',return_value={'canPrepareFreshPrivateRehearsal':False}),patch.object(m,'check_tools') as tools,patch.object(m.subprocess,'run') as process,patch.object(m,'no_active_validator') as active:
+  with patch.object(m.c.host,'probe',return_value={}),patch.object(m.c.host,'assess',return_value={'canPrepareFreshPrivateRehearsal':False}),patch.object(m,'check_tools') as tools,patch.object(m.offline_process,'run_tool') as process,patch.object(m,'no_active_validator') as active:
    result=m.run(Path('/not-opened'),'fresh-bundle-001',True)
   self.assertEqual(result['state'],'blocked');self.assertFalse(result['createdKeys']);self.assertFalse(result['createdLedger']);tools.assert_not_called();process.assert_not_called();active.assert_not_called()
  def test_canonical_service_is_rejected_even_before_host_probe(self):
@@ -18,7 +18,7 @@ class Preparation(unittest.TestCase):
    with self.assertRaisesRegex(ValueError,'CANONICAL_SERVICE'):m.run(Path('/not-opened'),'fresh-bundle-001',True)
    probe.assert_not_called()
  def test_read_only_default_cannot_generate_keys_or_ledgers_on_admitted_host(self):
-  with patch.object(m.c.host,'probe',return_value={}),patch.object(m.c.host,'assess',return_value={'canPrepareFreshPrivateRehearsal':True}),patch.object(m,'check_tools',return_value=True),patch.object(m.subprocess,'run') as process,patch.object(m,'no_active_validator') as active:
+  with patch.object(m.c.host,'probe',return_value={}),patch.object(m.c.host,'assess',return_value={'canPrepareFreshPrivateRehearsal':True}),patch.object(m,'check_tools',return_value=True),patch.object(m.offline_process,'run_tool') as process,patch.object(m,'no_active_validator') as active:
    result=m.run(Path('/tools'),'fresh-bundle-001')
   self.assertEqual(result['state'],'preparation-host-admitted');self.assertFalse(result['createdKeys']);self.assertFalse(result['createdLedger']);self.assertEqual(result['validatorsStarted'],0);process.assert_not_called();active.assert_not_called()
  def test_invalid_or_path_shaped_bundle_ids_refuse(self):
@@ -56,7 +56,7 @@ class Preparation(unittest.TestCase):
  def test_retained_preparation_refuses_without_process_calls(self):
   with tempfile.TemporaryDirectory() as temp:
    base=Path(temp).resolve()/'private';(base/'preparations'/'retained-001').mkdir(mode=0o700,parents=True);base.chmod(0o700);(base/'preparations').chmod(0o700)
-   with patch.object(m,'BASE',base),patch.object(m.c.host,'probe',return_value={}),patch.object(m.c.host,'assess',return_value={'canPrepareFreshPrivateRehearsal':True}),patch.object(m,'check_tools',return_value=True),patch.object(m,'no_active_validator'),patch.object(m.subprocess,'run') as process:
+   with patch.object(m,'BASE',base),patch.object(m.c.host,'probe',return_value={}),patch.object(m.c.host,'assess',return_value={'canPrepareFreshPrivateRehearsal':True}),patch.object(m,'check_tools',return_value=True),patch.object(m,'no_active_validator'),patch.object(m.offline_process,'run_tool') as process:
     with self.assertRaisesRegex(ValueError,'RETAINED'):m.run(base,'retained-001',True)
     process.assert_not_called()
  def test_preparation_failure_keeps_private_attempt_and_redacts_raw_error(self):
@@ -64,7 +64,7 @@ class Preparation(unittest.TestCase):
    base=Path(temp).resolve()/'private';binaries=Path(temp).resolve()/'tools';binaries.mkdir();pins={}
    for name in m.c.host.PINS:
     (binaries/name).write_bytes(b'x');pins[name]=(hashlib.sha256(b'x').hexdigest(),1)
-   with patch.object(m,'BASE',base),patch.object(m.c.host,'PINS',pins),patch.object(m.c.host,'probe',return_value={}),patch.object(m.c.host,'assess',return_value={'canPrepareFreshPrivateRehearsal':True}),patch.object(m,'check_tools',return_value=True),patch.object(m,'no_active_validator'),patch.object(m.subprocess,'run',side_effect=OSError('PRIVATE ERROR MUST STAY OUT')):
+   with patch.object(m,'BASE',base),patch.object(m.c.host,'PINS',pins),patch.object(m.c.host,'probe',return_value={}),patch.object(m.c.host,'assess',return_value={'canPrepareFreshPrivateRehearsal':True}),patch.object(m,'check_tools',return_value=True),patch.object(m,'no_active_validator'),patch.object(m.offline_process,'run_tool',side_effect=OSError('PRIVATE ERROR MUST STAY OUT')):
     before=os.umask(0o077)
     try:result=m.run(binaries,'failure-001',True)
     finally:os.umask(before)
@@ -75,7 +75,7 @@ class Preparation(unittest.TestCase):
   nodes=[{'identity':key(100+i*3),'vote':key(101+i*3),'stake':key(102+i*3)} for i in range(3)]
   public={f'node-{i}-{kind}.json':node[kind] for i,node in enumerate(nodes) for kind in node};public['synthetic-reserve.json']=key(500)
   audits={};commands=[]
-  def fake_tool(args,**kwargs):
+  def fake_tool(args,log,**kwargs):
    commands.append(args);name=Path(args[0]).name;out=''
    if name=='solana-keygen':
     if args[1]=='new':Path(args[-1]).write_text('DISPOSABLE TEST PLACEHOLDER')
@@ -95,13 +95,13 @@ class Preparation(unittest.TestCase):
    elif name=='classic-genesis-audit-v2':out=json.dumps(audits[args[1]])
    elif name=='agave-ledger-tool':out=json.dumps({'slot':0,'hash':key(700)}) if 'verify' in args else '123\n'
    else:raise AssertionError('Unexpected subprocess')
-   return subprocess.CompletedProcess(args,0,stdout=out.encode())
+   return out.encode()
   with tempfile.TemporaryDirectory() as temp:
    base=Path(temp).resolve()/'private';binaries=Path(temp).resolve()/'tools';binaries.mkdir();pins={}
    for name in m.c.host.PINS:
     (binaries/name).write_bytes(b'x');pins[name]=(hashlib.sha256(b'x').hexdigest(),1)
    def check_bundle(bundle,directory):return json.loads((bundle/'manifest.json').read_text()),{'accountCount':10}
-   with patch.object(m,'BASE',base),patch.object(m.c.host,'PINS',pins),patch.object(m.c.host,'probe',return_value={}),patch.object(m.c.host,'assess',return_value={'canPrepareFreshPrivateRehearsal':True}),patch.object(m,'check_tools',return_value=True),patch.object(m,'no_active_validator'),patch.object(m.subprocess,'run',side_effect=fake_tool),patch.object(m.c,'check_bundle',side_effect=check_bundle):
+   with patch.object(m,'BASE',base),patch.object(m.c.host,'PINS',pins),patch.object(m.c.host,'probe',return_value={}),patch.object(m.c.host,'assess',return_value={'canPrepareFreshPrivateRehearsal':True}),patch.object(m,'check_tools',return_value=True),patch.object(m,'no_active_validator'),patch.object(m.offline_process,'run_tool',side_effect=fake_tool),patch.object(m.c,'check_bundle',side_effect=check_bundle):
     before=os.umask(0o077)
     try:result=m.run(binaries,'complete-001',True)
     finally:os.umask(before)

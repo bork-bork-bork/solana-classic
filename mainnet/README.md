@@ -77,7 +77,9 @@ The pinned ledger inspection tool is built. `prepare-consensus.py` supplies a
 read-only default and explicit private preparation after full host admission.
 It generates a new synthetic genesis, reconciles every allocation and requires
 matching startup hashes from two fresh slot-zero replays before writing the
-launcher's manifest. Thirteen preparation checks pass; the actual current host
+launcher's manifest. Thirteen preparation and ten local process-lifecycle checks pass. Offline tools
+have bounded live output and owned-group cleanup on cancellation or timeout;
+Linux-host execution of the new helper remains pending. The actual current host
 refuses both modes before creating keys or ledgers. No new bank hash, genesis
 or consensus pass is claimed. See [the procedure](GENESIS_PREPARATION.md) and
 [scoped evidence](../evidence/mainnet-genesis-preparation.json).

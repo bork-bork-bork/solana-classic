@@ -6,6 +6,7 @@ Default is read-only admission. Never starts validators or activates a network.
 from pathlib import Path
 import argparse,datetime,hashlib,importlib.util,json,os,re,signal,stat,subprocess
 _spec=importlib.util.spec_from_file_location('consensus',Path(__file__).with_name('consensus.py'));c=importlib.util.module_from_spec(_spec);_spec.loader.exec_module(c)
+_process_spec=importlib.util.spec_from_file_location('offline_process',Path(__file__).with_name('offline_process.py'));offline_process=importlib.util.module_from_spec(_process_spec);_process_spec.loader.exec_module(offline_process)
 BASE=Path('/data/mainnet-consensus-v2')
 TOTAL=1_000_000_000_000
 CANONICAL_SERVICE='d0a1de40-bd9c-47eb-a7fc-477f1c55b2d6'
@@ -90,10 +91,7 @@ def run(binary_directory,bundle_id,execute=False):
    if binary.is_symlink() or binary.stat().st_size!=size or c.host.sha(binary)!=digest:raise ValueError('REVIEWED_RUNTIME_ARTIFACT_CHANGED')
   sequence+=1
   with (root/('tool-'+str(sequence)+'-private.log')).open('xb') as log:
-   result=subprocess.run(args,stdout=subprocess.PIPE,stderr=log,start_new_session=True,timeout=timeout)
-   if len(result.stdout)>4*1024**2:raise ValueError('BOUNDED_PREPARATION_RESULT_REQUIRED')
-   if result.returncode:raise ValueError('OFFLINE_PREPARATION_TOOL_FAILED')
-   return result.stdout.decode()
+   return offline_process.run_tool(args,log,timeout=timeout).decode()
  previous_term=signal.getsignal(signal.SIGTERM)
  def stop_requested(signum,frame):raise KeyboardInterrupt()
  signal.signal(signal.SIGTERM,stop_requested)

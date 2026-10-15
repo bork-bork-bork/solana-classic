@@ -13,7 +13,7 @@ directory: `agave-validator`, `solana-genesis`, `solana-keygen`,
 `classic-genesis-audit-v2` and `agave-ledger-tool`. Their selected digests are in
 `host-preflight.py`, `consensus-audit-artifact.json` and
 `ledger-tool-artifact.json`. Keep this repository's mainnet scripts and those
-manifests together. The pinned ledger tool was compiled from the complete
+manifests together, including `offline_process.py`. The pinned ledger tool was compiled from the complete
 reviewed Agave source tree; existing runtime binaries were unchanged.
 
 The same host admission applies as for the three-validator launcher: Linux
@@ -82,14 +82,32 @@ After a real `prepared` result, independently review the retained outputs and
 run the separate `consensus.py` admission and explicit private rehearsal from
 [the launcher contract](CONSENSUS_REHEARSAL.md). Preparation cannot launch nodes.
 
+## Bounded offline tools and cancellation
+
+Each pinned tool now runs in its own process group with a fixed timeout,
+4 MiB stdout limit and 8 MiB private stderr limit. Both streams are drained
+while it runs. A timeout, output overflow, cancellation or other exceptional
+exit kills that owned group and reaps its direct child before the failed
+preparation result is saved. A descendant retaining a pipe cannot silently
+outlive the timeout. Cleanup never targets an unrelated process or service.
+The attempt, partial keys, ledgers and private diagnostic files remain retained.
+
+The default admission path still starts no process. Ten local lifecycle checks
+use disposable Python processes, including actual timeouts, overflow and
+inherited-pipe descendants. They do not execute the compiled genesis or ledger
+tools. Linux-host verification is pending after provider DNS lookup failures
+prevented either SSH attempt from reaching the private compiler service.
+See [the scoped process evidence](../evidence/mainnet-offline-process.json).
+
 ## Evidence and limits
 
 Thirteen preparation checks cover blocked/canonical hosts, read-only default,
 commands, strict output parsing, exact budgets, disagreement, retained attempts
 and redacted failures. A synthetic tool driver exercises the full orchestration
 and real archive materialization; its simulated bank outputs are not real
-replay evidence. Together with existing launcher/archive/host checks, 42 local
-checks pass. Actual compiled-tool CLI discovery and blocked-host admissions are
+replay evidence. Together with the ten process lifecycle checks and existing
+launcher/archive/host checks, 52 local checks pass. Historical preparation
+evidence retains its original counts and source hashes. Actual compiled-tool CLI discovery and blocked-host admissions are
 recorded in [the scoped evidence](../evidence/mainnet-genesis-preparation.json).
 
 An initial private CLI assertion incorrectly required a flag on `shred-version`
