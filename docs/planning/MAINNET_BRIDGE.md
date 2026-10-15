@@ -501,3 +501,21 @@ its failure remains retained. This observer does not support token extensions,
 independently pin Token-2022 bytecode, verify native reserve/global genesis or
 complete pending-event history, appoint independent operators, or authorize
 signing/recovery. Those release requirements remain open.
+
+
+## Native reserve and bootstrap snapshot observer
+
+`bridge/native-reserve.mjs` verifies native V2 custody, the protected floor and
+rent, the exact selected bootstrap record and consumed source receipt, and
+remaining original-token claim capacity. It reads native lamports without
+JavaScript rounding and brackets two stable account snapshots with programme
+pins. Twenty-nine related local checks and three worker guards pass.
+
+Five actual checks pass on one fresh private copied native ledger with30
+read-only RPC calls, zero simulations/broadcasts, a stopped copied validator
+and unchanged original ledgers/fixture/journal. Wrong selected inventory and
+receipt inputs reject. See `evidence/bridge-native-reserve-agave.json` and
+`bridge/NATIVE_RESERVE.md`. The witness remains a synthetic budget, whose digest
+does not establish complete genesis contents or funded backing. The original
+escrow and native reserve observations are separate, not an atomic cross-chain
+or independently authenticated production proof. Monetary gates remain closed.

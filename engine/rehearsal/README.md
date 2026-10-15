@@ -328,3 +328,21 @@ replayed/reset. This is a private fixture observation, not complete native
 backing, token-extension, Token-2022 executable, history, consensus or production
 custody acceptance. See `evidence/bridge-origin-assets-agave.json` and the retained
 `evidence/bridge-origin-assets-first-attempt.json`.
+
+
+## Native reserve and bootstrap observer
+
+`native_reserve.py` and `bridge/rehearsal/native-reserve.mjs` now pass five actual
+checks on one NEW private native-ledger copy. Complete public pin, origin-asset
+and bootstrap reviews select exact inputs before any RPC read. The observer
+reconciles the V2 reserve, protected rent floor, bootstrap inventory/amounts,
+consumed receipt and remaining original-token capacity. Wrong inventory and
+receipt inputs reject; a fresh read retains exact state and balance hashes.
+Thirty read-only calls, zero simulations/broadcasts. One copied process stopped,
+and both original ledger inventories plus fixture/finalized journal hashes
+match. Twenty-nine local checks and three worker guards pass.
+
+Preserve the attempt and every prior branch. No source lock, settlement,
+recovery retry or monetary activation occurred. The budget remains hypothetical
+and does not cover complete validator supply. See
+`evidence/bridge-native-reserve-agave.json` for exact source hashes and limits.
