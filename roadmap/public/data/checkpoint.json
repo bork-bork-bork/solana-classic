@@ -223,7 +223,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-15T20:27:26.063Z",
+    "reviewedAt": "2026-10-15T20:56:14.917376+00:00",
     "scope": "Development checkpoint only; separate from the live devnet release",
     "projects": [
       {
@@ -272,7 +272,7 @@
           {
             "title": "Validator voting, finality and RPC boundaries",
             "state": "local-passed",
-            "detail": "Proposed in PR #6, not yet merged. All 83 offline mainnet package checks pass locally. Votes and roots must advance in all nine node views, stake stays fixed and earlier finalized blocks remain unchanged. Twelve local HTTP test groups verify direct reads, redirect/proxy refusal, protocol/size bounds and one shared three-second network deadline. Slow headers and ordinary/chunked bodies cannot reset the budget; timeout sockets close. These use synthetic HTTP fixtures and mocked processes, with no actual full validators, genesis or chain requests. Suitable hosting and genuine consensus/recovery remain required.",
+            "detail": "Proposed in PR #6, not yet merged. All 93 offline mainnet package checks pass on Linux; 92 pass locally with one Linux-only case skipped. Votes and roots must advance in all nine node views, stake stays fixed and earlier finalized blocks remain unchanged. Twelve local HTTP test groups verify direct reads, redirect/proxy refusal, protocol/size bounds and one shared three-second network deadline. Slow headers and ordinary/chunked bodies cannot reset the budget; timeout sockets close. These use synthetic HTTP fixtures and mocked processes, with no actual full validators, genesis or chain requests. Suitable hosting and genuine consensus/recovery remain required.",
             "evidence": "https://github.com/solana-classic/solana-classic/pull/6"
           },
           {
@@ -287,6 +287,12 @@
           {
             "title": "Operators, consensus, recovery and production release",
             "state": "pending"
+          },
+          {
+            "title": "Existing-validator process admission",
+            "state": "local-passed",
+            "detail": "Proposed in PR #6, not yet merged. Preparation previously missed Linux-truncated test-validator process names. Both preparation and launch now share a read-only census of names, executable arguments and kernel links; incomplete live evidence refuses. Ten new regression groups pass, including an actual Linux kernel-name fixture using an ordinary Python child. All 93 offline mainnet package checks pass on Linux; 92 pass locally with the Linux-only case skipped. No Agave starts, real keys, genesis, chain changes or host-limit changes. This is visible admission only, not an atomic host lock or consensus proof. Suitable hosting remains required.",
+            "evidence": "https://github.com/solana-classic/solana-classic/pull/6"
           }
         ]
       },

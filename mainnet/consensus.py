@@ -249,6 +249,8 @@ def stop_owned_process(p):
    p.wait(timeout=10)
  return {'returnCode':p.returncode,'forced':forced}
 
+_process_admission_spec=importlib.util.spec_from_file_location('process_admission',Path(__file__).with_name('process_admission.py'));process_admission=importlib.util.module_from_spec(_process_admission_spec);_process_admission_spec.loader.exec_module(process_admission)
+
 def run(bundle,binaries,run_id,execute=False):
  preflight=host.assess(host.probe(binaries,BASE.parent))
  if not preflight['canPrepareFreshPrivateRehearsal']:return {'state':'blocked','host':preflight,'validatorsStarted':0,'createdLedger':False,'productionReady':False}
@@ -260,10 +262,7 @@ def run(bundle,binaries,run_id,execute=False):
  if not execute:return {'state':'packet-checked','host':preflight,'audit':audit,'validatorsStarted':0,'createdLedger':False,'bankHashLocallyVerified':False,'bankHashEnforcedByRuntime':True,'productionReady':False}
  # No canonical container, existing ledgers, public ingress or external RPC.
  if os.environ.get('RAILWAY_SERVICE_ID')=='d0a1de40-bd9c-47eb-a7fc-477f1c55b2d6':raise ValueError('CANONICAL_SERVICE_FORBIDDEN')
- for proc in Path('/proc').glob('[0-9]*'):
-  try:cmd=(proc/'cmdline').read_bytes().split(b'\0')
-  except OSError:continue
-  if cmd and Path(os.fsdecode(cmd[0])).name in ['agave-validator','solana-test-validator']:raise ValueError('OTHER_VALIDATOR_ALREADY_ACTIVE')
+ process_admission.no_active_validator()
  for port in all_ports():
   for kind in [socket.SOCK_STREAM,socket.SOCK_DGRAM]:
    with socket.socket(socket.AF_INET,kind) as sock:sock.bind(('127.0.0.1',port))

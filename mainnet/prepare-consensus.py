@@ -56,10 +56,7 @@ def budget_probe(audit):
  return fixed
 
 def no_active_validator():
- for p in Path('/proc').glob('[0-9]*'):
-  try:
-   if (p/'comm').read_text().strip() in ['agave-validator','solana-test-validator'] and (p/'stat').read_text().split()[2]!='Z':raise ValueError('OTHER_VALIDATOR_ALREADY_ACTIVE')
-  except OSError:continue
+ return c.process_admission.no_active_validator()
 
 def run(binary_directory,bundle_id,execute=False):
  if os.environ.get('RAILWAY_SERVICE_ID')==CANONICAL_SERVICE:raise ValueError('CANONICAL_SERVICE_FORBIDDEN')

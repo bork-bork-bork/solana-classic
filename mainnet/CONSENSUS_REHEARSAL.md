@@ -212,3 +212,28 @@ hashing genesis with an exact synthetic budget, replays slot0 on two fresh
 copies with normal verification, and requires matching bank/shred outputs.
 The current host refuses before private preparation. Read
 [the preparation procedure](GENESIS_PREPARATION.md).
+
+## Visible process admission
+
+Preparation and launch share the read-only `process_admission.py` census before
+creating a new rehearsal attempt. Linux truncates `comm` names to15 bytes, so
+matching only the full test-validator name can miss a running process. The
+shared guard recognizes both full and truncated names, executable `argv[0]`
+and the kernel executable link, including a removed executable still running.
+Mentions in unrelated arguments do not count as validator execution.
+
+State parsing handles spaces and parentheses in process names. Zombie and
+exited records are excluded; disappearing PIDs are tolerated. A missing Linux
+process filesystem, unreadable live record, unknown state or incomplete live
+identity refuses execution with a redacted error. Run with sufficient authorized
+visibility; do not bypass the check.
+
+The census observes visible processes at admission time. It is not an atomic
+lock against later starts, proof of hidden host processes or a security boundary
+against a malicious host. A dedicated host and serialized operator workflow
+remain required. No live validator or host limit is changed by this check.
+
+Ten regression groups cover these boundaries. The Linux-only fixture names an
+ordinary bounded Python child like a test validator and verifies the kernel's
+actual truncated name; it starts no Agave process. Synthetic lifecycle fixtures
+explicitly model an admitted process census, separately from refusal tests.

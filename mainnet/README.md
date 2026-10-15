@@ -115,3 +115,10 @@ connection, sending, headers and body reads. Slow trickle responses cannot keep
 resetting the socket timeout. Four new local HTTP test groups bring the offline
 package to 83 checks; no full validators or actual chain requests are involved.
 See [deadline verification](../evidence/mainnet-rpc-network-deadline-local.json).
+
+Both preparation and launch now share a visible Linux process census that
+recognizes truncated validator names, executable arguments and kernel links.
+Unreadable live process evidence refuses admission; this is not an atomic host
+lock or independent-host proof. Ten new regression groups include an actual
+Linux kernel-name fixture using an ordinary Python child, with no Agave starts.
+See [the process admission contract](CONSENSUS_REHEARSAL.md#visible-process-admission).
