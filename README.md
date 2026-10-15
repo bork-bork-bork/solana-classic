@@ -6,6 +6,18 @@ Solana Classic is an open-source blockchain putting meme and NFT communities at 
 
 [Website](https://solanaclassic.net) · [Our story](https://solanaclassic.net/about) · [Try devnet](https://solanaclassic.net/playground) · [Live roadmap](https://solanaclassic.net/roadmap) · [Whitepaper](https://solanaclassic.net/whitepaper) · [Build on Classic](https://solanaclassic.net/developers)
 
+## SOC on Solana
+
+**Official token contract address (Solana mainnet):**
+
+```
+[historical address removed]
+```
+
+[View SOC on Solscan](https://solscan.io/token/[historical address removed]) · [Token details](https://solanaclassic.net/token)
+
+Solana Classic mainnet and the proposed 1:1 bridge are not live. tSOC on devnet is a separate test asset with no monetary value or conversion rights.
+
 ## Why we are building this
 
 Solana Monkey Business. Okay Bears. BONK. WIF. Names that bring back a timeline, a group chat or a mint night. We came to Solana for the art, the jokes, the communities and the feeling that anyone could make something people cared about. Discovering a collection or a meme felt like joining something. We want that sense of fun and possibility to have a future.
@@ -64,7 +76,7 @@ Devnet is live. The Solana Classic team currently runs its single validator - th
 
 In the [playground](https://solanaclassic.net/playground), you can create a temporary test wallet, receive test units, create a demo meme token or NFT, transfer it, and inspect ownership and transaction records in the gallery and explorer. The wallet stays in browser memory; reloading loses access to it.
 
-**TEST/tSOC balances and demo assets have no monetary value or right to conversion into SOC.** Production mainnet, the SOC token and the bridge are not live. Current build, test and release results, including failed or pending gates, are on the [live roadmap](https://solanaclassic.net/roadmap).
+**TEST/tSOC balances and demo assets have no monetary value or right to conversion into SOC.** The original SOC token is on Solana. Solana Classic mainnet and the bridge are not live. Current build, test and release results, including failed or pending gates, are on the [live roadmap](https://solanaclassic.net/roadmap).
 
 ## Build an application
 
@@ -76,7 +88,7 @@ Developers can deploy and upgrade their own SBF programs with the tested HTTP to
 
 SOC is intended to be the network token of Solana Classic. A reserve-backed bridge is planned to make original SOC on Solana redeemable one-to-one for native SOC on the independent production network.
 
-The aim is one economic supply: moving to native SOC requires backing from original tokens held in reserve. The official mint, team involvement, holdings and fee recipients will be published with any official token announcement. Mainnet, reserve protection and bridge security still need implementation, published terms and review. Redemption is unavailable today. The [whitepaper](docs/whitepaper/WHITEPAPER.md) explains the proposed model.
+The aim is one economic supply: moving to native SOC requires backing from original tokens held in reserve. The official Solana mint is published above. Team allocation and lock plans are disclosed below; acquisition details, actual holdings, fee recipients and lock evidence will be published separately. Mainnet, reserve protection and bridge security still need implementation, published terms and review. Redemption is unavailable today. The [whitepaper](docs/whitepaper/WHITEPAPER.md) explains the proposed model.
 
 ### Team wallet and supply disclosure
 
@@ -88,7 +100,7 @@ The team's wallet on Solana is published in advance:
 
 When the original SOC token is launched on Solana, 70% of the supply will be held by this wallet and locked on-chain. The remaining 30% will be available to trade on Solana. The locked 70% stays locked until the Solana Classic mainnet is live; the team will then bridge those tokens to mainnet through the reserve bridge, where they fund the full tokenomics of the coin. The full tokenomics breakdown will be published with the mainnet launch.
 
-The lock contract, its unlock conditions and how the tokens were acquired will be published with the token announcement, together with the official mint. No other address is a team wallet. Until that announcement the wallet holds nothing related to SOC, and nothing sent to it creates any entitlement.
+The lock contract, its unlock conditions and how the tokens were acquired will be published separately. The allocation above is the stated plan; publishing the mint address does not verify that a lock is in place. No other address is a team wallet. Nothing sent to this wallet creates any entitlement.
 
 ## What is in this repository
 

@@ -169,7 +169,6 @@
   },
   "releaseAccepted": false,
   "planned": [
-    "SOC token",
     "Native mainnet",
     "1:1 bridge"
   ],
@@ -701,5 +700,11 @@
       "completedAt": "2026-10-14T16:48:23.028Z",
       "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/stability-original-terminal-review.json"
     }
+  },
+  "socToken": {
+    "network": "Solana mainnet",
+    "mint": "[historical address removed]",
+    "explorer": "https://solscan.io/token/[historical address removed]",
+    "scope": "Published original SOC token address; not native Classic mainnet or bridge activation"
   }
 }

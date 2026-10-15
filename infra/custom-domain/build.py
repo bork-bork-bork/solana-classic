@@ -97,7 +97,7 @@ header = header.replace("aria-current={path.startsWith(href!) ? 'page' : undefin
 (overlay / 'src/SiteHeader.tsx').write_text(header)
 (overlay / 'src/App.tsx').write_text(app)
 (overlay / 'src/WalletDrawer.tsx').write_text("export { default } from '../../../wallet/src/WalletDrawer';\n")
-for name in ['Builders.tsx', 'Collectors.tsx', 'Whitepaper.tsx', 'Developers.tsx']:
+for name in ['Builders.tsx', 'Collectors.tsx', 'Whitepaper.tsx', 'Developers.tsx', 'SOCContract.tsx', 'Token.tsx']:
     shutil.copy2(root / 'infra/custom-domain' / name, overlay / 'src' / name)
 shutil.copy2(root / 'developers/network.json', overlay / 'src/developer-network.json')
 paper_edition = json.loads((root / 'docs/whitepaper/output/qa/verification-v015.json').read_text())
@@ -135,6 +135,9 @@ pages=(overlay / 'src/Pages.tsx').read_text().replace('TEST','tSOC')
 pages=pages.replace('SOC is planned to launch on Solana through Pump.fun, with a later bridge to native SOC on Solana Classic mainnet. Neither has launched.', 'SOC is intended to be the network token of Solana Classic. A reserve-backed bridge is planned to connect original SOC on Solana with native SOC on Classic. Mainnet and redemption are not live.')
 pages=pages.replace('Initial Solana token → planned native network asset', 'SOC on Solana and native SOC on Classic')
 pages=pages.replace('Initial trading would use Pump.fun on Solana. Future bridge and pool addresses will appear here once verified. The bridge security model, developer holdings, mainnet economics and future liquidity funding are not finalized.', 'The official mint, team involvement, holdings and fee recipients will be published with any official token announcement. Bridge and pool addresses will appear here once verified. Bridge security, mainnet economics and future liquidity funding are not finalized.')
+token_start = pages.index('export function Token()')
+assert pages[token_start:].count('export function ') == 1
+pages = pages[:token_start] + "export { default as Token } from './Token';\n"
 pages=pages.replace('href="/whitepaper.pdf" download', 'href="/whitepaper"')
 pages=pages.replace('Experimental by design. Transparent about its limits.', 'Devnet is live. Here is how it works today.')
 pages=pages.replace('<dt>Operators</dt><dd>1 — project operated</dd>', '<dt>Who runs the devnet</dt><dd>The Solana Classic team runs one validator - the computer that checks and records transactions.</dd>')
