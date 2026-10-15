@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "reviewedAt": "2026-10-15T01:45:33.786047+00:00",
+  "reviewedAt": "2026-10-15T01:48:56.071134+00:00",
   "t0": "2026-10-13T03:00:54Z",
   "deadline": "2026-10-19T03:00:54Z",
   "target": "2026-10-17T15:00:54Z",
@@ -224,7 +224,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-15T01:45:33.786047+00:00",
+    "reviewedAt": "2026-10-15T01:48:56.071134+00:00",
     "scope": "Development checkpoint only; separate from the live devnet release",
     "projects": [
       {
@@ -374,10 +374,49 @@
         ]
       },
       {
+        "id": "launchpad",
+        "title": "Meme & NFT Launchpad",
+        "state": "planned",
+        "description": "A place to launch memecoins and NFT collections on Solana Classic, built around their creators and communities.",
+        "currentScope": "Planned application track. The existing devnet mint studio and image uploads are available foundations; a trading launchpad, collection launch flow and mainnet contracts have not been deployed.",
+        "milestones": [
+          {
+            "title": "Memecoin creation and launch pages",
+            "state": "pending",
+            "detail": "Creator setup, image uploads, token details and public project pages."
+          },
+          {
+            "title": "NFT collections and public mint pages",
+            "state": "pending",
+            "detail": "Collection setup, artwork, mint configuration and collector pages."
+          },
+          {
+            "title": "Wallet connection and launch review",
+            "state": "pending",
+            "detail": "Use Classic Wallet and clearly show fees, supply, authorities and transaction receipts before signing."
+          },
+          {
+            "title": "Trading and liquidity launch design",
+            "state": "pending",
+            "detail": "Select and review the pricing, liquidity and creator-fee model before implementation."
+          },
+          {
+            "title": "Devnet launches and builder testing",
+            "state": "pending",
+            "detail": "Deploy and test complete launch journeys with test assets before production."
+          },
+          {
+            "title": "Mainnet release and security review",
+            "state": "pending",
+            "detail": "Reviewed contracts and operator readiness are required before any real-value launch."
+          }
+        ]
+      },
+      {
         "id": "wallet",
         "title": "Classic Wallet",
         "state": "building",
-        "description": "One wallet application for balances, transfers, artwork, memes and chain receipts.",
+        "description": "A wallet for devnet today, with native SOC, memecoins and NFTs planned for mainnet.",
         "currentScope": "Public .net wallet verified with actual devnet faucet, preset NFT, uploaded-artwork NFT and two verified owned assets in one session. 14 unit and 17 mocked browser checks also pass. Disposable memory-only keys; persistent custody/mainnet remain future work.",
         "source": "https://github.com/solana-classic/solana-classic/tree/main/wallet",
         "milestones": [
@@ -396,8 +435,14 @@
             "state": "pending"
           },
           {
-            "title": "Extension/mobile and mainnet/bridge integration",
-            "state": "pending"
+            "title": "Browser extension and mobile application",
+            "state": "pending",
+            "detail": "Planned after custody, key storage and recovery have been implemented and reviewed."
+          },
+          {
+            "title": "Mainnet SOC and bridge integration",
+            "state": "pending",
+            "detail": "Depends on mainnet readiness, reviewed signing and an accepted bridge; no real-value bridge is live."
           }
         ]
       },
