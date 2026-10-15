@@ -19,6 +19,30 @@ not patch the runtime check, lower the requirement, change security policy or
 reuse the devnet volume. A suitable host and its authorized operator access are
 required before three full validators can be accepted. No server was ordered.
 
+## Process and ancestor resource limits
+
+Keep `cgroup_limits.py` beside `host-preflight.py`. On unified cgroup Linux,
+preflight maps the process membership to its visible cgroup mount and checks
+RAM and CPU ceilings at the process group and every visible ancestor, together
+with physical RAM and CPU affinity. An unlimited child cannot hide a tighter
+parent. Ambiguous mappings, legacy layouts, missing controller files below the
+hierarchy root or malformed limits block admission instead of falling back to
+host totals. Membership paths and raw filesystem errors are omitted from output.
+The helper is compiled from its selected source without consuming or creating bytecode
+caches; standalone admission creates no files.
+
+This observes the visible hierarchy only. Hidden host ancestors, reserved
+capacity and sustained performance still need operator/provider review; this
+preflight cannot attest them. Normal validator host, network and PoH checks
+remain enabled. No limits are raised and no host policy changes are made.
+
+Eleven new resource and read-only fixture checks pass locally and on the
+private Linux worker; the full offline package has 79 local checks. The real read-only worker probe
+still refuses preparation: its hard file limit is 524288 and effective RAM is
+16000000000 bytes, below the unchanged 1000000-file and 16 GiB floors. All three
+reviewed binaries match, and no validators, keys or genesis were started.
+See [the scoped resource evidence](../evidence/mainnet-cgroup-resource-admission.json).
+
 ## Read-only first command
 
 Transfer or build the reviewed public binaries from the pinned repository source.

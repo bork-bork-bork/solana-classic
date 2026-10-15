@@ -4,8 +4,11 @@
 No limit changes, subprocesses, key generation, file writes or network calls.
 Reports omit hostnames, usernames, supplied paths and raw errors.
 """
-import argparse,hashlib,json,os,platform,resource,shutil,sys
+import argparse,hashlib,json,os,platform,resource,shutil,sys,types
 from pathlib import Path
+# Compile the selected source directly: never consume or create helper caches.
+_limits_source=Path(__file__).with_name('cgroup_limits.py');cgroups=types.ModuleType('cgroup_limits')
+exec(compile(_limits_source.read_bytes(),str(_limits_source),'exec'),cgroups.__dict__)
 PINS={
  'agave-validator':('34e468747f1a0d69399b61fd40edc32ce4690ec5a200b5684474aa60a97a6910',74406832),
  'solana-genesis':('ffbb10cf13737034ae3946e8ac6c106e72ded0886e041d0cbfb7a1fc4780b4c2',21491704),
@@ -26,18 +29,8 @@ def probe(binary_directory,storage_root):
  soft,hard=resource.getrlimit(resource.RLIMIT_NOFILE)
  memory=os.sysconf('SC_PHYS_PAGES')*os.sysconf('SC_PAGE_SIZE')
  cpu=float(len(os.sched_getaffinity(0))) if hasattr(os,'sched_getaffinity') else float(os.cpu_count() or 0)
- cgroup2=Path('/sys/fs/cgroup/cgroup.controllers').is_file()
- accounting=True
- if cgroup2:
-  try:
-   cap=Path('/sys/fs/cgroup/memory.max').read_text().strip()
-   if cap!='max':memory=min(memory,int(cap))
-   quota,period=Path('/sys/fs/cgroup/cpu.max').read_text().split()
-   if quota!='max':cpu=min(cpu,int(quota)/int(period))
-  except (OSError,ValueError,ZeroDivisionError):accounting=False
- elif Path('/proc/self/cgroup').is_file():
-  # Legacy cgroup layouts need explicit support before container acceptance.
-  accounting=not bool(Path('/proc/self/cgroup').read_text().strip())
+ limits=cgroups.observe(memory,cpu)
+ memory=limits['memoryBytes'];cpu=limits['cpuCount'];accounting=limits['observed']
  binaries={}
  for name,(expected,size) in PINS.items():
   p=Path(binary_directory)/name
@@ -49,7 +42,7 @@ def probe(binary_directory,storage_root):
   if not Path(storage_root).is_dir():raise OSError('Storage directory required')
   free=shutil.disk_usage(storage_root).free
  except OSError:free=None
- return {'system':platform.system(),'architecture':platform.machine(),'fileLimitSoft':None if soft==resource.RLIM_INFINITY else soft,'fileLimitHard':None if hard==resource.RLIM_INFINITY else hard,'fileLimitHardUnlimited':hard==resource.RLIM_INFINITY,'effectiveMemoryBytes':memory,'effectiveCpuCount':cpu,'containerLimitsObserved':accounting,'availableStorageBytes':free,'binaries':binaries}
+ return {'system':platform.system(),'architecture':platform.machine(),'fileLimitSoft':None if soft==resource.RLIM_INFINITY else soft,'fileLimitHard':None if hard==resource.RLIM_INFINITY else hard,'fileLimitHardUnlimited':hard==resource.RLIM_INFINITY,'effectiveMemoryBytes':memory,'effectiveCpuCount':cpu,'containerLimitsObserved':accounting,'cgroupVisibleAncestorCount':limits['visibleAncestorCount'],'cgroupLimitScope':limits['scope'],'cgroupLimitFailure':limits.get('failureCode'),'availableStorageBytes':free,'binaries':binaries}
 
 def assess(facts):
  reasons=[]

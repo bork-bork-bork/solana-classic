@@ -223,7 +223,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-15T17:47:37.835453+00:00",
+    "reviewedAt": "2026-10-15T18:24:49.949239+00:00",
     "scope": "Development checkpoint only; separate from the live devnet release",
     "projects": [
       {
@@ -231,7 +231,7 @@
         "title": "Native SOC mainnet",
         "state": "blocked",
         "description": "A separate production-network implementation, beginning with exact genesis supply and backed validator bootstrap.",
-        "currentScope": "The source-built genesis compiler, complete synthetic inventory auditor, ledger inspection tool and guarded preparation/three-validator launcher are ready for private execution. Current host admission fails: hard file limit 524,288 vs required 1,000,000. Fresh hashing genesis, actual slot-zero replay and full-validator consensus/recovery still await suitable hosting. Funded genesis/reserve custody, independent operators and production review remain separate gates.",
+        "currentScope": "The source-built genesis compiler, complete synthetic inventory auditor, ledger inspection tool and guarded preparation/three-validator launcher are ready for private execution. Current hosting is below the file-limit and RAM requirements. Fresh hashing genesis, actual slot-zero replay and full-validator consensus/recovery await a suitable Linux host. Funded genesis/reserve custody, independent operators and production review remain separate gates.",
         "source": "https://github.com/solana-classic/solana-classic/tree/main/mainnet",
         "milestones": [
           {
@@ -248,8 +248,8 @@
           {
             "title": "Validator-host admission and operator handoff",
             "state": "blocked",
-            "detail": "Read-only host tool and operator handoff prepared; five local checks. Actual existing compiler host still fails the hard open-file requirement524288 vs1000000; three reviewed binaries match. No keys/ledgers created, no validator starts or limit changes. A capable Linux host is required for the next three-validator consensus rehearsal.",
-            "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/mainnet-host-readiness.json"
+            "detail": "Proposed resource fix in PR #6, not yet merged. The checker now applies actual process-group and visible parent RAM/CPU limits. Sixteen host/resource checks pass locally; eleven new resource/read-only fixtures also pass on Linux. The actual read-only worker probe remains blocked by its 524288 file limit and 16 GB RAM, below the unchanged one-million-file and 16 GiB requirements. Three reviewed binaries match; no limits changed, keys/genesis created or validators started. Hidden host capacity still needs operator review. Suitable Linux hosting is required.",
+            "evidence": "https://github.com/solana-classic/solana-classic/pull/6"
           },
           {
             "title": "Private full-validator rehearsal package",

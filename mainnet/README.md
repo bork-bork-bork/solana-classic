@@ -101,3 +101,11 @@ redirects, environment proxies or global opener substitution. Eight actual
 loopback HTTP fixture tests bring the offline package to 68 local checks.
 [Transport verification](../evidence/mainnet-rpc-boundary-local.json) remains
 separate from actual Agave consensus and host admission.
+
+Host admission now reads the actual unified-cgroup membership and all visible
+ancestor RAM/CPU ceilings. Eleven new resource/read-only fixtures pass locally and on the
+private Linux worker; the complete offline package has 79 local checks. The
+actual worker still fails the unchanged file-limit and RAM requirements, with
+no keys, genesis or validators created. See
+[resource admission evidence](../evidence/mainnet-cgroup-resource-admission.json).
+Visible cgroup observations do not attest hidden host limits or reserved capacity.

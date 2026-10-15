@@ -13,7 +13,7 @@ directory: `agave-validator`, `solana-genesis`, `solana-keygen`,
 `classic-genesis-audit-v2` and `agave-ledger-tool`. Their selected digests are in
 `host-preflight.py`, `consensus-audit-artifact.json` and
 `ledger-tool-artifact.json`. Keep this repository's mainnet scripts and those
-manifests together, including `offline_process.py`. The pinned ledger tool was compiled from the complete
+manifests together, including `offline_process.py` and `cgroup_limits.py`. The pinned ledger tool was compiled from the complete
 reviewed Agave source tree; existing runtime binaries were unchanged.
 
 The same host admission applies as for the three-validator launcher: Linux
