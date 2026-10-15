@@ -223,7 +223,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-15T19:24:48.338983+00:00",
+    "reviewedAt": "2026-10-15T19:54:31.130110+00:00",
     "scope": "Development checkpoint only; separate from the live devnet release",
     "projects": [
       {
@@ -491,7 +491,9 @@
           },
           {
             "title": "Bootstrap reconciliation, custody and recovery",
-            "state": "pending"
+            "state": "pending",
+            "detail": "Still pending. Proposed selected-journal accounting in PR #6 passes 13 new synthetic tests and 167 bridge regressions. It sums both directions without discarding expired or uncertain obligations and rejects declared counter/reserve mismatches. Selected arithmetic cannot prove complete source history, common branch, fresh chain state or funded backing; recovery permissions remain disabled. Actual bootstrap, custody and independent recovery review are still required.",
+            "evidence": "https://github.com/solana-classic/solana-classic/pull/6"
           },
           {
             "title": "Independent security review and live redemption",

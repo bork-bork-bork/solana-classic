@@ -149,7 +149,7 @@ function summary(record) {return {id:record.id,signature:record.signature,eventH
 export function inspectPendingClaim(directory,id) {
   return locked(directory,id,async(record,{event,ix})=>({
     ...summary(record),schemaVersion:record.schemaVersion,scope:record.scope,journalHash:hash(JSON.stringify(record)),
-    sourceChain:event.sourceChain,destinationChain:event.destinationChain,
+    bridge:event.bridge,sourceChain:event.sourceChain,destinationChain:event.destinationChain,
     sourceProgram:event.sourceProgram,destinationProgram:event.destinationProgram,
     sourceEvent:event.sourceEvent,recipient:event.recipient,nonce:event.nonce.toString(),
     epoch:event.epoch.toString(),originAmount:event.originAmount.toString(),

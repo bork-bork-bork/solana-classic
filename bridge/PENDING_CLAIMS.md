@@ -603,3 +603,10 @@ Three new regressions and six retained-journal offline checks pass, with no RPC,
 validator starts, transactions or enabled retry/refund. See
 [the review boundary](EXPIRED_RECOVERY.md) and
 [the aggregate offline result](../evidence/bridge-metadata-expiry-review-offline.json).
+
+## Selected pending-liability accounting
+
+A separate offline inventory can sum explicitly selected pinned journals in
+both directions while preserving expired, failed and uncertain liabilities.
+It does not save records, enable recovery or prove complete history/backing.
+Read [the exact input contract and limitations](PENDING_INVENTORY.md).

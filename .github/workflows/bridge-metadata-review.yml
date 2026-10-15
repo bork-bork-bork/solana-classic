@@ -5,6 +5,9 @@ on:
       - 'bridge/mint-metadata*'
       - 'bridge/reviewed-origin-mint*'
       - 'bridge/pending-claim*'
+      - 'bridge/pending-inventory*'
+      - 'bridge/PENDING_INVENTORY.md'
+      - 'evidence/bridge-selected-pending-inventory-local.json'
       - 'bridge/pinned-pending*'
       - 'bridge/reviewed-pending*'
       - 'bridge/claim-mint-policy.mjs'
@@ -73,7 +76,7 @@ jobs:
       - run: npm install --global pnpm@10.34.7
       - run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Offline metadata and existing admission regressions
-        run: node --test bridge/reviewed-pending.test.mjs bridge/pinned-pending.test.mjs bridge/reviewed-origin-mint.test.mjs bridge/mint-metadata.test.mjs bridge/origin-assets.test.mjs bridge/origin-token-code.test.mjs bridge/pending-claim.test.mjs bridge/pending-redemption.test.mjs bridge/pending-large-native.test.mjs bridge/lossless-native-rpc.test.mjs bridge/observer-reports.test.mjs bridge/expired-review.test.mjs bridge/program-pins.test.mjs bridge/upgrade-observation.test.mjs
+        run: node --test bridge/pending-inventory.test.mjs bridge/reviewed-pending.test.mjs bridge/pinned-pending.test.mjs bridge/reviewed-origin-mint.test.mjs bridge/mint-metadata.test.mjs bridge/origin-assets.test.mjs bridge/origin-token-code.test.mjs bridge/pending-claim.test.mjs bridge/pending-redemption.test.mjs bridge/pending-large-native.test.mjs bridge/lossless-native-rpc.test.mjs bridge/observer-reports.test.mjs bridge/expired-review.test.mjs bridge/program-pins.test.mjs bridge/upgrade-observation.test.mjs
       - name: Private rehearsal admission guards
         run: python3 engine/rehearsal/metadata_origin_test.py
       - name: Read-only review copy guards
