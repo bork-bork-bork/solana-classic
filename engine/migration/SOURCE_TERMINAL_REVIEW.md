@@ -1,0 +1,65 @@
+# Source-built devnet terminal review
+
+The fresh admitted run must produce its own completed full-day result. The
+original official-build result, a progress summary, elapsed time or a saved
+placeholder cannot accept it. The offline auditor supplies no test activation,
+network access, signing, validator controls or overall release approval.
+
+## Retain the real terminal inputs
+
+After the exact selected runner has completed, retain its actual complete
+`soak.json` and fresh `status.json`, `runtime.json`, `qa.json`, `progress.json`
+and `monitor.json` in a new private review directory. Export only from the
+reviewed runner deployment and namespace recorded in the activation evidence.
+Never overwrite a prior attempt, substitute an old report, restart a workload
+or export private keys or ledgers. The bounded public progress reader omits
+receipts and cannot supply the complete terminal inventory.
+
+Keep the eight prerequisite reports under their exact names from the activation
+checksum inventory, plus a separate unchanged copy of the 45-file frozen source
+context. A successful historical prerequisite or a newly written equivalent
+report cannot replace the exact selected bytes. Observe terminal status and
+independent health immediately before running the audit; stale observations
+refuse admission.
+
+```sh
+python3 engine/migration/source_terminal_review.py \
+  --input-dir <new-private-terminal-input-directory> \
+  --frozen-context <unchanged-selected-source-context>
+```
+
+The command prints a scoped review and returns 78 when admission fails. It
+never writes a result or changes the supplied evidence. Retain failed reviews
+alongside their inputs. Review the output before publishing a privacy-checked
+aggregate; raw private input packets remain private.
+
+## What the audit verifies
+
+The auditor pins the exact freeze, activation digest, runner, namespace, run
+start and eight prerequisite hashes. It requires a clean completed runner,
+matching current boots and engine, fresh independent health and an actual
+full-duration report with all 288 scheduled journeys. Recorded identifiers are
+decoded and length-checked; mint and transfer receipts must be unique.
+
+The frozen runner generates a new recipient for each journey. All 288 recorded
+recipients must therefore be distinct, separate from the payer and every mint.
+A self-transfer, reused recipient or account reused for a different role cannot
+satisfy this recorded ownership journey. Workload counts/cadence/faucet metrics
+and the runner exit code require integer types; boolean and decimal-form aliases
+do not stand in for those fields. A complete positive fixture still passes.
+
+Three new regression groups cover five invalid ownership-role cases, four
+ambiguous workload scalars and two ambiguous exit codes. Together with the
+existing source/historical terminal and load checks, all 37 offline regressions
+pass locally. Dedicated Linux CI runs this same suite. These are synthetic
+reports, not a new stability result or an independent replay of transactions.
+The original frozen workload and earlier proof hashes are unchanged. See
+[the scoped admission checks](../../evidence/source-terminal-role-admission-local.json).
+
+## What remains after a valid report
+
+Record review of the real completed run and finish candidate-specific browser
+regression, remaining individual release gates and operator handoff. A passed
+terminal audit still sets release, mainnet, bridge and cutover acceptance false.
+Mainnet additionally requires capable hosting, actual full-validator consensus
+and recovery, funded backing, custody, independent operators and security review.
