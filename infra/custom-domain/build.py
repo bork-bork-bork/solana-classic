@@ -231,3 +231,9 @@ roadmap_app = (root / 'infra/custom-domain/roadmap-app.js').read_text()
 assert roadmap_app.count('__PUBLIC_WHITEPAPER__') == 1
 roadmap_app = roadmap_app.replace('__PUBLIC_WHITEPAPER__', json.dumps({'version': paper_qa['version'], 'pages': paper_qa['pages'], 'sha256': paper_qa['pdfSHA256']}))
 (destination / 'public/roadmap-app.js').write_text(roadmap_app)
+# Content-address the integrated script so refreshed pages cannot reuse old status copy.
+roadmap_script = 'roadmap-app.' + hashlib.sha256(roadmap_app.encode()).hexdigest()[:16] + '.js'
+(destination / 'public' / roadmap_script).write_text(roadmap_app)
+roadmap = roadmap.replace('/roadmap-app.js', '/' + roadmap_script)
+(destination / 'public/roadmap.html').write_text(roadmap)
+
