@@ -223,7 +223,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-15T21:54:06.000914+00:00",
+    "reviewedAt": "2026-10-15T23:06:46.502728+00:00",
     "scope": "Development checkpoint only; separate from the live devnet release",
     "projects": [
       {
@@ -469,6 +469,12 @@
             "title": "Metadata original redemption recovers after pre-finality process kill",
             "state": "rehearsal-passed",
             "detail": "Proposed in PR #6, not yet merged. Seven actual checks on new private copies of the completed native-claim fixture. One native return and one reviewed withdrawal submission; copied origin SIGKILL before observed finality. RPC outage preserves the journal and blocks retry. Same-genesis restart reconciles the original finalized signature, exact token payout and unchanged recipient native balance. Signed bytes and review admissions retained; escrow/counters, returned native value and protected floor reconcile. All three copy starts stopped; original ledgers and prior finalized journal unchanged. Five worker guards pass locally and on Linux. This fault's expiry branch was not exercised; the following milestone covers deliberately unsubmitted expiry. Unknown landing, forks, production backing/custody and independent security review remain unverified.",
+            "evidence": "https://github.com/solana-classic/solana-classic/pull/6"
+          },
+          {
+            "title": "Metadata-token cold archive restore",
+            "state": "rehearsal-passed",
+            "detail": "Proposed in PR #6, not yet merged. Eight actual checks on new private copies: stopped backups were archived, hash-verified, extracted and restored with matching complete cold inventories. Nineteen selected finalized account records retain exact balances, metadata, code/authority pins, events and both consumed receipts. Two compiled-bridge replay simulations reject; zero broadcasts. Four copy starts stopped; original ledgers/private records unchanged. Initial baseline precision refusal retained, corrected with raw exact-integer parsing. Six worker and seven parser checks pass on Linux; 169 bridge regressions pass locally. Controlled-stop single-host test-validator scope only. Physical host loss, independent backups, arbitrary unknown landing/forks, full-validator consensus, funded backing/custody and security review remain open.",
             "evidence": "https://github.com/solana-classic/solana-classic/pull/6"
           },
           {

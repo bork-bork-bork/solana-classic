@@ -33,6 +33,10 @@ on:
       - 'engine/rehearsal/metadata_journal*'
       - 'bridge/rehearsal/metadata-pending-crash.mjs'
       - 'engine/rehearsal/metadata_pending_crash*'
+      - 'bridge/METADATA_COLD_RESTORE.md'
+      - 'bridge/rehearsal/metadata-cold-restore.mjs'
+      - 'engine/rehearsal/metadata_cold_restore*'
+      - 'evidence/bridge-metadata-cold-restore-agave.json'
       - 'bridge/rehearsal/metadata-redemption-crash.mjs'
       - 'engine/rehearsal/metadata_redemption_crash*'
       - 'bridge/rehearsal/metadata-unsubmitted-expiry.mjs'
@@ -78,7 +82,9 @@ jobs:
       - run: npm install --global pnpm@10.34.7
       - run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Retained offline runner syntax
-        run: node --check bridge/rehearsal/selected-inventory.mjs
+        run: |
+          node --check bridge/rehearsal/selected-inventory.mjs
+          node --check bridge/rehearsal/metadata-cold-restore.mjs
       - name: Offline metadata and existing admission regressions
         run: node --test bridge/pending-inventory.test.mjs bridge/reviewed-pending.test.mjs bridge/pinned-pending.test.mjs bridge/reviewed-origin-mint.test.mjs bridge/mint-metadata.test.mjs bridge/origin-assets.test.mjs bridge/origin-token-code.test.mjs bridge/pending-claim.test.mjs bridge/pending-redemption.test.mjs bridge/pending-large-native.test.mjs bridge/lossless-native-rpc.test.mjs bridge/observer-reports.test.mjs bridge/expired-review.test.mjs bridge/program-pins.test.mjs bridge/upgrade-observation.test.mjs
       - name: Private rehearsal admission guards
@@ -103,3 +109,5 @@ jobs:
         run: node --test bridge/rehearsal/drop-submission.test.mjs
       - name: Metadata controlled-drop and expiry worker guards
         run: python3 engine/rehearsal/metadata_dropped_redemption_test.py
+      - name: Metadata archive restore admission guards
+        run: python3 -B -W error::ResourceWarning engine/rehearsal/metadata_cold_restore_test.py

@@ -148,3 +148,26 @@ supplied pins remain explicitly unbound. This does not authorize recovery or
 replace independent code/history observations. See
 [expiry review scope](EXPIRED_RECOVERY.md). No production roster or endpoint has
 been appointed by this implementation.
+
+
+## Metadata-token archive restore
+
+Eight actual checks now pass on new private copies of a completed metadata-token
+native claim and original redemption. After controlled stops, an archive was
+hashed, extracted and copied into separate restored ledgers. Complete stopped
+inventories match before restart. Nineteen selected finalized account records
+retain exact native balances, bytes and owners, immutable mint metadata, code
+and authority pins, both original events and consumed receipts. Both settlement
+replay simulations reject after restore, with zero broadcasts. All four owned
+copy processes stopped; original ledgers and private records are unchanged.
+
+The initial attempt refused an unsafe Number balance before archive creation.
+Its two copy processes stopped and artifacts remain retained. The corrected
+attempt parses raw account JSON digits exactly; it does not round the balance
+or remove the selected account. See [the procedure](METADATA_COLD_RESTORE.md)
+and [aggregate evidence](../evidence/bridge-metadata-cold-restore-agave.json).
+
+This extends controlled-stop test-validator recovery to metadata tokens. It
+cannot establish physical-host recovery, independent backup custody, arbitrary
+unknown landing, competing forks, full-validator consensus, complete funded
+backing or production acceptance.
