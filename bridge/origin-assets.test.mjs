@@ -5,6 +5,7 @@ import {createRequire} from 'node:module';
 import {genesisTokenCodePins,observeTokenPinnedOriginAssets} from './origin-token-code.mjs';
 import {PublicKey,Keypair} from '@solana/web3.js';
 import {observeOriginAssets} from './origin-assets.mjs';
+import {reviewedOriginMintPolicy,observeReviewedOriginAssets} from './reviewed-origin-mint.mjs';
 import {TOKEN_2022,PUBLIC_GENESIS} from './sdk.mjs';
 const hash=b=>createHash('sha256').update(b).digest('hex'),loader='BPFLoaderUpgradeab1e11111111111111111111111';
 function fixture(){
@@ -119,7 +120,7 @@ test('caller cannot enable metadata by replacing its policy after asynchronous r
  const f=fixture(),m=metadataFixture(f),options={...f.options};let once=false;
  const fetcher=withMetadata(f,m.bytes);await assert.rejects(observeOriginAssets(options,async(...args)=>{if(!once){once=true;options.mintPolicy='immutable-self-metadata-v1';}return fetcher(...args);}),/layout/);
 });
-test('token-code-pinned composition forwards explicit metadata policy and brackets the whole observation',async()=>{
+function composedMetadataFixture(){
  const f=fixture(),m=metadataFixture(f),elf=Buffer.from('7f454c4601020304','hex'),program=Buffer.alloc(36),code=Buffer.alloc(45+elf.length);
  program.writeUInt32LE(2);PublicKey.findProgramAddressSync([new PublicKey(TOKEN_2022).toBuffer()],new PublicKey(loader))[0].toBuffer().copy(program,4);code.writeUInt32LE(3);elf.copy(code,45);
  const tokenPins=genesisTokenCodePins({genesis:f.pins.genesis,artifact:elf,upgradeAuthority:null,expectedSHA256:hash(elf),expectedBytes:elf.length});
@@ -130,6 +131,39 @@ test('token-code-pinned composition forwards explicit metadata policy and bracke
   else{wire=await(await assetFetcher(...args)).json();if(wire.result?.context)wire.result.context.slot=++context;}
   return new Response(JSON.stringify(wire));
  };
+ return {f,m,tokenPins,fetcher,tokenReads:()=>tokenReads};
+}
+test('token-code-pinned composition forwards explicit metadata policy and brackets the whole observation',async()=>{
+ const {f,m,tokenPins,fetcher,tokenReads}=composedMetadataFixture();
  const r=await observeTokenPinnedOriginAssets({...metadataOptions(f),tokenPins},fetcher);
- assert.equal(r.tokenCodeVerified,true);assert.equal(r.tokenCodeBoundaries,2);assert.equal(tokenReads,4);assert.equal(r.mintLayout,'immutable-self-metadata-v1');assert.equal(r.mintMetadata.symbol,'SOC');assert(r.finalTokenContextSlot>r.finalCodeContextSlot);assert.equal(r.productionReady,false);
+ assert.equal(r.tokenCodeVerified,true);assert.equal(r.tokenCodeBoundaries,2);assert.equal(tokenReads(),4);assert.equal(r.mintLayout,'immutable-self-metadata-v1');assert.equal(r.mintMetadata.symbol,'SOC');assert(r.finalTokenContextSlot>r.finalCodeContextSlot);assert.equal(r.productionReady,false);
+});
+
+function selectedMetadataReview(f,m,tokenPins){return reviewedOriginMintPolicy({pins:f.pins,tokenPins,expectedSupplyUnits:f.options.expectedSupplyUnits,expectedDecimals:f.options.expectedDecimals,expectedMintDataSHA256:hash(m.bytes)});}
+test('review-bound observation retains exact mint digest and selected policy with all code boundaries',async()=>{
+ const {f,m,tokenPins,fetcher,tokenReads}=composedMetadataFixture(),policy=selectedMetadataReview(f,m,tokenPins);
+ const r=await observeReviewedOriginAssets({rpc:f.options.rpc,policy,minimumContextSlot:50},fetcher);
+ assert.equal(r.mintDataSHA256,hash(m.bytes));assert.equal(r.reviewedMintPolicySHA256,policy.sha256);assert.equal(tokenReads(),4);assert.equal(r.originOutstandingUnits,'1950000');
+ for(const flag of ['canSign','canBroadcast','canRetry','productionReady'])assert.equal(r[flag],false);
+ assert(f.calls.every(q=>['getGenesisHash','getMultipleAccounts'].includes(q.method)));
+});
+test('independently selected wrong mint digest or changed metadata cannot inherit valid code admission',async()=>{
+ for(const mode of ['wrongSelection','changedBytes']){
+  const {f,m,tokenPins,fetcher}=composedMetadataFixture();let policy=selectedMetadataReview(f,m,tokenPins);
+  if(mode==='wrongSelection')policy=reviewedOriginMintPolicy({...policy,expectedMintDataSHA256:'0'.repeat(64)});else m.bytes[306]^=1;
+  await assert.rejects(observeReviewedOriginAssets({rpc:f.options.rpc,policy},fetcher),/mint bytes differ/);
+ }
+});
+test('caller replacement of a mutable policy while awaiting cannot approve different actual metadata',async()=>{
+ const {f,m,tokenPins,fetcher}=composedMetadataFixture(),policy=structuredClone(selectedMetadataReview(f,m,tokenPins));let once=false;
+ await assert.rejects(observeReviewedOriginAssets({rpc:f.options.rpc,policy},async(...args)=>{
+  if(!once){once=true;m.bytes[306]^=1;Object.assign(policy,selectedMetadataReview(f,m,tokenPins));}
+  return fetcher(...args);
+ }),/mint bytes differ/);
+});
+test('reviewed metadata policy never admits a plain mint even with its exact selected digest',async()=>{
+ const {f,tokenPins,fetcher}=composedMetadataFixture();
+ const policy=reviewedOriginMintPolicy({pins:f.pins,tokenPins,expectedSupplyUnits:f.options.expectedSupplyUnits,expectedDecimals:f.options.expectedDecimals,expectedMintDataSHA256:hash(f.mint)});
+ const plainFetcher=async(...args)=>{const q=JSON.parse(args[1].body),w=await(await fetcher(...args)).json();if(q.method==='getMultipleAccounts'&&q.params[0].length===4)w.result.value[1].data[0]=f.mint.toString('base64');return new Response(JSON.stringify(w));};
+ await assert.rejects(observeReviewedOriginAssets({rpc:f.options.rpc,policy},plainFetcher),/mint bytes differ/);
 });

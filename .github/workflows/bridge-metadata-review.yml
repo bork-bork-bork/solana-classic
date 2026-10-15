@@ -3,6 +3,11 @@ on:
   pull_request:
     paths:
       - 'bridge/mint-metadata*'
+      - 'bridge/reviewed-origin-mint*'
+      - 'bridge/REVIEWED_ORIGIN_MINT.md'
+      - 'bridge/rehearsal/*reviewed-metadata*'
+      - 'engine/rehearsal/reviewed_metadata_origin*'
+      - 'engine/rehearsal/cold_copy.py'
       - 'bridge/origin-assets*'
       - 'bridge/origin-token-code*'
       - 'bridge/MINT_METADATA.md'
@@ -12,6 +17,7 @@ on:
       - 'engine/rehearsal/bootstrap.py'
       - 'evidence/bridge-metadata-observer-local.json'
       - 'evidence/bridge-metadata-origin-agave.json'
+      - 'evidence/bridge-reviewed-metadata-origin-agave.json'
       - '.github/workflows/bridge-metadata-review.yml'
   workflow_dispatch:
 permissions:
@@ -28,6 +34,8 @@ jobs:
       - run: npm install --global pnpm@10.34.7
       - run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Offline metadata and existing admission regressions
-        run: node --test bridge/mint-metadata.test.mjs bridge/origin-assets.test.mjs bridge/origin-token-code.test.mjs bridge/pending-claim.test.mjs bridge/pending-redemption.test.mjs
+        run: node --test bridge/reviewed-origin-mint.test.mjs bridge/mint-metadata.test.mjs bridge/origin-assets.test.mjs bridge/origin-token-code.test.mjs bridge/pending-claim.test.mjs bridge/pending-redemption.test.mjs
       - name: Private rehearsal admission guards
         run: python3 engine/rehearsal/metadata_origin_test.py
+      - name: Read-only review copy guards
+        run: python3 engine/rehearsal/reviewed_metadata_origin_test.py

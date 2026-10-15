@@ -223,7 +223,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-15T11:30:28.580935+00:00",
+    "reviewedAt": "2026-10-15T12:11:18.403816+00:00",
     "scope": "Development checkpoint only; separate from the live devnet release",
     "projects": [
       {
@@ -289,7 +289,7 @@
         "title": "SOC redemption bridge",
         "state": "building",
         "description": "Original SOC escrow and a native Classic reserve, targeting exact 1:1 display-unit redemption in both directions.",
-        "currentScope": "The private bridge prototype completes finalized transfers in both directions, cold restore and process-crash recovery. Claim handoff requires reviewed code and policy pins; Actual authority changes on either side and an incompatible native code replacement block a prepared claim before submission. Read-only checks verify the fixture mint/escrow and bracket them with selected token-programme code and authority pins. Separate native reserve and consumed bootstrap receipt checks reconcile its declared budget. One expired private withdrawal remains unresolved, with no retry or refund authorized. Complete funded genesis backing, native reserve reconciliation, token-extension support, independent operators and custody, origin-side code-upgrade/fork tests and external security review remain required before live redemption.",
+        "currentScope": "The private bridge prototype completes finalized transfers in both directions, cold restore and process-crash recovery. Claim handoff requires reviewed code and policy pins; Actual authority changes on either side and an incompatible native code replacement block a prepared claim before submission. Read-only checks verify the fixture mint/escrow and bracket them with selected token-programme code and authority pins. Separate native reserve and consumed bootstrap receipt checks reconcile its declared budget. One expired private withdrawal remains unresolved, with no retry or refund authorized. Complete funded genesis backing, native reserve reconciliation, metadata settlement support, independent operators and custody, origin-side code-upgrade/fork tests and external security review remain required before live redemption.",
         "source": "https://github.com/solana-classic/solana-classic/tree/main/bridge",
         "milestones": [
           {
@@ -421,6 +421,12 @@
             "title": "Immutable metadata mint and escrow admission",
             "state": "rehearsal-passed",
             "detail": "Proposed in PR #6, not yet merged. Seven actual checks on a fresh private Agave origin plus four local worker guards and 62 offline checks. Four valueless fixture transactions; immutable metadata mint, bridge escrow and one source lock finalized. Complete code pins and exact escrow/counter verified; default policy and wrong inputs reject. 65 observer reads, zero settlement broadcasts, private validator stopped. Metadata settlement and independent security review remain pending.",
+            "evidence": "https://github.com/solana-classic/solana-classic/pull/6"
+          },
+          {
+            "title": "Reviewed mint policy before journal integration",
+            "state": "rehearsal-passed",
+            "detail": "Proposed in PR #6, not yet merged. Eight new local policy/integration checks plus 62 regressions; three copy guards pass locally and on Linux. Five actual checks on one fresh private origin copy bind exact selected mint bytes, supply and complete code pins. Wrong digest, edited review and wrong code refuse; 56 read-only RPC calls, zero transactions. Copy stopped; original ledger and transaction records unchanged. Journal integration and metadata settlement remain disabled.",
             "evidence": "https://github.com/solana-classic/solana-classic/pull/6"
           },
           {

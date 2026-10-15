@@ -33,7 +33,7 @@ function decode(value,pins,supply,decimals,vault,mintPolicy){
   if(authority.subarray(0,8).toString()!=='SCVLT002')throw new Error('Origin vault V2 authority account required');
   const locked=escrow.readBigUInt64LE(64),outstanding=config.readBigUInt64LE(374);
   if(locked<outstanding||locked>supply||outstanding>supply)throw new Error('Origin escrow does not cover recorded obligations within original supply');
-  return {mintSupplyUnits:supply.toString(),originEscrowUnits:locked.toString(),originOutstandingUnits:outstanding.toString(),unallocatedEscrowSurplusUnits:(locked-outstanding).toString(),assetDataSHA256:hash(Buffer.concat([config,mint,escrow,authority])),...(inspected?{mintLayout:inspected.layout,mintMetadata:inspected.metadata}:{})};
+  return {mintSupplyUnits:supply.toString(),originEscrowUnits:locked.toString(),originOutstandingUnits:outstanding.toString(),unallocatedEscrowSurplusUnits:(locked-outstanding).toString(),assetDataSHA256:hash(Buffer.concat([config,mint,escrow,authority])),...(inspected?{mintLayout:inspected.layout,mintMetadata:inspected.metadata,mintDataSHA256:hash(mint)}:{})};
 }
 export async function observeOriginAssets({rpc,pins,expectedSupplyUnits,expectedDecimals,minimumContextSlot=0,mintPolicy='plain'},fetcher=fetch){
   if(!['plain','immutable-self-metadata-v1'].includes(mintPolicy))throw new Error('Explicit supported mint policy required');

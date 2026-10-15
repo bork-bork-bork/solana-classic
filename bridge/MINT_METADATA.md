@@ -46,7 +46,8 @@ node --test bridge/mint-metadata.test.mjs bridge/origin-assets.test.mjs bridge/o
 SDKs as serialization/decoding oracles. Seven new observer checks exercise
 explicit selection, unchanged defaults, authority/layout refusals, changing
 metadata, chain restrictions and token-code bracketing. Related observer and
-both-direction journal regressions pass, for62checks total. Observer fixtures
+both-direction journal regressions pass, for70checks total including the eight
+reviewed-policy checks described below. Observer fixtures
 use synthetic RPC responses, not a running ledger. The workflow requires no
 production secrets or chain endpoint.
 
@@ -54,7 +55,7 @@ The observer retains exact selected supply/precision, a fixed165-byte escrow,
 complete bridge and optional token-code pins, nonregressing finalized contexts
 and identical asset bytes between reads. Metadata bytes are included in that
 comparison. Other mint extensions and all escrow extensions remain refused.
-See [the scoped local result](../evidence/bridge-metadata-observer-local.json).
+See [the earlier scoped local result](../evidence/bridge-metadata-observer-local.json).
 
 An actual415-byte public SOC mint snapshot requested with finalized commitment
 also passes offline inspection. Its exact slot/data hash and read-only scope
@@ -87,3 +88,8 @@ This is one synthetic origin and a read-only observer result. It does not
 verify metadata settlement, a two-chain round trip, recovery, full-validator
 consensus, funded backing or independent custody/security review. The private
 fixture and its source obligation remain retained; never replay or reset it.
+
+The separate [reviewed origin policy](REVIEWED_ORIGIN_MINT.md) now binds exact
+selected mint bytes and original supply to complete code pins. Eight new local
+checks and five actual read-only private-copy checks pass. This stricter
+observation is preparation for future journal admission, which remains disabled.
