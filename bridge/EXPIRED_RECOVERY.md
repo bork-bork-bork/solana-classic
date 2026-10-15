@@ -174,3 +174,13 @@ Synthetic signatures authenticate test keys, not independent operators or fresh
 chain facts. Private packets and signed assertions stay private. Complete
 history, source movements, code/custody, funded backing and independent security
 review remain open; retry, refund, reset and production flags stay false.
+
+## Controlled loss after reviewed handoff
+
+The metadata withdrawal rehearsal now distinguishes a prepared-but-unsubmitted
+record from an actual one-time reviewed handoff followed by a deliberately
+dropped HTTP submission. The latter must keep its fsynced code/mint admissions
+and SUBMISSION_ATTEMPTED journal through actual-height expiry and reconciliation.
+Lack of an RPC acknowledgement cannot permit a new handoff or discard escrow
+liability. This controlled non-delivery case does not accept arbitrary unknown
+landing or recovery. See [the exact boundary](CONNECTION_LOSS.md).

@@ -223,7 +223,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-15T16:48:49.854668+00:00",
+    "reviewedAt": "2026-10-15T17:31:19.740480+00:00",
     "scope": "Development checkpoint only; separate from the live devnet release",
     "projects": [
       {
@@ -295,7 +295,7 @@
         "title": "SOC redemption bridge",
         "state": "building",
         "description": "Original SOC escrow and a native Classic reserve, targeting exact 1:1 display-unit redemption in both directions.",
-        "currentScope": "The private bridge prototype completes finalized transfers in both directions, cold restore and process-crash recovery. Claim handoff requires reviewed code and policy pins; Actual authority changes on either side and separately scoped incompatible native and metadata-origin code replacements block prepared claims before submission. Read-only checks verify the fixture mint/escrow and bracket them with selected token-programme code and authority pins. Separate native reserve and consumed bootstrap receipt checks reconcile its declared budget. One expired private withdrawal remains unresolved, with no retry or refund authorized. Complete funded genesis backing, native reserve reconciliation, remaining metadata unknown-landing/expiry recovery and competing-fork testing, independent operators and custody, compatible upgrade/rollback and fork tests and external security review remain required before live redemption.",
+        "currentScope": "The private bridge prototype completes finalized transfers in both directions, cold restore and process-crash recovery. Claim handoff requires reviewed code and policy pins; Actual authority changes on either side and separately scoped incompatible native and metadata-origin code replacements block prepared claims before submission. Read-only checks verify the fixture mint/escrow and bracket them with selected token-programme code and authority pins. Separate native reserve and consumed bootstrap receipt checks reconcile its declared budget. One expired private withdrawal remains unresolved, with no retry or refund authorized. Complete funded genesis backing, native reserve reconciliation, remaining metadata unknown-landing/expiry recovery and competing-fork testing, independent operators and custody, compatible upgrade/rollback and fork tests and external security review remain required before live redemption. A controlled lost-connection rehearsal preserves one handed-out withdrawal through actual expiry without a second handoff or refund.",
         "source": "https://github.com/solana-classic/solana-classic/tree/main/bridge",
         "milestones": [
           {
@@ -481,6 +481,12 @@
             "title": "Expiry review binds the retained code policy",
             "state": "local-passed",
             "detail": "Proposed in PR #6, not yet merged. Fixed caller code-hash substitution in authenticated expiry review: version2/version3 input must match the verified retained journal, even with otherwise valid signed reports. Legacy supplied pins are labelled unbound. Three new regressions; all38 related checks pass. Six offline compatibility/refusal checks on the retained actual metadata expiry journal use synthetic signed assertions and historical contexts, with zero RPC calls, validator starts or transactions. Original journal/selected inputs unchanged; no retry, refund, reset or production permission. These are offline checks, not fresh chain history or independent-operator verification.",
+            "evidence": "https://github.com/solana-classic/solana-classic/pull/6"
+          },
+          {
+            "title": "Dropped submission preserves the one-time withdrawal",
+            "state": "rehearsal-passed",
+            "detail": "Proposed in PR #6, not yet merged. Nine actual checks on fresh private Agave copies: one native return and one reviewed withdrawal handoff, then a complete local HTTP submission deliberately dropped before node delivery. Actual finalized height passes original expiry; all three APIs refuse another handoff before expiry, after expiry and after EXPIRED_UNRESOLVED reconciliation. Signed bytes and code/mint admissions retained, no token payout or native refund, escrow obligation intact. Both copies stopped; originals unchanged. Six worker guards and three transport checks pass locally and on Linux. Initial zero-transaction port refusal retained. Controlled non-delivery only; arbitrary unknown landing, forks, funded backing/custody and security remain open.",
             "evidence": "https://github.com/solana-classic/solana-classic/pull/6"
           },
           {

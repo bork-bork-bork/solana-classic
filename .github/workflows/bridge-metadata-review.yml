@@ -33,6 +33,10 @@ on:
       - 'bridge/rehearsal/metadata-unsubmitted-expiry.mjs'
       - 'engine/rehearsal/metadata_unsubmitted_expiry*'
       - 'bridge/rehearsal/metadata-redemption-expiry.mjs'
+      - 'bridge/rehearsal/metadata-dropped-redemption.mjs'
+      - 'bridge/rehearsal/drop-submission*'
+      - 'engine/rehearsal/metadata_dropped_redemption*'
+      - 'evidence/bridge-metadata-dropped-redemption-agave.json'
       - 'engine/rehearsal/metadata_redemption_expiry*'
       - 'bridge/rehearsal/metadata-origin-code.mjs'
       - 'engine/rehearsal/metadata_origin_code*'
@@ -40,6 +44,7 @@ on:
       - 'bridge/observer-reports*'
       - 'bridge/expired-review*'
       - 'bridge/EXPIRED_RECOVERY.md'
+      - 'bridge/CONNECTION_LOSS.md'
       - 'bridge/FINALITY_RECOVERY.md'
       - 'bridge/rehearsal/metadata-expiry-review.mjs'
       - 'evidence/bridge-metadata-expiry-review-offline.json'
@@ -87,3 +92,7 @@ jobs:
         run: python3 engine/rehearsal/metadata_redemption_expiry_test.py
       - name: Metadata origin-code replacement guards
         run: python3 engine/rehearsal/metadata_origin_code_test.py
+      - name: Controlled local submission transport checks
+        run: node --test bridge/rehearsal/drop-submission.test.mjs
+      - name: Metadata controlled-drop and expiry worker guards
+        run: python3 engine/rehearsal/metadata_dropped_redemption_test.py
