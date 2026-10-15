@@ -150,6 +150,26 @@ treated as errors. These are local synthetic HTTP servers, not Agave nodes,
 actual chain requests, host admission or consensus evidence. See
 [the scoped transport verification](../evidence/mainnet-rpc-boundary-local.json).
 
+## One network deadline per private RPC read
+
+The private observer now uses a single three-second monotonic network budget
+for connection, request send, response headers and response body. Each socket
+read or send uses only the remaining budget. Sending small pieces repeatedly
+cannot reset that budget. A completed buffered response is checked again before
+it can supply an observation. Redirect, proxy, read-method, port, HTTP/RPC and
+2 MiB response checks remain unchanged.
+
+Four new local HTTP test groups reproduce slow headers, ordinary bodies and
+chunked bodies; verify a shared header/body budget, closed sockets after normal
+completion, invalid JSON and a silent peer; and accept a complete chunked reply.
+The timing fixtures use a shortened 180 ms budget. All 83 offline package checks
+pass locally with resource warnings treated as errors. The deadline bounds
+network I/O; it is not a real-time scheduling guarantee, a JSON processing
+budget or a deadline for the whole rehearsal. These fixtures start no Agave
+validators and make no actual chain requests. Actual consensus and recovery
+still require the suitable host. See
+[the scoped deadline verification](../evidence/mainnet-rpc-network-deadline-local.json).
+
 ## Acceptance still required
 
 Fourteen local launcher checks, ten archive checks and five host admission

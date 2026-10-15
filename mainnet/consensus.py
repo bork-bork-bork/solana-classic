@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Explicit fresh private three-validator rehearsal; never a mainnet launcher."""
 from pathlib import Path
-import argparse,hashlib,importlib.util,json,os,re,signal,socket,stat,subprocess,time,urllib.error,urllib.request
+import argparse,hashlib,http.client,importlib.util,json,os,re,signal,socket,stat,subprocess,time,urllib.error,urllib.request
 _archive_spec=importlib.util.spec_from_file_location('genesis_archive',Path(__file__).with_name('genesis_archive.py'));genesis_archive=importlib.util.module_from_spec(_archive_spec);_archive_spec.loader.exec_module(genesis_archive)
 _spec=importlib.util.spec_from_file_location('host_preflight',Path(__file__).with_name('host-preflight.py'));host=importlib.util.module_from_spec(_spec);_spec.loader.exec_module(host)
 BASE=Path('/data/mainnet-consensus-v2')
@@ -110,6 +110,42 @@ def check_bundle(bundle,binaries):
   if actual!=n['identity']:raise ValueError('REHEARSAL_IDENTITY_KEY_DIFFERS')
  return m,summary
 
+RPC_NETWORK_SECONDS=3
+
+def private_rpc_remaining(deadline):
+ remaining=deadline-time.monotonic()
+ if remaining<=0:raise TimeoutError('PRIVATE_RPC_NETWORK_DEADLINE')
+ return remaining
+
+class PrivateRpcDeadlineSocket(socket.socket):
+ """Keep HTTP buffered/header/chunk reads on one monotonic I/O budget."""
+ def recv_into(self,buffer,*args):
+  self.settimeout(private_rpc_remaining(self.deadline))
+  return super().recv_into(buffer,*args)
+ def sendall(self,data,*args):
+  self.settimeout(private_rpc_remaining(self.deadline))
+  return super().sendall(data,*args)
+
+class PrivateRpcConnection(http.client.HTTPConnection):
+ def __init__(self,*args,deadline,**kwargs):
+  self.deadline=deadline
+  super().__init__(*args,**kwargs)
+ def connect(self):
+  self.timeout=private_rpc_remaining(self.deadline)
+  super().connect()
+  original=self.sock;descriptor=original.detach();self.sock=None
+  try:self.sock=PrivateRpcDeadlineSocket(original.family,original.type,original.proto,fileno=descriptor)
+  except BaseException:
+   os.close(descriptor);raise
+  self.sock.deadline=self.deadline
+  self.sock.settimeout(private_rpc_remaining(self.deadline))
+
+class PrivateRpcHttpHandler(urllib.request.HTTPHandler):
+ def __init__(self,deadline):
+  super().__init__();self.deadline=deadline
+ def http_open(self,request):
+  return self.do_open(PrivateRpcConnection,request,deadline=self.deadline)
+
 class PrivateRpcNoRedirect(urllib.request.HTTPRedirectHandler):
  def redirect_request(self,req,fp,code,msg,headers,newurl):
   fp.close()
@@ -120,14 +156,21 @@ def rpc(port,method,params=None):
  if method not in ['getGenesisHash','getIdentity','getVersion','getSlot','getSupply','getInflationGovernor','getVoteAccounts','getBlock']:raise ValueError('READ_ONLY_PRIVATE_RPC_REQUIRED')
  req=urllib.request.Request('http://127.0.0.1:'+str(port),data=json.dumps({'jsonrpc':'2.0','id':1,'method':method,'params':params or []}).encode(),headers={'Content-Type':'application/json'})
  # Do not inherit a process-global opener, proxy, authentication or redirect.
- opener=urllib.request.build_opener(urllib.request.ProxyHandler({}),PrivateRpcNoRedirect())
+ deadline=time.monotonic()+RPC_NETWORK_SECONDS
+ opener=urllib.request.build_opener(urllib.request.ProxyHandler({}),PrivateRpcNoRedirect(),PrivateRpcHttpHandler(deadline))
  try:
-  with opener.open(req,timeout=3) as r:
+  with opener.open(req,timeout=private_rpc_remaining(deadline)) as r:
    if r.status!=200:raise ValueError('PRIVATE_RPC_HTTP_STATUS_INVALID')
    raw=r.read(2*1024**2+1)
+   private_rpc_remaining(deadline)
+ except TimeoutError:
+  raise ValueError('PRIVATE_RPC_NETWORK_DEADLINE') from None
  except urllib.error.HTTPError as error:
   error.close()
   raise ValueError('PRIVATE_RPC_HTTP_STATUS_INVALID') from None
+ except urllib.error.URLError as error:
+  if isinstance(error.reason,TimeoutError):raise ValueError('PRIVATE_RPC_NETWORK_DEADLINE') from None
+  raise
  if len(raw)>2*1024**2:raise ValueError('PRIVATE_RPC_EXCEEDS_BOUND')
  w=json.loads(raw)
  if not isinstance(w,dict) or w.get('jsonrpc')!='2.0' or type(w.get('id')) is not int or w.get('id')!=1 or 'error' in w or 'result' not in w:raise ValueError('PRIVATE_RPC_REJECTED')

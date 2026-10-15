@@ -109,3 +109,9 @@ actual worker still fails the unchanged file-limit and RAM requirements, with
 no keys, genesis or validators created. See
 [resource admission evidence](../evidence/mainnet-cgroup-resource-admission.json).
 Visible cgroup observations do not attest hidden host limits or reserved capacity.
+
+The private RPC observer also shares one three-second network deadline across
+connection, sending, headers and body reads. Slow trickle responses cannot keep
+resetting the socket timeout. Four new local HTTP test groups bring the offline
+package to 83 checks; no full validators or actual chain requests are involved.
+See [deadline verification](../evidence/mainnet-rpc-network-deadline-local.json).
