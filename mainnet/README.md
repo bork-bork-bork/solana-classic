@@ -84,3 +84,14 @@ also passed on Linux, with all selected artifacts unchanged and no validators. T
 refuses both modes before creating keys or ledgers. No new bank hash, genesis
 or consensus pass is claimed. See [the procedure](GENESIS_PREPARATION.md) and
 [scoped evidence](../evidence/mainnet-genesis-preparation.json).
+
+## All-node vote progression and retained finality
+
+The private launcher now requires every selected validator's vote and rooted
+slot to advance in each node's view, and rechecks the unchanged earlier shared
+finalized block on all three nodes. Stalled votes, changed stake or missing
+history cannot pass simply because network slots advance. Eight new synthetic
+regressions bring the offline package to60 local checks; this is preparation,
+not actual consensus or fork recovery. See
+[the observer contract](CONSENSUS_REHEARSAL.md#voting-and-finalized-history-continuity)
+and [scoped evidence](../evidence/mainnet-consensus-progress-local.json).

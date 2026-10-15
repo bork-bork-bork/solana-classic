@@ -120,23 +120,65 @@ def rpc(port,method,params=None):
  if w.get('jsonrpc')!='2.0' or w.get('id')!=1 or 'error' in w or 'result' not in w:raise ValueError('PRIVATE_RPC_REJECTED')
  return w['result']
 
+def selected_votes(m,current):
+ expected={node['vote']:node['identity'] for node in m['validators']}
+ if not isinstance(current,list) or len(current)!=3 or any(not isinstance(row,dict) for row in current):raise ValueError('EXACT_THREE_ROOTED_VOTE_ACCOUNTS_REQUIRED')
+ indexed={}
+ for row in current:
+  vote=row.get('votePubkey')
+  if vote not in expected or vote in indexed or row.get('nodePubkey')!=expected[vote]:raise ValueError('EXACT_THREE_ROOTED_VOTE_ACCOUNTS_REQUIRED')
+  for field in ['lastVote','rootSlot','activatedStake']:
+   if type(row.get(field)) is not int or not 0<row[field]<1<<64:raise ValueError('ACTIVE_ROOTED_VOTES_REQUIRED')
+  if row['rootSlot']>row['lastVote']:raise ValueError('ACTIVE_ROOTED_VOTES_REQUIRED')
+  indexed[vote]={field:row[field] for field in ['votePubkey','nodePubkey','lastVote','rootSlot','activatedStake']}
+ return [indexed[node['vote']] for node in m['validators']]
+
 def runtime_observation(m):
- slots=[];votes={n['vote'] for n in m['validators']}
+ m=validate_manifest(m);slots=[];observations=[];votes=sorted(node['vote'] for node in m['validators'])
  for i in range(3):
   p=ports(i)['rpc']
   if rpc(p,'getGenesisHash')!=m['genesis']:raise ValueError('RUNNING_GENESIS_DIFFERS')
   if rpc(p,'getIdentity').get('identity')!=m['validators'][i]['identity'] or rpc(p,'getVersion').get('solana-core')!='3.0.14':raise ValueError('RUNNING_IDENTITY_OR_VERSION_DIFFERS')
-  s=rpc(p,'getSlot',[{'commitment':'finalized'}]);supply=rpc(p,'getSupply',[{'commitment':'finalized'}])['value']['total'];inflation=rpc(p,'getInflationGovernor');current=rpc(p,'getVoteAccounts')['current']
-  if type(s) is not int or s<40 or type(supply) is not int or supply!=int(m['totalNativeUnits']) or inflation.get('initial')!=0 or inflation.get('terminal')!=0 or not votes.issubset({v['votePubkey'] for v in current}):raise ValueError('CONSENSUS_SUPPLY_OR_VOTES_NOT_READY')
-  indexed={v['votePubkey']:v for v in current}
-  for node in m['validators']:
-   v=indexed[node['vote']]
-   if v.get('nodePubkey')!=node['identity'] or type(v.get('lastVote')) is not int or v['lastVote']<=0 or type(v.get('rootSlot')) is not int or v['rootSlot']<=0 or type(v.get('activatedStake')) is not int or v['activatedStake']<=0:raise ValueError('ACTIVE_ROOTED_VOTES_REQUIRED')
-  slots.append(s)
+  s=rpc(p,'getSlot',[{'commitment':'finalized'}]);supply=rpc(p,'getSupply',[{'commitment':'finalized'}])['value']['total'];inflation=rpc(p,'getInflationGovernor')
+  current=rpc(p,'getVoteAccounts',[{'commitment':'finalized'}])['current']
+  if type(s) is not int or s<40 or type(supply) is not int or supply!=int(m['totalNativeUnits']) or inflation.get('initial')!=0 or inflation.get('terminal')!=0:raise ValueError('CONSENSUS_SUPPLY_OR_VOTES_NOT_READY')
+  observations.append({'nodeIdentity':m['validators'][i]['identity'],'votes':selected_votes(m,current)});slots.append(s)
  shared=min(slots);hashes=[rpc(ports(i)['rpc'],'getBlock',[shared,{'commitment':'finalized','transactionDetails':'none','rewards':False}])['blockhash'] for i in range(3)]
  for h in hashes:address(h)
  if len(set(hashes))!=1:raise ValueError('FINALIZED_BLOCK_DIFFERS')
- return {'finalizedSlots':slots,'sharedFinalizedSlot':shared,'sharedFinalizedBlockhash':hashes[0],'voteAccounts':sorted(votes),'totalNativeUnits':m['totalNativeUnits']}
+ return {'finalizedSlots':slots,'sharedFinalizedSlot':shared,'sharedFinalizedBlockhash':hashes[0],'voteAccounts':votes,'totalNativeUnits':m['totalNativeUnits'],'voteObservations':observations}
+
+def verify_progress(m,first,last):
+ """Read-only continuity and all-node voting review, not fork recovery proof."""
+ m=validate_manifest(m);views=[]
+ for snapshot in [first,last]:
+  slots=snapshot.get('finalizedSlots')
+  if not isinstance(slots,list) or len(slots)!=3 or any(type(slot) is not int or slot<40 for slot in slots) or type(snapshot.get('sharedFinalizedSlot')) is not int or snapshot['sharedFinalizedSlot']!=min(slots):raise ValueError('EXACT_FINALIZED_OBSERVATION_REQUIRED')
+  address(snapshot['sharedFinalizedBlockhash'])
+  if snapshot.get('totalNativeUnits')!=m['totalNativeUnits'] or snapshot.get('voteAccounts')!=sorted(node['vote'] for node in m['validators']):raise ValueError('OBSERVED_REHEARSAL_POLICY_DIFFERS')
+  rows=snapshot.get('voteObservations')
+  if not isinstance(rows,list) or len(rows)!=3:raise ValueError('EVERY_NODE_VOTE_OBSERVATION_REQUIRED')
+  selected=[]
+  for node,row in zip(m['validators'],rows):
+   if not isinstance(row,dict) or row.get('nodeIdentity')!=node['identity']:raise ValueError('EVERY_NODE_VOTE_OBSERVATION_REQUIRED')
+   selected.append(selected_votes(m,row.get('votes')))
+  views.append(selected)
+ if any(b<=a for a,b in zip(first['finalizedSlots'],last['finalizedSlots'])):raise ValueError('FINALITY_DID_NOT_ADVANCE')
+ for before,after in zip(views[0],views[1]):
+  for a,b in zip(before,after):
+   if b['lastVote']<=a['lastVote'] or b['rootSlot']<=a['rootSlot']:raise ValueError('EVERY_VALIDATOR_VOTE_AND_ROOT_MUST_ADVANCE')
+   if b['activatedStake']!=a['activatedStake']:raise ValueError('REHEARSAL_ACTIVATED_STAKE_CHANGED')
+ # A later shared block is insufficient if an earlier finalized checkpoint was
+ # replaced or lost. Re-read that exact block on every selected node, bounded
+ # by the same genesis/identity. Missing/pruned history also refuses admission.
+ for i,node in enumerate(m['validators']):
+  port=ports(i)['rpc']
+  for phase in ['before','after']:
+   if rpc(port,'getGenesisHash')!=m['genesis'] or rpc(port,'getIdentity').get('identity')!=node['identity']:raise ValueError('CONTINUITY_NODE_IDENTITY_DIFFERS')
+   if phase=='before':
+    block=rpc(port,'getBlock',[first['sharedFinalizedSlot'],{'commitment':'finalized','transactionDetails':'none','rewards':False}])
+    if not isinstance(block,dict) or block.get('blockhash')!=first['sharedFinalizedBlockhash']:raise ValueError('EARLIER_FINALIZED_BLOCK_CHANGED')
+ return {'voteAndRootProgressionVerified':True,'nodeVoteComparisons':9,'activatedStakeUnchanged':True,'earlierFinalizedBlockPreserved':True,'earlierFinalizedSlot':first['sharedFinalizedSlot'],'earlierFinalizedBlockhash':first['sharedFinalizedBlockhash'],'continuityReaders':3,'independentOperatorsVerified':False,'actualForkRecoveryVerified':False,'productionReady':False}
 
 def stop_owned_process(p):
  forced=False
@@ -192,9 +234,11 @@ def run(bundle,binaries,run_id,execute=False):
    except (OSError,ValueError,KeyError,TypeError):time.sleep(3)
   else:raise ValueError('BOUNDED_CONSENSUS_NOT_OBSERVED')
   proof['firstObservation']=first;save();time.sleep(20)
-  last=runtime_observation(m)
-  if any(b<=a for a,b in zip(first['finalizedSlots'],last['finalizedSlots'])):raise ValueError('FINALITY_DID_NOT_ADVANCE')
-  proof['lastObservation']=last;proof['state']='passed'
+  if any(p.poll() is not None for p in processes):raise ValueError('PRIVATE_VALIDATOR_EXITED')
+  last=runtime_observation(m);proof['lastObservation']=last;save()
+  proof['progressReview']=verify_progress(m,first,last)
+  if any(p.poll() is not None for p in processes):raise ValueError('PRIVATE_VALIDATOR_EXITED')
+  proof['state']='passed'
  except BaseException as e:
   proof['state']='failed';proof['failureType']=type(e).__name__;proof['failureCode']=str(e) if type(e) is ValueError and re.fullmatch('[A-Z_]+',str(e)) else 'PRIVATE_REHEARSAL_FAILED'
  finally:

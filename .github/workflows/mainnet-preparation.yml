@@ -1,0 +1,18 @@
+name: Private validator preparation
+on:
+  pull_request:
+    paths:
+      - 'mainnet/**'
+      - 'evidence/mainnet-consensus-progress-local.json'
+      - '.github/workflows/mainnet-preparation.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  offline-package:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Offline host, genesis, process and consensus-observer checks
+        run: python3 -m unittest discover -s mainnet -p '*_test.py'

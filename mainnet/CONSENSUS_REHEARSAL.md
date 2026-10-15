@@ -106,6 +106,31 @@ A forced stop, cleanup error or unexpected child exit prevents success. Raw
 keys, genesis/accounts and private logs remain in the selected host package;
 `public-result.json` omits supplied paths and raw errors. Retain every failure.
 
+## Voting and finalized-history continuity
+
+An advancing network slot alone cannot prove every selected validator is still
+voting. The observer now requests finalized vote-account state explicitly and
+retains all three selected vote accounts from each of the three RPC nodes.
+Unknown, duplicate, missing or malformed vote records refuse admission.
+
+Across the bounded observation, every one of those nine views must show both
+its last vote and rooted slot advancing, with the same activated stake. A
+stalled vote or root cannot be hidden by the other validators' progress.
+Immediately before passing, each node must also return the unchanged block
+hash at the first shared finalized slot. Missing history or a changed earlier
+block refuses admission. Genesis and node identity bracket each continuity
+read; child exit or failed cleanup also prevents success.
+
+Eight additional synthetic regressions reproduce stale-vote and replaced-block
+false passes and cover the positive path, altered stake, missing readers,
+malformed votes, missing history and changed identity. All60 offline mainnet
+package checks pass locally. These checks use synthetic RPC responses and
+mocked validator processes; they do not start full validators or establish a
+real fork/recovery result. Historical evidence keeps its original source hashes
+and scope. The prepared launcher still requires the suitable host and actual
+private execution described below. See
+[the scoped local verification](../evidence/mainnet-consensus-progress-local.json).
+
 ## Acceptance still required
 
 Fourteen local launcher checks, ten archive checks and five host admission

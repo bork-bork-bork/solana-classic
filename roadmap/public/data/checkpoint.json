@@ -223,7 +223,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-15T16:23:22.510569+00:00",
+    "reviewedAt": "2026-10-15T16:48:49.854668+00:00",
     "scope": "Development checkpoint only; separate from the live devnet release",
     "projects": [
       {
@@ -268,6 +268,12 @@
             "state": "local-passed",
             "detail": "52 package checks now pass on Linux, including10 process-lifecycle checks. The bounded helper also executed three checksum-verified offline tool help commands; all six reviewed artifacts stayed unchanged, with no genesis or validator starts. Actual host admission remains blocked by the file-limit requirement. Fresh hashing genesis, startup replay and consensus await suitable hosting.",
             "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/mainnet-offline-process-linux.json"
+          },
+          {
+            "title": "Validator voting and finalized-history continuity",
+            "state": "local-passed",
+            "detail": "Proposed in PR #6, not yet merged. Eight new synthetic regressions; all60 offline mainnet package checks pass locally. Every selected vote and root must advance in all nine node views, stake must stay unchanged, and all three nodes must preserve the earlier finalized block with matching identities. Stale voting, missing history and replaced blocks refuse; synthetic owned processes stop on failure. No actual full validators, genesis or chain requests. Suitable hosting and genuine consensus/recovery remain required.",
+            "evidence": "https://github.com/solana-classic/solana-classic/pull/6"
           },
           {
             "title": "Exact genesis backing, protected rent and precision audit",
