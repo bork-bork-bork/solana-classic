@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "reviewedAt": "2026-10-15T00:58:56.152156+00:00",
+  "reviewedAt": "2026-10-15T01:45:33.786047+00:00",
   "t0": "2026-10-13T03:00:54Z",
   "deadline": "2026-10-19T03:00:54Z",
   "target": "2026-10-17T15:00:54Z",
@@ -224,7 +224,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-14T21:15:02.334021+00:00",
+    "reviewedAt": "2026-10-15T01:45:33.786047+00:00",
     "scope": "Development checkpoint only; separate from the live devnet release",
     "projects": [
       {
@@ -470,7 +470,7 @@
         "title": "Devnet release evidence",
         "state": "building",
         "description": "Individual review of the build that passed its original 24-hour stability test.",
-        "currentScope": "Seven original stability requirements,two current gateway/origin requirements and four final browser/discovery requirements are individually reviewed. Full360px journeys passed. Current gateway passed25protocol checks; OPTIONS left persistent aggregates unchanged; installed binaries and public software manifests match reviewed pins. Both sites expose actual genesis/operator/reset limits and desktop/phone navigation works. Full release,other individual requirements and operator handover remain pending; later.netcode does not inherit the original soak.",
+        "currentScope": "Our source-built Agave runs the current devnet. Both original-frontend browser pilots pass. A fresh hosted20-client load attempt is running with unchanged source. Isolated recovery tools pass14 local guard tests, but actual restore, current monitoring/rollback/negative-control proofs and the new24-hour stability run remain pending.",
         "source": "https://github.com/solana-classic/solana-classic/blob/main/engine/migration/STABILITY_RELEASE_REVIEW.md",
         "milestones": [
           {
@@ -519,6 +519,18 @@
             "title": "New source-build stability run",
             "state": "pending",
             "detail": "Fresh candidate-bound checks are being completed before a new full 24-hour run. The original result remains historical."
+          },
+          {
+            "title": "Source-built devnet original mobile verification",
+            "state": "live-passed",
+            "detail": "Six finalized receipts, native/meme/NFT transfers and ownership independently checked. All45 frozen core files and five frontend assets match. The24-hour run remains pending.",
+            "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/agave-source-original-mobile-review.json"
+          },
+          {
+            "title": "Source-build isolated recovery tools",
+            "state": "local-passed",
+            "detail": "14 local guard checks pass. No remote restore or copied-validator boot yet; full HTTP recovery remains pending.",
+            "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/agave-source-recovery-preparation.json"
           }
         ]
       }

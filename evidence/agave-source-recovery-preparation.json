@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-15T01:45:33.786047+00:00",
+  "scope": "local recovery launcher guard tests and review; no remote recovery copy or boot",
+  "passed": true,
+  "tests": {
+    "python": 11,
+    "node": 3,
+    "total": 14
+  },
+  "sourceFiles": {
+    "launcher.py": "0f028f9ee41906d1d938274fe831decfc3da7557bdc0c30db1e7b200b1f38c30",
+    "verifier.mjs": "49cc2ef9a60625f3b85cc3f00fb1feedc280329121ca35dacf0d39e15db96784",
+    "launcher_test.py": "a1cba67c2ffbf7fb02ff06fab1ec63ba61353dd340adbcbcba719b703b3bfc90",
+    "verifier.test.mjs": "37efca7cafd6a3b055375894c9f2a4f08d3aa86ce36a7b9bbbe4b47310a32a8a",
+    "README.md": "65190475c89c429b1ac7d20c43daf1ebc384884ed6004fb0f6f2b7204e89e169"
+  },
+  "remoteRecoveryExecuted": false,
+  "backupCheckAccepted": false,
+  "canonicalRuntimeChanged": false,
+  "scopeLimit": "Pinned loopback copied-ledger recovery tools are prepared. Actual execution and full isolated HTTP mutation-path recovery remain pending."
+}
