@@ -52,7 +52,9 @@ that context and must not be silently substituted or reverted.
 
 ## What must pass
 
-The audit binds the exact source freeze and activation. It verifies all eight
+The audit pins both the exact source freeze and the canonical activation-record
+digest. Replacing prerequisite hashes in an otherwise similar activation is
+refused. It verifies all eight
 prerequisite files against the recorded checksums, their original times and
 the terminal runner's input inventory. The original deployed candidate, engine
 manifest, binaries and boots must match. The runner must have a clean completed
@@ -74,7 +76,7 @@ used in subsequent release work. Do not bulk-refresh historical attestations.
 
 ## Preparation evidence
 
-Seventeen new synthetic terminal tests and sixteen existing terminal/load
+Eighteen new synthetic terminal tests and sixteen existing terminal/load
 regressions pass. They reject incomplete/old runs, substituted runtime or
 prerequisites, stale snapshots, missing/duplicate/malformed receipts, wrong
 funding and cadence failures. The shared original auditor retains its original

@@ -21,7 +21,7 @@ def fixture():
 class SourceTerminal(unittest.TestCase):
  def evaluate(self,items):
   bundle,raw,admission,proofs,now=items
-  with patch.object(m,'FREEZE_SHA',hashlib.sha256(raw).hexdigest()):return m.review(bundle,raw,admission,proofs,now)
+  with patch.object(m,'FREEZE_SHA',hashlib.sha256(raw).hexdigest()),patch.object(m,'ACTIVATION_SHA',hashlib.sha256(json.dumps(admission,sort_keys=True,separators=(',',':')).encode()).hexdigest()):return m.review(bundle,raw,admission,proofs,now)
  def test_complete_synthetic_terminal_is_receipt_review_only(self):
   report=self.evaluate(fixture());self.assertTrue(report['passed']);self.assertEqual(report['uniqueTransferSignatures'],288);self.assertEqual(report['prerequisiteHashesVerified'],8);self.assertTrue(report['boundedReaderSummaryMatches'])
   for field in ['releaseAccepted','cutoverAccepted','mainnetAccepted','bridgeAccepted']:self.assertFalse(report[field])
@@ -102,4 +102,7 @@ class SourceTerminal(unittest.TestCase):
   output=io.StringIO()
   with patch.object(m.argparse.ArgumentParser,'parse_args',return_value=args),patch.object(m.terminal,'public_file',return_value=b'{"coreFiles":{"unexpected":"digest"}}') as read,contextlib.redirect_stdout(output):result=m.main()
   self.assertEqual(result,78);self.assertEqual(json.loads(output.getvalue())['failureCode'],'EXACT_SOURCE_FREEZE_REQUIRED');self.assertEqual(read.call_count,1)
+ def test_trusted_freeze_cannot_authorize_replacement_activation_or_input_pins(self):
+  bundle,raw,admission,proofs,now=fixture()
+  with patch.object(m,'FREEZE_SHA',hashlib.sha256(raw).hexdigest()),self.assertRaisesRegex(ValueError,'ACTIVATION_DIGEST'):m.review(bundle,raw,admission,proofs,now)
 if __name__=='__main__':unittest.main()

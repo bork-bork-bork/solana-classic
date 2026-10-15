@@ -13,12 +13,14 @@ load_review=module('load_review','load_review.py')
 ROOT=Path(__file__).resolve().parents[2]
 START='2026-10-15T03:59:33.330Z'
 FREEZE_SHA='55b668e56a946ec94f0195b03530aba23593bd71d7fd52493d5403b21882757f'
+ACTIVATION_SHA='a0d611e95853e1cd313b00dc2fc2344c52b214a5fc96c97607b8b35a67599f88'
 PREREQUISITES=('load','backup-check','restart-check','pilot-agent-one','pilot-agent-two','monitoring-config','frontend-rollback','remote-negative-controls')
 require=terminal.require
 
 def review(bundle,freeze_raw,admission,proofs,now=None):
  require(hashlib.sha256(freeze_raw).hexdigest()==FREEZE_SHA,'EXACT_SOURCE_FREEZE_REQUIRED')
  freeze=json.loads(freeze_raw);expected=freeze['runtime'];candidate=freeze['candidate']
+ require(hashlib.sha256(json.dumps(admission,sort_keys=True,separators=(',',':')).encode()).hexdigest()==ACTIVATION_SHA,'EXACT_SOURCE_ACTIVATION_DIGEST_REQUIRED')
  require(admission.get('passed') is True and admission.get('stabilityAccepted') is False and admission.get('startedAt')==START and admission.get('freezeSha256')==FREEZE_SHA and admission.get('genesis')==freeze['genesis'] and admission.get('candidate')==candidate and admission.get('runnerDeploymentId')=='f5a309fe-bfe6-4958-a4f5-a2e2129da629' and admission.get('namespace')=='source-soak-20261015T0348Z-v2','EXACT_SOURCE_ACTIVATION_REQUIRED')
  require(terminal.milliseconds(admission['at'])>=terminal.milliseconds(START) and terminal.milliseconds(admission['expectedFinishAt'])==terminal.milliseconds(START)+terminal.DURATION,'SOURCE_ACTIVATION_TIME_DIFFERS')
  pins=admission.get('prerequisiteChecksums',{})

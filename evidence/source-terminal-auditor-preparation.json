@@ -4,9 +4,9 @@
   "state": "terminal-auditor-prepared",
   "scope": "Source-built devnet final-audit preparation; local synthetic terminal regressions and actual read-only in-progress refusal, not a completed stability result",
   "localChecks": {
-    "sourceTerminal": 17,
+    "sourceTerminal": 18,
     "existingTerminalAndLoad": 16,
-    "total": 33,
+    "total": 34,
     "passed": true
   },
   "actualInProgressRefusal": {
@@ -29,17 +29,17 @@
     "canonicalNetworkChanged": false,
     "testStarted": false,
     "sourceHashes": {
-      "engine/migration/source_terminal_review.py": "e417a76d2c8397608080fbdfe0bfd2b6f68bee5f0d025049fe299d885e186944",
+      "engine/migration/source_terminal_review.py": "092655d4cd267f6eb0436890b98b02e62d4f2f4e335450da434660368199926f",
       "engine/migration/terminal_review.py": "5baa1eaafbf4c91afc922c79107957c0bbb84edeffea8715efe8bef4d09b3afd",
       "engine/migration/load_review.py": "1a9dc744aea2f60b38fbd666194af240481443d4a8523c4619a6c5bc9a8abdf6"
     },
-    "revalidatedAt": "2026-10-15T08:27:47.314237+00:00",
+    "revalidatedAt": "2026-10-15T08:30:23.192671+00:00",
     "revalidationRequests": 0,
     "revalidationScope": "Final CLI rechecked the retained incomplete snapshot; no new network reads or terminal report generated"
   },
   "sourceHashes": {
-    "engine/migration/source_terminal_review.py": "e417a76d2c8397608080fbdfe0bfd2b6f68bee5f0d025049fe299d885e186944",
-    "engine/migration/source_terminal_review_test.py": "249fbf0004b4555cb5d4fb4f4bae7ff5aae6618fe386de954be5227402e38d50",
+    "engine/migration/source_terminal_review.py": "092655d4cd267f6eb0436890b98b02e62d4f2f4e335450da434660368199926f",
+    "engine/migration/source_terminal_review_test.py": "c487d573f6bfca55cb5f48be66e4f1c47ea2894b59610bebdfe9e5ee71079cc9",
     "engine/migration/terminal_review.py": "5baa1eaafbf4c91afc922c79107957c0bbb84edeffea8715efe8bef4d09b3afd"
   },
   "stabilityAccepted": false,
@@ -54,5 +54,6 @@
     "The pinned public progress reader intentionally exposes a bounded summary; full288-journey report must be collected separately through existing authorized read-only access",
     "The auditor verifies retained records, complete exact-run identity and prerequisites; it does not independently replay pruned transactions",
     "Full release still requires genuine completion, final regression, remaining individual reviews and operator decision"
-  ]
+  ],
+  "activationDigestPinned": true
 }

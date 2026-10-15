@@ -664,7 +664,7 @@
           {
             "title": "Source-run final stability audit preparation",
             "state": "local-passed",
-            "detail": "17 new terminal checks plus 16 existing terminal/load regressions. Binds the exact run, engine, eight prerequisite hashes, complete 288-journey report, valid unique receipts and independent health. Actual ongoing run correctly refused as incomplete at 54/288; no test restart or acceptance. Real full-day terminal review remains pending.",
+            "detail": "18 new terminal checks plus 16 existing terminal/load regressions. Binds the exact run, activation digest, engine, eight prerequisite hashes, complete 288-journey report, valid unique receipts and independent health. Actual ongoing run correctly refused as incomplete at 54/288; no test restart or acceptance. Real full-day terminal review remains pending.",
             "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/source-terminal-auditor-preparation.json"
           }
         ]
