@@ -8,5 +8,5 @@
     "@solana/spl-token": "0.4.15",
     "@solana/spl-token-metadata": "0.1.6"
   },
-  "description": "Isolated original memory-only Classic testnet wallet; reuses repository-pinned installed SDKs without root dependency changes."
+  "description": "Original Classic devnet wallet with optional encrypted browser vault; reuses repository-pinned installed SDKs without root dependency changes."
 }

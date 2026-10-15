@@ -1,0 +1,43 @@
+{
+  "scope": "local mocked cryptography and session checks; no chain traffic, browser visual check or deployment",
+  "checkedAt": "2026-10-15T03:29:31.122572+00:00",
+  "checks": {
+    "unitAndMockTests": 25,
+    "failed": 0,
+    "integratedBuild": "passed",
+    "standaloneBuild": "passed",
+    "walletTypecheck": "passed",
+    "integratedTypecheck": "passed",
+    "privacyScan": "passed",
+    "diffWhitespace": "passed"
+  },
+  "custody": {
+    "default": "unsaved in-memory generated devnet account",
+    "saved": "explicit password-encrypted browser vault; locked after refresh",
+    "encryption": "AES-256-GCM, 128-bit tag, new 12-byte IV per write",
+    "derivation": "PBKDF2-SHA-256, 600000 iterations, random 16-byte salt",
+    "coordination": "Web Locks and exact encrypted-record revision match before writes",
+    "recoveryJournal": "faucet request identity and pending send/creation receipt encrypted before network mutation"
+  },
+  "remaining": [
+    "Browser interaction and responsive visual checks",
+    "Independent security review before valuable assets",
+    "No password recovery or browser-data recovery service"
+  ],
+  "sourceSHA256": {
+    "infra/custom-domain/build.py": "7731580f6f6eda2be120d426ae09a4c81328068442db34d567121c0d02dae52e",
+    "wallet/INTEGRATION.md": "9f925c4e3c6ffb41b05f6a217607219a76d76d589a4fe1b169be1014d92ff46d",
+    "wallet/README.md": "c167ff033bdf3470382b0b4b1c479382d7759f2818aa1128c2655d2f91e41e9c",
+    "wallet/package.json": "4c35571cdd3049d09037e4c8aa724bb26b7eb1b306e074a453141fcc743cb39b",
+    "wallet/src/ClassicWallet.tsx": "c8c04acbc652c4982f4186b3268090add4106dc95e61a6ec3ea8eb03a65b3446",
+    "wallet/src/session.ts": "c59df719c478e4edc120ba61c1206a13548790205f3caedc495ff83f40c1bd4f",
+    "wallet/src/styles.css": "ca5a3b2491c5867262bb6f07899887f5f33ca9336de39b2f6135ba2e5baf44b3",
+    "wallet/tsconfig.json": "946de5776684d7138ede336bfabe49abd975e63488844cbbef7be5bcbadc9e80",
+    "wallet/src/WalletDrawer.tsx": "a89e155b97a421452564780f176d76397e43c70fc7bf17d5579dd75e42a2a86d",
+    "wallet/src/drawer.css": "86c1d799269a18996f28dc97d307223fe2bfd63fb03f3bd0ac0613f2b4195749",
+    "wallet/src/VaultControls.tsx": "0fe388bbab72c8b688db01fac63be43966ff19da5227b1efb278f307220c1d15",
+    "wallet/src/vault.ts": "fc74382929c47838436112efc5ef4b41ce339a8a088715968fdb6b9f850b55b6",
+    "wallet/tests/vault.test.ts": "8edea92185f45307f7f6b0c0b529643fc1bbaa675f186af5b8b89e8a100f673f",
+    "wallet/tests/vault-session.test.ts": "5931ce0989c4a4a2838d79f2a213aaa3d9d9f8a8dd9bd06b4a4bd9fdda041f51"
+  }
+}

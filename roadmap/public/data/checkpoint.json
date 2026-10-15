@@ -416,7 +416,7 @@
         "title": "Classic Wallet",
         "state": "building",
         "description": "A wallet for devnet today, with native SOC, memecoins and NFTs planned for mainnet.",
-        "currentScope": "Public .net wallet verified with actual devnet faucet, preset NFT, uploaded-artwork NFT and two verified owned assets in one session. 14 unit and 17 mocked browser checks also pass. Disposable memory-only keys; persistent custody/mainnet remain future work.",
+        "currentScope": "Public devnet wallet with a narrow active sidebar, same-session minting and verified owned assets. Optional password-encrypted browser saving restores the same address after unlock on refresh. 25 local checks and actual desktop/mobile browser checks pass; independent security review and mainnet custody remain pending.",
         "source": "https://github.com/solana-classic/solana-classic/tree/main/wallet",
         "milestones": [
           {
@@ -428,6 +428,11 @@
             "title": "Shared mint studio, gallery and verified owned assets",
             "state": "live-passed",
             "detail": "Same session, exact mint review, uploaded art, finalized owned-account validation and same-receipt recovery."
+          },
+          {
+            "title": "Active wallet sidebar and encrypted devnet saving",
+            "state": "live-passed",
+            "detail": "Desktop site remains clickable beside the wallet. Saved test wallets lock on refresh and unlock to the same address; pending receipt recovery is encrypted before submission."
           },
           {
             "title": "Reviewed persistent custody and recovery",

@@ -138,7 +138,9 @@ def extract(path, destination):
                 os.link(destination / member.linkname, target)
             elif member.issym():
                 parents(target.parent)
-                target.symlink_to(os.path.relpath(destination / member.linkname.removeprefix('/data/'), target.parent))
+                # Agave compares read_link() directly with its absolute account run paths.
+                # Rebase only the validated archive link into this new private copy.
+                target.symlink_to(destination.resolve() / member.linkname.removeprefix('/data/'))
     return destination
 
 def app_inventory(app):

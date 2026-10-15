@@ -43,6 +43,11 @@ class RecoveryTests(unittest.TestCase):
                 for member in members: tar.addfile(member, io.BytesIO(b'abc') if member.isfile() else None)
             r.extract(archive, dest)
             self.assertFalse((dest/'operator').exists())
+            link = dest/'ledger/snapshots/1/accounts_hardlinks/account_path_0'
+            snapshot_path = Path(os.readlink(link))
+            self.assertTrue(snapshot_path.is_absolute())
+            self.assertEqual(snapshot_path, dest/'ledger/accounts/snapshot/1')
+            self.assertEqual(snapshot_path.parent.parent/'run', dest/'ledger/accounts/run')
             self.assertEqual((dest/'ledger/snapshots/1/accounts_hardlinks/account_path_0/1.1').read_bytes(), b'abc')
             self.assertEqual((dest/'ledger/accounts/run/1.1').stat().st_mode & 0o777, 0o600)
             with self.assertRaises(ValueError): r.extract(archive, dest)

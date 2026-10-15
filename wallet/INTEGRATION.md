@@ -7,20 +7,19 @@ W2 is a tested client implementation, with local mocked production-bundle QA. Pu
 Import **default `ClassicWallet`** from `wallet/src/ClassicWallet.tsx`. A named export is also available. Do not import `wallet/src/main.tsx` into the site; it is the standalone auto-mounting entry.
 
 ```tsx
-const ClassicWallet = lazy(() => import('../../../wallet/src/ClassicWallet'));
+import WalletDrawer from '../../../wallet/src/WalletDrawer';
 
-// Keep this subtree mounted after its first visit. Changing routes should hide
-// its container rather than replace/unmount the component.
-<div hidden={path !== '/wallet'}>
-  <Suspense fallback={<p>Opening Classic Wallet…</p>}>
-    <ClassicWallet gateway={{ apiBase: '/_network' }}/>
-  </Suspense>
-</div>
+// Keep the component mounted once first opened.
+{walletVisited ? <WalletDrawer open={walletOpen} onClose={closeWallet}/> : null}
 ```
 
-The example relative import matches `.tools/custom-domain-web/src/App.tsx`; adjust if the containing file lives elsewhere. The component creates one session promise per mounted instance, and its send, creation, owned-assets and public-gallery tabs share that same session. No keys or seeds cross route URLs, storage, events or component props. Reload/unmount intentionally loses the disposable account. Keep the current upload-capable `/playground` intact; the new wallet's Create tab offers the same PNG/JPG capability using its own shared session.
+The shell portals the persistent wallet into a nonmodal right dock. It reserves desktop space, leaves background links active and uses a full-width panel only on small screens. The overlay generator adds container-based copies of existing responsive site rules so the remaining page adapts to the reserved width. SPA navigation preserves the open state; direct `/wallet` opens over Home. Panel visibility persists separately from custody. No inert background, focus trap, backdrop or body scroll lock is used. Escape from inside the dock and its close button hide it. The original route stays behind the dock.
 
-The component imports `wallet/src/styles.css`; every selector is scoped under `.classic-wallet`, and font-family is `ClassicWalletSpace`. It does not style the parent site's body, header or footer. Existing font files and favicon are referenced directly from their existing source locations and bundled by Vite.
+`ClassicWallet` remains usable standalone with `presentation="page"`; the dock uses `presentation="drawer"` with the fixed `/_network` gateway. Each mounted instance owns one session promise. Keep the site's existing upload-capable Playground intact.
+
+Keys start in memory only. The optional Save flow uses the encrypted vault described in [README.md](README.md); refresh starts locked and requires the user's password. The panel close button preserves the session, Lock clears active keys while retaining the encrypted copy, and confirmed Remove deletes that browser copy. No key or password crosses URLs, events or component props. Browser storage receives only the authenticated encrypted recovery record and the nonsecret visibility preference.
+
+`styles.css` scopes wallet controls under `.classic-wallet`; `drawer.css` separately owns the shell, desktop width reservation and responsive drawer layout. Existing font files and favicon bundle from source.
 
 ## Dependency resolution
 

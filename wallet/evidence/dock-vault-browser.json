@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-15T03:48:33.362839+00:00",
+  "scope": "actual public browser devnet wallet dock and encrypted refresh verification; no monetary custody acceptance",
+  "passed": true,
+  "site": "https://solanaclassic.net",
+  "deploymentId": "dpl_BLKNApyFZpVtag5roPzQSfV6UynB",
+  "desktop": {
+    "viewport": [
+      1280,
+      720
+    ],
+    "dockWidth": 320,
+    "siteWidth": 960,
+    "siteRemainsInteractive": true,
+    "formInputWithDockOpen": true,
+    "navigationKeepsDockOpen": true,
+    "walletImmediatelyBeforeGitHub": true,
+    "desktopNavigationVisible": true,
+    "horizontalOverflow": false
+  },
+  "phone": {
+    "viewport": [
+      390,
+      844
+    ],
+    "dockFullWidth": true,
+    "closeReturnsToUnderlyingPage": true,
+    "horizontalOverflow": false
+  },
+  "refresh": {
+    "explicitSaveRequired": true,
+    "savedWalletLocks": true,
+    "wrongPasswordRejected": true,
+    "sameAddressRestoredAfterUnlock": true,
+    "noTransactionOnUnlock": true,
+    "disposableUnfundedTestCopyRemovedAfterUserApproval": true
+  },
+  "limits": [
+    "Encrypted saved mode is for generated devnet test wallets only.",
+    "Independent security review and valuable-asset custody remain pending.",
+    "No password recovery. Unsaved sessions remain memory-only."
+  ],
+  "sourceSHA256": {
+    "infra/custom-domain/build.py": "28192aa47d954cc6d9b3b7d38c7dfa984b733b6a96fe19f2ba936af259134b27",
+    "wallet/src/ClassicWallet.tsx": "c8c04acbc652c4982f4186b3268090add4106dc95e61a6ec3ea8eb03a65b3446",
+    "wallet/src/session.ts": "c59df719c478e4edc120ba61c1206a13548790205f3caedc495ff83f40c1bd4f",
+    "wallet/src/vault.ts": "fc74382929c47838436112efc5ef4b41ce339a8a088715968fdb6b9f850b55b6",
+    "wallet/src/VaultControls.tsx": "0fe388bbab72c8b688db01fac63be43966ff19da5227b1efb278f307220c1d15",
+    "wallet/src/WalletDrawer.tsx": "a89e155b97a421452564780f176d76397e43c70fc7bf17d5579dd75e42a2a86d",
+    "wallet/src/drawer.css": "a3a542de13d6b2dc9d4f10a5c5cb504e6a42806fe32e369f84d16347c3f09a5b"
+  }
+}

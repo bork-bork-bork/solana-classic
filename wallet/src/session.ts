@@ -7,12 +7,14 @@ import { gatewayBase, immutableAsset, IMAGE_API, type GatewayOptions } from './g
 import { uploadBytes } from './upload';
 import { ownedCandidates } from './inventory';
 import { creationMessage } from './creation';
+import { BrowserVault, fromBase64, toBase64 } from './vault';
 export type SendPlan = { recipient: string; amount: number; fee: number; sender: string };
 export type CreationPlan = Readonly<{ document: Readonly<AssetDocument>; sender: string; fee: number; rent: number; units: string }>;
 export type OwnedAsset = GalleryEntry & { units: string; decimals: number; tokenAccounts: string[] };
 export type Inventory = { owner: string; verified: OwnedAsset[]; unverified: number; scannedAccounts: number; totalAccounts: number; truncated: boolean; slot: number };
 export class TestSession {
   #key: Keypair | null = null;
+  #vault: BrowserVault | null = null;
   #faucetId: string | null = null;
   #pendingSend: string | null = null;
   #mutating = false;
@@ -27,8 +29,52 @@ export class TestSession {
   artwork(value: string) { try { if (!/\/image\.(svg|png)$/.test(new URL(value).pathname)) return null; return immutableAsset(value, this.base); } catch { return null; } }
   hasPendingCreation() { return this.#pendingCreation !== null; }
   address() { return this.#key?.publicKey.toBase58() ?? ''; }
-  create() { if (this.#mutating) throw new Error('Wait for the current action before changing the session.'); if (this.#key) throw new Error('Close the current session before creating another.'); this.#key = Keypair.generate(); return this.address(); }
-  forget() { if (this.#mutating) throw new Error('Wait for the current action before closing the session.'); this.#key = null; this.#faucetId = null; this.#pendingSend = null; this.#pendingCreation = null; this.#creationSigners = new WeakMap(); }
+  create() { if (this.hasSavedWallet()) throw new Error('Unlock the saved test wallet instead of replacing it.'); if (this.#mutating) throw new Error('Wait for the current action before changing the session.'); if (this.#key) throw new Error('Close the current session before creating another.'); this.#key = Keypair.generate(); return this.address(); }
+  forget() { if (this.#mutating) throw new Error('Wait for the current action before closing the session.'); this.#key = null; this.#faucetId = null; this.#pendingSend = null; this.#pendingCreation = null; this.#creationSigners = new WeakMap(); this.#issuedPlans = new WeakSet(); this.#consumedPlans = new WeakSet(); this.#consumedCreations = new WeakSet(); }
+  #store() { return this.#vault ??= new BrowserVault(); }
+  hasSavedWallet() { return typeof window === 'undefined' && typeof localStorage === 'undefined' ? false : this.#store().present(); }
+  isSavedUnlocked() { return this.#vault?.unlocked() ?? false; }
+  #snapshot() {
+    if (!this.#key) throw new Error('Create a test session first.');
+    const secret = this.#key.secretKey;
+    try { return JSON.stringify({ version: 1, genesis: GENESIS, secret: toBase64(secret), faucet: this.#faucetId, send: this.#pendingSend, creation: this.#pendingCreation }); } finally { secret.fill(0); }
+  }
+  async #persist() { if (this.#vault?.unlocked()) await this.#vault.commit(this.#snapshot()); }
+  async saveWallet(password: string) {
+    if (this.#mutating || !this.#key) throw new Error('Wait for the current action and create a test wallet first.');
+    this.#mutating = true;
+    try { await this.#store().save(this.#snapshot(), password, this.address()); } finally { this.#mutating = false; }
+  }
+  async unlockWallet(password: string) {
+    if (this.#mutating || this.#key) throw new Error('Close the current session before unlocking a saved wallet.');
+    this.#mutating = true;
+    try {
+      const loaded = await this.#store().unlock(password); let secret: Uint8Array | null = null;
+      try {
+        const state = JSON.parse(loaded.payload);
+        if (state.version !== 1 || state.genesis !== GENESIS || typeof state.secret !== 'string' || (state.faucet !== null && (typeof state.faucet !== 'string' || !/^[a-f0-9-]{36}$/.test(state.faucet))) || (state.send !== null && (typeof state.send !== 'string' || !/^[1-9A-HJ-NP-Za-km-z]{80,90}$/.test(state.send)))) throw new Error('Saved test wallet recovery data is invalid.');
+        secret = fromBase64(state.secret); if (secret.length !== 64) throw new Error('Saved test wallet key is invalid.');
+        const key = Keypair.fromSecretKey(Uint8Array.from(secret)); if (key.publicKey.toBase58() !== loaded.address) throw new Error('Saved test wallet address differs.');
+        if (state.creation !== null) {
+          const pending = state.creation; const document = pending?.plan?.document;
+          if (!document || typeof pending.signature !== 'string' || !/^[1-9A-HJ-NP-Za-km-z]{80,90}$/.test(pending.signature) || pending.plan.sender !== loaded.address) throw new Error('Saved creation receipt is invalid.');
+          assetInputSchema.parse({ mint: document.mint, kind: document.kind, name: document.name, symbol: document.symbol, presetId: document.presetId });
+          const origin = document.uri.startsWith(IMAGE_API + '/') ? IMAGE_API : API;
+          if (!/^[a-f0-9]{64}$/.test(document.contentHash) || document.uri !== origin + '/assets/' + document.contentHash + '/metadata.json' || document.image !== origin + '/assets/' + document.contentHash + '/image.' + (origin === IMAGE_API ? 'png' : 'svg')) throw new Error('Saved creation metadata identity is invalid.');
+          immutableAsset(document.uri, this.base); immutableAsset(document.image, this.base);
+        }
+        this.#key = key; this.#faucetId = state.faucet; this.#pendingSend = state.send; this.#pendingCreation = state.creation;
+        return this.address();
+      } catch (error) { this.#store().lock(); throw error; } finally { secret?.fill(0); }
+    } finally { this.#mutating = false; }
+  }
+  lockWallet() { this.forget(); this.#vault?.lock(); }
+  async removeSavedWallet() {
+    if (this.#mutating || this.#pendingSend || this.#pendingCreation || this.#faucetId) throw new Error('Reconcile pending transactions before removing the saved wallet.');
+    this.#mutating = true;
+    try { await this.#store().remove(); } finally { this.#mutating = false; }
+    this.forget();
+  }
   async #api<T>(path: string, body?: unknown): Promise<T> {
     const response = await fetch(this.base + path, { method: body === undefined ? 'GET' : 'POST', headers: body === undefined ? undefined : { 'Content-Type': 'application/json' }, body: body === undefined ? undefined : JSON.stringify(body), cache: 'no-store', credentials: 'omit', signal: AbortSignal.timeout(15_000) });
     const result = await response.json();
@@ -110,7 +156,7 @@ export class TestSession {
       if (simulation.value.err) throw new Error('Simulation rejected the creation: ' + JSON.stringify(simulation.value.err));
       await checkBudget(); await this.verify();
       const anticipated = encodeBase58(signed.signatures[0]!);
-      this.#consumedCreations.add(plan); this.#pendingCreation = { plan, signature: anticipated }; receipt(anticipated);
+      this.#consumedCreations.add(plan); this.#pendingCreation = { plan, signature: anticipated }; await this.#persist(); receipt(anticipated);
       const signature = await this.connection.sendRawTransaction(bytes, { skipPreflight: false, preflightCommitment: 'confirmed', maxRetries: 2 });
       if (signature !== anticipated) throw new Error('Creation returned a different receipt. Resume the recorded transaction.');
       return await this.#finalizeCreation();
@@ -121,7 +167,7 @@ export class TestSession {
     await waitForSignature(this.connection, pending.signature, 'finalized'); await this.verify();
     await verifyAsset(this.connection, pending.plan.document);
     await this.#api(pending.plan.document.image.startsWith(IMAGE_API + '/') ? '/api/upload-gallery' : '/api/gallery', { mint: pending.plan.document.mint, contentHash: pending.plan.document.contentHash, issuanceSignature: pending.signature });
-    this.#pendingCreation = null; this.#creationSigners.delete(pending.plan);
+    this.#pendingCreation = null; this.#creationSigners.delete(pending.plan); await this.#persist();
     return { document: pending.plan.document, signature: pending.signature };
   }
   async resumeCreation() {
@@ -132,11 +178,11 @@ export class TestSession {
     if (this.#mutating) throw new Error('A wallet action is already running.'); this.#mutating = true;
     try {
     await this.verify(); if (!this.#key) throw new Error('Create a test session first.');
-    this.#faucetId ??= crypto.randomUUID();
+    this.#faucetId ??= crypto.randomUUID(); await this.#persist();
     let receipt = await this.#api<FaucetReceipt>('/api/faucet', { publicKey: this.address(), requestId: this.#faucetId });
     if (receipt.signature) { await waitForSignature(this.connection, receipt.signature, 'confirmed'); await this.verify(); receipt = await this.#api<FaucetReceipt>('/api/faucet', { publicKey: this.address(), requestId: this.#faucetId }); }
     if (receipt.state !== 'confirmed' || !receipt.signature) throw new Error(receipt.message + ' Retry checks the same request; it does not request another grant.');
-    this.#faucetId = null; return receipt.signature;
+    this.#faucetId = null; await this.#persist(); return receipt.signature;
     } finally { this.#mutating = false; }
   }
   async plan(recipient: string, displayAmount: string): Promise<SendPlan> {
@@ -178,11 +224,11 @@ export class TestSession {
     await checkFee(); await this.verify();
     const anticipated = encodeBase58(signed.signatures[0]!);
     // Retain the receipt before broadcast. A timeout must never cause a new send.
-    this.#consumedPlans.add(plan); this.#pendingSend = anticipated; receipt(anticipated);
+    this.#consumedPlans.add(plan); this.#pendingSend = anticipated; await this.#persist(); receipt(anticipated);
     const signature = await this.connection.sendRawTransaction(bytes, { skipPreflight: false, preflightCommitment: 'confirmed', maxRetries: 2 });
     if (signature !== anticipated) throw new Error('Network returned a different receipt. Check the signed transaction before retrying.');
     await waitForSignature(this.connection, signature, 'confirmed');
-    this.#pendingSend = null; return signature;
+    this.#pendingSend = null; await this.#persist(); return signature;
     } finally { this.#mutating = false; }
   }
   async reconcileSend() {
@@ -190,7 +236,7 @@ export class TestSession {
     try {
       await this.verify(); const signature = this.#pendingSend; if (!signature) return null;
       await waitForSignature(this.connection, signature, 'confirmed');
-      this.#pendingSend = null; return signature;
+      this.#pendingSend = null; await this.#persist(); return signature;
     } finally { this.#mutating = false; }
   }
 }

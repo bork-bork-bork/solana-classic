@@ -31,6 +31,7 @@ vite_config = vite_config.replace('plugins: [react()]', '''plugins: [react(), { 
 } }]''')
 vite_config = vite_config.replace('build: { sourcemap: false }', "resolve: { dedupe: ['react', 'react-dom'], alias: [{ find: /^react-dom(\\/.*)?$/, replacement: '" + str(root / 'apps/web/node_modules/react-dom') + "' + '$1' }, { find: /^react(\\/.*)?$/, replacement: '" + str(root / 'apps/web/node_modules/react') + "' + '$1' }, { find: 'buffer', replacement: '" + str(root / 'apps/web/node_modules/buffer/index.js') + "' }] }, build: { sourcemap: false }")
 (overlay / 'vite.config.ts').write_text(vite_config)
+(overlay / 'tsconfig.json').write_text(json.dumps({'extends': '../../wallet/tsconfig.json', 'include': ['src'], 'exclude': []}))
 shutil.copy2(root / 'apps/web/package.json', overlay / 'package.json')
 if not (overlay / 'node_modules').exists():
     (overlay / 'node_modules').symlink_to(root / 'apps/web/node_modules', target_is_directory=True)
@@ -45,20 +46,57 @@ app = app.replace('<span className="brand-mark" aria-hidden="true"/>', '<span cl
 app = "import About from './About';\nimport Whitepaper from './Whitepaper';\n" + app
 app = app.replace("path === '/' ? <Home/>", "path === '/about' ? <About/> : path === '/' ? <Home/>")
 app = "import Builders from './Builders';\nimport Collectors from './Collectors';\nimport Developers from './Developers';\n" + app
-app = app.replace("import { useEffect, useState }", "import { lazy, Suspense, useEffect, useState }")
-app = app.replace("const routes =", "const ClassicWallet = lazy(() => import('./ClassicWallet'));\nconst walletGateway = { apiBase: '/_network' as const };\nconst routes =")
-app = app.replace("['/playground', 'Playground']", "['/playground', 'Playground'], ['/wallet', 'Wallet']")
-app = app.replace("const playground = path === '/playground';", "const playground = path === '/playground';\n  const [walletVisited, setWalletVisited] = useState(path === '/wallet');\n  useEffect(() => { if (path === '/wallet') setWalletVisited(true); }, [path]);")
-app = app.replace('<main id="main-content">', '<main id="main-content"><div hidden={path !== "/wallet"}>{walletVisited ? <Suspense fallback={<p role="status">Loading Classic Wallet…</p>}><ClassicWallet gateway={walletGateway}/></Suspense> : null}</div>')
-app = app.replace('!playground ? <section', '!playground && path !== "/wallet" ? <section')
+app = app.replace("import { useEffect, useState }", "import { useCallback, useEffect, useRef, useState }")
+app = "import WalletDrawer from './WalletDrawer';\n" + app
+app = app.replace("['/roadmap', 'Roadmap']];", "['/roadmap', 'Roadmap'], ['/wallet', 'Wallet']];")
+old_state = "const [path, setPath] = useState(window.location.pathname); const network = useNetwork();"
+assert app.count(old_state) == 1
+app = app.replace(old_state, """const directWallet = window.location.pathname === '/wallet';
+  const initialWallet = directWallet || (() => { try { return localStorage.getItem('classic.wallet.panel') === 'open'; } catch { return false; } })();
+  const [path, setPath] = useState(directWallet ? '/' : window.location.pathname);
+  const [walletOpen, setWalletOpen] = useState(initialWallet);
+  const [walletVisited, setWalletVisited] = useState(initialWallet);
+  const walletBackground = useRef(directWallet ? '/' : window.location.pathname + window.location.search + window.location.hash);
+  useEffect(() => { try { localStorage.setItem('classic.wallet.panel', walletOpen ? 'open' : 'closed'); } catch {} }, [walletOpen]);
+  const openWallet = useCallback(() => {
+    if (window.location.pathname !== '/wallet') walletBackground.current = window.location.pathname + window.location.search + window.location.hash;
+    setWalletVisited(true); setWalletOpen(true);
+  }, []);
+  const closeWallet = useCallback(() => {
+    setWalletOpen(false);
+    if (window.location.pathname === '/wallet') {
+      window.history.replaceState({}, '', walletBackground.current);
+      setPath(window.location.pathname);
+    }
+  }, []);
+  const network = useNetwork();""")
+old_navigate = "const navigate = () => { setPath(window.location.pathname); window.scrollTo(0, 0); };"
+assert app.count(old_navigate) == 1
+app = app.replace(old_navigate, """const navigate = () => {
+      if (window.location.pathname === '/wallet') { openWallet(); return; }
+      walletBackground.current = window.location.pathname + window.location.search + window.location.hash;
+      setPath(window.location.pathname); window.scrollTo(0, 0);
+    };""")
+old_push = "event.preventDefault(); window.history.pushState({}, '', url.pathname + url.search); navigate();"
+assert app.count(old_push) == 1
+app = app.replace(old_push, "event.preventDefault(); if (url.pathname === '/wallet') { openWallet(); return; } window.history.pushState({}, '', url.pathname + url.search); navigate();")
+app = app.replace("}, []);\n  const playground", "}, [openWallet]);\n  const playground")
+assert app.count('</footer></div>') == 1
+app = app.replace('</footer></div>', '</footer>{walletVisited ? <WalletDrawer open={walletOpen} onClose={closeWallet}/> : null}</div>')
 app = app.replace("['/about', 'About']", "['/builders', 'Build'], ['/collectors', 'Collectors'], ['/about', 'About'], ['/whitepaper', 'Whitepaper']")
 app = app.replace('playground|gallery|explorer|network|token', 'playground|gallery|explorer|network|token|wallet|builders|developers|collectors|about|whitepaper')
 app = app.replace("path === '/about' ? <About/>", "path === '/developers' ? <Developers/> : path === '/builders' ? <Builders/> : path.startsWith('/collectors') ? <Collectors path={path}/> : path === '/whitepaper' ? <Whitepaper/> : path === '/about' ? <About/>")
 header_start, header_end = app.index('<header className="site-header">'), app.index('</header>') + len('</header>')
-app = "import SiteHeader from './SiteHeader';\n" + app[:header_start] + '<SiteHeader path={path} routes={routes}/>' + app[header_end:]
+app = "import SiteHeader from './SiteHeader';\n" + app[:header_start] + '<SiteHeader path={path} routes={routes} walletOpen={walletOpen}/>' + app[header_end:]
 shutil.copy2(root / 'infra/custom-domain/SiteHeader.tsx', overlay / 'src/SiteHeader.tsx')
+header = (overlay / 'src/SiteHeader.tsx').read_text()
+header = header.replace('routes: readonly (readonly string[])[]', 'routes: readonly (readonly string[])[]; walletOpen?: boolean')
+header = header.replace('SiteHeader({ path, routes }: Props)', 'SiteHeader({ path, routes, walletOpen = false }: Props)')
+header = header.replace("className={path.startsWith(href!) ? 'active' : ''}", "className={(href === '/wallet' ? walletOpen : path.startsWith(href!)) ? 'active' : ''}")
+header = header.replace("aria-current={path.startsWith(href!) ? 'page' : undefined}", "aria-current={href !== '/wallet' && path.startsWith(href!) ? 'page' : undefined} aria-expanded={href === '/wallet' ? walletOpen : undefined} aria-controls={href === '/wallet' ? 'classic-wallet-dialog' : undefined} data-wallet-trigger={href === '/wallet' ? 'true' : undefined}")
+(overlay / 'src/SiteHeader.tsx').write_text(header)
 (overlay / 'src/App.tsx').write_text(app)
-(overlay / 'src/ClassicWallet.tsx').write_text("export { default } from '../../../wallet/src/ClassicWallet';\n")
+(overlay / 'src/WalletDrawer.tsx').write_text("export { default } from '../../../wallet/src/WalletDrawer';\n")
 for name in ['Builders.tsx', 'Collectors.tsx', 'Whitepaper.tsx', 'Developers.tsx']:
     shutil.copy2(root / 'infra/custom-domain' / name, overlay / 'src' / name)
 shutil.copy2(root / 'developers/network.json', overlay / 'src/developer-network.json')
@@ -118,6 +156,17 @@ pages=pages.replace('facts?.denomination', "(facts?.denomination === 'TEST' ? 't
 (overlay / 'src/Pages.tsx').write_text(pages)
 style = (overlay / 'src/styles.css').read_text()
 style += (root / 'infra/custom-domain/styles.css').read_text()
+responsive = []
+for media in re.finditer(r'@media\s*\(\s*max-width\s*:\s*(\d+px)\s*\)\s*\{', style):
+    start = media.end()
+    depth, end = 1, start
+    while depth and end < len(style):
+        depth += (style[end] == '{') - (style[end] == '}')
+        end += 1
+    if depth:
+        raise SystemExit('Unbalanced responsive style block.')
+    responsive.append('@container classic-site (max-width:' + media.group(1) + '){' + style[start:end - 1] + '}')
+style += '\n#root{container:classic-site/inline-size}\n' + '\n'.join(responsive)
 (overlay / 'src/styles.css').write_text(style)
 shutil.copy2(root / 'infra/custom-domain/solana-classic-logo.png', overlay / 'public/solana-classic-logo.png')
 shutil.copy2(root / 'infra/custom-domain/solana-classic-logo-cutout.png', overlay / 'public/solana-classic-logo-cutout.png')
