@@ -47,7 +47,7 @@ app = app.replace("path === '/' ? <Home/>", "path === '/about' ? <About/> : path
 app = "import Builders from './Builders';\nimport Collectors from './Collectors';\nimport Developers from './Developers';\n" + app
 app = app.replace("import { useEffect, useState }", "import { lazy, Suspense, useEffect, useState }")
 app = app.replace("const routes =", "const ClassicWallet = lazy(() => import('./ClassicWallet'));\nconst walletGateway = { apiBase: '/_network' as const };\nconst routes =")
-app = app.replace("['/playground', 'Playground']", "['/wallet', 'Wallet'], ['/playground', 'Playground']")
+app = app.replace("['/playground', 'Playground']", "['/playground', 'Playground'], ['/wallet', 'Wallet']")
 app = app.replace("const playground = path === '/playground';", "const playground = path === '/playground';\n  const [walletVisited, setWalletVisited] = useState(path === '/wallet');\n  useEffect(() => { if (path === '/wallet') setWalletVisited(true); }, [path]);")
 app = app.replace('<main id="main-content">', '<main id="main-content"><div hidden={path !== "/wallet"}>{walletVisited ? <Suspense fallback={<p role="status">Loading Classic Wallet…</p>}><ClassicWallet gateway={walletGateway}/></Suspense> : null}</div>')
 app = app.replace('!playground ? <section', '!playground && path !== "/wallet" ? <section')
@@ -62,7 +62,7 @@ shutil.copy2(root / 'infra/custom-domain/SiteHeader.tsx', overlay / 'src/SiteHea
 for name in ['Builders.tsx', 'Collectors.tsx', 'Whitepaper.tsx', 'Developers.tsx']:
     shutil.copy2(root / 'infra/custom-domain' / name, overlay / 'src' / name)
 shutil.copy2(root / 'developers/network.json', overlay / 'src/developer-network.json')
-paper_edition = json.loads((root / 'docs/whitepaper/output/qa/verification-v014.json').read_text())
+paper_edition = json.loads((root / 'docs/whitepaper/output/qa/verification-v015.json').read_text())
 (overlay / 'src/whitepaper-edition.json').write_text(json.dumps({'version': paper_edition['version'], 'pages': paper_edition['pages']}))
 shutil.copy2(root / 'infra/custom-domain/About.tsx', overlay / 'src/About.tsx')
 shutil.copy2(root / 'infra/custom-domain/public-copy.ts', overlay / 'src/public-copy.ts')
@@ -175,7 +175,7 @@ assert old_deadline in roadmap
 roadmap = roadmap.replace(old_deadline, '<section class="release-criteria"><h2>Before release</h2><p>The final candidate must pass an uninterrupted 24-hour stability test, browser regression and operator review. Unresolved checks stay visible here.</p></section>')
 roadmap = roadmap.replace('/roadmap/app.js', '/roadmap-app.js')
 (destination / 'public/roadmap.html').write_text(roadmap)
-paper_qa = json.loads((root / 'docs/whitepaper/output/qa/verification-v014.json').read_text())
+paper_qa = json.loads((root / 'docs/whitepaper/output/qa/verification-v015.json').read_text())
 assert paper_qa['pdfSHA256'] == hashlib.sha256((destination / 'public/whitepaper.pdf').read_bytes()).hexdigest()
 assert paper_qa['sourceSHA256'] == hashlib.sha256((root / 'docs/whitepaper/WHITEPAPER.md').read_bytes()).hexdigest()
 roadmap_app = (root / 'infra/custom-domain/roadmap-app.js').read_text()

@@ -1,10 +1,8 @@
 # Whitepaper verification
 
-Public edition 0.13, 20 A4 pages. All pages rendered with Poppler and visually reviewed. Text bounds and sequential references pass.
+Public edition0.15,20 A4 pages. All pages rendered and visually inspected; text bounds pass. The current source-built devnet, controlled migration and pending new stability requirements are distinguished from the original candidate's historical results. The existing team-wallet and70/30 supply disclosure is included unchanged.
 
-SOC copy describes the intended network token and one-to-one bridge without announcing an initial launch venue. Official mint, team involvement, acquisition, holdings and fee recipients remain required disclosures. The historical research citation about token manipulation is retained. Original frozen stability passed; full release and migration remain separate.
+PDF SHA256: f1b90cf2dd44e4044277e0f52e82569554ae0e72eb4baa4fbdff13797597bde7
+Source SHA256: 333e7f1262d22173a9a2a6d346d4ad8b093d03a8ec3f4d892aedd7f37f12d241
 
-PDF SHA256: 05ab937c2fb52eef718f6392890a0ae876e9ab4fda001931a997b70e6381e575
-Source SHA256: ce600ca80ca18d7dbf74e02f36098769de91d4c61e5e42fd74c525f35042f270
-
-The current .net edition is separate from the original frozen PDF, which is unchanged. No monetary launch or migration approval is implied.
+The branded edition is separate from the unchanged original frozen PDF. No monetary launch, new stability acceptance or production bridge approval is implied.

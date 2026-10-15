@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "reviewedAt": "2026-10-15T01:48:56.071134+00:00",
+  "reviewedAt": "2026-10-15T02:01:39.559260+00:00",
   "t0": "2026-10-13T03:00:54Z",
   "deadline": "2026-10-19T03:00:54Z",
   "target": "2026-10-17T15:00:54Z",
@@ -161,9 +161,9 @@
     "p95FinalizedMs": 15167
   },
   "whitepaper": {
-    "version": "0.14",
+    "version": "0.15",
     "pages": 20,
-    "sha256": "e820600bb230342d9d43df74ceb611fde164330da95407b7fa2155636ace6f9b",
+    "sha256": "f1b90cf2dd44e4044277e0f52e82569554ae0e72eb4baa4fbdff13797597bde7",
     "url": "https://solanaclassic.net/whitepaper.pdf",
     "scope": "Verified current public-domain PDF bytes; frozen candidate PDF unchanged"
   },

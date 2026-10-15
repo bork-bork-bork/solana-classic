@@ -3,7 +3,7 @@
 ## Shared roots. A focused future for art, NFTs and memes.
 
 **Solana Classic / SOC**  
-**Public edition | Version 0.14 | 14 October 2026**
+**Public edition | Version 0.15 | 15 October 2026**
 
 **Bring back the fun. Build what comes next.**
 
@@ -19,7 +19,7 @@ Devnet is live on a fresh, independent Agave ledger. The Solana Classic team run
 
 Devnet is live at [solanaclassic.net](https://solanaclassic.net). The Solana Classic team currently runs the validator that checks and records its transactions. It supports disposable test wallets, artwork and meme-asset creation, transfers, a verified gallery and transaction receipts. Test units have no monetary value. SOC, native mainnet and the proposed bridge are not live.
 
-The network uses official **Agave v3.0.14 and Token-2022 v10.0.0**. Its software identity, browser journeys, restart and isolated recovery have been checked within their recorded scopes. A bounded load test completed 200 operations across 20 sessions; that result is not a claim about chain-wide capacity. The original frozen candidate passed its uninterrupted 24-hour stability test; final release review remains pending. Separate artwork-upload and explorer services require their own checks.
+The network now runs our verified source build of **Agave v3.0.14**, with the official **Token-2022 v10.0.0** programme. Migration preserved the existing genesis, accounts, programmes and application data. The source runtime passed its controlled restart and both original-frontend browser checks. The earlier upstream-binary candidate passed a bounded 200-operation load test and its uninterrupted 24-hour stability test. Those historical results do not certify the new executable: a fresh load, isolated recovery and full 24-hour stability run remain required. These tests are not claims about chain-wide capacity.
 
 This paper sets out the purpose, current network, intended SOC model and conditions for later releases. Current behaviour, proposed work and release requirements are identified separately. The [live roadmap](https://solanaclassic.net/roadmap) carries dated updates; detailed technical records remain in the project repository.
 
@@ -144,7 +144,7 @@ The original SOC token requires actual venue creation and mint verification. Nat
 
 The initial runtime selection was upstream **Agave v4.3.0**, which Anza labels stable. Its official binaries were verified, but startup on the devnet host failed on unavailable mandatory `io_uring` support. There is no active, accepted v4.3.0 validator. An upstream release label does not establish compatibility with a particular environment or production readiness for this project. [Agave v4.3.0 release](https://github.com/anza-xyz/agave/releases/tag/v4.3.0) [6]
 
-Official **Agave v3.0.14** is running as the compatibility candidate. Its account-storage directory-removal code can fall back to standard filesystem operations when `io_uring` is unsupported or remover initialization fails. The candidate has passed startup, block progression, identity, health, SDK/browser journeys, provider container/process restart, qualified recovery and bounded load. The original full soak passed; remaining release attestations are pending. No custom runtime patch or relaxation of kernel protections is part of this approach. [Agave v3.0.14 account-storage source](https://raw.githubusercontent.com/anza-xyz/agave/v3.0.14/accounts-db/src/utils.rs) [12]
+The current devnet runs our source-built **Agave v3.0.14**, compiled from the pinned upstream source. Its account-storage directory-removal code can fall back to standard filesystem operations when `io_uring` is unsupported or remover initialization fails. The original upstream-binary candidate passed its recorded browser, restart, qualified recovery, bounded load and full stability checks. The new source runtime passed migration continuity, controlled restart and both original-frontend browser checks; its fresh load, isolated recovery and full 24-hour run remain separate requirements. No custom runtime patch or relaxation of kernel protections is part of this approach. [Agave v3.0.14 account-storage source](https://raw.githubusercontent.com/anza-xyz/agave/v3.0.14/accounts-db/src/utils.rs) [12]
 
 The earlier Agave candidate's bundled Token-2022 programme failed variable metadata reallocation. The official Token-2022 v10.0.0 release fixes compatibility with `stricter_abi_and_runtime_constraints`. Its verified official artifact was loaded under the existing standard Token-2022 programme identity on the fresh candidate. This is an upstream programme update, not a bespoke token contract or a new asset standard. [Official Token-2022 v10.0.0 release](https://github.com/solana-program/token-2022/releases/tag/program@v10.0.0) [14]
 
@@ -152,15 +152,15 @@ The earlier Agave candidate's bundled Token-2022 programme failed variable metad
 | --- | --- |
 | Public network gateway | [solanaclassic.net/_network](https://solanaclassic.net/_network) |
 | Remote genesis | `7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon` |
-| Official runtime commit | `f516a8927c76c07f0ebc54ca7a4ce8b2046eee86` |
-| Official archive SHA256 | `65614325423316a48f57f1ceeaa91ca78f4516e165e305b38c01873cf8c6b8b4` |
+| Pinned upstream runtime commit | `f516a8927c76c07f0ebc54ca7a4ce8b2046eee86` |
+| Original upstream binary archive SHA256 | `65614325423316a48f57f1ceeaa91ca78f4516e165e305b38c01873cf8c6b8b4` |
 | Token-2022 v10.0.0 commit | `3350a3ba856f5997c4ade91fd1e5c8b515e5df33` |
 | Token-2022 artifact SHA256 | `a794161408080f690dac00832f45b3c3e2b71f1339586667ad1f979cf91d5b68` |
-| Proof scope | Identity, health, programme bytes, SDK/browser journeys, restart, automated browser checks, qualified isolated recovery and bounded load; original soak passed; release pending |
+| Current source-runtime proof scope | Migration continuity, source artifact identity, restart and original-frontend browser checks; fresh load, isolated recovery and stability acceptance pending |
 
 The service uses `solana-test-validator` with persistent storage. Anza describes this tool as a full-featured single-node development cluster. The devnet has its own genesis and does not clone Solana accounts or programmes from a public cluster. Required built-in and token programmes are checked on the deployed runtime. This development tool, with its validator run by the project team, does not establish production consensus security. [Anza test validator documentation](https://docs.anza.xyz/cli/examples/test-validator) [7]
 
-The full Agave v3.0.14 source is included in `engine/agave`, with its exact upstream commit, tree and Apache 2.0 provenance recorded. It currently has no project-specific engine changes. Source compilation and tests run on a separate worker and fresh isolated ledger. The live network continues to use verified official upstream binaries. A successful isolated build or test does not accept a current-ledger migration or replace a new stability run after an executable change.
+The full Agave v3.0.14 source is included in `engine/agave`, with its exact upstream commit, tree and Apache 2.0 provenance recorded. It currently has no project-specific engine changes. Source compilation and isolated tests passed before the controlled devnet migration. The live devnet now uses the reviewed source-built executable. Its migration continuity and restart evidence are recorded separately from the still-pending new stability run.
 
 The genesis hash is the project's network identity. Local development and the remote public experiment must have separate records. The canonical remote hash is recorded only after the remote node exists, is compared against known public Solana networks and has passed the required proofs. A local hash cannot stand in for it.
 
@@ -367,7 +367,7 @@ The thesis is weakened if developers do not sustain useful work, participants fi
 
 ## 11 Decisions before release
 
-The original frozen candidate completed its 24-hour browser soak on 14 October 2026, with 288 journeys and 2,880 observer checks. The retained report covers a bounded workload on one validator. Final browser regression and individual release attestations remain separate requirements. A reviewed switch to the source-built runtime needs a fresh backup, continuity checks and its own full stability run. Bounded load, qualified isolated recovery, SDK/browser journeys, provider container/process restart and automated browser checks passed within their recorded scopes; the founder confirmed actual alert emails. Separate frontend/upload checks and isolated source-build tests retain their own scope and unresolved gates. Complete G0 through G7 acceptance remains pending.
+The original frozen candidate completed its 24-hour browser soak on 14 October 2026, with 288 journeys and 2,880 observer checks. The retained report covers a bounded workload on one validator. Final browser regression and individual release attestations remain separate requirements. A controlled migration to the source-built runtime preserved the ledger and passed continuity and restart checks. Its new full stability run remains pending. Bounded load, qualified isolated recovery, SDK/browser journeys, provider container/process restart and automated browser checks passed within their recorded scopes; the founder confirmed actual alert emails. Separate frontend/upload checks and isolated source-build tests retain their own scope and unresolved gates. Complete G0 through G7 acceptance remains pending.
 
 Before any official token announcement, resolve final metadata, the exact mint, verified supply and authorities, team involvement, holdings and their acquisition, custody, public addresses and creator-fee recipients. The official announcement must describe these relationships accurately. No free developer allocation is assumed.
 

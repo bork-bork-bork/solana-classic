@@ -1,0 +1,12 @@
+{
+  "version": "0.15",
+  "pages": 20,
+  "pdfSHA256": "f1b90cf2dd44e4044277e0f52e82569554ae0e72eb4baa4fbdff13797597bde7",
+  "sourceSHA256": "333e7f1262d22173a9a2a6d346d4ad8b093d03a8ec3f4d892aedd7f37f12d241",
+  "textBoundsPassed": true,
+  "consistentDevnetWordingPassed": true,
+  "renderedAllPages": true,
+  "issues": [],
+  "visualReview": "All20 Poppler-rendered pages inspected in four contact sheets; final changed page19 rerendered and inspected. No clipping, overlap or table-layout defects observed.",
+  "publicReadiness": "Source-runtime status and existing token disclosure; new stability/mainnet/bridge acceptance remains separate"
+}
