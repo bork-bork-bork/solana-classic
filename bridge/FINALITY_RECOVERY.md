@@ -134,10 +134,17 @@ cached success. RPC responses are streamed with a2MiB wire limit and1MiB
 per-account decoded limit; noncanonical base64, wrong owners/layouts, public
 or soaking genesi, missing accounts and bad contexts fail closed.
 
-This is a separate read-only component. The existing journal submission API
-does not yet enforce it, and it cannot sign, broadcast, retry or approve a
-withdrawal. A returned observation is a snapshot, not a continuous monitor
-or proof that an upgrade cannot happen immediately afterward. Integrating
-these checks with reviewed signer custody, upgrade controls, fresh source
-finality and independent verifiers remains required. No independent operator
-or production endpoint has been appointed by this implementation.
+The observer is read-only. Version2 and version3 prepared journals now enforce
+retained code and policy pins in every handoff entry point; version3 also
+requires its reviewed mint observations. A separate observer result alone
+cannot approve a withdrawal. A returned observation is a snapshot, not a
+continuous monitor or proof that an upgrade cannot happen immediately afterward.
+Production signer custody, upgrade controls, fresh source finality and
+independently operated verifiers remain required.
+
+Offline authenticated expiry review also requires a caller-selected code-policy
+hash to equal the retained version2/version3 journal hash. Legacy version1
+supplied pins remain explicitly unbound. This does not authorize recovery or
+replace independent code/history observations. See
+[expiry review scope](EXPIRED_RECOVERY.md). No production roster or endpoint has
+been appointed by this implementation.

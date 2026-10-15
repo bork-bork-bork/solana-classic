@@ -593,3 +593,13 @@ an authority from upgrading code or eliminate a change after a signing snapshot.
 Compatible upgrades, rollback governance, forks, funded backing, custody and
 independent security review remain production gates. The replacement is never
 approved for settlement and the retained prepared claim must not be retried.
+
+
+Offline authenticated expiry review now rejects a caller code-policy hash that
+differs from a retained version2/version3 journal, even if synthetic reports are
+otherwise correctly signed. Version3 mint review is bound through verified
+inspection and the journal hash; legacy supplied pins are labelled unbound.
+Three new regressions and six retained-journal offline checks pass, with no RPC,
+validator starts, transactions or enabled retry/refund. See
+[the review boundary](EXPIRED_RECOVERY.md) and
+[the aggregate offline result](../evidence/bridge-metadata-expiry-review-offline.json).

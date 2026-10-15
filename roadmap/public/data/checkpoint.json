@@ -223,7 +223,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-15T15:46:26.406293+00:00",
+    "reviewedAt": "2026-10-15T16:23:22.510569+00:00",
     "scope": "Development checkpoint only; separate from the live devnet release",
     "projects": [
       {
@@ -469,6 +469,12 @@
             "title": "Changed origin bridge code blocks an unexpired metadata claim",
             "state": "rehearsal-passed",
             "detail": "Proposed in PR #6, not yet merged. Eight actual checks on new private copies. Six buffer setup transactions stage a deliberately incompatible reviewed ELF; one unused metadata-token lock finalizes and a version3 native claim is prepared, then one actual origin Loader-v3 code replacement finalizes with authority, capacity and rent unchanged. All three handoff APIs refuse old code pins while the claim is unexpired. Zero claim handoffs/broadcasts, unchanged prepared bytes/review, attempts0 and no destination signature/receipt or payout. Destination code pins and exact mint/escrow/recipient/configuration/reserve snapshots remain unchanged. Both copies stopped; originals unchanged. Five guards pass locally and on Linux; six code-comparison checks pass locally. Incompatible private refusal only; compatible migration, post-snapshot upgrade risk, forks, funded backing/custody and independent security remain open.",
+            "evidence": "https://github.com/solana-classic/solana-classic/pull/6"
+          },
+          {
+            "title": "Expiry review binds the retained code policy",
+            "state": "local-passed",
+            "detail": "Proposed in PR #6, not yet merged. Fixed caller code-hash substitution in authenticated expiry review: version2/version3 input must match the verified retained journal, even with otherwise valid signed reports. Legacy supplied pins are labelled unbound. Three new regressions; all38 related checks pass. Six offline compatibility/refusal checks on the retained actual metadata expiry journal use synthetic signed assertions and historical contexts, with zero RPC calls, validator starts or transactions. Original journal/selected inputs unchanged; no retry, refund, reset or production permission. These are offline checks, not fresh chain history or independent-operator verification.",
             "evidence": "https://github.com/solana-classic/solana-classic/pull/6"
           },
           {
