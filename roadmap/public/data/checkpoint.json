@@ -289,7 +289,7 @@
         "title": "SOC redemption bridge",
         "state": "building",
         "description": "Original SOC escrow and a native Classic reserve, targeting exact 1:1 display-unit redemption in both directions.",
-        "currentScope": "The private bridge prototype completes finalized transfers in both directions, cold restore and process-crash recovery. Claim handoff requires reviewed code and policy pins; Actual authority changes on either side and an incompatible native code replacement block a prepared claim before submission. Read-only checks verify the fixture mint/escrow and bracket them with selected token-programme code and authority pins. Separate native reserve and consumed bootstrap receipt checks reconcile its declared budget. One expired private withdrawal remains unresolved, with no retry or refund authorized. Complete funded genesis backing, native reserve reconciliation, metadata pre-finality/fork testing, independent operators and custody, origin-side code-upgrade/fork tests and external security review remain required before live redemption.",
+        "currentScope": "The private bridge prototype completes finalized transfers in both directions, cold restore and process-crash recovery. Claim handoff requires reviewed code and policy pins; Actual authority changes on either side and an incompatible native code replacement block a prepared claim before submission. Read-only checks verify the fixture mint/escrow and bracket them with selected token-programme code and authority pins. Separate native reserve and consumed bootstrap receipt checks reconcile its declared budget. One expired private withdrawal remains unresolved, with no retry or refund authorized. Complete funded genesis backing, native reserve reconciliation, metadata original-redemption pending faults and fork testing, independent operators and custody, origin-side code-upgrade/fork tests and external security review remain required before live redemption.",
         "source": "https://github.com/solana-classic/solana-classic/tree/main/bridge",
         "milestones": [
           {
@@ -432,13 +432,19 @@
           {
             "title": "Reviewed metadata claim journal in both directions",
             "state": "local-passed",
-            "detail": "Proposed in PR #6, not yet merged. Explicit version3 binds reviewed mint bytes, supply and complete code pins before returning existing signed bytes once. 16 new local checks; 145 combined JavaScript regressions and seven worker guards pass. Changed metadata/code, depleted escrow, expiry, receipt and tampering refuse handoff. Local synthetic responses only; actual-chain results are recorded in the next milestone. Pre-finality faults/forks, production custody/backing and independent security review remain pending.",
+            "detail": "Proposed in PR #6, not yet merged. Explicit version3 binds reviewed mint bytes, supply and complete code pins before returning existing signed bytes once. 16 new local checks; 145 combined JavaScript regressions and seven worker guards pass. Changed metadata/code, depleted escrow, expiry, receipt and tampering refuse handoff. Local synthetic responses only; actual-chain results are recorded in the next milestone. Pending original-redemption faults, forks, production custody/backing and independent security review remain pending.",
             "evidence": "https://github.com/solana-classic/solana-classic/blob/bridge/metadata-mint-review/evidence/bridge-reviewed-journal-local.json"
           },
           {
             "title": "Actual metadata bridge round trip and restart recovery",
             "state": "rehearsal-passed",
-            "detail": "Proposed in PR #6, not yet merged. Ten actual checks on two fresh private source-built Agave ledgers. Both version3 metadata settlement directions finalize; four wrong mint/code handoffs refuse with unchanged journals and economics. Each destination RPC outage preserves its finalized journal; same-genesis restart reconciles the original signature and exact deltas. All four process starts stopped. Four worker guards pass locally and on Linux. Known-finalized recovery only; pre-finality faults/forks, production backing/custody and independent security review remain pending.",
+            "detail": "Proposed in PR #6, not yet merged. Ten actual checks on two fresh private source-built Agave ledgers. Both version3 metadata settlement directions finalize; four wrong mint/code handoffs refuse with unchanged journals and economics. Each destination RPC outage preserves its finalized journal; same-genesis restart reconciles the original signature and exact deltas. All four process starts stopped. Four worker guards pass locally and on Linux. This round-trip result covers known-finalized recovery only. The next milestone records the native-claim pending fault; original-redemption pending faults, forks, production backing/custody and independent security review remain pending.",
+            "evidence": "https://github.com/solana-classic/solana-classic/pull/6"
+          },
+          {
+            "title": "Metadata native claim recovers after pre-finality process kill",
+            "state": "rehearsal-passed",
+            "detail": "Proposed in PR #6, not yet merged. Seven actual checks on new private ledger copies. One source lock and one reviewed claim submission; copied destination SIGKILL after observed confirmation above its finalized root. RPC outage preserves the attempted journal and blocks retry. Same-genesis restart reconciles the original finalized signature and exact native payout with unchanged signed bytes and review admissions. All three copy starts stopped; original ledgers and private records unchanged. Five worker guards pass locally and on Linux, plus six local copy guards. Expiry branch, pending original redemption, forks, production backing/custody and independent security review remain unverified.",
             "evidence": "https://github.com/solana-classic/solana-classic/pull/6"
           },
           {

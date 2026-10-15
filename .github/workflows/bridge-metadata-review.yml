@@ -13,6 +13,7 @@ on:
       - 'bridge/PENDING_CLAIMS.md'
       - 'evidence/bridge-reviewed-journal-local.json'
       - 'evidence/bridge-metadata-journal-agave.json'
+      - 'evidence/bridge-metadata-pending-crash-agave.json'
       - 'bridge/REVIEWED_ORIGIN_MINT.md'
       - 'bridge/rehearsal/*reviewed-metadata*'
       - 'engine/rehearsal/reviewed_metadata_origin*'
@@ -24,6 +25,9 @@ on:
       - 'bridge/rehearsal/metadata-origin.mjs'
       - 'bridge/rehearsal/metadata-journal.mjs'
       - 'engine/rehearsal/metadata_journal*'
+      - 'bridge/rehearsal/metadata-pending-crash.mjs'
+      - 'engine/rehearsal/metadata_pending_crash*'
+      - 'engine/rehearsal/cold_copy_test.py'
       - 'engine/rehearsal/metadata_origin*'
       - 'engine/rehearsal/bootstrap.py'
       - 'evidence/bridge-metadata-observer-local.json'
@@ -52,3 +56,7 @@ jobs:
         run: python3 engine/rehearsal/reviewed_metadata_origin_test.py
       - name: Fresh metadata journal worker guards
         run: python3 engine/rehearsal/metadata_journal_test.py
+      - name: Metadata pending-fault admission guards
+        run: python3 engine/rehearsal/metadata_pending_crash_test.py
+      - name: Stopped-ledger copy guards
+        run: python3 engine/rehearsal/cold_copy_test.py

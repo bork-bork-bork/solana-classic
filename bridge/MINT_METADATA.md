@@ -66,8 +66,8 @@ are in [the inspection record](../evidence/bridge-metadata-inspection.json).
 This is one selected RPC observation, not independent consensus verification.
 
 Before live settlement admission: review the explicit version3 claim/redemption
-admission, extend the actual valueless metadata-token checks to pre-finality
-faults/forks, retain negative controls and obtain independent security review. The earlier plain-mint ledger result does not verify this
+admission, complete pending original-redemption and competing-fork checks,
+retain negative controls and obtain independent security review. The earlier plain-mint ledger result does not verify this
 metadata option. Issue2remains open for that wider work.
 
 ## Fresh private Agave origin
@@ -100,3 +100,10 @@ metadata settlement or production admission by themselves. A later, separate
 10-check actual two-chain/restart rehearsal is recorded in
 [the metadata journal proof](../evidence/bridge-metadata-journal-agave.json).
 See [journal scope](PENDING_CLAIMS.md).
+
+
+A separate7-check actual metadata native-claim fault now verifies one original
+signature/payout after destination SIGKILL before observed finality, with review
+admissions retained and retry blocked. The original fixture stays unchanged.
+This does not cover pending original redemption or a competing fork. See
+[the scoped fault result](../evidence/bridge-metadata-pending-crash-agave.json).

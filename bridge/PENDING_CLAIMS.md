@@ -409,3 +409,53 @@ before finality, a competing fork, physical host loss, independent operators,
 complete genesis backing or production custody/security. No previous private
 ledger or journal was opened, reset or replayed. Private keys, signatures,
 policies, balances and raw ledgers stay out of this public evidence.
+
+
+## Metadata native-claim pre-finality fault harness
+
+`rehearsal/metadata-pending-crash.mjs` and
+`../engine/rehearsal/metadata_pending_crash.py` prepare new cold copies of the
+completed metadata round-trip fixture. Original ledgers, both finalized journals,
+review policy and private inputs must retain their complete hashes. The copied
+client uses the retained version3 code/mint review and an unused source nonce;
+no earlier source event or signed settlement is replayed.
+
+One new source lock must finalize, followed by one reviewed native-claim handoff
+and one submission. The fault harness refuses an already-finalized claim and
+requires the exact copied destination process before SIGKILL. Its last observed
+signature status and processed/finalized slots are retained privately. The
+journal must remain unchanged while RPC is unavailable and must refuse another
+handoff. Recovery may accept only the original finalized signature/economic
+movement or retain `EXPIRED_UNRESOLVED` with no payout, replacement or refund.
+The source obligation and protected reserve floor remain recorded in either case.
+
+Five local guards cover worker identity, completed baseline/code/accounting,
+process/finality selection, nonresetting copied startup and attempt replay.
+Six existing stopped-ledger copy guards also pass. Actual execution is recorded
+separately; source and these guards alone do not verify a real pending fault.
+This harness covers the native-release direction, not pending original redemption,
+a competing fork, physical host loss or production custody/security.
+
+
+Seven actual checks now pass for this metadata native-claim fault. One new
+source lock finalizes on fresh private copies, and one version3 native claim
+is submitted without waiting for destination confirmation. The fault harness
+observes the signature as confirmed above the finalized root, then kills only
+the copied native destination with SIGKILL (exit-9). During the actual outage,
+the attempted journal remains unchanged and another handoff refuses.
+
+After same-genesis restart, the original signature, receipt and exact native
+payout reconcile as `FINALIZED`. The original signed bytes and complete review
+admissions remain intact. Source escrow/obligation and the protected reserve
+floor remain correct. All three copied process starts stop; complete original
+ledger inventories, fixture/review inputs and both previous finalized journals
+remain unchanged. Five worker guards pass locally and on Linux; six local
+cold-copy guards also pass. See
+[the aggregate result](../evidence/bridge-metadata-pending-crash-agave.json).
+
+This attempt exercised successful native-claim recovery after a process kill
+before observed finality. Its expiry branch was not exercised. Pending original
+metadata redemption, actual competing forks, physical host loss, independent
+verification, complete funded backing and production custody/security remain
+open. Private addresses, signatures, policies, balances, keys and ledgers remain
+excluded from the public result. Never replay or reset this retained attempt.
