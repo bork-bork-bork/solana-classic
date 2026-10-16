@@ -223,7 +223,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-16T03:09:39.169450+00:00",
+    "reviewedAt": "2026-10-16T06:15:46.838Z",
     "scope": "Development checkpoint only; separate from the live devnet release",
     "projects": [
       {
@@ -282,7 +282,9 @@
           },
           {
             "title": "Backed bootstrap and full supply reconciliation",
-            "state": "pending"
+            "state": "pending",
+            "detail": "Proposed in PR #6, not yet merged. An offline custody review now counts every retained genesis account and compares the reserve with a selected V2 vault PDA, owner and layout. The historical 249-account synthetic budget balances, but its system-owned reserve fails that vault comparison; three stake and three vote accounts still need withdrawal-authority review. All 39 genesis accounting/custody checks pass locally. Matching metadata never proves account bytes, custody, funded backing or production readiness. No keys, genesis, validators or chain transactions were created.",
+            "evidence": "https://github.com/solana-classic/solana-classic/pull/6"
           },
           {
             "title": "Operators, consensus, recovery and production release",

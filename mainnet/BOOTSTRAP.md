@@ -88,3 +88,13 @@ system account controlled by a temporary fixture key, not an audited production
 bridge vault. A future genesis/reserve design must make the protected tranches
 enforceable before activation. Do not reuse the current devnet or the private
 bridge fixtures as mainnet, or assign their balances any mainnet rights.
+
+
+## Account custody is a separate gate
+
+[Genesis custody metadata review](GENESIS_CUSTODY.md) classifies every supplied
+account and compares reserve metadata with the selected V2 bridge vault PDA.
+The retained249-account budget balances, but its system-owned reserve fails
+that vault comparison. Stake and vote withdrawal authorities remain undecoded.
+Matching reserve owner/address/length alone never verifies account bytes,
+protected floor, upgrade controls, actual custody or funded backing.

@@ -16,3 +16,10 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - name: Offline host, genesis, process and consensus-observer checks
         run: python3 -W error::ResourceWarning -m unittest discover -s mainnet -p '*_test.py'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24.19.0'
+      - run: npm install --global pnpm@10.34.7
+      - run: pnpm install --frozen-lockfile --ignore-scripts
+      - name: Offline genesis accounting and custody metadata checks
+        run: node --test mainnet/plan.test.mjs mainnet/bootstrap.test.mjs mainnet/genesis-custody.test.mjs
