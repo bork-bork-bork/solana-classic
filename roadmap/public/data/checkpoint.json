@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "reviewedAt": "2026-10-15T04:00:55.044275+00:00",
+  "reviewedAt": "2026-10-16T01:27:01.937273+00:00",
   "t0": "2026-10-13T03:00:54Z",
   "deadline": "2026-10-19T03:00:54Z",
   "target": "2026-10-17T15:00:54Z",
@@ -172,7 +172,7 @@
     "Native mainnet",
     "1:1 bridge"
   ],
-  "soakStartedAt": "2026-10-15T03:59:33.330Z",
+  "soakStartedAt": "2026-10-16T01:24:36.342Z",
   "engineBuild": {
     "runId": "40de48b7-6963-429b-ae3e-81a610d81b7d",
     "sourceManifestSha256": "337512bc1df2f382ccfab957347281b1c153353429b77d2695d65aafd29ec081",
@@ -223,7 +223,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-15T23:24:51.775854+00:00",
+    "reviewedAt": "2026-10-16T01:27:01.937273+00:00",
     "scope": "Development checkpoint only; separate from the live devnet release",
     "projects": [
       {
@@ -666,7 +666,7 @@
         "title": "Devnet release evidence",
         "state": "building",
         "description": "Candidate-specific validation of the source-built devnet and its fresh 24-hour stability test.",
-        "currentScope": "All eight current-candidate admission checks passed, including isolated cold-backup recovery. A fresh uninterrupted 24-hour stability test started on 15 October at 03:59 UTC, with earliest completion on 16 October at 03:59 UTC. Live progress appears above. Final regression and release review remain pending; the original stability result remains historical.",
+        "currentScope": "The previous source-build run interrupted after 237 of 288 journeys and is retained as failed. All eight exact current-candidate prerequisites passed for a separate replacement, started on 16 October at 01:24 UTC with earliest completion on 17 October at 01:24 UTC. Passive HTTP diagnostics are active; frozen workload and validator identities are unchanged. Completion, final regression and release review remain pending. Source and evidence are in PR #6.",
         "source": "https://github.com/solana-classic/solana-classic/blob/main/engine/migration/STABILITY_RELEASE_REVIEW.md",
         "milestones": [
           {
@@ -709,13 +709,13 @@
           {
             "title": "Source-built Agave migration",
             "state": "live-passed",
-            "detail": "Source-built Agave is live on the existing devnet. All 2163 accounts, program code, tokens/NFTs, application records and 1992 immutable files survived. Current-candidate admission checks passed and a fresh stability test is running."
+            "detail": "Source-built Agave is live on the existing devnet. All 2163 accounts, program code, tokens/NFTs, application records and 1992 immutable files survived. Current-candidate admission checks passed; the separately recorded replacement stability run is in progress."
           },
           {
             "title": "New source-build stability run",
             "state": "running",
-            "detail": "A fresh full 24-hour run started on 15 October at 03:59 UTC, with earliest completion on 16 October at 03:59 UTC. Follow live progress above. Completion and release acceptance remain pending; the original result remains historical.",
-            "evidence": "https://github.com/solana-classic/solana-classic/blob/main/evidence/agave-source-stability-started.json"
+            "detail": "Replacement full24h run started on 16 October at 01:24 UTC; earliest completion is 17 October at 01:24 UTC if every check passes. The previous 237-journey interruption is preserved. Fourteen auxiliary diagnostic/status checks pass locally and on Linux; no failure rules or frozen workload changed. Follow live progress above. Completion and release acceptance remain pending.",
+            "evidence": "https://github.com/solana-classic/solana-classic/blob/bridge/metadata-mint-review/evidence/agave-source-stability-replacement-started.json"
           },
           {
             "title": "Source-built devnet original mobile verification",
@@ -767,7 +767,7 @@
   "migrationMaintenance": {
     "authorizedAt": "2026-10-14T21:40:39.917980+00:00",
     "state": "source-live-validation",
-    "detail": "Source-built Agave is live. All eight current-candidate prerequisites passed. A fresh full24h stability test is running; its actual first mint, transfer and ownership journey passed. Completion and release acceptance remain pending.",
+    "detail": "Source-built Agave is live. The previous source-build stability attempt interrupted after 237 of 288 journeys. A separately admitted full24h replacement started on 16 October at 01:24 UTC with passive runtime diagnostics; its first mint, transfer and ownership journey passed. Completion and release acceptance remain pending.",
     "deploymentId": "22e5870a-afb8-4027-89b5-ccb8a39391c2",
     "imageDigest": "sha256:f48877aec5c7e2ec010470f148368810034dece2f8ffd05d2f882928df649264",
     "writesOpened": true,
