@@ -223,7 +223,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-16T02:25:16.035270+00:00",
+    "reviewedAt": "2026-10-16T03:09:39.169450+00:00",
     "scope": "Development checkpoint only; separate from the live devnet release",
     "projects": [
       {
@@ -510,7 +510,7 @@
           {
             "title": "Bootstrap reconciliation, custody and recovery",
             "state": "pending",
-            "detail": "Proposed in PR #6, not yet merged. Seven actual read-only checks on two new private Agave copies reconcile 11 returned programme accounts, four source events and three consumed receipts with current counters, separately observed escrow and the stored native floor. Two selected journals match current pending amounts; the expired redemption stays unresolved. Both copies stopped, originals and private records unchanged; zero client signing, handoffs, simulations or broadcasts. An earlier report-assertion failure is retained and audited separately. All 204 bridge regressions and nine worker guards pass locally; new groups also pass Linux pre-admission. Matching returned accounts do not prove complete history, independent finality or backing. Funded genesis/bootstrap/reserve custody, independent economic verification, capable full-validator hosting and security review remain pending.",
+            "detail": "Proposed in PR #6, not yet merged. Seven earlier read-only checks reconcile current accounts and two selected journals on private copies. A new signed-transaction verifier matches the original lock, exact token/escrow movement, allocation, rent and fee metadata. The native-return lookup is unavailable at finalized commitment, so history acceptance stays blocked. Its lookup signature matches the retained original signed source request; those bytes do not prove landing. Cause remains unestablished. Both copies stopped, originals/journals unchanged, zero client signing or submissions. Initial allocation-model refusal is retained separately. All 227 bridge regressions and nine worker guards pass locally; new groups also pass Linux pre-admission. Retained same-genesis transaction history, durable initial metadata capture, independent historical code/finality, funded bootstrap/reserve custody, full-validator hosting and security review remain required.",
             "evidence": "https://github.com/solana-classic/solana-classic/pull/6"
           },
           {

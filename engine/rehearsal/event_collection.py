@@ -102,7 +102,7 @@ def main(config):
         original=[inventory(source/('ledger-'+str(i)))[0] for i in range(2)]
         names=['private-input.json','private-result.json','attempt.json','selected-review-private.json','baseline-result-private.json','baseline-claim-private.json','journal/'+selected+'.json'];protected={name:sha(source/name) for name in names}
         state.update(originalInventories=original,originalPrivateFileHashes=protected);save()
-        for src,dst in [('private-result.json','baseline-result-private.json'),('selected-review-private.json','selected-review-private.json')]:shutil.copyfile(source/src,root/dst)
+        for src,dst in [('private-result.json','baseline-result-private.json'),('selected-review-private.json','selected-review-private.json'),('baseline-result-private.json','historical-baseline-private.json')]:shutil.copyfile(source/src,root/dst)
         (root/'journal').mkdir(mode=0o700)
         for record,src in [(claim,'baseline-claim-private.json'),(redemption,'journal/'+selected+'.json')]:shutil.copyfile(source/src,root/'journal'/(record['id']+'.json'))
         (root/'collection-config-private.json').write_text(json.dumps({'ports':config['rpcPorts'],'selection':[claim['id'],redemption['id']]}))

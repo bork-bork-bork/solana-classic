@@ -199,3 +199,10 @@ initial local negative fixture sometimes assigned the journal's existing state;
 it now always changes that state. All 204 bridge regressions and nine worker
 guards pass locally; the nine worker, seven comparison and 17 collector groups
 also passed Linux pre-admission. No failed attempt was reset or reused.
+
+
+The subsequent [selected transaction-history review](SOURCE_ECONOMIC_REVIEW.md)
+adds signed-message and exact source movement checks. Its actual private attempt
+matched the original lock metadata but refused an unavailable finalized native
+return transaction. Current account compatibility above remains a separate
+narrow result; it does not clear the retained history gap or accept settlement.

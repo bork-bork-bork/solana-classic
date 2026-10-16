@@ -104,6 +104,7 @@ class EventCollection(unittest.TestCase):
     else:
      with self.assertRaises((AssertionError,RuntimeError)):r.main(config)
     self.assertEqual(starts.call_count,2);self.assertEqual(stops.call_count,2);self.assertTrue(all(p.returncode==-2 for p in children))
+   self.assertFalse((root/'private-input.json').exists());self.assertEqual((root/'historical-baseline-private.json').read_bytes(),(source/'baseline-result-private.json').read_bytes())
    final=json.loads((root/'attempt.json').read_text());self.assertEqual(final['state'],'passed' if mode=='success' else 'failed');self.assertEqual(len(final['stops']),2)
    self.assertEqual({str(v.relative_to(source)):v.read_bytes() for v in source.rglob('*') if v.is_file()},original)
  def test_wrong_second_genesis_stops_both_owned_copies_and_retains_failure(self):self.lifecycle('wrongGenesis')
