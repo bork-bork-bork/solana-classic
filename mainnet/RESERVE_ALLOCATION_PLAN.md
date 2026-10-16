@@ -70,3 +70,8 @@ backing, both on-chain counters, independent operators, upgrade custody and
 external security review remain release requirements. Nothing in this proposal
 activates native SOC, changes devnet or resolves retained missing native history.
 Aggregate evidence is [recorded here](../evidence/mainnet-reserve-allocation-plan.json).
+
+The separate [selected byte input adapter](RESERVE_BYTE_INPUT.md) now binds an
+exact one-account primordial input and proposed-output fingerprints to selected
+binary-genesis decoder reports. Its actual baseline audit and synthetic output
+controls are separate; the preparer and actual fresh genesis remain pending.
