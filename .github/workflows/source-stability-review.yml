@@ -5,6 +5,9 @@ on:
       - 'engine/migration/source_terminal_review*'
       - 'engine/migration/terminal_review*'
       - 'engine/migration/load_review*'
+      - 'engine/migration/runtime_http_*'
+      - 'engine/migration/RUNTIME_HTTP_DIAGNOSTICS.md'
+      - 'evidence/runtime-http-diagnostics-local.json'
       - 'engine/migration/SOURCE_TERMINAL_REVIEW.md'
       - 'evidence/source-terminal-role-admission-local.json'
       - '.github/workflows/source-stability-review.yml'
@@ -19,3 +22,8 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - name: Offline source terminal, historical terminal and load evidence checks
         run: python3 -W error::ResourceWarning -m unittest discover -s engine/migration -p '*review_test.py'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24.19.0'
+      - name: Passive runtime HTTP diagnostics
+        run: node --test engine/migration/runtime_http_diagnostics.test.mjs engine/migration/runtime_http_preload.test.mjs
