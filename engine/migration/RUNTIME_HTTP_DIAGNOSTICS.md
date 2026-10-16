@@ -37,3 +37,9 @@ TEST funding and an actual full 24 hours. The old terminal auditor remains bound
 to the old run and cannot accept a replacement merely by changing a timestamp.
 
 Primary API reference: [Undici diagnostics channels](https://github.com/nodejs/undici/blob/main/docs/docs/api/DiagnosticsChannel.md).
+
+The auxiliary controller also uses `qa_state.mjs` to retain all nine selected
+input checksums in terminal status. The earlier controller replaced its status
+object and dropped those fields after exit. This correction preserves the
+actual selection and refuses changed claimed hashes; it does not weaken the
+terminal auditor or infer acceptance. Five local status-transition checks pass.

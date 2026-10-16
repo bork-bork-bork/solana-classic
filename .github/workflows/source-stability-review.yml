@@ -6,6 +6,7 @@ on:
       - 'engine/migration/terminal_review*'
       - 'engine/migration/load_review*'
       - 'engine/migration/runtime_http_*'
+      - 'engine/migration/qa_state*'
       - 'engine/migration/RUNTIME_HTTP_DIAGNOSTICS.md'
       - 'evidence/runtime-http-diagnostics-local.json'
       - 'engine/migration/SOURCE_TERMINAL_REVIEW.md'
@@ -26,4 +27,4 @@ jobs:
         with:
           node-version: '24.19.0'
       - name: Passive runtime HTTP diagnostics
-        run: node --test engine/migration/runtime_http_diagnostics.test.mjs engine/migration/runtime_http_preload.test.mjs
+        run: node --test engine/migration/runtime_http_diagnostics.test.mjs engine/migration/runtime_http_preload.test.mjs engine/migration/qa_state.test.mjs
