@@ -63,3 +63,20 @@ regression, remaining individual release gates and operator handoff. A passed
 terminal audit still sets release, mainnet, bridge and cutover acceptance false.
 Mainnet additionally requires capable hosting, actual full-validator consensus
 and recovery, funded backing, custody, independent operators and security review.
+
+## Separately admitted replacement
+
+The 15 October source-built attempt interrupted at 237 journeys and remains
+failed. Its auditor, activation and retained report are unchanged. A new
+namespace started a separate full-day attempt at 01:24:36.342 UTC on 16 October.
+Its actual first journey and reviewed auxiliary source hashes are recorded in
+[the replacement activation](../../evidence/agave-source-stability-replacement-started.json).
+
+`replacement_source_terminal_review.py` applies the same complete terminal
+checks while pinning only that new start, activation digest, runner deployment
+and namespace. Use it with a new private terminal input directory and the same
+unchanged 45-file frozen context. The old source-start proof cannot be selected.
+The full refusal matrix is rerun against this separate binding, including the
+old interrupted 237-journey shape and elapsed-time refusal. These are offline
+synthetic checks, not completion or independent replay of the running attempt.
+No full report should be exported or accepted before it actually completes.
