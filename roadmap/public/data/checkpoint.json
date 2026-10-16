@@ -223,7 +223,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-16T09:03:15.234316+00:00",
+    "reviewedAt": "2026-10-16T09:19:42.179754Z",
     "scope": "Development checkpoint only; separate from the live devnet release",
     "projects": [
       {
@@ -283,7 +283,7 @@
           {
             "title": "Backed bootstrap and full supply reconciliation",
             "state": "pending",
-            "detail": "Proposed in PR #6, not yet merged. The separate bootstrap-gated prototype passed five compiled-program VM groups. Its unsigned native client now passes 13 checks and one new JavaScript-to-SBF roundtrip covering unpause, claim, return, replay refusal and full pause; the five earlier groups were filtered. Selected executable and original V2 source are unchanged. The 249-account genesis review and reserve proposal remain preparation with synthetic backing. No signer/journal migration or actual new genesis is accepted. Complete activation inventory, finalized funded backing, independent operators, custody and security review remain required.",
+            "detail": "Proposed in PR #6, not yet merged. The separate gated prototype and unsigned client have retained compiled-program VM proofs. A new offline signed-message verifier passes 19 focused checks, binding exact compiled bytes, code/policy/bootstrap selections and expiry height; legacy journals refuse the new format without changes. All signing, journal and broadcast permissions stay false. The 249-account genesis review and reserve proposal remain preparation with synthetic backing. Complete activation inventory, finalized funded backing, independent operators, custody, compatible journal recovery and security review remain required.",
             "evidence": "https://github.com/solana-classic/solana-classic/pull/6"
           },
           {
