@@ -223,7 +223,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-16T07:26:16.528785+00:00",
+    "reviewedAt": "2026-10-16T07:49:17.703933+00:00",
     "scope": "Development checkpoint only; separate from the live devnet release",
     "projects": [
       {
@@ -283,7 +283,7 @@
           {
             "title": "Backed bootstrap and full supply reconciliation",
             "state": "pending",
-            "detail": "Proposed in PR #6, not yet merged. Actual offline genesis decoding matches all 249 retained accounts and exposes shared validator voting/withdrawal roles. Three new compiled-program groups verify that a prefunded derived vault initializes paused without changing its balance, while seven selected unauthorized or invalid actions refuse with checked state unchanged. These use injected synthetic VM accounts, not an actual new genesis or accepted custody/backing. The existing genesis and ordinary system reserve remain unchanged. Full inventory reconciliation, funded backing, independent operators and upgrade custody remain required.",
+            "detail": "Proposed in PR #6, not yet merged. Actual offline genesis decoding matches all 249 retained accounts and exposes shared voting/withdrawal roles. Three compiled-program groups verify prefunded-vault initialization and seven refusal actions. A new offline reserve proposal preserves 248 other allocations; twelve checks reject duplicate supply, stale genesis, changed balances and changed rent/fee policy. The matching fresh-inventory case is synthetic metadata, not a new compiled genesis or accepted custody/backing. Full activation inventory, funded backing, independent operators and upgrade custody remain required.",
             "evidence": "https://github.com/solana-classic/solana-classic/pull/6"
           },
           {

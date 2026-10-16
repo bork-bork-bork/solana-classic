@@ -22,7 +22,7 @@ jobs:
       - run: npm install --global pnpm@10.34.7
       - run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Offline genesis accounting and custody metadata checks
-        run: node --test mainnet/plan.test.mjs mainnet/bootstrap.test.mjs mainnet/genesis-custody.test.mjs
+        run: node --test mainnet/plan.test.mjs mainnet/bootstrap.test.mjs mainnet/genesis-custody.test.mjs mainnet/reserve-prefund-plan.test.mjs
       - name: Pinned offline genesis authority decoder
         run: |
           rustup toolchain install 1.86.0 --profile minimal --no-self-update

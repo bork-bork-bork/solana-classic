@@ -90,3 +90,9 @@ separate. All checks use in-memory VMs, not Agave processes or RPC. No retained
 keys or ledger files are read/copied, and no transaction reaches a chain.
 Original runtime binaries and original SBF artifacts remain unchanged. Aggregate
 source-bound evidence is [recorded here](../evidence/bridge-native-reserve-prefunding.json).
+
+
+[The offline allocation proposal](RESERVE_ALLOCATION_PLAN.md) now derives a future
+reserve address, preserves every other supplied allocation and compares a
+separately selected fresh inventory. It does not compile genesis, change the
+preparer or establish account bytes, custody or actual backing.
