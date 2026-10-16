@@ -171,3 +171,11 @@ This extends controlled-stop test-validator recovery to metadata tokens. It
 cannot establish physical-host recovery, independent backup custody, arbitrary
 unknown landing, competing forks, full-validator consensus, complete funded
 backing or production acceptance.
+
+## Declared committee concentration
+
+The [committee control analyzer](COMMITTEE_CONTROL.md) now measures declared
+operator, signing/recovery and outage concentration against an externally
+selected five-key roster. This is offline declaration review; it does not
+appoint operators or establish identities, custody enforcement or independent
+observations. Passing supplied criteria never grants signing permission.

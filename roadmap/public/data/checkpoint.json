@@ -515,7 +515,8 @@
           },
           {
             "title": "Independent security review and live redemption",
-            "state": "pending"
+            "state": "pending",
+            "detail": "Proposed in PR #6, not yet merged. A new offline declaration analyzer flags shared operators, signing/recovery access and outage domains across the three-of-five committee. Ten focused checks include overlapping control and an exhaustive reference across 80 small models; all 289 bridge regressions pass locally. Read-only review of the retained synthetic roster correctly flags its declared single-owner/shared-host setup, with no new keys, chain requests or submissions. Different labels and passing proposed criteria do not verify independence. Real operator assignments, enforceable custody/recovery, independent source observations, upgrade controls and external security review remain required before production signing or live redemption."
           }
         ]
       },
