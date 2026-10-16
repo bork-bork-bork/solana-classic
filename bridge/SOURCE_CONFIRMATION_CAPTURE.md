@@ -110,3 +110,7 @@ confirmed-only acceptance is added.
 
 The [fresh private rehearsal](INITIAL_SOURCE_CAPTURE_REHEARSAL.md) exercises this
 boundary without reopening or replaying a retained source operation.
+
+Completed captures can be rechecked offline with a separately retained selection.
+See [retained capture review and archive restore](CAPTURE_ARCHIVE.md); this
+read-only path grants no claim preparation, signing or settlement permission.
