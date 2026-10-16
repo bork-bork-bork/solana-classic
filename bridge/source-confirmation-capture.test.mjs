@@ -59,3 +59,15 @@ test('late synchronous work and actual slow streams cannot extend the capture de
  const f=sourceConfirmationFixture(t);await assert.rejects(capture({...f.source,timeoutMs:100},async(url,init)=>{const until=performance.now()+120;while(performance.now()<until){}return f.fetcher(url,init);}),/single deadline/);assert.equal(f.calls.length,1);assert(!fs.existsSync(join(f.evidence,'observation.json')));
  const g=sourceConfirmationFixture(t),timers=[];const rpc=await serve(t,(req,res)=>{req.resume();res.writeHead(200,{'Content-Type':'application/json'});res.write(' ');const timer=setInterval(()=>res.write(' '),20);timers.push(timer);res.once('close',()=>clearInterval(timer));});try{await assert.rejects(capture({...g.source,rpc,timeoutMs:150}),/single deadline/);}finally{for(const timer of timers)clearInterval(timer);}assert(!fs.existsSync(join(g.evidence,'observation.json')));assert.deepEqual(fs.readdirSync(g.journal),[]);
 });
+
+test('signature-status observation context does not become a finalized bank checkpoint',async t=>{
+ for(const side of [0,1]){const f=sourceConfirmationFixture(t,side);f.source.minimumContextSlot=40;const requests=[];
+  const result=await prepare({source:f.source,claim:f.claim},async(url,init)=>{const q=JSON.parse(init.body);requests.push(q);
+   if(q.method==='getSignatureStatuses')return json({context:{slot:10000},value:[{slot:50,confirmationStatus:'finalized',confirmations:null,err:null,status:{Ok:null}}]});
+   if(['getMultipleAccounts','getProgramAccounts'].includes(q.method)&&q.params[1].minContextSlot>200)return new Response(JSON.stringify({jsonrpc:'2.0',id:1,error:{code:-32016,message:'Minimum context slot has not been reached'}}),{headers:{'Content-Type':'application/json'}});
+   return f.fetcher(url,init);
+  });
+  assert.equal(result.operation.state,'PREPARED');assert.equal(result.operation.attempts,0);assert.equal(result.capture.readOnlyRequests,14);assert(result.capture.initialSourceFinalizedRPCStatusObserved);assert(result.capture.sourceSnapshotContextSlot>=f.claim.sourceContextSlot);assert(result.capture.sourceSnapshotContextSlot<10000);
+  assert.equal(requests.find(q=>q.method==='getMultipleAccounts').params[1].minContextSlot,50);assert(requests.filter(q=>['getMultipleAccounts','getProgramAccounts'].includes(q.method)).every(q=>q.params[1].minContextSlot>=50));
+ }
+});

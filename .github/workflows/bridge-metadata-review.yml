@@ -10,6 +10,10 @@ on:
       - 'bridge/program-account-collector*'
       - 'bridge/event-collection-comparison*'
       - 'bridge/source-economic*'
+      - 'bridge/INITIAL_SOURCE_CAPTURE_REHEARSAL.md'
+      - 'evidence/bridge-initial-source-capture-agave.json'
+      - 'bridge/rehearsal/initial-source-capture.mjs'
+      - 'engine/rehearsal/initial_source_capture*'
       - 'bridge/source-confirmation-capture*'
       - 'bridge/captured-source-claim.mjs'
       - 'bridge/SOURCE_CONFIRMATION_CAPTURE.md'
@@ -105,6 +109,7 @@ jobs:
       - run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Retained offline runner syntax
         run: |
+          node --check bridge/rehearsal/initial-source-capture.mjs
           node --check bridge/rehearsal/source-block-history.mjs
           node --check bridge/rehearsal/source-economic-history.mjs
           node --check bridge/rehearsal/event-collection.mjs
@@ -138,3 +143,5 @@ jobs:
         run: python3 -B -W error::ResourceWarning engine/rehearsal/metadata_cold_restore_test.py
       - name: Read-only current account collection worker guards
         run: python3 -B -W error::ResourceWarning engine/rehearsal/event_collection_test.py
+      - name: Fresh source capture worker guards
+        run: python3 -B -W error::ResourceWarning engine/rehearsal/initial_source_capture_test.py
