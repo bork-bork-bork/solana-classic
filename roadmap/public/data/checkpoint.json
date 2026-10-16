@@ -223,7 +223,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-16T01:27:01.937273+00:00",
+    "reviewedAt": "2026-10-16T01:55:00.942058+00:00",
     "scope": "Development checkpoint only; separate from the live devnet release",
     "projects": [
       {
@@ -510,7 +510,7 @@
           {
             "title": "Bootstrap reconciliation, custody and recovery",
             "state": "pending",
-            "detail": "Proposed in PR #6, not yet merged. A new offline verifier derives both pending directions from supplied source-event accounts and opposite consumed receipts, then compares bridge counters, supplied escrow and the returned native vault. Eleven new synthetic groups cover omitted events against unchanged counters, orphan receipts, policy/PDA/epoch errors, exact amounts, reserve coverage and deterministic ordering; all 180 related bridge regressions pass locally. This complements 13 selected-journal checks and seven retained-record compatibility checks. It does not fetch an RPC or establish completeness: coordinated omission with altered supplied counters remains an explicit tested limitation. Existing journals and expired obligations stay unchanged. Fresh pinned collection, independent history/economic movement, funded genesis/bootstrap/reserve reconciliation, custody and security remain pending.",
+            "detail": "Proposed in PR #6, not yet merged. Exact event/receipt accounting now has a bounded read-only collector: two matching returned account sets, with programme code and policy checked before and after. Seventeen new synthetic and local HTTP groups cover exact large balances, changed code/counters, stale or malformed replies, response limits, redirects and a shared deadline; all 197 bridge regressions pass locally. No actual Agave ledger collection yet. Matching RPC sets cannot prove complete history or backing; coordinated omission remains an explicit tested limitation. Existing journals and expired obligations stay unchanged. Actual private-ledger comparison, independent history/economic movement, funded genesis/bootstrap/reserve reconciliation, custody and security remain pending.",
             "evidence": "https://github.com/solana-classic/solana-classic/pull/6"
           },
           {

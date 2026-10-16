@@ -72,8 +72,62 @@ the model. An RPC returning a selected subset is not independent history proof.
 and `backingVerified` remain false. All retry/refund/reset/sign/broadcast/
 settlement/production permissions remain false.
 
-A future collector needs bounded, pinned fresh observations, independent
-history coverage and economic movement verification. This module does not
-accept a live bridge, remove an existing obligation or resolve any expired
-attempt. See [selected-journal accounting](PENDING_INVENTORY.md) and
+The optional collector below adds bounded observations. Actual private-ledger
+compatibility, independent history coverage and economic movement verification
+remain required. Neither module accepts a live bridge, removes an existing
+obligation or resolves any expired attempt. See [selected-journal accounting](PENDING_INVENTORY.md) and
 [the production recovery draft](FINALITY_RECOVERY.md).
+
+
+## Bounded private RPC collector
+
+`program-account-collector.mjs` exports `collectReturnedProgramAccounts` and
+`parseReturnedProgramAccounts`. The collector accepts exactly `rpc`, `pins`,
+`minimumContextSlot` and optional `timeoutMs`. Use an explicit numeric loopback
+HTTP(S) endpoint and port, separately reviewed programme pins, and a positive
+finalized checkpoint from the selected isolated ledger. Known public and
+canonical devnet genesi, zero identities, credentials and redirects refuse.
+The checkpoint and pin selection remain the operator's responsibility.
+
+Before collection, the existing code observer reads the selected genesis,
+Loader-v3 programme, complete ProgrammeData and configuration twice. The
+collector then requests two unfiltered `getProgramAccounts` sets with base64,
+`withContext:true`, finalized commitment and nondecreasing `minContextSlot`.
+The full normalized account sets must match, including native balances, data,
+owners and addresses. Context slots may advance. A second code observer then
+rechecks the same selected programme and policy, and its outstanding counter
+must still match the returned configuration.
+
+The [official RPC method](https://solana.com/docs/rpc/http/getprogramaccounts)
+returns accounts owned by the selected programme. The collector sends neither
+filters nor data slicing. It still cannot prove the server returned every
+account. A malicious or incomplete server can return matching subsets; two
+matching reads and code pins do not provide independent history or finality.
+The explicit coordinated-omission regression demonstrates this limitation.
+
+There are at most ten read-only requests per collection. One overall deadline
+covers transport, streaming and parsing: default 15 seconds, configurable from
+100 milliseconds to 30 seconds. The caller receives a timeout even if an
+injected transport ignores cancellation. Actual HTTP streams are cancelled on
+timeout. Responses require JSON content type; programme account replies are
+bounded to 256 KiB each, code replies to 2 MiB each, and total wire bytes to
+8 MiB. Larger sets refuse, so this is a small private-rehearsal collector, not
+an unrestricted production indexer. Node24 raw JSON number tokens preserve
+native u64 balances above floating-point precision before normalization.
+
+The returned `snapshot` is private input to `reconcileEventInventory`; collect
+both sides separately and obtain the original-token escrow through the reviewed
+mint/asset observer. The collector does not read token escrow or journals and
+does not prove simultaneous cross-chain snapshots. It writes no files and has
+no keys, signing, submission, retry or refund interface. Keep account sets,
+addresses, policies, balances and returned digests in protected rehearsal
+storage rather than public evidence or frontend inputs.
+
+Seventeen local test groups cover integration with both pending directions,
+large raw balances, changed code/authority/policy/counters, malformed and stale
+responses, schema and size bounds, a shared deadline, real loopback HTTP,
+redirect refusal and slow streaming cancellation. All 197 related bridge
+checks pass locally. These use synthetic RPC data; actual private Agave ledger
+collection and comparison with retained same-history journals remain pending.
+Every completeness, independent-history, backing, custody, settlement and
+production permission remains false in the result.

@@ -73,3 +73,11 @@ export function reconcileEventInventory({pins,originSnapshot,nativeSnapshot,orig
  const result={schemaVersion:1,scope:'offline-returned-programme-account-reconciliation',bridge:origin.bridge,epoch:o.policy.epoch.toString(),originDecimals:o.policy.originDecimals,contextSlots:[o.contextSlot,n.contextSlot],snapshotSHA256:[o.snapshotSHA256,n.snapshotSHA256],returnedAccounts:[o.accounts,n.accounts],sourceEvents:[o.events.size,n.events.size],consumedReceipts:[o.receipts.size,n.receipts.size],records,flows:{originLocksUnits:locks.toString(),nativeClaimsOriginUnits:claimed.toString(),nativeReturnsOriginUnits:returns.toString(),originalRedemptionsUnits:redeemed.toString()},accounting:{originEscrowUnits:escrow.toString(),originOutstandingUnits:originOutstanding.toString(),nativeOutstandingUnits:nativeOutstanding.toString(),unallocatedEscrowSurplusUnits:(escrow-originOutstanding).toString(),reserveNativeUnits:n.reserve.units.toString(),protectedFloorNativeUnits:n.reserve.floor.toString()},pending:{nativeClaimOriginUnits:pendingClaims.toString(),originalRedemptionOriginUnits:pendingRedemptions.toString(),totalOriginUnits:pending.toString(),nativePayoutUnits:pendingNativePayout.toString()},returnedEventAndReceiptAccountingMatched:true,selectedConfigurationPolicyBound:true,rpcResponseCompletenessVerified:false,completeSourceEventInventoryVerified:false,sameLedgerHistoryVerified:false,simultaneousSnapshotVerified:false,finalizedCommitmentIndependentlyVerified:false,freshChainStateVerified:false,deployedCodeAndCustodyVerified:false,sourceEconomicMovementsIndependentlyVerified:false,backingVerified:false,canRetry:false,canRefund:false,canResetAttempt:false,canSign:false,canBroadcast:false,settlementAccepted:false,productionReady:false};
  return {...result,inventorySHA256:hash(result)};
 }
+
+// Pure single-side admission for a collector; this confers no history or custody proof.
+export function inspectReturnedProgramSnapshot(snapshot,selectedPins,minimumContextSlot){
+ const pins=normalizeProgramPins(selectedPins);
+ for(const field of ['genesis','remoteGenesis','program','remoteProgram','bridge','originMint'])key(pins[field]);
+ if(!Number.isSafeInteger(minimumContextSlot)||minimumContextSlot<1)throw Error('Explicit positive finalized checkpoint required');
+ return inspectSnapshot(snapshot,pins,minimumContextSlot);
+}
