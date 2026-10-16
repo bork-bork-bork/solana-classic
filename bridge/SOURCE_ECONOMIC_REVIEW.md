@@ -48,7 +48,7 @@ true or that this transaction was included in the chain.
 ## Bounded private lookup
 
 `source-economic-observer.mjs` accepts the same selected inputs, except `raw`
-is replaced by `rpc`, plus optional `timeoutMs`. Only an explicit numeric
+is replaced by `rpc`, plus optional `timeoutMs` and `evidenceDirectory`. Only an explicit numeric
 loopback HTTP(S) endpoint and port is accepted. Public/canonical genesi,
 credentials, redirects and URL query/path changes refuse.
 
@@ -67,6 +67,24 @@ The monotonic deadline is checked after synchronous work as well as transport
 and streaming. Missing, pruned, failed, malformed or incompatible history
 refuses; it cannot authorize a replacement deposit or withdrawal.
 
+When `evidenceDirectory` is supplied, it must be a new empty, real, owned
+mode0700 directory. The selected pins, snapshot, signature and event are
+reserved exclusively before any RPC. `source-economic-evidence.mjs` writes the
+bounded raw transaction JSON text before pure verification or later code reads,
+including null or rejected metadata. Files use exclusive creation, no symbolic
+link following, mode0600, file fsync and directory fsync. Directory identity,
+ownership and permissions are rechecked; an I/O failure refuses further review.
+
+A separate response record binds the raw-text hash and first current-code
+context, with review/settlement/production acceptance false. Only successful
+selected verification and both current-code brackets produce `observation.json`.
+That record still grants no independent-history or recovery permissions. A
+failed or killed process can leave a selection, raw response or response record
+without a completed observation; none is a passed overall attempt. No prior
+file is replaced, and a used directory cannot be resumed. Storage assumes the
+owner account is trusted; it is not an encrypted store or a defense against a
+compromised host. Keep it outside source, frontend inputs and deployment files.
+
 The returned raw transaction response and hashes are private audit material.
 The observer does not publish them, accept a settlement or alter any journal.
 Current code matching cannot prove which historical code executed the deposit.
@@ -79,10 +97,14 @@ bootstrap backing or custody. All such acceptance/recovery flags remain false.
 Fifteen synthetic signed-transaction groups cover both source directions,
 same-payer fee/rent handling, exact large balances, validly re-signed altered
 instructions, signature/role tampering, unsupported formats, failed or missing
-metadata, token movements, inner transfers and schema bounds. Eight observer
+metadata, token movements, inner transfers and schema bounds. Thirteen observer
 groups cover the bounded protocol, changed current pins/counters, captured
 inputs, pruned history, actual local HTTP, redirects and streaming/deadline
-refusals. These local HTTP tests use synthetic RPC data.
+refusals, per-lookup retention, a later lookup or code failure, unsafe endpoints
+and storage failure. Eight storage groups check exact raw digits, owner-only
+permissions, exclusive lifecycle, planted files/symlinks, directory changes,
+bounds and evidence surviving an actual killed local review process. These
+local HTTP and storage tests use synthetic RPC data.
 
 `bridge/rehearsal/source-economic-history.mjs` composes the existing copied-ledger
 account check with two selected original transaction signatures from protected
@@ -116,10 +138,12 @@ No failed attempt was reset or accepted.
 
 The next evidence requirement is same-genesis retained transaction-status or
 block history for that exact native signature. Future source observations also
-need protected durable storage of complete finalized transaction metadata before
-later cold-copy checks. This implementation currently retains full observer
-responses only after both lookups pass; partial failure retention needs a
-separate improvement. Repeating a deposit, changing a nonce, accepting a journal
+need protected durable storage of complete finalized transaction metadata at
+initial confirmation. The copied-ledger reviewer now reserves a separate
+private evidence directory for each lookup and saves each successful result
+before starting the next. This closes future partial-failure loss in that
+reviewer; it does not recover responses lost by either retained failed attempt.
+Integration into initial source confirmation remains required. Repeating a deposit, changing a nonce, accepting a journal
 label, lowering commitment or presenting an event account as a transaction
-proof cannot fill this gap. The 227 bridge checks and nine worker guards pass
-locally; the new verifier/observer groups also pass Linux pre-admission.
+proof cannot fill this gap. The 240 bridge checks and nine worker guards pass
+locally. Retention checks are synthetic local tests, not a new Agave history pass.

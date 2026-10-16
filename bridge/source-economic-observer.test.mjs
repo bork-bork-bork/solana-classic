@@ -1,5 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import os from 'node:os';
+import {join} from 'node:path';
 import {createServer} from 'node:http';
 import {observeSelectedSourceTransaction as observe} from './source-economic-observer.mjs';
 import {sourceEconomicFixture} from './test-fixtures/source-economic.mjs';
@@ -41,4 +44,25 @@ test('actual redirected or slowly streaming HTTP cannot escape the endpoint and 
  const f=fixture();let reached=0;const target=await serve(t,(req,res)=>{reached++;req.resume();res.end('{}');});const redirect=await serve(t,(req,res)=>{req.resume();res.writeHead(307,{Location:target}).end();});await assert.rejects(observe({...f.options(),rpc:redirect}));assert.equal(reached,0);
  let interval,closed;const ended=new Promise(resolve=>{closed=resolve;});const stream=await serve(t,(req,res)=>{req.resume();res.writeHead(200,{'Content-Type':'application/json'});res.write(' ');interval=setInterval(()=>res.write(' '),20);res.once('close',()=>{clearInterval(interval);closed();});});
  await assert.rejects(observe({...f.options(),rpc:stream,timeoutMs:150}),/single deadline/);let timer;try{await Promise.race([ended,new Promise((_,reject)=>{timer=setTimeout(()=>reject(Error('Connection stayed open')),1000);})]);}finally{clearTimeout(timer);clearInterval(interval);}
+});
+
+function evidenceDirectory(t){const p=fs.realpathSync(fs.mkdtempSync(join(os.tmpdir(),'source-observer-')));fs.chmodSync(p,0o700);t.after(()=>fs.rmSync(p,{recursive:true,force:true}));return p;}
+test('first successful evidence survives a later unavailable native lookup with exact null response retained',async t=>{
+ const origin=fixture(0),native=fixture(1),a=evidenceDirectory(t),b=evidenceDirectory(t);
+ const first=await observe({...origin.options(),evidenceDirectory:a},origin.fetcher);assert(first.selectedEconomicMetadataMatched);const before=fs.readFileSync(join(a,'observation.json'));
+ await assert.rejects(observe({...native.options(),evidenceDirectory:b},async(url,init)=>JSON.parse(init.body).method==='getTransaction'?new Response('{"jsonrpc":"2.0","id":1,"result":null}',{headers:{'Content-Type':'application/json'}}):native.fetcher(url,init)),/unavailable at finalized commitment/);
+ assert(fs.readFileSync(join(a,'observation.json')).equals(before));assert.equal(fs.readFileSync(join(b,'response.rpc.json'),'utf8'),'{"jsonrpc":"2.0","id":1,"result":null}');assert(!fs.existsSync(join(b,'observation.json')));assert.equal(native.calls.length,4);
+});
+test('invalid transaction metadata is durably retained before pure review refuses',async t=>{
+ const f=fixture(),p=evidenceDirectory(t);f.f.payload.result.meta.postBalances[0]--;const raw=f.f.options().raw;await assert.rejects(observe({...f.options(),evidenceDirectory:p},f.fetcher));assert.equal(fs.readFileSync(join(p,'response.rpc.json'),'utf8'),raw);assert(!fs.existsSync(join(p,'observation.json')));assert.equal(f.calls.length,5);
+});
+test('later code-bracket failure preserves response but does not write a completed observation',async t=>{
+ const f=fixture(),p=evidenceDirectory(t);let reads=0;await assert.rejects(observe({...f.options(),evidenceDirectory:p},async(url,init)=>{if(JSON.parse(init.body).method==='getMultipleAccounts'&&++reads===3)f.s.data[45]^=1;return f.fetcher(url,init);}));assert.equal(fs.readFileSync(join(p,'response.rpc.json'),'utf8'),f.f.options().raw);assert(!fs.existsSync(join(p,'observation.json')));
+});
+test('retention write failure refuses before further RPC and reused attempts refuse before any RPC',async t=>{
+ const f=fixture(),p=evidenceDirectory(t);await assert.rejects(observe({...f.options(),evidenceDirectory:p},async(url,init)=>{if(JSON.parse(init.body).method==='getTransaction')fs.writeFileSync(join(p,'response.rpc.json'),'existing',{mode:0o600});return f.fetcher(url,init);}));assert.equal(f.calls.length,5);assert.equal(fs.readFileSync(join(p,'response.rpc.json'),'utf8'),'existing');await assert.rejects(observe({...f.options(),evidenceDirectory:p},f.fetcher));assert.equal(f.calls.length,5);
+});
+
+test('unsafe network inputs cannot create an evidence selection or perform any read',async t=>{
+ const f=fixture(),p=evidenceDirectory(t);await assert.rejects(observe({...f.options(),rpc:'https://example.com:443',evidenceDirectory:p},f.fetcher));assert.deepEqual(fs.readdirSync(p),[]);assert.equal(f.calls.length,0);
 });
