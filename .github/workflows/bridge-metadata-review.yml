@@ -15,6 +15,10 @@ on:
       - 'bridge/GATED_MESSAGE_REVIEW.md'
       - 'evidence/bridge-gated-message-review-local.json'
       - 'bridge/rehearsal/gated-native-wire.mjs'
+      - 'bridge/rehearsal/gated-destination-agave.mjs'
+      - 'engine/rehearsal/gated_destination_agave*'
+      - 'bridge/GATED_DESTINATION_AGAVE.md'
+      - 'evidence/bridge-gated-destination-agave.json'
       - 'bridge/GATED_NATIVE_CLIENT.md'
       - 'evidence/bridge-gated-native-client.json'
       - 'bridge/reviewed-origin-mint*'
@@ -172,3 +176,5 @@ jobs:
         run: python3 -B -W error::ResourceWarning engine/rehearsal/initial_source_capture_test.py
       - name: Private capture archive guards
         run: python3 -B -W error::ResourceWarning engine/rehearsal/capture_archive_test.py
+      - name: Fresh gated destination worker admission
+        run: python3 -B -W error::ResourceWarning engine/rehearsal/gated_destination_agave_test.py

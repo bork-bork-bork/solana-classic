@@ -223,7 +223,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-16T10:22:20.272468Z",
+    "reviewedAt": "2026-10-16T10:51:15.408925Z",
     "scope": "Development checkpoint only; separate from the live devnet release",
     "projects": [
       {
@@ -283,7 +283,7 @@
           {
             "title": "Backed bootstrap and full supply reconciliation",
             "state": "pending",
-            "detail": "Proposed in PR #6, not yet merged. The gated prototype retains compiled-program proofs; offline signature review and immutable claim retention also pass. New destination checks cover receipts, exact reserve/rent/fee/daily capacity and expiry, with 16 default test groups and five local selected-artifact RPC/HTTP groups. These use synthetic responses, not actual Agave observations or independent backing. Submission stays disabled. Fresh activation inventory, finalized funded backing, independent operators, custody, active journal handoff/recovery and security review remain required.",
+            "detail": "Proposed in PR #6, not yet merged. Fresh private Agave checks now verify the gated destination against real programme code, bootstrap receipts, reserve/rent/fee/daily capacity and expiry. Ten checks pass, including an exact claim simulation; no ordinary claim was submitted. Both private processes stopped. The synthetic two-row budget does not establish complete backing. Fresh activation inventory, finalized funded backing, independent operators, custody, durable active handoff/recovery and security review remain required.",
             "evidence": "https://github.com/solana-classic/solana-classic/pull/6"
           },
           {
