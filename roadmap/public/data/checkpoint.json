@@ -223,7 +223,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-16T01:55:00.942058+00:00",
+    "reviewedAt": "2026-10-16T02:25:16.035270+00:00",
     "scope": "Development checkpoint only; separate from the live devnet release",
     "projects": [
       {
@@ -510,7 +510,7 @@
           {
             "title": "Bootstrap reconciliation, custody and recovery",
             "state": "pending",
-            "detail": "Proposed in PR #6, not yet merged. Exact event/receipt accounting now has a bounded read-only collector: two matching returned account sets, with programme code and policy checked before and after. Seventeen new synthetic and local HTTP groups cover exact large balances, changed code/counters, stale or malformed replies, response limits, redirects and a shared deadline; all 197 bridge regressions pass locally. No actual Agave ledger collection yet. Matching RPC sets cannot prove complete history or backing; coordinated omission remains an explicit tested limitation. Existing journals and expired obligations stay unchanged. Actual private-ledger comparison, independent history/economic movement, funded genesis/bootstrap/reserve reconciliation, custody and security remain pending.",
+            "detail": "Proposed in PR #6, not yet merged. Seven actual read-only checks on two new private Agave copies reconcile 11 returned programme accounts, four source events and three consumed receipts with current counters, separately observed escrow and the stored native floor. Two selected journals match current pending amounts; the expired redemption stays unresolved. Both copies stopped, originals and private records unchanged; zero client signing, handoffs, simulations or broadcasts. An earlier report-assertion failure is retained and audited separately. All 204 bridge regressions and nine worker guards pass locally; new groups also pass Linux pre-admission. Matching returned accounts do not prove complete history, independent finality or backing. Funded genesis/bootstrap/reserve custody, independent economic verification, capable full-validator hosting and security review remain pending.",
             "evidence": "https://github.com/solana-classic/solana-classic/pull/6"
           },
           {

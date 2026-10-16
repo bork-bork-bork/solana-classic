@@ -8,6 +8,10 @@ on:
       - 'bridge/pending-inventory*'
       - 'bridge/event-inventory*'
       - 'bridge/program-account-collector*'
+      - 'bridge/event-collection-comparison*'
+      - 'bridge/rehearsal/event-collection.mjs'
+      - 'engine/rehearsal/event_collection*'
+      - 'evidence/bridge-event-collection-agave.json'
       - 'evidence/bridge-program-account-collector-local.json'
       - 'bridge/EVENT_INVENTORY.md'
       - 'evidence/bridge-returned-event-inventory-local.json'
@@ -88,10 +92,11 @@ jobs:
       - run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Retained offline runner syntax
         run: |
+          node --check bridge/rehearsal/event-collection.mjs
           node --check bridge/rehearsal/selected-inventory.mjs
           node --check bridge/rehearsal/metadata-cold-restore.mjs
       - name: Offline metadata and existing admission regressions
-        run: node --test bridge/program-account-collector.test.mjs bridge/event-inventory.test.mjs bridge/pending-inventory.test.mjs bridge/reviewed-pending.test.mjs bridge/pinned-pending.test.mjs bridge/reviewed-origin-mint.test.mjs bridge/mint-metadata.test.mjs bridge/origin-assets.test.mjs bridge/origin-token-code.test.mjs bridge/pending-claim.test.mjs bridge/pending-redemption.test.mjs bridge/pending-large-native.test.mjs bridge/lossless-native-rpc.test.mjs bridge/observer-reports.test.mjs bridge/expired-review.test.mjs bridge/program-pins.test.mjs bridge/upgrade-observation.test.mjs
+        run: node --test bridge/event-collection-comparison.test.mjs bridge/program-account-collector.test.mjs bridge/event-inventory.test.mjs bridge/pending-inventory.test.mjs bridge/reviewed-pending.test.mjs bridge/pinned-pending.test.mjs bridge/reviewed-origin-mint.test.mjs bridge/mint-metadata.test.mjs bridge/origin-assets.test.mjs bridge/origin-token-code.test.mjs bridge/pending-claim.test.mjs bridge/pending-redemption.test.mjs bridge/pending-large-native.test.mjs bridge/lossless-native-rpc.test.mjs bridge/observer-reports.test.mjs bridge/expired-review.test.mjs bridge/program-pins.test.mjs bridge/upgrade-observation.test.mjs
       - name: Private rehearsal admission guards
         run: python3 engine/rehearsal/metadata_origin_test.py
       - name: Read-only review copy guards
@@ -116,3 +121,5 @@ jobs:
         run: python3 engine/rehearsal/metadata_dropped_redemption_test.py
       - name: Metadata archive restore admission guards
         run: python3 -B -W error::ResourceWarning engine/rehearsal/metadata_cold_restore_test.py
+      - name: Read-only current account collection worker guards
+        run: python3 -B -W error::ResourceWarning engine/rehearsal/event_collection_test.py
