@@ -3,6 +3,10 @@ on:
   pull_request:
     paths:
       - 'bridge/program/**'
+      - 'bridge/gated-program/**'
+      - 'engine/rehearsal/gated_runtime*'
+      - 'bridge/GATED_BOOTSTRAP.md'
+      - 'evidence/bridge-gated-bootstrap.json'
       - 'mainnet/RESERVE_PREFUNDING.md'
       - 'evidence/bridge-native-reserve-prefunding.json'
       - '.github/workflows/bridge-runtime-review.yml'
@@ -19,3 +23,7 @@ jobs:
         run: rustup toolchain install 1.89.0 --profile minimal --no-self-update
       - name: Compile scenarios without claiming artifact execution
         run: cargo +1.89.0 check --locked --tests --manifest-path bridge/program/Cargo.toml
+      - name: Compile separate bootstrap-gated prototype scenarios
+        run: cargo +1.89.0 check --locked --tests --manifest-path bridge/gated-program/Cargo.toml
+      - name: Separate VM worker admission and source-integrity guards
+        run: python3 -W error::ResourceWarning -m unittest discover -s engine/rehearsal -p "gated_runtime_test.py"
