@@ -63,6 +63,26 @@ A passing report does not start a validator or prove consensus/production safety
 Keep the result with the chosen host's operator record; do not publish private
 addresses, machine identity, login details or local filesystem paths.
 
+## Exact artifact file admission
+
+Preflight refuses symlinks, directories, FIFOs and other special files before
+reading selected binaries. Each binary must have its exact pinned length. A
+nonblocking, no-follow descriptor then hashes at most that length plus one byte;
+the file's device, inode, length, mode and modification/change times must agree
+before and after the read and with the named path. Growth, replacement, changed
+permissions, incomplete reads and wrong digests block preparation. Every opened
+descriptor is closed when a read fails. The generic hashing helper used elsewhere
+is unchanged; this check applies to the three host-preflight binary selections.
+
+Five additional local fixture groups cover a FIFO through a real bounded child
+process, exact bytes/executable status, special-file and size refusal, concurrent
+file changes and descriptor cleanup. The FIFO regression reproduced the old
+blocking open before this guard. These fixtures do not probe or admit a new
+Linux host, execute binary contents, change host limits or start validators.
+The checks observe filesystem state during admission; they do not attest future
+file availability or operator custody. Existing resource and runtime host checks
+remain required.
+
 ## Execution sequence after host admission
 
 1. Review the fresh rehearsal namespace, exact binaries/source, no existing
