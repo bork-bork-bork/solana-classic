@@ -32,7 +32,7 @@ export function reviewGatedClaimDestinationAccounts(input){
  const rate=rentBytes.readBigUInt64LE(0),threshold=rentBytes.readDoubleLE(8);
  if(rate===0n||!Number.isSafeInteger(threshold)||threshold<1||rentBytes[16]>100)throw Error('Unsupported current rent policy');
  const multiplier=rate*BigInt(threshold),minimumVaultRent=144n*multiplier,claimRent=160n*multiplier;
- if(minimumVaultRent>MAX||claimRent>MAX||minimumVaultRent!==p.bootstrap.minimumRentNativeUnits||vault.subarray(0,8).toString()!=='SCVLT002'||vault.readBigUInt64LE(8)!==w.protectedNative||w.protectedNative<minimumVaultRent)throw Error('Vault floor or declared rent differs from observed policy');
+ if(minimumVaultRent>BigInt(Number.MAX_SAFE_INTEGER)||claimRent>BigInt(Number.MAX_SAFE_INTEGER)||minimumVaultRent!==p.bootstrap.minimumRentNativeUnits||vault.subarray(0,8).toString()!=='SCVLT002'||vault.readBigUInt64LE(8)!==w.protectedNative||w.protectedNative<minimumVaultRent)throw Error('Vault floor or declared rent differs from observed policy');
  const factor=10n**BigInt(9-cfg[328]),outstanding=cfg.readBigUInt64LE(374),native=p.event.originAmount*factor,required=(w.originSupply-outstanding)*factor+w.protectedNative;
  if(required>MAX||v.lamports<required||v.lamports-native<w.protectedNative||(recipient?.lamports??0n)+native>MAX||feeNativeUnits+claimRent>MAX||payer.lamports<feeNativeUnits+claimRent)throw Error('Destination reserve, recipient capacity or payer rent/fee funding insufficient');
  const timestamp=clockBytes.readBigInt64LE(32),clockSlot=clockBytes.readBigUInt64LE(0),day=cfg.readBigUInt64LE(358),used=cfg.readBigUInt64LE(366),daily=cfg.readBigUInt64LE(350);

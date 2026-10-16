@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
 import {destinationFixture} from './test-fixtures/gated-destination.mjs';
 import {reviewGatedClaimDestinationAccounts as review,gatedClaimDestinationSelection} from './gated-claim-accounts.mjs';
 import {describeGatedNativeMessage} from './gated-message-review.mjs';
@@ -25,9 +26,17 @@ test('one-unit reserve underfunding and payer fee/rent shortfall refuse',()=>{
  const g=destinationFixture();g.rows[7].lamports=1133599n;assert.throws(()=>review(g.input()),/insufficient/);g.rows[7].lamports=1133600n;review(g.input());
 });
 test('vault marker, protected floor and actual rent policy must match',()=>{
- for(const change of [f=>{const b=Buffer.from(f.rows[1].data[0],'base64');b[0]=0;f.rows[1].data[0]=b.toString('base64');},f=>f.vault.writeBigUInt64LE(1999999n,8),f=>f.rent.writeBigUInt64LE(3481n),f=>f.rent.writeDoubleLE(2.1,8),f=>f.rent.writeDoubleLE(NaN,8),f=>f.rent[16]=101]){
+ for(const change of [f=>{const b=Buffer.from(f.rows[1].data[0],'base64');b[0]=0;f.rows[1].data[0]=b.toString('base64');},f=>f.vault.writeBigUInt64LE(1999999n,8),f=>f.rent.writeBigUInt64LE(3481n),f=>f.rent.writeBigUInt64LE(1n<<54n),f=>f.rent.writeDoubleLE(2.1,8),f=>f.rent.writeDoubleLE(NaN,8),f=>f.rent[16]=101]){
   const f=destinationFixture();change(f);f.rows[1].data[0]=f.rows[1].data[0].startsWith('U0NWT')?f.vault.toString('base64'):f.rows[1].data[0];f.rows[5].data[0]=f.rent.toString('base64');assert.throws(()=>review(f.input()));
  }
+});
+test('self-consistent selected large rent is refused outside the supported exact arithmetic range',()=>{
+ const f=destinationFixture(),p=f.intent.parameters,c=Buffer.from(p.context.configurationBytes),b=Buffer.from(p.bootstrap.recordBytes),rate=1n<<46n,min=144n*rate*2n,floor=min+1000000n,locked=floor+100000000n,supply=locked+200000000n,max=(1n<<64n)-1n;
+ c[328]=9;c.writeBigUInt64LE(max,342);c.writeBigUInt64LE(max,350);c.writeBigUInt64LE(locked,374);p.context.configurationBytes=c;p.context.pins.policySHA256=createHash('sha256').update(c.subarray(0,358)).digest('hex');
+ for(const [offset,value] of [[40,supply],[48,supply],[56,100000000n],[64,supply-100000000n],[104,locked],[112,floor]])b.writeBigUInt64LE(value,offset);
+ p.bootstrap.recordBytes=b;p.bootstrap.expectedRecordSHA256=createHash('sha256').update(b).digest('hex');p.bootstrap.minimumRentNativeUnits=min;
+ f.rows[0].data[0]=c.toString('base64');f.rows[2].data[0]=b.toString('base64');f.vault.writeBigUInt64LE(floor,8);f.rows[1].data[0]=f.vault.toString('base64');f.rows[1].lamports=supply-100000000n;f.rent.writeBigUInt64LE(rate);f.rows[5].data[0]=f.rent.toString('base64');f.rows[7].lamports=max;
+ const i=f.input();i.expectedReviewSHA256=describeGatedNativeMessage(f.intent).reviewSHA256;assert(min>BigInt(Number.MAX_SAFE_INTEGER)&&min<max);assert.throws(()=>review(i),/Vault floor or declared rent/);
 });
 function dynamic(f,day,used,timestamp){const b=Buffer.from(f.intent.parameters.context.configurationBytes);b.writeBigUInt64LE(day,358);b.writeBigUInt64LE(used,366);f.intent.parameters.context.configurationBytes=b;f.rows[0].data[0]=b.toString('base64');f.expectedReviewSHA256=describeGatedNativeMessage(f.intent).reviewSHA256;f.clock.writeBigInt64LE(timestamp,32);f.rows[6].data[0]=f.clock.toString('base64');const i=f.input();i.expectedReviewSHA256=f.expectedReviewSHA256;return i;}
 test('same-day daily budget, day rollover, negative clock and backwards day follow the programme rules',()=>{

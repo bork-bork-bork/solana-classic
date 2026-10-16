@@ -17,7 +17,9 @@ It preserves u64 balance digits before Number conversion, verifies exact owners,
 layouts and canonical data, and matches all382 configuration and120 selected
 bootstrap bytes. The consumed bootstrap receipt must match its source event;
 the incoming receipt must be absent. Vault floor, actual Rent policy and the
-selected minimum rent must agree. Reserve balance must cover the protected
+selected minimum rent must agree. Vault and receipt rent calculations are
+restricted to the supported exact Number-integer range, matching the existing
+reserve observer; large account balances remain full u64 integers. Reserve balance must cover the protected
 floor plus all remaining declared original-token capacity. Recipient credit
 must not overflow; payer must cover32-byte receipt rent plus the supplied fee.
 An absent recipient is treated as the default empty System account; an existing
@@ -56,7 +58,7 @@ method, private key, signed payload, journal update, retry or broadcast is used.
 
 ## Verification and boundaries
 
-Twelve supplied-account groups and three endpoint/transport/deadline refusal
+Thirteen supplied-account groups and three endpoint/transport/deadline refusal
 groups run in normal CI, alongside existing pin/SDK/journal regressions. Five
 additional explicit local groups require the externally selected public ELF
 through `SC_GATED_OBSERVER_ELF`; missing/mismatched artifacts fail, never skip.
