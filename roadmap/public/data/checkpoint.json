@@ -223,7 +223,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-16T08:31:02.821826+00:00",
+    "reviewedAt": "2026-10-16T09:03:15.234316+00:00",
     "scope": "Development checkpoint only; separate from the live devnet release",
     "projects": [
       {
@@ -283,7 +283,7 @@
           {
             "title": "Backed bootstrap and full supply reconciliation",
             "state": "pending",
-            "detail": "Proposed in PR #6, not yet merged. Actual offline genesis decoding matches all 249 retained accounts; a reserve allocation proposal preserves the other 248 rows. A separate bootstrap-gated prototype now passes five compiled-program VM groups: native unpause, claim and return require the bootstrap record, consumed receipt and protected floor; full pause remains callable. V2 source and old ledgers are unchanged. These are synthetic VM/backing checks, not an installed upgrade or an actual new genesis. Complete activation inventory, finalized funded backing, independent operators, upgrade custody and security review remain required.",
+            "detail": "Proposed in PR #6, not yet merged. The separate bootstrap-gated prototype passed five compiled-program VM groups. Its unsigned native client now passes 13 checks and one new JavaScript-to-SBF roundtrip covering unpause, claim, return, replay refusal and full pause; the five earlier groups were filtered. Selected executable and original V2 source are unchanged. The 249-account genesis review and reserve proposal remain preparation with synthetic backing. No signer/journal migration or actual new genesis is accepted. Complete activation inventory, finalized funded backing, independent operators, custody and security review remain required.",
             "evidence": "https://github.com/solana-classic/solana-classic/pull/6"
           },
           {

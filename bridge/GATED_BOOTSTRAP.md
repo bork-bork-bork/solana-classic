@@ -76,3 +76,9 @@ fresh private SDK copy used the existing cache without changing global tools.
 The first remote staging transfer interrupted before dispatch and remains
 retained. A fresh namespace executed the completed runtime scenarios. Selected
 sources, the original runtime binaries and original V2 artifacts remain unchanged.
+
+
+[The separate unsigned client](GATED_NATIVE_CLIENT.md) constructs the new native
+account contract with explicit code/policy/bootstrap selections. It neither
+changes existing signed journals nor verifies live chain state or grants
+production signing permission.

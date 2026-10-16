@@ -200,3 +200,49 @@ fn boot_fixture(payer:&Keypair,members:&[Keypair;5])->(Side,Side,Keypair,Pubkey,
     assert!(!call(&mut native.svm,&payer,native.program,a,BridgeInstruction::SetPause{new_locks:false,settlement:false},&q));
     assert_eq!(native.svm.get_account(&native.state).unwrap(),saved);assert!(unpause(&mut native,&payer,&q));
 }
+
+// Cross-language construction under a bounded outer driver. Inputs are only
+// public synthetic account bytes; private keys stay in the Rust VM process.
+fn client_wire(s:&Side,payer:&Keypair,members:&[&Keypair],action:&str,event:Option<&Event>,recipient:Pubkey,amount:u64,nonce:u64,bootstrap_event:Pubkey)->Option<Instruction>{
+    use std::{io::Write,process::{Command,Stdio}};
+    let hex=|b:&[u8]|b.iter().map(|v|format!("{v:02x}")).collect::<String>();
+    let sha=|b:&[u8]|hex(&solana_program::hash::hash(b).to_bytes());
+    let config=s.svm.get_account(&s.state).unwrap();
+    let record=Pubkey::find_program_address(&[b"bootstrap",s.state.as_ref()],&s.program).0;
+    let record_bytes=s.svm.get_account(&record).map(|a|a.data).unwrap_or_default();
+    let data=s.svm.get_account(&s.program_data).unwrap();let authority=Pubkey::new_from_array(data.data[13..45].try_into().unwrap());
+    let e=event.map(|e|borsh::to_vec(e).unwrap()).unwrap_or_default();
+    let selected=members.iter().map(|m|format!("\"{}\"",m.pubkey())).collect::<Vec<_>>().join(",");
+    let request=format!(r#"{{"configurationHex":"{}","program":"{}","programDataSHA256":"{}","upgradeAuthority":"{}","recordHex":"{}","expectedRecordSHA256":"{}","expectedSourceEvent":"{}","minimumRent":"{}","action":"{}","actor":"{}","committee":[{}],"eventHex":"{}","recipient":"{}","originAmount":"{}","nonce":"{}"}}"#,hex(&config.data),s.program,sha(&data.data),authority,hex(&record_bytes),sha(&record_bytes),bootstrap_event,s.svm.minimum_balance_for_rent_exemption(16),action,payer.pubkey(),selected,hex(&e),recipient,amount,nonce);
+    let script=Path::new(env!("CARGO_MANIFEST_DIR")).join("../rehearsal/gated-native-wire.mjs");
+    let mut child=Command::new("node").arg(script).stdin(Stdio::piped()).stdout(Stdio::piped()).stderr(Stdio::piped()).spawn().unwrap();
+    child.stdin.take().unwrap().write_all(request.as_bytes()).unwrap();let output=child.wait_with_output().unwrap();
+    if !output.status.success(){return None;}
+    assert!(output.stdout.len()<65536);let text=String::from_utf8(output.stdout).unwrap();let mut lines=text.lines();
+    let program_id=lines.next().unwrap().parse().unwrap();let data=lines.next().unwrap();assert!(data.len()<=1024 && data.len()%2==0);
+    let bytes=data.as_bytes().chunks(2).map(|v|u8::from_str_radix(std::str::from_utf8(v).unwrap(),16).unwrap()).collect();
+    let keys=lines.map(|l|{let (k,f)=l.split_once(' ').unwrap();assert!(f.len()==2 && f.bytes().all(|b|b==b'0'||b==b'1'));AccountMeta{pubkey:k.parse().unwrap(),is_signer:f.as_bytes()[0]==b'1',is_writable:f.as_bytes()[1]==b'1'}}).collect::<Vec<_>>();assert!(keys.len()<=12);
+    Some(Instruction{program_id,accounts:keys,data:bytes})
+}
+fn send_client(s:&mut Side,payer:&Keypair,members:&[&Keypair],ix:Instruction)->bool{
+    s.svm.expire_blockhash();let mut signers=vec![payer];for m in members{if m.pubkey()!=payer.pubkey(){signers.push(*m);}}
+    let tx=Transaction::new_signed_with_payer(&[ix],Some(&payer.pubkey()),&signers,s.svm.latest_blockhash());s.svm.send_transaction(tx).is_ok()
+}
+#[test] fn gated_js_client_wire_roundtrip_and_emergency_pause(){
+    let payer=Keypair::new();let members=std::array::from_fn(|_|Keypair::new());let q=[&members[0],&members[1],&members[2]];
+    let (mut origin,mut native,user,source,recipient,boot,witness)=boot_fixture(&payer,&members);let boot_event=Pubkey::new_from_array(boot.source_event);
+    let before=native.svm.get_account(&native.state).unwrap();assert!(client_wire(&native,&payer,&q,"unpause",None,payer.pubkey(),0,0,boot_event).is_none());assert_eq!(native.svm.get_account(&native.state).unwrap(),before);
+    assert!(bootstrap(&mut native,&payer,boot,witness,&q));
+    let ix=client_wire(&native,&payer,&q,"unpause",None,payer.pubkey(),0,0,boot_event).unwrap();assert_eq!(ix.accounts.len(),7);assert!(send_client(&mut native,&payer,&q,ix));
+    let locked=deposit(&mut origin,&user,recipient.pubkey(),50_000,2,Some(source)).unwrap();
+    let ix=client_wire(&native,&payer,&q,"claim",Some(&locked),recipient.pubkey(),0,0,boot_event).unwrap();assert_eq!(ix.accounts.len(),12);assert!(send_client(&mut native,&payer,&q,ix.clone()));
+    let saved=native.svm.get_account(&native.vault).unwrap();assert!(!send_client(&mut native,&payer,&q,ix));assert_eq!(native.svm.get_account(&native.vault).unwrap(),saved);
+    let ix=client_wire(&native,&recipient,&q,"return",None,user.pubkey(),25_000,7,boot_event).unwrap();assert_eq!(ix.accounts.len(),8);assert!(send_client(&mut native,&recipient,&[],ix));
+    let event_key=Pubkey::find_program_address(&[b"event",native.state.as_ref(),recipient.pubkey().as_ref(),&7u64.to_le_bytes()],&native.program).0;
+    let returned=Event::try_from_slice(&native.svm.get_account(&event_key).unwrap().data).unwrap();assert!(claim(&mut origin,&payer,returned,&q,Some(source)));
+    assert_eq!(token_balance(&origin,origin.escrow),127_000);assert_eq!(token_balance(&origin,source),1_873_000);
+    assert_eq!(Config::try_from_slice(&native.svm.get_account(&native.state).unwrap().data).unwrap().outstanding,127_000);assert_eq!(native.svm.get_balance(&native.vault).unwrap(),1_875_000_000);
+    assert_eq!(u64::from_le_bytes(native.svm.get_account(&native.vault).unwrap().data[8..16].try_into().unwrap()),2_000_000);
+    let ix=client_wire(&native,&payer,&q,"full-pause",None,payer.pubkey(),0,0,boot_event).unwrap();assert_eq!(ix.accounts.len(),4);assert!(send_client(&mut native,&payer,&q,ix));
+    let c=Config::try_from_slice(&native.svm.get_account(&native.state).unwrap().data).unwrap();assert!(c.new_locks_paused&&c.settlement_paused);
+}
