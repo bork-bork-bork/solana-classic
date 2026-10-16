@@ -98,3 +98,10 @@ The retained249-account budget balances, but its system-owned reserve fails
 that vault comparison. Stake and vote withdrawal authorities remain undecoded.
 Matching reserve owner/address/length alone never verifies account bytes,
 protected floor, upgrade controls, actual custody or funded backing.
+
+
+[Offline genesis authority decoding](GENESIS_AUTHORITIES.md) now reads the actual
+retained genesis and matches its complete published metadata. Its three stake
+and three vote accounts reuse each validator identity for withdrawal and voting
+roles. This is a fixture finding; no keys are rotated, custody approved or funds
+moved. The metadata-only evidence above retains its original narrower scope.
