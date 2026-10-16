@@ -223,7 +223,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-16T06:56:40.182409+00:00",
+    "reviewedAt": "2026-10-16T07:26:16.528785+00:00",
     "scope": "Development checkpoint only; separate from the live devnet release",
     "projects": [
       {
@@ -283,7 +283,7 @@
           {
             "title": "Backed bootstrap and full supply reconciliation",
             "state": "pending",
-            "detail": "Proposed in PR #6, not yet merged. A new offline decoder now reads the retained synthetic genesis and matches all 249 accounts to its published inventory. Three stake and three vote accounts reuse each validator identity for staking, withdrawal and voting roles; lockup fields are default. Seven compiled Rust checks and six review guards pass on the separate Linux worker. The system-owned reserve still fails the V2 bridge-vault comparison. Decoded keys do not establish custody, independent operators, funded backing or production readiness. Original inputs and runtime binaries are unchanged; no private keys were read and no validators or chain transactions were started.",
+            "detail": "Proposed in PR #6, not yet merged. Actual offline genesis decoding matches all 249 retained accounts and exposes shared validator voting/withdrawal roles. Three new compiled-program groups verify that a prefunded derived vault initializes paused without changing its balance, while seven selected unauthorized or invalid actions refuse with checked state unchanged. These use injected synthetic VM accounts, not an actual new genesis or accepted custody/backing. The existing genesis and ordinary system reserve remain unchanged. Full inventory reconciliation, funded backing, independent operators and upgrade custody remain required.",
             "evidence": "https://github.com/solana-classic/solana-classic/pull/6"
           },
           {
