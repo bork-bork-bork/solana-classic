@@ -102,6 +102,12 @@ mod tests {
         let later=review(&g,&g.hash().to_string()).unwrap();assert_ne!(original["genesis"],later["genesis"]);assert_ne!(original["creationTime"],later["creationTime"]);assert_eq!(original["nonAccountParametersSHA256"],later["nonAccountParametersSHA256"]);
         g.ticks_per_slot+=1;let changed=review(&g,&g.hash().to_string()).unwrap();assert_ne!(later["nonAccountParametersSHA256"],changed["nonAccountParametersSHA256"]);
     }
+    #[test] fn pinned_primordial_account_constructor_has_zero_rent_epoch() {
+        use solana_account::{AccountSharedData, ReadableAccount};
+        let a=AccountSharedData::new(u64::MAX,0,&SYSTEM.parse().unwrap());
+        assert_eq!(a.rent_epoch(),0);assert_eq!(a.lamports(),u64::MAX);
+        assert_eq!(a.owner().to_string(),SYSTEM);assert!(a.data().is_empty());assert!(!a.executable());
+    }
     #[test] fn data_and_address_fingerprints_are_separate() {
         let mut g=genesis();let original=review(&g,&g.hash().to_string()).unwrap();let (address,account)=g.accounts.pop_first().unwrap();g.accounts.insert(key(20).parse().unwrap(),account);
         let changed=review(&g,&g.hash().to_string()).unwrap();let old=original["accounts"].as_array().unwrap().iter().find(|a|a["address"]==address.to_string()).unwrap();let new=changed["accounts"].as_array().unwrap().iter().find(|a|a["address"]==key(20)).unwrap();assert_eq!(old["accountSHA256"],new["accountSHA256"]);assert_ne!(original["genesis"],changed["genesis"]);

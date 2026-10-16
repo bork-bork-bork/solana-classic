@@ -32,7 +32,11 @@ versions; they are not a proof of live bank state, historical inclusion or custo
 `preparePrefundedReserveByteInput` revalidates the selected allocation plan,
 complete baseline metadata and externally selected raw decoder-report digest.
 The source reserve must be a funded empty System account with the exact empty
-data digest. It emits only the derived vault PDA's empty System allocation,
+data digest. Its rent epoch must be zero: the pinned primordial loader constructs
+an `AccountSharedData::new` account and its input format has no rent-epoch field.
+A nonzero reserve epoch therefore refuses before input is emitted or proposed
+output is compared; epochs on other unchanged accounts remain exact u64 values.
+It emits only the derived vault PDA's empty System allocation,
 using the unchanged reserve amount as exact JSON integer digits, including
 values above JavaScript Number precision. Existing validator/other allocations
 are not synthesized from metadata or copied into the primordial file.
@@ -56,21 +60,26 @@ inventory remains required after deployment and later transactions.
 
 ## Verification scope
 
-Thirteen Node groups cover exact input, full fingerprints/rent epochs, authority
+Fourteen Node groups cover exact input, full fingerprints/rent epochs, authority
 summaries, header parameters, explicit creation time, stale/public genesi,
 selectors, schema/size bounds, u64 precision and input immutability. Six Python
 worker guards cover exact service/root, no replay, selected source/input bounds
-and retained failures. The new Rust package has ten compiled groups, including
-rent epoch above Number precision, separate address/account fingerprints and
-creation-time versus other parameter changes.
+and retained failures. The new Rust package has eleven compiled groups,
+including the pinned constructor default, rent epoch above Number precision,
+separate address/account fingerprints and creation-time versus other parameter
+changes.
 
 The hardened offline review passed six checks against all 249 retained genesis
 accounts and the exact 1,000,000,000,000-unit synthetic total. Its generated reserve
 input has one row. The proposed-output positive control is supplied synthetic
 JSON derived from that report, not another compiled binary. Controlled changes
 to a rent epoch, non-account parameters and the external report selector refuse.
-All 14 public source inputs, the selected original files and four runtime
-executables remain unchanged.
+That retained audit used the preceding ten-test decoder source; the later
+constructor-compatibility guard and regression have separate local/CI evidence.
+At audit completion, all 14 selected public source inputs, the original files
+and four runtime executables were unchanged. Those historical source hashes and
+completed attempts remain preserved; the later guard does not inherit their
+executed-source result.
 
 `reserve_byte_review.py` runs one bounded audit-only attempt on the separate
 worker. It preserves the selected existing genesis, metadata, old decoder and

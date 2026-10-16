@@ -32,3 +32,9 @@ test('u64 reserve balance is emitted as exact JSON integer digits rather than a 
 test('account ordering is deterministic and neither input nor selected byte reports are mutated',()=>{const x=selected(),saved=structuredClone(x),input=prepare(before(x)),result=review(x);assert.deepEqual(x,saved);edited(x,d=>d.accounts.reverse(),'rawBaselineDecoded');edited(x,d=>d.accounts.reverse());assert.equal(prepare(before(x)).primordialReserveJSON,input.primordialReserveJSON);assert.deepEqual(review(x),result);});
 
 test('authority summaries cannot change while supplied account fingerprints stay fixed',()=>{for(const field of ['stakeAccounts','voteAccounts']){const x=selected();edited(x,d=>d[field].push({address:key(8)}));assert.throws(()=>review(x),/authority summaries changed/);}});
+
+
+test('compiler input refuses a reserve rent epoch the primordial loader cannot reproduce',()=>{
+ for(const epoch of ['1','18446744073709551615']){const f=fixture();f.b.accounts[0].rentEpoch=epoch;const x=selected(f);assert.throws(()=>prepare(before(x)),/rent epoch/);assert.throws(()=>review(x),/rent epoch/);}
+ const f=fixture();f.b.accounts[1].rentEpoch='18446744073709551615';const x=selected(f);assert.equal(prepare(before(x)).reserveNativeUnits,'900000000000');assert(review(x).suppliedAccountFingerprintsMatched);
+});
