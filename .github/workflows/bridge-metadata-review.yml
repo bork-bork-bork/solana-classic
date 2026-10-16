@@ -7,6 +7,12 @@ on:
       - 'bridge/gated-message-review*'
       - 'bridge/gated-claim-review-journal*'
       - 'bridge/gated-claim-accounts*'
+      - 'bridge/gated-claim-operation*'
+      - 'bridge/test-fixtures/gated-operation.mjs'
+      - 'bridge/rehearsal/gated-operation*'
+      - 'engine/rehearsal/gated_operation_agave*'
+      - 'bridge/GATED_CLAIM_OPERATION.md'
+      - 'evidence/bridge-gated-claim-operation.json'
       - 'bridge/gated-claim-settlement*'
       - 'bridge/test-fixtures/gated-settlement.mjs'
       - 'bridge/rehearsal/gated-settlement-agave.mjs'
@@ -142,6 +148,8 @@ jobs:
       - run: pnpm install --frozen-lockfile --ignore-scripts
       - name: Retained offline runner syntax
         run: |
+          node --check bridge/rehearsal/gated-operation-agave.mjs
+          node --check bridge/rehearsal/gated-operation-child.mjs
           node --check bridge/rehearsal/committee-control.mjs
           node --check bridge/rehearsal/capture-archive.mjs
           node --check bridge/rehearsal/initial-source-capture.mjs
@@ -151,7 +159,7 @@ jobs:
           node --check bridge/rehearsal/selected-inventory.mjs
           node --check bridge/rehearsal/metadata-cold-restore.mjs
       - name: Offline metadata and existing admission regressions
-        run: node --test bridge/gated-claim-settlement.test.mjs bridge/gated-claim-accounts.test.mjs bridge/gated-claim-observer.test.mjs bridge/gated-claim-review-journal.test.mjs bridge/gated-message-review.test.mjs bridge/gated-native.test.mjs bridge/committee-control.test.mjs bridge/retained-source-capture.test.mjs bridge/source-confirmation-capture.test.mjs bridge/source-block-history.test.mjs bridge/source-economic-evidence.test.mjs bridge/source-economic-review.test.mjs bridge/source-economic-observer.test.mjs bridge/event-collection-comparison.test.mjs bridge/program-account-collector.test.mjs bridge/event-inventory.test.mjs bridge/pending-inventory.test.mjs bridge/reviewed-pending.test.mjs bridge/pinned-pending.test.mjs bridge/reviewed-origin-mint.test.mjs bridge/mint-metadata.test.mjs bridge/origin-assets.test.mjs bridge/origin-token-code.test.mjs bridge/pending-claim.test.mjs bridge/pending-redemption.test.mjs bridge/pending-large-native.test.mjs bridge/lossless-native-rpc.test.mjs bridge/observer-reports.test.mjs bridge/expired-review.test.mjs bridge/program-pins.test.mjs bridge/upgrade-observation.test.mjs
+        run: node --test bridge/gated-claim-operation.test.mjs bridge/gated-claim-settlement.test.mjs bridge/gated-claim-accounts.test.mjs bridge/gated-claim-observer.test.mjs bridge/gated-claim-review-journal.test.mjs bridge/gated-message-review.test.mjs bridge/gated-native.test.mjs bridge/committee-control.test.mjs bridge/retained-source-capture.test.mjs bridge/source-confirmation-capture.test.mjs bridge/source-block-history.test.mjs bridge/source-economic-evidence.test.mjs bridge/source-economic-review.test.mjs bridge/source-economic-observer.test.mjs bridge/event-collection-comparison.test.mjs bridge/program-account-collector.test.mjs bridge/event-inventory.test.mjs bridge/pending-inventory.test.mjs bridge/reviewed-pending.test.mjs bridge/pinned-pending.test.mjs bridge/reviewed-origin-mint.test.mjs bridge/mint-metadata.test.mjs bridge/origin-assets.test.mjs bridge/origin-token-code.test.mjs bridge/pending-claim.test.mjs bridge/pending-redemption.test.mjs bridge/pending-large-native.test.mjs bridge/lossless-native-rpc.test.mjs bridge/observer-reports.test.mjs bridge/expired-review.test.mjs bridge/program-pins.test.mjs bridge/upgrade-observation.test.mjs
       - name: Private rehearsal admission guards
         run: python3 engine/rehearsal/metadata_origin_test.py
       - name: Read-only review copy guards
@@ -186,3 +194,5 @@ jobs:
         run: python3 -B -W error::ResourceWarning engine/rehearsal/gated_destination_agave_test.py
       - name: Fresh gated settlement worker admission
         run: python3 -B -W error::ResourceWarning engine/rehearsal/gated_settlement_agave_test.py
+      - name: Fresh gated operation journal worker admission
+        run: python3 -B -W error::ResourceWarning engine/rehearsal/gated_operation_agave_test.py

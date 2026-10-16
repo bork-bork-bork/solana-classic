@@ -223,7 +223,7 @@
     }
   },
   "development": {
-    "reviewedAt": "2026-10-16T11:29:27.646371Z",
+    "reviewedAt": "2026-10-16T12:04:27.536922Z",
     "scope": "Development checkpoint only; separate from the live devnet release",
     "projects": [
       {
@@ -283,7 +283,7 @@
           {
             "title": "Backed bootstrap and full supply reconciliation",
             "state": "pending",
-            "detail": "Proposed in PR #6, not yet merged. Fourteen fresh private Agave checks now include one durably reserved synthetic gated claim and exact finalized signed-byte, receipt, balance, rent/fee and counter reconciliation. Missing transaction history stays unresolved even with a receipt. Both private processes stopped. The synthetic two-row budget does not establish complete backing or an active operational journal. Fresh activation inventory, funded backing, independent operators, custody, crash/expiry recovery and security review remain required.",
+            "detail": "Proposed in PR #6, not yet merged. Eighteen fresh private Agave checks now verify a separate claim journal: two competing processes release signed bytes once, the original claim settles with exact receipt/balance/fee reconciliation, and an actual process kill before a second handoff retains blocked attempt artifacts. Missing history never authorizes retry. Both private validators stopped. The synthetic budget does not establish complete backing. Fresh activation inventory, funded backing, independent operators, custody, unknown-landing/expiry recovery and security review remain required.",
             "evidence": "https://github.com/solana-classic/solana-classic/pull/6"
           },
           {
