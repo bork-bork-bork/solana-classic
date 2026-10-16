@@ -22,10 +22,13 @@ export function createSourceEvidenceWriter(directory,selection){
  catch(error){close();throw error;}
  return {
   response(raw,context){
-   assert.equal(stage,0,'Response already retained');assert(typeof raw==='string'&&Buffer.byteLength(raw)<=65536);assert(Number.isSafeInteger(context)&&context>0);
+   assert.equal(stage,0,'Response already retained');assert(typeof raw==='string'&&Buffer.byteLength(raw)<=65536);
+   const initial=typeof context==='object'&&context!==null;let position;
+   if(initial){assert.deepEqual(Object.keys(context),['minimumSelectedContextSlot']);assert(Number.isSafeInteger(context.minimumSelectedContextSlot)&&context.minimumSelectedContextSlot>0);position={minimumSelectedContextSlot:context.minimumSelectedContextSlot};}
+   else{assert(Number.isSafeInteger(context)&&context>0);position={firstCodeContextSlot:context};}
    // Preserve exact raw digits, including malformed or null replies, before review.
    put('response.rpc.json',raw);responseSHA256=hash(raw);
-   put('response-record.json',JSON.stringify({schemaVersion:1,responseSHA256,bytes:Buffer.byteLength(raw),firstCodeContextSlot:context,observedAt:new Date().toISOString(),reviewAccepted:false,chainInclusionVerified:false,settlementAccepted:false,productionReady:false}));stage=1;return responseSHA256;
+   put('response-record.json',JSON.stringify({schemaVersion:initial?2:1,responseSHA256,bytes:Buffer.byteLength(raw),...position,observedAt:new Date().toISOString(),reviewAccepted:false,chainInclusionVerified:false,settlementAccepted:false,productionReady:false}));stage=1;return responseSHA256;
   },
   observation(value){
    assert.equal(stage,1,'A durable response must precede the observation');assert(value&&typeof value==='object'&&!Object.hasOwn(value,'privateTransactionResponse'));

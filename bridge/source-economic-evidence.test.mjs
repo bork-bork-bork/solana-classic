@@ -37,3 +37,7 @@ test('a killed review process leaves its fsynced response available without a co
  const source=`import {createSourceEvidenceWriter} from ${JSON.stringify(module)};const w=createSourceEvidenceWriter(process.argv[1],{});w.response('{"jsonrpc":"2.0","id":1,"result":null}',1);process.kill(process.pid,'SIGKILL');`;
  const child=spawnSync(process.execPath,['--input-type=module','-e',source,p],{timeout:5000,encoding:'utf8'});assert.equal(child.signal,'SIGKILL');assert.equal(JSON.parse(read(p,'response.rpc.json')).result,null);assert.equal(JSON.parse(read(p,'response-record.json')).reviewAccepted,false);assert(!fs.existsSync(join(p,'observation.json')));assert.throws(()=>writer(p,{}));
 });
+
+test('initial selected context is labeled separately from a code observation',t=>{
+ const p=temp(t),w=writer(p,{});assert.throws(()=>w.response('null',{minimumSelectedContextSlot:0}));assert.throws(()=>w.response('null',{minimumSelectedContextSlot:1,extra:true}));w.response('null',{minimumSelectedContextSlot:1});w.close();const r=JSON.parse(read(p,'response-record.json'));assert.equal(r.schemaVersion,2);assert.equal(r.minimumSelectedContextSlot,1);assert(!Object.hasOwn(r,'firstCodeContextSlot'));
+});

@@ -29,5 +29,5 @@ export function sourceEconomicFixture(side=0,samePayer=false){
  const snapshot={genesis:s.pins.genesis,program:s.pins.program,commitment:'finalized',contextSlot:100,accounts:[...s.accounts.slice(0,2),{address,owner:s.pins.program,executable:false,lamports:rent.toString(),dataBase64:encodeEvent(event).toString('base64')}]};
  const options=()=>({raw:wire(payload),pins:s.pins,snapshot,signature:payload.result.transaction.signatures[0],sourceEvent:address});
  const resign=()=>{const m=new Message(payload.result.transaction.message),t=Transaction.populate(m,payload.result.transaction.signatures);t.sign(...(samePayer?[sender]:[payer,sender]));payload.result.transaction.message=messageJSON(t.compileMessage());payload.result.transaction.signatures=t.signatures.map(r=>bs58.encode(r.signature));};
- return {payload,options,snapshot,event,keys,index,accounts,resign,codeFixture:s,decode:data=>Buffer.from(bs58.decode(data)),encode:data=>bs58.encode(data)};
+ return {payload,options,snapshot,event,keys,index,accounts,resign,codeFixture:s,peerFixture:base.sides[1-side],decode:data=>Buffer.from(bs58.decode(data)),encode:data=>bs58.encode(data)};
 }
