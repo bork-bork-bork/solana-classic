@@ -7,9 +7,9 @@ requirements are not transferred to this candidate.
 
 The separate [current review inventory](../../evidence/agave-source-acceptance-gates.json)
 binds the exact source candidate, freeze, unchanged checklist and checksum-bound
-individual proofs. It currently records 24 of 75 requirements reviewed:
-G1.01, G1.02, G1.07, G2.02, G2.03, G2.04, G2.07, G2.08, G3.01, G4.03, G4.04, G5.01,
-G5.08, G5.09, G5.12, G6.01 through G6.05, G6.07, G6.11, G7.03 and G7.04. The other 51 remain
+individual proofs. It currently records 25 of 75 requirements reviewed:
+G1.01, G1.02, G1.07, G2.02, G2.03, G2.04, G2.07, G2.08, G3.01, G4.03, G4.04, G5.01, G5.05,
+G5.08, G5.09, G5.12, G6.01 through G6.05, G6.07, G6.11, G7.03 and G7.04. The other 50 remain
 unreviewed in this inventory, including the derived whole-release check. Missing
 attestations do not necessarily mean functionality failed; they mean the
 requirement has not been individually accepted for this candidate.
@@ -186,3 +186,15 @@ clock, fetch and connection methods are not mocked; maintenance admission and
 the upstream chain responses remain fixture-only. These are local transport and
 persistence checks, not real airdrop, finality or container-crash evidence.
 G5.02 and G5.03 remain unreviewed as complete requirements.
+
+
+The [CORS individual review](../../evidence/agave-source-cors-individual-review.json)
+adds G5.05. Nine public preflights cover faucet, assets and RPC: the sole approved
+production origin succeeds, while unknown and null origins are rejected.
+Authenticated read-only snapshots show all four business tables and the asset
+file stat inventory unchanged across those requests. No preview origin is
+approved. Four existing checks pass against frozen source without an upstream
+call or faucet reservation; the retained negative-control report separately
+proves forbidden no-Origin RPC admission. Asset stats are not a fresh full-byte
+audit, and volatile request-rate counters are outside the business-state claim.
+No POST, grant, transaction, configuration change or restart was repeated.
