@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "at": "2026-10-17T17:34:17.549207+00:00",
+  "at": "2026-10-17T19:35:02.682837+00:00",
   "scope": "remote-experimental-source individual review inventory; incomplete and not an overall release evaluation",
   "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
   "candidate": {
@@ -149,6 +149,17 @@
         {
           "path": "evidence/agave-source-operations-individual-review.json",
           "sha256": "b5e3b29e02a470833b9627dfa3baefc9bf0b0c82ebaadcb5fc28c047e7eb73e9"
+        }
+      ]
+    },
+    "G4.06": {
+      "passed": true,
+      "scope": "remote",
+      "verifiedAt": "2026-10-17T19:35:02.682837+00:00",
+      "proofs": [
+        {
+          "path": "evidence/agave-source-explorer-scope-individual-review.json",
+          "sha256": "ec9da8d76919657af34c69facb5e9b7361e6179bb3acdc0194561face08f79a5"
         }
       ]
     },
@@ -336,7 +347,6 @@
     "G4.01",
     "G4.02",
     "G4.05",
-    "G4.06",
     "G4.07",
     "G4.08",
     "G5.02",
@@ -358,7 +368,7 @@
     "G7.08",
     "G7.09"
   ],
-  "reviewedRequirementCount": 26,
+  "reviewedRequirementCount": 27,
   "requiredRequirementCount": 75,
   "legacyReleaseEvaluatorConsumesThisInventory": false,
   "releaseAccepted": false,

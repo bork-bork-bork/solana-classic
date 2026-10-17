@@ -7,9 +7,9 @@ requirements are not transferred to this candidate.
 
 The separate [current review inventory](../../evidence/agave-source-acceptance-gates.json)
 binds the exact source candidate, freeze, unchanged checklist and checksum-bound
-individual proofs. It currently records 26 of 75 requirements reviewed:
-G1.01, G1.02, G1.04, G1.07, G2.02, G2.03, G2.04, G2.07, G2.08, G3.01, G4.03, G4.04, G5.01, G5.05,
-G5.08, G5.09, G5.12, G6.01 through G6.05, G6.07, G6.11, G7.03 and G7.04. The other 49 remain
+individual proofs. It currently records 27 of 75 requirements reviewed:
+G1.01, G1.02, G1.04, G1.07, G2.02, G2.03, G2.04, G2.07, G2.08, G3.01, G4.03, G4.04, G4.06, G5.01, G5.05,
+G5.08, G5.09, G5.12, G6.01 through G6.05, G6.07, G6.11, G7.03 and G7.04. The other 48 remain
 unreviewed in this inventory, including the derived whole-release check. Missing
 attestations do not necessarily mean functionality failed; they mean the
 requirement has not been individually accepted for this candidate.
@@ -235,3 +235,17 @@ Account data was excluded with a zero-length slice: this verifies programme
 identity and executable metadata, not code bytes or upgrade custody. One earlier
 TLS read failure remains retained; one fresh attempt completed. No transaction,
 load, browser journey or runtime operation was repeated.
+
+
+The [explorer scope review](../../evidence/agave-source-explorer-scope-individual-review.json)
+adds G4.06 from fresh anonymous rendering of the frozen production explorer at
+1440 px and 360 px. Its visible text limits the explorer to accounts,
+transactions and app-known assets, excludes exhaustive indexing, and separates
+programme ownership from NFT holding. Invalid input gives a local actionable
+error while retaining the disclosure. Both profiles have clean application
+console output; all five frontend files, 45 source files and full runtime
+identity match the freeze. Four screenshots were visually reviewed.
+
+This accepts disclosure only: no wallet, grant, issuance, transfer, actual lookup
+or stability workload was started. Mobile navigation extends beyond the initial
+visible row and its scrolling was not assessed; this is not G7.02 acceptance.

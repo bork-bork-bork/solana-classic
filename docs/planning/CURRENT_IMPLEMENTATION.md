@@ -1,6 +1,6 @@
 # Current implementation handoff
 
-## Current checkpoint — 17 October 2026, 13:32 UTC
+## Current checkpoint — 17 October 2026, 19:35 UTC
 
 This checkpoint supersedes the historical hold, branch names, pending-run
 statements and next-action instructions below. The founder resumed development.
@@ -28,8 +28,8 @@ At this checkpoint, the complete live runtime matches the
 source and executable identities, deployment and boot IDs, and genesis. All
 45 retained execution-context files match. Preserve this runtime and its ledger.
 The [individual release review](../../engine/migration/SOURCE_RELEASE_REVIEW.md)
-and [inventory](../../evidence/agave-source-acceptance-gates.json) record **25 of
-75 requirements accepted, with 50 unreviewed**. Overall devnet release, mainnet
+and [inventory](../../evidence/agave-source-acceptance-gates.json) record **27 of
+75 requirements accepted, with 48 unreviewed**. Overall devnet release, mainnet
 and bridge acceptance remain false; historical requirement passes do not carry
 over automatically.
 
@@ -39,6 +39,8 @@ through bounded input, with complete account fingerprints and non-account
 parameter comparisons tested under supplied responses. See
 [genesis preparation](../../mainnet/GENESIS_PREPARATION.md) for the precise
 reserve-balance and creation-time exceptions and local/synthetic limits.
+The offline reserve adapter now has a repeatable bundle builder with executable
+fingerprints and tested binary-override refusal. Its artifact remains unadmitted.
 Reserve-address adapter integration, fresh real genesis compilation, two strict
 slot-zero replays and the three-validator rehearsal remain open. No Linux host
 has passed rehearsal admission; preserve host and security checks.
