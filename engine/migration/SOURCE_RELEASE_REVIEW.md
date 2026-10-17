@@ -7,9 +7,9 @@ requirements are not transferred to this candidate.
 
 The separate [current review inventory](../../evidence/agave-source-acceptance-gates.json)
 binds the exact source candidate, freeze, unchanged checklist and checksum-bound
-individual proofs. It currently records 16 of 75 requirements reviewed:
+individual proofs. It currently records 17 of 75 requirements reviewed:
 G1.02, G2.02, G2.03, G2.04, G2.07, G2.08, G3.01, G4.03, G4.04, G5.01,
-G6.01 through G6.05 and G7.04. The other 59 remain
+G5.09, G6.01 through G6.05 and G7.04. The other 58 remain
 unreviewed in this inventory, including the derived whole-release check. Missing
 attestations do not necessarily mean functionality failed; they mean the
 requirement has not been individually accepted for this candidate.
@@ -38,6 +38,20 @@ bounded controls recorded prohibited RPC rejection and an asset-admission 429.
 That response does not identify the exhausted quota bucket or prove client-IP
 attribution. These are retained observations; no workload, restart or abuse probe
 was repeated.
+
+The [cold-restore individual review](../../evidence/agave-source-recovery-individual-review.json)
+adds G5.09 from the selected isolated recovery and its four checksum-bound
+supporting reports. The records cover all 2,163 archived accounts, separately
+reconciled vote fees, all database table hashes and 1,992 immutable files. Actual
+HTTPS verification covered 617 gallery entries, 1,234 associated files and 452
+NFT owners. This review does not restore anything or treat the old archive as
+a backup of later transactions.
+
+G5.07, G5.08 and G5.12 remain unreviewed: healthy monitoring is not a complete
+probe/delivery audit; process restart does not alone establish fresh-deployment
+continuity; and actual frontend rollback does not alone establish preview
+environment separation and API freshness. The review records the missing
+evidence and the read-only next action for each.
 
 This inventory is not consumed by the frozen legacy release evaluator and
 cannot turn its result into a current-candidate pass. Preserve that evaluator,
