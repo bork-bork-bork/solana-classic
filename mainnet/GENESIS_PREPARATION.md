@@ -283,3 +283,21 @@ This binds the five metadata fields emitted by the pinned v2 auditor. It does
 not compare account data contents, rent epochs or complete account fingerprints.
 The complete byte decoder, reserve adapter and fresh real compilation/replays
 remain separate requirements; no acceptance gate is promoted by these tests.
+
+
+## Current allocation decoder artifact
+
+A fresh isolated Linux build of the current allocation-byte decoder completed
+with all 11 Rust tests passing under Rust 1.86.0, offline locked dependencies
+and two build jobs. The selected debug executable is pinned in
+`allocation-decoder-artifact.json`, with its exact size, SHA256 and current
+manifest, lockfile and source hashes. The older decoder artifact and all retained
+attempts remain unchanged. Canonical runtime identity and all 45 frozen files
+matched before and after this build.
+
+This establishes a current executable/source pair for the next integration
+step. It does not admit the compiler worker as a three-validator host, run the
+new executable against a fresh genesis or enable it in the preparer. Unit tests
+use constructed data. Reserve-adapter integration, complete byte comparisons,
+real compilation/replay and consensus remain open. See
+`evidence/mainnet-allocation-decoder-current-build.json`.
