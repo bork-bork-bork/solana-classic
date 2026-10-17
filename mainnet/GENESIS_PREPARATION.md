@@ -383,3 +383,22 @@ dependency artifact admission, externally selected planning input, integration
 with fresh compilation and output verification remain required before any
 replay. Existing host/security checks and production restrictions are unchanged.
 See [the local transport evidence](../evidence/mainnet-reserve-stdio-local.json).
+
+
+## Pure accounting import boundary
+
+The reserve adapter now imports `bootstrap-core.mjs`, which holds the unchanged
+accounting function. `bootstrap.mjs` retains its existing file CLI and export for
+compatibility. This separates the adapter's library dependency graph from a CLI
+entrypoint that could otherwise run when a bundler collapses module URLs.
+The bootstrap fixture's provenance list includes the new core.
+
+The entrypoint-collision regression failed before the split and passes afterward.
+All 75 related offline Node checks pass, including byte-for-byte CLI report
+compatibility and refusal of a missing input file. The accounting function body
+is unchanged. See [the scoped evidence](../evidence/mainnet-bootstrap-import-isolation-local.json).
+
+An exploratory bundle excludes the file CLI, but is **not admitted**: its strict
+diagnostic check fails on a dependency warning and its graph retains an optional
+non-builtin import. Runtime/dependency artifact admission and preparer integration
+remain open. No fresh genesis, replay, validator or production operation was run.

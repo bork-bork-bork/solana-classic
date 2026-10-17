@@ -2,7 +2,7 @@
 import {createHash} from 'node:crypto';
 import {PublicKey} from '@solana/web3.js';
 import {genesisInventoryMetadataDigest,reviewGenesisCustody} from './genesis-custody.mjs';
-import {auditBootstrap} from './bootstrap.mjs';
+import {auditBootstrap} from './bootstrap-core.mjs';
 const SYSTEM='11111111111111111111111111111111';
 const compare=(a,b)=>a<b?-1:a>b?1:0;
 const hash=(domain,value)=>createHash('sha256').update(domain+'\0').update(JSON.stringify(value)).digest('hex');
