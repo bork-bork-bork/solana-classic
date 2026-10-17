@@ -114,6 +114,16 @@ hosted polling loop's debounce. The historical hosted fixture attribution gap
 remains open, and G5.07 stays unreviewed. No canonical fault, restart or duplicate
 stability test was initiated.
 
+The [negative-control coverage review](../../evidence/agave-source-negative-control-coverage-review.json)
+keeps G4.02 and G5.02 through G5.06 unreviewed. All 36 checks in the selected
+retained run still pass within their original scope, and its exact report bytes
+and before/after runtime match. Those results do not establish every gallery
+forgery class, valid faucet concurrency/timeout recovery, forwarding-header
+counter attribution, preflight side-effect absence, or all asset limits from
+first exposure. The review records the observed subset, missing evidence and
+next isolated review for each requirement. No canonical fault, repeat grant,
+quota exhaustion or new workload was introduced; the inventory remains 24/75.
+
 Run the separate offline integrity checker with:
 
 ```sh
