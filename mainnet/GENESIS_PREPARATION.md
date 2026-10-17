@@ -337,3 +337,24 @@ The reserve-address adapter remains separate, and the integrated flow still
 needs fresh real compilation and two strict replays on an admitted Linux host.
 The current worker has not passed that admission. No release acceptance,
 custody, backing, independent operators or consensus is established here.
+
+
+## Current executable on retained genesis bytes
+
+A separate bounded audit now runs the exact current decoder executable on the
+selected retained synthetic genesis. Its complete output matches the previous
+retained report byte-for-byte: all 249 accounts and exactly 1,000,000,000,000
+native units. The current preparer comparison helper accepts that actual report
+against the separately selected metadata. Six controlled changes to copied
+reports either refuse admission or produce a different comparison: nonreserve
+account fingerprint, data digest, rent epoch, non-account parameters, reserve
+rent epoch and permission promotion.
+
+The audit preserves the selected original files, previous reports/attempts,
+current decoder and six runtime executables. Canonical runtime and all 45 frozen
+files still match. It creates a fresh private audit namespace only: no compiler,
+private-key access, genesis creation, bank replay, chain request or validator.
+The worker still has no rehearsal host admission. This is actual retained-byte
+compatibility evidence for the current executable/helper pair, not a fresh
+compiler-to-replay result. See
+`evidence/mainnet-allocation-current-baseline-review.json`.
