@@ -3,6 +3,12 @@ on:
   pull_request:
     paths:
       - 'engine/migration/source_terminal_review*'
+      - 'engine/migration/source_inventory_review*'
+      - 'engine/migration/SOURCE_RELEASE_REVIEW.md'
+      - 'evidence/agave-source-*.json'
+      - 'evidence/agave-canonical-continuity.json'
+      - 'evidence/acceptance-gates.json'
+      - 'evidence/source-inventory-review-local.json'
       - 'engine/migration/replacement_source_terminal_review*'
       - 'engine/migration/terminal_review*'
       - 'engine/migration/load_review*'
@@ -23,7 +29,7 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
-      - name: Offline source terminal, historical terminal and load evidence checks
+      - name: Offline source inventory, terminal and load evidence checks
         run: python3 -W error::ResourceWarning -m unittest discover -s engine/migration -p '*review_test.py'
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:

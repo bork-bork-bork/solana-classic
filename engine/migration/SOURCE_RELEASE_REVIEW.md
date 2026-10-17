@@ -74,6 +74,28 @@ source to the historical final configuration does not close that gap. No new
 fault or delivery receipt is claimed. The earlier G5.08 and G5.12 gaps are
 explicitly superseded by their later reviews.
 
+Run the separate offline integrity checker with:
+
+```sh
+python3 -B engine/migration/source_inventory_review.py
+```
+
+It binds the exact source freeze and the reviewed checklist ID contract, checks
+all individual proof candidates, declarations and immediate supporting hashes,
+and requires the unreviewed list and counts to agree. Unknown IDs, duplicate
+JSON keys, altered evidence, linked/special files and historical-candidate
+substitution refuse. G7.05 cannot be supplied as an attestation. Exit zero means
+inventory integrity only; every output keeps release, mainnet and bridge
+acceptance false. The checker performs no network reads, test activation or
+writes and does not independently validate behavioral claims or recursively
+interpret nested proof semantics. The ignored checklist text is not reread;
+its reviewed digest and stable IDs are pinned in the checker.
+
+Twenty-five adversarial tests cover the new checker, and all 87 offline review
+regressions pass. The [local validation record](../../evidence/source-inventory-review-local.json)
+records the checker/test hashes and current inventory result. This adds no
+accepted requirement and leaves the 45 frozen source files unchanged.
+
 This inventory is not consumed by the frozen legacy release evaluator and
 cannot turn its result into a current-candidate pass. Preserve that evaluator,
 its original manifest and all 45 frozen files. A future source-specific release
