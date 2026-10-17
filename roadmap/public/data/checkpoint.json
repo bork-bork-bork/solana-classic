@@ -771,13 +771,13 @@
           {
             "title": "Source-run final stability audit preparation",
             "state": "local-passed",
-            "detail": "Proposed auditor strengthening in PR #6, not yet merged. All 37 source/historical terminal and load regressions pass locally. Exact run, activation, engine, eight prerequisite hashes, full duration and 288 unique mint/transfer receipts remain mandatory. Three new groups reject self-transfer/reused recipient or mint roles and ambiguous workload/exit-code types. Synthetic reports only; the running test stays unaccepted. Actual complete terminal review, final browser regression and release handoff remain pending.",
+            "detail": "Proposed auditor strengthening in PR #6, not yet merged. All 37 source/historical terminal and load regressions pass locally. Exact run, activation, engine, eight prerequisite hashes, full duration and 288 unique mint/transfer receipts remain mandatory. Three new groups reject self-transfer/reused recipient or mint roles and ambiguous workload/exit-code types. These preparation checks use synthetic reports and cannot themselves accept a stability run. The actual replacement terminal review and final browser results are recorded separately below; release handoff remains pending.",
             "evidence": "https://github.com/solana-classic/solana-classic/pull/6"
           },
           {
             "title": "Post-stability source-runtime final browser verification",
             "state": "live-passed",
-            "detail": "Four fresh full journeys: desktop1440x1000 and touch-emulated mobile360x844 on frozen and branded origins. Eight demo assets,24finalized receipts,exact balances/owners,uploaded PNG NFTs on the branded site,no page/console errors. One prior assertion failure with six finalized receipts is retained separately. Only the exact non-secret panel preference is permitted in branded local storage; frozen storage and all session storage remain empty. Remaining release/security/operator gates stay open.",
+            "detail": "Four fresh full journeys: 1440x1000 desktop and 360x844 touch-emulated mobile on frozen and branded origins. Eight demo assets, 24 finalized receipts, exact balances and owners, uploaded PNG NFTs on the branded site, and no page or console errors. One earlier assertion failure with six finalized receipts is retained separately. Branded local storage contains only the exact non-secret panel preference; frozen local storage and all session storage remain empty. Remaining release, security and operator gates stay open.",
             "evidence": "https://github.com/solana-classic/solana-classic/blob/bridge/metadata-mint-review/evidence/agave-source-final-browser-review.json"
           }
         ]
