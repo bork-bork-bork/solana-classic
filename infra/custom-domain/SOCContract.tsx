@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export const SOC_MINT = '[historical address removed]';
+export const SOC_MINT = 'Nuhksmxq3AZ6ZrzVHshKnQd8QTTRSXCb7a6AU7oMsoc';
 export const SOC_EXPLORER = 'https://solscan.io/token/' + SOC_MINT;
 
 export default function SOCContract() {
