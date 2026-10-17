@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "at": "2026-10-17T08:03:44.861630+00:00",
+  "at": "2026-10-17T08:36:45.660373+00:00",
   "scope": "remote-experimental-source individual review inventory; incomplete and not an overall release evaluation",
   "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
   "candidate": {
@@ -20,6 +20,17 @@
     "carriedOverRequirements": 0
   },
   "requirements": {
+    "G1.01": {
+      "passed": true,
+      "scope": "remote",
+      "verifiedAt": "2026-10-17T08:36:45.660373+00:00",
+      "proofs": [
+        {
+          "path": "evidence/agave-source-network-identity-individual-review.json",
+          "sha256": "f58a15be04d0ffab1b9f25d48201c2a0d21318bec3b9e5f229d8dc9a329c70d0"
+        }
+      ]
+    },
     "G1.02": {
       "passed": true,
       "scope": "remote",
@@ -28,6 +39,17 @@
         {
           "path": "evidence/agave-source-browser-individual-review.json",
           "sha256": "a272d491aa100407bbf51325ad0f14c6b1a90bbc8dea8df505858e6c02911019"
+        }
+      ]
+    },
+    "G1.07": {
+      "passed": true,
+      "scope": "remote",
+      "verifiedAt": "2026-10-17T08:36:45.660373+00:00",
+      "proofs": [
+        {
+          "path": "evidence/agave-source-network-identity-individual-review.json",
+          "sha256": "f58a15be04d0ffab1b9f25d48201c2a0d21318bec3b9e5f229d8dc9a329c70d0"
         }
       ]
     },
@@ -274,12 +296,10 @@
     "G0.08",
     "G0.09",
     "G0.10",
-    "G1.01",
     "G1.03",
     "G1.04",
     "G1.05",
     "G1.06",
-    "G1.07",
     "G2.01",
     "G2.05",
     "G2.06",
@@ -318,7 +338,7 @@
     "G7.08",
     "G7.09"
   ],
-  "reviewedRequirementCount": 22,
+  "reviewedRequirementCount": 24,
   "requiredRequirementCount": 75,
   "legacyReleaseEvaluatorConsumesThisInventory": false,
   "releaseAccepted": false,

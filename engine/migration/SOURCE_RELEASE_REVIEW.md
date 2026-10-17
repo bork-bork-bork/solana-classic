@@ -7,9 +7,9 @@ requirements are not transferred to this candidate.
 
 The separate [current review inventory](../../evidence/agave-source-acceptance-gates.json)
 binds the exact source candidate, freeze, unchanged checklist and checksum-bound
-individual proofs. It currently records 22 of 75 requirements reviewed:
-G1.02, G2.02, G2.03, G2.04, G2.07, G2.08, G3.01, G4.03, G4.04, G5.01,
-G5.08, G5.09, G5.12, G6.01 through G6.05, G6.07, G6.11, G7.03 and G7.04. The other 53 remain
+individual proofs. It currently records 24 of 75 requirements reviewed:
+G1.01, G1.02, G1.07, G2.02, G2.03, G2.04, G2.07, G2.08, G3.01, G4.03, G4.04, G5.01,
+G5.08, G5.09, G5.12, G6.01 through G6.05, G6.07, G6.11, G7.03 and G7.04. The other 51 remain
 unreviewed in this inventory, including the derived whole-release check. Missing
 attestations do not necessarily mean functionality failed; they mean the
 requirement has not been individually accepted for this candidate.
@@ -83,6 +83,17 @@ files match the reviewed checkout bytes. The load, terminal report and README
 limit the results to one validator and separate them from mainnet acceptance.
 These are content/access checks; no new rendering, transaction or benchmark
 was performed. Prior browser results retain their own observation times.
+
+The [network identity review](../../evidence/agave-source-network-identity-individual-review.json)
+adds G1.01 and G1.07 using fresh read-only genesis responses from the canonical
+gateway and public Solana mainnet/devnet RPCs. The configured and actual candidate
+genesis agree and differ from both public chains. The public configuration matches
+the frozen configuration, including one operator and the experimental reset policy; the
+complete runtime identity and all 45 source files still match. No wallet, signed
+transaction or new workload was created. These checks establish current identity
+and disclosure, not the historical H12 milestone. The 31 passing local identity
+tests use mocked inputs; G5.10 remains unreviewed pending complete entry-point
+coverage and appropriately bound refusal evidence.
 
 G5.07 remains unreviewed. The [monitoring attribution review](../../evidence/agave-source-monitoring-attribution-review.json)
 verifies the deployed monitor source, three saved thresholds, the historical
