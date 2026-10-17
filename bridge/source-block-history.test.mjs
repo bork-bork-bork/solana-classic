@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import {join} from 'node:path';
 import {createServer} from 'node:http';
+import {performance} from 'node:perf_hooks';
 import {PublicKey} from '@solana/web3.js';
 import {extractSelectedBlockTransaction as extract,observeSelectedBlockHistory as observe} from './source-block-history.mjs';
 import {sourceEconomicFixture} from './test-fixtures/source-economic.mjs';
@@ -60,9 +61,25 @@ test('actual loopback HTTP preserves the block record and never follows redirect
  const x=fixture(t);let requests=0;const rpc=await serve(t,async(req,res)=>{requests++;let body='';for await(const b of req)body+=b;res.writeHead(200,{'Content-Type':'application/json'}).end(x.reply(JSON.parse(body)));});assert.equal((await observe({...x.options(),rpc})).state,'selected-block-metadata-matched');assert.equal(requests,14);
  const y=fixture(t);let targetReached=0;const target=await serve(t,(req,res)=>{targetReached++;req.resume();res.end('{}');});const redirect=await serve(t,(req,res)=>{req.resume();res.writeHead(307,{Location:target}).end();});await assert.rejects(observe({...y.options(),rpc:redirect}));assert.equal(targetReached,0);
 });
-test('one deadline covers ignored cancellation and slow streaming without a completed result',async t=>{
- const x=fixture(t);let requests=0;await assert.rejects(observe({...x.options(),timeoutMs:100},async()=>{requests++;return new Promise(()=>{});}),/single deadline/);assert.equal(requests,1);assert(!fs.existsSync(join(x.directory,'observation.json')));
- const y=fixture(t);const intervals=[];const rpc=await serve(t,(req,res)=>{req.resume();res.writeHead(200,{'Content-Type':'application/json'});res.write(' ');const id=setInterval(()=>res.write(' '),20);intervals.push(id);res.once('close',()=>clearInterval(id));});try{await assert.rejects(observe({...y.options(),rpc,timeoutMs:150}),/single deadline/);}finally{for(const id of intervals)clearInterval(id);}
+test('the single deadline can expire during preparation before any RPC',async t=>{
+ const x=fixture(t);let reads=0,requests=0;
+ t.mock.method(performance,'now',()=>reads++===0?0:100);
+ await assert.rejects(observe({...x.options(),timeoutMs:100},async()=>{requests++;throw Error('Unexpected request');}),/single deadline/);
+ assert.equal(requests,0);assert(!fs.existsSync(join(x.directory,'observation.json')));
+});
+test('the deadline timer aborts a fetcher that ignores cancellation',async t=>{
+ const x=fixture(t);let requests=0;
+ // Isolate the real abort timer from preparation-time expiry, covered above.
+ t.mock.method(performance,'now',()=>0);
+ await assert.rejects(observe({...x.options(),timeoutMs:100},async()=>{requests++;return new Promise(()=>{});}),/single deadline/);
+ assert.equal(requests,1);assert(!fs.existsSync(join(x.directory,'observation.json')));
+});
+test('the deadline timer cancels a started response stream without a completed result',async t=>{
+ const x=fixture(t);let requests=0,cancellations=0;
+ t.mock.method(performance,'now',()=>0);
+ const body=new ReadableStream({start(controller){controller.enqueue(new TextEncoder().encode(' '));},cancel(){cancellations++;}});
+ await assert.rejects(observe({...x.options(),timeoutMs:100},async()=>{requests++;return new Response(body,{headers:{'Content-Type':'application/json'}});}),/single deadline/);
+ assert.equal(requests,1);assert.equal(cancellations,1);assert(!fs.existsSync(join(x.directory,'observation.json')));
 });
 
 test('complete block rewards are retained while omitted transaction rewards remain refused',async t=>{
