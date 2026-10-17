@@ -7,9 +7,9 @@ requirements are not transferred to this candidate.
 
 The separate [current review inventory](../../evidence/agave-source-acceptance-gates.json)
 binds the exact source candidate, freeze, unchanged checklist and checksum-bound
-individual proofs. It currently records 25 of 75 requirements reviewed:
-G1.01, G1.02, G1.07, G2.02, G2.03, G2.04, G2.07, G2.08, G3.01, G4.03, G4.04, G5.01, G5.05,
-G5.08, G5.09, G5.12, G6.01 through G6.05, G6.07, G6.11, G7.03 and G7.04. The other 50 remain
+individual proofs. It currently records 26 of 75 requirements reviewed:
+G1.01, G1.02, G1.04, G1.07, G2.02, G2.03, G2.04, G2.07, G2.08, G3.01, G4.03, G4.04, G5.01, G5.05,
+G5.08, G5.09, G5.12, G6.01 through G6.05, G6.07, G6.11, G7.03 and G7.04. The other 49 remain
 unreviewed in this inventory, including the derived whole-release check. Missing
 attestations do not necessarily mean functionality failed; they mean the
 requirement has not been individually accepted for this candidate.
@@ -223,3 +223,15 @@ finality or deployed rejection is claimed. The first retained fixture failed
 collection because a dependency path was absent; that failure remains retained,
 and a fresh identical fixture passed after verified dependency linking.
 G4.02 remains unreviewed pending the complete individual remote gate review.
+
+
+The [program and health review](../../evidence/agave-source-program-health-individual-review.json)
+adds G1.04 from fresh read-only gateway responses. Finalized slots advanced from
+912610 to 912634; health and genesis agreed before and after. Token-2022,
+associated-token and System programme accounts were executable at finalized
+commitment, with IDs matching the selected configuration and SDK constants.
+The complete runtime and all 45 retained files still match the final freeze.
+Account data was excluded with a zero-length slice: this verifies programme
+identity and executable metadata, not code bytes or upgrade custody. One earlier
+TLS read failure remains retained; one fresh attempt completed. No transaction,
+load, browser journey or runtime operation was repeated.
