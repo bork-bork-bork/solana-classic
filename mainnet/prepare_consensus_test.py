@@ -87,7 +87,10 @@ class Preparation(unittest.TestCase):
  def test_changed_final_poh_refuses_before_bundle_copy_or_replays(self):
   for changed in [{'hashes_per_tick':12501},{'hashes_per_tick':True},{'hashes_per_tick':12500,'target_tick_count':1}]:
    with self.subTest(changed=changed):self.synthetic_driver(changed)
- def synthetic_driver(self,changed_poh=None):
+ def test_nonempty_or_executable_reserve_refuses_before_bundle_copy_or_replays(self):
+  for changed in [{'dataBytes':1},{'dataBytes':-1},{'dataBytes':False},{'dataBytes':0.0},{'dataBytes':'0'},{'dataBytes':None},{'executable':True},{'executable':0},{'executable':None}]:
+   with self.subTest(changed=changed):self.synthetic_driver(changed_reserve=changed)
+ def synthetic_driver(self,changed_poh=None,changed_reserve=None):
   import io,tarfile,bz2,subprocess
   nodes=[{'identity':key(100+i*3),'vote':key(101+i*3),'stake':key(102+i*3)} for i in range(3)]
   public={f'node-{i}-{kind}.json':node[kind] for i,node in enumerate(nodes) for kind in node};public['synthetic-reserve.json']=key(500)
@@ -112,6 +115,8 @@ class Preparation(unittest.TestCase):
    elif name=='classic-genesis-audit-v2':
     audit=audits[args[1]].copy()
     if changed_poh is not None and Path(args[1]).name=='fresh-genesis':audit['pohConfig']=changed_poh
+    if changed_reserve is not None and Path(args[1]).name=='fresh-genesis':
+     audit['accounts']=[{**row,**changed_reserve} if row['address']==key(500) else row.copy() for row in audit['accounts']]
     out=json.dumps(audit)
    elif name=='agave-ledger-tool':out=json.dumps({'slot':0,'hash':key(700)}) if 'verify' in args else '123\n'
    else:raise AssertionError('Unexpected subprocess')
@@ -127,8 +132,9 @@ class Preparation(unittest.TestCase):
     finally:os.umask(before)
    genesis_calls=[command for command in commands if Path(command[0]).name=='solana-genesis']
    self.assertEqual([command[command.index('--hashes-per-tick')+1] for command in genesis_calls],['auto','12500'])
-   if changed_poh is not None:
-    self.assertEqual(result['state'],'failed');self.assertIn(result['failureCode'],['CALIBRATED_HASH_COUNT_REQUIRED','FINAL_GENESIS_POH_DIFFERS'])
+   if changed_poh is not None or changed_reserve is not None:
+    expected=['EXACT_SYNTHETIC_RESERVE_REQUIRED'] if changed_reserve is not None else ['CALIBRATED_HASH_COUNT_REQUIRED','FINAL_GENESIS_POH_DIFFERS']
+    self.assertEqual(result['state'],'failed');self.assertIn(result['failureCode'],expected)
     self.assertTrue((base/'preparations/complete-001/public-result.json').is_file());self.assertTrue((base/'preparations/complete-001/fresh-genesis/genesis.bin').is_file())
     self.assertFalse((base/'bundles/complete-001/genesis').exists());self.assertFalse((base/'bundles/complete-001/manifest.json').exists())
     self.assertFalse(any(Path(command[0]).name=='agave-ledger-tool' for command in commands));return

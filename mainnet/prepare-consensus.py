@@ -133,7 +133,7 @@ def run(binary_directory,bundle_id,execute=False):
   proof['finalPohMatchesBudgetProbe']=True;save()
   if audit.get('totalLamports')!=str(TOTAL):raise ValueError('FINAL_GENESIS_SUPPLY_DIFFERS')
   rows=[a for a in audit['accounts'] if a['address']==reserve]
-  if len(rows)!=1 or rows[0]['owner']!='11111111111111111111111111111111' or rows[0]['lamports']!=str(TOTAL-fixed):raise ValueError('EXACT_SYNTHETIC_RESERVE_REQUIRED')
+  if len(rows)!=1 or rows[0]['owner']!='11111111111111111111111111111111' or rows[0]['lamports']!=str(TOTAL-fixed) or type(rows[0].get('dataBytes')) is not int or rows[0]['dataBytes']!=0 or rows[0].get('executable') is not False:raise ValueError('EXACT_SYNTHETIC_RESERVE_REQUIRED')
   g=bundle/'genesis';g.mkdir(mode=0o700)
   for name in ['genesis.bin','genesis.tar.bz2']:
    source=c.regular(ledger/name)

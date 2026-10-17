@@ -108,6 +108,24 @@ non-account parameter is unchanged, or reuse a retained genesis/key set. Fresh
 compiled genesis, complete byte comparison and actual strict replays still need
 an admitted Linux host and a new reviewed attempt.
 
+## Empty synthetic reserve admission
+
+Before copying the final genesis or invoking either replay, preparation now
+requires the selected reserve to have an integer data length of zero and an
+explicit false executable flag, in addition to its exact address, System owner
+and balance. Previously the latter three fields alone admitted a nonempty or
+executable reserve in a supplied audit report.
+
+One new orchestration regression covers nine invalid data-length/flag variants.
+All nine reproduced the previous acceptance; each now retains a failed attempt
+before bundle genesis, manifest or ledger-tool invocation. The normal empty
+reserve still completes the existing synthetic two-replay driver. All 21 focused
+checks pass; the offline package runs 150 checks locally, with 149 passing and
+one existing Linux-only skip. These tests use supplied tool responses and
+disposable files, not compiled genesis or real ledger replay. Full account-byte
+comparison, reserve-byte adapter integration and an admitted Linux host remain
+separate requirements. See [the reserve admission review](../evidence/mainnet-preparation-reserve-shape-local.json).
+
 ## Bounded offline tools and cancellation
 
 Each pinned tool now runs in its own process group with a fixed timeout,
