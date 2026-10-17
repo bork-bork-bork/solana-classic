@@ -358,3 +358,28 @@ The worker still has no rehearsal host admission. This is actual retained-byte
 compatibility evidence for the current executable/helper pair, not a fresh
 compiler-to-replay result. See
 `evidence/mainnet-allocation-current-baseline-review.json`.
+
+
+## Bounded reserve-adapter transport
+
+`reserve-byte-stdio.mjs` exposes the existing offline reserve adapter as a Node 24
+subprocess. Its sole argument is `prepare` or `review`; the selected input object
+arrives on stdin, with a 32 MiB limit, strict UTF-8 decoding and a 30-second input
+deadline. A successful result is one JSON document of at most 1 MiB on stdout.
+Refusal exits 78 with a fixed diagnostic that does not echo selected reports,
+assertion details or private paths. Exact u64 compiler-input digits and all
+disabled execution/activation flags are preserved.
+
+The caller must bound the complete subprocess lifetime, drain output and discard
+stdout on every nonzero exit. The input timer does not bound a stalled output
+consumer, and a pipe failure can leave incomplete output. Inputs and successful
+reports remain private operational material. This interface opens no input or
+output files and invokes no compiler, key generator, validator or RPC.
+
+Eight transport tests plus the existing adapter and related planning checks pass
+(73 total). They use supplied reports and actual local child processes, not new
+genesis compilation. The preparer still does not invoke this interface. Node and
+dependency artifact admission, externally selected planning input, integration
+with fresh compilation and output verification remain required before any
+replay. Existing host/security checks and production restrictions are unchanged.
+See [the local transport evidence](../evidence/mainnet-reserve-stdio-local.json).

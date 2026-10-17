@@ -1,3 +1,6 @@
+import {spawnSync} from 'node:child_process';
+import {Readable,PassThrough,Writable} from 'node:stream';
+import {reserveAdapterResult,readReserveInput,runReserveAdapter,MAX_INPUT_BYTES} from './reserve-byte-stdio.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
@@ -37,4 +40,52 @@ test('authority summaries cannot change while supplied account fingerprints stay
 test('compiler input refuses a reserve rent epoch the primordial loader cannot reproduce',()=>{
  for(const epoch of ['1','18446744073709551615']){const f=fixture();f.b.accounts[0].rentEpoch=epoch;const x=selected(f);assert.throws(()=>prepare(before(x)),/rent epoch/);assert.throws(()=>review(x),/rent epoch/);}
  const f=fixture();f.b.accounts[1].rentEpoch='18446744073709551615';const x=selected(f);assert.equal(prepare(before(x)).reserveNativeUnits,'900000000000');assert(review(x).suppliedAccountFingerprintsMatched);
+});
+
+// Real adapter through bounded stdin; all reports below remain supplied fixtures.
+test('stdio adapter executes prepare and review with unchanged permissions and no input mutation',()=>{
+ const x=selected(),saved=structuredClone(x);
+ for(const [mode,input,expected] of [['prepare',before(x),prepare(before(x))],['review',x,review(x)]]){
+  const raw=Buffer.from(JSON.stringify(input));assert.deepEqual(JSON.parse(reserveAdapterResult(mode,raw)),expected);
+  const child=spawnSync(process.execPath,['mainnet/reserve-byte-stdio.mjs',mode],{input:raw,encoding:'utf8',timeout:5000,maxBuffer:1024*1024});
+  assert.equal(child.status,0);assert.equal(child.stderr,'');assert.deepEqual(JSON.parse(child.stdout),expected);noPermissions(JSON.parse(child.stdout));
+ }
+ assert.deepEqual(x,saved);
+});
+test('stdio adapter retains exact u64 integer text in compiler input',()=>{
+ const f=fixture(),max='18446744073709551615';f.planningInput.nativeDecimals=f.planningInput.originDecimals=9;f.planningInput.originSupplyUnits=f.planningInput.genesisAudit.totalLamports=max;f.planningInput.genesisAudit.accounts[0].lamports='18446743973709551615';f.planningInput.prelockedOriginUnits='100001002240';f.planningInput.expectedInventorySHA256=genesisInventoryMetadataDigest(f.planningInput.genesisAudit);f.b.totalNativeUnits=max;f.b.accounts[0].lamports='18446743973709551615';
+ const value=JSON.parse(reserveAdapterResult('prepare',Buffer.from(JSON.stringify(before(selected(f))))));assert(value.primordialReserveJSON.includes('"balance":18446743973709551615,'));
+});
+test('stdio adapter refuses extra arguments, malformed input and wrong selectors without exposing supplied text',()=>{
+ const bad=before(selected());bad.expectedPlanSHA256='0'.repeat(64);bad.rawBaselineDecoded='private-marker-do-not-echo';
+ for(const [args,input] of [[[],Buffer.from('private-marker-do-not-echo')],[['prepare','extra'],Buffer.from('{}')],[['unknown'],Buffer.from('{}')],[['prepare'],Buffer.from('private-marker-do-not-echo')],[['prepare'],Buffer.from(JSON.stringify(bad))],[['prepare'],Buffer.alloc(0)]]){
+  const child=spawnSync(process.execPath,['mainnet/reserve-byte-stdio.mjs',...args],{input,encoding:'utf8',timeout:5000,maxBuffer:1024*1024});
+  assert.equal(child.status,78);assert.equal(child.stdout,'');assert.equal(child.stderr,'RESERVE_ADAPTER_INPUT_REFUSED\n');
+ }
+});
+test('stdio byte reader handles split input and rejects empty, oversized and failed streams',async()=>{
+ const bytes=await readReserveInput(Readable.from([Buffer.from('ab'),Buffer.from('cd')]),{maxBytes:4});assert.equal(bytes.toString(),'abcd');
+ await assert.rejects(readReserveInput(Readable.from([])));
+ await assert.rejects(readReserveInput(Readable.from([Buffer.alloc(3),Buffer.alloc(2)]),{maxBytes:4}));
+ const broken=new Readable({read(){this.destroy(new Error('private-marker-do-not-echo'));}});await assert.rejects(readReserveInput(broken));
+});
+test('stdio reader has a bounded deadline for an input that never reaches EOF',async()=>{
+ const stalled=new PassThrough();await assert.rejects(readReserveInput(stalled,{timeoutMs:25}),/RESERVE_ADAPTER_INPUT_REFUSED/);assert.equal(stalled.destroyed,true);
+});
+test('stdio adapter rejects oversized and invalid UTF-8 buffers before parsing selected reports',async()=>{
+ assert.throws(()=>reserveAdapterResult('prepare',Buffer.alloc(MAX_INPUT_BYTES+1)));
+ assert.throws(()=>reserveAdapterResult('prepare',Buffer.from([0xff])));
+ for(const options of [{maxBytes:0},{maxBytes:MAX_INPUT_BYTES+1},{timeoutMs:0},{timeoutMs:30001}])await assert.rejects(readReserveInput(Readable.from([]),options));
+});
+
+test('stdio runner sanitizes output failures',async()=>{
+ const data=Buffer.from(JSON.stringify(before(selected())));let diagnostic='';
+ const broken=new Writable({write(_chunk,_encoding,callback){callback(new Error('private-output-error'));}});
+ const errors=new Writable({write(chunk,_encoding,callback){diagnostic+=String(chunk);callback();}});
+ assert.equal(await runReserveAdapter(['prepare'],Readable.from([data]),broken,errors),78);assert.equal(diagnostic,'RESERVE_ADAPTER_INPUT_REFUSED\n');
+});
+
+test('stdio runner preserves refusal status if the diagnostic pipe also fails',async()=>{
+ const broken=new Writable({write(_chunk,_encoding,callback){callback(new Error('private-diagnostic-error'));}});
+ assert.equal(await runReserveAdapter([],Readable.from([]),new PassThrough(),broken),78);
 });
