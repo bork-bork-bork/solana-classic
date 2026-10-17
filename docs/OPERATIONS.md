@@ -116,7 +116,7 @@ as current source-candidate acceptance. Review each requirement against the
 new exact candidate and its selected evidence before producing a new release
 packet. Keep the original attestations and failed attempts available.
 The separate [source-candidate review inventory](../engine/migration/SOURCE_RELEASE_REVIEW.md)
-now records 17 individually reviewed browser and operations requirements; 58 remain unreviewed
+now records 18 individually reviewed browser and operations requirements; 57 remain unreviewed
 in that inventory. It does not change the frozen evaluator or approve a release.
 
 Approval of any future maintenance window precedes stopping writers and

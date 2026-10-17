@@ -7,9 +7,9 @@ requirements are not transferred to this candidate.
 
 The separate [current review inventory](../../evidence/agave-source-acceptance-gates.json)
 binds the exact source candidate, freeze, unchanged checklist and checksum-bound
-individual proofs. It currently records 17 of 75 requirements reviewed:
+individual proofs. It currently records 18 of 75 requirements reviewed:
 G1.02, G2.02, G2.03, G2.04, G2.07, G2.08, G3.01, G4.03, G4.04, G5.01,
-G5.09, G6.01 through G6.05 and G7.04. The other 58 remain
+G5.08, G5.09, G6.01 through G6.05 and G7.04. The other 57 remain
 unreviewed in this inventory, including the derived whole-release check. Missing
 attestations do not necessarily mean functionality failed; they mean the
 requirement has not been individually accepted for this candidate.
@@ -47,11 +47,19 @@ HTTPS verification covered 617 gallery entries, 1,234 associated files and 452
 NFT owners. This review does not restore anything or treat the old archive as
 a backup of later transactions.
 
-G5.07, G5.08 and G5.12 remain unreviewed: healthy monitoring is not a complete
-probe/delivery audit; process restart does not alone establish fresh-deployment
-continuity; and actual frontend rollback does not alone establish preview
-environment separation and API freshness. The review records the missing
-evidence and the read-only next action for each.
+The [deployment individual review](../../evidence/agave-source-deployment-individual-review.json)
+adds G5.08 by linking the actual source-runtime migration to the subsequent
+restart and exact final freeze. The fresh deployment preserved the complete
+recorded bank and application state, with named protocol changes and vote fees
+accounted for. Its runtime matches the restart-before identity; restart-after
+matches the final frozen identity. The earlier partial G5.08 finding remains
+retained and is explicitly superseded by this review. No deployment or restart
+was repeated, and hardware-host reboot is not claimed.
+
+G5.07 and G5.12 remain unreviewed: healthy monitoring is not a complete
+probe/delivery audit, and actual frontend rollback does not alone establish
+preview environment separation and API freshness. The recovery review records
+the missing evidence and the read-only next action for each.
 
 This inventory is not consumed by the frozen legacy release evaluator and
 cannot turn its result into a current-candidate pass. Preserve that evaluator,
