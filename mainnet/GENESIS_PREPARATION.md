@@ -242,3 +242,22 @@ compiler or validator ran. This supplies the bounded transport needed for the
 allocation-byte decoder; integrating that decoder and reserve input into fresh
 preparation, checking every account/parameter and running strict ledger replays
 remain separate work requiring reviewed tools and an admitted Linux host.
+
+
+## Selected authority-review input snapshot
+
+The separate offline authority reviewer now sends its admitted genesis bytes
+directly through bounded stdin. It no longer opens the genesis path again in
+a shell. Its initial reader uses nonblocking open so a named pipe cannot wait
+for a writer before file-type admission, and rejects empty inputs and malformed
+digest selectors. Existing post-review selection checks still reject changed
+inputs and preserve the failed attempt and decoded output.
+
+Nine local authority-review checks pass, including three new groups for pipe
+refusal, empty/malformed input and snapshot handoff with later mutation. The
+full offline suite has 161 passes and one existing Linux-only skip locally.
+Decoder invocation is mocked in the handoff checks; no actual genesis decoder,
+worker rehearsal or canonical service was run. Existing retained attempts are
+unchanged. This integrates bounded input into the authority reviewer only; the
+allocation-byte rehearsal and fresh compiler integration remain open. See
+`evidence/mainnet-authority-input-snapshot-local.json`.

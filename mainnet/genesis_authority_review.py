@@ -3,6 +3,7 @@ import argparse,hashlib,json,os,re,stat
 from pathlib import Path
 from offline_process import run_tool
 from process_admission import no_active_validator
+REVIEW_BASE=Path('/data')
 SYSTEM='11111111111111111111111111111111'
 STAKE='Stake11111111111111111111111111111111111111'
 VOTE='Vote111111111111111111111111111111111111111'
@@ -10,14 +11,14 @@ WORKER={'RAILWAY_PROJECT_ID':'356bcb0b-49c4-4bd3-bf10-bff7db8f33fe','RAILWAY_ENV
 def sha(data):return hashlib.sha256(data).hexdigest()
 def selected_file(path,expected,limit):
  path=Path(path)
- if path.resolve()!=path or not re.fullmatch('[a-f0-9]{64}',expected):raise ValueError('EXACT_SELECTED_REGULAR_FILE_REQUIRED')
- fd=os.open(path,os.O_RDONLY|os.O_NOFOLLOW)
+ if path.resolve()!=path or not isinstance(expected,str) or not re.fullmatch('[a-f0-9]{64}',expected):raise ValueError('EXACT_SELECTED_REGULAR_FILE_REQUIRED')
+ fd=os.open(path,os.O_RDONLY|os.O_NOFOLLOW|os.O_NONBLOCK)
  try:
   before=os.fstat(fd)
-  if not stat.S_ISREG(before.st_mode) or before.st_uid!=os.getuid() or before.st_mode&0o022 or before.st_size>limit:raise ValueError('SELECTED_FILE_ADMISSION_FAILED')
+  if not stat.S_ISREG(before.st_mode) or before.st_uid!=os.getuid() or before.st_mode&0o022 or not 0<before.st_size<=limit:raise ValueError('SELECTED_FILE_ADMISSION_FAILED')
   with os.fdopen(fd,'rb',closefd=False) as stream:data=stream.read(limit+1)
   after=os.fstat(fd)
-  if len(data)!=before.st_size or (before.st_dev,before.st_ino,before.st_size,before.st_mtime_ns,before.st_ctime_ns)!=(after.st_dev,after.st_ino,after.st_size,after.st_mtime_ns,after.st_ctime_ns) or sha(data)!=expected:raise ValueError('SELECTED_FILE_CHANGED')
+  if len(data)!=before.st_size or (before.st_dev,before.st_ino,before.st_size,before.st_mtime_ns,before.st_ctime_ns)!=(after.st_dev,after.st_ino,after.st_size,after.st_mtime_ns,after.st_ctime_ns) or path.resolve()!=path or sha(data)!=expected:raise ValueError('SELECTED_FILE_CHANGED')
   return data
  finally:os.close(fd)
 def compare(decoded,expected):
@@ -41,15 +42,15 @@ def compare(decoded,expected):
 def review(args):
  if any(os.environ.get(k)!=v for k,v in WORKER.items()):raise ValueError('EXACT_PRIVATE_WORKER_REQUIRED')
  root=Path(args.output)
- if root.parent!=Path('/data') or not re.fullmatch('genesis-authority-review-[a-z0-9-]{1,48}',root.name) or root.parent.resolve()!=root.parent:raise ValueError('FRESH_PRIVATE_REVIEW_NAMESPACE_REQUIRED')
+ if root.parent!=REVIEW_BASE or not re.fullmatch('genesis-authority-review-[a-z0-9-]{1,48}',root.name) or root.parent.resolve()!=root.parent:raise ValueError('FRESH_PRIVATE_REVIEW_NAMESPACE_REQUIRED')
  no_active_validator();os.umask(0o077)
  selections=[(Path(args.binary),args.binary_sha256,32*1024**2),(Path(args.genesis),args.genesis_sha256,16*1024**2),(Path(args.metadata),args.metadata_sha256,2*1024**2)]
  contents=[selected_file(*s) for s in selections];expected=json.loads(contents[2])
  root.mkdir(mode=0o700)
  with (root/'attempt-private.json').open('x') as f:json.dump({'state':'running'},f)
  try:
-  command=['sh','-c','exec < "$1"; shift; exec "$@"','genesis-authority-reader',args.genesis,args.binary,'--isolated-genesis-stdin',expected['genesisAudit']['genesis'],args.genesis_sha256]
-  with (root/'decoder-stderr-private.log').open('xb') as log:output=run_tool(command,log,timeout=30,stdout_limit=8*1024**2)
+  command=[args.binary,'--isolated-genesis-stdin',expected['genesisAudit']['genesis'],args.genesis_sha256]
+  with (root/'decoder-stderr-private.log').open('xb') as log:output=run_tool(command,log,timeout=30,stdout_limit=8*1024**2,input_bytes=contents[1])
   with (root/'decoded-private.json').open('xb') as f:f.write(output)
   summary=compare(json.loads(output),expected)
   for selection in selections:selected_file(*selection)

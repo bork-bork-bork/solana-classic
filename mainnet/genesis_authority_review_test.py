@@ -1,4 +1,7 @@
-import copy,hashlib,os,tempfile,unittest
+import copy,hashlib,json,os,subprocess,sys,tempfile,unittest
+import genesis_authority_review as m
+from types import SimpleNamespace
+from unittest.mock import patch
 from pathlib import Path
 from genesis_authority_review import compare,selected_file,review
 class AuthorityReviewTests(unittest.TestCase):
@@ -36,4 +39,38 @@ class AuthorityReviewTests(unittest.TestCase):
   from unittest.mock import patch
   with patch.dict(os.environ,{'RAILWAY_SERVICE_ID':'wrong'}):
    with self.assertRaisesRegex(ValueError,'EXACT_PRIVATE_WORKER_REQUIRED'):review(Args())
+ def test_fifo_selection_refuses_without_waiting_for_a_writer(self):
+  with tempfile.TemporaryDirectory() as t:
+   fifo=Path(t).resolve()/'input';os.mkfifo(fifo)
+   code="from genesis_authority_review import selected_file; import sys; selected_file(sys.argv[1], '0'*64, 16)"
+   child=subprocess.run([sys.executable,'-B','-c',code,str(fifo)],cwd=Path(__file__).parent,capture_output=True,timeout=3)
+   self.assertNotEqual(child.returncode,0);self.assertIn(b'SELECTED_FILE_ADMISSION_FAILED',child.stderr)
+ def test_empty_input_and_non_string_selector_refuse(self):
+  with tempfile.TemporaryDirectory() as t:
+   p=Path(t).resolve()/'input';p.write_bytes(b'')
+   for digest in [hashlib.sha256(b'').hexdigest(),None,123]:
+    with self.subTest(digest=digest),self.assertRaises(ValueError):selected_file(p,digest,16)
+ def test_review_passes_admitted_snapshot_directly_and_rejects_later_input_change(self):
+  for changed in [False,True]:
+   with self.subTest(changed=changed),tempfile.TemporaryDirectory() as t:
+    base=Path(t).resolve();decoded,expected=self.fixture();args=SimpleNamespace(output=str(base/'genesis-authority-review-input'))
+    for name,data in [('binary',b'synthetic executable placeholder'),('genesis',b'selected genesis bytes'),('metadata',json.dumps(expected).encode())]:
+     p=base/name;p.write_bytes(data);p.chmod(0o600);setattr(args,name,str(p));setattr(args,name+'_sha256',hashlib.sha256(data).hexdigest())
+    def process(command,log,**options):
+     self.assertEqual(command,[args.binary,'--isolated-genesis-stdin','synthetic',args.genesis_sha256])
+     self.assertEqual(options['input_bytes'],b'selected genesis bytes');self.assertEqual(options['timeout'],30)
+     if changed:Path(args.genesis).write_bytes(b'changed after selection')
+     return json.dumps(decoded).encode()
+    with patch.object(m,'REVIEW_BASE',base),patch.dict(os.environ,m.WORKER),patch.object(m,'no_active_validator'),patch.object(m,'run_tool',side_effect=process) as tool:
+     before=os.umask(0o077)
+     try:
+      if changed:
+       with self.assertRaisesRegex(ValueError,'SELECTED_FILE_CHANGED'):review(args)
+      else:self.assertEqual(review(args)['state'],'passed')
+     finally:os.umask(before)
+     tool.assert_called_once()
+     retained=json.loads((Path(args.output)/'attempt-private.json').read_text());self.assertEqual(retained['state'],'failed' if changed else 'passed')
+     self.assertTrue((Path(args.output)/'decoded-private.json').is_file())
+     with self.assertRaises(FileExistsError if not changed else ValueError):review(args)
+     tool.assert_called_once()
 if __name__=='__main__':unittest.main()
