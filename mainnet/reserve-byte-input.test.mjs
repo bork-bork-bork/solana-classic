@@ -1,3 +1,7 @@
+import {mkdtempSync,symlinkSync,rmSync} from 'node:fs';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
+import {fileURLToPath} from 'node:url';
 import {spawnSync} from 'node:child_process';
 import {Readable,PassThrough,Writable} from 'node:stream';
 import {reserveAdapterResult,readReserveInput,runReserveAdapter,MAX_INPUT_BYTES} from './reserve-byte-stdio.mjs';
@@ -88,4 +92,17 @@ test('stdio runner sanitizes output failures',async()=>{
 test('stdio runner preserves refusal status if the diagnostic pipe also fails',async()=>{
  const broken=new Writable({write(_chunk,_encoding,callback){callback(new Error('private-diagnostic-error'));}});
  assert.equal(await runReserveAdapter([],Readable.from([]),new PassThrough(),broken),78);
+});
+
+
+test('stdio CLI runs through a symlink and preserves success and refusal reports',()=>{
+ const directory=mkdtempSync(join(tmpdir(),'reserve-cli-link-'));
+ try {
+  const link=join(directory,'adapter.mjs');symlinkSync(fileURLToPath(new URL('./reserve-byte-stdio.mjs',import.meta.url)),link);
+  const input=before(selected()),raw=JSON.stringify(input);
+  const success=spawnSync(process.execPath,[link,'prepare'],{input:raw,encoding:'utf8',timeout:5000,maxBuffer:1024*1024});
+  assert.ifError(success.error);assert.equal(success.status,0);assert.equal(success.stderr,'');assert.deepEqual(JSON.parse(success.stdout),prepare(input));
+  const refused=spawnSync(process.execPath,[link,'prepare'],{input:'{}',encoding:'utf8',timeout:5000,maxBuffer:1024*1024});
+  assert.ifError(refused.error);assert.equal(refused.status,78);assert.equal(refused.stdout,'');assert.equal(refused.stderr,'RESERVE_ADAPTER_INPUT_REFUSED\n');
+ }finally{rmSync(directory,{recursive:true,force:true});}
 });

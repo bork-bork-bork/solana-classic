@@ -1,4 +1,5 @@
 // Bounded offline adapter transport. No compiler, keys, filesystem output or RPC.
+import {realpathSync} from 'node:fs';
 import {pathToFileURL} from 'node:url';
 import {resolve} from 'node:path';
 import {preparePrefundedReserveByteInput,reviewPrefundedReserveOutputBytes} from './reserve-byte-input.mjs';
@@ -48,6 +49,12 @@ export async function runReserveAdapter(args,input,output,errors){
   return 78;
  }
 }
-if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).href){
+// Module URLs follow symlinks; normalize the executable argument the same way.
+function isEntrypoint(){
+ if(!process.argv[1])return false;
+ try{return import.meta.url===pathToFileURL(realpathSync(resolve(process.argv[1]))).href;}
+ catch{return false;}
+}
+if(isEntrypoint()){
  process.exitCode=await runReserveAdapter(process.argv.slice(2),process.stdin,process.stdout,process.stderr);
 }

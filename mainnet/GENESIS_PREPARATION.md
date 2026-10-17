@@ -402,3 +402,26 @@ An exploratory bundle excludes the file CLI, but is **not admitted**: its strict
 diagnostic check fails on a dependency warning and its graph retains an optional
 non-builtin import. Runtime/dependency artifact admission and preparer integration
 remain open. No fresh genesis, replay, validator or production operation was run.
+
+
+## Executable path aliases
+
+The stdin adapter resolves its executable argument to the real filesystem path
+before comparing it with the module URL. Invoking it through a symlink previously
+exited with code zero and no report because the CLI guard did not recognize the
+entrypoint. It now produces the same prepare report or fixed refusal as a direct
+invocation. The source regression failed before repair; all 76 related offline
+Node checks pass after repair. Report input still comes only from bounded stdin.
+
+A fresh packaging probe using `browser`, `module`, then `main` resolution passes
+23 related fixture checks (14 unchanged pure-adapter checks and nine checks of
+bundled transport). CLI child processes use a temporary artifact outside the
+checkout, with PATH only and no installed dependency directory. The static graph
+has only builtin external imports; strict diagnostics pass, and two local builds
+match. The earlier failed prototypes remain retained.
+
+This is exploratory compatibility evidence, not an admitted runtime artifact.
+Dependency-selection review, dynamic-resolution analysis, Linux/runtime admission
+and the preparer/compiler/replay integration remain open. The scoped evidence
+records the prototype hash and its pre-comment-cleanup source hash separately:
+[entrypoint and packaging review](../evidence/mainnet-reserve-entrypoint-local.json).
