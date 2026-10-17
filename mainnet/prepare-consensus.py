@@ -28,6 +28,13 @@ def calibrated_hashes(audit):
  if type(hashes) is not int or not 0<hashes<2**64:raise ValueError('CALIBRATED_HASH_COUNT_REQUIRED')
  return hashes
 
+def audited_policy(audit):
+ # These are the non-account policy objects emitted by the pinned v2 auditor.
+ fields=('inflation','feeRateGovernor','rent','epochSchedule','pohConfig')
+ if any(type(audit.get(field)) is not dict or not audit[field] for field in fields):raise ValueError('AUDITED_GENESIS_POLICY_REQUIRED')
+ try:return json.dumps({field:audit[field] for field in fields},sort_keys=True,separators=(',',':'),allow_nan=False)
+ except (TypeError,ValueError):raise ValueError('AUDITED_GENESIS_POLICY_REQUIRED') from None
+
 def genesis_command(binary,ledger,nodes,reserve,primordial,hashes_per_tick=None):
  # Calibrate only the budget probe; the final compiler receives its exact count.
  selected='auto' if hashes_per_tick is None else str(calibrated_hashes({'pohConfig':{'hashes_per_tick':hashes_per_tick}}))
@@ -127,10 +134,12 @@ def run(binary_directory,bundle_id,execute=False):
    proof['createdLedger']=True;save();tool(genesis_command(binary_directory/'solana-genesis',ledger,nodes,reserve,primordial,hashes_per_tick))
    audit=json.loads(tool([str(binary_directory/'classic-genesis-audit-v2'),str(ledger)]));return ledger,audit
   _,probe=genesis('budget-probe',1);fixed=budget_probe(probe);hashes=calibrated_hashes(probe)
+  probe_policy=audited_policy(probe)
   proof['calibratedHashesPerTick']=hashes;save()
   ledger,audit=genesis('fresh-genesis',TOTAL-fixed,hashes)
   if calibrated_hashes(audit)!=hashes or audit['pohConfig']!=probe['pohConfig']:raise ValueError('FINAL_GENESIS_POH_DIFFERS')
-  proof['finalPohMatchesBudgetProbe']=True;save()
+  if audited_policy(audit)!=probe_policy:raise ValueError('FINAL_GENESIS_POLICY_DIFFERS')
+  proof['finalPohMatchesBudgetProbe']=True;proof['auditedPolicyMatchesBudgetProbe']=True;save()
   if audit.get('totalLamports')!=str(TOTAL):raise ValueError('FINAL_GENESIS_SUPPLY_DIFFERS')
   rows=[a for a in audit['accounts'] if a['address']==reserve]
   if len(rows)!=1 or rows[0]['owner']!='11111111111111111111111111111111' or rows[0]['lamports']!=str(TOTAL-fixed) or type(rows[0].get('dataBytes')) is not int or rows[0]['dataBytes']!=0 or rows[0].get('executable') is not False:raise ValueError('EXACT_SYNTHETIC_RESERVE_REQUIRED')

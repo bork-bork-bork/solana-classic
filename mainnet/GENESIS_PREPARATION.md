@@ -201,3 +201,23 @@ Real hashing genesis, bank replay, full-validator consensus/recovery, independen
 operators/hosts, actual funded backing, custody and external security review
 remain required before production. The canonical devnet and its fresh stability
 run are separate and unchanged.
+
+
+## Bind the audited policy to the probe
+
+The final genesis must preserve all five policy objects exposed by the pinned
+v2 auditor: inflation, fee-rate governor, rent, epoch schedule and PoH
+configuration. Preparation requires each object in both reports and compares
+canonical JSON before copying the genesis into its bundle or invoking either
+replay. JSON booleans cannot substitute for numeric zero. Missing objects,
+non-finite values and policy drift retain a failed attempt. The existing
+single-calibration, supply, reserve, binary and host checks remain in force.
+
+The [offline policy-binding review](../evidence/mainnet-preparation-policy-binding-local.json)
+records 24 focused checks and 153 package checks (152 passing locally, one
+Linux-only skip). Fifteen final-report mutation cases refuse before bundle copy
+or replay; the unchanged synthetic fixture still prepares successfully. These
+are supplied tool responses and disposable files, not compiled genesis or
+actual ledger replay. The v2 auditor does not expose every GenesisConfig field
+or full account bytes. This comparison therefore does not establish complete
+non-account equivalence, account-data identity or reserve-adapter integration.
