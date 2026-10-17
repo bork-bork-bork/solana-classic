@@ -454,3 +454,25 @@ invoke it. Runtime/tool executable pinning, dependency-selection review, complet
 dynamic-resolution review and fresh compiler/replay integration remain open. No
 new chain, validator or production operation is authorized by this packaging
 result. See [the local builder evidence](../evidence/mainnet-reserve-bundle-local.json).
+
+
+## Build executable provenance
+
+The bundle builder now refuses any `ESBUILD_BINARY_PATH` setting before loading
+the bundler, including empty values and its special default-looking path. A
+harmless substitute executable exposed the earlier gap by writing an invocation
+marker before refusal. The regression now verifies that no substitute runs and
+no output directory is created. All 80 related offline checks pass.
+
+Each new manifest records byte counts and SHA-256 fingerprints for the current
+Node executable and installed platform-specific native bundler, without their
+private paths. The native package must exist and match the bundler API version;
+its downloader fallback is not accepted. Both executable fingerprints and
+resolved paths are checked again after the two matching builds. Build platforms
+are limited to little-endian Linux/macOS x64/arm64.
+
+These observed fingerprints supplement the earlier API-file hash. They are not
+trusted release allowlists, origin attestations, continuous process measurements
+or runtime admission. Dynamic libraries, replacement races and host integrity
+remain separate concerns. Earlier manifests retain their original narrower
+provenance. See [the executable provenance evidence](../evidence/mainnet-reserve-toolchain-local.json).

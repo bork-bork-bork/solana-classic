@@ -1,9 +1,10 @@
 import test,{before,after} from 'node:test';
 import assert from 'node:assert/strict';
-import {mkdtempSync,readFileSync,writeFileSync,rmSync,readdirSync} from 'node:fs';
+import {mkdtempSync,readFileSync,writeFileSync,rmSync,readdirSync,existsSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {pathToFileURL,fileURLToPath} from 'node:url';
+import {createRequire} from 'node:module';
 import {spawnSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
 const directory=mkdtempSync(join(tmpdir(),'reserve-build-check-'));
@@ -21,6 +22,14 @@ before(()=>{
 after(()=>rmSync(directory,{recursive:true,force:true}));
 test('built adapter runs all selected transport fixtures outside the checkout',()=>{
  assert.equal(manifest.artifact.sha256,hash(bytes));assert.equal(manifest.artifact.bytes,bytes.length);
+ const ownRequire=createRequire(import.meta.url),toolRequire=createRequire(ownRequire.resolve('tsx/package.json'));
+ const nativeRequire=createRequire(toolRequire.resolve('esbuild'));
+ const nativePath=nativeRequire.resolve(`@esbuild/${process.platform}-${process.arch}/bin/esbuild`);
+ for(const [record,path] of [[manifest.toolchain.node,process.execPath],[manifest.toolchain.bundler,nativePath]]){
+  const contents=readFileSync(path);assert.equal(record.sha256,hash(contents));assert.equal(record.bytes,contents.length);
+ }
+ assert.equal(manifest.toolchain.node.version,process.version);assert.equal(manifest.toolchain.node.platform,process.platform);assert.equal(manifest.toolchain.node.arch,process.arch);
+ assert.equal(manifest.toolchain.bundler.package,`@esbuild/${process.platform}-${process.arch}`);assert.equal(manifest.toolchain.bundler.version,'0.28.2');
  assert.equal(manifest.build.localRebuildIdentical,true);assert.equal(manifest.nativeAddonLoadersExcluded,true);
  assert.equal(manifest.commonJSImportsRestrictedToBuiltins,true);
  for(const key of ['artifactAdmitted','preparerIntegrated','canSign','canBroadcast','mainnetActivated','productionReady'])assert.equal(manifest[key],false);
@@ -48,4 +57,16 @@ test('builder refuses existing output and invalid arguments without replacing re
   assert.ifError(r.error);assert.equal(r.status,78);assert.equal(r.stdout,'');assert.equal(r.stderr,'RESERVE_BUNDLE_BUILD_REFUSED\n');
  }
  assert.deepEqual(new Map(readdirSync(output).map(name=>[name,hash(readFileSync(join(output,name)))])),before);
+});
+
+test('builder refuses binary overrides before executing them or creating output',()=>{
+ const fake=join(directory,'unexpected-esbuild'),marker=join(directory,'override-invoked');
+ writeFileSync(fake,'#!/bin/sh\nprintf invoked > "$RESERVE_OVERRIDE_MARKER"\nexit 1\n',{mode:0o700});
+ for(const [index,value] of [fake,'/usr/bin/esbuild',''].entries()){
+  const destination=join(directory,'override-output-'+index);
+  const r=spawnSync(process.execPath,[builder,destination],{...options,env:{...options.env,ESBUILD_BINARY_PATH:value,RESERVE_OVERRIDE_MARKER:marker}});
+  assert.ifError(r.error);assert.equal(r.status,78);assert.equal(r.stdout,'');assert.equal(r.stderr,'RESERVE_BUNDLE_BUILD_REFUSED\n');
+  assert.equal(existsSync(marker),false,'unselected executable must not run');
+  assert.equal(existsSync(destination),false,'refusal must precede output creation');
+ }
 });
