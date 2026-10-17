@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "at": "2026-10-17T02:33:45.651780+00:00",
+  "at": "2026-10-17T03:05:40.848363+00:00",
   "scope": "remote-experimental-source individual review inventory; incomplete and not an overall release evaluation",
   "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
   "candidate": {
@@ -64,6 +64,17 @@
         }
       ]
     },
+    "G2.07": {
+      "passed": true,
+      "scope": "remote",
+      "verifiedAt": "2026-10-17T03:05:40.848363+00:00",
+      "proofs": [
+        {
+          "path": "evidence/agave-source-operations-individual-review.json",
+          "sha256": "b5e3b29e02a470833b9627dfa3baefc9bf0b0c82ebaadcb5fc28c047e7eb73e9"
+        }
+      ]
+    },
     "G2.08": {
       "passed": true,
       "scope": "remote",
@@ -94,6 +105,83 @@
         {
           "path": "evidence/agave-source-browser-individual-review.json",
           "sha256": "a272d491aa100407bbf51325ad0f14c6b1a90bbc8dea8df505858e6c02911019"
+        }
+      ]
+    },
+    "G4.04": {
+      "passed": true,
+      "scope": "remote",
+      "verifiedAt": "2026-10-17T03:05:40.848363+00:00",
+      "proofs": [
+        {
+          "path": "evidence/agave-source-operations-individual-review.json",
+          "sha256": "b5e3b29e02a470833b9627dfa3baefc9bf0b0c82ebaadcb5fc28c047e7eb73e9"
+        }
+      ]
+    },
+    "G5.01": {
+      "passed": true,
+      "scope": "remote",
+      "verifiedAt": "2026-10-17T03:05:40.848363+00:00",
+      "proofs": [
+        {
+          "path": "evidence/agave-source-operations-individual-review.json",
+          "sha256": "b5e3b29e02a470833b9627dfa3baefc9bf0b0c82ebaadcb5fc28c047e7eb73e9"
+        }
+      ]
+    },
+    "G6.01": {
+      "passed": true,
+      "scope": "remote",
+      "verifiedAt": "2026-10-17T03:05:40.848363+00:00",
+      "proofs": [
+        {
+          "path": "evidence/agave-source-operations-individual-review.json",
+          "sha256": "b5e3b29e02a470833b9627dfa3baefc9bf0b0c82ebaadcb5fc28c047e7eb73e9"
+        }
+      ]
+    },
+    "G6.02": {
+      "passed": true,
+      "scope": "remote",
+      "verifiedAt": "2026-10-17T03:05:40.848363+00:00",
+      "proofs": [
+        {
+          "path": "evidence/agave-source-operations-individual-review.json",
+          "sha256": "b5e3b29e02a470833b9627dfa3baefc9bf0b0c82ebaadcb5fc28c047e7eb73e9"
+        }
+      ]
+    },
+    "G6.03": {
+      "passed": true,
+      "scope": "remote",
+      "verifiedAt": "2026-10-17T03:05:40.848363+00:00",
+      "proofs": [
+        {
+          "path": "evidence/agave-source-operations-individual-review.json",
+          "sha256": "b5e3b29e02a470833b9627dfa3baefc9bf0b0c82ebaadcb5fc28c047e7eb73e9"
+        }
+      ]
+    },
+    "G6.04": {
+      "passed": true,
+      "scope": "remote",
+      "verifiedAt": "2026-10-17T03:05:40.848363+00:00",
+      "proofs": [
+        {
+          "path": "evidence/agave-source-operations-individual-review.json",
+          "sha256": "b5e3b29e02a470833b9627dfa3baefc9bf0b0c82ebaadcb5fc28c047e7eb73e9"
+        }
+      ]
+    },
+    "G6.05": {
+      "passed": true,
+      "scope": "remote",
+      "verifiedAt": "2026-10-17T03:05:40.848363+00:00",
+      "proofs": [
+        {
+          "path": "evidence/agave-source-operations-individual-review.json",
+          "sha256": "b5e3b29e02a470833b9627dfa3baefc9bf0b0c82ebaadcb5fc28c047e7eb73e9"
         }
       ]
     },
@@ -129,7 +217,6 @@
     "G2.01",
     "G2.05",
     "G2.06",
-    "G2.07",
     "G2.09",
     "G3.02",
     "G3.03",
@@ -141,12 +228,10 @@
     "G3.09",
     "G4.01",
     "G4.02",
-    "G4.04",
     "G4.05",
     "G4.06",
     "G4.07",
     "G4.08",
-    "G5.01",
     "G5.02",
     "G5.03",
     "G5.04",
@@ -158,11 +243,6 @@
     "G5.10",
     "G5.11",
     "G5.12",
-    "G6.01",
-    "G6.02",
-    "G6.03",
-    "G6.04",
-    "G6.05",
     "G6.06",
     "G6.07",
     "G6.08",
@@ -178,7 +258,7 @@
     "G7.08",
     "G7.09"
   ],
-  "reviewedRequirementCount": 8,
+  "reviewedRequirementCount": 16,
   "requiredRequirementCount": 75,
   "legacyReleaseEvaluatorConsumesThisInventory": false,
   "releaseAccepted": false,

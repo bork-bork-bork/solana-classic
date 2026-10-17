@@ -7,8 +7,9 @@ requirements are not transferred to this candidate.
 
 The separate [current review inventory](../../evidence/agave-source-acceptance-gates.json)
 binds the exact source candidate, freeze, unchanged checklist and checksum-bound
-individual proof. It currently records eight of 75 requirements reviewed:
-G1.02, G2.02, G2.03, G2.04, G2.08, G3.01, G4.03 and G7.04. The other 67 remain
+individual proofs. It currently records 16 of 75 requirements reviewed:
+G1.02, G2.02, G2.03, G2.04, G2.07, G2.08, G3.01, G4.03, G4.04, G5.01,
+G6.01 through G6.05 and G7.04. The other 59 remain
 unreviewed in this inventory, including the derived whole-release check. Missing
 attestations do not necessarily mean functionality failed; they mean the
 requirement has not been individually accepted for this candidate.
@@ -27,6 +28,17 @@ balance and authority conclusions rely on the retained successful driver
 assertions: these reports do not contain full raw RPC replies or supply an
 independent transaction replay. Failed attempts remain failed and retained.
 
+The [operations individual review](../../evidence/agave-source-operations-individual-review.json)
+adds eight requirements from the exact selected load, restart and negative-control
+reports. All 200 load timings and distinct receipts were recalculated: p95 confirmed
+latency was 3.313 seconds, p95 finalization was 15.350 seconds, and all operations
+confirmed within 15 seconds. The restart preserved one sampled balance, 50 mint
+records, 43 populated owner records and 100 immutable file URL/hash pairs. Separate
+bounded controls recorded prohibited RPC rejection and an asset-admission 429.
+That response does not identify the exhausted quota bucket or prove client-IP
+attribution. These are retained observations; no workload, restart or abuse probe
+was repeated.
+
 This inventory is not consumed by the frozen legacy release evaluator and
 cannot turn its result into a current-candidate pass. Preserve that evaluator,
 its original manifest and all 45 frozen files. A future source-specific release
@@ -34,7 +46,7 @@ evaluation must bind this exact freeze/checklist, reject old-candidate proofs,
 validate every selected proof and individually review all remaining requirements
 before it can evaluate overall acceptance. An inventory count alone cannot do so.
 
-Next review retained load, recovery, monitoring, rollback and negative-control
+Next review remaining recovery, monitoring, rollback and negative-control
 proofs against the complete wording of each requirement. Do not replay finalized
 operations or rerun the completed soak merely to obtain another checkbox.
 Privacy/log coverage, adverse UI paths, historical deadline claims and operator
