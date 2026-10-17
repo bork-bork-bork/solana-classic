@@ -124,6 +124,18 @@ first exposure. The review records the observed subset, missing evidence and
 next isolated review for each requirement. No canonical fault, repeat grant,
 quota exhaustion or new workload was introduced; the inventory remains 24/75.
 
+The [isolated faucet review](../../evidence/agave-source-faucet-isolated-review.json)
+adds seven new checks against the exact retained candidate route/store source:
+concurrent duplicate and distinct requests, persistent daily limits, and original
+signature reconciliation across five supplied status outcomes. The fixture uses
+real disposable SQLite and in-process HTTP injection, with mocked RPC/grant
+methods and maintenance admission. All seven pass; 51 related checks also pass
+separately against repository source. Earlier configuration/dependency startup
+failures and the candidate's correct maintenance refusal remain recorded.
+No protected release files or deployed controls changed. These scoped results
+narrow G5.02/G5.03 coverage gaps without accepting either complete requirement;
+application reopen is not a host restart and supplied status is not chain proof.
+
 Run the separate offline integrity checker with:
 
 ```sh
