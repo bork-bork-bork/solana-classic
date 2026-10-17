@@ -798,8 +798,8 @@
   },
   "socToken": {
     "network": "Solana mainnet",
-    "mint": "[historical address removed]",
-    "explorer": "https://solscan.io/token/[historical address removed]",
+    "mint": "Nuhksmxq3AZ6ZrzVHshKnQd8QTTRSXCb7a6AU7oMsoc",
+    "explorer": "https://solscan.io/token/Nuhksmxq3AZ6ZrzVHshKnQd8QTTRSXCb7a6AU7oMsoc",
     "scope": "Published original SOC token address; not native Classic mainnet or bridge activation"
   }
 }

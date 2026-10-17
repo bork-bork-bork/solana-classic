@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "observedAt": "2026-10-15T21:03:09.371556+00:00",
   "scope": "Read-only observation of the public Streamflow application and its published help documentation; not independent raw-account decoding or a custody/security audit",
-  "tokenMint": "[historical address removed]",
+  "tokenMint": "Nuhksmxq3AZ6ZrzVHshKnQd8QTTRSXCb7a6AU7oMsoc",
   "lockContract": "BcKXq8svKSR8A8kR44zJ25xhR7mj7TsWPWy74zB6gRxQ",
   "publicRecord": "https://app.streamflow.finance/contract/solana/mainnet/BcKXq8svKSR8A8kR44zJ25xhR7mj7TsWPWy74zB6gRxQ",
   "priceLockDocumentation": "https://docs.streamflow.finance/en/articles/10750946-price-based-lock",

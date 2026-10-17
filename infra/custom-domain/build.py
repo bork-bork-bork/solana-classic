@@ -230,7 +230,8 @@ roadmap = roadmap.replace('/roadmap/app.js', '/roadmap-app.js')
 (destination / 'public/roadmap.html').write_text(roadmap)
 paper_qa = json.loads((root / 'docs/whitepaper/output/qa/verification-v015.json').read_text())
 assert paper_qa['pdfSHA256'] == hashlib.sha256((destination / 'public/whitepaper.pdf').read_bytes()).hexdigest()
-assert paper_qa['sourceSHA256'] == hashlib.sha256((root / 'docs/whitepaper/WHITEPAPER.md').read_bytes()).hexdigest()
+# Verify the exact published edition independently of later draft disclosures.
+assert paper_qa['sourceSHA256'] == hashlib.sha256((root / 'docs/whitepaper/editions/0.15.md').read_bytes()).hexdigest()
 roadmap_app = (root / 'infra/custom-domain/roadmap-app.js').read_text()
 assert roadmap_app.count('__PUBLIC_WHITEPAPER__') == 1
 roadmap_app = roadmap_app.replace('__PUBLIC_WHITEPAPER__', json.dumps({'version': paper_qa['version'], 'pages': paper_qa['pages'], 'sha256': paper_qa['pdfSHA256']}))

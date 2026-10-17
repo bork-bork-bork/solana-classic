@@ -11,10 +11,10 @@ Solana Classic is an open-source blockchain putting meme and NFT communities at 
 **Official token contract address (Solana mainnet):**
 
 ```
-[historical address removed]
+Nuhksmxq3AZ6ZrzVHshKnQd8QTTRSXCb7a6AU7oMsoc
 ```
 
-[View SOC on Solscan](https://solscan.io/token/[historical address removed]) · [Token details](https://solanaclassic.net/token)
+[View SOC on Solscan](https://solscan.io/token/Nuhksmxq3AZ6ZrzVHshKnQd8QTTRSXCb7a6AU7oMsoc) · [Token details](https://solanaclassic.net/token)
 
 Solana Classic mainnet and the proposed 1:1 bridge are not live. tSOC on devnet is a separate test asset with no monetary value or conversion rights.
 
