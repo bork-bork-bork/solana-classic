@@ -65,9 +65,14 @@ no-store headers, current timestamps and advancing slots. This is current
 project targeting, not an audit of every historical preview or manual override.
 No preview deployment, alias mutation or transaction was performed.
 
-G5.07 remains unreviewed: healthy monitoring is not a complete probe/delivery
-audit. The recovery review retains the missing evidence and next action; its
-previous G5.08 and G5.12 gaps are now explicitly superseded by later reviews.
+G5.07 remains unreviewed. The [monitoring attribution review](../../evidence/agave-source-monitoring-attribution-review.json)
+verifies the deployed monitor source, three saved thresholds, the historical
+trigger/recovery record and the account's saved Email & In-App routing. The
+controlled fault fixture used a different deployment from the final steady
+monitor; its exact deployed source binding remains unresolved. Matching today's
+source to the historical final configuration does not close that gap. No new
+fault or delivery receipt is claimed. The earlier G5.08 and G5.12 gaps are
+explicitly superseded by their later reviews.
 
 This inventory is not consumed by the frozen legacy release evaluator and
 cannot turn its result into a current-candidate pass. Preserve that evaluator,
