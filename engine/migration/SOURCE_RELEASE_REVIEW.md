@@ -74,6 +74,16 @@ source to the historical final configuration does not close that gap. No new
 fault or delivery receipt is claimed. The earlier G5.08 and G5.12 gaps are
 explicitly superseded by their later reviews.
 
+The [exact-source loopback review](../../evidence/agave-source-monitoring-loopback-review.json)
+now exercises the unchanged current monitor source against a local synthetic
+HTTP server. Upstream failure and a real 60.510-second finalized-slot stall
+were both detected, followed by recovery. Read-only SSH separately matched the
+deployed source checksum. Railway signaling was disabled for this isolated run;
+it supplies no fresh hosted alert or delivery receipt and does not exercise the
+hosted polling loop's debounce. The historical hosted fixture attribution gap
+remains open, and G5.07 stays unreviewed. No canonical fault, restart or duplicate
+stability test was initiated.
+
 Run the separate offline integrity checker with:
 
 ```sh
