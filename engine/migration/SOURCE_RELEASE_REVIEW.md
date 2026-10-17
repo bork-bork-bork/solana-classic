@@ -198,3 +198,16 @@ call or faucet reservation; the retained negative-control report separately
 proves forbidden no-Origin RPC admission. Asset stats are not a fresh full-byte
 audit, and volatile request-rate counters are outside the business-state claim.
 No POST, grant, transaction, configuration change or restart was repeated.
+
+
+The [faucet process review](../../evidence/agave-source-faucet-process-review.json)
+adds four isolated checks against both retained candidate and current source.
+Two Store processes share a disposable SQLite database while concurrent batches
+exercise wallet, IP and global caps. After both processes exit cleanly, a fresh
+process denies excess reservations and reuses prior request IDs with unchanged
+counters and receipt fingerprints. A duplicate-request case creates one
+reservation across eight submissions and rejects a conflicting wallet after
+process replacement. Workers attest the Store and configuration checksums.
+These checks exercise actual database process boundaries, but no API restart,
+abrupt crash, grant submission or chain finality. G5.02 and G5.03 remain
+unreviewed; the inventory stays at 25 of 75.
