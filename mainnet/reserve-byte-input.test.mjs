@@ -1,10 +1,13 @@
 import {mkdtempSync,symlinkSync,rmSync} from 'node:fs';
 import {tmpdir} from 'node:os';
-import {join} from 'node:path';
-import {fileURLToPath} from 'node:url';
+import {join,resolve,dirname} from 'node:path';
+import {fileURLToPath,pathToFileURL} from 'node:url';
 import {spawnSync} from 'node:child_process';
 import {Readable,PassThrough,Writable} from 'node:stream';
-import {reserveAdapterResult,readReserveInput,runReserveAdapter,MAX_INPUT_BYTES} from './reserve-byte-stdio.mjs';
+const adapterURL=process.env.RESERVE_TEST_ARTIFACT?pathToFileURL(resolve(process.env.RESERVE_TEST_ARTIFACT)):new URL('./reserve-byte-stdio.mjs',import.meta.url);
+const adapterPath=fileURLToPath(adapterURL);
+const {reserveAdapterResult,readReserveInput,runReserveAdapter,MAX_INPUT_BYTES}=await import(adapterURL.href);
+const childOptions={cwd:dirname(adapterPath),env:{PATH:process.env.PATH},encoding:'utf8',timeout:5000,maxBuffer:1024*1024};
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
@@ -51,7 +54,7 @@ test('stdio adapter executes prepare and review with unchanged permissions and n
  const x=selected(),saved=structuredClone(x);
  for(const [mode,input,expected] of [['prepare',before(x),prepare(before(x))],['review',x,review(x)]]){
   const raw=Buffer.from(JSON.stringify(input));assert.deepEqual(JSON.parse(reserveAdapterResult(mode,raw)),expected);
-  const child=spawnSync(process.execPath,['mainnet/reserve-byte-stdio.mjs',mode],{input:raw,encoding:'utf8',timeout:5000,maxBuffer:1024*1024});
+  const child=spawnSync(process.execPath,[adapterPath,mode],{...childOptions,input:raw});
   assert.equal(child.status,0);assert.equal(child.stderr,'');assert.deepEqual(JSON.parse(child.stdout),expected);noPermissions(JSON.parse(child.stdout));
  }
  assert.deepEqual(x,saved);
@@ -63,7 +66,7 @@ test('stdio adapter retains exact u64 integer text in compiler input',()=>{
 test('stdio adapter refuses extra arguments, malformed input and wrong selectors without exposing supplied text',()=>{
  const bad=before(selected());bad.expectedPlanSHA256='0'.repeat(64);bad.rawBaselineDecoded='private-marker-do-not-echo';
  for(const [args,input] of [[[],Buffer.from('private-marker-do-not-echo')],[['prepare','extra'],Buffer.from('{}')],[['unknown'],Buffer.from('{}')],[['prepare'],Buffer.from('private-marker-do-not-echo')],[['prepare'],Buffer.from(JSON.stringify(bad))],[['prepare'],Buffer.alloc(0)]]){
-  const child=spawnSync(process.execPath,['mainnet/reserve-byte-stdio.mjs',...args],{input,encoding:'utf8',timeout:5000,maxBuffer:1024*1024});
+  const child=spawnSync(process.execPath,[adapterPath,...args],{...childOptions,input});
   assert.equal(child.status,78);assert.equal(child.stdout,'');assert.equal(child.stderr,'RESERVE_ADAPTER_INPUT_REFUSED\n');
  }
 });
@@ -98,11 +101,11 @@ test('stdio runner preserves refusal status if the diagnostic pipe also fails',a
 test('stdio CLI runs through a symlink and preserves success and refusal reports',()=>{
  const directory=mkdtempSync(join(tmpdir(),'reserve-cli-link-'));
  try {
-  const link=join(directory,'adapter.mjs');symlinkSync(fileURLToPath(new URL('./reserve-byte-stdio.mjs',import.meta.url)),link);
+  const link=join(directory,'adapter.mjs');symlinkSync(adapterPath,link);
   const input=before(selected()),raw=JSON.stringify(input);
-  const success=spawnSync(process.execPath,[link,'prepare'],{input:raw,encoding:'utf8',timeout:5000,maxBuffer:1024*1024});
+  const success=spawnSync(process.execPath,[link,'prepare'],{...childOptions,input:raw});
   assert.ifError(success.error);assert.equal(success.status,0);assert.equal(success.stderr,'');assert.deepEqual(JSON.parse(success.stdout),prepare(input));
-  const refused=spawnSync(process.execPath,[link,'prepare'],{input:'{}',encoding:'utf8',timeout:5000,maxBuffer:1024*1024});
+  const refused=spawnSync(process.execPath,[link,'prepare'],{...childOptions,input:'{}'});
   assert.ifError(refused.error);assert.equal(refused.status,78);assert.equal(refused.stdout,'');assert.equal(refused.stderr,'RESERVE_ADAPTER_INPUT_REFUSED\n');
  }finally{rmSync(directory,{recursive:true,force:true});}
 });
