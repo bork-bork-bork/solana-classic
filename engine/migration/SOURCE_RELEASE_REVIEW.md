@@ -173,3 +173,16 @@ access acknowledgment must not be inferred from a successful happy-path journey.
 Mainnet additionally requires suitable Linux hosting, actual full-validator
 consensus/recovery, funded backing, custody, independent operators and security
 review. No mainnet, bridge or overall release approval is supplied here.
+
+
+The [isolated faucet transport-loss review](../../evidence/agave-source-faucet-transport-loss-review.json)
+adds three exact-source checks using real loopback HTTP. Disconnecting after
+receiving a synthetic grant request, or withholding its response until the
+unchanged ten-second deadline, retains one uncertain reservation. Eight retries
+after application reopen return that receipt without a second upstream grant
+request. A lost status response also preserves the recorded signature; a later
+lookup reconciles that same signature from a supplied finalized result. The
+clock, fetch and connection methods are not mocked; maintenance admission and
+the upstream chain responses remain fixture-only. These are local transport and
+persistence checks, not real airdrop, finality or container-crash evidence.
+G5.02 and G5.03 remain unreviewed as complete requirements.
