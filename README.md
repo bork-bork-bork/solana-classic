@@ -163,6 +163,8 @@ Vercel serves the frontend and the main site's `/roadmap` route. Railway hosts t
 
 `solanaclassic.net` now serves directly through a separate frontend deployment. Its bounded same-origin adapter reaches the unchanged gateway, and uploaded artwork uses a separate persistent service. The current soak still certifies its original frozen Vercel candidate; the domain frontend and upload service receive separate checks. See [custom-domain deployment](infra/custom-domain/README.md) and [image service](infra/image-assets/README.md).
 
+The replacement source-built devnet stability run completed on 17 October 2026: 288 distinct browser journeys and 2,880 observations over a full 24 hours. [Strict terminal review](evidence/agave-source-stability-replacement-completed.json) verified its frozen candidate and unchanged runtime identity. [Final desktop and mobile browser checks](evidence/agave-source-final-browser-review.json) also passed on both sites, with 24 finalized receipts across four passing journeys. Remaining release requirements are pending; this does not approve mainnet or the bridge.
+
 During an active stability run, keep the tested source, runtime identity and served application files unchanged. Follow [HOSTED_QA.md](docs/HOSTED_QA.md) before operational changes. Preserve failed and interrupted attempts. Private keys, runtime ledgers, local tools and credentials remain ignored and must not enter source releases or frontend builds.
 
 </details>

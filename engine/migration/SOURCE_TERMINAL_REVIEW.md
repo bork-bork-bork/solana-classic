@@ -80,3 +80,20 @@ The full refusal matrix is rerun against this separate binding, including the
 old interrupted 237-journey shape and elapsed-time refusal. These are offline
 synthetic checks, not completion or independent replay of the running attempt.
 No full report should be exported or accepted before it actually completes.
+
+## Replacement completion reviewed on 17 October
+
+The exact replacement finished at 01:24:36.808 UTC after 86,400,466ms. Its
+complete retained report passed strict terminal review at 01:34 UTC: 288
+distinct mints, recipients and transfer receipts, 2,880 observations, zero
+faucet calls during measurement and a maximum schedule delay of 10ms. All
+eight selected prerequisite hashes and 45 frozen source files matched; current
+runtime identity and independent health matched the completed candidate.
+
+See [the scoped terminal review](../../evidence/agave-source-stability-replacement-completed.json)
+for exact identities, report hashes and limitations. This verifies recorded
+evidence, not independent replay of transaction history. The earlier failed
+attempt remains retained. [Final current-candidate browser regression](../../evidence/agave-source-final-browser-review.json)
+subsequently passed on both sites at desktop and mobile widths. Remaining
+release requirements and operator handoff are still pending. Mainnet, bridge
+and whole-release acceptance remain false.

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "reviewedAt": "2026-10-16T01:27:01.937273+00:00",
+  "reviewedAt": "2026-10-17T01:48:57.059193+00:00",
   "t0": "2026-10-13T03:00:54Z",
   "deadline": "2026-10-19T03:00:54Z",
   "target": "2026-10-17T15:00:54Z",
@@ -151,6 +151,18 @@
       "at": "2026-10-14T16:48:23.028Z",
       "scope": "remote original frozen browser soak evidence review; recorded receipts, not independent transaction replay or full release acceptance",
       "sha256": "50462038ce8992d5988af1e9c602eddb2de47ce48fbcd87a1cfd95a3702d6612"
+    },
+    "replacement-source-soak-terminal": {
+      "passed": true,
+      "at": "2026-10-17T01:24:36.808Z",
+      "scope": "remote replacement source-built devnet terminal evidence review; recorded complete report and receipts, not independent chain replay or release acceptance",
+      "sha256": "f84bd7ffe13c946e8e772145893154af9da38df25ad331f9616a2de6bc4ea54c"
+    },
+    "source-final-browser": {
+      "passed": true,
+      "at": "2026-10-17T01:48:57.059193+00:00",
+      "scope": "Remote final browser verification after the exact source-built replacement stability run; separate frozen and branded frontend results.",
+      "sha256": "51bff09bfdedcbb736132d87f8cf7c5d20fa684bb2e4d8ea595273b838f76b07"
     }
   },
   "load": {
@@ -669,7 +681,7 @@
         "title": "Devnet release evidence",
         "state": "building",
         "description": "Candidate-specific validation of the source-built devnet and its fresh 24-hour stability test.",
-        "currentScope": "The previous source-build run interrupted after 237 of 288 journeys and is retained as failed. All eight exact current-candidate prerequisites passed for a separate replacement, started on 16 October at 01:24 UTC with earliest completion on 17 October at 01:24 UTC. Passive HTTP diagnostics are active; frozen workload and validator identities are unchanged. Completion, final regression and release review remain pending. Source and evidence are in PR #6.",
+        "currentScope": "The separate replacement completed on 17 October at 01:24 UTC: 288 distinct journeys and 2,880 observations over a full 24 hours. Strict terminal review verified the exact activation, eight prerequisite hashes, all 45 frozen source files and unchanged runtime identity. The earlier 237-journey failure remains retained. Four final Chromium journeys passed on the frozen and branded sites, covering desktop/mobile and 24 finalized receipts. One earlier storage-assertion failure remains retained; its narrow panel-preference correction passed 11 driver checks. Remaining release requirements and operator handoff are pending. Source and evidence are in PR #6.",
         "source": "https://github.com/solana-classic/solana-classic/blob/main/engine/migration/STABILITY_RELEASE_REVIEW.md",
         "milestones": [
           {
@@ -712,13 +724,13 @@
           {
             "title": "Source-built Agave migration",
             "state": "live-passed",
-            "detail": "Source-built Agave is live on the existing devnet. All 2163 accounts, program code, tokens/NFTs, application records and 1992 immutable files survived. Current-candidate admission checks passed; the separately recorded replacement stability run is in progress."
+            "detail": "Source-built Agave is live on the existing devnet. All 2163 accounts, program code, tokens/NFTs, application records and 1992 immutable files survived. Current-candidate admission checks and the separately recorded replacement full-day stability audit passed. Final desktop/mobile browser regression also passed; whole release review remains pending."
           },
           {
             "title": "New source-build stability run",
-            "state": "running",
-            "detail": "Replacement full24h run started on 16 October at 01:24 UTC; earliest completion is 17 October at 01:24 UTC if every check passes. The previous 237-journey interruption is preserved. Fourteen auxiliary diagnostic/status checks pass locally and on Linux; no failure rules or frozen workload changed. Follow live progress above. Completion and release acceptance remain pending.",
-            "evidence": "https://github.com/solana-classic/solana-classic/blob/bridge/metadata-mint-review/evidence/agave-source-stability-replacement-started.json"
+            "state": "live-passed",
+            "detail": "Completed 17 October at 01:24:36 UTC after 86,400,466ms. Full retained report audited: 288 unique mints, recipients and transfer receipts; 2,880 observations; no faucet calls during measurement; maximum schedule delay 10ms. Exact activation, selected prerequisites, frozen source and runtime match. Recorded evidence review is not independent transaction replay or mainnet/release acceptance.",
+            "evidence": "https://github.com/solana-classic/solana-classic/blob/bridge/metadata-mint-review/evidence/agave-source-stability-replacement-completed.json"
           },
           {
             "title": "Source-built devnet original mobile verification",
@@ -761,6 +773,12 @@
             "state": "local-passed",
             "detail": "Proposed auditor strengthening in PR #6, not yet merged. All 37 source/historical terminal and load regressions pass locally. Exact run, activation, engine, eight prerequisite hashes, full duration and 288 unique mint/transfer receipts remain mandatory. Three new groups reject self-transfer/reused recipient or mint roles and ambiguous workload/exit-code types. Synthetic reports only; the running test stays unaccepted. Actual complete terminal review, final browser regression and release handoff remain pending.",
             "evidence": "https://github.com/solana-classic/solana-classic/pull/6"
+          },
+          {
+            "title": "Post-stability source-runtime final browser verification",
+            "state": "live-passed",
+            "detail": "Four fresh full journeys: desktop1440x1000 and touch-emulated mobile360x844 on frozen and branded origins. Eight demo assets,24finalized receipts,exact balances/owners,uploaded PNG NFTs on the branded site,no page/console errors. One prior assertion failure with six finalized receipts is retained separately. Only the exact non-secret panel preference is permitted in branded local storage; frozen storage and all session storage remain empty. Remaining release/security/operator gates stay open.",
+            "evidence": "https://github.com/solana-classic/solana-classic/blob/bridge/metadata-mint-review/evidence/agave-source-final-browser-review.json"
           }
         ]
       }
