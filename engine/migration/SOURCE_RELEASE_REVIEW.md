@@ -7,9 +7,9 @@ requirements are not transferred to this candidate.
 
 The separate [current review inventory](../../evidence/agave-source-acceptance-gates.json)
 binds the exact source candidate, freeze, unchanged checklist and checksum-bound
-individual proofs. It currently records 20 of 75 requirements reviewed:
+individual proofs. It currently records 22 of 75 requirements reviewed:
 G1.02, G2.02, G2.03, G2.04, G2.07, G2.08, G3.01, G4.03, G4.04, G5.01,
-G5.08, G5.09, G5.12, G6.01 through G6.05, G6.07 and G7.04. The other 55 remain
+G5.08, G5.09, G5.12, G6.01 through G6.05, G6.07, G6.11, G7.03 and G7.04. The other 53 remain
 unreviewed in this inventory, including the derived whole-release check. Missing
 attestations do not necessarily mean functionality failed; they mean the
 requirement has not been individually accepted for this candidate.
@@ -74,6 +74,15 @@ runtime identity across 2,880 observations. The same browser session remained
 open throughout. Re-evaluating the terminal auditor at its original observation
 time is a retrospective evidence check, not a new workload or current snapshot.
 This does not accept the separate deadline or machine-specification requirements.
+
+The [public disclosure review](../../evidence/agave-source-public-disclosure-individual-review.json)
+adds G6.11 and G7.03. Anonymous HTTP reads verified both network-page shells,
+the actual genesis and single-operator facts, the frozen dependency manifest,
+and the current runtime's full source-built identity. Four selected published
+files match the reviewed checkout bytes. The load, terminal report and README
+limit the results to one validator and separate them from mainnet acceptance.
+These are content/access checks; no new rendering, transaction or benchmark
+was performed. Prior browser results retain their own observation times.
 
 G5.07 remains unreviewed. The [monitoring attribution review](../../evidence/agave-source-monitoring-attribution-review.json)
 verifies the deployed monitor source, three saved thresholds, the historical

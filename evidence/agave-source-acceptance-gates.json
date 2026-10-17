@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "at": "2026-10-17T07:05:33.168116+00:00",
+  "at": "2026-10-17T08:03:44.861630+00:00",
   "scope": "remote-experimental-source individual review inventory; incomplete and not an overall release evaluation",
   "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
   "candidate": {
@@ -229,6 +229,28 @@
         }
       ]
     },
+    "G6.11": {
+      "passed": true,
+      "scope": "remote",
+      "verifiedAt": "2026-10-17T08:03:44.861630+00:00",
+      "proofs": [
+        {
+          "path": "evidence/agave-source-public-disclosure-individual-review.json",
+          "sha256": "4c483e472ea9a58e8fe12852cbfc5ec4ad251dfcc2af0be505e2aabac9663a83"
+        }
+      ]
+    },
+    "G7.03": {
+      "passed": true,
+      "scope": "remote",
+      "verifiedAt": "2026-10-17T08:03:44.861630+00:00",
+      "proofs": [
+        {
+          "path": "evidence/agave-source-public-disclosure-individual-review.json",
+          "sha256": "4c483e472ea9a58e8fe12852cbfc5ec4ad251dfcc2af0be505e2aabac9663a83"
+        }
+      ]
+    },
     "G7.04": {
       "passed": true,
       "scope": "remote",
@@ -288,17 +310,15 @@
     "G6.08",
     "G6.09",
     "G6.10",
-    "G6.11",
     "G7.01",
     "G7.02",
-    "G7.03",
     "G7.05",
     "G7.06",
     "G7.07",
     "G7.08",
     "G7.09"
   ],
-  "reviewedRequirementCount": 20,
+  "reviewedRequirementCount": 22,
   "requiredRequirementCount": 75,
   "legacyReleaseEvaluatorConsumesThisInventory": false,
   "releaseAccepted": false,
