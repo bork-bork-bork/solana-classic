@@ -221,3 +221,24 @@ are supplied tool responses and disposable files, not compiled genesis or
 actual ledger replay. The v2 auditor does not expose every GenesisConfig field
 or full account bytes. This comparison therefore does not establish complete
 non-account equivalence, account-data identity or reserve-adapter integration.
+
+
+## Bounded decoder input transport
+
+The offline process runner now accepts optional immutable `input_bytes`, bounded
+to 16 MiB for selected genesis input. It writes through a nonblocking pipe while
+draining both output streams under the existing deadline and output bounds.
+Empty or absent input delivers EOF; tools never inherit an interactive terminal.
+An early input-pipe closure or timeout fails and reaps the owned process group.
+The runner does not copy input into logs or command arguments; callers still
+select and validate the executable, input file, digest and returned report.
+
+The [input transport review](../evidence/mainnet-offline-input-transport-local.json)
+records real local child-process tests for exact maximum-size binary delivery,
+simultaneous pipe pressure, EOF, invalid input, early closure and a nonreading
+child. Six new groups pass alongside the ten existing process groups. The full
+local package has 158 passes and one Linux-only skip. No genesis decoder,
+compiler or validator ran. This supplies the bounded transport needed for the
+allocation-byte decoder; integrating that decoder and reserve input into fresh
+preparation, checking every account/parameter and running strict ledger replays
+remain separate work requiring reviewed tools and an admitted Linux host.
