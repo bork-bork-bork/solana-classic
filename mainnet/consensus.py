@@ -87,7 +87,9 @@ def regular(p):
 
 def inspect_tool(binary,args,pin,size,timeout,stdout_limit):
  # Recheck the selected bytes immediately before each read-only invocation.
- if host.sha(regular(binary))!=pin or binary.stat().st_size!=size:raise ValueError('REVIEWED_INSPECTION_TOOL_REQUIRED')
+ try:actual=host.binary_fingerprint(binary,size)
+ except (OSError,ValueError):raise ValueError('REVIEWED_INSPECTION_TOOL_REQUIRED') from None
+ if actual!={'sha256':pin,'bytes':size,'executable':True}:raise ValueError('REVIEWED_INSPECTION_TOOL_REQUIRED')
  # Check-only admission must not create logs. Discard bounded private stderr.
  with io.BytesIO() as errors:
   return offline_process.run_tool([str(binary),*map(str,args)],errors,timeout=timeout,stdout_limit=stdout_limit,stderr_limit=65536)

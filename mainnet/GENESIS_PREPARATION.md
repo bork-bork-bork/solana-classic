@@ -120,6 +120,24 @@ are not compiled-tool or consensus evidence. The binary directory must remain
 under trusted operator control: fingerprinting does not atomically bind the
 later path-based process execution to the checked descriptor.
 
+## Final bundle inspection tool admission
+
+The bundle checker also uses the bounded executable fingerprint before running
+its selected genesis auditor or keygen public-key inspection. Previously this
+helper hashed the full file before checking its length, and could accept a
+same-byte replacement during that read. Wrong lengths now refuse before opening;
+changed file identity, permissions or bytes refuse before the process helper.
+Read failures use a path-free error. Existing output limits, timeouts and
+check-only behavior are unchanged.
+
+Four new fixture groups cover read ordering, same-byte replacement,
+non-executable files and sanitized I/O failure. All ten focused checks pass;
+the complete offline preparation package runs 146 checks locally, with 145
+passing and the existing Linux-only process check skipped. These are disposable
+file/process tests, not compiled-tool execution or a newly admitted host. The
+later path-based execution still requires trusted control of the binary
+directory. See [the scoped result](../evidence/mainnet-bundle-tool-fingerprint-local.json).
+
 ## Evidence and limits
 
 The original thirteen preparation checks cover blocked/canonical hosts, read-only default,

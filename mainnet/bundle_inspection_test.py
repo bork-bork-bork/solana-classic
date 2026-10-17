@@ -32,6 +32,41 @@ class BundleInspection(unittest.TestCase):
   with tempfile.TemporaryDirectory() as tmp:
    tool,pin,size=self.tool(Path(tmp),"import sys;sys.stderr.write('private account');sys.exit(1)")
    with self.assertRaisesRegex(ValueError,'^OFFLINE_PREPARATION_TOOL_FAILED$'):m.inspect_tool(tool,[],pin,size,2,128)
+ def test_nonexecutable_inspection_file_refuses_before_invocation(self):
+  with tempfile.TemporaryDirectory() as tmp:
+   tool,pin,size=self.tool(Path(tmp),'print("fixture")');tool.chmod(0o600)
+   with patch.object(m.offline_process,'run_tool',return_value=b'not executed') as run:
+    with self.assertRaisesRegex(ValueError,'^REVIEWED_INSPECTION_TOOL_REQUIRED$'):m.inspect_tool(tool,[],pin,size,2,128)
+    run.assert_not_called()
+ def test_wrong_length_refuses_before_opening_or_invoking(self):
+  with tempfile.TemporaryDirectory() as tmp:
+   tool,pin,size=self.tool(Path(tmp),'print("fixture")')
+   with patch.object(Path,'open',side_effect=AssertionError('Wrong length must refuse before a buffered read')),patch.object(m.host.os,'open',side_effect=AssertionError('Wrong length must refuse before descriptor open')),patch.object(m.offline_process,'run_tool') as run:
+    with self.assertRaisesRegex(ValueError,'^REVIEWED_INSPECTION_TOOL_REQUIRED$'):m.inspect_tool(tool,[],pin,size+1,2,128)
+    run.assert_not_called()
+ def test_same_byte_replacement_during_inspection_hash_refuses(self):
+  with tempfile.TemporaryDirectory() as tmp:
+   tool,pin,size=self.tool(Path(tmp),'print("fixture")');replacement=tool.with_name('replacement');replacement.write_bytes(tool.read_bytes());replacement.chmod(0o700)
+   opened=Path.open;read=m.host.os.read;changed=False
+   def replace():
+    nonlocal changed
+    if not changed:changed=True;replacement.replace(tool)
+   def open_and_replace(path,*args,**kwargs):
+    handle=opened(path,*args,**kwargs)
+    if path==tool:replace()
+    return handle
+   def read_and_replace(fd,count):
+    data=read(fd,count);replace();return data
+   with patch.object(Path,'open',open_and_replace),patch.object(m.host.os,'read',side_effect=read_and_replace),patch.object(m.offline_process,'run_tool',return_value=b'not executed') as run:
+    with self.assertRaisesRegex(ValueError,'^REVIEWED_INSPECTION_TOOL_REQUIRED$'):m.inspect_tool(tool,[],pin,size,2,128)
+    run.assert_not_called()
+   self.assertTrue(changed)
+ def test_inspection_fingerprint_io_failure_is_path_free(self):
+  with tempfile.TemporaryDirectory() as tmp:
+   tool,pin,size=self.tool(Path(tmp),'print("fixture")')
+   with patch.object(m.host,'binary_fingerprint',side_effect=OSError('private fixture path')),patch.object(m.offline_process,'run_tool',return_value=b'not executed') as run:
+    with self.assertRaisesRegex(ValueError,'^REVIEWED_INSPECTION_TOOL_REQUIRED$'):m.inspect_tool(tool,[],pin,size,2,128)
+    run.assert_not_called()
  def bundle(self,base):
   manifest,audit=fixture();bundle=base/'bundles'/'fixture';g=bundle/'genesis';g.mkdir(parents=True);keys=bundle/'keys';keys.mkdir()
   genesis=b'fresh synthetic genesis';(g/'genesis.bin').write_bytes(genesis);raw=io.BytesIO()
