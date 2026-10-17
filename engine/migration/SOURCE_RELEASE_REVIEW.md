@@ -211,3 +211,15 @@ process replacement. Workers attest the Store and configuration checksums.
 These checks exercise actual database process boundaries, but no API restart,
 abrupt crash, grant submission or chain finality. G5.02 and G5.03 remain
 unreviewed; the inventory stays at 25 of 75.
+
+
+The [isolated gallery review](../../evidence/agave-source-gallery-isolated-review.json)
+adds 17 checks against both retained candidate and current source. Correct NFT
+and meme controls pass the real route, verifier and Token-2022 decoders. Encoded
+metadata/pointer mismatches, wrong account owner or issuance program, wrong
+genesis, wrong mint and unknown signature all refuse with unchanged database
+rows and no gallery insertion. Chain observations are supplied; no issuance,
+finality or deployed rejection is claimed. The first retained fixture failed
+collection because a dependency path was absent; that failure remains retained,
+and a fresh identical fixture passed after verified dependency linking.
+G4.02 remains unreviewed pending the complete individual remote gate review.
