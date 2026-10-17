@@ -107,7 +107,25 @@ class Preparation(unittest.TestCase):
    for value in [None,{},[],False,{'value':float('nan')}, {'value':float('inf')}]:
     with self.subTest(field=field,value=value),self.assertRaisesRegex(ValueError,'AUDITED_GENESIS_POLICY_REQUIRED'):m.audited_policy({**policy,field:value})
   self.assertNotEqual(baseline,m.audited_policy({**policy,'rent':{'value':False}}))
- def synthetic_driver(self,changed_poh=None,changed_reserve=None,changed_policy=None):
+ def test_final_account_drift_refuses_before_bundle_or_replay(self):
+  def redistribute(a):
+   a['accounts'][0]['lamports']='110';a['accounts'][3]['lamports']='112'
+  for mutate in [redistribute,lambda a:a['accounts'][0].update(dataBytes=1),lambda a:a['accounts'][0].update(executable=True),lambda a:a['accounts'][0].update(owner=key(800)),lambda a:a['accounts'][0].update(address=key(801)),lambda a:a.update(accountCount=True),lambda a:a['accounts'][0].update(dataBytes=False),lambda a:a['accounts'][0].update(extra='unreviewed')]:
+   with self.subTest(mutate=mutate):self.synthetic_driver(changed_accounts=mutate)
+ def test_allocation_projection_is_order_independent_and_preserves_input(self):
+  import copy
+  rows=[{'address':key(1),'owner':key(2),'lamports':'9','dataBytes':12,'executable':True},{'address':key(3),'owner':'11111111111111111111111111111111','lamports':'1','dataBytes':0,'executable':False}]
+  probe={'accountCount':2,'totalLamports':'10','accounts':rows};saved=copy.deepcopy(probe)
+  final=copy.deepcopy(probe);final['accounts'].reverse();final['accounts'][0]['lamports']='91';final['totalLamports']='100'
+  self.assertEqual(m.audited_allocations(probe,key(3),1),m.audited_allocations(final,key(3),91));self.assertEqual(probe,saved)
+ def test_malformed_probe_inventory_and_wrong_reserve_refuse(self):
+  import copy
+  base={'accountCount':2,'totalLamports':'10','accounts':[{'address':key(1),'owner':key(2),'lamports':'9','dataBytes':12,'executable':False},{'address':key(3),'owner':'11111111111111111111111111111111','lamports':'1','dataBytes':0,'executable':False}]}
+  mutations=[lambda a:a.update(totalLamports='11'),lambda a:a.update(totalLamports=str(2**64)),lambda a:a.update(accountCount=True),lambda a:a.update(accounts=[]),lambda a:a['accounts'][0].update(address=key(3)),lambda a:a['accounts'][0].update(lamports='09'),lambda a:a['accounts'][0].update(lamports=True),lambda a:a['accounts'][0].update(dataBytes=-1),lambda a:a['accounts'][0].update(dataBytes=10485761),lambda a:a['accounts'][0].update(executable=0),lambda a:a['accounts'][1].update(lamports='2'),lambda a:a['accounts'][1].update(dataBytes=1),lambda a:a['accounts'][1].update(owner=key(4)),lambda a:a['accounts'][1].update(address=key(4))]
+  for mutate in mutations:
+   audit=copy.deepcopy(base);mutate(audit)
+   with self.subTest(mutate=mutate),self.assertRaisesRegex(ValueError,'AUDITED_GENESIS_ALLOCATIONS_REQUIRED'):m.audited_allocations(audit,key(3),1)
+ def synthetic_driver(self,changed_poh=None,changed_reserve=None,changed_policy=None,changed_accounts=None):
   import io,tarfile,bz2,subprocess
   nodes=[{'identity':key(100+i*3),'vote':key(101+i*3),'stake':key(102+i*3)} for i in range(3)]
   public={f'node-{i}-{kind}.json':node[kind] for i,node in enumerate(nodes) for kind in node};public['synthetic-reserve.json']=key(500)
@@ -138,6 +156,8 @@ class Preparation(unittest.TestCase):
      field,value=changed_policy
      if value is None:audit.pop(field)
      else:audit[field]=value
+    if changed_accounts is not None and Path(args[1]).name=='fresh-genesis':
+     audit['accounts']=[row.copy() for row in audit['accounts']];changed_accounts(audit)
     out=json.dumps(audit)
    elif name=='agave-ledger-tool':out=json.dumps({'slot':0,'hash':key(700)}) if 'verify' in args else '123\n'
    else:raise AssertionError('Unexpected subprocess')
@@ -153,14 +173,15 @@ class Preparation(unittest.TestCase):
     finally:os.umask(before)
    genesis_calls=[command for command in commands if Path(command[0]).name=='solana-genesis']
    self.assertEqual([command[command.index('--hashes-per-tick')+1] for command in genesis_calls],['auto','12500'])
-   if changed_poh is not None or changed_reserve is not None or changed_policy is not None:
+   if changed_poh is not None or changed_reserve is not None or changed_policy is not None or changed_accounts is not None:
     expected=['EXACT_SYNTHETIC_RESERVE_REQUIRED'] if changed_reserve is not None else ['CALIBRATED_HASH_COUNT_REQUIRED','FINAL_GENESIS_POH_DIFFERS']
     if changed_policy is not None:expected=['AUDITED_GENESIS_POLICY_REQUIRED','FINAL_GENESIS_POLICY_DIFFERS']
+    if changed_accounts is not None:expected=['AUDITED_GENESIS_ALLOCATIONS_REQUIRED','FINAL_GENESIS_ALLOCATIONS_DIFFER']
     self.assertEqual(result['state'],'failed');self.assertIn(result['failureCode'],expected)
     self.assertTrue((base/'preparations/complete-001/public-result.json').is_file());self.assertTrue((base/'preparations/complete-001/fresh-genesis/genesis.bin').is_file())
     self.assertFalse((base/'bundles/complete-001/genesis').exists());self.assertFalse((base/'bundles/complete-001/manifest.json').exists())
     self.assertFalse(any(Path(command[0]).name=='agave-ledger-tool' for command in commands));return
-   self.assertEqual(result['calibratedHashesPerTick'],12500);self.assertTrue(result['finalPohMatchesBudgetProbe']);self.assertTrue(result['auditedPolicyMatchesBudgetProbe'])
+   self.assertEqual(result['calibratedHashesPerTick'],12500);self.assertTrue(result['finalPohMatchesBudgetProbe']);self.assertTrue(result['auditedPolicyMatchesBudgetProbe']);self.assertTrue(result['auditedAllocationsMatchBudgetProbe'])
    self.assertEqual(result['state'],'prepared');self.assertTrue(result['createdKeys']);self.assertTrue(result['createdLedger']);self.assertEqual(result['generatedKeyFiles'],10);self.assertEqual(result['completedSlotZeroReplays'],2);self.assertTrue(result['sameSlotZeroHashesOnFreshCopies']);self.assertEqual(result['validatorsStarted'],0);self.assertFalse(result['productionReady']);self.assertEqual(int(result['syntheticReserveNativeUnits'])+int(result['fixedGenesisNativeUnits']),m.TOTAL)
    manifest=json.loads((base/'bundles/complete-001/manifest.json').read_text());self.assertEqual(manifest['totalNativeUnits'],str(m.TOTAL));self.assertEqual(manifest['bankHash'],key(700));self.assertNotIn('keyFile',json.dumps(manifest));self.assertEqual(sum(Path(command[0]).name=='solana-genesis' for command in commands),2)
    replays=[command for command in commands if Path(command[0]).name=='agave-ledger-tool'];self.assertEqual(len(replays),4);self.assertEqual(len({command[command.index('--ledger')+1] for command in replays}),2)

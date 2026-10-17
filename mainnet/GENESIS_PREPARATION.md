@@ -261,3 +261,25 @@ worker rehearsal or canonical service was run. Existing retained attempts are
 unchanged. This integrates bounded input into the authority reviewer only; the
 allocation-byte rehearsal and fresh compiler integration remain open. See
 `evidence/mainnet-authority-input-snapshot-local.json`.
+
+
+## Bind audited allocations to the budget probe
+
+Preparation validates both complete metadata inventories and compares all
+account addresses, owners, balances, data lengths and executable flags before
+copying the final genesis or starting either replay. Only the selected empty
+System reserve balance may change, from one unit to the exact remaining budget.
+Balanced redistribution among other accounts is rejected even when the final
+total is correct. Duplicate rows, malformed values and inconsistent totals
+fail; inventory order is immaterial.
+
+The local supplied-response driver now rejects eight final inventory changes
+before bundle copy or replay. Fourteen malformed-inventory controls also pass.
+The focused preparation suite has 27 passes; the full offline suite has 164
+passes and one existing Linux-only skip locally. Failed preparation outputs
+remain retained. See `evidence/mainnet-preparation-allocation-binding-local.json`.
+
+This binds the five metadata fields emitted by the pinned v2 auditor. It does
+not compare account data contents, rent epochs or complete account fingerprints.
+The complete byte decoder, reserve adapter and fresh real compilation/replays
+remain separate requirements; no acceptance gate is promoted by these tests.

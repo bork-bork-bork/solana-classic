@@ -35,6 +35,29 @@ def audited_policy(audit):
  try:return json.dumps({field:audit[field] for field in fields},sort_keys=True,separators=(',',':'),allow_nan=False)
  except (TypeError,ValueError):raise ValueError('AUDITED_GENESIS_POLICY_REQUIRED') from None
 
+def audited_allocations(audit,reserve,reserve_units):
+ # Bind only metadata actually emitted by the pinned v2 auditor. Data contents
+ # and rent epochs require the separate allocation-byte decoder integration.
+ failure='AUDITED_GENESIS_ALLOCATIONS_REQUIRED'
+ rows=audit.get('accounts');count=audit.get('accountCount');total=audit.get('totalLamports')
+ if type(rows) is not list or type(count) is not int or not 0<count<=4096 or len(rows)!=count:raise ValueError(failure)
+ def units(value):
+  if type(value) is not str or not re.fullmatch('(0|[1-9][0-9]{0,19})',value) or int(value)>=2**64:raise ValueError(failure)
+  return int(value)
+ expected_total=units(total);seen=set();summed=0;normalized=[];found=False
+ for row in rows:
+  if type(row) is not dict or set(row)!={'address','owner','lamports','dataBytes','executable'}:raise ValueError(failure)
+  try:c.address(row['address']);c.address(row['owner'])
+  except ValueError:raise ValueError(failure) from None
+  if row['address'] in seen or type(row['dataBytes']) is not int or not 0<=row['dataBytes']<=10*1024**2 or type(row['executable']) is not bool:raise ValueError(failure)
+  seen.add(row['address']);amount=units(row['lamports']);summed+=amount;selected=row.copy()
+  if row['address']==reserve:
+   if amount!=reserve_units or row['owner']!='11111111111111111111111111111111' or row['dataBytes']!=0 or row['executable'] is not False:raise ValueError(failure)
+   found=True;selected['lamports']='0'
+  normalized.append(selected)
+ if not found or summed!=expected_total:raise ValueError(failure)
+ return json.dumps(sorted(normalized,key=lambda row:row['address']),sort_keys=True,separators=(',',':'))
+
 def genesis_command(binary,ledger,nodes,reserve,primordial,hashes_per_tick=None):
  # Calibrate only the budget probe; the final compiler receives its exact count.
  selected='auto' if hashes_per_tick is None else str(calibrated_hashes({'pohConfig':{'hashes_per_tick':hashes_per_tick}}))
@@ -134,7 +157,7 @@ def run(binary_directory,bundle_id,execute=False):
    proof['createdLedger']=True;save();tool(genesis_command(binary_directory/'solana-genesis',ledger,nodes,reserve,primordial,hashes_per_tick))
    audit=json.loads(tool([str(binary_directory/'classic-genesis-audit-v2'),str(ledger)]));return ledger,audit
   _,probe=genesis('budget-probe',1);fixed=budget_probe(probe);hashes=calibrated_hashes(probe)
-  probe_policy=audited_policy(probe)
+  probe_policy=audited_policy(probe);probe_allocations=audited_allocations(probe,reserve,1)
   proof['calibratedHashesPerTick']=hashes;save()
   ledger,audit=genesis('fresh-genesis',TOTAL-fixed,hashes)
   if calibrated_hashes(audit)!=hashes or audit['pohConfig']!=probe['pohConfig']:raise ValueError('FINAL_GENESIS_POH_DIFFERS')
@@ -143,6 +166,8 @@ def run(binary_directory,bundle_id,execute=False):
   if audit.get('totalLamports')!=str(TOTAL):raise ValueError('FINAL_GENESIS_SUPPLY_DIFFERS')
   rows=[a for a in audit['accounts'] if a['address']==reserve]
   if len(rows)!=1 or rows[0]['owner']!='11111111111111111111111111111111' or rows[0]['lamports']!=str(TOTAL-fixed) or type(rows[0].get('dataBytes')) is not int or rows[0]['dataBytes']!=0 or rows[0].get('executable') is not False:raise ValueError('EXACT_SYNTHETIC_RESERVE_REQUIRED')
+  if audited_allocations(audit,reserve,TOTAL-fixed)!=probe_allocations:raise ValueError('FINAL_GENESIS_ALLOCATIONS_DIFFER')
+  proof['auditedAllocationsMatchBudgetProbe']=True;save()
   g=bundle/'genesis';g.mkdir(mode=0o700)
   for name in ['genesis.bin','genesis.tar.bz2']:
    source=c.regular(ledger/name)
