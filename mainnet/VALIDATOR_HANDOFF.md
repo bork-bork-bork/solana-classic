@@ -1,8 +1,10 @@
 # Validator rehearsal handoff
 
 The next network milestone is a genuine three-validator Agave rehearsal on a
-capable Linux host. The canonical devnet and its ongoing stability test stay
-untouched. A source-built test-validator and private bridge tests cannot pass
+capable Linux host. The canonical devnet stays untouched. Its replacement
+24-hour stability run and final desktop/mobile browser checks passed on
+17 October; see the [terminal review](../evidence/agave-source-stability-replacement-completed.json)
+and [browser review](../evidence/agave-source-final-browser-review.json). A source-built test-validator and private bridge tests cannot pass
 this milestone. No mainnet activation or real SOC movement is authorized here.
 
 ## Host required now
