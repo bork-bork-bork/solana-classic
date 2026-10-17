@@ -103,14 +103,31 @@ verifies process control, not genesis compilation, replay or host admission.
 See [the initial local evidence](../evidence/mainnet-offline-process.json) and
 [the completed Linux verification](../evidence/mainnet-offline-process-linux.json).
 
+## Tool identity checks during preparation
+
+Initial artifact admission and every later offline invocation use the same
+bounded regular-file fingerprint as host admission. Each read checks the exact
+reviewed length, digest and executable permission, refuses symlinks and special
+files, and rejects file identity or metadata changes observed during hashing.
+Failures retain the preparation attempt and report a path-free failure code.
+The caller does not launch the tool after a failed check.
+
+Four additional local regression groups cover artifact replacement during a
+read, a FIFO without a writer, invalid file types and permissions, and runtime
+changes after host admission but before the first tool invocation. The complete
+synthetic preparation driver still exercises both replay steps. These checks
+are not compiled-tool or consensus evidence. The binary directory must remain
+under trusted operator control: fingerprinting does not atomically bind the
+later path-based process execution to the checked descriptor.
+
 ## Evidence and limits
 
-Thirteen preparation checks cover blocked/canonical hosts, read-only default,
+The original thirteen preparation checks cover blocked/canonical hosts, read-only default,
 commands, strict output parsing, exact budgets, disagreement, retained attempts
 and redacted failures. A synthetic tool driver exercises the full orchestration
 and real archive materialization; its simulated bank outputs are not real
 replay evidence. Together with the ten process lifecycle checks and existing
-launcher/archive/host checks, 52 local checks pass. Historical preparation
+launcher/archive/host checks, 52 local checks passed at that initial review. Historical preparation
 evidence retains its original counts and source hashes. Actual compiled-tool CLI discovery and blocked-host admissions are
 recorded in [the scoped evidence](../evidence/mainnet-genesis-preparation.json).
 

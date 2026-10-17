@@ -11,10 +11,15 @@ BASE=Path('/data/mainnet-consensus-v2')
 TOTAL=1_000_000_000_000
 CANONICAL_SERVICE='d0a1de40-bd9c-47eb-a7fc-477f1c55b2d6'
 
+def check_binary(binary,digest,size,failure_code):
+ try:actual=c.host.binary_fingerprint(binary,size)
+ except (OSError,ValueError):raise ValueError(failure_code) from None
+ if actual!={'sha256':digest,'bytes':size,'executable':True}:raise ValueError(failure_code)
+
 def check_tools(directory):
  for manifest in ['consensus-audit-artifact.json','ledger-tool-artifact.json']:
   artifact=json.loads(Path(__file__).with_name(manifest).read_text());binary=directory/artifact['name']
-  if binary.is_symlink() or not binary.is_file() or not os.access(binary,os.X_OK) or binary.stat().st_size!=artifact['bytes'] or c.host.sha(binary)!=artifact['sha256']:raise ValueError('REVIEWED_PREPARATION_ARTIFACT_REQUIRED')
+  check_binary(binary,artifact['sha256'],artifact['bytes'],'REVIEWED_PREPARATION_ARTIFACT_REQUIRED')
  return True
 
 def genesis_command(binary,ledger,nodes,reserve,primordial):
@@ -85,7 +90,7 @@ def run(binary_directory,bundle_id,execute=False):
   check_tools(binary_directory)
   for name,(digest,size) in c.host.PINS.items():
    binary=binary_directory/name
-   if binary.is_symlink() or binary.stat().st_size!=size or c.host.sha(binary)!=digest:raise ValueError('REVIEWED_RUNTIME_ARTIFACT_CHANGED')
+   check_binary(binary,digest,size,'REVIEWED_RUNTIME_ARTIFACT_CHANGED')
   sequence+=1
   with (root/('tool-'+str(sequence)+'-private.log')).open('xb') as log:
    return offline_process.run_tool(args,log,timeout=timeout).decode()

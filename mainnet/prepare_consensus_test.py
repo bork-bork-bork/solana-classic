@@ -63,7 +63,7 @@ class Preparation(unittest.TestCase):
   with tempfile.TemporaryDirectory() as temp:
    base=Path(temp).resolve()/'private';binaries=Path(temp).resolve()/'tools';binaries.mkdir();pins={}
    for name in m.c.host.PINS:
-    (binaries/name).write_bytes(b'x');pins[name]=(hashlib.sha256(b'x').hexdigest(),1)
+    (binaries/name).write_bytes(b'x');(binaries/name).chmod(0o700);pins[name]=(hashlib.sha256(b'x').hexdigest(),1)
    with patch.object(m,'BASE',base),patch.object(m.c.host,'PINS',pins),patch.object(m.c.host,'probe',return_value={}),patch.object(m.c.host,'assess',return_value={'canPrepareFreshPrivateRehearsal':True}),patch.object(m,'check_tools',return_value=True),patch.object(m,'no_active_validator'),patch.object(m.offline_process,'run_tool',side_effect=OSError('PRIVATE ERROR MUST STAY OUT')):
     before=os.umask(0o077)
     try:result=m.run(binaries,'failure-001',True)
@@ -99,7 +99,7 @@ class Preparation(unittest.TestCase):
   with tempfile.TemporaryDirectory() as temp:
    base=Path(temp).resolve()/'private';binaries=Path(temp).resolve()/'tools';binaries.mkdir();pins={}
    for name in m.c.host.PINS:
-    (binaries/name).write_bytes(b'x');pins[name]=(hashlib.sha256(b'x').hexdigest(),1)
+    (binaries/name).write_bytes(b'x');(binaries/name).chmod(0o700);pins[name]=(hashlib.sha256(b'x').hexdigest(),1)
    def check_bundle(bundle,directory):return json.loads((bundle/'manifest.json').read_text()),{'accountCount':10}
    with patch.object(m,'BASE',base),patch.object(m.c.host,'PINS',pins),patch.object(m.c.host,'probe',return_value={}),patch.object(m.c.host,'assess',return_value={'canPrepareFreshPrivateRehearsal':True}),patch.object(m,'check_tools',return_value=True),patch.object(m,'no_active_validator'),patch.object(m.offline_process,'run_tool',side_effect=fake_tool),patch.object(m.c,'check_bundle',side_effect=check_bundle):
     before=os.umask(0o077)
@@ -108,4 +108,74 @@ class Preparation(unittest.TestCase):
    self.assertEqual(result['state'],'prepared');self.assertTrue(result['createdKeys']);self.assertTrue(result['createdLedger']);self.assertEqual(result['generatedKeyFiles'],10);self.assertEqual(result['completedSlotZeroReplays'],2);self.assertTrue(result['sameSlotZeroHashesOnFreshCopies']);self.assertEqual(result['validatorsStarted'],0);self.assertFalse(result['productionReady']);self.assertEqual(int(result['syntheticReserveNativeUnits'])+int(result['fixedGenesisNativeUnits']),m.TOTAL)
    manifest=json.loads((base/'bundles/complete-001/manifest.json').read_text());self.assertEqual(manifest['totalNativeUnits'],str(m.TOTAL));self.assertEqual(manifest['bankHash'],key(700));self.assertNotIn('keyFile',json.dumps(manifest));self.assertEqual(sum(Path(command[0]).name=='solana-genesis' for command in commands),2)
    replays=[command for command in commands if Path(command[0]).name=='agave-ledger-tool'];self.assertEqual(len(replays),4);self.assertEqual(len({command[command.index('--ledger')+1] for command in replays}),2)
+
+class ArtifactRevalidation(unittest.TestCase):
+ def test_exact_executable_required_and_errors_remain_path_free(self):
+  with tempfile.TemporaryDirectory() as temp:
+   p=Path(temp)/'tool';p.write_bytes(b'fixture');p.chmod(0o700);digest=hashlib.sha256(b'fixture').hexdigest()
+   m.check_binary(p,digest,7,'REVIEWED_RUNTIME_ARTIFACT_CHANGED')
+   for mutation in ['digest','size','permission','missing','symlink','directory']:
+    with self.subTest(mutation=mutation):
+     candidate=p;expected=digest;size=7
+     if mutation=='digest':expected='0'*64
+     elif mutation=='size':size=8
+     elif mutation=='permission':p.chmod(0o600)
+     elif mutation=='missing':candidate=p.with_name('missing')
+     elif mutation=='symlink':candidate=p.with_name('alias');candidate.symlink_to(p)
+     elif mutation=='directory':candidate=p.parent
+     try:
+      with self.assertRaisesRegex(ValueError,'^REVIEWED_RUNTIME_ARTIFACT_CHANGED$'):m.check_binary(candidate,expected,size,'REVIEWED_RUNTIME_ARTIFACT_CHANGED')
+     finally:p.chmod(0o700)
+
+ def test_offline_artifact_manifest_check_rejects_mutation_during_read(self):
+  with tempfile.TemporaryDirectory() as temp:
+   p=Path(temp)/'fixture';p.write_bytes(b'fixture');p.chmod(0o700)
+   artifact={'name':p.name,'bytes':7,'sha256':hashlib.sha256(b'fixture').hexdigest()}
+   original=os.read;changed=False
+   def change(fd,size):
+    nonlocal changed
+    data=original(fd,size)
+    if not changed:
+     changed=True
+     replacement=p.with_name('replacement');replacement.write_bytes(b'fixture');replacement.chmod(0o700);replacement.replace(p)
+    return data
+   with patch.object(Path,'read_text',return_value=json.dumps(artifact)):
+    self.assertTrue(m.check_tools(p.parent))
+    with patch.object(m.c.host.os,'read',side_effect=change):
+     with self.assertRaisesRegex(ValueError,'^REVIEWED_PREPARATION_ARTIFACT_REQUIRED$'):m.check_tools(p.parent)
+
+ def test_fifo_revalidation_refuses_without_waiting_for_a_writer(self):
+  import subprocess,sys
+  with tempfile.TemporaryDirectory() as temp:
+   p=Path(temp)/'fifo';os.mkfifo(p)
+   code="""import importlib.util,sys
+from pathlib import Path
+s=importlib.util.spec_from_file_location('preparation',sys.argv[1]);m=importlib.util.module_from_spec(s);s.loader.exec_module(m)
+try:m.check_binary(Path(sys.argv[2]),'0'*64,1,'REVIEWED_RUNTIME_ARTIFACT_CHANGED')
+except ValueError as error:assert str(error)=='REVIEWED_RUNTIME_ARTIFACT_CHANGED'
+else:raise AssertionError('FIFO admitted')
+print('refused')
+"""
+   result=subprocess.run([sys.executable,'-B','-c',code,str(Path(m.__file__)),str(p)],capture_output=True,text=True,timeout=3)
+   self.assertEqual(result.returncode,0);self.assertEqual(result.stdout.strip(),'refused')
+
+ def test_runtime_changed_after_host_admission_never_invokes_tool_and_retains_failure(self):
+  for mutation in ['content','permission','fifo']:
+   with self.subTest(mutation=mutation),tempfile.TemporaryDirectory() as temp:
+    base=Path(temp).resolve()/'private';binaries=Path(temp).resolve()/'tools';binaries.mkdir();pins={}
+    for name in m.c.host.PINS:
+     p=binaries/name;p.write_bytes(b'x');p.chmod(0o700);pins[name]=(hashlib.sha256(b'x').hexdigest(),1)
+    selected=binaries/'solana-keygen'
+    def change_after_admission():
+     if mutation=='content':selected.write_bytes(b'y')
+     elif mutation=='permission':selected.chmod(0o600)
+     else:selected.unlink();os.mkfifo(selected)
+    with patch.object(m,'BASE',base),patch.object(m.c.host,'PINS',pins),patch.object(m.c.host,'probe',return_value={}),patch.object(m.c.host,'assess',return_value={'canPrepareFreshPrivateRehearsal':True}),patch.object(m,'check_tools',return_value=True),patch.object(m,'no_active_validator',side_effect=change_after_admission),patch.object(m.offline_process,'run_tool') as process:
+     before=os.umask(0o077)
+     try:result=m.run(binaries,'changed-001',True)
+     finally:os.umask(before)
+    process.assert_not_called();self.assertEqual(result['state'],'failed');self.assertEqual(result['failureCode'],'REVIEWED_RUNTIME_ARTIFACT_CHANGED');self.assertEqual(result['generatedKeyFiles'],0);self.assertFalse(result['createdLedger']);self.assertEqual(result['validatorsStarted'],0)
+    retained=base/'preparations/changed-001/public-result.json';self.assertEqual(json.loads(retained.read_text()),result)
+    self.assertEqual(list(retained.parent.glob('tool-*-private.log')),[])
+
 if __name__=='__main__':unittest.main()
