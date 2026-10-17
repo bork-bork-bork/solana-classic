@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "at": "2026-10-17T04:33:37.509766+00:00",
+  "at": "2026-10-17T07:05:33.168116+00:00",
   "scope": "remote-experimental-source individual review inventory; incomplete and not an overall release evaluation",
   "genesis": "7TAUSfTzQeocodtVee2qsftsCYnJu2eCM1ALdADbHNon",
   "candidate": {
@@ -218,6 +218,17 @@
         }
       ]
     },
+    "G6.07": {
+      "passed": true,
+      "scope": "remote",
+      "verifiedAt": "2026-10-17T07:05:33.168116+00:00",
+      "proofs": [
+        {
+          "path": "evidence/agave-source-soak-targeting-individual-review.json",
+          "sha256": "a0fa27615d729306a287ad75ec37b6cbc52241397bf619e08228052654f1703c"
+        }
+      ]
+    },
     "G7.04": {
       "passed": true,
       "scope": "remote",
@@ -274,7 +285,6 @@
     "G5.10",
     "G5.11",
     "G6.06",
-    "G6.07",
     "G6.08",
     "G6.09",
     "G6.10",
@@ -288,7 +298,7 @@
     "G7.08",
     "G7.09"
   ],
-  "reviewedRequirementCount": 19,
+  "reviewedRequirementCount": 20,
   "requiredRequirementCount": 75,
   "legacyReleaseEvaluatorConsumesThisInventory": false,
   "releaseAccepted": false,

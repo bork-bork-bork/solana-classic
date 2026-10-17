@@ -7,9 +7,9 @@ requirements are not transferred to this candidate.
 
 The separate [current review inventory](../../evidence/agave-source-acceptance-gates.json)
 binds the exact source candidate, freeze, unchanged checklist and checksum-bound
-individual proofs. It currently records 19 of 75 requirements reviewed:
+individual proofs. It currently records 20 of 75 requirements reviewed:
 G1.02, G2.02, G2.03, G2.04, G2.07, G2.08, G3.01, G4.03, G4.04, G5.01,
-G5.08, G5.09, G5.12, G6.01 through G6.05 and G7.04. The other 56 remain
+G5.08, G5.09, G5.12, G6.01 through G6.05, G6.07 and G7.04. The other 55 remain
 unreviewed in this inventory, including the derived whole-release check. Missing
 attestations do not necessarily mean functionality failed; they mean the
 requirement has not been individually accepted for this candidate.
@@ -64,6 +64,16 @@ frontend files match the freeze, and repeated API/status observations return
 no-store headers, current timestamps and advancing slots. This is current
 project targeting, not an audit of every historical preview or manual override.
 No preview deployment, alias mutation or transaction was performed.
+
+The [scheduled browser targeting review](../../evidence/agave-source-soak-targeting-individual-review.json)
+adds G6.07 from the exact replacement activation, retained terminal reports and
+frozen browser/monitor source. All 45 source files and both configuration hashes
+match. The 288 scheduled browser journeys used the recorded production frontend
+and API; the monitor separately checked five frontend entry/asset hashes and
+runtime identity across 2,880 observations. The same browser session remained
+open throughout. Re-evaluating the terminal auditor at its original observation
+time is a retrospective evidence check, not a new workload or current snapshot.
+This does not accept the separate deadline or machine-specification requirements.
 
 G5.07 remains unreviewed. The [monitoring attribution review](../../evidence/agave-source-monitoring-attribution-review.json)
 verifies the deployed monitor source, three saved thresholds, the historical
