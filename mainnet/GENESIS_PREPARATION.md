@@ -82,6 +82,32 @@ After a real `prepared` result, independently review the retained outputs and
 run the separate `consensus.py` admission and explicit private rehearsal from
 [the launcher contract](CONSENSUS_REHEARSAL.md). Preparation cannot launch nodes.
 
+## Preserve the probe calibration
+
+The budget probe alone uses `--hashes-per-tick auto`. The pinned Development
+compiler measures the host and selects half its measured peak hash rate;
+running that calibration twice can produce different genesis parameters.
+Preparation now reads the probe auditor's positive u64 hash count and supplies
+that exact numeric value to the final compiler. It checks the final audited
+count and full PoH configuration against the probe before copying genesis into
+the launch bundle or starting either slot-zero replay. A mismatch retains the
+failed attempt and partial outputs. Host and validator PoH speed checks remain
+unchanged; no sleep mode or performance-check bypass is introduced.
+
+Three additional offline groups cover numeric bounds/types, the final command,
+and changed final PoH reports. The synthetic orchestration driver verifies one
+calibration followed by numeric selection, retained refusal before bundle copy
+or replay, and the successful two-replay path. All 20 focused checks pass; the
+full package runs 149 checks locally with 148 passing and one Linux-only check
+skipped. These are supplied tool responses and disposable files, not compiled
+genesis or real replay evidence. See [the local calibration review](../evidence/mainnet-preparation-poh-binding-local.json).
+
+This removes one source of parameter drift within the existing preparer. It
+does not integrate the reserve-byte adapter, prove that every other account or
+non-account parameter is unchanged, or reuse a retained genesis/key set. Fresh
+compiled genesis, complete byte comparison and actual strict replays still need
+an admitted Linux host and a new reviewed attempt.
+
 ## Bounded offline tools and cancellation
 
 Each pinned tool now runs in its own process group with a fixed timeout,

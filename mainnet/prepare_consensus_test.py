@@ -36,6 +36,18 @@ class Preparation(unittest.TestCase):
   command=m.genesis_command(Path('/tools/solana-genesis'),Path('/fresh/genesis'),nodes,key(500),Path('/fresh/input.json'))
   for flag,value in [('--cluster-type','development'),('--inflation','none'),('--hashes-per-tick','auto'),('--faucet-lamports','0'),('--fee-burn-percentage','0'),('--rent-burn-percentage','0')]:self.assertEqual(command[command.index(flag)+1],value)
   self.assertEqual(command.count('--bootstrap-validator'),3);self.assertNotIn('sleep',command);self.assertNotIn('--reset',command)
+ def test_calibrated_hash_count_requires_positive_u64_integer(self):
+  for value in [1,12500,2**64-1]:self.assertEqual(m.calibrated_hashes({'pohConfig':{'hashes_per_tick':value}}),value)
+  for value in [None,True,False,0,-1,1.0,'12500',2**64]:
+   with self.subTest(value=value),self.assertRaisesRegex(ValueError,'CALIBRATED_HASH_COUNT_REQUIRED'):m.calibrated_hashes({'pohConfig':{'hashes_per_tick':value}})
+  for audit in [{},{'pohConfig':None},{'pohConfig':[]}]:
+   with self.subTest(audit=audit),self.assertRaisesRegex(ValueError,'CALIBRATED_HASH_COUNT_REQUIRED'):m.calibrated_hashes(audit)
+ def test_final_genesis_command_uses_selected_numeric_hash_count(self):
+  args=(Path('/tools/solana-genesis'),Path('/fresh'),[],key(500),Path('/primordial'))
+  command=m.genesis_command(*args,hashes_per_tick=12500)
+  self.assertEqual(command[command.index('--hashes-per-tick')+1],'12500');self.assertNotIn('auto',command);self.assertNotIn('sleep',command)
+  for value in [True,0,-1,'auto','sleep',2**64]:
+   with self.subTest(value=value),self.assertRaises(ValueError):m.genesis_command(*args,hashes_per_tick=value)
  def test_slot_zero_result_is_exact_and_genesis_is_never_substituted_for_bank(self):
   self.assertEqual(m.parse_bank(json.dumps({'slot':0,'hash':key(501)}),key(500)),key(501))
   for bank in [{'slot':True,'hash':key(501)},{'slot':1,'hash':key(501)},{'slot':0,'hash':key(500)},{'slot':0,'hash':'bad'},{'slot':0,'hash':key(501),'extra':True}]:
@@ -71,6 +83,11 @@ class Preparation(unittest.TestCase):
     self.assertEqual(result['state'],'failed');self.assertFalse(result['createdKeys']);self.assertFalse(result['createdLedger']);self.assertEqual(result['generatedKeyFiles'],0);self.assertNotIn('PRIVATE ERROR',json.dumps(result));self.assertEqual(result['validatorsStarted'],0);self.assertTrue((base/'preparations/failure-001/public-result.json').is_file());self.assertTrue((base/'bundles/failure-001/keys').is_dir())
     with self.assertRaisesRegex(ValueError,'RETAINED'):m.run(binaries,'failure-001',True)
  def test_synthetic_driver_exercises_budget_two_fresh_replays_and_final_manifest_without_network(self):
+  self.synthetic_driver()
+ def test_changed_final_poh_refuses_before_bundle_copy_or_replays(self):
+  for changed in [{'hashes_per_tick':12501},{'hashes_per_tick':True},{'hashes_per_tick':12500,'target_tick_count':1}]:
+   with self.subTest(changed=changed):self.synthetic_driver(changed)
+ def synthetic_driver(self,changed_poh=None):
   import io,tarfile,bz2,subprocess
   nodes=[{'identity':key(100+i*3),'vote':key(101+i*3),'stake':key(102+i*3)} for i in range(3)]
   public={f'node-{i}-{kind}.json':node[kind] for i,node in enumerate(nodes) for kind in node};public['synthetic-reserve.json']=key(500)
@@ -92,7 +109,10 @@ class Preparation(unittest.TestCase):
      for kind,owner in [('identity','11111111111111111111111111111111'),('vote','Vote111111111111111111111111111111111111111'),('stake','Stake11111111111111111111111111111111111111')]:accounts.append({'address':node[kind],'owner':owner,'lamports':'111','dataBytes':0,'executable':False})
     accounts.append({'address':key(500),'owner':'11111111111111111111111111111111','lamports':str(units),'dataBytes':0,'executable':False})
     audits[str(ledger)]={'genesis':key(600),'clusterType':'development','totalLamports':str(999+units),'accounts':accounts,'accountCount':10,'inflation':{'initial':0,'terminal':0},'feeRateGovernor':{'burnPercent':0},'rent':{'burn_percent':0},'pohConfig':{'hashes_per_tick':12500}}
-   elif name=='classic-genesis-audit-v2':out=json.dumps(audits[args[1]])
+   elif name=='classic-genesis-audit-v2':
+    audit=audits[args[1]].copy()
+    if changed_poh is not None and Path(args[1]).name=='fresh-genesis':audit['pohConfig']=changed_poh
+    out=json.dumps(audit)
    elif name=='agave-ledger-tool':out=json.dumps({'slot':0,'hash':key(700)}) if 'verify' in args else '123\n'
    else:raise AssertionError('Unexpected subprocess')
    return out.encode()
@@ -105,6 +125,14 @@ class Preparation(unittest.TestCase):
     before=os.umask(0o077)
     try:result=m.run(binaries,'complete-001',True)
     finally:os.umask(before)
+   genesis_calls=[command for command in commands if Path(command[0]).name=='solana-genesis']
+   self.assertEqual([command[command.index('--hashes-per-tick')+1] for command in genesis_calls],['auto','12500'])
+   if changed_poh is not None:
+    self.assertEqual(result['state'],'failed');self.assertIn(result['failureCode'],['CALIBRATED_HASH_COUNT_REQUIRED','FINAL_GENESIS_POH_DIFFERS'])
+    self.assertTrue((base/'preparations/complete-001/public-result.json').is_file());self.assertTrue((base/'preparations/complete-001/fresh-genesis/genesis.bin').is_file())
+    self.assertFalse((base/'bundles/complete-001/genesis').exists());self.assertFalse((base/'bundles/complete-001/manifest.json').exists())
+    self.assertFalse(any(Path(command[0]).name=='agave-ledger-tool' for command in commands));return
+   self.assertEqual(result['calibratedHashesPerTick'],12500);self.assertTrue(result['finalPohMatchesBudgetProbe'])
    self.assertEqual(result['state'],'prepared');self.assertTrue(result['createdKeys']);self.assertTrue(result['createdLedger']);self.assertEqual(result['generatedKeyFiles'],10);self.assertEqual(result['completedSlotZeroReplays'],2);self.assertTrue(result['sameSlotZeroHashesOnFreshCopies']);self.assertEqual(result['validatorsStarted'],0);self.assertFalse(result['productionReady']);self.assertEqual(int(result['syntheticReserveNativeUnits'])+int(result['fixedGenesisNativeUnits']),m.TOTAL)
    manifest=json.loads((base/'bundles/complete-001/manifest.json').read_text());self.assertEqual(manifest['totalNativeUnits'],str(m.TOTAL));self.assertEqual(manifest['bankHash'],key(700));self.assertNotIn('keyFile',json.dumps(manifest));self.assertEqual(sum(Path(command[0]).name=='solana-genesis' for command in commands),2)
    replays=[command for command in commands if Path(command[0]).name=='agave-ledger-tool'];self.assertEqual(len(replays),4);self.assertEqual(len({command[command.index('--ledger')+1] for command in replays}),2)

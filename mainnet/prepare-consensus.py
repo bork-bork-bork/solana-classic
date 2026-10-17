@@ -22,8 +22,16 @@ def check_tools(directory):
   check_binary(binary,artifact['sha256'],artifact['bytes'],'REVIEWED_PREPARATION_ARTIFACT_REQUIRED')
  return True
 
-def genesis_command(binary,ledger,nodes,reserve,primordial):
- args=[str(binary),'--ledger',str(ledger),'--cluster-type','development','--inflation','none','--hashes-per-tick','auto','--slots-per-epoch','128','--bootstrap-validator-lamports','10000000000','--bootstrap-validator-stake-lamports','100000000000','--fee-burn-percentage','0','--rent-burn-percentage','0','--faucet-pubkey',c.address(reserve),'--faucet-lamports','0','--primordial-accounts-file',str(primordial)]
+def calibrated_hashes(audit):
+ poh=audit.get('pohConfig')
+ hashes=poh.get('hashes_per_tick') if type(poh) is dict else None
+ if type(hashes) is not int or not 0<hashes<2**64:raise ValueError('CALIBRATED_HASH_COUNT_REQUIRED')
+ return hashes
+
+def genesis_command(binary,ledger,nodes,reserve,primordial,hashes_per_tick=None):
+ # Calibrate only the budget probe; the final compiler receives its exact count.
+ selected='auto' if hashes_per_tick is None else str(calibrated_hashes({'pohConfig':{'hashes_per_tick':hashes_per_tick}}))
+ args=[str(binary),'--ledger',str(ledger),'--cluster-type','development','--inflation','none','--hashes-per-tick',selected,'--slots-per-epoch','128','--bootstrap-validator-lamports','10000000000','--bootstrap-validator-stake-lamports','100000000000','--fee-burn-percentage','0','--rent-burn-percentage','0','--faucet-pubkey',c.address(reserve),'--faucet-lamports','0','--primordial-accounts-file',str(primordial)]
  for node in nodes:
   args+=['--bootstrap-validator',c.address(node['identity']),c.address(node['vote']),c.address(node['stake'])]
  return args
@@ -112,13 +120,17 @@ def run(binary_directory,bundle_id,execute=False):
   reserve=c.address(tool([str(binary_directory/'solana-keygen'),'pubkey',str(reserve_key)]).strip())
   if reserve=='11111111111111111111111111111111' or reserve in {v for n in nodes for v in n.values()}:raise ValueError('DISTINCT_SYNTHETIC_RESERVE_REQUIRED')
   primordial=root/'primordial-private.json'
-  def genesis(name,reserve_units):
+  def genesis(name,reserve_units,hashes_per_tick=None):
    primordial.write_text(json.dumps({reserve:{'balance':reserve_units,'owner':'11111111111111111111111111111111','data':'~','executable':False}}))
    ledger=root/name
    if ledger.exists():raise ValueError('FRESH_GENESIS_DIRECTORY_REQUIRED')
-   proof['createdLedger']=True;save();tool(genesis_command(binary_directory/'solana-genesis',ledger,nodes,reserve,primordial))
+   proof['createdLedger']=True;save();tool(genesis_command(binary_directory/'solana-genesis',ledger,nodes,reserve,primordial,hashes_per_tick))
    audit=json.loads(tool([str(binary_directory/'classic-genesis-audit-v2'),str(ledger)]));return ledger,audit
-  _,probe=genesis('budget-probe',1);fixed=budget_probe(probe);ledger,audit=genesis('fresh-genesis',TOTAL-fixed)
+  _,probe=genesis('budget-probe',1);fixed=budget_probe(probe);hashes=calibrated_hashes(probe)
+  proof['calibratedHashesPerTick']=hashes;save()
+  ledger,audit=genesis('fresh-genesis',TOTAL-fixed,hashes)
+  if calibrated_hashes(audit)!=hashes or audit['pohConfig']!=probe['pohConfig']:raise ValueError('FINAL_GENESIS_POH_DIFFERS')
+  proof['finalPohMatchesBudgetProbe']=True;save()
   if audit.get('totalLamports')!=str(TOTAL):raise ValueError('FINAL_GENESIS_SUPPLY_DIFFERS')
   rows=[a for a in audit['accounts'] if a['address']==reserve]
   if len(rows)!=1 or rows[0]['owner']!='11111111111111111111111111111111' or rows[0]['lamports']!=str(TOTAL-fixed):raise ValueError('EXACT_SYNTHETIC_RESERVE_REQUIRED')
