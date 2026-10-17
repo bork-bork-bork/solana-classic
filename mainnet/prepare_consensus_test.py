@@ -125,7 +125,48 @@ class Preparation(unittest.TestCase):
   for mutate in mutations:
    audit=copy.deepcopy(base);mutate(audit)
    with self.subTest(mutate=mutate),self.assertRaisesRegex(ValueError,'AUDITED_GENESIS_ALLOCATIONS_REQUIRED'):m.audited_allocations(audit,key(3),1)
- def synthetic_driver(self,changed_poh=None,changed_reserve=None,changed_policy=None,changed_accounts=None):
+ def test_final_complete_fingerprint_and_parameter_drift_refuse_before_copy_or_replay(self):
+  # Row 1 is a nonreserve account; row 0 is the selected reserve.
+  mutations=[lambda d:d['accounts'][1].update(accountSHA256='b'*64),lambda d:d['accounts'][1].update(dataSHA256='b'*64),lambda d:d['accounts'][1].update(rentEpoch='1'),lambda d:d.update(nonAccountParametersSHA256='b'*64),lambda d:d['stakeAccounts'][0]['authorities'].update(synthetic=False),lambda d:d['voteAccounts'][0]['authorities'].update(synthetic=False)]
+  for mutate in mutations:
+   with self.subTest(mutate=mutate):self.synthetic_driver(changed_decoded=mutate)
+ def test_decoder_schema_metadata_authority_and_permission_controls_refuse(self):
+  mutations=[lambda d:d.update(schemaVersion=True),lambda d:d.update(scope='wrong'),lambda d:d.update(creationTime='01'),lambda d:d.update(creationTime=str(2**63)),lambda d:d.update(accountCount=True),lambda d:d.update(genesis=key(900)),lambda d:d.update(totalNativeUnits='1'),lambda d:d.update(completeAccountFingerprintsComputed=False),lambda d:d.update(canBroadcast=True),lambda d:d.update(accounts=[]),lambda d:d['accounts'][0].update(extra=True),lambda d:d['accounts'][1].update(rentEpoch='00'),lambda d:d['accounts'][1].update(accountSHA256='INVALID'),lambda d:d['accounts'][1].update(lamports='1'),lambda d:d['accounts'][1].update(address=d['accounts'][0]['address']),lambda d:d.update(stakeAccounts=[]),lambda d:d['voteAccounts'][0].update(dataSHA256='b'*64),lambda d:d['stakeAccounts'][0].update(nativeUnits='1')]
+  for mutate in mutations:
+   for phase in ['probe','final']:
+    with self.subTest(mutate=mutate,phase=phase):self.synthetic_driver(changed_decoded=mutate,decode_phase=phase)
+ def test_reserve_byte_exception_requires_zero_rent_epoch_and_empty_data(self):
+  for changed in [{'rentEpoch':'1'},{'dataSHA256':'b'*64},{'dataBytes':1},{'owner':key(901)},{'executable':True}]:
+   with self.subTest(changed=changed):self.synthetic_driver(changed_decoded=lambda d:d['accounts'][0].update(changed))
+ def test_changed_decoder_input_is_retained_but_never_replayed(self):
+  self.synthetic_driver(changed_input=True)
+ def test_snapshot_rejects_empty_symlink_and_overbound_input(self):
+  with tempfile.TemporaryDirectory() as temp:
+   root=Path(temp).resolve();p=root/'genesis.bin';p.write_bytes(b'valid');self.assertEqual(m.genesis_snapshot(p),b'valid')
+   alias=root/'alias';alias.symlink_to(p)
+   with self.assertRaises(ValueError):m.genesis_snapshot(alias)
+   p.write_bytes(b'')
+   with self.assertRaises(ValueError):m.genesis_snapshot(p)
+   with p.open('wb') as out:out.truncate(16*1024**2+1)
+   with self.assertRaises(ValueError):m.genesis_snapshot(p)
+ def test_snapshot_rejects_same_byte_file_replacement_during_read(self):
+  with tempfile.TemporaryDirectory() as temp:
+   p=Path(temp).resolve()/'genesis.bin';p.write_bytes(b'genesis');original=os.fstat;calls=0
+   def replace(fd):
+    nonlocal calls
+    result=original(fd);calls+=1
+    if calls==2:
+     replacement=p.with_name('replacement');replacement.write_bytes(b'genesis');replacement.replace(p)
+    return result
+   with patch.object(m.os,'fstat',side_effect=replace),self.assertRaisesRegex(ValueError,'GENESIS_SNAPSHOT_CHANGED'):m.genesis_snapshot(p)
+ def test_snapshot_rejects_fifo_without_waiting(self):
+  import subprocess,sys
+  with tempfile.TemporaryDirectory() as temp:
+   p=Path(temp).resolve()/'fifo';os.mkfifo(p)
+   code="import importlib.util,sys;from pathlib import Path;s=importlib.util.spec_from_file_location('p',sys.argv[1]);m=importlib.util.module_from_spec(s);s.loader.exec_module(m)\ntry:m.genesis_snapshot(Path(sys.argv[2]))\nexcept ValueError:print('refused')\nelse:raise AssertionError('FIFO admitted')"
+   result=subprocess.run([sys.executable,'-B','-c',code,str(Path(m.__file__)),str(p)],capture_output=True,text=True,timeout=3)
+   self.assertEqual(result.returncode,0);self.assertEqual(result.stdout.strip(),'refused')
+ def synthetic_driver(self,changed_poh=None,changed_reserve=None,changed_policy=None,changed_accounts=None,changed_decoded=None,decode_phase="final",changed_input=False):
   import io,tarfile,bz2,subprocess
   nodes=[{'identity':key(100+i*3),'vote':key(101+i*3),'stake':key(102+i*3)} for i in range(3)]
   public={f'node-{i}-{kind}.json':node[kind] for i,node in enumerate(nodes) for kind in node};public['synthetic-reserve.json']=key(500)
@@ -159,6 +200,16 @@ class Preparation(unittest.TestCase):
     if changed_accounts is not None and Path(args[1]).name=='fresh-genesis':
      audit['accounts']=[row.copy() for row in audit['accounts']];changed_accounts(audit)
     out=json.dumps(audit)
+   elif name=='classic-genesis-allocation-bytes':
+    self.assertEqual(args[1],'--isolated-genesis-stdin');self.assertEqual(kwargs['input_bytes'],b'genesis');self.assertEqual(args[3],hashlib.sha256(kwargs['input_bytes']).hexdigest())
+    phase='final' if len(audits)==2 else 'probe';audit=list(audits.values())[-1]
+    rows=[{**row,'dataSHA256':hashlib.sha256(b'').hexdigest(),'rentEpoch':'0','accountSHA256':hashlib.sha256(json.dumps(row,sort_keys=True).encode()).hexdigest()} for row in audit['accounts']]
+    decoded={'schemaVersion':1,'scope':'offline-selected-isolated-genesis-allocation-bytes-v1','creationTime':'100' if phase=='probe' else '101','nonAccountParametersSHA256':'a'*64,'completeAccountFingerprintsComputed':True,'genesisAccountBytesDecoded':True,'authorityKeysDecoded':True,'genesis':audit['genesis'],'accountCount':audit['accountCount'],'totalNativeUnits':audit['totalLamports'],'accounts':list(reversed(rows))}
+    for field in ['keyCustodyVerified','lockupEnforcementVerified','reserveCustodyVerified','backingVerified','independentOperatorsVerified','consensusVerified','canSign','canBroadcast','mainnetActivated','productionReady']:decoded[field]=False
+    for field,owner in [('stakeAccounts','Stake11111111111111111111111111111111111111'),('voteAccounts','Vote111111111111111111111111111111111111111')]:decoded[field]=[{'address':r['address'],'nativeUnits':r['lamports'],'dataSHA256':r['dataSHA256'],'authorities':{'synthetic':True}} for r in rows if r['owner']==owner]
+    if changed_decoded is not None and phase==decode_phase:changed_decoded(decoded)
+    if changed_input and phase=='final':(Path(list(audits)[-1])/'genesis.bin').write_bytes(b'changed')
+    out=json.dumps(decoded)
    elif name=='agave-ledger-tool':out=json.dumps({'slot':0,'hash':key(700)}) if 'verify' in args else '123\n'
    else:raise AssertionError('Unexpected subprocess')
    return out.encode()
@@ -172,7 +223,11 @@ class Preparation(unittest.TestCase):
     try:result=m.run(binaries,'complete-001',True)
     finally:os.umask(before)
    genesis_calls=[command for command in commands if Path(command[0]).name=='solana-genesis']
-   self.assertEqual([command[command.index('--hashes-per-tick')+1] for command in genesis_calls],['auto','12500'])
+   self.assertEqual([command[command.index('--hashes-per-tick')+1] for command in genesis_calls],['auto'] if changed_decoded is not None and decode_phase=='probe' else ['auto','12500'])
+   if changed_decoded is not None or changed_input:
+    self.assertEqual(result['state'],'failed');self.assertIn(result['failureCode'],['DECODED_GENESIS_ALLOCATIONS_REQUIRED','AUDITED_GENESIS_ALLOCATIONS_REQUIRED','FINAL_GENESIS_ALLOCATION_BYTES_DIFFER','GENESIS_CHANGED_DURING_DECODE'])
+    retained=base/'preparations/complete-001';self.assertTrue((retained/'public-result.json').is_file());self.assertTrue((retained/('budget-probe-allocation-private.json' if decode_phase=='probe' else 'fresh-genesis-allocation-private.json')).is_file())
+    self.assertFalse((base/'bundles/complete-001/genesis').exists());self.assertFalse(any(Path(command[0]).name=='agave-ledger-tool' for command in commands));return
    if changed_poh is not None or changed_reserve is not None or changed_policy is not None or changed_accounts is not None:
     expected=['EXACT_SYNTHETIC_RESERVE_REQUIRED'] if changed_reserve is not None else ['CALIBRATED_HASH_COUNT_REQUIRED','FINAL_GENESIS_POH_DIFFERS']
     if changed_policy is not None:expected=['AUDITED_GENESIS_POLICY_REQUIRED','FINAL_GENESIS_POLICY_DIFFERS']
@@ -181,12 +236,22 @@ class Preparation(unittest.TestCase):
     self.assertTrue((base/'preparations/complete-001/public-result.json').is_file());self.assertTrue((base/'preparations/complete-001/fresh-genesis/genesis.bin').is_file())
     self.assertFalse((base/'bundles/complete-001/genesis').exists());self.assertFalse((base/'bundles/complete-001/manifest.json').exists())
     self.assertFalse(any(Path(command[0]).name=='agave-ledger-tool' for command in commands));return
+   self.assertTrue(result['decodedAllocationsMatchBudgetProbe']);self.assertTrue(result['nonAccountParametersMatchBudgetProbe']);self.assertEqual(result['budgetProbeCreationTime'],'100');self.assertEqual(result['finalCreationTime'],'101')
    self.assertEqual(result['calibratedHashesPerTick'],12500);self.assertTrue(result['finalPohMatchesBudgetProbe']);self.assertTrue(result['auditedPolicyMatchesBudgetProbe']);self.assertTrue(result['auditedAllocationsMatchBudgetProbe'])
    self.assertEqual(result['state'],'prepared');self.assertTrue(result['createdKeys']);self.assertTrue(result['createdLedger']);self.assertEqual(result['generatedKeyFiles'],10);self.assertEqual(result['completedSlotZeroReplays'],2);self.assertTrue(result['sameSlotZeroHashesOnFreshCopies']);self.assertEqual(result['validatorsStarted'],0);self.assertFalse(result['productionReady']);self.assertEqual(int(result['syntheticReserveNativeUnits'])+int(result['fixedGenesisNativeUnits']),m.TOTAL)
    manifest=json.loads((base/'bundles/complete-001/manifest.json').read_text());self.assertEqual(manifest['totalNativeUnits'],str(m.TOTAL));self.assertEqual(manifest['bankHash'],key(700));self.assertNotIn('keyFile',json.dumps(manifest));self.assertEqual(sum(Path(command[0]).name=='solana-genesis' for command in commands),2)
    replays=[command for command in commands if Path(command[0]).name=='agave-ledger-tool'];self.assertEqual(len(replays),4);self.assertEqual(len({command[command.index('--ledger')+1] for command in replays}),2)
 
 class ArtifactRevalidation(unittest.TestCase):
+ def test_current_decoder_is_required_by_artifact_admission(self):
+  with patch.object(m,'check_binary') as check:
+   self.assertTrue(m.check_tools(Path('/tools')))
+  artifact=json.loads(Path(m.__file__).with_name('allocation-decoder-artifact.json').read_text())
+  expected=(Path('/tools')/artifact['name'],artifact['sha256'],artifact['bytes'],'REVIEWED_PREPARATION_ARTIFACT_REQUIRED')
+  self.assertEqual(len(check.call_args_list),3);self.assertIn(expected,[call.args for call in check.call_args_list])
+  def refuse(binary,*args):
+   if binary.name==artifact['name']:raise ValueError('REVIEWED_PREPARATION_ARTIFACT_REQUIRED')
+  with patch.object(m,'check_binary',side_effect=refuse),self.assertRaisesRegex(ValueError,'REVIEWED_PREPARATION_ARTIFACT_REQUIRED'):m.check_tools(Path('/tools'))
  def test_exact_executable_required_and_errors_remain_path_free(self):
   with tempfile.TemporaryDirectory() as temp:
    p=Path(temp)/'tool';p.write_bytes(b'fixture');p.chmod(0o700);digest=hashlib.sha256(b'fixture').hexdigest()

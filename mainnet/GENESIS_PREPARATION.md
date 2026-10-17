@@ -10,9 +10,10 @@ real bank hash.
 
 Transfer or reproduce the exact reviewed Linux x86_64 binaries into one private
 directory: `agave-validator`, `solana-genesis`, `solana-keygen`,
-`classic-genesis-audit-v2` and `agave-ledger-tool`. Their selected digests are in
+`classic-genesis-audit-v2`, `agave-ledger-tool` and
+`classic-genesis-allocation-bytes`. Their selected digests are in
 `host-preflight.py`, `consensus-audit-artifact.json` and
-`ledger-tool-artifact.json`. Keep this repository's mainnet scripts and those
+`ledger-tool-artifact.json` and `allocation-decoder-artifact.json`. Keep this repository's mainnet scripts and those
 manifests together, including `offline_process.py` and `cgroup_limits.py`. The pinned ledger tool was compiled from the complete
 reviewed Agave source tree; existing runtime binaries were unchanged.
 
@@ -301,3 +302,38 @@ new executable against a fresh genesis or enable it in the preparer. Unit tests
 use constructed data. Reserve-adapter integration, complete byte comparisons,
 real compilation/replay and consensus remain open. See
 `evidence/mainnet-allocation-decoder-current-build.json`.
+
+
+## Complete allocation decoding in preparation
+
+Preparation now requires the current pinned allocation decoder at admission and
+revalidates its executable alongside the other tools before every invocation.
+After each compiler/auditor pair, it admits a nonempty bounded regular-file
+snapshot and sends those exact bytes through bounded stdin. It retains private
+decoder output even when review fails and checks that the input remains unchanged.
+
+Both reports must agree with their independent metadata audits. Complete account
+fingerprints, data digests, rent epochs and decoded authority summaries must
+match between probe and final output. The sole account exception is the selected
+empty, non-executable System reserve: its exact budgeted balance changes, so its
+balance-dependent full fingerprint is excluded from equality. Its address,
+owner, empty-data digest, zero rent epoch and every other field remain fixed.
+No other account fingerprint is omitted. The decoder's complete non-account
+parameter digest must match; creation times may differ and are recorded
+explicitly. The copied final genesis must still match the admitted digest before
+any ledger replay.
+
+The 35 focused preparation tests pass. Eight new groups cover report drift,
+malformed probe/final reports, the reserve exception, changed input, special-file
+and replacement refusal, and required decoder artifact admission. The full
+local offline suite has 172 passes and one existing Linux-only skip. All compiler,
+decoder, key-generation and replay responses in the orchestration fixtures are
+supplied test data; no actual genesis or replay ran in this review. See
+`evidence/mainnet-preparation-decoder-integration-local.json`.
+
+This completes the preparer's decoder wiring and comparison logic under local
+fixtures. It supersedes earlier statements that the decoder is not integrated.
+The reserve-address adapter remains separate, and the integrated flow still
+needs fresh real compilation and two strict replays on an admitted Linux host.
+The current worker has not passed that admission. No release acceptance,
+custody, backing, independent operators or consensus is established here.

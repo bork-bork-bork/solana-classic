@@ -33,11 +33,13 @@ and [inventory](../../evidence/agave-source-acceptance-gates.json) record **25 o
 and bridge acceptance remain false; historical requirement passes do not carry
 over automatically.
 
-Current independent preparation work binds the final genesis policy and audited
-account metadata to its budget probe and supplies bounded offline decoder input.
-See [genesis preparation](../../mainnet/GENESIS_PREPARATION.md) for the exact
-implemented checks and their local/synthetic limits. Complete allocation-byte
-and reserve-adapter integration, fresh real genesis compilation, two strict
+Current independent preparation work binds final genesis policy and audited
+metadata to its budget probe. The current allocation decoder is now integrated
+through bounded input, with complete account fingerprints and non-account
+parameter comparisons tested under supplied responses. See
+[genesis preparation](../../mainnet/GENESIS_PREPARATION.md) for the precise
+reserve-balance and creation-time exceptions and local/synthetic limits.
+Reserve-address adapter integration, fresh real genesis compilation, two strict
 slot-zero replays and the three-validator rehearsal remain open. No Linux host
 has passed rehearsal admission; preserve host and security checks.
 
